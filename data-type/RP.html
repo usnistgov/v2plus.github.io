@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+RP - reference pointer
+</h3>
+<div class='v2-data-type-content'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - RP - reference pointer
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+RP
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RP-1'>
+1
+</a>
+</td>
+<td>
+Pointer
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+999
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RP-2'>
+2
+</a>
+</td>
+<td>
+Application ID
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RP-3'>
+3
+</a>
+</td>
+<td>
+Type of Data
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0834-MIME-Types.html' title='MIME Types(Suggested)'>
+0834(S)
+<span class='vocab-link-text'>MIME Types(Suggested)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[4..11]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#RP-4'>
+4
+</a>
+</td>
+<td>
+Subtype
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0291-Subtype-of-Referenced-Data.html' title='Subtype of Referenced Data(Required)'>
+0291(R)
+<span class='vocab-link-text'>Subtype of Referenced Data(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;Pointer (ST)&#62; &#38; &#60;Application ID (HD)&#62; &#38; &#60;Type of Data (ID)&#62; &#38; &#60;Subtype (ID)&#62;</p><p class='v2-components'>Subcomponents for Application ID (HD): &#60;Namespace ID (IS)&#62; &#94; &#60;Universal ID (ST)&#62; &#94; &#60;Universal ID Type (ID)&#62;</p>
+</div>
+<p class="v2 v2-normalindented"><strong>Definition:</strong> This data type transmits information about data stored on another system. It contains a reference pointer that uniquely identifies the data on the other system, the identity of the other system, and the type of data.</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='RP-1'>
+RP-1: Pointer (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A key to the referenced data assigned by the system that stores the data. The key, which is an ST data type, is used to identify and access the data, either as an object identifier, or as a hierarchical name or query string.</p>
+
+<h4 id='RP-2'>
+RP-2: Application ID (<a href='/data-type/HD.html'>HD</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A unique designator of the system that stores the data. It is an HD data type (See Section <a href="/composition/Control.html">2.A.33</a>, &quot;<a href="/composition/Introduction.html#Introduction-33">HD - hierarchic designator</a>&quot;). Application ID’s must be unique across a given HL7 implementation.</p><p class="v2 v2-normalindented"><strong>Usage Note:</strong> The Application ID together with the Pointer may form a Uniform Resource Identifier (URI) in accordance with RFC 2396.  In this case the Application ID shall include the Scheme and Authority parts of the URI, and the Path part if that points to an application. The Pointer shall include the Query part of the URI, or the Path part if that points to an object. All delimiters between URI parts (“:”, “/”, “?”) should be included in the components.</p><p class="v2 v2-normalindented">Referenced data may be obtained by a mechanism not defined in the HL7 standard. The Scheme part of a URI in the Application ID specifies the access protocol, e.g., HTTP or FTP.</p><p class="v2 v2-normalindented"><strong>Example 1: </strong>A CDA document accessed by FTP:</p><p class="v2 v2-normalindented v2-indent1440">|/cdasvc/u28864099/s9076500a/e77534/d55378.xml^&#38;ftp://www.saintelsewhere.org&#38;URI^text^x-hl7-cda-level-one|</p><p class="v2 v2-normalindented"><strong>Example 2: </strong>A DICOM image accessed by HTTP and converted to JPEG (using the ISO/DICOM WADO standard); </p><div class="v2-note"><p class="v2"><strong>Note:</strong> the ampersands in the Pointer string are escaped to “\T\” to avoid conflict with the sub-component delimiter:</p><p class="v2">|?requestType=WADO\T\study=1.2.840.113848.5.22.9220847989\T\series=1.2.840.113848.5.22.922084798.4\T\object=1.2.840.113848.5.22.922084798.4.5^&#38;https://www.pacs.poupon.edu/wado.jsp&#38;URI^image^jpeg|</p></div><br/><p class="v2 v2-normalindented"></p>
+
+<h4 id='RP-3'>
+RP-3: Type of Data (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: An ID data type that declares the general type of data. Refer to <a href="https://www.hl7.org/fhir/v2/0834/index.html">Imported Table 0834 – MIME Types</a> for valid values. Table 0834 comprises the values of MIME media types established in accordance with RFC 2046 (<a href="http://ietf.org/rfc/rfc2046.txt">http://ietf.org/rfc/rfc2046.txt</a>) and registered with the Internet Assigned Numbers Authority (<a href="http://www.iana.org/numbers.html">http://www.iana.org/numbers.html</a>). </p><div class="v2-note"><p class="v2"><strong>Note</strong>: The MIME media type values are case-insensitive, in accordance with RFC 2045.</p><p class="v2"><strong>Note:<a href="https://www.hl7.org/fhir/v2/0191/index.html"> HL7 Table 0191- Type of Referenced Data</a> is retained for backward compatibility as of v 2.6.</strong></p></div><br/>
+
+<h4 id='RP-4'>
+RP-4: Subtype (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: An ID data type declaring the format for the referenced. Refer to <a href="https://www.hl7.org/fhir/v2/0291/index.html">Externally-defined Table 0291 – Subtype of Referenced Data</a> for valid values. Table 0291 comprises the values of MIME media subtypes established in accordance with RFC 2046 (<a href="http://ietf.org/rfc/rfc2046.txt">http://ietf.org/rfc/rfc2046.txt</a>) and registered with the Internet Assigned Numbers Authority (<a href="http://www.iana.org/numbers.html">http://www.iana.org/numbers.html</a>).</p><div class="v2-note"><p class="v2"><strong>Note:</strong> the MIME media subtype values are case-insensitive, in accordance with RFC 2045.</p></div><br/><p class="v2 v2-normalindented">HL7 approved &quot;standard&quot; extensions as defined in table 0291 are allowed.</p><p class="v2 v2-normalindented">Additional subtypes may be added to this Standard. All subtypes registered by IANA may be used by implementation agreement between cooperating parties. In addition, private, non-standard subtypes may be defined by agreement between cooperating parties. All private, non-standard subtypes should begin with the character combination “X-” to distinguish them from the standard subtypes, in accordance with RFC 2045.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

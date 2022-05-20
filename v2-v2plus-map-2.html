@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html'>
+Chapter 2 - Control
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-1'>
+    2.1  Chapter 2 contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-2'>
+    2.2  Introduction
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-2-1'>
+        2.2.1  ANSI modal verbs
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-3'>
+    2.3  Conceptual Approach
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-3-1'>
+        2.3.1  Assumptions
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-3-2'>
+        2.3.2  Trigger events
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-3-3'>
+        2.3.3  Acknowledgments:  original mode
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-3-4'>
+        2.3.4  Acknowledgments: enhanced mode
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-3-5'>
+        2.3.5  Queries
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-4'>
+    2.4  Communications Environment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5'>
+    2.5  Message Framework
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-1'>
+        2.5.1  Messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-2'>
+        2.5.2  Segments and segment groups
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3'>
+        2.5.3  Fields
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-1'>
+            2.5.3.1  Field or Component Status
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-2'>
+            2.5.3.2  Position (sequence within the segment)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-3'>
+            2.5.3.3  Length
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-4'>
+            2.5.3.4  Conformance Length
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-5'>
+            2.5.3.5  Data type
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-6'>
+            2.5.3.6  Optionality
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-7'>
+            2.5.3.7  Repetition
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-8'>
+            2.5.3.8  Table
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-9'>
+            2.5.3.9  ID number
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-3-10'>
+            2.5.3.10  Name
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-4'>
+        2.5.4  Message delimiters
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5'>
+        2.5.5  Length
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5-1'>
+            2.5.5.1  Normative Length
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5-2'>
+            2.5.5.2  Length & Persistent Data Stores
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5-3'>
+            2.5.5.3  Truncation Pattern
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5-4'>
+            2.5.5.4  Conformance Length
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5-5'>
+            2.5.5.5  Type and Component/Field lengths
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-5-6'>
+            2.5.5.6  Implications for Implementers
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-5-6'>
+        2.5.6  Acknowledegment Choreography
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-6'>
+    2.6  Message construction rules
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-6-1'>
+        2.6.1  Message Construction Pseudocode
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-6-1-1'>
+            2.6.1.1  Message Construction Flow Chart
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-6-2'>
+        2.6.2  Rules for the recipient
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-6-3'>
+        2.6.3  Encoding rules notes
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7'>
+    2.7  Use of escape sequences in fields
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-1'>
+        2.7.1  Formatting codes
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-2'>
+        2.7.2  Truncation Character escape
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-3'>
+        2.7.3  Escape sequences supporting multiple character sets
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-4'>
+        2.7.4  Highlighting
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-5'>
+        2.7.5  Special character
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-6'>
+        2.7.6  Hexadecimal
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-7'>
+        2.7.7  Usage and Examples of Formatted Text
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-7-8'>
+        2.7.8  Local
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8'>
+    2.8  Version compatibility definition
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8-1'>
+        2.8.1  Adding messages or message constituents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8-2'>
+        2.8.2  Changing messages or message constituents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8-3'>
+        2.8.3  Deprecating messages or message constituents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8-4'>
+        2.8.4  Removing messages or message constituents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8-5'>
+        2.8.5  Early adoption of HL7 changes
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-8-6'>
+        2.8.6  Technical correction rules
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9'>
+    2.9  Message Processing Rules
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-1'>
+        2.9.1  Message initiation
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-2'>
+        2.9.2  Message response using the original processing rules
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-2-1'>
+            2.9.2.1  Accept and validate the message in responding system
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-2-2'>
+            2.9.2.2  Accept and validate/process the message in the receiving application
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-2-3'>
+            2.9.2.3  Transmit the response message
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-2-4'>
+            2.9.2.4  Original Mode flow chart
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-3'>
+        2.9.3  Response using enhanced acknowledgment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-3-1'>
+            2.9.3.1  Accept and validate the message in responding system
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-3-2'>
+            2.9.3.2  Transmit general acknowledgment message
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-3-3'>
+            2.9.3.3  Transmit application acknowledgment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-9-3-4'>
+            2.9.3.4  Enhanced acknowledgment flow chart
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10'>
+    2.10  Special HL7 Protocols
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-1'>
+        2.10.1  Sequence number protocol
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-2'>
+        2.10.2  Continuation messages and segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-2-1'>
+            2.10.2.1  Segment fragmentation/continuation using the ADD segment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-2-2'>
+            2.10.2.2  Segment fragmentation/continuation using the DSC segment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-2-3'>
+            2.10.2.3  Segment fragmentation across messages
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-3'>
+        2.10.3  HL7 batch protocol
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-3-1'>
+            2.10.3.1  HL7 batch file structure
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-3-2'>
+            2.10.3.2  Related segments and data usage
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-3-3'>
+            2.10.3.3  Acknowledging batches
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-3-4'>
+            2.10.3.4  Batch message as a query response
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-4'>
+        2.10.4  Protocol for interpreting repeating segments or segment groups in an update Message
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-4-1'>
+            2.10.4.1  Snapshot mode update definition
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-4-1-1'>
+                2.10.4.1.1  Snapshot Mode and Repeating Segments - Example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-4-1-2'>
+                2.10.4.1.2  Snapshot Mode and Repeating Segment Groups
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-4-2'>
+            2.10.4.2  Action code/unique identifier mode update definition
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-10-5'>
+        2.10.5  Protocol for interpreting repeating fields in an update message
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11'>
+    2.11  Local Extension
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-1'>
+        2.11.1  Messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-2'>
+        2.11.2  Trigger events
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-3'>
+        2.11.3  Segment groups
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-4'>
+        2.11.4  Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-4-1'>
+            2.11.4.1  Local extension rules for segments
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-4-2'>
+            2.11.4.2  Caveats for locally extending segments
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-5'>
+        2.11.5  Data types
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-6'>
+        2.11.6  Tables
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-7'>
+        2.11.7  Fields
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-11-8'>
+        2.11.8  Message representation
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-12'>
+    2.12  Chapter Formats For Defining HL7 Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-12-1'>
+        2.12.1  HL7 abstract message syntax example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-12-2'>
+        2.12.2  HL7 Acknowledgment Choreography Example
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-13'>
+    2.13  Acknowledgment Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-13-1'>
+        2.13.1  ACK - general acknowledgment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-13-1-1'>
+            2.13.1.1  Acknowledgment Choreography
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14'>
+    2.14  Message Control Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-1'>
+        2.14.1  ADD - addendum segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-1-1'>
+            2.14.1.1  ADD-1   Addendum Continuation Pointer (ST)   00066
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2'>
+        2.14.2  BHS - batch header segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-1'>
+            2.14.2.1  BHS-1   Batch Field Separator   (ST)   00081
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-2'>
+            2.14.2.2  BHS-2   Batch Encoding Characters   (ST)   00082
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-3'>
+            2.14.2.3  BHS-3   Batch Sending Application   (HD)   00083
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-4'>
+            2.14.2.4  BHS-4   Batch Sending Facility   (HD)   00084
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-5'>
+            2.14.2.5  BHS-5   Batch Receiving Application   (HD)   00085
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-6'>
+            2.14.2.6  BHS-6   Batch Receiving Facility   (HD)   00086
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-7'>
+            2.14.2.7  BHS-7   Batch Creation Date/Time   (DTM)   00087
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-8'>
+            2.14.2.8  BHS-8   Batch Security   (ST)   00088
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-9'>
+            2.14.2.9  BHS-9   Batch Name/ID/Type   (ST)   00089
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-10'>
+            2.14.2.10  BHS-10   Batch Comment   (ST)   00090
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-11'>
+            2.14.2.11  BHS-11   Batch Control ID   (ST)   00091
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-12'>
+            2.14.2.12  BHS-12   Reference Batch Control ID   (ST)   00092
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-13'>
+            2.14.2.13  BHS-13   Batch Sending Network Address   (HD)   02271
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-14'>
+            2.14.2.14  BHS-14   Batch Receiving Network Address   (HD)   02272
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-15'>
+            2.14.2.15  BHS-15 Security Classification Tag   (CWE)   02429
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-16'>
+            2.14.2.16  BHS-16 Security Handling Instructions   (CWE)   02430
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-2-17'>
+            2.14.2.17  BHS-17 Special Access Restriction Instructions   (ST)   02431
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-3'>
+        2.14.3  BTS - batch trailer segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-3-1'>
+            2.14.3.1  BTS-1   Batch Message Count   (ST)   00093
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-3-2'>
+            2.14.3.2  BTS-2   Batch Comment   (ST)   00090
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-3-3'>
+            2.14.3.3  BTS-3   Batch Totals   (NM)   00095
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-4'>
+        2.14.4  DSC - continuation pointer segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-4-1'>
+            2.14.4.1  DSC-1   Continuation Pointer   (ST)   00014
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-4-2'>
+            2.14.4.2  DSC-2   Continuation Style   (ID)   01354
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5'>
+        2.14.5  ERR - error segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-1'>
+            2.14.5.1  ERR-1   Error Code and Location      00024
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-2'>
+            2.14.5.2  ERR-2   Error Location   (ERL)   01812
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-3'>
+            2.14.5.3  ERR-3   HL7 Error Code   (CWE)   01813
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-4'>
+            2.14.5.4  ERR-4   Severity   (ID)   01814
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-5'>
+            2.14.5.5  ERR-5   Application Error Code   (CWE)   01815
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-6'>
+            2.14.5.6  ERR-6   Application Error Parameter   (ST)   01816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-7'>
+            2.14.5.7  ERR-7   Diagnostic Information   (TX)   01817
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-8'>
+            2.14.5.8  ERR-8   User Message   (TX)   01818
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-9'>
+            2.14.5.9  ERR-9   Inform Person Indicator   (CWE)   01819
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-10'>
+            2.14.5.10  ERR-10   Override Type   (CWE)   01820
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-11'>
+            2.14.5.11  ERR-11   Override Reason Code   (CWE)   01821
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-5-12'>
+            2.14.5.12  ERR-12   Help Desk Contact Point   (XTN)   01822
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6'>
+        2.14.6  FHS - file header segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-1'>
+            2.14.6.1  FHS-1   File Field Separator   (ST)   00067
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-2'>
+            2.14.6.2  FHS-2   File Encoding Characters   (ST)   00068
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-3'>
+            2.14.6.3  FHS-3   File Sending Application   (HD)   00069
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-4'>
+            2.14.6.4  FHS-4   File Sending Facility   (HD)   00070
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-5'>
+            2.14.6.5  FHS-5   File Receiving Application   (HD)   00071
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-6'>
+            2.14.6.6  FHS-6   File Receiving Facility   (HD)   00072
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-7'>
+            2.14.6.7  FHS-7   File Creation Date/Time   (DTM)   00073
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-8'>
+            2.14.6.8  FHS-8   File Security   (ST)   00074
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-9'>
+            2.14.6.9  FHS-9   File Name/ID   (ST)   00075
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-10'>
+            2.14.6.10  FHS-10   File Header Comment   (ST)   00076
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-11'>
+            2.14.6.11  FHS-11   File Control ID   (ST)   00077
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-12'>
+            2.14.6.12  FHS-12   Reference File Control ID   (ST)   00078
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-13'>
+            2.14.6.13  FHS-13   File Sending Network Address   (HD)   02269
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-14'>
+            2.14.6.14  FHS-14   File Receiving Network Address   (HD)   02270
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-15'>
+            2.14.6.15  FSH-15 Security Classification Tag   (CWE)   02429
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-16'>
+            2.14.6.16  FSH-16 Security Handling Instructions   (CWE)   02430
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-6-17'>
+            2.14.6.17  FSH-17 Special Access Restriction Instructions   (ST)   02431
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-7'>
+        2.14.7  FTS - file trailer segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-7-1'>
+            2.14.7.1  FTS-1   File Batch Count   (NM)   00079
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-7-2'>
+            2.14.7.2  FTS-2   File Trailer Comment   (ST)   00080
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8'>
+        2.14.8  MSA - message acknowledgment segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-1'>
+            2.14.8.1  MSA-1   Acknowledgment Code   (ID)   00018
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-2'>
+            2.14.8.2  MSA-2   Message Control ID   (ST)   00010
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-3'>
+            2.14.8.3  MSA-3   Text Message   00020
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-4'>
+            2.14.8.4  MSA-4   Expected Sequence Number   (NM)   00021
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-5'>
+            2.14.8.5  MSA-5   Delayed Acknowledgment Type 00022
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-6'>
+            2.14.8.6  MSA-6   Error Condition      00023
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-7'>
+            2.14.8.7  MSA-7   Message Waiting Number   (NM)   01827
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-8-8'>
+            2.14.8.8  MSA-8   Message Waiting Priority   (ID)   01828
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9'>
+        2.14.9  MSH - message header segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-1'>
+            2.14.9.1  MSH-1   Field Separator   (ST)   00001
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-2'>
+            2.14.9.2  MSH-2   Encoding Characters   (ST)   00002
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-3'>
+            2.14.9.3  MSH-3   Sending Application   (HD)   00003
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-4'>
+            2.14.9.4  MSH-4   Sending Facility   (HD)   00004
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-5'>
+            2.14.9.5  MSH-5   Receiving Application   (HD)   00005
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-6'>
+            2.14.9.6  MSH-6   Receiving Facility   (HD)   00006
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-7'>
+            2.14.9.7  MSH-7   Date/Time of Message   (DTM)   00007
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-8'>
+            2.14.9.8  MSH-8   Security   (ST)   00008
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-9'>
+            2.14.9.9  MSH-9   Message Type   (MSG)   00009
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-10'>
+            2.14.9.10  MSH-10   Message Control ID   (ST)   00010
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-11'>
+            2.14.9.11  MSH-11   Processing ID   (PT)   00011
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-12'>
+            2.14.9.12  MSH-12   Version ID   (VID)   00012
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-13'>
+            2.14.9.13  MSH-13   Sequence Number   (NM)   00013
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-14'>
+            2.14.9.14  MSH-14   Continuation Pointer   (ST)   00014
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-15'>
+            2.14.9.15  MSH-15   Accept Acknowledgment Type   (ID)   00015
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-16'>
+            2.14.9.16  MSH-16   Application Acknowledgment Type   (ID)   00016
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-17'>
+            2.14.9.17  MSH-17   Country Code   (ID)   00017
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-18'>
+            2.14.9.18  MSH-18   Character Set    (ID)   00692
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-18-1'>
+                2.14.9.18.1  Alphabetic Languages Other Than English
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-18-2'>
+                2.14.9.18.2  Non-Alphabetic Languages
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-19'>
+            2.14.9.19  MSH-19   Principal Language Of Message   (CWE)   00693
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-20'>
+            2.14.9.20  MSH-20   Alternate Character Set Handling Scheme   (ID)   01317
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-21'>
+            2.14.9.21  MSH-21   Message Profile Identifier   (EI) 01598
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-22'>
+            2.14.9.22  MSH-22   Sending Responsible Organization   (XON)   01823
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-23'>
+            2.14.9.23  MSH-23   Receiving Responsible Organization   (XON)   01824
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-24'>
+            2.14.9.24  MSH-24   Sending Network Address   (HD)   01825
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-25'>
+            2.14.9.25  MSH-25   Receiving Network Address   (HD)   01826
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-26'>
+            2.14.9.26  MSH-26   Security Classification Tag   (CWE)   2429
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-27'>
+            2.14.9.27  MSH-27   Security Handling Instructions   (CWE)   2430
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-9-28'>
+            2.14.9.28  MSH-28   Special Access Restriction Instructions   (ST)   2431 ?
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10'>
+        2.14.10  NTE - notes and comments segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-1'>
+            2.14.10.1  NTE-1   Set ID - NTE   (SI)   00096
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-2'>
+            2.14.10.2  NTE-2   Source of Comment   (ID)   00097
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-3'>
+            2.14.10.3  NTE-3   Comment   (FT)   00098
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-4'>
+            2.14.10.4  NTE-4   Comment Type   (CWE)   01318
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-5'>
+            2.14.10.5  NTE-5   Entered By   (XCN)   00224
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-6'>
+            2.14.10.6  NTE-6   Entered Date/Time   (DTM)   00661
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-7'>
+            2.14.10.7  NTE-7   Effective Start Date   (DTM)   01004
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-8'>
+            2.14.10.8  NTE-8   Expiration Date   (DTM)   02185
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-10-9'>
+            2.14.10.9  NTE-9 Coded Comment (CWE)  03495
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-11'>
+        2.14.11  OVR – override segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-11-1'>
+            2.14.11.1  OVR-1   Business Rule Override Type   (CWE)   01829
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-11-2'>
+            2.14.11.2  OVR-2   Business Rule Override Code   (CWE)   01830
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-11-3'>
+            2.14.11.3  OVR-3   Override Comments   (TX)   01831
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-11-4'>
+            2.14.11.4  OVR-4   Override Entered By   (XCN)   01832
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-11-5'>
+            2.14.11.5  OVR-5   Override Authorized By   (XCN)   01833
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12'>
+        2.14.12  SFT – software segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12-1'>
+            2.14.12.1  SFT-1   Software Vendor Organization   (XON)   01834
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12-2'>
+            2.14.12.2  SFT-2   Software Certified Version or Release Number   (ST)   01835
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12-3'>
+            2.14.12.3  SFT-3   Software Product Name   (ST)   01836
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12-4'>
+            2.14.12.4  SFT-4   Software Binary ID   (ST)   01837
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12-5'>
+            2.14.12.5  SFT-5   Software Product Information   (TX)   01838
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-12-6'>
+            2.14.12.6  SFT-6   Software Install Date   (DTM)   01839
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-13'>
+        2.14.13  SGH – segment group header segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-13-1'>
+            2.14.13.1  SGH-1   Set ID – SGH   (SI)   03389
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-13-2'>
+            2.14.13.2  SGH-2   Segment Group Name   (ST)   03390
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-14'>
+        2.14.14  SGT – segment group trailer segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-14-1'>
+            2.14.14.1  SGT-1   Set ID – SGT   (SI)   03394
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-14-2'>
+            2.14.14.2  SGT-2   Segment Group Name   (ST)   03395
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-15'>
+        2.14.15  UAC - user authentication credential segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-15-1'>
+            2.14.15.1  UAC-1   User Authentication Credential Type Code   (CWE)   02267
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-14-15-2'>
+            2.14.15.2  UAC-2   User Authentication Credential   (ED)   02268
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-15'>
+    2.15  Data types
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16'>
+    2.16  Miscellaneous HL7 tables used across all chapters
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16-1'>
+        2.16.1  Message Type Table (0076)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16-2'>
+        2.16.2  Event Type Table (0003)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16-3'>
+        2.16.3  Message Structure Table (0354)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16-4'>
+        2.16.4  Coding System Table (0396)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16-5'>
+        2.16.5  Yes/no Indicator Table (0136)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-16-6'>
+        2.16.6  Expanded Yes/no Indicator Table (0532)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17'>
+    2.17  Sample Control Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17-1'>
+        2.17.1  General acknowledgment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17-2'>
+        2.17.2  General acknowledgment, error return
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17-3'>
+        2.17.3  Message using sequence number: protocol
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17-4'>
+        2.17.4  Message fragmentation
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17-5'>
+        2.17.5  Acknowledgment message using original mode processing
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-17-6'>
+        2.17.6  Acknowledgment message using enhanced mode processing
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Control.html#Control-18'>
+    2.18  Outstanding Issues
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

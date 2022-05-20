@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+OM7 - Additional Basic Attributes Segment (Fields That Apply To Most Observations/Services)
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the OM7 segment is Orders and Observations.</p><p class="v2 v2-normalindented">The OM7 segment contains additional basic attributes that apply to the definition of most observations/services.  </p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - OM7 - Additional Basic Attributes Segment (Fields That Apply to Most Observations/Services)
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+OM7
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Sequence Number - Test/Observation Master File
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM7-1'>
+00586
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Universal Service Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0612-ERROR! Bad Data! FIXME.html'>
+0612
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM7-2'>
+00238
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Category Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0412-Category-Identifier.html' title='Category Identifier'>
+0412
+<span class='vocab-link-text'>Category Identifier</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM7-3'>
+01481
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Category Description
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-4'>
+01482
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Category Synonym
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM7-5'>
+01483
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Effective Test/Service Start Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-6'>
+01484
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Effective Test/Service End Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-7'>
+01485
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Test/Service Default Duration Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-8'>
+01486
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Test/Service Default Duration Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0663-ERROR! Bad Data! FIXME.html'>
+0663
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-9'>
+01487
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Test/Service Default Frequency
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-10'>
+01488
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Consent Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-11'>
+01489
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Consent Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0413-Consent-Identifier.html' title='Consent Identifier'>
+0413
+<span class='vocab-link-text'>Consent Identifier</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-12'>
+01490
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Consent Effective Start Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-13'>
+01491
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Consent Effective End Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-14'>
+01492
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Consent Interval Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-15'>
+01493
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Consent Interval Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0414-Units-of-Time.html' title='Units of Time'>
+0414
+<span class='vocab-link-text'>Units of Time</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-16'>
+01494
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Consent Waiting Period Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-17'>
+01495
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Consent Waiting Period Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0414-Units-of-Time.html' title='Units of Time'>
+0414
+<span class='vocab-link-text'>Units of Time</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-18'>
+01496
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Effective Date/Time of Change
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-19'>
+00607
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Entered By
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-20'>
+00224
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Orderable-at Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM7-21'>
+01497
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Formulary Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0473-Formulary-Status.html' title='Formulary Status'>
+0473
+<span class='vocab-link-text'>Formulary Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-22'>
+01498
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Special Order Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM7-23'>
+01499
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+24
+</td>
+<td>
+Primary Key Value - CDM
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0132-Transaction-Code.html' title='Transaction Code'>
+0132
+<span class='vocab-link-text'>Transaction Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM7-24'>
+01306
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='OM7-1'>
+OM7-1: Sequence Number - Test/Observation Master File (<a href='/data-type/NM.html'>NM</a>) 00586
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the same value as the sequence number of the associated OM1 segment. </p>
+
+<h4 class='v2' id='OM7-2'>
+OM7-2: Universal Service Identifier (<a href='/data-type/CWE.html'>CWE</a>) 00238
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the producer&#39;s usual or preferred identification of the test or service. </p>
+
+<h4 class='v2' id='OM7-3'>
+OM7-3: Category Identifier (<a href='/data-type/CWE.html'>CWE</a>) 01481
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the category name (term given to a group of service items for the purpose of classification). Examples: Laboratory, Pharmacy, Diagnostic Imaging, etc. Refer to <a href="https://www.hl7.org/fhir/v2/0412/index.html">User-defined Table 0412 - Category Identifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM7-4'>
+OM7-4: Category Description (<a href='/data-type/TX.html'>TX</a>) 01482
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a text description for the category of the test/service item. </p><p class="v2 v2-normalindented">Example: The category &quot;Pathology&quot; may be described as a specialty practice concerned with all aspects of disease, with special reference to the essential natural cause and development of abnormal conditions, as well as the structural and functional changes that result from the disease process.</p>
+
+<h4 class='v2' id='OM7-5'>
+OM7-5: Category Synonym (<a href='/data-type/ST.html'>ST</a>) 01483
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an alternate name(s) for the category of the test/service.  Example: The category &quot;Radiology&quot; is a synonym name for the category &quot;Diagnostic Imaging&quot;.</p>
+
+<h4 class='v2' id='OM7-6'>
+OM7-6: Effective Test/Service Start Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01484
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date and time that the service item is available to be ordered, performed, etc.</p>
+
+<h4 class='v2' id='OM7-7'>
+OM7-7: Effective Test/Service End Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01485
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date and time that the service item is no longer authorized to be ordered, performed, etc.</p>
+
+<h4 class='v2' id='OM7-8'>
+OM7-8: Test/Service Default Duration Quantity (<a href='/data-type/NM.html'>NM</a>) 01486
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the default duration quantity for the service.</p>
+
+<h4 class='v2' id='OM7-9'>
+OM7-9: Test/Service Default Duration Units (<a href='/data-type/CWE.html'>CWE</a>) 01487
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the default duration units for the service. Refer to Table 0663 - Test/Service Default Duration Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM7-10'>
+OM7-10: Test/Service Default Frequency (<a href='/data-type/CWE.html'>CWE</a>) 01488
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the default frequency (how often) the service would be ordered for or performed on.</p>
+
+<h4 class='v2' id='OM7-11'>
+OM7-11: Consent Indicator (<a href='/data-type/ID.html'>ID</a>) 01489
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates if a consent is needed for the service item. Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;A consent is required for service item to be ordered/performed.</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;No consent is needed for service item to be ordered/performed</p></li></ul>
+
+<h4 class='v2' id='OM7-12'>
+OM7-12: Consent Identifier (<a href='/data-type/CWE.html'>CWE</a>) 01490
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the identifier for the consent specified for the service item. Refer to <a href="https://www.hl7.org/fhir/v2/0413/index.html">User-defined Table 0413 - Consent Identifier</a> in Chapter 2C, Code Tables, for suggested values. </p>
+
+<h4 class='v2' id='OM7-13'>
+OM7-13: Consent Effective Start Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01491
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time the consent is valid for the service item.</p>
+
+<h4 class='v2' id='OM7-14'>
+OM7-14: Consent Effective End Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01492
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time the consent is no longer valid for the test/service.   </p>
+
+<h4 class='v2' id='OM7-15'>
+OM7-15: Consent Interval Quantity (<a href='/data-type/NM.html'>NM</a>) 01493
+</h4>
+<p class="v2 v2-normalindented">Definition: This field specifies the period of time for which a consent is valid for a specific service item.</p>
+
+<h4 class='v2' id='OM7-16'>
+OM7-16: Consent Interval Units (<a href='/data-type/CWE.html'>CWE</a>) 01494
+</h4>
+<p class="v2 v2-normalindented">Definition: This field specifies the unit of time for <a href="/segment-definition/OM7.html#OM7-15">OM7-15 - Consent Interval Quantity</a>.  Refer to User-defined Table 0414 - Units of Time in Chapter 2C, Code Tables, for suggested values.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  If Consent Interval Quantity is specified, then Consent Interval Unit is required.</p></div><br/>
+
+<h4 class='v2' id='OM7-17'>
+OM7-17: Consent Waiting Period Quantity (<a href='/data-type/NM.html'>NM</a>) 01495
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the time period between the time the consent is signed and the procedure can be performed.</p>
+
+<h4 class='v2' id='OM7-18'>
+OM7-18: Consent Waiting Period Units (<a href='/data-type/CWE.html'>CWE</a>) 01496
+</h4>
+<p class="v2 v2-normalindented">Definition: This field specifies the unit of time for <a href="/segment-definition/OM7.html#OM7-17">OM7-17 - Consent Waiting Period Quantity</a>. Refer to <a href="https://www.hl7.org/fhir/v2/0414/index.html">User-defined Table 0414 - Units of time</a> in Chapter 2C, Code Tables, for suggested values. </p><div class="v2-note"><p class="v2"><strong>Note:</strong>  If Consent Waiting Period Quantity is specified, then Consent Waiting Period Unit is required.</p></div><br/>
+
+<h4 class='v2' id='OM7-19'>
+OM7-19: Effective Date/Time of Change (<a href='/data-type/DTM.html'>DTM</a>) 00607
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date and time of the last change in the test procedure that would make previous results incompatible with new results. </p>
+
+<h4 class='v2' id='OM7-20'>
+OM7-20: Entered By (<a href='/data-type/XCN.html'>XCN</a>) 00224
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition:  This field contains the identity of the person who actually keyed the service item into the application.  It provides an audit trail in case the request is entered incorrectly and the ancillary department needs to clarify the request. </p>
+
+<h4 class='v2' id='OM7-21'>
+OM7-21: Orderable-at Location (<a href='/data-type/PL.html'>PL</a>) 01497
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition: This field contains the location(s) where the test/service can be ordered.</p>
+
+<h4 class='v2' id='OM7-22'>
+OM7-22: Formulary Status (<a href='/data-type/CWE.html'>CWE</a>) 01498
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether or not the service (pharmaceutical) is in the formulary. Refer to <a href="https://www.hl7.org/fhir/v2/0473/index.html">User-defined Table 0473 - Formulary Status</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OM7-23'>
+OM7-23: Special Order Indicator (<a href='/data-type/ID.html'>ID</a>) 01499
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether or not the service (pharmaceutical) is a special order. Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">Y&#160;&#160;&#160;&#160;This is a special order.</p><p class="v2 v2-normalindented">N&#160;&#160;&#160;&#160;This is not a special order</p>
+
+<h4 class='v2' id='OM7-24'>
+OM7-24: Primary Key Value - CDM (<a href='/data-type/CWE.html'>CWE</a>) 01306
+</h4>
+<p class="v2 v2-normalindented">Definition: Allows the ability to associate a Service/Test/Observation item with a CIM (charge item master).   This field contains the corresponding value of CDM-1 for the CIM being linked to.  It is possible to allow multiple charge items to a single Service/Test/Observation item.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

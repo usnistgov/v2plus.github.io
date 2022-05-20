@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Consent Type
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Representative
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Consent Type
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70496
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+TXA:2; CON:2
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+Table of codes specifying to what the subject is consenting, i.e. what type of service, surgical procedure, information access/release or other event.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Consent Type - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+001
+</td>
+<td class='vocab-concept-display'>
+Release of Information/MR / Authorization to Disclosure Protected Health Information
+</td>
+<td class='vocab-concept-definition'>
+Release of Information/MR / Authorization to Disclosure Protected Health Information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+002
+</td>
+<td class='vocab-concept-display'>
+Medical Procedure (invasive)
+</td>
+<td class='vocab-concept-definition'>
+Medical Procedure (invasive)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+003
+</td>
+<td class='vocab-concept-display'>
+Acknowledge Receipt of Privacy Notice
+</td>
+<td class='vocab-concept-definition'>
+Acknowledge Receipt of Privacy Notice
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+004
+</td>
+<td class='vocab-concept-display'>
+Abortion
+</td>
+<td class='vocab-concept-definition'>
+Abortion
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+005
+</td>
+<td class='vocab-concept-display'>
+Abortion/Laminaria
+</td>
+<td class='vocab-concept-definition'>
+Abortion/Laminaria
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+006
+</td>
+<td class='vocab-concept-display'>
+Accutane - Information
+</td>
+<td class='vocab-concept-definition'>
+Accutane - Information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+007
+</td>
+<td class='vocab-concept-display'>
+Accutane - Woman
+</td>
+<td class='vocab-concept-definition'>
+Accutane - Woman
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+008
+</td>
+<td class='vocab-concept-display'>
+Advanced Beneficiary Notice
+</td>
+<td class='vocab-concept-definition'>
+Advanced Beneficiary Notice
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+009
+</td>
+<td class='vocab-concept-display'>
+AFP (Alpha Fetoprotein) Screening
+</td>
+<td class='vocab-concept-definition'>
+AFP (Alpha Fetoprotein) Screening
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+010
+</td>
+<td class='vocab-concept-display'>
+Amniocentesis (consent & refusal)
+</td>
+<td class='vocab-concept-definition'>
+Amniocentesis (consent & refusal)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+011
+</td>
+<td class='vocab-concept-display'>
+Anatomical Gift (organ donation)
+</td>
+<td class='vocab-concept-definition'>
+Anatomical Gift (organ donation)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+012
+</td>
+<td class='vocab-concept-display'>
+Anesthesia - Complications
+</td>
+<td class='vocab-concept-definition'>
+Anesthesia - Complications
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+013
+</td>
+<td class='vocab-concept-display'>
+Anesthesia - Questionnaire
+</td>
+<td class='vocab-concept-definition'>
+Anesthesia - Questionnaire
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+014
+</td>
+<td class='vocab-concept-display'>
+Angiogram
+</td>
+<td class='vocab-concept-definition'>
+Angiogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+015
+</td>
+<td class='vocab-concept-display'>
+Angioplasty
+</td>
+<td class='vocab-concept-definition'>
+Angioplasty
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+016
+</td>
+<td class='vocab-concept-display'>
+Anticancer Drugs
+</td>
+<td class='vocab-concept-definition'>
+Anticancer Drugs
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+017
+</td>
+<td class='vocab-concept-display'>
+Antipsychotic Medications
+</td>
+<td class='vocab-concept-definition'>
+Antipsychotic Medications
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+018
+</td>
+<td class='vocab-concept-display'>
+Arthrogram
+</td>
+<td class='vocab-concept-definition'>
+Arthrogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+019
+</td>
+<td class='vocab-concept-display'>
+Autopsy
+</td>
+<td class='vocab-concept-definition'>
+Autopsy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+020
+</td>
+<td class='vocab-concept-display'>
+AZT Therapy
+</td>
+<td class='vocab-concept-definition'>
+AZT Therapy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+021
+</td>
+<td class='vocab-concept-display'>
+Biliary Drainage
+</td>
+<td class='vocab-concept-definition'>
+Biliary Drainage
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+022
+</td>
+<td class='vocab-concept-display'>
+Biliary Stone Extraction
+</td>
+<td class='vocab-concept-definition'>
+Biliary Stone Extraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+023
+</td>
+<td class='vocab-concept-display'>
+Biopsy
+</td>
+<td class='vocab-concept-definition'>
+Biopsy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+024
+</td>
+<td class='vocab-concept-display'>
+Bleeding Time Test
+</td>
+<td class='vocab-concept-definition'>
+Bleeding Time Test
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+025
+</td>
+<td class='vocab-concept-display'>
+Bronchogram
+</td>
+<td class='vocab-concept-definition'>
+Bronchogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+026
+</td>
+<td class='vocab-concept-display'>
+Cardiac Catheterization
+</td>
+<td class='vocab-concept-definition'>
+Cardiac Catheterization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+027
+</td>
+<td class='vocab-concept-display'>
+Coronary Angiography
+</td>
+<td class='vocab-concept-definition'>
+Coronary Angiography
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+028
+</td>
+<td class='vocab-concept-display'>
+Coronary Angiography w/o Surgery Capability
+</td>
+<td class='vocab-concept-definition'>
+""      "" w/o Surgery Capability
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+029
+</td>
+<td class='vocab-concept-display'>
+Cataract Op/Implant of FDA Aprvd Lens
+</td>
+<td class='vocab-concept-definition'>
+Cataract Op/Implant of FDA Aprvd Lens
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+030
+</td>
+<td class='vocab-concept-display'>
+Cataract Op/Implant of Investigational Lens
+</td>
+<td class='vocab-concept-definition'>
+Cataract Op/Implant of Investigational Lens
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+031
+</td>
+<td class='vocab-concept-display'>
+Cataract Surgery
+</td>
+<td class='vocab-concept-definition'>
+Cataract Surgery
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+032
+</td>
+<td class='vocab-concept-display'>
+Cholera Immunization
+</td>
+<td class='vocab-concept-definition'>
+Cholera Immunization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+033
+</td>
+<td class='vocab-concept-display'>
+Cholesterol Screening
+</td>
+<td class='vocab-concept-definition'>
+Cholesterol Screening
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+034
+</td>
+<td class='vocab-concept-display'>
+Circumcision - Newborn
+</td>
+<td class='vocab-concept-definition'>
+Circumcision - Newborn
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+035
+</td>
+<td class='vocab-concept-display'>
+Colonoscopy
+</td>
+<td class='vocab-concept-definition'>
+Colonoscopy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+036
+</td>
+<td class='vocab-concept-display'>
+Contact Lenses
+</td>
+<td class='vocab-concept-definition'>
+Contact Lenses
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+037
+</td>
+<td class='vocab-concept-display'>
+CT Scan - Cervical & Lumbar
+</td>
+<td class='vocab-concept-definition'>
+CT Scan - Cervical & Lumbar
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+038
+</td>
+<td class='vocab-concept-display'>
+CT Scan w/ IV Contrast Media into Vein
+</td>
+<td class='vocab-concept-definition'>
+CT Scan w/ IV Contrast Media into Vein
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+039
+</td>
+<td class='vocab-concept-display'>
+CVS (Chorionic Villus) Sampling
+</td>
+<td class='vocab-concept-definition'>
+CVS (Chorionic Villus) Sampling
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+040
+</td>
+<td class='vocab-concept-display'>
+Cystospy
+</td>
+<td class='vocab-concept-definition'>
+Cystospy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+041
+</td>
+<td class='vocab-concept-display'>
+Disclosure of Protected Health Information to Family/Friends
+</td>
+<td class='vocab-concept-definition'>
+Disclosure of Protected Health Information to Family/Friends
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+042
+</td>
+<td class='vocab-concept-display'>
+D & C and Conization
+</td>
+<td class='vocab-concept-definition'>
+D & C and Conization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+043
+</td>
+<td class='vocab-concept-display'>
+Dacryocystogram
+</td>
+<td class='vocab-concept-definition'>
+Dacryocystogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+044
+</td>
+<td class='vocab-concept-display'>
+Diagnostic Isotope
+</td>
+<td class='vocab-concept-definition'>
+Diagnostic Isotope
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+045
+</td>
+<td class='vocab-concept-display'>
+Drainage of an Abscess
+</td>
+<td class='vocab-concept-definition'>
+Drainage of an Abscess
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+046
+</td>
+<td class='vocab-concept-display'>
+Drug Screening
+</td>
+<td class='vocab-concept-definition'>
+Drug Screening
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+047
+</td>
+<td class='vocab-concept-display'>
+Electronic Monitoring of Labor - Refusal
+</td>
+<td class='vocab-concept-definition'>
+Electronic Monitoring of Labor - Refusal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+048
+</td>
+<td class='vocab-concept-display'>
+Endometrial Biopsy
+</td>
+<td class='vocab-concept-definition'>
+Endometrial Biopsy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+049
+</td>
+<td class='vocab-concept-display'>
+Endoscopy/Sclerosis of Esophageal Varices
+</td>
+<td class='vocab-concept-definition'>
+Endoscopy/Sclerosis of Esophageal Varices
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+050
+</td>
+<td class='vocab-concept-display'>
+ERCP
+</td>
+<td class='vocab-concept-definition'>
+ERCP
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+051
+</td>
+<td class='vocab-concept-display'>
+Exposure to reportable Communicable Disease
+</td>
+<td class='vocab-concept-definition'>
+Exposure to reportable Communicable Disease
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+052
+</td>
+<td class='vocab-concept-display'>
+External Version
+</td>
+<td class='vocab-concept-definition'>
+External Version
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+053
+</td>
+<td class='vocab-concept-display'>
+Fluorescein Angioscopy
+</td>
+<td class='vocab-concept-definition'>
+Fluorescein Angioscopy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+054
+</td>
+<td class='vocab-concept-display'>
+Hepatitis B - Consent/Declination
+</td>
+<td class='vocab-concept-definition'>
+Hepatitis B - Consent/Declination
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+055
+</td>
+<td class='vocab-concept-display'>
+Herniogram
+</td>
+<td class='vocab-concept-definition'>
+Herniogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+056
+</td>
+<td class='vocab-concept-display'>
+HIV Test - Consent Refusal
+</td>
+<td class='vocab-concept-definition'>
+HIV Test - Consent Refusal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+057
+</td>
+<td class='vocab-concept-display'>
+HIV Test - Disclosure
+</td>
+<td class='vocab-concept-definition'>
+HIV Test - Disclosure
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+058
+</td>
+<td class='vocab-concept-display'>
+HIV Test - Prenatal
+</td>
+<td class='vocab-concept-definition'>
+HIV Test - Prenatal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+059
+</td>
+<td class='vocab-concept-display'>
+Home IV Treatment Program
+</td>
+<td class='vocab-concept-definition'>
+Home IV Treatment Program
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+060
+</td>
+<td class='vocab-concept-display'>
+Home Parenteral Treatment Program
+</td>
+<td class='vocab-concept-definition'>
+Home Parenteral Treatment Program
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+061
+</td>
+<td class='vocab-concept-display'>
+Hysterectomy
+</td>
+<td class='vocab-concept-definition'>
+Hysterectomy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+062
+</td>
+<td class='vocab-concept-display'>
+Hysterosalpingogram
+</td>
+<td class='vocab-concept-definition'>
+Hysterosalpingogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+063
+</td>
+<td class='vocab-concept-display'>
+Injection Slip/ Consent
+</td>
+<td class='vocab-concept-definition'>
+Injection Slip/ Consent
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+064
+</td>
+<td class='vocab-concept-display'>
+Intrauterine Device
+</td>
+<td class='vocab-concept-definition'>
+Intrauterine Device
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+065
+</td>
+<td class='vocab-concept-display'>
+Intrauterine Device/Sterilization
+</td>
+<td class='vocab-concept-definition'>
+Intrauterine Device/Sterilization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+066
+</td>
+<td class='vocab-concept-display'>
+Intravascular Infusion of Streptokinase/Urokinase
+</td>
+<td class='vocab-concept-definition'>
+Intravascular Infusion of Streptokinase/Urokinase
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+067
+</td>
+<td class='vocab-concept-display'>
+Intravenous Cholangiogram
+</td>
+<td class='vocab-concept-definition'>
+Intravenous Cholangiogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+068
+</td>
+<td class='vocab-concept-display'>
+Intravenous Digital Angiography
+</td>
+<td class='vocab-concept-definition'>
+Intravenous Digital Angiography
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+069
+</td>
+<td class='vocab-concept-display'>
+Iodine Administration
+</td>
+<td class='vocab-concept-definition'>
+Iodine Administration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+070
+</td>
+<td class='vocab-concept-display'>
+ISG
+</td>
+<td class='vocab-concept-definition'>
+ISG
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+071
+</td>
+<td class='vocab-concept-display'>
+IVP
+</td>
+<td class='vocab-concept-definition'>
+IVP
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+072
+</td>
+<td class='vocab-concept-display'>
+Laser Photocoagulation
+</td>
+<td class='vocab-concept-definition'>
+Laser Photocoagulation
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+073
+</td>
+<td class='vocab-concept-display'>
+Laser treatment
+</td>
+<td class='vocab-concept-definition'>
+Laser treatment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+074
+</td>
+<td class='vocab-concept-display'>
+Lithium Carbonate
+</td>
+<td class='vocab-concept-definition'>
+Lithium Carbonate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+075
+</td>
+<td class='vocab-concept-display'>
+Liver Biopsy
+</td>
+<td class='vocab-concept-definition'>
+Liver Biopsy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+076
+</td>
+<td class='vocab-concept-display'>
+Lumbar Puncture
+</td>
+<td class='vocab-concept-definition'>
+Lumbar Puncture
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+077
+</td>
+<td class='vocab-concept-display'>
+Lymphangiogram
+</td>
+<td class='vocab-concept-definition'>
+Lymphangiogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+078
+</td>
+<td class='vocab-concept-display'>
+MAO Inhibitors
+</td>
+<td class='vocab-concept-definition'>
+MAO Inhibitors
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+079
+</td>
+<td class='vocab-concept-display'>
+Med, Psych, and/or Drug/Alcohol
+</td>
+<td class='vocab-concept-definition'>
+Med, Psych, and/or Drug/Alcohol
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+080
+</td>
+<td class='vocab-concept-display'>
+Medical Treatment - Refusal
+</td>
+<td class='vocab-concept-definition'>
+Medical Treatment - Refusal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+081
+</td>
+<td class='vocab-concept-display'>
+Morning-after Pill
+</td>
+<td class='vocab-concept-definition'>
+Morning-after Pill
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+082
+</td>
+<td class='vocab-concept-display'>
+MRI - Adult
+</td>
+<td class='vocab-concept-definition'>
+MRI - Adult
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+083
+</td>
+<td class='vocab-concept-display'>
+MRI - Pediatric
+</td>
+<td class='vocab-concept-definition'>
+MRI - Pediatric
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+084
+</td>
+<td class='vocab-concept-display'>
+Myelogram
+</td>
+<td class='vocab-concept-definition'>
+Myelogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+085
+</td>
+<td class='vocab-concept-display'>
+Needle Biopsy
+</td>
+<td class='vocab-concept-definition'>
+Needle Biopsy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+086
+</td>
+<td class='vocab-concept-display'>
+Needle Biopsy of Lung
+</td>
+<td class='vocab-concept-definition'>
+Needle Biopsy of Lung
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+087
+</td>
+<td class='vocab-concept-display'>
+Newborn Treatment and Release
+</td>
+<td class='vocab-concept-definition'>
+Newborn Treatment and Release
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+088
+</td>
+<td class='vocab-concept-display'>
+Norplant Subdermal Birth Control Implant
+</td>
+<td class='vocab-concept-definition'>
+Norplant Subdermal Birth Control Implant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+089
+</td>
+<td class='vocab-concept-display'>
+Operations, Anesthesia, Transfusions
+</td>
+<td class='vocab-concept-definition'>
+Operations, Anesthesia, Transfusions
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+090
+</td>
+<td class='vocab-concept-display'>
+Oral Contraceptives
+</td>
+<td class='vocab-concept-definition'>
+Oral Contraceptives
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+091
+</td>
+<td class='vocab-concept-display'>
+Organ Donation
+</td>
+<td class='vocab-concept-definition'>
+Organ Donation
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+092
+</td>
+<td class='vocab-concept-display'>
+Patient Permits, Consents
+</td>
+<td class='vocab-concept-definition'>
+Patient Permits, Consents
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+093
+</td>
+<td class='vocab-concept-display'>
+Patient Treatment Permit, Release & Admission
+</td>
+<td class='vocab-concept-definition'>
+Patient Treatment Permit, Release & Admission
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+094
+</td>
+<td class='vocab-concept-display'>
+Penile Injections
+</td>
+<td class='vocab-concept-definition'>
+Penile Injections
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+095
+</td>
+<td class='vocab-concept-display'>
+Percutaneous Nephrostomy
+</td>
+<td class='vocab-concept-definition'>
+Percutaneous Nephrostomy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+096
+</td>
+<td class='vocab-concept-display'>
+Percutaneous Transhepatic Cholangiogram
+</td>
+<td class='vocab-concept-definition'>
+Percutaneous Transhepatic Cholangiogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+097
+</td>
+<td class='vocab-concept-display'>
+Photographs
+</td>
+<td class='vocab-concept-definition'>
+Photographs
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+098
+</td>
+<td class='vocab-concept-display'>
+Photographs - Employee
+</td>
+<td class='vocab-concept-definition'>
+Photographs - Employee
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+099
+</td>
+<td class='vocab-concept-display'>
+Photographs - Medical Research
+</td>
+<td class='vocab-concept-definition'>
+Photographs - Medical Research
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+100
+</td>
+<td class='vocab-concept-display'>
+Photographs - news Media
+</td>
+<td class='vocab-concept-definition'>
+Photographs - news Media
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+101
+</td>
+<td class='vocab-concept-display'>
+Psychiatric Admission - Next of Kin
+</td>
+<td class='vocab-concept-definition'>
+Psychiatric Admission - Next of Kin
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+102
+</td>
+<td class='vocab-concept-display'>
+Psychiatric Information During Hospital Stay
+</td>
+<td class='vocab-concept-definition'>
+Psychiatric Information During Hospital Stay
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+103
+</td>
+<td class='vocab-concept-display'>
+Public Release of Information
+</td>
+<td class='vocab-concept-definition'>
+Public Release of Information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+104
+</td>
+<td class='vocab-concept-display'>
+Radiologic Procedure
+</td>
+<td class='vocab-concept-definition'>
+Radiologic Procedure
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+105
+</td>
+<td class='vocab-concept-display'>
+Refusal of Treatment
+</td>
+<td class='vocab-concept-definition'>
+Refusal of Treatment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+106
+</td>
+<td class='vocab-concept-display'>
+Release of Body
+</td>
+<td class='vocab-concept-definition'>
+Release of Body
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+107
+</td>
+<td class='vocab-concept-display'>
+Release of Limb
+</td>
+<td class='vocab-concept-definition'>
+Release of Limb
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+108
+</td>
+<td class='vocab-concept-display'>
+Rh Immune Globulin
+</td>
+<td class='vocab-concept-definition'>
+Rh Immune Globulin
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+109
+</td>
+<td class='vocab-concept-display'>
+Rights of Medical Research Participants
+</td>
+<td class='vocab-concept-definition'>
+Rights of Medical Research Participants
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+110
+</td>
+<td class='vocab-concept-display'>
+Request to Restrict Access/Disclosure to Medical Record/Protected Health Information
+</td>
+<td class='vocab-concept-definition'>
+Request to Restrict Access/Disclosure to Medical Record/Protected Health Information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+111
+</td>
+<td class='vocab-concept-display'>
+Request for Remain Anonymous
+</td>
+<td class='vocab-concept-definition'>
+Request for Remain Anonymous
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+112
+</td>
+<td class='vocab-concept-display'>
+Seat Belt Exemption
+</td>
+<td class='vocab-concept-definition'>
+Seat Belt Exemption
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+113
+</td>
+<td class='vocab-concept-display'>
+Sialogram
+</td>
+<td class='vocab-concept-definition'>
+Sialogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+114
+</td>
+<td class='vocab-concept-display'>
+Sigmoidoscopy
+</td>
+<td class='vocab-concept-definition'>
+Sigmoidoscopy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+115
+</td>
+<td class='vocab-concept-display'>
+Sterilization - Anesthesia & Medical Services
+</td>
+<td class='vocab-concept-definition'>
+Sterilization - Anesthesia & Medical Services
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+116
+</td>
+<td class='vocab-concept-display'>
+Sterilization -Federally Funded
+</td>
+<td class='vocab-concept-definition'>
+Sterilization -Federally Funded
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+117
+</td>
+<td class='vocab-concept-display'>
+Sterilization - Female
+</td>
+<td class='vocab-concept-definition'>
+Sterilization - Female
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+118
+</td>
+<td class='vocab-concept-display'>
+Sterilization - Laparoscopy/Pomeroy
+</td>
+<td class='vocab-concept-definition'>
+Sterilization - Laparoscopy/Pomeroy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+119
+</td>
+<td class='vocab-concept-display'>
+Sterilization - Non-Federally Funded
+</td>
+<td class='vocab-concept-definition'>
+Sterilization - Non-Federally Funded
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+120
+</td>
+<td class='vocab-concept-display'>
+Sterilization - Secondary
+</td>
+<td class='vocab-concept-definition'>
+Sterilization - Secondary
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+121
+</td>
+<td class='vocab-concept-display'>
+Tranquilizers
+</td>
+<td class='vocab-concept-definition'>
+Tranquilizers
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+122
+</td>
+<td class='vocab-concept-display'>
+Transfer - Acknowledgement
+</td>
+<td class='vocab-concept-definition'>
+Transfer - Acknowledgement
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+123
+</td>
+<td class='vocab-concept-display'>
+Transfer - Authorization
+</td>
+<td class='vocab-concept-definition'>
+Transfer - Authorization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+124
+</td>
+<td class='vocab-concept-display'>
+Transfer Certification - Physician
+</td>
+<td class='vocab-concept-definition'>
+Transfer Certification - Physician
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+125
+</td>
+<td class='vocab-concept-display'>
+Transfer/Discharge Request
+</td>
+<td class='vocab-concept-definition'>
+Transfer/Discharge Request
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+126
+</td>
+<td class='vocab-concept-display'>
+Transfer for Non-Medical Reasons
+</td>
+<td class='vocab-concept-definition'>
+Transfer for Non-Medical Reasons
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+127
+</td>
+<td class='vocab-concept-display'>
+Transfer - Interfaculty Neonatal
+</td>
+<td class='vocab-concept-definition'>
+Transfer - Interfaculty Neonatal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+128
+</td>
+<td class='vocab-concept-display'>
+Transfer Refusal
+</td>
+<td class='vocab-concept-definition'>
+Transfer Refusal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+129
+</td>
+<td class='vocab-concept-display'>
+Transfer Refusal of Further Treatment
+</td>
+<td class='vocab-concept-definition'>
+Transfer Refusal of Further Treatment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+130
+</td>
+<td class='vocab-concept-display'>
+Treadmill & EKG
+</td>
+<td class='vocab-concept-definition'>
+Treadmill & EKG
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+131
+</td>
+<td class='vocab-concept-display'>
+Treadmill, Thallium-201
+</td>
+<td class='vocab-concept-definition'>
+Treadmill, Thallium-201
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+132
+</td>
+<td class='vocab-concept-display'>
+Typhoid
+</td>
+<td class='vocab-concept-definition'>
+Typhoid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+133
+</td>
+<td class='vocab-concept-display'>
+Use of Investigational Device
+</td>
+<td class='vocab-concept-definition'>
+Use of Investigational Device
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+134
+</td>
+<td class='vocab-concept-display'>
+Use of Investigational Drug
+</td>
+<td class='vocab-concept-definition'>
+Use of Investigational Drug
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+135
+</td>
+<td class='vocab-concept-display'>
+Venogram
+</td>
+<td class='vocab-concept-definition'>
+Venogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+136
+</td>
+<td class='vocab-concept-display'>
+Videotape
+</td>
+<td class='vocab-concept-definition'>
+Videotape
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+1137
+</td>
+<td class='vocab-concept-display'>
+Voiding Cystogram
+</td>
+<td class='vocab-concept-definition'>
+Voiding Cystogram
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

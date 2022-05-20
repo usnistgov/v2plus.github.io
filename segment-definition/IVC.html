@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+IVC - Invoice Segment
+</h3>
+<p class="v2">The Invoice segment is used for HealthCare Services Invoices and contains header style information for an invoice including invoice numbers, Provider Organization and Payer Organization identification.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - IVC - Invoice Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+IVC
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Provider Invoice Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-1'>
+01914
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Payer Invoice Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-2'>
+01915
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Contract/Agreement Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-3'>
+01916
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Invoice Control
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0553-Invoice-Control-Code.html' title='Invoice Control Code(Suggested)'>
+0553(S)
+<span class='vocab-link-text'>Invoice Control Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-4'>
+01917
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Invoice Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0554-Invoice-Reason-Codes.html' title='Invoice Reason Codes'>
+0554
+<span class='vocab-link-text'>Invoice Reason Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-5'>
+01918
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Invoice Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0555-Invoice-Type.html' title='Invoice Type'>
+0555
+<span class='vocab-link-text'>Invoice Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-6'>
+01919
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Invoice Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-7'>
+01920
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Invoice Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-8'>
+01921
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Payment Terms
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-9'>
+01922
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+80
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Provider Organization
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-10'>
+01923
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Payer Organization
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-11'>
+01924
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Attention
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-12'>
+01925
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Last Invoice Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-13'>
+01926
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Invoice Booking Period
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-14'>
+01927
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Origin
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-15'>
+01928
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Invoice Fixed Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-16'>
+01929
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Special Costs
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-17'>
+01930
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Amount for Doctors Treatment
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-18'>
+01931
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Responsible Physician
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-19'>
+01932
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Cost Center
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-20'>
+01933
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Invoice Prepaid Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-21'>
+01934
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Total Invoice Amount without Prepaid Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-22'>
+01935
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Total-Amount of VAT
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-23'>
+01936
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+VAT-Rates applied
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IVC-24'>
+01937
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1..5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Benefit Group
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0556-Benefit-Group.html' title='Benefit Group'>
+0556
+<span class='vocab-link-text'>Benefit Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVC-25'>
+01938
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Provider Tax ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-26'>
+02038
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Payer Tax ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-27'>
+02039
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Provider Tax Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0572-Tax-status.html' title='Tax status'>
+0572
+<span class='vocab-link-text'>Tax status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-28'>
+02040
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Payer Tax Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0572-Tax-status.html' title='Tax status'>
+0572
+<span class='vocab-link-text'>Tax status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-29'>
+02041
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+30
+</td>
+<td>
+Sales Tax ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVC-30'>
+02042
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2 v2-normalindented"></p>
+<h4 class='v2' id='IVC-1'>
+IVC-1: Provider Invoice Number (<a href='/data-type/EI.html'>EI</a>) 01914
+</h4>
+<p class="v2 v2-normalindented">Definition: Unique Invoice Number assigned by the Provider Application.</p>
+
+<h4 class='v2' id='IVC-2'>
+IVC-2: Payer Invoice Number (<a href='/data-type/EI.html'>EI</a>) 01915
+</h4>
+<p class="v2 v2-normalindented">Definition: Unique Invoice Number assigned by the Payer Application.</p>
+
+<h4 class='v2' id='IVC-3'>
+IVC-3: Contract/Agreement Number (<a href='/data-type/EI.html'>EI</a>) 01916
+</h4>
+<p class="v2 v2-normalindented">Definition: Contract/agreement number issued by Payer which must be specified in some circumstances by the Provider.</p>
+
+<h4 class='v2' id='IVC-4'>
+IVC-4: Invoice Control (<a href='/data-type/CWE.html'>CWE</a>) 01917
+</h4>
+<p class="v2 v2-normalindented">Definition: Code indicating what action is being performed by this message. Refer to <a href="https://www.hl7.org/fhir/v2/0553/index.html">User-defined Table 0553 – Invoice Control Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVC-5'>
+IVC-5: Invoice Reason (<a href='/data-type/CWE.html'>CWE</a>) 01918
+</h4>
+<p class="v2 v2-normalindented">Definition: Code describing reason for this Invoice. Refer to <a href="https://www.hl7.org/fhir/v2/0554/index.html">User-defined Table 0554 – Invoice Reason Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVC-6'>
+IVC-6: Invoice Type (<a href='/data-type/CWE.html'>CWE</a>) 01919
+</h4>
+<p class="v2 v2-normalindented">Definition: Code indicating the type of Invoice. Refer to <a href="https://www.hl7.org/fhir/v2/0555/index.html">User-defined Table 0555 – Invoice Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVC-7'>
+IVC-7: Invoice Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01920
+</h4>
+<p class="v2 v2-normalindented">Definition: Date Invoice was created.</p>
+
+<h4 class='v2' id='IVC-8'>
+IVC-8: Invoice Amount (<a href='/data-type/CP.html'>CP</a>) 01921
+</h4>
+<p class="v2 v2-normalindented">Definition: Sum total of Product/Service Billed Amount on PSL for all Product/Service Line Items for this Invoice.</p>
+
+<h4 class='v2' id='IVC-9'>
+IVC-9: Payment Terms (<a href='/data-type/ST.html'>ST</a>) 01922
+</h4>
+<p class="v2 v2-normalindented">Definition: Terms for Payer payment of Invoice (e.g., 24% net 30 days).</p>
+
+<h4 class='v2' id='IVC-10'>
+IVC-10: Provider Organization (<a href='/data-type/XON.html'>XON</a>) 01923
+</h4>
+<p class="v2 v2-normalindented">Definition: Business organization that is responsible for the invoice (e.g., Provider organization, clinic organization).</p>
+
+<h4 class='v2' id='IVC-11'>
+IVC-11: Payer Organization (<a href='/data-type/XON.html'>XON</a>) 01924
+</h4>
+<p class="v2 v2-normalindented">Definition:  The business organization that is designated as Payer for this Invoice. This Payer may be the primary, secondary, tertiary Payer, depending on Insurance Information specified in the Invoice</p>
+
+<h4 class='v2' id='IVC-12'>
+IVC-12: Attention (<a href='/data-type/XCN.html'>XCN</a>) 01925
+</h4>
+<p class="v2 v2-normalindented">Definition: Attention to individual in Payer Organization who needs to review this Invoice.</p>
+
+<h4 class='v2' id='IVC-13'>
+IVC-13: Last Invoice Indicator (<a href='/data-type/ID.html'>ID</a>) 01926
+</h4>
+<p class="v2 v2-normalindented">Definition: Can be set to indicate that this is the last Invoice for a particular Case, Claim and/or Encounter (1).  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator</a> for suggested values.</p>
+
+<h4 class='v2' id='IVC-14'>
+IVC-14: Invoice Booking Period (<a href='/data-type/DTM.html'>DTM</a>) 01927
+</h4>
+<p class="v2 v2-normalindented">Definition: Period in which the invoice must be booked.</p>
+
+<h4 class='v2' id='IVC-15'>
+IVC-15: Origin (<a href='/data-type/ST.html'>ST</a>) 01928
+</h4>
+<p class="v2 v2-normalindented">Definition: Responsible Person for this specific invoice. For more structured output use CTD-Segment instead.</p>
+
+<h4 class='v2' id='IVC-16'>
+IVC-16: Invoice Fixed Amount (<a href='/data-type/CP.html'>CP</a>) 01929
+</h4>
+<p class="v2 v2-normalindented">Definition: Fixed Amount for this invoice.</p>
+
+<h4 class='v2' id='IVC-17'>
+IVC-17: Special Costs (<a href='/data-type/CP.html'>CP</a>) 01930
+</h4>
+<p class="v2 v2-normalindented">Definition: Special costs for this invoice.</p>
+
+<h4 class='v2' id='IVC-18'>
+IVC-18: Amount for Doctors Treatment (<a href='/data-type/CP.html'>CP</a>) 01931
+</h4>
+<p class="v2 v2-normalindented">Definition: Special amount for doctor&#39;s treatment.</p>
+
+<h4 class='v2' id='IVC-19'>
+IVC-19: Responsible Physician (<a href='/data-type/XCN.html'>XCN</a>) 01932
+</h4>
+<p class="v2 v2-normalindented">Definition: Doctor who is responsible for this invoice.</p>
+
+<h4 class='v2' id='IVC-20'>
+IVC-20: Cost Center (<a href='/data-type/CX.html'>CX</a>) 01933
+</h4>
+<p class="v2 v2-normalindented">Definition: Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room. </p>
+
+<h4 class='v2' id='IVC-21'>
+IVC-21: Invoice Prepaid Amount (<a href='/data-type/CP.html'>CP</a>) 01934
+</h4>
+<p class="v2 v2-normalindented">Definition: Deposit paid to the service Provider prior to admission</p>
+
+<h4 class='v2' id='IVC-22'>
+IVC-22: Total Invoice Amount without Prepaid Amount (<a href='/data-type/CP.html'>CP</a>) 01935
+</h4>
+<p class="v2 v2-normalindented">Definition:  Total amount of Invoice without the prepaid deposit (IV-8 minus IVC-21).</p>
+
+<h4 class='v2' id='IVC-23'>
+IVC-23: Total-Amount of VAT (<a href='/data-type/CP.html'>CP</a>) 01936
+</h4>
+<p class="v2 v2-normalindented">Definition:  Total Amount of VAT included in the Total Invoice Amount (IVC-8)</p>
+
+<h4 class='v2' id='IVC-24'>
+IVC-24: VAT-Rates applied (<a href='/data-type/NM.html'>NM</a>) 01937
+</h4>
+<p class="v2 v2-normalindented">Definition: Applied VAT Rates on Invoice. Multiple VAT-rates may be applied according to the type of service</p>
+
+<h4 class='v2' id='IVC-25'>
+IVC-25: Benefit Group (<a href='/data-type/CWE.html'>CWE</a>) 01938
+</h4>
+<p class="v2 v2-normalindented">Definition: Code indicating the Benefit group. Refer to <a href="https://www.hl7.org/fhir/v2/0556/index.html">User-defined Table 0556 – Benefit Group</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVC-26'>
+IVC-26: Provider Tax ID (<a href='/data-type/ST.html'>ST</a>) 02038
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Tax ID of the Provider (general Tax identification number or VAT number).</p>
+
+<h4 class='v2' id='IVC-27'>
+IVC-27: Payer Tax ID (<a href='/data-type/ST.html'>ST</a>) 02039
+</h4>
+<p class="v2 v2-normalindented">Definition: The Tax ID of the Payer (general Tax identification number or VAT number)</p>
+
+<h4 class='v2' id='IVC-28'>
+IVC-28: Provider Tax Status (<a href='/data-type/CWE.html'>CWE</a>) 02040
+</h4>
+<p class="v2 v2-normalindented">Definition: Code indicating the tax status of the provider. Refer to <a href="https://www.hl7.org/fhir/v2/0572/index.html">User-defined Table 0572 – Tax status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVC-29'>
+IVC-29: Payer Tax Status (<a href='/data-type/CWE.html'>CWE</a>) 02041
+</h4>
+<p class="v2 v2-normalindented">Definition: Code indicating the tax status of the payer. Refer to <a href="https://www.hl7.org/fhir/v2/0572/index.html">User-defined Table 0572 – Tax status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVC-30'>
+IVC-30: Sales Tax ID (<a href='/data-type/ST.html'>ST</a>) 02042
+</h4>
+<p class="v2 v2-normalindented">Definition: The Tax ID specific to Sales Tax</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PRT - Participation Information Segment
+</h3>
+<p class="v2 v2-normalindented">The Participation Information segment contains the data necessary to add, update, correct, and delete from the record persons, organizations, devices, or locations (participants) participating in the activity being transmitted.</p><p class="v2 v2-normalindented">In general, the PRT segment is used to describe a participant playing a particular role within the context of the message.  In OO, for example, in the results messages the PRT segment may be used to provide the performing provider, whether a person or organization.  In a specimen shipment message it may be the waypoint location relevant for the shipment.</p><p class="v2 v2-normalindented">The positional location of the PRT segment indicates the relationship.  When the segment is used following the OBX segment, then the participations relate to that OBX addressing participations such as responsible observer.</p><p class="v2 v2-normalindented">The PRT segment may be used to communicate U.S. FDA Unique Device Identifier (UDI<span id="chapter-7-footnote-reference-2"><a href="#chapter-7-footnote-2"><sup>2</sup></a></span>) information, with the PRT-10 field containing the UDI and additional fields added to contain UDI elements, when it is advised to communicate these individually (see Guidance in PRT-10 definition).  These identifiers are intended to cover a wide variety of devices.  When representing a UDI, PRT-4 would be “EQUIP”.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PRT - Participation Information Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PRT
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Participation Instance ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-1'>
+02379
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PRT-2'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Action Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-3'>
+02380
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Role of Participation
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0912-Participation.html' title='Participation(Required)'>
+0912(R)
+<span class='vocab-link-text'>Participation(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PRT-4'>
+02381
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Person
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-5'>
+02382
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Person Provider Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-6'>
+02383
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Organization Unit Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0406-Participant-Organization-Unit-Type.html' title='Participant Organization Unit Type'>
+0406
+<span class='vocab-link-text'>Participant Organization Unit Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-7'>
+02384
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Organization
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-8'>
+02385
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-9'>
+02386
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Device
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-10'>
+02348
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Begin Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-11'>
+02387
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+End Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-12'>
+02388
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Qualitative Duration
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-13'>
+02389
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-14'>
+02390
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Telecommunication Address
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-15'>
+02391
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+UDI Device Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-16'>
+03476
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Device Manufacture Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-17'>
+03477
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Device Expiry Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-18'>
+03478
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Device Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-19'>
+03479
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Device Serial Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-20'>
+03480
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Device Donation Identification
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-21'>
+03481
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Device Type
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0961-Device-Type.html' title='Device Type'>
+0961
+<span class='vocab-link-text'>Device Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-22'>
+03483
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Preferred Method of Contact
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0185-Preferred-Method-of-Contact.html' title='Preferred Method of Contact(Required)'>
+0185(R)
+<span class='vocab-link-text'>Preferred Method of Contact(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRT-23'>
+00684
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+24
+</td>
+<td>
+Contact Identifiers
+</td>
+<td class='centered'>
+<a href='/data-type/PLN.html'>
+PLN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0328-Employee-Classification.html' title='Employee Classification'>
+0328
+<span class='vocab-link-text'>Employee Classification</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRT-24'>
+01171
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PRT-1'>
+PRT-1: Participation Instance ID (<a href='/data-type/EI.html'>EI</a>) 02379
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier of the specific participation record.</p><p class="v2 v2-normalindented">In the case of waypoints tracked for a shipment, it identifies the waypoint.</p><p class="v2 v2-normalindented">Condition: The identifier is required when known, but there are times we may only know a name but do not have an identifier.</p>
+
+<h4 class='v2' id='PRT-2'>
+PRT-2: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+
+<h4 class='v2' id='PRT-3'>
+PRT-3: Action Reason (<a href='/data-type/CWE.html'>CWE</a>) 02380
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the reason why the person, organization, location, or device is assuming (or changing) the role (e.g., shift change, new primary nurse, etc.).</p>
+
+<h4 class='v2' id='PRT-4'>
+PRT-4: Role of Participation (<a href='/data-type/CWE.html'>CWE</a>) 02381
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the functional involvement with the activity being transmitted (e.g., Case Manager, Evaluator, Transcriber, Nurse Care Practitioner, Midwife, Physician Assistant, etc.).  Refer to <a href="https://www.hl7.org/fhir/v2/0912/index.html">HL7 Table 0912 – Participation</a> for valid values. </p>
+
+<h4 class='v2' id='PRT-5'>
+PRT-5: Person (<a href='/data-type/XCN.html'>XCN</a>) 02382
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identity of the person who is represented in the participation that is being transmitted.  </p><p class="v2 v2-normalindented">If this attribute repeats, all instances must represent the same person.</p><p class="v2 v2-normalindented">Condition: At least one of PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.</p>
+
+<h4 class='v2' id='PRT-6'>
+PRT-6: Person Provider Type (<a href='/data-type/CWE.html'>CWE</a>) 02383
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code identifying the provider type for the participating person.  This attribute correlates to the following master file attribute:  <a href="/segment-definition/STF.html#STF-4">STF-4 Staff Type</a>.  Coded values from the correlated master file table are used; the user defined master file table is used as the coding system for this attribute.  For example, if you are using values from <a href="/segment-definition/STF.html#STF-2">STF-2 Staff Type</a>, the coding system would be HL70182 which is the table number for the user defined Staff Type table.  This field is included in this segment to support international requirements. When ROL is used in an encounter message, it is not intended as a master file update.</p><p class="v2 v2-normalindented">Condition: This field may only be valued if <a href="/segment-definition/PRT.html#PRT-5">PRT-5 Person</a> is valued.</p>
+
+<h4 class='v2' id='PRT-7'>
+PRT-7: Organization Unit Type (<a href='/data-type/CWE.html'>CWE</a>) 02384
+</h4>
+<p class="v2 v2-normalindented">Definition:   This field identifies the environment in which the participant acts in the role specified in <a href="/segment-definition/PRT.html#PRT-3">PRT-3 Action Reason</a>.  In the case of a person, the environment is not the specialty for the provider.  The specialty information for the provider is defined in the PRA segment.  </p><p class="v2 v2-normalindented">This attribute is included in the PRT segment to allow communication of this data when the participant information may not have been communicated previously in a master file or to provide better context.  Refer to <a href="https://www.hl7.org/fhir/v2/0406/index.html">User-defined table 0406 - Organization unit type</a>. This field is included in this segment to support international requirements, and is not intended as a master file update.</p><p class="v2 v2-normalindented">Condition: This field may only be valued if PRT-5 Person is valued.</p>
+
+<h4 class='v2' id='PRT-8'>
+PRT-8: Organization (<a href='/data-type/XON.html'>XON</a>) 02385
+</h4>
+<p class="v2 v2-normalindented">Definition:  The organization that is involved in the participation.  If <a href="/segment-definition/PRT.html#PRT-5">PRT-5 Person</a> is valued, it reflects the affiliation of the individual participating as identified in <a href="/segment-definition/PRT.html#PRT-4">PRT-4 Role of Participation</a>.  Otherwise the organization is directly participating as identified in <a href="/segment-definition/PRT.html#PRT-4">PRT-4 Role of Participation</a>.</p><p class="v2 v2-normalindented">If this attribute repeats, all instances must represent the same organization.</p><p class="v2 v2-normalindented">Condition: At least one of the PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.</p>
+
+<h4 class='v2' id='PRT-9'>
+PRT-9: Location (<a href='/data-type/PL.html'>PL</a>) 02386
+</h4>
+<p class="v2 v2-normalindented">Definition: This field specifies the physical location (e.g., nurse station, ancillary service location, clinic, or floor) that is participating.  If either <a href="/segment-definition/PRT.html#PRT-5">PRT-5 Person</a> or <a href="/segment-definition/PRT.html#PRT-8">PRT-8 Organization</a> is valued, it reflects the location of the individual or organization participating as identified in <a href="/segment-definition/PRT.html#PRT-4">PRT-4 Role of Participation</a>.  Otherwise the location is directly participating as identified in <a href="/segment-definition/PRT.html#PRT-4">PRT-4 Role of Participation</a>.</p><p class="v2 v2-normalindented">If this attribute repeats, all instances must represent the same organization.</p><p class="v2 v2-normalindented">Condition: At least one of the PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.</p>
+
+<h4 class='v2' id='PRT-10'>
+PRT-10: Device (<a href='/data-type/EI.html'>EI</a>) 02348
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifier for the device participating. This may reflect an unstructured or a structured identifier such as FDA UDI, RFID, IEEE EUI-64 identifiers, or bar codes.</p><p class="v2 v2-normalindented">Example: The device used to register the shipment at the waypoint.</p><p class="v2 v2-normalindented">If this attribute repeats, all instances must represent the same device.</p><p class="v2 v2-normalindented">Condition: At least one of the PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.</p><p class="v2 v2-normalindented">If this field contains an FDA UDI, it shall contain the entire Human Readable Form of the UDI.  For example, a GS1-based UDI would be represented as follows:</p><p class="v2 v2-normalindented v2-indent1440">|(01)00643169001763(17)160712(21)21A11F4855^^2.16.840.1.113883.3.3719^ISO|</p><p class="v2 v2-normalindented">A HIBCC-based example would be represented as follows:</p><p class="v2 v2-normalindented v2-indent1440">|+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ4567890123 45678/16D20130202C^^2.16.840.1.113883.3.3719^ISO</p><p class="v2 v2-normalindented">An ICCBBA-based example would be represented as follows: </p><p class="v2 v2-normalindented v2-indent1440">|=/A9999XYZ100T0944=,000025=A99971312345600=&#62;014032=}013032\T\,1000000000000XYZ123^^2.16.840.1.113883.3.3719^ISO|</p><p class="v2 v2-normalindented v2-indent1440"></p><p class="v2 v2-normalindented">Or for ICCBBA (for blood bags only) an example would be represented as follows:</p><p class="v2 v2-normalindented v2-indent1440">|=)1TE123456A\T\)RZ12345678^^2.16.840.1.113883.3.3719^ISO|</p><p class="v2 v2-normalindented v2-indent0"></p><p class="v2 v2-normalindented">The identifier root shall be the OID assigned to UDI. For example, for FDA UDIs the root shall be 2.16.840.1.113883.3.3719, and the extension shall be the Human Readable Form appropriate for the style of content. When captured as a simple string, the string shall be the Human Readable Form appropriate for the style of content. The content style can be determined from the leading characters of the content:</p><p class="v2 v2-normalindented v2-indent1440">UDIs beginning with: &#160;&#160;&#160;&#160;</p><p class="v2 v2-normalindented v2-indent1440">&#160;&#160;&#160;&#160;‘(‘ are in the GS1 Human Readable style;</p><p class="v2 v2-normalindented v2-indent1440">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;‘0-9’ are a GS1 DI (containing only the DI value, no PI or GS1 AI);</p><p class="v2 v2-normalindented v2-indent1440">&#160;&#160;&#160;&#160;‘+‘ are in the HIBCC Human Readable style;</p><p class="v2 v2-normalindented v2-indent1440">&#160;&#160;&#160;&#160;‘=‘ or ‘&#38;’ are in the ICCBBA Human Readable style.</p><p class="v2 v2-normalindented v2-indent2160">Note: If “&#38;” is used in the UDI while one of the delimiters in MSH.2 includes “&#38;” as well, it must be properly escaped per Chapter 2.7.</p><p class="v2 v2-normalindented">The exchange of UDI sub-elements in PRT-16 through PRT-21 is not required when the full UDI string is provided in PRT-10.  Whether to include some or all these fields as well when PRT-10 is present with a UDI that the rules are subject to specific implementation guides that will have to consider the patient safety implications of potentially conflicting data.</p><p class="v2 v2-normalindented">When a UDI is provided and sub-elements are also provided, then for those sub-elements that are valued, the content must match the content encoded in the UDI if it is encoded within the UDI. </p><p class="v2 v2-normalindented">When communicating a UDI, the UDI may either be uniquely identifying an instance of a device, or a type of device.  This can be asserted based on the inclusion or absence of a serial number in the Product Identifier section of the UDI.  When the serial number is present, PRT-10 must be used, while if it is absent, PRT-22 must be used.</p><p class="v2 v2-normalindented"><strong>Caution:</strong> The UDI may contain personally identifying information in the form of the device <strong>serial number</strong> which may be used to link to other information on a patient. Security and privacy consideration should be addressed, particularly when sending a UDI with a serial number, as that may inadvertently be able to identify a patient. Note: In the US realm that would be addressed by HIPAA. </p><p class="v2 v2-normalindented">Note:  PRT-10 Device is a repeating field.  Additional device identifiers, such as an IEEE EUI-64 may also be contained in this field.</p>
+
+<h4 class='v2' id='PRT-11'>
+PRT-11: Begin Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 02387
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time when the participation began.</p><p class="v2 v2-normalindented">In the case of waypoints, this reflects the time a shipment arrives at the waypoint.</p>
+
+<h4 class='v2' id='PRT-12'>
+PRT-12: End Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 02388
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time when the participation ended.</p><p class="v2 v2-normalindented">In the case of waypoints, this reflects the time a shipment departs from the waypoint.</p>
+
+<h4 class='v2' id='PRT-13'>
+PRT-13: Qualitative Duration (<a href='/data-type/CWE.html'>CWE</a>) 02389
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the qualitative length of time for participation (e.g., until the next assessment, four days, until discharge, etc.).</p>
+
+<h4 class='v2' id='PRT-14'>
+PRT-14: Address (<a href='/data-type/XAD.html'>XAD</a>) 02390
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains addresses associated with the participation.  The address can repeat to indicate alternate addresses or an alternate expression of the same address.</p><p class="v2 v2-normalindented">Condition: The address must be present if the Participation is Performing Organization Medical Director.</p>
+
+<h4 class='v2' id='PRT-15'>
+PRT-15: Telecommunication Address (<a href='/data-type/XTN.html'>XTN</a>) 02391
+</h4>
+<p class="v2 v2-normalindented">Definition:  The waypoint telecommunication address field carries telecommunications addresses for the waypoint.  These telecommunications addresses are used to contact the waypoint for additional information regarding the receipt of the shipment.  The address can repeat to indicate alternate addresses or an alternate expression of the same address.</p>
+
+<h4 class='v2' id='PRT-16'>
+PRT-16: UDI Device Identifier (<a href='/data-type/EI.html'>EI</a>) 03476
+</h4>
+<p class="v2 v2-normalindented">Definition: Provides the U.S. FDA UDI device identifier (DI) element.</p><p class="v2 v2-normalindented">This is the first component in the UDI and acts as the look up key for the Global Unique Device Identification Database (GUDID<span id="chapter-7-footnote-reference-3"><a href="#chapter-7-footnote-3"><sup>3</sup></a></span>), and may be used for retrieving additional attributes.</p><p class="v2 v2-normalindented">When exchanging Device Identifiers (DI) the root shall be the OID, or standards’ appropriate corollary to the OID, assigned to DI and the extension shall be the Human Readable Form of the content. For example, for DIs the root shall be:</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;GS1 DIs: &#160;&#160;&#160;&#160;2.51.1.1</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;HIBCC DIs:&#160;&#160;&#160;&#160;1.0.15961.10.816</p><p class="v2 v2-normalindented v2-indent2880">ICCBBA DIs:&#160;&#160;&#160;&#160;2.16.840.1.113883.6.18.1.17 for Blood containers and 2.16.840.1.113883.6.18.1.34 otherwise.</p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|00643169001763^^2.51.1.1^ISO|</p>
+
+<h4 class='v2' id='PRT-17'>
+PRT-17: Device Manufacture Date (<a href='/data-type/DTM.html'>DTM</a>) 03477
+</h4>
+<p class="v2 v2-normalindented">Definition: Date and time when the device was manufacturered.</p><p class="v2 v2-normalindented">Note:  The user system may need to convert the date and optional hour from the UDI Human Readable Form to a timestamp style data type, augmenting the date as required to provide for a complete date and optionally the hour.  </p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|20140401|</p>
+
+<h4 class='v2' id='PRT-18'>
+PRT-18: Device Expiry Date (<a href='/data-type/DTM.html'>DTM</a>) 03478
+</h4>
+<p class="v2 v2-normalindented">Definition: Date and time when the device is no longer approved for use.</p><p class="v2 v2-normalindented">Note:  The user system may need to convert the date and optional hour from the UDI Human Readable Form to a timestamp style data type, augmenting the date as required to provide for a complete date and optionally the hour.  </p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|20160712|</p>
+
+<h4 class='v2' id='PRT-19'>
+PRT-19: Device Lot Number (<a href='/data-type/ST.html'>ST</a>) 03479
+</h4>
+<p class="v2 v2-normalindented">Definition: Alphanumeric string that identifies the device’s production lot number.</p><p class="v2 v2-normalindented v2-indent0">&#160;&#160;&#160;&#160;Example:&#160;&#160;&#160;&#160;|123ABC|</p>
+
+<h4 class='v2' id='PRT-20'>
+PRT-20: Device Serial Number (<a href='/data-type/ST.html'>ST</a>) 03480
+</h4>
+<p class="v2 v2-normalindented">Definition: Manufacturer’s serial number for this device.</p><p class="v2 v2-normalindented">CAUTION:  See the related privacy considerations discussion in PRT-10.  </p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|21A11F4855|</p>
+
+<h4 class='v2' id='PRT-21'>
+PRT-21: Device Donation Identification (<a href='/data-type/EI.html'>EI</a>) 03481
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies a device related to a donation (e.g., whole blood).</p><p class="v2 v2-normalindented">When exchanging Donation Identification Numbers (DIN) the root shall be the OID assigned to DIN and the extension shall be the Human Readable Form of the content. For example, for DINs the root shall be:</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;ICCBBA DINs:&#160;&#160;&#160;&#160;2.16.840.1.113883.6.18.2.1</p><p class="v2 v2-normalindented">An ICCBBA DIN OID is available for reference where required, but is not required when the specific data element is scoped to ICCBBA DINs.</p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;| RA12345678BA123^^2.16.840.1.113883.6.18.1.34^ISO|</p>
+
+<h4 class='v2' id='PRT-22'>
+PRT-22: Device Type (<a href='/data-type/CNE.html'>CNE</a>) 03483
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the type of device used in the participation.</p><p class="v2 v2-normalindented">When communicating a UDI, the UDI may either be uniquely identifying an instance of a device, or a type of device.  This can be asserted based on the inclusion or absence of a serial number in the Product Identifier section of the UDI.  When the serial number is present, PRT-10 must be used, while if it is absent, PRT-22 must be used.</p><p class="v2 v2-normalindented">When communicating a UDI in this field, the coding system used is limited to FDA (FDAUDI), HIBCC (HIBUDI), ICCBBA (ICCUDI), and GS1 (GS1UDI) coding systems defined in <a href="https://www.hl7.org/fhir/v2/0396/index.html">HL7 Table 0396</a>.</p><p class="v2 v2-normalindented">Condition: At least one of the PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.</p><p class="v2 v2-normalindented">See Externally HL7 defined HL70961 in Chapter 2C for suggested values.  </p>
+
+<h4 class='v2' id='PRT-23'>
+PRT-23: Preferred Method of Contact (<a href='/data-type/CWE.html'>CWE</a>) 00684
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the preferred method to use when communicating particularly when the contact is a person or organization  This is typically used in combination with PRT-5 Person, and/or PRT-8 Organization.  Refer to User-defined Table 0185 - Preferred Method of Contact in Chapter 2C, &quot;Code Tables&quot;, for suggested values. </p>
+
+<h4 class='v2' id='PRT-24'>
+PRT-24: Contact Identifiers (<a href='/data-type/PLN.html'>PLN</a>) 01171
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the contact identifier to use when communicating particularly when the contact is a person or organization  This is typically used in combination with PRT-5 Person, and/or PRT-8 Organization. This repeating field contains the contact&#39;s unique identifiers such as UPIN, Medicare and Medicaid numbers. Refer to User-defined Table 0338 – Practitioner.  </p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

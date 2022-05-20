@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+CP - composite price
+</h3>
+<div class='v2-data-type-content'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - CP - composite price
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+CP
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CP-1'>
+1
+</a>
+</td>
+<td>
+Price
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CP-2'>
+2
+</a>
+</td>
+<td>
+Price Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0205-Price-Type.html' title='Price Type(Required)'>
+0205(R)
+<span class='vocab-link-text'>Price Type(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..2]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CP-3'>
+3
+</a>
+</td>
+<td>
+From Value
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CP-4'>
+4
+</a>
+</td>
+<td>
+To Value
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CP-5'>
+5
+</a>
+</td>
+<td>
+Range Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#CP-6'>
+6
+</a>
+</td>
+<td>
+Range Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0298-CP-Range-Type.html' title='CP Range Type(Required)'>
+0298(R)
+<span class='vocab-link-text'>CP Range Type(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;Price (MO)&#62; &#38; &#60;Price Type (ID)&#62; &#38; &#60;From Value (NM)&#62; &#38; &#60;To Value (NM)&#62; &#38; &#60;Range Units (CWE)&#62; &#38; &#60;Range Type (ID)&#62;</p><p class='v2-components'>Subcomponents for Price (MO): &#60;Quantity (NM)&#62; &#94; &#60;Denomination (ID)&#62;</p>
+<p class='v2-components'>Subcomponents for Range Units (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+</div>
+<br/><p class="v2 v2-normalindented">Example:</p><p class="v2 v2-example">|100.00&#38;USD^UP^0^9^min^P~50.00&#38;USD^UP^10^59^min^P~10.00&#38;USD^UP^60^999^P~50.00&#38;USD^AP~200.00&#38;USD^PF</p><p class="v2 v2-example">~80.00&#38;USD^DC|</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='CP-1'>
+CP-1: Price (<a href='/data-type/MO.html'>MO</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The only required component; usually containing a decimal point. </p><div class="v2-note"><p class="v2"><strong>Note</strong>: Each component of the MO data type (Section <a href="/composition/Control.html">2.A.41</a>, &quot;<a href="/composition/Introduction.html#Introduction-41">MO - money</a>&quot;) is a subcomponent here.</p></div><br/>
+
+<h4 id='CP-2'>
+CP-2: Price Type (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A coded value, data type ID.  Refer to <a href="https://www.hl7.org/fhir/v2/0205/index.html">HL7 Table 0205 – Price Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 id='CP-3'>
+CP-3: From Value (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The number specifying the lower limit or boundary of the range. This component, together with the <a href="/data-type/CP-4.html#CP-4">CP.4 </a>component, specifies the &quot;price range&quot;. The range can be defined as either time or quantity. For example, the range can indicate that the first 10 minutes of the procedure has one price. Another repetition of the data type can use the range to specify that the following 10 to 60 minutes of the procedure is charged at another price per; a final repetition can specify that the final 60 to N minutes of the procedure at a third price.</p><div class="v2-note"><p class="v2"><strong>Note</strong>: If the <a href="/data-type/CP-2.html#CP-2">CP.2 Price Type</a> component is TP, both <a href="/data-type/CP-3.html#CP-3">CP.3</a> and <a href="/data-type/CP-4.html#CP-4">CP.4</a> may be null.</p></div><br/>
+
+<h4 id='CP-4'>
+CP-4: To Value (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The number specifying the high limit or boundary of the range.</p>
+
+<h4 id='CP-5'>
+CP-5: Range Units (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component describes the units associated with the range, e.g., seconds, minutes, hours, days, quantity (i.e., count).  As of v2.7 the Externally-defined Unified Code for Units of Measure (UCUM) case sensitive code is the required code for units of measure.  Refer to the externally-defined table &quot;Unified Code for Units of Measure&quot; (UCUM) [<a href="http://aurora.rg.iupui.edu/UCUM">http://aurora.rg.iupui.edu/UCUM</a>] for valid values. Local codes may be transmitted in addition to UCUM codes. </p><p class="v2 v2-normalindented">This component is required if <a href="/data-type/CP-3.html#CP-3">CP.3 From Value</a> and/or <a href="/data-type/CP-4.html#CP-4">CP.4 To Value</a> are present.</p>
+
+<h4 id='CP-6'>
+CP-6: Range Type (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Refer to <a href="https://www.hl7.org/fhir/v2/0298/index.html">HL7 Table 0298 - CP Range Type</a> for valid values.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

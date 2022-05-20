@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+DRG - Diagnosis Related Group Segment
+</h3>
+<p class="v2 v2-normalindented">The DRG segment contains diagnoses-related grouping information of various types.  The DRG segment is used to send the DRG information, for example, for billing and medical records encoding.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - DRG - Diagnosis Related Group Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+DRG
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Diagnostic Related Group
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0055-Diagnosis-Related-Group.html' title='Diagnosis Related Group'>
+0055
+<span class='vocab-link-text'>Diagnosis Related Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-1'>
+00382
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+DRG Assigned Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-2'>
+00769
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+DRG Approval Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-3'>
+00383
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+DRG Grouper Review Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0056-DRG-Grouper-Review-Code.html' title='DRG Grouper Review Code'>
+0056
+<span class='vocab-link-text'>DRG Grouper Review Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-4'>
+00384
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Outlier Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0083-Outlier-Type.html' title='Outlier Type(Suggested)'>
+0083(S)
+<span class='vocab-link-text'>Outlier Type(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-5'>
+00385
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Outlier Days
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-6'>
+00386
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Outlier Cost
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-7'>
+00387
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+DRG Payor
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0229-DRG-Payor.html' title='DRG Payor'>
+0229
+<span class='vocab-link-text'>DRG Payor</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-8'>
+00770
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Outlier Reimbursement
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-9'>
+00771
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Confidential Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-10'>
+00767
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+DRG Transfer Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0415-Transfer-Type.html' title='Transfer Type(Required)'>
+0415(R)
+<span class='vocab-link-text'>Transfer Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-11'>
+01500
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Name of Coder
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-12'>
+02156
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Grouper Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0734-Grouper-Status.html' title='Grouper Status'>
+0734
+<span class='vocab-link-text'>Grouper Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-13'>
+02157
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+PCCL Value Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0728-CCL-Value.html' title='CCL Value(Required)'>
+0728(R)
+<span class='vocab-link-text'>CCL Value(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-14'>
+02158
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Effective Weight
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-15'>
+02159
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Monetary Amount
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-16'>
+02160
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Status Patient
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0739-DRG-Status-Patient.html' title='DRG Status Patient'>
+0739
+<span class='vocab-link-text'>DRG Status Patient</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-17'>
+02161
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Grouper Software Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-18'>
+02162
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+100
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Grouper Software Version
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-19'>
+02282
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+100
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Status Financial Calculation
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0742-DRG-Status-Financial-Calculation.html' title='DRG Status Financial Calculation(Suggested)'>
+0742(S)
+<span class='vocab-link-text'>DRG Status Financial Calculation(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-20'>
+02163
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Relative Discount/Surcharge
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-21'>
+02164
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Basic Charge
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-22'>
+02165
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Total Charge
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-23'>
+02166
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Discount/Surcharge
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-24'>
+02167
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Calculated Days
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-25'>
+02168
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Status Gender
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0749-DRG-Grouping-Status.html' title='DRG Grouping Status(Suggested)'>
+0749(S)
+<span class='vocab-link-text'>DRG Grouping Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-26'>
+02169
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Status Age
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0749-DRG-Grouping-Status.html' title='DRG Grouping Status(Suggested)'>
+0749(S)
+<span class='vocab-link-text'>DRG Grouping Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-27'>
+02170
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Status Length of Stay
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0749-DRG-Grouping-Status.html' title='DRG Grouping Status(Suggested)'>
+0749(S)
+<span class='vocab-link-text'>DRG Grouping Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-28'>
+02171
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Status Same Day Flag
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0749-DRG-Grouping-Status.html' title='DRG Grouping Status(Suggested)'>
+0749(S)
+<span class='vocab-link-text'>DRG Grouping Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-29'>
+02172
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Status Separation Mode
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0749-DRG-Grouping-Status.html' title='DRG Grouping Status(Suggested)'>
+0749(S)
+<span class='vocab-link-text'>DRG Grouping Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-30'>
+02173
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Status Weight at Birth
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0755-Status-Weight-At-Birth.html' title='Status Weight At Birth'>
+0755
+<span class='vocab-link-text'>Status Weight At Birth</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-31'>
+02174
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Status Respiration Minutes
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0757-DRG-Status-Respiration-Minutes.html' title='DRG Status Respiration Minutes'>
+0757
+<span class='vocab-link-text'>DRG Status Respiration Minutes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-32'>
+02175
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+33
+</td>
+<td>
+Status Admission
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0759-Status-Admission.html' title='Status Admission(Suggested)'>
+0759(S)
+<span class='vocab-link-text'>Status Admission(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DRG-33'>
+02176
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='DRG-1'>
+DRG-1: Diagnostic Related Group (<a href='/data-type/CNE.html'>CNE</a>) 00382
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the DRG for the transaction.  Interim DRG&#39;s could be determined for an encounter.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0055/index.html">Externally-defined Table 0055 – Diagnosis Related G</a><a href="/composition/Financial-Management.html#Financial-Management-4-7">roup</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+
+<h4 class='v2' id='DRG-2'>
+DRG-2: DRG Assigned Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00769
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the time stamp to indicate the date and time that the DRG was assigned.</p>
+
+<h4 class='v2' id='DRG-3'>
+DRG-3: DRG Approval Indicator (<a href='/data-type/ID.html'>ID</a>) 00383
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates if the DRG has been approved by a reviewing entity.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the DRG has been approved by a reviewing entity </p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;the DRG has not been approved</p></li></ul>
+
+<h4 class='v2' id='DRG-4'>
+DRG-4: DRG Grouper Review Code (<a href='/data-type/CWE.html'>CWE</a>) 00384
+</h4>
+<p class="v2 v2-normalindented">Definition:  This code indicates that the grouper results have been reviewed and approved.  Refer to <a href="https://www.hl7.org/fhir/v2/0056/index.html">User-defined Table 0056 - DRG Grouper Review Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-5'>
+DRG-5: Outlier Type (<a href='/data-type/CWE.html'>CWE</a>) 00385
+</h4>
+<p class="v2 v2-normalindented">Definition:  Refers to the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Refer to <a href="https://www.hl7.org/fhir/v2/0083/index.html">User-defined Table 0083 - Outlier Type</a> in Chapter 2C, code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-6'>
+DRG-6: Outlier Days (<a href='/data-type/NM.html'>NM</a>) 00386
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number of days that have been approved as an outlier payment.</p>
+
+<h4 class='v2' id='DRG-7'>
+DRG-7: Outlier Cost (<a href='/data-type/CP.html'>CP</a>) 00387
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount of money that has been approved for an outlier payment.</p>
+
+<h4 class='v2' id='DRG-8'>
+DRG-8: DRG Payor (<a href='/data-type/CWE.html'>CWE</a>) 00770
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the associated DRG Payor.  Refer to <a href="https://www.hl7.org/fhir/v2/0229/index.html">User-defined Table 0229 - DRG Payor</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-9'>
+DRG-9: Outlier Reimbursement (<a href='/data-type/CP.html'>CP</a>) 00771
+</h4>
+<p class="v2 v2-normalindented">Definition:  Where applicable, the outlier reimbursement amount indicates the part of the total reimbursement designated for reimbursement of outlier conditions (day or cost).</p>
+
+<h4 class='v2' id='DRG-10'>
+DRG-10: Confidential Indicator (<a href='/data-type/ID.html'>ID</a>) 00767
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates if the DRG contains a confidential diagnosis.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the DRG contains a confidential diagnosis</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;the DRG does not contain a confidential diagnosis</p></li></ul>
+
+<h4 class='v2' id='DRG-11'>
+DRG-11: DRG Transfer Type (<a href='/data-type/CWE.html'>CWE</a>) 01500
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG&#39;s), for example, exempt or non-exempt. Refer to <a href="https://www.hl7.org/fhir/v2/0415/index.html">User-defined Table 0415 - DRG Transfer Type</a> in Chapter 2C, code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-12'>
+DRG-12: Name of Coder (<a href='/data-type/XPN.html'>XPN</a>) 02156
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field holds the name of the person (&quot;coder&quot;) who supervised or undertook the determination of the DRG code.</p>
+
+<h4 class='v2' id='DRG-13'>
+DRG-13: Grouper Status (<a href='/data-type/CWE.html'>CWE</a>) 02157
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the grouper status in general. Refer to <a href="https://www.hl7.org/fhir/v2/0734/index.html">Externally-defined Table 0734 - Grouper Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-14'>
+DRG-14: PCCL Value Code (<a href='/data-type/CWE.html'>CWE</a>) 02158
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the PCCL (Patient Clinical Complexity Level) value for the calculated DRG as a single value.  This value is calculated based on all individual CCL values calculated so far in relation to the basic DRG.  Refer to <a href="https://www.hl7.org/fhir/v2/0728/index.html">Externally-defined Table 0728 - CCL Value</a> in Chapter 2C, Code Tables, for suggested values. </p>
+
+<h4 class='v2' id='DRG-15'>
+DRG-15: Effective Weight (<a href='/data-type/NM.html'>NM</a>) 02159
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the effective weight as calculated for this DRG.  When exceeding the upper or lower trim point the effective weight is lower or higher.  </p>
+
+<h4 class='v2' id='DRG-16'>
+DRG-16: Monetary Amount (<a href='/data-type/MO.html'>MO</a>) 02160
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the monetary amount as calculated for this DRG, i.e., the sum of money the insurance company will pay.</p>
+
+<h4 class='v2' id='DRG-17'>
+DRG-17: Status Patient (<a href='/data-type/CWE.html'>CWE</a>) 02161
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the patient concerning the financial aspects.  It indicates whether the length of stay is normal or respectively shorter or longer than normal.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0739/index.html">User-defined Table 0739 – DRG Status Patient</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">This field is also used along with DRG-23 and DRG-24 as an indication of whether a surcharge (long length of stay) or a discount (short length of stay) has been determined.</p>
+
+<h4 class='v2' id='DRG-18'>
+DRG-18: Grouper Software Name (<a href='/data-type/ST.html'>ST</a>) 02162
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the software used for grouping.</p>
+
+<h4 class='v2' id='DRG-19'>
+DRG-19: Grouper Software Version (<a href='/data-type/ST.html'>ST</a>) 02282
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the version information of the software used for grouping.</p>
+
+<h4 class='v2' id='DRG-20'>
+DRG-20: Status Financial Calculation (<a href='/data-type/CWE.html'>CWE</a>) 02163
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the DRG calculation regarding the financial aspects.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0742/index.html">User-defined Table 0742 – DRG Status Financial Calculation</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-21'>
+DRG-21: Relative Discount/Surcharge (<a href='/data-type/MO.html'>MO</a>) 02164
+</h4>
+<p class="v2 v2-normalindented">Definition:  There will be a discount/surcharge for the calculated price due to a very short stay, early referral or a very long stay.  This field contains the discount or surcharge that is included in the final price.</p>
+
+<h4 class='v2' id='DRG-22'>
+DRG-22: Basic Charge (<a href='/data-type/MO.html'>MO</a>) 02165
+</h4>
+<p class="v2 v2-normalindented">Definition:  The basic charge is calculated as a multiplication of the relative weight with the base rate.</p>
+
+<h4 class='v2' id='DRG-23'>
+DRG-23: Total Charge (<a href='/data-type/MO.html'>MO</a>) 02166
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the total charge including surcharges or discounts.</p>
+
+<h4 class='v2' id='DRG-24'>
+DRG-24: Discount/Surcharge (<a href='/data-type/MO.html'>MO</a>) 02167
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the discount/surcharge as determined for this DRG.  The addition/reduction is indicated by <a href="/segment-definition/DRG.html#DRG-17">DRG-17 - Status Patient</a>.</p>
+
+<h4 class='v2' id='DRG-25'>
+DRG-25: Calculated Days (<a href='/data-type/NM.html'>NM</a>) 02168
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number of days, for which a surcharge/discount has been determined.  The addition/reduction is indicated by <a href="/segment-definition/DRG.html#DRG-17">DRG-17 - Status Patient</a>.</p>
+
+<h4 class='v2' id='DRG-26'>
+DRG-26: Status Gender (<a href='/data-type/CWE.html'>CWE</a>) 02169
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of the gender information for DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0749/index.html">User-defined Table 0749 – DRG Grouping Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-27'>
+DRG-27: Status Age (<a href='/data-type/CWE.html'>CWE</a>) 02170
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of the age information for DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0749/index.html">User-defined Table 0749 – DRG Grouping Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-28'>
+DRG-28: Status Length of Stay (<a href='/data-type/CWE.html'>CWE</a>) 02171
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the DRG calculation for the length of stay information.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0749/index.html">User-defined Table 0749 – DRG Grouping Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-29'>
+DRG-29: Status Same Day Flag (<a href='/data-type/CWE.html'>CWE</a>) 02172
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of the same day information for DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0749/index.html">User-defined Table 0749 – DRG Grouping Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-30'>
+DRG-30: Status Separation Mode (<a href='/data-type/CWE.html'>CWE</a>) 02173
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of the separation mode information for DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0749/index.html">User-defined Table 0749 – DRG Grouping Status </a>in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-31'>
+DRG-31: Status Weight at Birth (<a href='/data-type/CWE.html'>CWE</a>) 02174
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of the weight at birth information for DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0755/index.html">User-defined Table 0755 – DRG Status Weight At Birth</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-32'>
+DRG-32: Status Respiration Minutes (<a href='/data-type/CWE.html'>CWE</a>) 02175
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of the respiration minutes information for DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0757/index.html">User-defined Table 0757 – DRG Status Respiration Minutes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='DRG-33'>
+DRG-33: Status Admission (<a href='/data-type/CWE.html'>CWE</a>) 02176
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the admission status for the DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0759/index.html">User-defined Table 0759 – Status Admission</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

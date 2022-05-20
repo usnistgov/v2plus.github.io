@@ -1,0 +1,487 @@
+/* FHIR site has 1em, which cuts off bottoms of header text*/
+h1, h2, h3 {
+    line-height: 1.5em;
+}
+
+#v2draft {
+  background-color: gold; 
+  border:1px solid navy;
+  text-align: center;
+  padding: 5px;
+}
+
+/* became necessary when the CSS from converted MS Word docs started colliding with bootstrap-vs.css */
+#v2draft h1 {
+  text-align: center;
+  font-size: 25.2px;
+  margin: 0 0 0.4em 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.5em;
+  color: #000000;
+  text-rendering: optimizelegibility;
+}
+
+
+#diagram {
+  max-width:none;
+  padding-left:10px;
+  padding-right:10px;
+  border: 2px solid #005a8c;
+}
+/* Headers */
+
+h1.v2.domain-title {
+  font-family: "Times New Roman", Times, serif;
+/*  text-align: right;*/
+  font-size: xx-large;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Map */
+.v2-v2plus-map > ul > li > h3 {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+ul.v2-v2plus-map-entries {
+  list-style: none;
+/*  margin-bottom: 20px;*/
+}
+
+li.v2-v2plus-map-entry h3 {
+  line-height:unset;
+}
+
+/* TOC */
+.v2plus-toc > ul > li > h3 {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+ul.v2plus-toc-entries {
+  list-style: none;
+/*  margin-bottom: 20px;*/
+}
+
+li.v2plus-toc-entry h3 {
+  line-height:unset;
+}
+
+
+
+/* Images*/
+
+.v2-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* Hide the big HL7 logo if it sneaks in... */
+.domain-title + div > .v2-image > img {
+    display: none;
+}
+
+/* Miscellaneous */
+
+.message-tabs-caption {
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+    margin: 10px;
+    /* font-size: large; */
+    font-weight: bold;
+}
+
+#v2-homepage-message p {
+  font-size: large;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #005a8c;
+  background: #ffffe6;"
+}
+
+  /*Paragraphs*/
+p.v2 {
+  font-family: "Times New Roman", Times, serif;
+  white-space: pre-wrap;
+}
+
+p.v2.centered {
+  text-align: center;
+}
+
+p.v2.justify {
+  text-align: justify;
+}
+
+p.v2.justify-right {
+  text-align: right;
+}
+
+p.v2-ansidesignation {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-align: right;
+}
+
+
+p.v2-title1 {
+  font-size: xx-large;
+  text-align: right;
+  font-weight: bold;
+}
+
+p.v2-components {
+  font-family: "Courier New", Courier, monospace;
+  text-indent: -100px;
+  padding-left:150px;
+}
+
+p.data-element-definition-marker {
+  padding-left:50px;
+}
+
+p.v2_example, p.v2-example {
+  font-family: "Courier New", Courier, monospace;
+  padding-left:50px;
+}
+
+div > p.v2-normalindented {
+  padding-left:50px;
+}
+
+div > p.v2-indent360 {
+  padding-left:24px;
+}
+
+div > ul.v2-list, div > ol.v2-list {
+  padding-left:100px;
+}
+
+/*Lists*/
+ol.v2-lower-alpha-list {
+    counter-reset: list;
+}
+ol.v2-lower-alpha-list > li {
+    list-style: none;
+    position: relative;
+    font-family: "Times New Roman", Times, serif;
+}
+ol.v2-lower-alpha-list > li:before {
+    counter-increment: list;
+    content: counter(list, lower-alpha) ") ";
+    position: absolute;
+    left: -1.4em;
+}
+
+ul.v2-disc-list-21 > li > ul.v2-disc-list-21 {
+  list-style: circle !important;
+}
+
+/* Examples */
+p.v2.v2-example + p.v2.v2-example {
+  margin-top: -20px;
+}
+
+/*Notes*/
+
+div.v2-note {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+/*Tables*/
+table.v2 {
+  margin-left: auto;
+  margin-right: auto;
+/*  border:none;*/
+}
+
+table.v2 th, table.v2 td {
+/*  border: 1px solid black;*/
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+table.v2 th {
+/*  background-color:#D9D9D9;*/
+  background-color:white;
+/*  text-align:center;*/
+}
+
+td.centered {
+  text-align:center;
+}
+
+table.v2 th p{
+  color:black;
+}
+
+p.v2-othertableheader {
+  text-align:center;
+  font-weight: bold;
+}
+
+p.v2.v2-othertablebody {
+    padding-bottom: unset;
+}
+
+/*Vocab / CodeSystem tables*/
+table.vocab-metadata-table {
+  font-family: Verdana, Geneva, sans-serif;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid black;
+}
+
+table.vocab-metadata-table tr:first-of-type {
+  border: 1px #F0F0F0 solid;
+/*  font-size: 11px;*/
+/*  font-family: Verdana, Geneva, sans-serif;*/
+  vertical-align: top;
+}
+
+table.vocab-metadata-table th {
+  vertical-align: top;
+  text-align: left;
+  background-color: white;
+  padding:0px 4px 0px 4px;
+}
+
+table.vocab-metadata-table td {
+/*  border-right 1px solid black;*/
+  border: 1px solid black;
+}
+
+table.vocab-metadata-table tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+
+/*Concepts tables*/
+table.concepts-table {
+  font-family: Verdana, Geneva, sans-serif;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+table.concepts-table tr:first-of-type {
+/*  border: 1px #F0F0F0 solid;*/
+/*  font-size: 11px;*/
+/*  font-family: Verdana, Geneva, sans-serif;*/
+  vertical-align: top;
+}
+
+table.concepts-table th {
+  vertical-align: top;
+  text-align: left;
+  background-color: white;
+  color:black;
+  padding:0px 4px 0px 4px;
+}
+
+table.concepts-table td {
+  border: 1px solid black;
+}
+
+table.concepts-table tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+
+
+/*Datatype tables*/
+table.datatype-table {
+  font-family: Verdana, Geneva, sans-serif;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid black;
+}
+
+table.datatype-table tr:first-of-type {
+  border: 1px #F0F0F0 solid;
+/*  font-size: 11px;*/
+/*  font-family: Verdana, Geneva, sans-serif;*/
+  vertical-align: top;
+}
+
+table.datatype-table th {
+  vertical-align: top;
+  text-align: left;
+  background-color: white;
+  padding:0px 4px 0px 4px;
+}
+
+table.datatype-table tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+
+/*SegmentDefinition tables*/
+table.segment-definition-table {
+  font-family: Verdana, Geneva, sans-serif;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid black;
+  margin-bottom:20px;
+}
+
+table.segment-definition-table tr:first-of-type {
+  border: 1px #F0F0F0 solid;
+/*  font-size: 11px;*/
+/*  font-family: Verdana, Geneva, sans-serif;*/
+  vertical-align: top;
+}
+
+table.segment-definition-table th {
+  vertical-align: top;
+  text-align: left;
+  background-color: white;
+  padding:0px 4px 0px 4px;
+}
+
+table.segment-definition-table tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+
+/*MessageStructure tables*/
+table.message-structure-table {
+  font-family: Verdana, Geneva, sans-serif;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.message-structure-table tr:first-of-type {
+  border: 1px #F0F0F0 solid;
+/*  font-size: 11px;*/
+/*  font-family: Verdana, Geneva, sans-serif;*/
+  vertical-align: top;
+}
+
+table.message-structure-table th {
+  vertical-align: top;
+  text-align: left;
+  background-color: white;
+  padding:0px 4px 0px 4px;
+}
+
+table.message-structure-table tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+
+/*Acknowledgment Choreography tables*/
+table.acknowledgment-choreography-enhanced-mode-table {
+  font-family: Verdana, Geneva, sans-serif;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table.acknowledgment-choreography-enhanced-mode-table tr th {
+  background-color:#005A8C;
+  color:white;
+  text-align:center;
+}
+
+
+table.acknowledgment-choreography-enhanced-mode-table tr:first-of-type {
+/*  border: 1px #F0F0F0 solid;*/
+/*  font-size: 11px;*/
+/*  font-family: Verdana, Geneva, sans-serif;*/
+/*  vertical-align: top;*/
+}
+
+table.acknowledgment-choreography-enhanced-mode-table th {
+  vertical-align: top;
+  border: 1px solid black;
+/*  background-color: white;*/
+/*  padding:0px 4px 0px 4px;*/
+}
+
+table.acknowledgment-choreography-enhanced-mode-table td {
+  border: 1px solid black;
+/*  background-color: white;*/
+/*  padding:0px 4px 0px 4px;*/
+}
+
+.ack-chor {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.ack-chor h4 {
+  background-color:#005A8C;
+  color:white;
+  text-align:center;
+}
+
+.ack-chor p {
+  padding-left:5px;
+}
+
+
+/* Vocabulary Table links from Data Elements */
+.vocab-link {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.vocab-link .vocab-link-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.vocab-link:hover .vocab-link-text {
+  visibility: visible;
+}
+
+
+.v2-license-table {
+  border:1px solid black;
+  border-collapse: collapse;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.v2-license-table td {
+  padding: 5px;
+  border:1px solid black;
+}
+
+table.v2-history-grid {
+  border: 1px solid gray;
+}
+
+.v2-history-grid tr {
+  border-bottom: 1px solid gray;
+}
+
+table.v2-history-grid th {
+  background-color:#005A8C;  
+}
+
+table.v2-history-grid td, table.v2-history-grid th {
+  padding-right: 5px;
+  padding-left:  15px;
+}

@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+SCH - Schedule Activity Information Segment
+</h3>
+<p class="v2 v2-normalindented">The SCH segment contains general information about the scheduled appointment.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - SCH - Schedule Activity Information Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+SCH
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Placer Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-1'>
+00860
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Filler Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-2'>
+00861
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Occurrence Number
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-3'>
+00862
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Placer Order Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-4'>
+00218
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Schedule ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-5'>
+00864
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Event Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#SCH-6'>
+00883
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Appointment Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0276-Appointment-reason-codes.html' title='Appointment reason codes'>
+0276
+<span class='vocab-link-text'>Appointment reason codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-7'>
+00866
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Appointment Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0277-Appointment-Type-Codes.html' title='Appointment Type Codes(Suggested)'>
+0277(S)
+<span class='vocab-link-text'>Appointment Type Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-8'>
+00867
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Appointment Duration
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-9'>
+00868
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Appointment Duration Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-10'>
+00869
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Appointment Timing Quantity
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-11'>
+00884
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Placer Contact Person
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SCH-12'>
+00874
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Placer Contact Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-13'>
+00875
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Placer Contact Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SCH-14'>
+00876
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Placer Contact Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-15'>
+00877
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Filler Contact Person
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#SCH-16'>
+00885
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Filler Contact Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-17'>
+00886
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Filler Contact Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SCH-18'>
+00887
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Filler Contact Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-19'>
+00888
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Entered By Person
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#SCH-20'>
+00878
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Entered By Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SCH-21'>
+00879
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Entered By Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-22'>
+00880
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Parent Placer Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-23'>
+00881
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Parent Filler Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-24'>
+00882
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Filler Status Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0278-Filler-status-codes.html' title='Filler status codes(Suggested)'>
+0278(S)
+<span class='vocab-link-text'>Filler status codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-25'>
+00889
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SCH-26'>
+00216
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Filler Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SCH-27'>
+00217
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+28
+</td>
+<td>
+Alternate Placer Order Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SCH-28'>
+03547
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='SCH-1'>
+SCH-1: Placer Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00860
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the placer application&#39;s permanent identifier for the appointment request (and the scheduled appointment itself, when it has been confirmed as a booked slot by the filler application).  This is a composite field.</p><p class="v2 v2-normalindented">The first component is a string that identifies an individual appointment request, or a booked appointment.  It is assigned by the placer application, and identifies an appointment request, and the subsequent scheduled appointment, uniquely among all such requests and/or booked appointments from a particular requesting application.  If <a href="/segment-definition/SCH.html#SCH-1">SCH-1-Placer Appointment ID</a> identifies a parent of a repeating schedule request, then the individual child scheduled appointments can be uniquely identified either by a new <a href="/segment-definition/SCH.html#SCH-1">SCH-1-Placer Appointment ID </a>or by <a href="/segment-definition/SCH.html#SCH-23">SCH-23-Parent Placer Appointment ID</a> plus an <a href="/segment-definition/SCH.html#SCH-3">SCH-3-Occurrence Number</a>.</p><p class="v2 v2-normalindented">If a schedule request originates from a placer it MUST have a placer appointment ID.  If the filler sends responses, it may use the placer appointment ID and/or assign a filler appointment ID (which it would echo back to the placer to enable the placer application to associate the two).  If the placer appointment ID is not present, the filler appointment ID must be present and vice versa. </p>
+
+<h4 class='v2' id='SCH-2'>
+SCH-2: Filler Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00861
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the filler application&#39;s permanent identifier for the appointment request (and the scheduled appointment itself, when it has been confirmed as a booked slot by the filler application).  This is a composite field.  </p><p class="v2 v2-normalindented">The first component is a string of up to fifteen characters that identifies an individual appointment request, or a booked appointment.  It is assigned by the filler application, and identifies an appointment request, and the subsequent scheduled appointment, uniquely among all such requests and/or booked appointments from a particular processing application.  If <a href="/segment-definition/SCH.html#SCH-2">SCH-2-Filler Appointment ID</a> identifies a parent of a repeating schedule request, then the individual child scheduled appointments can be uniquely identified either by a new <a href="/segment-definition/SCH.html#SCH-2">SCH-2-Filler Appointment ID</a> or by <a href="/segment-definition/SCH.html#SCH-25">SCH-25-Parent Filler Appointment ID</a> plus an <a href="/segment-definition/SCH.html#SCH-3">SCH-3-Occurrence Number</a>.</p>
+
+<h4 class='v2' id='SCH-3'>
+SCH-3: Occurrence Number (<a href='/data-type/NM.html'>NM</a>) 00862
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used in conjunction with <a href="/segment-definition/SCH.html#SCH-1">SCH-1-Placer Appointment ID</a> and/or <a href="/segment-definition/SCH.html#SCH-2">SCH-2-Filler Appointment ID</a> to uniquely identify an individual occurrence (a child) of a parent repeating schedule appointment.</p><p class="v2 v2-normalindented">This field is conditionally required.  If the transaction using this segment is intended to apply only to one occurrence of a repeating appointment, and an occurrence number is required to uniquely identify the child appointment (that is, the child does not have a separate and unique <a href="/segment-definition/SCH.html#SCH-1">SCH-1-Placer Appointment ID</a> or <a href="/segment-definition/SCH.html#SCH-2">SCH-2-Filler Appointment ID</a>), then this field is required.</p>
+
+<h4 class='v2' id='SCH-4'>
+SCH-4: Placer Order Group Number (<a href='/data-type/EI.html'>EI</a>) 00218
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the Placer Group as referenced by the Placer application, the Filler application, or both. A Placer Group is a set of appointments grouped together by the placer application, and subsequently identified by the placer application and/or by the filler application.</p><p class="v2 v2-normalindented">Within each of the two subcomponents, the first component is a string that identifies a group of appointment requests.  It is assigned by the Placer or Filler application, and it identifies an appointment group uniquely among all such groups of requests from a particular requesting application.</p>
+
+<h4 class='v2' id='SCH-5'>
+SCH-5: Schedule ID (<a href='/data-type/CWE.html'>CWE</a>) 00864
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier code for the schedule in which this appointment is (or will be) booked.  This field is provided for instances in which filler applications maintain multiple schedules, and when a particular resource or set of resources is controlled by more than one of those schedules.</p><p class="v2 v2-normalindented">This field is provided on the SCH segment for informational purposes to applications fulfilling the placer, querying and auxiliary roles.</p>
+
+<h4 class='v2' id='SCH-6'>
+SCH-6: Event Reason (<a href='/data-type/CWE.html'>CWE</a>) 00883
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier code for the reason that the notification event was triggered.  This field may contain a code describing the cancel reason, the delete reason, the discontinue reason, the add reason, the block reason or any other code describing the reason that a specific event will occur.</p><p class="v2 v2-normalindented">This field should not have been made required but is retained as such for reasons of backwards compatibility.</p>
+
+<h4 class='v2' id='SCH-7'>
+SCH-7: Appointment Reason (<a href='/data-type/CWE.html'>CWE</a>) 00866
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier code for the reason that the appointment is to take place.  This field may contain a Universal Service ID describing the observation/test/battery/procedure or other activity that is to take place during the requested appointment, similar to the Universal Service ID defined for the OBR segment in the Order Entry chapter (Chapter 4).  It may also contain a site-specific code describing a pre-defined set of reasons that an appointment may be set to occur.  This code can be based on local and/or universal codes.  The use of universal codes is recommended.  Refer to <a href="https://www.hl7.org/fhir/v2/0276/index.html">User-Defined Table 0276 - Appointment Reason Code</a><a href="s">s</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='SCH-8'>
+SCH-8: Appointment Type (<a href='/data-type/CWE.html'>CWE</a>) 00867
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier code for the type of appointment.  Refer to <a href="https://www.hl7.org/fhir/v2/0277/index.html">User-Defined Table 0277 - Appointment Type Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='SCH-9'>
+SCH-9: Appointment Duration (<a href='/data-type/NM.html'>NM</a>) 00868
+</h4>
+<p class="v2 v2-normalindented"><strong>As of version 2.5, this field was retained for backward compatibility only and withdrawn and removed as of v2.7.</strong> Refer to the TQ1 segment described in Chapter 4.</p>
+
+<h4 class='v2' id='SCH-10'>
+SCH-10: Appointment Duration Units (<a href='/data-type/CNE.html'>CNE</a>) 00869
+</h4>
+<p class="v2 v2-normalindented"><strong>As of version 2.5, this field is retained for backward compatibility only.</strong> Refer to the TQ1 segment described in Chapter 4.</p><p class="v2 v2-normalindented">Definition:  This field contains a code describing the units of time used for expressing the <a href="/segment-definition/ARQ.html#ARQ-9">ARQ-9-Appointment Duration</a> field.  This field should be valued according to the recommendations in Chapters 2 and 7.  If this component is not valued, the ISO base unit of seconds (code &quot;<em>s</em>&quot;) is assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO and ANSI+ unit codes.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 96%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.13%;'/><col span='1' style='width: 27.86%;'/><col span='1' style='width: 55.99%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.13%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:27.86%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:55.99%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.13%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:27.86%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:55.99%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.13%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:27.86%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:55.99%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/>
+
+<h4 class='v2' id='SCH-11'>
+SCH-11: Appointment Timing Quantity (<a href='/data-type/.html'></a>) 00884
+</h4>
+<p class="v2 v2-normalindented"><strong>As of version 2.5, this field was retained for backward compatibility only and withdrawn and removed as of v2.7.</strong> Refer to the TQ1 segment described in Chapter 4.</p>
+
+<h4 class='v2' id='SCH-12'>
+SCH-12: Placer Contact Person (<a href='/data-type/XCN.html'>XCN</a>) 00874
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person responsible for requesting the scheduling of a requested appointment.  Most often, this person will be the same person responsible for executing the appointment. </p>
+
+<h4 class='v2' id='SCH-13'>
+SCH-13: Placer Contact Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00875
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number used to contact the <a href="/segment-definition/SCH.html#SCH-12">SCH-12-Placer Contact Person</a>.</p>
+
+<h4 class='v2' id='SCH-14'>
+SCH-14: Placer Contact Address (<a href='/data-type/XAD.html'>XAD</a>) 00876
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address used to contact the <a href="/segment-definition/SCH.html#SCH-12">SCH-12-Placer Contact Person</a>. </p>
+
+<h4 class='v2' id='SCH-15'>
+SCH-15: Placer Contact Location (<a href='/data-type/PL.html'>PL</a>) 00877
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the location of the <a href="/segment-definition/SCH.html#SCH-12">SCH-12-Placer Contact Person</a>. </p>
+
+<h4 class='v2' id='SCH-16'>
+SCH-16: Filler Contact Person (<a href='/data-type/XCN.html'>XCN</a>) 00885
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person responsible for the scheduling of the requested appointment.  Most often, this person will be the same person responsible for maintaining the schedule and for reviewing appointment requests.  </p><p class="v2 v2-normalindented">This field should not have been made required but is retained as such for reasons of backward compatibility.</p>
+
+<h4 class='v2' id='SCH-17'>
+SCH-17: Filler Contact Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00886
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number used to contact the <a href="/segment-definition/SCH.html#SCH-16">SCH-16-Filler Contact Person</a>.</p>
+
+<h4 class='v2' id='SCH-18'>
+SCH-18: Filler Contact Address (<a href='/data-type/XAD.html'>XAD</a>) 00887
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address used to contact the <a href="/segment-definition/SCH.html#SCH-16">SCH-16-Filler Contact Person</a>.</p>
+
+<h4 class='v2' id='SCH-19'>
+SCH-19: Filler Contact Location (<a href='/data-type/PL.html'>PL</a>) 00888
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the location of the <a href="/segment-definition/SCH.html#SCH-16">SCH-16-Filler Contact Person</a>.  </p>
+
+<h4 class='v2' id='SCH-20'>
+SCH-20: Entered By Person (<a href='/data-type/XCN.html'>XCN</a>) 00878
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person responsible for entering the request for the scheduling of an appointment.  It is included to provide an audit trail of persons responsible for the request.  This person may be someone other than the placer contact person, who is responsible for entering orders and requests. </p><p class="v2 v2-normalindented">This field should not have been made required but is retained as such for reasons of backwards compatibility.</p>
+
+<h4 class='v2' id='SCH-21'>
+SCH-21: Entered By Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00879
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number used to contact the <a href="/segment-definition/ARQ.html#ARQ-19">ARQ-19-Entered by Person</a>.</p>
+
+<h4 class='v2' id='SCH-22'>
+SCH-22: Entered By Location (<a href='/data-type/PL.html'>PL</a>) 00880
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the location of the entered by person.  </p>
+
+<h4 class='v2' id='SCH-23'>
+SCH-23: Parent Placer Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00881
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child to its parent, when a parent-child relationship exists.  It contains the placer application&#39;s permanent identifier for the parent of the appointment request.  This is a composite field.  </p><p class="v2 v2-normalindented">The first component is a string that identifies the parent appointment request.  It is assigned by the placer application, and identifies an appointment request uniquely among all such requests from a particular requesting application.</p>
+
+<h4 class='v2' id='SCH-24'>
+SCH-24: Parent Filler Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00882
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child to its parent, when a parent-child relationship exists.  It contains the filler application&#39;s permanent identifier for the parent of the appointment request.  This is a composite field.</p><p class="v2 v2-normalindented">The first component is a string that identifies the parent appointment request.  It is assigned by the filler application, and it identifies an appointment request uniquely among all such requests on a particular processing application.</p><p class="v2 v2-normalindented">This is a conditionally required field.  On initial messages where a filler has not yet assigned a filler appointment ID, this field should not contain a value.  In all other subsequent messages, where a filler application has assigned a filler appointment ID, this field is required.</p>
+
+<h4 class='v2' id='SCH-25'>
+SCH-25: Filler Status Code (<a href='/data-type/CWE.html'>CWE</a>) 00889
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code describing the status of the appointment with respect to the filler application.  Refer to <a href="https://www.hl7.org/fhir/v2/0278/index.html">User-Defined Table 0278 - Filler Status Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='SCH-26'>
+SCH-26: Placer Order Number (<a href='/data-type/EI.html'>EI</a>) 00216
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the placer application&#39;s order number for the order associated with this scheduling filler application response.</p><p class="v2 v2-normalindented">This field is described in detail in Section 4.5.1.2.  It is an optional field, but if a Placer order number is present, then a Filler order number (Section 10.6.2.27) must also be present. Both this field and the Filler order number below may have been sent as part of the appointment request in the ARQ segment or they may be assigned by the scheduling filler application only.</p>
+
+<h4 class='v2' id='SCH-27'>
+SCH-27: Filler Order Number (<a href='/data-type/EI.html'>EI</a>) 00217
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the order number assigned by the filler application for the order associated with this scheduling filler response.  </p><p class="v2 v2-normalindented">This field is described in detail in Chapter 4, Orders, section 4.5.1.3.  It is conditionally mandatory depending on the presence of the placer order number (section <a href="/composition/Scheduling.html#Scheduling-6-2-26">10.6.2.26</a>).  This conditionally mandatory requirement addresses the concern that a Scheduling system cannot and should not create or fill an order.  Therefore, an order must have been accepted by the order filler application before scheduling the resources associated with that order.</p>
+
+<h4 class='v2' id='SCH-28'>
+SCH-28: Alternate Placer Order Group Number (<a href='/data-type/EIP.html'>EIP</a>) 03547
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the Placer Group as referenced by the Placer application, the Filler application, or both. A Placer Group is a set of appointments grouped together by the placer application, and subsequently identified by the placer application and/or by the filler application.</p><p class="v2 v2-normalindented">Within each of the two Subcomponents, the first component is a string that identifies a group of appointment requests.  It is assigned by the placer or filler application, and it identifies an appointment group uniquely among all such groups of requests from a particular requesting application.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+NK1 - Next Of Kin / Associated Parties Segment
+</h3>
+<p class="v2 v2-normalindented">The NK1 segment contains information about the patient&#39;s other related parties.  Any associated parties may be identified.  Utilizing <a href="/segment-definition/NK1.html#NK1-1">NK1-1 - set ID</a>, multiple NK1 segments can be sent to patient accounts.</p><p class="v2 v2-normalindented">If a person or organization fulfills multiple contact roles, for example, a person is an emergency contact and a next of kin, it is recommended to send a NK1 segment for each contact role (field 7).</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - NK1 - Next of Kin / Associated Parties Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+NK1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - NK1
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#NK1-1'>
+00190
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0200-Name-Type.html' title='Name Type(Required)'>
+0200(R)
+<span class='vocab-link-text'>Name Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-2'>
+00191
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Relationship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0063-Relationship.html' title='Relationship'>
+0063
+<span class='vocab-link-text'>Relationship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-3'>
+00192
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-4'>
+00193
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#NK1-5'>
+00194
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Business Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#NK1-6'>
+00195
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Contact Role
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0131-Contact-Role.html' title='Contact Role'>
+0131
+<span class='vocab-link-text'>Contact Role</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-7'>
+00196
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Start Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-8'>
+00197
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+End Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-9'>
+00198
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Next of Kin / Associated Parties Job Title
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-10'>
+00199
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Next of Kin / Associated Parties Job Code/Class
+</td>
+<td class='centered'>
+<a href='/data-type/JCC.html'>
+JCC
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-11'>
+00200
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Next of Kin / Associated Parties Employee Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-12'>
+00201
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Organization Name - NK1
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-13'>
+00202
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Marital Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0002-Marital-Status.html' title='Marital Status(Suggested)'>
+0002(S)
+<span class='vocab-link-text'>Marital Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-14'>
+00119
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Administrative Sex
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0001-Administrative-Sex.html' title='Administrative Sex(Suggested)'>
+0001(S)
+<span class='vocab-link-text'>Administrative Sex(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-15'>
+00111
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Date/Time of Birth
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-16'>
+00110
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Living Dependency
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0223-Living-Dependency.html' title='Living Dependency'>
+0223
+<span class='vocab-link-text'>Living Dependency</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-17'>
+00755
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Ambulatory Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0009-Ambulatory-Status.html' title='Ambulatory Status(Suggested)'>
+0009(S)
+<span class='vocab-link-text'>Ambulatory Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-18'>
+00145
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Citizenship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0171-Citizenship.html' title='Citizenship'>
+0171
+<span class='vocab-link-text'>Citizenship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-19'>
+00129
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Primary Language
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0296-Primary-Language.html' title='Primary Language'>
+0296
+<span class='vocab-link-text'>Primary Language</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-20'>
+00118
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Living Arrangement
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0220-Living-Arrangement.html' title='Living Arrangement'>
+0220
+<span class='vocab-link-text'>Living Arrangement</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-21'>
+00742
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Publicity Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0215-Publicity-Code.html' title='Publicity Code'>
+0215
+<span class='vocab-link-text'>Publicity Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-22'>
+00743
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Protection Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-23'>
+00744
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Student Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0231-Student-Status.html' title='Student Status(Suggested)'>
+0231(S)
+<span class='vocab-link-text'>Student Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-24'>
+00745
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Religion
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0006-Religion.html' title='Religion(Suggested)'>
+0006(S)
+<span class='vocab-link-text'>Religion(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-25'>
+00120
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Mother's Maiden Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-26'>
+00109
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Nationality
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0212-Nationality.html' title='Nationality'>
+0212
+<span class='vocab-link-text'>Nationality</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-27'>
+00739
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Ethnic Group
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0189-Ethnic-Group.html' title='Ethnic Group'>
+0189
+<span class='vocab-link-text'>Ethnic Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-28'>
+00125
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Contact Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0222-Contact-Reason.html' title='Contact Reason'>
+0222
+<span class='vocab-link-text'>Contact Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-29'>
+00747
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Contact Person's Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0200-Name-Type.html' title='Name Type(Required)'>
+0200(R)
+<span class='vocab-link-text'>Name Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-30'>
+00748
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Contact Person's Telephone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#NK1-31'>
+00749
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Contact Person's Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-32'>
+00750
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Next of Kin/Associated Party's Identifiers
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-33'>
+00751
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Job Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0311-Job-Status.html' title='Job Status'>
+0311
+<span class='vocab-link-text'>Job Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-34'>
+00752
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Race
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0005-Race.html' title='Race(Suggested)'>
+0005(S)
+<span class='vocab-link-text'>Race(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#NK1-35'>
+00113
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Handicap
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0295-Handicap.html' title='Handicap'>
+0295
+<span class='vocab-link-text'>Handicap</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-36'>
+00753
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Contact Person Social Security Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-37'>
+00754
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+16
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Next of Kin Birth Place
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-38'>
+01905
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+VIP Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0099-VIP-Indicator.html' title='VIP Indicator'>
+0099
+<span class='vocab-link-text'>VIP Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-39'>
+00146
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+Next of Kin Telecommunication Information
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-40'>
+02292
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+41
+</td>
+<td>
+Contact Person's Telecommunication Information
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#NK1-41'>
+02293
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='NK1-1'>
+NK1-1: Set ID - NK1 (<a href='/data-type/SI.html'>SI</a>) 00190
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the number that identifies this transaction.  For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.</p>
+
+<h4 class='v2' id='NK1-2'>
+NK1-2: Name (<a href='/data-type/XPN.html'>XPN</a>) 00191
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains one or more of the names of the next of kin or associated party.  The <a href="/data-type/XPN-7.html#XPN-7">XPN.7 Name Type Code</a>, and not the order, conveys how the name should be interpreted. As of v 2.7 Name Type Code is required.  Refer to <a href="https://www.hl7.org/fhir/v2/0200/index.html">HL7 Table 0200 - Name Type</a> in Chapter 2C, Code Tables, for valid values.  Specification of meaning based on sequence is deprecated.</p><p class="v2 v2-normalindented">In addition to allowing repetition of this field for transmitting multiple names with different Name Type Codes, repetition also allows for representing the same name in different character sets based on the value in<a href="/data-type/XPN-8.html#XPN-8"> XPN.8 Name Representation Code</a>.  </p>
+
+<h4 class='v2' id='NK1-3'>
+NK1-3: Relationship (<a href='/data-type/CWE.html'>CWE</a>) 00192
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the actual personal relationship that the next of kin/associated party has to the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0063/index.html">User-defined Table 0063 - Relationship</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-4'>
+NK1-4: Address (<a href='/data-type/XAD.html'>XAD</a>) 00193
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address of the next of kin/associated party.  Multiple addresses are allowed for the same person.  As of v2.7 the &quot;primary mailing address&quot; constraint as the first sequence has been removed. Primary Mailing Address is not an entry in either <a href="/data-type/XAD-7.html#XAD-7">XAD.7 – Address Type</a> or in <a href="/data-type/XAD-18.html#XAD-18">XAD.18 – Address Usage</a>.</p>
+
+<h4 class='v2' id='NK1-5'>
+NK1-5: Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00194
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention:</strong> The NK1-5 field was retained for backward compatibility as of v2.7 and withdrawn as of v 2.9. The reader is referred to section <a href="/segment-definition/NK1.html#NK1-40">3.4.5.40 NK1-40</a> instead. This field contains the telephone number of the next of kin/associated party.  Multiple phone numbers are allowed for the same person.  The primary telephone number must be sent in the first sequence.  If the primary telephone number is not sent, then the repeat delimiter must be sent in the first sequence.  Refer to <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='NK1-6'>
+NK1-6: Business Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00195
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention:</strong> The NK1-5 field was retained for backward compatibility as of v2.7 and withdrawn as of v 2.9. The reader is referred to section <a href="/segment-definition/NK1.html#NK1-40">3.4.5.40 NK1-40</a> instead.  Multiple phone numbers are allowed for the same person.  The primary business telephone number must be sent in the first sequence.  If the primary business telephone number is not sent, then the repeat delimiter must be sent in the first sequence. Refer to <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='NK1-7'>
+NK1-7: Contact Role (<a href='/data-type/CWE.html'>CWE</a>) 00196
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the specific relationship role.  Refer to <a href="https://www.hl7.org/fhir/v2/0131/index.html">User-defined Table 0131 - Contact Role</a> in Chapter 2C, Code Tables, for suggested values.  This field specifies the role that the next of kin/associated parties plays with regard to the patient.</p>
+
+<h4 class='v2' id='NK1-8'>
+NK1-8: Start Date (<a href='/data-type/DT.html'>DT</a>) 00197
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the start date of the contact role.</p>
+
+<h4 class='v2' id='NK1-9'>
+NK1-9: End Date (<a href='/data-type/DT.html'>DT</a>) 00198
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the end date of the contact role.</p>
+
+<h4 class='v2' id='NK1-10'>
+NK1-10: Next of Kin / Associated Parties Job Title (<a href='/data-type/ST.html'>ST</a>) 00199
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the title of the next of kin/associated parties at their place of employment.  However, if the contact role is the patient&#39;s employer, this field contains the job title of the patient at their place of employment.</p>
+
+<h4 class='v2' id='NK1-11'>
+NK1-11: Next of Kin / Associated Parties Job Code/Class (<a href='/data-type/JCC.html'>JCC</a>) 00200
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the employer&#39;s job code and the employee classification used for the next of kin/associated parties at their place of employment. However, if the contact role is the patient&#39;s employer, this field contains the job code/class of the patient at their place of employment.  </p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The JCC data element appears in other segments as ITEM# 00786 (GT1-50, IN2-47, STF-19).  It is assigned a different ITEM# in the NK1 segment because the element name and usage is variable.  For example the job code/class can be for the patient&#39;s employer, or for an associated party&#39;s employment information.</p></div><br/>
+
+<h4 class='v2' id='NK1-12'>
+NK1-12: Next of Kin / Associated Parties Employee Number (<a href='/data-type/CX.html'>CX</a>) 00201
+</h4>
+<p class="v2 v2-normalindented">Definition: For backward compatibility, the ST data type can be sent; however, HL7 recommends that the CX data type be used for new implementations.  This field contains the number that the employer assigns to the employee that is acting as next of kin/associated parties. However, if the contact role is the patient&#39;s employer, this field contains the employee number of the patient at their place of employment.  The assigning authority and identifier type codes are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='NK1-13'>
+NK1-13: Organization Name - NK1 (<a href='/data-type/XON.html'>XON</a>) 00202
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the organization that serves as a next of kin/associated party or as the next of kin of the patient.  This field may also be used to communicate the name of the organization at which the associated party works.  Multiple names for the same organization may be sent.  If multiple names are sent, the legal name must be sent in the first sequence.  If the legal name is not sent, then a repeat delimiter must be sent in the first sequence.</p>
+
+<h4 class='v2' id='NK1-14'>
+NK1-14: Marital Status (<a href='/data-type/CWE.html'>CWE</a>) 00119
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party&#39;s marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status </a>in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-15'>
+NK1-15: Administrative Sex (<a href='/data-type/CWE.html'>CWE</a>) 00111
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party&#39;s sex.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 - Administrative Sex</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-16'>
+NK1-16: Date/Time of Birth (<a href='/data-type/DTM.html'>DTM</a>) 00110
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party&#39;s birth date and time.</p>
+
+<h4 class='v2' id='NK1-17'>
+NK1-17: Living Dependency (<a href='/data-type/CWE.html'>CWE</a>) 00755
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient&#39;s healthcare needs.  This information can be used for discharge planning.  Examples might include Spouse Dependent, Medical Supervision Required, Small Children Dependent.  This field repeats because, for example, &quot;spouse dependent&quot; and &quot;medical supervision required&quot; can apply at the same time.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-18'>
+NK1-18: Ambulatory Status (<a href='/data-type/CWE.html'>CWE</a>) 00145
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the transient rate of mobility for the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0009/index.html">User-defined Table 0009 - Ambulatory Status</a> in Chapter 2C, Code Tables  for suggested values.</p>
+
+<h4 class='v2' id='NK1-19'>
+NK1-19: Citizenship (<a href='/data-type/CWE.html'>CWE</a>) 00129
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code to identify the next of kin/associated party&#39;s citizenship.  HL7 recommends using ISO 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='NK1-20'>
+NK1-20: Primary Language (<a href='/data-type/CWE.html'>CWE</a>) 00118
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the next of kin/associated party&#39;s primary speaking language.  HL7 recommends using ISO 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Language</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='NK1-21'>
+NK1-21: Living Arrangement (<a href='/data-type/CWE.html'>CWE</a>) 00742
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the situation that the associated party lives in at his/her residential address.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-22'>
+NK1-22: Publicity Code (<a href='/data-type/CWE.html'>CWE</a>) 00743
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates what level of publicity is allowed (e.g., No Publicity, Family Only) for the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-23'>
+NK1-23: Protection Indicator (<a href='/data-type/ID.html'>ID</a>) 00744
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies that next of kin/associated party&#39;s protection that determines, in turn, whether access to information about this person should be kept from users who do not have adequate authority.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;protect access to next-of-kin information</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;normal access</p></li></ul>
+
+<h4 class='v2' id='NK1-24'>
+NK1-24: Student Indicator (<a href='/data-type/CWE.html'>CWE</a>) 00745
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies whether the next of kin/associated party is currently a student or not, and whether the next of kin/associated party is a full- or a part-time student.  This field does not indicate the degree (high school, college) of the student or the field of study.  Refer to <a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231 - Student Status</a> in chapter 2C, for suggested values.</p>
+
+<h4 class='v2' id='NK1-25'>
+NK1-25: Religion (<a href='/data-type/CWE.html'>CWE</a>) 00120
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-26'>
+NK1-26: Mother's Maiden Name (<a href='/data-type/XPN.html'>XPN</a>) 00109
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the maiden name of the next of kin/associated party&#39;s mother.</p>
+
+<h4 class='v2' id='NK1-27'>
+NK1-27: Nationality (<a href='/data-type/CWE.html'>CWE</a>) 00739
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the nation or national group to which the next of kin/associated party belongs.  This information may be different than the person&#39;s citizenship in countries in which multiple nationalities are recognized (e.g., Spain: Basque, Catalan, etc.). Refer to <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-28'>
+NK1-28: Ethnic Group (<a href='/data-type/CWE.html'>CWE</a>) 00125
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party&#39;s ethnic group.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+
+<h4 class='v2' id='NK1-29'>
+NK1-29: Contact Reason (<a href='/data-type/CWE.html'>CWE</a>) 00747
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies how the contact should be used (e.g., contact employer if patient is unable to work). Refer to <a href="https://www.hl7.org/fhir/v2/0222/index.html">User-defined Table 0222 - Contact Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-30'>
+NK1-30: Contact Person's Name (<a href='/data-type/XPN.html'>XPN</a>) 00748
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains one or more of the names of the person to contact, depending on the value of the relationship defined in <a href="/segment-definition/NK1.html#NK1-3">NK1-3 - Relationship</a>.  This field is typically needed when the NK1 is an organization.  The <a href="/data-type/XPN-7.html#XPN-7">XPN.7 Name Type Code</a>, and not the order, conveys how the name should be interpreted. As of v2.7, Name Type Code is required.  Refer to <a href="https://www.hl7.org/fhir/v2/0200/index.html">HL7 Table 0200 - Name Type</a> in Chapter 2C, Code Tables, for valid values. Specification of meaning based on sequence is deprecated.</p><p class="v2 v2-normalindented">In addition to allowing repetition of this field for transmitting multiple names with different Name Type Codes, repetition also allows for representing the same name in different character sets based on the value in <a href="/data-type/XPN-8.html#XPN-8">XPN.8 Name Representation Code</a>.  </p>
+
+<h4 class='v2' id='NK1-31'>
+NK1-31: Contact Person's Telephone Number (<a href='/data-type/XTN.html'>XTN</a>) 00749
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention:</strong> The NK1-31 field was retained for backward compatibility as of v2.7 and withdrawn as of v 2.9 The reader is referred to section <a href="/composition/Patient-Administration.html#Patient-Administration-3-5-41">3.3.5.41 NK-41 Contact Person’s Telecommunication Information </a>instead. This field contains the telephone numbers of the contact person depending on the value of the relationship defined in <a href="/segment-definition/NK1.html#NK1-3">NK1-3 - Relationship</a>.  This field is typically needed when the NK1 is an organization.  The primary telephone number must be sent in the first sequence.  If the primary telephone number is not sent, then a repeat delimiter must be sent in the first sequence.  Refer to <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='NK1-32'>
+NK1-32: Contact Person's Address (<a href='/data-type/XAD.html'>XAD</a>) 00750
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the addresses of the contact person depending on the value of the relationship defined in <a href="/segment-definition/NK1.html#NK1-3">NK1-3 - Relationship</a>.  This field is typically used when the NK1 is an organization.  As of v2.7, the &quot;primary mailing address&quot; constraint as the first sequence has been removed. Primary Mailing Address is not an entry in either <a href="/data-type/XAD-7.html#XAD-7">XAD.7 – Address Type</a> or in <a href="/data-type/XAD-18.html#XAD-18">XAD.18 – Address Usage</a>.</p>
+
+<h4 class='v2' id='NK1-33'>
+NK1-33: Next of Kin/Associated Party's Identifiers (<a href='/data-type/CX.html'>CX</a>) 00751
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifiers for the next of kin/associated party, for example, Social Security Number, driver&#39;s license, etc.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='NK1-34'>
+NK1-34: Job Status (<a href='/data-type/CWE.html'>CWE</a>) 00752
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the next of kin/associated party&#39;s job status.  Refer to <a href="https://www.hl7.org/fhir/v2/0311/index.html">User-defined Table 0311 - Job Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-35'>
+NK1-35: Race (<a href='/data-type/CWE.html'>CWE</a>) 00113
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the race of the next of kin/associated party. Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+
+<h4 class='v2' id='NK1-36'>
+NK1-36: Handicap (<a href='/data-type/CWE.html'>CWE</a>) 00753
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code that describes an associated party&#39;s disability.  Refer to <a href="https://www.hl7.org/fhir/v2/0295/index.html">User-defined Table 0295 - Handicap</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='NK1-37'>
+NK1-37: Contact Person Social Security Number (<a href='/data-type/ST.html'>ST</a>) 00754
+</h4>
+<p class="v2 v2-normalindented">Definition:  In the US, this field contains the contact person&#39;s social security number.  This number may also be a RR retirement number.  For the Social Security number of the associated party, see <a href="/segment-definition/NK1.html#NK1-33">NK1-33 - Next of Kin/Associated Party&#39;s identifiers</a>.</p>
+
+<h4 class='v2' id='NK1-38'>
+NK1-38: Next of Kin Birth Place (<a href='/data-type/ST.html'>ST</a>) 01905
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the location of the next-of-kin&#39;s birth; for example, &quot;St. Francis Community Hospital of Lower South Side.&quot;  The actual address is reported in <a href="/segment-definition/NK1.html#NK1-4">NK1-4 - Address</a> with an identifier of &quot;N&quot;.</p>
+
+<h4 class='v2' id='NK1-39'>
+NK1-39: VIP Indicator (<a href='/data-type/CWE.html'>CWE</a>) 00146
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of VIP for the next-of-kin.  Refer to <a href="https://www.hl7.org/fhir/v2/0099/index.html">User-defined Table 0099 – VIP Indicator</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='NK1-40'>
+NK1-40: Next of Kin Telecommunication Information (<a href='/data-type/XTN.html'>XTN</a>) 02292
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the next of kin’s telecommunication contact information. This field replaces <a href="/segment-definition/NK1.html#NK1-5">NK1-5 – Phone Number</a> and <a href="/segment-definition/NK1.html#NK1-6">NK1-6 – Business Phone Number</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). Jointly, these components will describe the nature of the telecommunication data contained in this field.</p>
+
+<h4 class='v2' id='NK1-41'>
+NK1-41: Contact Person's Telecommunication Information (<a href='/data-type/XTN.html'>XTN</a>) 02293
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the contact person’s telecommunication contact information. This field replaces <a href="/segment-definition/NK1.html#NK1-31">NK1-31 – Contact Person’s Telephone Number</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). Jointly, these components will describe the nature of the telecommunication data contained in this field.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

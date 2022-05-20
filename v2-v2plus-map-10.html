@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html'>
+Chapter 10 - Scheduling
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-1'>
+    10.1  CHAPTER 10 CONTENTS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2'>
+    10.2  PURPOSE
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-1'>
+        10.2.1  Schedules, Appointments, Services, and Resources
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-1-1'>
+            10.2.1.1  Schedules
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-1-2'>
+            10.2.1.2  Services and Resources
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-1-3'>
+            10.2.1.3  Appointments
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-1-4'>
+            10.2.1.4  Parent and Child Appointments
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-2'>
+        10.2.2  Application Roles
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-2-1'>
+            10.2.2.1  The Filler Application Role
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-2-2'>
+            10.2.2.2  The Placer Application Role
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-2-3'>
+            10.2.2.3  The Querying Application Role
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-2-4'>
+            10.2.2.4  The Auxiliary Application Role
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-2-5'>
+            10.2.2.5  Application Roles in a Messaging Environment
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-3'>
+        10.2.3  Trigger Events, Status, Reasons, and Types
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-3-1'>
+            10.2.3.1  Trigger Events
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-3-2'>
+            10.2.3.2  Status
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-3-3'>
+            10.2.3.3  Reasons
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-3-4'>
+            10.2.3.4  Types
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-4'>
+        10.2.4  Appointments, Orders, and Referrals
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5'>
+        10.2.5  Glossary
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-1'>
+            10.2.5.1  Appointment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-2'>
+            10.2.5.2  Auxiliary Application
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-3'>
+            10.2.5.3  Block
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-4'>
+            10.2.5.4  Book
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-5'>
+            10.2.5.5  Child Appointment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-6'>
+            10.2.5.6  Filler Application
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-7'>
+            10.2.5.7  Parent Appointment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-8'>
+            10.2.5.8  Placer Application
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-9'>
+            10.2.5.9  Querying Application
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-10'>
+            10.2.5.10  Resource
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-11'>
+            10.2.5.11  Schedule
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-12'>
+            10.2.5.12  Service
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-5-13'>
+            10.2.5.13  Slot
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-6'>
+        10.2.6  Organization of This Chapter:  Trigger Events and Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-2-6-1'>
+            10.2.6.1  Update mode
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3'>
+    10.3  PLACER APPLICATION REQUESTS AND TRIGGER EVENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-1'>
+        10.3.1  Request New Appointment Booking (Event S01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-2'>
+        10.3.2  Request Appointment Rescheduling (Event S02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-3'>
+        10.3.3  Request Appointment Modification (Event S03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-4'>
+        10.3.4  Request Appointment Cancellation (Event S04)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-5'>
+        10.3.5  Request Appointment Discontinuation (Event S05)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-6'>
+        10.3.6  Request Appointment Deletion (Event S06)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-7'>
+        10.3.7  Request Addition of Service/Resource on Appointment (Event S07)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-8'>
+        10.3.8  Request Modification of Service/Resource on Appointment (Event S08)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-9'>
+        10.3.9  Request Cancellation of Service/Resource on Appointment (Event S09)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-10'>
+        10.3.10  Request Discontinuation of Service/Resource on Appointment (Event S10)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-3-11'>
+        10.3.11  Request Deletion of Service/Resource on Appointment (Event S11)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4'>
+    10.4  FILLER APPLICATION MESSAGES AND TRIGGER EVENTS UNSOLICITED
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-1'>
+        10.4.1  Notification of New Appointment Booking (Event S12)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-2'>
+        10.4.2  Notification of Appointment Rescheduling (Event S13)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-3'>
+        10.4.3  Notification of Appointment Modification (Event S14)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-4'>
+        10.4.4  Notification of Appointment Cancellation (Event S15)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-5'>
+        10.4.5  Notification of Appointment Discontinuation (Event S16)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-6'>
+        10.4.6  Notification of Appointment Deletion (Event S17)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-7'>
+        10.4.7  Notification of Addition of Service/Resource on Appointment (Event S18)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-8'>
+        10.4.8  Notification of Modification of Service/Resource on Appointment (Event S19)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-9'>
+        10.4.9  Notification of Cancellation of Service/Resource on Appointment (Event S20)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-10'>
+        10.4.10  Notification of Discontinuation of Service/Resource on Appointment (Event S21)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-11'>
+        10.4.11  Notification of Deletion of Service/Resource on Appointment (Event S22)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-12'>
+        10.4.12  Notification of Blocked Schedule Time Slot(S) (Event S23)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-13'>
+        10.4.13  Notification of Opened ("un-blocked") Schedule Time Slot(s) (Event S24)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-14'>
+        10.4.14  Notification That Patient Did Not Show Up for Scheduled Appointment (Event S26)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-4-15'>
+        10.4.15  Broadcast Notification of Scheduled Appointments (Event S27)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-5'>
+    10.5  QUERY TRANSACTIONS AND TRIGGER EVENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-5-1'>
+        10.5.1  Original Mode Queries - Display Oriented
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-5-2'>
+        10.5.2  Original Mode Queries - Record Oriented
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-5-3'>
+        10.5.3  SQM/SQR - Schedule Query Message and Response (Event S25)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-5-4'>
+        10.5.4  Enhanced Mode Queries
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6'>
+    10.6  MESSAGE SEGMENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1'>
+        10.6.1  ARQ - Appointment Request Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-1'>
+            10.6.1.1  ARQ-1   Placer Appointment ID   (EI)   00860
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-2'>
+            10.6.1.2  ARQ-2   Filler Appointment ID   (EI)   00861
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-3'>
+            10.6.1.3  ARQ-3   Occurrence Number   (NM)   00862
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-4'>
+            10.6.1.4  ARQ-4   Placer Order Group Number   (EI)   00218
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-5'>
+            10.6.1.5  ARQ-5   Schedule ID   (CWE)   00864
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-6'>
+            10.6.1.6  ARQ-6   Request Event Reason   (CWE)   00865
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-7'>
+            10.6.1.7  ARQ-7   Appointment Reason   (CWE)   00866
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-8'>
+            10.6.1.8  ARQ-8   Appointment Type   (CWE)   00867
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-9'>
+            10.6.1.9  ARQ-9   Appointment Duration   (NM)   00868
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-10'>
+            10.6.1.10  ARQ-10   Appointment Duration Units   (CNE)   00869
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-11'>
+            10.6.1.11  ARQ-11   Requested Start Date/Time Range   (DR)   00870
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-12'>
+            10.6.1.12  ARQ-12   Priority-ARQ   (ST)   00871
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-13'>
+            10.6.1.13  ARQ-13   Repeating Interval   (RI)   00872
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-14'>
+            10.6.1.14  ARQ-14   Repeating Interval Duration   (ST)   00873
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-15'>
+            10.6.1.15  ARQ-15   Placer Contact Person   (XCN)   00874
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-16'>
+            10.6.1.16  ARQ-16   Placer Contact Phone Number   (XTN)   00875
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-17'>
+            10.6.1.17  ARQ-17   Placer Contact Address   (XAD)   00876
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-18'>
+            10.6.1.18  ARQ-18   Placer Contact Location   (PL)   00877
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-19'>
+            10.6.1.19  ARQ-19   Entered by Person   (XCN)   00878
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-20'>
+            10.6.1.20  ARQ-20   Entered by Phone Number   (XTN)   00879
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-21'>
+            10.6.1.21  ARQ-21   Entered by Location   (PL)   00880
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-22'>
+            10.6.1.22  ARQ-22   Parent Placer Appointment ID   (EI)   00881
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-23'>
+            10.6.1.23  ARQ-23   Parent Filler Appointment ID   (EI)   00882
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-24'>
+            10.6.1.24  ARQ-24   Placer Order Number   (EI)   00216
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-25'>
+            10.6.1.25  ARQ-25   Filler Order Number   (EI)   00217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-1-26'>
+            10.6.1.26  ARQ-26   Alternate Placer Order Group Number   (EIP)   00218
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2'>
+        10.6.2  SCH - Schedule Activity Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-1'>
+            10.6.2.1  SCH-1   Placer Appointment ID   (EI)   00860
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-2'>
+            10.6.2.2  SCH-2   Filler Appointment ID   (EI)   00861
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-3'>
+            10.6.2.3  SCH-3   Occurrence Number   (NM)   00862
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-4'>
+            10.6.2.4  SCH-4   Placer Order Group Number   (EIP)   00218
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-5'>
+            10.6.2.5  SCH-5   Schedule ID   (CWE)   00864
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-6'>
+            10.6.2.6  SCH-6   Event Reason   (CWE)   00883
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-7'>
+            10.6.2.7  SCH-7   Appointment Reason   (CWE)   00866
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-8'>
+            10.6.2.8  SCH-8   Appointment Type   (CWE)   00867
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-9'>
+            10.6.2.9  SCH-9   Appointment Duration   00868
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-10'>
+            10.6.2.10  SCH-10   Appointment Duration Units    (CNE)   00869
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-11'>
+            10.6.2.11  SCH-11   Appointment Timing Quantity   00884
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-12'>
+            10.6.2.12  SCH-12   Placer Contact Person   (XCN)   00874
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-13'>
+            10.6.2.13  SCH-13   Placer Contact Phone Number   (XTN)   00875
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-14'>
+            10.6.2.14  SCH-14   Placer Contact Address   (XAD)   00876
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-15'>
+            10.6.2.15  SCH-15   Placer Contact Location   (PL)   00877
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-16'>
+            10.6.2.16  SCH-16   Filler Contact Person   (XCN)   00885
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-17'>
+            10.6.2.17  SCH-17   Filler Contact Phone Number   (XTN)   00886
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-18'>
+            10.6.2.18  SCH-18   Filler Contact Address   (XAD)   00887
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-19'>
+            10.6.2.19  SCH-19   Filler Contact Location   (PL)   00888
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-20'>
+            10.6.2.20  SCH-20   Entered by Person   (XCN)   00878
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-21'>
+            10.6.2.21  SCH-21   Entered by Phone Number   (XTN)   00879
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-22'>
+            10.6.2.22  SCH-22   Entered by Location   (PL)   00880
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-23'>
+            10.6.2.23  SCH-23   Parent Placer Appointment ID   (EI)   00881
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-24'>
+            10.6.2.24  SCH-24   Parent Filler Appointment ID   (EI)   00882
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-25'>
+            10.6.2.25  SCH-25   Filler Status Code   (CWE)   00889
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-26'>
+            10.6.2.26  SCH-26   Placer Order Number   (EI)   00216
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-27'>
+            10.6.2.27  SCH-27   Filler Order Number   (EI)   00217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-2-28'>
+            10.6.2.28  SCH-28   Alternate Placer Order Group Number   (EIP)   00218
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-3'>
+        10.6.3  RGS - Resource Group Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-3-1'>
+            10.6.3.1  RGS-1   Set ID - RGS   (SI)   01203
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-3-2'>
+            10.6.3.2  RGS-2   Segment Action Code   (ID)   00763
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-3-3'>
+            10.6.3.3  RGS-3   Resource Group ID   (CWE)   01204
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4'>
+        10.6.4  AIS - Appointment Information - Service Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-1'>
+            10.6.4.1  AIS-1   Set ID - AIS   (SI)   00890
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-2'>
+            10.6.4.2  AIS-2   Segment Action Code   (ID)   00763
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-3'>
+            10.6.4.3  AIS-3   Universal Service Identifier   (CWE)   00238
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-4'>
+            10.6.4.4  AIS-4   Start Date/Time   (DTM)   01202
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-5'>
+            10.6.4.5  AIS-5   Start Date/Time Offset   (NM)   00891
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-6'>
+            10.6.4.6  AIS-6   Start Date/Time Offset Units   (CNE)   00892
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-7'>
+            10.6.4.7  AIS-7   Duration   (NM)   00893
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-8'>
+            10.6.4.8  AIS-8   Duration Units   (CNE)   00894
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-9'>
+            10.6.4.9  AIS-9   Allow substitution code   (CWE)   00895
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-10'>
+            10.6.4.10  AIS-10   Filler Status Code   (CWE)   00889
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-11'>
+            10.6.4.11  AIS-11   Placer Supplemental Service Information   (CWE)   01474
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-4-12'>
+            10.6.4.12  AIS-12   Filler Supplemental Service Information   (CWE)   01475
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5'>
+        10.6.5  AIG - Appointment Information - General Resource Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-1'>
+            10.6.5.1  AIG-1   Set ID - AIG   (SI)   00896
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-2'>
+            10.6.5.2  AIG-2   Segment Action Code   (ID)   00763
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-3'>
+            10.6.5.3  AIG-3   Resource ID   (CWE)   00897
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-4'>
+            10.6.5.4  AIG-4   Resource Type   (CWE)   00898
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-5'>
+            10.6.5.5  AIG-5   Resource Group   (CWE)   00899
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-6'>
+            10.6.5.6  AIG-6   Resource Quantity   (NM)   00900
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-7'>
+            10.6.5.7  AIG-7   Resource Quantity Units   (CNE)   00901
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-8'>
+            10.6.5.8  AIG-8   Start Date/Time    (DTM)   01202
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-9'>
+            10.6.5.9  AIG-9   Start Date/Time Offset   (NM)   00891
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-10'>
+            10.6.5.10  AIG-10   Start Date/Time Offset Units   (CNE)   00892
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-11'>
+            10.6.5.11  AIG-11   Duration   (NM)   00893
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-12'>
+            10.6.5.12  AIG-12   Duration Units   (CNE)   00894
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-13'>
+            10.6.5.13  AIG-13   Allow Substitution Code   (CWE)   00895
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-5-14'>
+            10.6.5.14  AIG-14   Filler Status Code   (CWE)   00889
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6'>
+        10.6.6  AIL - Appointment Information - Location Resource Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-1'>
+            10.6.6.1  AIL-1   Set ID – AIL   (SI)   00902
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-2'>
+            10.6.6.2  AIL-2   Segment Action Code   (ID)   00763
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-3'>
+            10.6.6.3  AIL-3   Location Resource ID   (PL)   00903
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-4'>
+            10.6.6.4  AIL-4   Location Type – AIL   (CWE)   00904
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-5'>
+            10.6.6.5  AIL-5   Location Group   (CWE)   00905
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-6'>
+            10.6.6.6  AIL-6   Start Date/Time   (DTM)   01202
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-7'>
+            10.6.6.7  AIL-7   Start Date/Time Offset   (NM)   00891
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-8'>
+            10.6.6.8  AIL-8   Start Date/Time Offset Units   (CNE)   00892
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-9'>
+            10.6.6.9  AIL-9   Duration   (NM)   00893
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-10'>
+            10.6.6.10  AIL-10   Duration Units    (CNE)   00894
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-11'>
+            10.6.6.11  AIL-11   Allow Substitution Code   (CWE)   00895
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-6-12'>
+            10.6.6.12  AIL-12   Filler Status Code   (CWE)   00889
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7'>
+        10.6.7  AIP - Appointment Information - Personnel Resource Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-1'>
+            10.6.7.1  AIP-1   Set ID - AIP   (SI)   00906
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-2'>
+            10.6.7.2  AIP-2   Segment Action Code   (ID)   00763
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-3'>
+            10.6.7.3  AIP-3   Personnel Resource ID    (XCN)   00913
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-4'>
+            10.6.7.4  AIP-4   Resource Type   (CWE)   00907
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-5'>
+            10.6.7.5  AIP-5   Resource Group   (CWE)   00899
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-6'>
+            10.6.7.6  AIP-6   Start Date/Time   (DTM)   01202
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-7'>
+            10.6.7.7  AIP-7   Start Date/Time Offset   (NM)   00891
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-8'>
+            10.6.7.8  AIP-8   Start Date/Time Offset Units   (CNE)   00892
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-9'>
+            10.6.7.9  AIP-9   Duration   (NM)   00893
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-10'>
+            10.6.7.10  AIP-10   Duration Units    (CNE)   00894
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-11'>
+            10.6.7.11  AIP-11   Allow Substitution Code   (CWE)   00895
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-7-12'>
+            10.6.7.12  AIP-12   Filler Status Code   (CWE)   00889
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-8'>
+        10.6.8  APR - Appointment Preferences Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-8-1'>
+            10.6.8.1  APR-1   Time Selection Criteria   (SCV)   00908
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-8-2'>
+            10.6.8.2  APR-2   Resource Selection Criteria   (SCV)   00909
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-8-3'>
+            10.6.8.3  APR-3   Location Selection Criteria   (SCV)   00910
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-8-4'>
+            10.6.8.4  APR-4   Slot Spacing Criteria   (NM)   00911
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-6-8-5'>
+            10.6.8.5  APR-5   Filler Override Criteria   (SCV)   00912
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-7'>
+    10.7  EXAMPLE TRANSACTIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-7-1'>
+        10.7.1  Request and Receive New Appointment - Event S01
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-7-2'>
+        10.7.2  Unsolicited Notification of Rescheduled Appointment - Event S13
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-7-3'>
+        10.7.3  Request and Receive New Appointment with Repeating Interval - Event S01
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-8'>
+    10.8  IMPLEMENTATION CONSIDERATIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-8-1'>
+        10.8.1  Logical Relationship of Resource and Service Segments
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-8-2'>
+        10.8.2  Multiple Placer Applications
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Scheduling.html#Scheduling-9'>
+    10.9  ISSUES
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

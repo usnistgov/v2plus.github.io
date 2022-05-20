@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+BPO - Blood Product Order Segment
+</h3>
+<p class="v2 v2-normalindented">Blood product order messages require additional information that is not available in other standard HL7 order messages.  Blood product order messages need to contain accompanying details regarding the blood product component, such as special processing requirements (e.g., irradiation and leukoreduction) and the amount of the blood product to be administered.</p><p class="v2 v2-normalindented">The following table presents various use cases surrounding blood product orders.  </p><table class="v2" style="width: 87%; border-top: 2px solid black; border-left: 2px solid black; border-bottom: 2px solid black; border-right: 2px solid black; "><colgroup><col span='1' style='width: 33.43%;'/><col span='1' style='width: 25.45%;'/><col span='1' style='width: 12.22%;'/><col span='1' style='width: 18.88%;'/><col span='1' style='width: 10.0%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertableheader">Universal Service ID [ISBT-128 Product Code]</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertableheader">Blood Product Processing Requirements</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertableheader">Quantity</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertableheader">Blood Product Amount</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertableheader">Units</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">002^Red Blood Cells</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody">Leukoreduced</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">2</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody">Ml</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">002^Red Blood Cells</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody">Leukoreduced</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">1</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody">60</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody">Ml</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">002^Red Blood Cells</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody">Irradiated</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">2</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody">15</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody">Ml</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">002^Red Blood Cells</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody">Leukoreduced</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">1</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody"></p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">020^Platelets</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody">Leukoreduced</p><p class="v2 v2-othertablebody">Irradiated</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">6</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody"></p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">024^ Apheresis Platelets</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody">Irradiated</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">1</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody"></p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">002^Red Blood Cells</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">1</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody"></p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.43%; '><p class="v2 v2-othertablebody">Factor VIII</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.45%; '><p class="v2 v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.22%; '><p class="v2 v2-othertablebody">2</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:18.88%; '><p class="v2 v2-othertablebody">910</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.0%; '><p class="v2 v2-othertablebody">IU</p></td></tr></table><br/><p class="v2 v2-normalindented"></p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - BPO - Blood Product Order Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+BPO
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID – BPO
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPO-1'>
+01700
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+BP Universal Service Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0575-ERROR! Bad Data! FIXME.html'>
+0575
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPO-2'>
+01701
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+BP Processing Requirements
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0508-Blood-Product-Processing-Requirements.html' title='Blood Product Processing Requirements'>
+0508
+<span class='vocab-link-text'>Blood Product Processing Requirements</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#BPO-3'>
+01702
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+BP Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPO-4'>
+01703
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+BP Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-5'>
+01704
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+BP Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0576-ERROR! Bad Data! FIXME.html'>
+0576
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-6'>
+01705
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+BP Intended Use Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-7'>
+01706
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+BP Intended Dispense From Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-8'>
+01707
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+BP Intended Dispense From Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-9'>
+01708
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+BP Requested Dispense Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-10'>
+01709
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+BP Requested Dispense To Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-11'>
+01710
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+BP Requested Dispense To Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-12'>
+01711
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+BP Indication for Use
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0509-Indication-for-Use.html' title='Indication for Use'>
+0509
+<span class='vocab-link-text'>Indication for Use</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#BPO-13'>
+01712
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+14
+</td>
+<td>
+BP Informed Consent Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPO-14'>
+01713
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='BPO-1'>
+BPO-1: Set ID – BPO (<a href='/data-type/SI.html'>SI</a>) 01700
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the sequence number for the BPO segment within the message.  For the first order transmitted, the sequence number shall be 1; for the second order, it shall be 2; and so on.</p>
+
+<h4 class='v2' id='BPO-2'>
+BPO-2: BP Universal Service Identifier (<a href='/data-type/CWE.html'>CWE</a>) 01701
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier code for the requested blood product.  This can be based on local and/or &quot;universal&quot; codes.  We recommend the &quot;universal&quot; procedure identifier.  The structure of this CWE data type is described in the control section.  The preferred coding system is the ISBT 128 Product Code. Refer to Table 0575 - BP Universal Service Identifier in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">Blood Product Orders for commercial products, such as Rh Immune Globulin or Factor VIII concentrate, are not at this time defined in an international or national coding system as are blood products.  Therefore, locally defined codes can be used for the Universal Service Identifier for commercial products.  </p>
+
+<h4 class='v2' id='BPO-3'>
+BPO-3: BP Processing Requirements (<a href='/data-type/CWE.html'>CWE</a>) 01702
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains additional information about the blood component class associated with the Universal Service ID.  The placer of the order can specify any required processing of the blood product that must be completed prior to transfusion to the intended recipient. Refer to <a href="https://www.hl7.org/fhir/v2/0508/index.html">User-Defined Table 0508 - Blood Product Processing Requirements</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='BPO-4'>
+BPO-4: BP Quantity (<a href='/data-type/NM.html'>NM</a>) 01703
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the number of blood products ordered.</p>
+
+<h4 class='v2' id='BPO-5'>
+BPO-5: BP Amount (<a href='/data-type/NM.html'>NM</a>) 01704
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the ordered amount (volume) associated with each quantity of blood product.</p>
+
+<h4 class='v2' id='BPO-6'>
+BPO-6: BP Units (<a href='/data-type/CWE.html'>CWE</a>) 01705
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the units of measure for the blood product amount.  (See Chapter 7 for more details about reporting units.)  This field specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate).  Use of UCUM is strongly recommended as one of the delivered units (could be in addition to the local units). Refer to Table 0576 - BP Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='BPO-7'>
+BPO-7: BP Intended Use Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01706
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the date/time that the placer intends to use the blood product that is being ordered. </p><p class="v2 v2-normalindented">This is the time when the placer expects the product  to be available within the transfusion service.  For example, the product should be available for use, but not dispensed, on this date/time.  </p>
+
+<h4 class='v2' id='BPO-8'>
+BPO-8: BP Intended Dispense From Location (<a href='/data-type/PL.html'>PL</a>) 01707
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the location from which the blood component is to be dispensed.</p>
+
+<h4 class='v2' id='BPO-9'>
+BPO-9: BP Intended Dispense From Address (<a href='/data-type/XAD.html'>XAD</a>) 01708
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the actual address of the location from which the blood component is to be dispensed.</p>
+
+<h4 class='v2' id='BPO-10'>
+BPO-10: BP Requested Dispense Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01709
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the date/time that the requested blood products must be ready to dispense.  This date/time may be different from the intended use date/time.  For example, the patient may be scheduled to come in for a transfusion at a specified time.  However, the placer would request that the blood product be ready to dispense prior to that time in order to have the blood component ready for transfusion at the scheduled time.  The field may also be used to indicate that the placer is now ready to pick up the ordered blood product and is requesting the blood product be ready to dispense at that time.</p>
+
+<h4 class='v2' id='BPO-11'>
+BPO-11: BP Requested Dispense To Location (<a href='/data-type/PL.html'>PL</a>) 01710
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the inpatient or outpatient location to which the blood component is to be dispensed.  The default dispense to location is the current census location for the patient.  </p>
+
+<h4 class='v2' id='BPO-12'>
+BPO-12: BP Requested Dispense To Address (<a href='/data-type/XAD.html'>XAD</a>) 01711
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the actual address of the location to which the blood component is to be dispensed.  The default dispense to location is the current census location for the patient.  </p>
+
+<h4 class='v2' id='BPO-13'>
+BPO-13: BP Indication for Use (<a href='/data-type/CWE.html'>CWE</a>) 01712
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is a coded optional field. The value indicates the reason that the blood product was ordered.   This information is helpful for prospective review or retrospective studies of blood product ordering practices of the ordering provider by the Quality Assurance Department and/or Transfusion Committee.  Refer to <a href="https://www.hl7.org/fhir/v2/0509/index.html">User-Defined Table 0509 - Indication for Use</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='BPO-14'>
+BPO-14: BP Informed Consent Indicator (<a href='/data-type/ID.html'>ID</a>) 01713
+</h4>
+<p class="v2 v2-normalindented">This field indicates whether consent for the transfusion has been obtained.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 table 0136 -Yes/No indicator</a> as defined in Chapter 2C, Code Tables.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

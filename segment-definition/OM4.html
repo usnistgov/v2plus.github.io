@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+OM4 - Observations That Require Specimens Segment
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the OM4 segment is Orders and Observations.</p><p class="v2 v2-normalindented">This segment applies to observations/batteries that require a specimen for their performance.  When an observation or battery requires multiple specimens for their performance (e.g., creatinine clearance requires a 24-hour urine specimen and a serum specimen), multiple segments may be included, one for each specimen type.</p><p class="v2 v2-normalindented">OM4 is a repeating segment.  It allows multiple specimens per Order Code and accommodates for multiple alternate specimen for each preferred specimen.  In some cases an Order Code can require multiple specimens.  In many cases there are preferred specimens and for each preferred it is possible to have one or more alternative specimens. The alternative specimen will carry in OM4-17 the Sequence Number – Test/Observation Master File (OM4-1) of the preferred specimen.</p><p class="v2 v2-normalindented">If multiple kinds of specimen are associated with this observation (as in the case for a creatinine clearance), multiple segments may be included, one for each specimen type.</p><p class="v2 v2-normalindented">This segment will also allow for reporting Preferred and Alternate specimens, when applicable.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - OM4 - Observations That Require Specimens Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+OM4
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Sequence Number - Test/Observation Master File
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-1'>
+00586
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Derived Specimen
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0170-Derived-Specimen.html' title='Derived Specimen(Required)'>
+0170(R)
+<span class='vocab-link-text'>Derived Specimen(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-2'>
+00642
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Container Description
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM4-3'>
+00643
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..60]
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Container Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM4-4'>
+00644
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Container Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0658-ERROR! Bad Data! FIXME.html'>
+0658
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM4-5'>
+00645
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Specimen
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0660-ERROR! Bad Data! FIXME.html'>
+0660
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-6'>
+00646
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Additive
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0371-Additive/Preservative.html' title='Additive/Preservative(Required)'>
+0371(R)
+<span class='vocab-link-text'>Additive/Preservative(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-7'>
+00647
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Preparation
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-8'>
+00648
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Special Handling Requirements
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-9'>
+00649
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Normal Collection Volume
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-10'>
+00650
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Minimum Collection Volume
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-11'>
+00651
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Specimen Requirements
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-12'>
+00652
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Specimen Priorities
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0027-Priority.html' title='Priority(Required)'>
+0027(R)
+<span class='vocab-link-text'>Priority(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM4-13'>
+00653
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Specimen Retention Time
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-14'>
+00654
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Specimen Handling Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0376-Special-Handling-Code.html' title='Special Handling Code(Suggested)'>
+0376(S)
+<span class='vocab-link-text'>Special Handling Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM4-15'>
+01908
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Specimen Preference
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0920-Preferred-Specimen/Attribute-Status.html' title='Preferred Specimen/Attribute Status(Required)'>
+0920(R)
+<span class='vocab-link-text'>Preferred Specimen/Attribute Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-16'>
+03311
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Preferred Specimen/Attribture Sequence ID
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM4-17'>
+03312
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+18
+</td>
+<td>
+Taxonomic Classification Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0446-Species-Code.html' title='Species Code'>
+0446
+<span class='vocab-link-text'>Species Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM4-18'>
+01539
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='OM4-1'>
+OM4-1: Sequence Number - Test/Observation Master File (<a href='/data-type/NM.html'>NM</a>) 00586
+</h4>
+<p class="v2 v2-normalindented">Definition:  The OM4-1 contains a numeric value that indicates a unique set of OM1, OM2, OM3, and OM4 components; each OMn-1 in a set will have the same value as illustrated in the example below.  Because the OM4 segment can repeat, but needs to have a unique number for use with OM4-17, the sequence number must be appended with a sequence number as shown in the second example below.</p><p class="v2 v2-normalindented"><strong>OM4-1 Sequence Number – Test/Observation Master File Example:</strong></p><p class="v2 v2-example">MSH|...&#60;cr&#62; </p><p class="v2 v2-example">// start MFE Test Begin group </p><p class="v2 v2-example">MFE|A|...&#60;cr&#62; </p><p class="v2 v2-example">OM1|1|...&#60;cr&#62; </p><p class="v2 v2-example">OM2|1|...&#60;cr&#62; </p><p class="v2 v2-example">OM3|1|...&#60;cr&#62; </p><p class="v2 v2-example">OM4|1|...&#60;cr&#62; </p><p class="v2 v2-example">// end MFE Test Begin group </p><p class="v2 v2-example">// start MFE_Test_Begin group </p><p class="v2 v2-example">MFE|A|...&#60;cr&#62; </p><p class="v2 v2-example">OM1|2|...&#60;cr&#62; </p><p class="v2 v2-example">OM2|2|...&#60;cr&#62; </p><p class="v2 v2-example">OM3|2|...&#60;cr&#62; </p><p class="v2 v2-example">OM4|2.1|...&#60;cr&#62; </p><p class="v2 v2-example">OM4|2.2|...&#60;cr&#62; </p><p class="v2 v2-example">//end MFE_Test_Begin group</p>
+
+<h4 class='v2' id='OM4-2'>
+OM4-2: Derived Specimen (<a href='/data-type/ID.html'>ID</a>) 00642
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the codes that identify the parents and children for diagnostic studies—especially in microbiology—where the initial specimen (e.g., blood) is processed to produce results (e.g., the identity of the bacteria grown out of the culture).  The process also produces new &quot;specimens&quot; (e.g., pure culture of staphylococcus, and E. coli), and these are studied by a second order process (bacterial sensitivities). The parents (e.g., blood culture) and children (e.g., penicillin MIC) are identified in such cases. Refer to <a href="https://www.hl7.org/fhir/v2/0170/index.html">HL7 Table 0170 - Derived Specimen</a> in Chapter 2C, Code Tables, for valid values:</p>
+
+<h4 class='v2' id='OM4-3'>
+OM4-3: Container Description (<a href='/data-type/TX.html'>TX</a>) 00643
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the physical appearance, including color of tube tops, shape, and material composition (e.g., red-top glass tube).  Note that the color is not necessarily a unique identifier of the additive and/or use of the tube.  This is especially true for black and some blue tube tops, as can be seen above.  Color is included here for user convenience.  This field repeats to accommodate all the possible specimen that will be allowed.  If a container is preferred, only that container should be messaged here with the alternate containers messaged in a repeat OM4 segment.</p>
+
+<h4 class='v2' id='OM4-4'>
+OM4-4: Container Volume (<a href='/data-type/NM.html'>NM</a>) 00644
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the capacity of the container. This field repeats to accommodate all the possible specimen that will be allowed.  If a container is preferred, only that container should be messaged here with the alternate containers messaged in a repeat OM4 segment</p>
+
+<h4 class='v2' id='OM4-5'>
+OM4-5: Container Units (<a href='/data-type/CWE.html'>CWE</a>) 00645
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the units of measure of the container volume.  If the units are ISO+ units, they should be recorded as single case abbreviations.  If the units are ANS+ or L (local), the units and the source code table must be recorded, except that in this case, component delimiters should be replaced by subcomponent delimiters.  For example, 1 indicates liters, whereas pt&#38;&#38;ANS+ indicates pints (ANSI units).  The default unit is milliliters (ml), which should be assumed if no units are reported. This field repeats to accommodate all the possible specimen that will be allowed.  If a container is preferred, only that container units should be messaged here with the alternate containers messaged in a repeat OM4 segment. Refer to Table 0658 - Container Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM4-6'>
+OM4-6: Specimen (<a href='/data-type/CWE.html'>CWE</a>) 00646
+</h4>
+<p class="v2 v2-normalindented">Definition:  Describes the specimen from an appropriate controlled vocabulary.  If multiple kinds of specimen are associated with this observation (as in the case for a creatinine clearance), multiple segments may be included, one for each specimen type. Refer to Table 0660 - Specimen in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM4-7'>
+OM4-7: Additive (<a href='/data-type/CWE.html'>CWE</a>) 00647
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the codes that should be those provided by NCCLS<span id="chapter-8-footnote-reference-3"><a href="#chapter-8-footnote-3"><sup>3</sup></a></span>. Refer to <a href="https://www.hl7.org/fhir/v2/0371/index.html">HL7 Table 0371 - Additive/Preservative</a> in Chapter 2C, Code Tables, for valid values.  The table&#39;s values are taken from <em>NCCLS AUTO4</em>. The value set can be extended with user specific values.</p><p class="v2 v2-normalindented">This table was not specified in previous versions and thus sites may choose to use other site-specific tables.</p>
+
+<h4 class='v2' id='OM4-8'>
+OM4-8: Preparation (<a href='/data-type/TX.html'>TX</a>) 00648
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the special processing that should be applied to the container, e.g., add acidifying tablets before sending.</p>
+
+<h4 class='v2' id='OM4-9'>
+OM4-9: Special Handling Requirements (<a href='/data-type/TX.html'>TX</a>) 00649
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the special handling requirements here (e.g., ice specimen, deliver within two hours of obtaining).</p>
+
+<h4 class='v2' id='OM4-10'>
+OM4-10: Normal Collection Volume (<a href='/data-type/CQ.html'>CQ</a>) 00650
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the normal specimen volume required by the lab.  This is the amount used by the normal methods and provides enough specimens to repeat the procedure at least once if needed.  The default unit is milliliters (ml).</p>
+
+<h4 class='v2' id='OM4-11'>
+OM4-11: Minimum Collection Volume (<a href='/data-type/CQ.html'>CQ</a>) 00651
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount of specimen needed by the most specimen sparing method (e.g., using micro techniques).  The minimum amount allows for only one determination.  The default unit is milliliters (ml).</p>
+
+<h4 class='v2' id='OM4-12'>
+OM4-12: Specimen Requirements (<a href='/data-type/TX.html'>TX</a>) 00652
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the other requirements for specimen delivery and special handling (e.g., delivery within one hour, iced).</p>
+
+<h4 class='v2' id='OM4-13'>
+OM4-13: Specimen Priorities (<a href='/data-type/ID.html'>ID</a>) 00653
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the allowed priorities for obtaining the specimen.  Note that they may be different from the processing priorities given in <a href="/segment-definition/OM1.html#OM1-25">OM1-25 - Processing Priority</a>.  When a test is requested, the specimen priority given in <a href="/segment-definition/TQ1.html#TQ1-9">TQ1-9 - Priority</a> should be one of the priorities listed here.  Multiple priorities are separated by repeat delimiters.  Refer to <a href="https://www.hl7.org/fhir/v2/0027/index.html">HL7 Table 0027 - Priority</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OM4-14'>
+OM4-14: Specimen Retention Time (<a href='/data-type/CQ.html'>CQ</a>) 00654
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the usual time that a specimen for this observation is retained after the observation is completed, for the purpose of additional testing.  The first component is the duration, and the second component is an ISO time unit.</p>
+
+<h4 class='v2' id='OM4-15'>
+OM4-15: Specimen Handling Code (<a href='/data-type/CWE.html'>CWE</a>) 01908
+</h4>
+<p class="v2 v2-normalindented">Definition:  This describes how the specimen and/or container need to be handled from the time of collection through the initiation of testing.  As this field is not required, no assumptions can be made as to meaning when this field is not populated.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0376/index.html">User-defined Table 0376 – Special Handling Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM4-16'>
+OM4-16: Specimen Preference (<a href='/data-type/ID.html'>ID</a>) 03311
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the Specimen/Attribute is Preferred or alternate for collection of the specimen.  There can only be one occurrence of a Preferred or Alternate Specimen/Attribute for the code referenced in <a href="/segment-definition/OM4.html#OM4-6">OM4-6 Specimen</a>.  For example, if two OM4 segments are received for specimen type of Serum, only one can be marked as Preferred.  Refer to <a href="https://www.hl7.org/fhir/v2/0920/index.html">HL7 Table 0920 – Preferred Specimen/Attribute Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM4-17'>
+OM4-17: Preferred Specimen/Attribture Sequence ID (<a href='/data-type/NM.html'>NM</a>) 03312
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the value of the sequence number of the Preferred Specimen that these specimens are the alternative for. Note: For the preferred specimen (i.e., OM4-16 = &quot;P&quot;), this field is not populated.  This field is used by the Alternate Specimen (i.e., OM4-16 = &quot;A&quot;) to point to the preferred specimen that it is to replace or be used as an alternative.</p><p class="v2 v2-normalindented">Example: </p><p class="v2 v2-normalindented">Preferred specimen &#160;&#160;&#160;&#160;</p><p class="v2 v2-example">OM4|1||Tiger Top|… to field16|P|| </p><p class="v2 v2-example">OM4|2||Plastic Screw Top|0.5|mL|Urine|without 6N HCI| … to field16|P||</p><p class="v2 v2-normalindented">Alternate specimen </p><p class="v2 v2-example">OM4|3||Red Top|… to field16|A|1|</p>
+
+<h4 class='v2' id='OM4-18'>
+OM4-18: Taxonomic Classification Code (<a href='/data-type/CWE.html'>CWE</a>) 01539
+</h4>
+<p class="v2 v2-normalindented">Definition:  The species of living organism. This may include the common or scientific name, based on the coding system(s) used. SNOMED is the recommended coding system. If this field is not valued, a human is assumed. Refer to User-defined Table 0446 - Species Code for suggested values. Refer to Table 0661 - Taxonomic Classification Code in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">For example:</p><p class="v2 v2-example">...|L-80700^Canine, NOS^SNM3|...</p><p class="v2 v2-example">...|L-80100^Bovine^SNM3|...</p><p class="v2 v2-example">...|L-80A00^Feline^SNM3|....</p><p class="v2 v2-normalindented">This field is a list of species or other taxonomic classification(s) to which the indicated specimen type may appropriately be applied for the indicated observation or test.  If this field is omitted the default meaning is that the test or observation is applicable to humans.  In a veterinary context, if the test is applicable to any species, an appropriate code such as &quot;Kingdom Animalia (organism)&quot; should be used to avoid confusion with the meaning of human only.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

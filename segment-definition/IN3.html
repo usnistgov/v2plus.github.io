@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+IN3 - Insurance Additional Information, Certification Segment
+</h3>
+<p class="v2 v2-normalindented">The IN3 segment contains additional insurance information for certifying the need for patient care.  Fields used by this segment are defined by CMS, or other regulatory agencies.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - IN3 - Insurance Additional Information, Certification Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+IN3
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - IN3
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IN3-1'>
+00502
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Certification Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-2'>
+00503
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Certified By
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-3'>
+00504
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Certification Required
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-4'>
+00505
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Penalty
+</td>
+<td class='centered'>
+<a href='/data-type/MOP.html'>
+MOP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-5'>
+00506
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Certification Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-6'>
+00507
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Certification Modify Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-7'>
+00508
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Operator
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-8'>
+00509
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Certification Begin Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-9'>
+00510
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Certification End Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-10'>
+00511
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Days
+</td>
+<td class='centered'>
+<a href='/data-type/DTN.html'>
+DTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-11'>
+00512
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Non-Concur Code/Description
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0233-Non-Concur-Code/Description.html' title='Non-Concur Code/Description'>
+0233
+<span class='vocab-link-text'>Non-Concur Code/Description</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-12'>
+00513
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Non-Concur Effective Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-13'>
+00514
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Physician Reviewer
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0010-Physician-ID.html' title='Physician ID'>
+0010
+<span class='vocab-link-text'>Physician ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-14'>
+00515
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Certification Contact
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-15'>
+00516
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+48
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Certification Contact Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-16'>
+00517
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Appeal Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0345-Appeal-Reason.html' title='Appeal Reason'>
+0345
+<span class='vocab-link-text'>Appeal Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-17'>
+00518
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Certification Agency
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0346-Certification-Agency.html' title='Certification Agency'>
+0346
+<span class='vocab-link-text'>Certification Agency</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-18'>
+00519
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Certification Agency Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-19'>
+00520
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Pre-Certification Requirement
+</td>
+<td class='centered'>
+<a href='/data-type/ICD.html'>
+ICD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-20'>
+00521
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Case Manager
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-21'>
+00522
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+48
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Second Opinion Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-22'>
+00523
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Second Opinion Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0151-Second-Opinion-Status.html' title='Second Opinion Status'>
+0151
+<span class='vocab-link-text'>Second Opinion Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-23'>
+00524
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Second Opinion Documentation Received
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0152-Second-Opinion-Documentation-Received.html' title='Second Opinion Documentation Received'>
+0152
+<span class='vocab-link-text'>Second Opinion Documentation Received</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-24'>
+00525
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Second Opinion Physician
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0010-Physician-ID.html' title='Physician ID'>
+0010
+<span class='vocab-link-text'>Physician ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN3-25'>
+00526
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Certification Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0921-Certification-Type-Code.html' title='Certification Type Code'>
+0921
+<span class='vocab-link-text'>Certification Type Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-26'>
+03336
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Certification Category
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0922-Certification-Category-Code.html' title='Certification Category Code'>
+0922
+<span class='vocab-link-text'>Certification Category Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-27'>
+03337
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Online Verification Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN3-28'>
+02483
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Online Verification Result
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0970-Online-Verification-Result.html' title='Online Verification Result(Suggested)'>
+0970(S)
+<span class='vocab-link-text'>Online Verification Result(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<a href='#IN3-29'>
+02484
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Online Verification Result Error Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0971-Online-Verification-Result-Error-Code.html' title='Online Verification Result Error Code(Suggested)'>
+0971(S)
+<span class='vocab-link-text'>Online Verification Result Error Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<a href='#IN3-30'>
+02485
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+31
+</td>
+<td>
+Online Verification Result Check Digit
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<a href='#IN3-31'>
+02486
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='IN3-1'>
+IN3-1: Set ID - IN3 (<a href='/data-type/SI.html'>SI</a>) 00502
+</h4>
+<p class="v2 v2-normalindented">Definition:  <a href="/segment-definition/IN3.html#IN3-1">IN3-1 - Set ID - IN3</a> contains the number that identifies this transaction.  For the first occurrence of the segment the sequence number shall be 1, for the second occurrence it shall be 2, etc.  The set ID in the IN3 segment is used when there are multiple certifications for the insurance plan identified in IN1-2.</p>
+
+<h4 class='v2' id='IN3-2'>
+IN3-2: Certification Number (<a href='/data-type/CX.html'>CX</a>) 00503
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number assigned by the certification agency.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='IN3-3'>
+IN3-3: Certified By (<a href='/data-type/XCN.html'>XCN</a>) 00504
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the party that approved the certification.  Multiple names and identifiers for the same person may be sent in this sequence Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN3-4'>
+IN3-4: Certification Required (<a href='/data-type/ID.html'>ID</a>) 00505
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether certification is required.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;certification required</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;certification not required</p></li></ul>
+
+<h4 class='v2' id='IN3-5'>
+IN3-5: Penalty (<a href='/data-type/MOP.html'>MOP</a>) 00506
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the penalty, in dollars or a percentage that will be assessed if the pre-certification is not performed.</p>
+
+<h4 class='v2' id='IN3-6'>
+IN3-6: Certification Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00507
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time stamp that indicates when insurance was certified to exist for the patient.</p>
+
+<h4 class='v2' id='IN3-7'>
+IN3-7: Certification Modify Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00508
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time that the certification was modified.</p>
+
+<h4 class='v2' id='IN3-8'>
+IN3-8: Operator (<a href='/data-type/XCN.html'>XCN</a>) 00509
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name party who is responsible for sending this certification information. Multiple names for the same person may be sent in this sequence.   Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN3-9'>
+IN3-9: Certification Begin Date (<a href='/data-type/DT.html'>DT</a>) 00510
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that this certification begins.</p>
+
+<h4 class='v2' id='IN3-10'>
+IN3-10: Certification End Date (<a href='/data-type/DT.html'>DT</a>) 00511
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains date that this certification ends.</p>
+
+<h4 class='v2' id='IN3-11'>
+IN3-11: Days (<a href='/data-type/DTN.html'>DTN</a>) 00512
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number of days for which this certification is valid.  This field applies to denied, pending, or approved days.</p>
+
+<h4 class='v2' id='IN3-12'>
+IN3-12: Non-Concur Code/Description (<a href='/data-type/CWE.html'>CWE</a>) 00513
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the non-concur code and description for a denied request. Refer to <a href="https://www.hl7.org/fhir/v2/0233/index.html">User-defined Table 0233 - Non-Concur Code/Description</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-13'>
+IN3-13: Non-Concur Effective Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00514
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the effective date of the non-concurrence classification.</p>
+
+<h4 class='v2' id='IN3-14'>
+IN3-14: Physician Reviewer (<a href='/data-type/XCN.html'>XCN</a>) 00515
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the physician who works with and reviews cases that are pending physician review for the certification agency.  Multiple names for the same person may be sent in this sequence.   Specification of meaning based on sequence is deprecated.  Refer to <a href="https://www.hl7.org/fhir/v2/0010/index.html">User-defined Table 0010 - Physician ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-15'>
+IN3-15: Certification Contact (<a href='/data-type/ST.html'>ST</a>) 00516
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the party contacted at the certification agency who granted the certification and communicated the certification number.</p>
+
+<h4 class='v2' id='IN3-16'>
+IN3-16: Certification Contact Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00517
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number of the certification contact. Multiple phone numbers for the same certification contact may be sent in this sequence.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='IN3-17'>
+IN3-17: Appeal Reason (<a href='/data-type/CWE.html'>CWE</a>) 00518
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the reason that an appeal was made on a non-concur for certification.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0345/index.html">User-defined Table 0345 - Appeal Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-18'>
+IN3-18: Certification Agency (<a href='/data-type/CWE.html'>CWE</a>) 00519
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the certification agency.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0346/index.html">User-defined Table 0346 - Certification Agency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-19'>
+IN3-19: Certification Agency Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00520
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number of the certification agency.</p>
+
+<h4 class='v2' id='IN3-20'>
+IN3-20: Pre-Certification Requirement (<a href='/data-type/ICD.html'>ICD</a>) 00521
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether pre-certification is required for particular patient types, and the time window for obtaining the certification.  The following components of this field are defined as follows:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets v2-indent1080">pre-certification required refers to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p></li><li class="v2 v2-li"><p class="v2 v2-normallist v2-indent1080">Y&#160;&#160;&#160;&#160;pre-certification required</p></li><li class="v2 v2-li"><p class="v2 v2-normallist v2-indent1080">N&#160;&#160;&#160;&#160;no pre-certification required</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets v2-indent1080">pre-certification window is the date/time by which the pre-certification must be obtained.</p></li></ul>
+
+<h4 class='v2' id='IN3-21'>
+IN3-21: Case Manager (<a href='/data-type/ST.html'>ST</a>) 00522
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the entity, which is handling this particular patient&#39;s case (e.g., UR nurse, or a specific healthcare facility location).</p>
+
+<h4 class='v2' id='IN3-22'>
+IN3-22: Second Opinion Date (<a href='/data-type/DT.html'>DT</a>) 00523
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the second opinion was obtained.</p>
+
+<h4 class='v2' id='IN3-23'>
+IN3-23: Second Opinion Status (<a href='/data-type/CWE.html'>CWE</a>) 00524
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code that represents the status of the second opinion. Refer to <a href="https://www.hl7.org/fhir/v2/0151/index.html">User-defined Table 0151 - Second Opinion Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-24'>
+IN3-24: Second Opinion Documentation Received (<a href='/data-type/CWE.html'>CWE</a>) 00525
+</h4>
+<p class="v2">Definition:  Use this field if accompanying documentation has been received by the provider.  Refer to <a href="https://www.hl7.org/fhir/v2/0152/index.html">User-defined Table 0152 - Second Opinion Documentation Received</a>in Chapter 2C, Code Tables,for suggested values.</p>
+
+<h4 class='v2' id='IN3-25'>
+IN3-25: Second Opinion Physician (<a href='/data-type/XCN.html'>XCN</a>) 00526
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier and name of the physician who provided the second opinion. Multiple names and identifiers for the same person may be sent in this sequence.   Specification of meaning based on sequence is deprecated.  Refer to <a href="https://www.hl7.org/fhir/v2/0010/index.html">User-defined Table 0010 - Physician ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-26'>
+IN3-26: Certification Type (<a href='/data-type/CWE.html'>CWE</a>) 03336
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the certification type code for a specific certification. Refer to <a href="https://www.hl7.org/fhir/v2/0921/index.html">User-defined Table 0921 – Certification Type Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-27'>
+IN3-27: Certification Category (<a href='/data-type/CWE.html'>CWE</a>) 03337
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the certification category code for a specific certification. Refer to <a href="https://www.hl7.org/fhir/v2/0922/index.html">User-defined Table 0922 – Certification Category Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN3-28'>
+IN3-28: Online Verification Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 02483
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the timestamp of the online verification of the insurance information.</p>
+
+<h4 class='v2' id='IN3-29'>
+IN3-29: Online Verification Result (<a href='/data-type/CWE.html'>CWE</a>) 02484
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the result of the online verification.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0970/index.html">User-defined Table 0970 – Online Verification Result</a> in Chapter 2C, Code Tables, for suggested values. This field is required if IN3-28 is populated.</p>
+
+<h4 class='v2' id='IN3-30'>
+IN3-30: Online Verification Result Error Code (<a href='/data-type/CWE.html'>CWE</a>) 02485
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the error code for the result of the online verification.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0791/index.html">User-defined Table 0791 – Online Verification Result Error Code</a> in Chapter 2C, Code Tables, for suggested values. This field is required if IN3-28 is populated and an error status is returned.</p>
+
+<h4 class='v2' id='IN3-31'>
+IN3-31: Online Verification Result Check Digit (<a href='/data-type/ST.html'>ST</a>) 02486
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the check digit for the online verification of the insurance information. This field is required if IN3-28 is populated.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

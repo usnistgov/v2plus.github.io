@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+RPT - repeat pattern
+</h3>
+<div class='v2-data-type-content'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - RPT - repeat pattern
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+RPT
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-1'>
+1
+</a>
+</td>
+<td>
+Repeat Pattern Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0335-Repeat-Pattern.html' title='Repeat Pattern(Suggested)'>
+0335(S)
+<span class='vocab-link-text'>Repeat Pattern(Suggested)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-2'>
+2
+</a>
+</td>
+<td>
+Calendar Alignment
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0527-Calendar-Alignment.html' title='Calendar Alignment(Required)'>
+0527(R)
+<span class='vocab-link-text'>Calendar Alignment(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-3'>
+3
+</a>
+</td>
+<td>
+Phase Range Begin Value
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-4'>
+4
+</a>
+</td>
+<td>
+Phase Range End Value
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-5'>
+5
+</a>
+</td>
+<td>
+Period Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-6'>
+6
+</a>
+</td>
+<td>
+Period Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-7'>
+7
+</a>
+</td>
+<td>
+Institution Specified Time
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-8'>
+8
+</a>
+</td>
+<td>
+Event
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0528-Event-Related-Period.html' title='Event Related Period(Required)'>
+0528(R)
+<span class='vocab-link-text'>Event Related Period(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[2..3]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-9'>
+9
+</a>
+</td>
+<td>
+Event Offset Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#RPT-10'>
+10
+</a>
+</td>
+<td>
+Event Offset Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#RPT-11'>
+11
+</a>
+</td>
+<td>
+General Timing Specification
+</td>
+<td class='centered'>
+<a href='/data-type/GTS.html'>
+GTS
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;Repeat Pattern Code (CWE)&#62; &#38; &#60;Calendar Alignment (ID)&#62; &#38; &#60;Phase Range Begin Value (NM)&#62; &#38; &#60;Phase Range End Value (NM)&#62; &#38; &#60;Period Quantity (NM)&#62; &#38; &#60;Period Units (CWE)&#62; &#38; &#60;Institution Specified Time (ID)&#62; &#38; &#60;Event (ID)&#62; &#38; &#60;Event Offset Quantity (NM)&#62; &#38; &#60;Event Offset Units (CWE)&#62; &#38; &#60;General Timing Specification (GTS)&#62;</p><p class='v2-components'>Subcomponents for Repeat Pattern Code (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+<p class='v2-components'>Subcomponents for Period Units (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+<p class='v2-components'>Subcomponents for Event Offset Units (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+</div>
+<p class="v2 v2-normalindented">Definition: The repeat pattern data type should be used where it is necessary to define the frequency at which an event is to take place. This data type provides a way to define repeat pattern codes &quot;on the fly&quot;. The repeat pattern code is equivalent to the TQ data type, component 2, sub-component 1 (repeat pattern). The additional components define the meaning of the repeat pattern code. Components 2 - 10 are used to define relatively simple repeat patterns. Component 11 is provided to define complex repeat patterns. This data type forms a bridge between the 2.x Repeat Pattern concept from Quantity/Timing, and the Version 3.0 GTS General Timing Specification. Component 1 is the 2.x concept of repeat pattern. Components 2-7 are derived from the version 3.0 data type PIVL. Components 8-10 are derived from the version 3.0 EIVL data type. If a repeat pattern cannot be defined using components 2-10, then component 11, General Timing Specification is provided. This allows the full literal form of the version 3.0 GTS to be specified.</p><p class="v2 v2-normalindented">When using the RPT, if an application doesn&#39;t recognize the code in component 1, then it may attempt to determine the appropriate frequency using the remaining components. If the application does recognize the code in component 1, the application is not required to determine the frequency from the remaining components.</p><p class="v2 v2-normalindented"><strong>Use Case</strong>: The use case supporting this proposal is the need to define repeat patterns on the fly while placing an order. The TQ data type did not have the capability to define the meaning of a repeat pattern on the fly. To get around this problem, vendors have implemented a variety of solutions to solve this issue. One way was to add Z-components to the TQ data type to transmit information about the repeat pattern. Another solution was to attempt to parse the repeat pattern code in an attempt to decipher what the code meant.</p><p class="v2 v2-normalindented">Examples:</p><p class="v2 v2-example">|Q1H&#38;Every 1 Hour&#38;HL7xxx^^^^1^h|</p><p class="v2 v2-example">|Q2J2&#38;Every second Tuesday&#38;HL7xxx^DW^2^^2^wk|</p><p class="v2 v2-example">|BID&#38;Twice a day at institution specified times&#38;HL7xxx^^^^12^h^Y|</p><p class="v2 v2-example">|QAM&#38;Every morning at the institution specified time&#38;HL7xxx^HD^00^11^1^d^Y|</p><p class="v2 v2-example">|QHS&#38;Every day before the hours of sleep&#38;HL7xxx^^^^1^d^^AHS|</p><p class="v2 v2-example">|ACM&#38;Before Breakfast&#38;HL7xxx^^^^^^^ACM|</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='RPT-1'>
+RPT-1: Repeat Pattern Code (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A code representing the repeat pattern defined by the other components of this data type. Refer to <a href="https://www.hl7.org/fhir/v2/0335/index.html">User-defined Table 0335 – Repeat Pattern</a> for suggested values.</p>
+
+<h4 id='RPT-2'>
+RPT-2: Calendar Alignment (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Specifies an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from “the 5th of every month”). Refer to <a href="https://www.hl7.org/fhir/v2/0527/index.html">HL7 Table 0527 - Calendar Alignment</a> for valid values.</p>
+
+<h4 id='RPT-3'>
+RPT-3: Phase Range Begin Value (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Used for Calendar aligned repeat patterns to determine the amount of time from the beginning of particular <a href="/data-type/RPT-2.html#RPT-2">RPT.2 - Calendar Alignment</a> to the beginning of the phase. If Calendar Alignment is DW (days of week), then this would be the offset from the beginning of the week. </p><p class="v2 v2-normalindented">If Phase Range Begin Value is populated, but Phase Range End Value is not populated, then this component defines when the period (RPT.5, 6) begins.</p><p class="v2 v2-normalindented">If both Phase Range Begin Value and Phase Range End Value are populated, then this component defines the earliest point in time at which the period (RPT.5, 6) will begin.</p><p class="v2 v2-normalindented">The units of measure for this component are derived from the Calendar Alignment value in RPT.2. See <a href="https://www.hl7.org/fhir/v2/0527/index.html">HL7 Table 0527 - Calendar Alignment </a>for the units of measure associated with a particular calendar alignment.</p>
+
+<h4 id='RPT-4'>
+RPT-4: Phase Range End Value (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Used for Calendar aligned repeat patterns to determine the amount of time from the beginning of particular <a href="/data-type/RPT-2.html#RPT-2">RPT.2 - Calendar Alignment</a> to the end of the phase. </p><p class="v2 v2-normalindented">If Phase Range End Value is populated, but Phase Range Begin Value is not populated, then this component defines when the timing period (RPT.5, 6) begins.</p><p class="v2 v2-normalindented">If both Phase Range Begin Value and Phase Range End Value are populated, then this component defines the latest point in time at which the period (RPT.5, 6) will begin.</p><p class="v2 v2-normalindented">The units of measure for this component are derived from the Calendar Alignment value in RPT.2. See <a href="https://www.hl7.org/fhir/v2/0527/index.html">HL7 Table 0527 - Calendar Alignment </a>for the units of measure associated with a particular calendar alignment.</p>
+
+<h4 id='RPT-5'>
+RPT-5: Period Quantity (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A time duration specifying the frequency at which the periodic interval repeats. <a href="/data-type/RPT-6.html#RPT-6">RPT.6 - Period Units</a> defines the units of time for this component.</p>
+
+<h4 id='RPT-6'>
+RPT-6: Period Units (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Defines the units used for <a href="/data-type/RPT-5.html#RPT-5">RPT.5 - Period Quantity</a>. Constrained to units of time.  Best practice is to use UCUM. Refer to External table the Unified Code for Units of Measure (UCUM) [<a href="http://aurora.rg.iupui.edu/UCUM">http://aurora.rg.iupui.edu/UCUM</a>] for valid values. </p><p class="v2 v2-normalindented">Condition Rule: This component is required if <a href="/data-type/RPT-5.html#RPT-5">RPT.5 - Period Quantity</a> is populated.</p>
+
+<h4 id='RPT-7'>
+RPT-7: Institution Specified Time (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A code that indicates whether the exact timing is up to the party executing the schedule (e.g., to distinguish “every 8 hours” from “3 times a day”).  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a><a href="/composition/Introduction.html#Introduction-2"> for </a>valid values.</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Y - exact timing up to party executing schedule. </p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">N - exact timing as specified.</p></li></ul>
+
+<h4 id='RPT-8'>
+RPT-8: Event (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A code for a common (periodical) activity of daily living. Refer to <a href="https://www.hl7.org/fhir/v2/0528/index.html">HL7 Table 0528 - Event-Related Period</a> for valid values.</p>
+
+<h4 id='RPT-9'>
+RPT-9: Event Offset Quantity (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: An interval that marks the offsets for the beginning, width and end of the event-related periodic interval measured from the time each such event actually occurred. A positive numeric value indicates the amount of time after the event in RPT.8. A negative numeric value indicates the amount of time prior to the event in <a href="/data-type/RPT-8.html#RPT-8">RPT.8</a>. <a href="/data-type/RPT-10.html#RPT-10">RPT.10 - Event Offset Units</a> defines the units of time for this component.</p><p class="v2 v2-normalindented"><strong>Usage Note:</strong> This component should not be valued unless there is a value in RPT-8 (Event).</p>
+
+<h4 id='RPT-10'>
+RPT-10: Event Offset Units (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Defines the units used for RPT-9 (Event Offset Quantity). Constrained to units of time. The codes for unit of measure are specified in the Unified Code for Units of Measure (UCUM) [<a href="http://aurora.rg.iupui.edu/UCUM">http://aurora.rg.iupui.edu/UCUM</a>].</p><p class="v2 v2-normalindented">Condition Rule: This component is required if <a href="/data-type/RPT-9.html#RPT-9">RPT.9 - Event Offset Quantity</a> is populated.</p>
+
+<h4 id='RPT-11'>
+RPT-11: General Timing Specification (<a href='/data-type/GTS.html'>GTS</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The General Timing Specification as defined by the Version 3 Data Types document.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

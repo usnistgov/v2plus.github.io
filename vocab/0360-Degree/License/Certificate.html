@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Degree/License/Certificate
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Representative
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Degree/License/Certificate
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70360
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+CNN.7
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+Table of codes specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Degree/License/Certificate - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PN
+</td>
+<td class='vocab-concept-display'>
+Advanced Practice Nurse
+</td>
+<td class='vocab-concept-definition'>
+Advanced Practice Nurse
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AAS
+</td>
+<td class='vocab-concept-display'>
+Associate of Applied Science
+</td>
+<td class='vocab-concept-definition'>
+Associate of Applied Science
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AA
+</td>
+<td class='vocab-concept-display'>
+Associate of Arts
+</td>
+<td class='vocab-concept-definition'>
+Associate of Arts
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ABA
+</td>
+<td class='vocab-concept-display'>
+Associate of Business Administration
+</td>
+<td class='vocab-concept-definition'>
+Associate of Business Administration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AE
+</td>
+<td class='vocab-concept-display'>
+Associate of Engineering
+</td>
+<td class='vocab-concept-definition'>
+Associate of Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AS
+</td>
+<td class='vocab-concept-display'>
+Associate of Science
+</td>
+<td class='vocab-concept-definition'>
+Associate of Science
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BA
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Arts
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Arts
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BBA
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Business Administration
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Business Administration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BE
+</td>
+<td class='vocab-concept-display'>
+Bachelor or Engineering
+</td>
+<td class='vocab-concept-definition'>
+Bachelor or Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BFA
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Fine Arts
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Fine Arts
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BN
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Nursing
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Nursing
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BS
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Science
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Science
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BSL
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Science - Law
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Science - Law
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BSN
+</td>
+<td class='vocab-concept-display'>
+Bachelor on Science - Nursing
+</td>
+<td class='vocab-concept-definition'>
+Bachelor on Science - Nursing
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BT
+</td>
+<td class='vocab-concept-display'>
+Bachelor of Theology
+</td>
+<td class='vocab-concept-definition'>
+Bachelor of Theology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CER
+</td>
+<td class='vocab-concept-display'>
+Certificate
+</td>
+<td class='vocab-concept-definition'>
+Certificate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CANP
+</td>
+<td class='vocab-concept-display'>
+Certified Adult Nurse Practitioner
+</td>
+<td class='vocab-concept-definition'>
+Certified Adult Nurse Practitioner
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CMA
+</td>
+<td class='vocab-concept-display'>
+Certified Medical Assistant
+</td>
+<td class='vocab-concept-definition'>
+Certified Medical Assistant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNP
+</td>
+<td class='vocab-concept-display'>
+Certified Nurse Practitioner
+</td>
+<td class='vocab-concept-definition'>
+Certified Nurse Practitioner
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNM
+</td>
+<td class='vocab-concept-display'>
+Certified Nurse Midwife
+</td>
+<td class='vocab-concept-definition'>
+Certified Nurse Midwife
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CRN
+</td>
+<td class='vocab-concept-display'>
+Certified Registered Nurse
+</td>
+<td class='vocab-concept-definition'>
+Certified Registered Nurse
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNS
+</td>
+<td class='vocab-concept-display'>
+Certified Nurse Specialist
+</td>
+<td class='vocab-concept-definition'>
+Certified Nurse Specialist
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CPNP
+</td>
+<td class='vocab-concept-display'>
+Certified Pediatric Nurse Practitioner
+</td>
+<td class='vocab-concept-definition'>
+Certified Pediatric Nurse Practitioner
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CTR
+</td>
+<td class='vocab-concept-display'>
+Certified Tumor Registrar
+</td>
+<td class='vocab-concept-definition'>
+Certified Tumor Registrar
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DIP
+</td>
+<td class='vocab-concept-display'>
+Diploma
+</td>
+<td class='vocab-concept-definition'>
+Diploma
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DBA
+</td>
+<td class='vocab-concept-display'>
+Doctor of Business Administration
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Business Administration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DED
+</td>
+<td class='vocab-concept-display'>
+Doctor of Education
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Education
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PharmD
+</td>
+<td class='vocab-concept-display'>
+Doctor of Pharmacy
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Pharmacy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHE
+</td>
+<td class='vocab-concept-display'>
+Doctor of Engineering
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHD
+</td>
+<td class='vocab-concept-display'>
+Doctor of Philosophy
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Philosophy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHS
+</td>
+<td class='vocab-concept-display'>
+Doctor of Science
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Science
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MD
+</td>
+<td class='vocab-concept-display'>
+Doctor of Medicine
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Medicine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DO
+</td>
+<td class='vocab-concept-display'>
+Doctor of Osteopathy
+</td>
+<td class='vocab-concept-definition'>
+Doctor of Osteopathy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EMT
+</td>
+<td class='vocab-concept-display'>
+Emergency Medical Technician
+</td>
+<td class='vocab-concept-definition'>
+Emergency Medical Technician
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EMTP
+</td>
+<td class='vocab-concept-display'>
+Emergency Medical Technician - Paramedic
+</td>
+<td class='vocab-concept-definition'>
+Emergency Medical Technician - Paramedic
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FPNP
+</td>
+<td class='vocab-concept-display'>
+Family Practice Nurse Practitioner
+</td>
+<td class='vocab-concept-definition'>
+Family Practice Nurse Practitioner
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HS
+</td>
+<td class='vocab-concept-display'>
+High School Graduate
+</td>
+<td class='vocab-concept-definition'>
+High School Graduate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+JD
+</td>
+<td class='vocab-concept-display'>
+Juris Doctor
+</td>
+<td class='vocab-concept-definition'>
+Juris Doctor
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MA
+</td>
+<td class='vocab-concept-display'>
+Master of Arts
+</td>
+<td class='vocab-concept-definition'>
+Master of Arts
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MBA
+</td>
+<td class='vocab-concept-display'>
+Master of Business Administration
+</td>
+<td class='vocab-concept-definition'>
+Master of Business Administration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCE
+</td>
+<td class='vocab-concept-display'>
+Master of Civil Engineering
+</td>
+<td class='vocab-concept-definition'>
+Master of Civil Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MDI
+</td>
+<td class='vocab-concept-display'>
+Master of Divinity
+</td>
+<td class='vocab-concept-definition'>
+Master of Divinity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MED
+</td>
+<td class='vocab-concept-display'>
+Master of Education
+</td>
+<td class='vocab-concept-definition'>
+Master of Education
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MEE
+</td>
+<td class='vocab-concept-display'>
+Master of Electrical Engineering
+</td>
+<td class='vocab-concept-definition'>
+Master of Electrical Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ME
+</td>
+<td class='vocab-concept-display'>
+Master of Engineering
+</td>
+<td class='vocab-concept-definition'>
+Master of Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFA
+</td>
+<td class='vocab-concept-display'>
+Master of Fine Arts
+</td>
+<td class='vocab-concept-definition'>
+Master of Fine Arts
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MME
+</td>
+<td class='vocab-concept-display'>
+Master of Mechanical Engineering
+</td>
+<td class='vocab-concept-definition'>
+Master of Mechanical Engineering
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MS
+</td>
+<td class='vocab-concept-display'>
+Master of Science
+</td>
+<td class='vocab-concept-definition'>
+Master of Science
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MSL
+</td>
+<td class='vocab-concept-display'>
+Master of Science - Law
+</td>
+<td class='vocab-concept-definition'>
+Master of Science - Law
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MSN
+</td>
+<td class='vocab-concept-display'>
+Master of Science - Nursing
+</td>
+<td class='vocab-concept-definition'>
+Master of Science - Nursing
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MTH
+</td>
+<td class='vocab-concept-display'>
+Master of Theology
+</td>
+<td class='vocab-concept-definition'>
+Master of Theology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MDA
+</td>
+<td class='vocab-concept-display'>
+Medical Assistant
+</td>
+<td class='vocab-concept-definition'>
+Medical Assistant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MT
+</td>
+<td class='vocab-concept-display'>
+Medical Technician
+</td>
+<td class='vocab-concept-definition'>
+Medical Technician
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NG
+</td>
+<td class='vocab-concept-display'>
+Non-Graduate
+</td>
+<td class='vocab-concept-definition'>
+Non-Graduate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NP
+</td>
+<td class='vocab-concept-display'>
+Nurse Practitioner
+</td>
+<td class='vocab-concept-definition'>
+Nurse Practitioner
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PA
+</td>
+<td class='vocab-concept-display'>
+Physician Assistant
+</td>
+<td class='vocab-concept-definition'>
+Physician Assistant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RMA
+</td>
+<td class='vocab-concept-display'>
+Registered Medical Assistant
+</td>
+<td class='vocab-concept-definition'>
+Registered Medical Assistant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RN
+</td>
+<td class='vocab-concept-display'>
+Registered Nurse
+</td>
+<td class='vocab-concept-definition'>
+Registered Nurse
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPH
+</td>
+<td class='vocab-concept-display'>
+Registered Pharmacist
+</td>
+<td class='vocab-concept-definition'>
+Registered Pharmacist
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SEC
+</td>
+<td class='vocab-concept-display'>
+Secretarial Certificate
+</td>
+<td class='vocab-concept-definition'>
+Secretarial Certificate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TS
+</td>
+<td class='vocab-concept-display'>
+Trade School Graduate
+</td>
+<td class='vocab-concept-definition'>
+Trade School Graduate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

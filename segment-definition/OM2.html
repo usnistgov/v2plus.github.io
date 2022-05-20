@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+OM2 - Numeric Observation Segment
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the OM2 segment is Orders and Observations.</p><p class="v2 v2-normalindented">This segment contains the attributes of observations with continuous values (including those with data types of numeric, date, or time stamp).  It can be applied to observation batteries of type A and C (see <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>).</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - OM2 - Numeric Observation Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+OM2
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Sequence Number - Test/Observation Master File
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM2-1'>
+00586
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Units of Measure
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0648-ERROR! Bad Data! FIXME.html'>
+0648
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM2-2'>
+00627
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Range of Decimal Precision
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM2-3'>
+00628
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Corresponding SI Units of Measure
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0649-ERROR! Bad Data! FIXME.html'>
+0649
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM2-4'>
+00629
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+SI Conversion Factor
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM2-5'>
+00630
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Reference
+</td>
+<td class='centered'>
+<a href='/data-type/RFR.html'>
+RFR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM2-6'>
+00631
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Critical Range for Ordinal and Continuous Observations
+</td>
+<td class='centered'>
+<a href='/data-type/RFR.html'>
+RFR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM2-7'>
+00632
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Absolute Range for Ordinal and Continuous Observations
+</td>
+<td class='centered'>
+<a href='/data-type/RFR.html'>
+RFR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM2-8'>
+00633
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Delta Check Criteria
+</td>
+<td class='centered'>
+<a href='/data-type/DLT.html'>
+DLT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM2-9'>
+00634
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+10
+</td>
+<td>
+Minimum Meaningful Increments
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM2-10'>
+00635
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='OM2-1'>
+OM2-1: Sequence Number - Test/Observation Master File (<a href='/data-type/NM.html'>NM</a>) 00586
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the same value as the sequence number of the associated OM1 segment. Refer to Table 0648 - Units of Measure in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM2-2'>
+OM2-2: Units of Measure (<a href='/data-type/CWE.html'>CWE</a>) 00627
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the single tests/observations (those with a nature code of A or C, as described in <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>) that have numeric values.  This field contains their customary units of measure. Use of UCUM is strongly recommended as one of the specified units (either alone or in addition to the local units).</p>
+
+<h4 class='v2' id='OM2-3'>
+OM2-3: Range of Decimal Precision (<a href='/data-type/NM.html'>NM</a>) 00628
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the numerically valued single observations (code A or C as described in <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>), specifies the total length in characters of the field needed to display the observation, and the number of digits displayed to the right of the decimal point.  This is coded as a single number in the format &#60;length&#62;.&#60;decimal-digits&#62;.  For example, a value of 6.2 implies 6 characters total (including the sign and decimal point) with 2 digits after the decimal point.  For integer values, the period and &#60;decimal-digits&#62; portion may be omitted (that is, 5.0 and 5 are equivalent).  More than one such mask may be transmitted (separated by repeat delimiters) when it is necessary to define multiple display formats that are possible.</p>
+
+<h4 class='v2' id='OM2-4'>
+OM2-4: Corresponding SI Units of Measure (<a href='/data-type/CWE.html'>CWE</a>) 00629
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the single tests/observations - the corresponding SI units of measure in the format, when these differ from the customary units of measure given in the previous field. Refer to Table 0649 - Corresponding SI Units of Measure in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM2-5'>
+OM2-5: SI Conversion Factor (<a href='/data-type/TX.html'>TX</a>) 00630
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the continuous, numerically valued tests/observations, with a nature code of A or C (see <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>).  This is a factor for converting the customary units to SI units.</p><p class="v2 v2-normalindented">In the case that the observation units are not SI units, this field provides the formula needed to convert from the reported units to SI units, this shall include the equation needed to convert from the reporting to the SI units.</p><p class="v2 v2-normalindented">In the case that the relation is simply multiplicative, this field shall include only the conversion factor.  For example, if (results SI units) = c * (results reporting units), then only c would be stored in this field.  In the case of any other functional relationship, the entire equation would be stored as a test.</p>
+
+<h4 class='v2' id='OM2-6'>
+OM2-6: Reference (<a href='/data-type/RFR.html'>RFR</a>) 00631
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the reference (normal) ranges for &quot;numeric&quot; observations/tests with a nature code of A or C (see <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>). It can identify different reference (normal) ranges for different categories of patients according to age, sex, race, and other conditions.</p><p class="v2 v2-normalindented">In the first component of this field (Normal Range (NR)), the units are assumed to be identical to the reporting units given in <a href="/segment-definition/OM2.html#OM2-2">OM2-2 - Units of Measure</a>.</p><p class="v2 v2-normalindented">When two different methods result in two different reference ranges, two different observations and corresponding OMx segments should be defined.</p>
+
+<h4 class='v2' id='OM2-7'>
+OM2-7: Critical Range for Ordinal and Continuous Observations (<a href='/data-type/RFR.html'>RFR</a>) 00632
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field applies only to single tests/observations (i.e., a nature code of A or C, as described in <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>) with numeric results).  When a critical range is defined for such observations, it should be recorded here in the same format as the normal range (see <a href="/segment-definition/OM2.html#OM2-6">OM2-6 - Reference (Normal) Range - Ordinal and Continuous Observations</a>).</p>
+
+<h4 class='v2' id='OM2-8'>
+OM2-8: Absolute Range for Ordinal and Continuous Observations (<a href='/data-type/RFR.html'>RFR</a>) 00633
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field applies only to single tests/observations with a nature code of A or C (see <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>).  It defines the range of possible results.  Results outside this range are not possible.  The field should be recorded in the same format as the normal and critical ranges.</p>
+
+<h4 class='v2' id='OM2-9'>
+OM2-9: Delta Check Criteria (<a href='/data-type/DLT.html'>DLT</a>) 00634
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field applies to numeric tests/observations with a nature code of A or C (see <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>).  The field describes the information that controls delta check warnings and includes four components.</p><ol class="v2 v2-list v2-decimal-list v2-normallistnumbered" style="list-style: decimal"><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1008">The range to which the following applies: &#60;low &#38; high&#62;.<br/>All the ranges are defined in terms of the customary reporting units given in <a href="/segment-definition/OM2.html#OM2-2">OM2-2 - Units of Measure</a>.  If no value range is given, the check applies to all values.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1008">The numeric threshold of the change that is detected, e.g., 10.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1008">Whether the change is computed as a percent change or an absolute change.  This component can have two possible values:</p></li><li class="v2 v2-li"><p class="v2 v2-normallist v2-indent1008">%&#160;&#160;&#160;&#160;indicates a percent change<br/>a&#160;&#160;&#160;&#160;absolute change</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1008">The length of time that the service retains a value for computing delta checks.  This is recorded in number of days.</p></li></ol><p class="v2 v2-normalindented v2-indent1008">More than one delta check rule can apply.  13&#38;16^10^%^100~16.1&#38;20^2^a^100 implies that the delta check will trigger on a 10% change when the value of the observation is between 13 and 16.  The check will trigger on an absolute change of 2 when the value is between 16.1 and 20.  In both cases, the system will keep the last result for 100 days.  In this example, beyond 100 days, the computer will not compute a delta check because it will not have a comparison value.</p>
+
+<h4 class='v2' id='OM2-10'>
+OM2-10: Minimum Meaningful Increments (<a href='/data-type/NM.html'>NM</a>) 00635
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the numerically valued single observations (a nature code of A or C, as described in <a href="/segment-definition/OM1.html#OM1-18">OM1-18 - Nature of Service/Test/Observation</a>) and specifies the smallest meaningful difference between reported values (the effective resolution of the measuring instrument or technique for continuous data, or the smallest discrete interval that can occur for discrete data).</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

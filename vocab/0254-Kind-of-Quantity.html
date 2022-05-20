@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Kind of Quantity
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Kind of Quantity
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70254
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+OM1-42
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes that describe the underlying kind of property represented by an observation.  The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth.  These are discussed more fully in the LOINC Users' Manual.   They are derived from the approach described in 1995 edition of the IUPAC Silver Book.  These distinctions are used in IUPAC and LOINC standard codes.  The distinctions of true quantities in this table are based primarily on dimensional analyses. The table contains a number of "families," those related to simple counts (number, number concentration, etc.), to mass (mass, mass concentration, etc.), to enzyme activity (catalytic content, catalytic concentration, etc.), and molar or equivalents (substance content, substance concentration).
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Kind of Quantity - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CACT
+</td>
+<td class='vocab-concept-display'>
+Catalytic Activity
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Activity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNC
+</td>
+<td class='vocab-concept-display'>
+Catalytic Concentration
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCRTO
+</td>
+<td class='vocab-concept-display'>
+Catalytic Concentration Ratio
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Concentration Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCNT
+</td>
+<td class='vocab-concept-display'>
+Catalytic Content
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Content
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CFR
+</td>
+<td class='vocab-concept-display'>
+Catalytic Fraction
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Fraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CRAT
+</td>
+<td class='vocab-concept-display'>
+Catalytic Rate
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Rate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CRTO
+</td>
+<td class='vocab-concept-display'>
+Catalytic Ratio
+</td>
+<td class='vocab-concept-definition'>
+Catalytic Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENT
+</td>
+<td class='vocab-concept-display'>
+Entitic
+</td>
+<td class='vocab-concept-definition'>
+Entitic
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENTSUB
+</td>
+<td class='vocab-concept-display'>
+Entitic Substance of Amount
+</td>
+<td class='vocab-concept-definition'>
+Entitic Substance of Amount
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENTCAT
+</td>
+<td class='vocab-concept-display'>
+Entitic Catalytic Activity
+</td>
+<td class='vocab-concept-definition'>
+Entitic Catalytic Activity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENTNUM
+</td>
+<td class='vocab-concept-display'>
+Entitic Number
+</td>
+<td class='vocab-concept-definition'>
+Entitic Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENTVOL
+</td>
+<td class='vocab-concept-display'>
+Entitic Volume
+</td>
+<td class='vocab-concept-definition'>
+Entitic Volume
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MASS
+</td>
+<td class='vocab-concept-display'>
+Mass
+</td>
+<td class='vocab-concept-definition'>
+Mass
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCNC
+</td>
+<td class='vocab-concept-display'>
+Mass Concentration
+</td>
+<td class='vocab-concept-definition'>
+Mass Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCRTO
+</td>
+<td class='vocab-concept-display'>
+Mass Concentration Ratio
+</td>
+<td class='vocab-concept-definition'>
+Mass Concentration Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCNT
+</td>
+<td class='vocab-concept-display'>
+Mass Content
+</td>
+<td class='vocab-concept-definition'>
+Mass Content
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFR
+</td>
+<td class='vocab-concept-display'>
+Mass Fraction
+</td>
+<td class='vocab-concept-definition'>
+Mass Fraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MINC
+</td>
+<td class='vocab-concept-display'>
+Mass Increment
+</td>
+<td class='vocab-concept-definition'>
+Mass Increment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MRAT
+</td>
+<td class='vocab-concept-display'>
+Mass Rate
+</td>
+<td class='vocab-concept-definition'>
+Mass Rate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MRTO
+</td>
+<td class='vocab-concept-display'>
+Mass Ratio
+</td>
+<td class='vocab-concept-definition'>
+Mass Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NUM
+</td>
+<td class='vocab-concept-display'>
+Number
+</td>
+<td class='vocab-concept-definition'>
+Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NCNC
+</td>
+<td class='vocab-concept-display'>
+Number Concentration
+</td>
+<td class='vocab-concept-definition'>
+Number Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NCNT
+</td>
+<td class='vocab-concept-display'>
+Number Content
+</td>
+<td class='vocab-concept-definition'>
+Number Content
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NFR
+</td>
+<td class='vocab-concept-display'>
+Number Fraction
+</td>
+<td class='vocab-concept-definition'>
+Number Fraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NRTO
+</td>
+<td class='vocab-concept-display'>
+Number Ratio
+</td>
+<td class='vocab-concept-definition'>
+Number Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SUB
+</td>
+<td class='vocab-concept-display'>
+Substance Amount
+</td>
+<td class='vocab-concept-definition'>
+Substance Amount
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCNC
+</td>
+<td class='vocab-concept-display'>
+Substance Concentration
+</td>
+<td class='vocab-concept-definition'>
+Substance Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCRTO
+</td>
+<td class='vocab-concept-display'>
+Substance Concentration Ratio
+</td>
+<td class='vocab-concept-definition'>
+Substance Concentration Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCNT
+</td>
+<td class='vocab-concept-display'>
+Substance Content
+</td>
+<td class='vocab-concept-definition'>
+Substance Content
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCNTR
+</td>
+<td class='vocab-concept-display'>
+Substance Content Rate
+</td>
+<td class='vocab-concept-definition'>
+Substance Content Rate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SFR
+</td>
+<td class='vocab-concept-display'>
+Substance Fraction
+</td>
+<td class='vocab-concept-definition'>
+Substance Fraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCNCIN
+</td>
+<td class='vocab-concept-display'>
+Substance Concentration Increment
+</td>
+<td class='vocab-concept-definition'>
+Substance Concentration Increment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SRAT
+</td>
+<td class='vocab-concept-display'>
+Substance Rate
+</td>
+<td class='vocab-concept-definition'>
+Substance Rate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SRTO
+</td>
+<td class='vocab-concept-display'>
+Substance Ratio
+</td>
+<td class='vocab-concept-definition'>
+Substance Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VOL
+</td>
+<td class='vocab-concept-display'>
+Volume
+</td>
+<td class='vocab-concept-definition'>
+Volume
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VCNT
+</td>
+<td class='vocab-concept-display'>
+Volume Content
+</td>
+<td class='vocab-concept-definition'>
+Volume Content
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VFR
+</td>
+<td class='vocab-concept-display'>
+Volume Fraction
+</td>
+<td class='vocab-concept-definition'>
+Volume Fraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VRAT
+</td>
+<td class='vocab-concept-display'>
+Volume Rate
+</td>
+<td class='vocab-concept-definition'>
+Volume Rate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VRTO
+</td>
+<td class='vocab-concept-display'>
+Volume Ratio
+</td>
+<td class='vocab-concept-definition'>
+Volume Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACNC
+</td>
+<td class='vocab-concept-display'>
+Concentration, Arbitrary Substance
+</td>
+<td class='vocab-concept-definition'>
+Concentration, Arbitrary Substance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RLMCNC
+</td>
+<td class='vocab-concept-display'>
+Relative Mass Concentration
+</td>
+<td class='vocab-concept-definition'>
+Relative Mass Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RLSCNC
+</td>
+<td class='vocab-concept-display'>
+Relative Substance Concentration
+</td>
+<td class='vocab-concept-definition'>
+Relative Substance Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+THRMCNC
+</td>
+<td class='vocab-concept-display'>
+Threshold Mass Concentration
+</td>
+<td class='vocab-concept-definition'>
+Threshold Mass Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+THRSCNC
+</td>
+<td class='vocab-concept-display'>
+Threshold Substance Concentration
+</td>
+<td class='vocab-concept-definition'>
+Threshold Substance Concentration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TIME
+</td>
+<td class='vocab-concept-display'>
+Time (e.g. seconds)
+</td>
+<td class='vocab-concept-definition'>
+Time (e.g. seconds)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TMDF
+</td>
+<td class='vocab-concept-display'>
+Time Difference
+</td>
+<td class='vocab-concept-definition'>
+Time Difference
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TMSTP
+</td>
+<td class='vocab-concept-display'>
+Time Stamp-Date and Time
+</td>
+<td class='vocab-concept-definition'>
+Time Stamp-Date and Time
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TRTO
+</td>
+<td class='vocab-concept-display'>
+Time Ratio
+</td>
+<td class='vocab-concept-definition'>
+Time Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RCRLTM
+</td>
+<td class='vocab-concept-display'>
+Reciprocal Relative Time
+</td>
+<td class='vocab-concept-definition'>
+Reciprocal Relative Time
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RLTM
+</td>
+<td class='vocab-concept-display'>
+Relative Time
+</td>
+<td class='vocab-concept-definition'>
+Relative Time
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ABS
+</td>
+<td class='vocab-concept-display'>
+Absorbance
+</td>
+<td class='vocab-concept-definition'>
+Absorbance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACT
+</td>
+<td class='vocab-concept-display'>
+Activity
+</td>
+<td class='vocab-concept-definition'>
+Activity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+APER
+</td>
+<td class='vocab-concept-display'>
+Appearance
+</td>
+<td class='vocab-concept-definition'>
+Appearance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ARB
+</td>
+<td class='vocab-concept-display'>
+Arbitrary
+</td>
+<td class='vocab-concept-definition'>
+Arbitrary
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AREA
+</td>
+<td class='vocab-concept-display'>
+Area
+</td>
+<td class='vocab-concept-definition'>
+Area
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ASPECT
+</td>
+<td class='vocab-concept-display'>
+Aspect
+</td>
+<td class='vocab-concept-definition'>
+Aspect
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CLAS
+</td>
+<td class='vocab-concept-display'>
+Class
+</td>
+<td class='vocab-concept-definition'>
+Class
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNST
+</td>
+<td class='vocab-concept-display'>
+Constant
+</td>
+<td class='vocab-concept-definition'>
+Constant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+COEF
+</td>
+<td class='vocab-concept-display'>
+Coefficient
+</td>
+<td class='vocab-concept-definition'>
+Coefficient
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+COLOR
+</td>
+<td class='vocab-concept-display'>
+Color
+</td>
+<td class='vocab-concept-definition'>
+Color
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CONS
+</td>
+<td class='vocab-concept-display'>
+Consistency
+</td>
+<td class='vocab-concept-definition'>
+Consistency
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DEN
+</td>
+<td class='vocab-concept-display'>
+Density
+</td>
+<td class='vocab-concept-definition'>
+Density
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DEV
+</td>
+<td class='vocab-concept-display'>
+Device
+</td>
+<td class='vocab-concept-definition'>
+Device
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DIFF
+</td>
+<td class='vocab-concept-display'>
+Difference
+</td>
+<td class='vocab-concept-definition'>
+Difference
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ELAS
+</td>
+<td class='vocab-concept-display'>
+Elasticity
+</td>
+<td class='vocab-concept-definition'>
+Elasticity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ELPOT
+</td>
+<td class='vocab-concept-display'>
+Electrical Potential (Voltage)
+</td>
+<td class='vocab-concept-definition'>
+Electrical Potential (Voltage)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ELRAT
+</td>
+<td class='vocab-concept-display'>
+Electrical current (amperage)
+</td>
+<td class='vocab-concept-definition'>
+Electrical current (amperage)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ELRES
+</td>
+<td class='vocab-concept-display'>
+Electrical Resistance
+</td>
+<td class='vocab-concept-definition'>
+Electrical Resistance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENGR
+</td>
+<td class='vocab-concept-display'>
+Energy
+</td>
+<td class='vocab-concept-definition'>
+Energy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EQL
+</td>
+<td class='vocab-concept-display'>
+Equilibrium
+</td>
+<td class='vocab-concept-definition'>
+Equilibrium
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FORCE
+</td>
+<td class='vocab-concept-display'>
+Mechanical force
+</td>
+<td class='vocab-concept-definition'>
+Mechanical force
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FREQ
+</td>
+<td class='vocab-concept-display'>
+Frequency
+</td>
+<td class='vocab-concept-definition'>
+Frequency
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IMP
+</td>
+<td class='vocab-concept-display'>
+Impression/ interpretation of study
+</td>
+<td class='vocab-concept-definition'>
+Impression/ interpretation of study
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+KINV
+</td>
+<td class='vocab-concept-display'>
+Kinematic Viscosity
+</td>
+<td class='vocab-concept-definition'>
+Kinematic Viscosity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LEN
+</td>
+<td class='vocab-concept-display'>
+Length
+</td>
+<td class='vocab-concept-definition'>
+Length
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LINC
+</td>
+<td class='vocab-concept-display'>
+Length Increment
+</td>
+<td class='vocab-concept-definition'>
+Length Increment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LIQ
+</td>
+<td class='vocab-concept-display'>
+Liquefaction
+</td>
+<td class='vocab-concept-definition'>
+Liquefaction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MGFLUX
+</td>
+<td class='vocab-concept-display'>
+Magnetic flux
+</td>
+<td class='vocab-concept-definition'>
+Magnetic flux
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MORPH
+</td>
+<td class='vocab-concept-display'>
+Morphology
+</td>
+<td class='vocab-concept-definition'>
+Morphology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MOTIL
+</td>
+<td class='vocab-concept-display'>
+Motility
+</td>
+<td class='vocab-concept-definition'>
+Motility
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OD
+</td>
+<td class='vocab-concept-display'>
+Optical density
+</td>
+<td class='vocab-concept-definition'>
+Optical density
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSMOL
+</td>
+<td class='vocab-concept-display'>
+Osmolality
+</td>
+<td class='vocab-concept-definition'>
+Osmolality
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRID
+</td>
+<td class='vocab-concept-display'>
+Presence/Identity/Existence
+</td>
+<td class='vocab-concept-definition'>
+Presence/Identity/Existence
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRES
+</td>
+<td class='vocab-concept-display'>
+Pressure (Partial)
+</td>
+<td class='vocab-concept-definition'>
+Pressure (Partial)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PWR
+</td>
+<td class='vocab-concept-display'>
+Power (wattage)
+</td>
+<td class='vocab-concept-definition'>
+Power (wattage)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RANGE
+</td>
+<td class='vocab-concept-display'>
+Ranges
+</td>
+<td class='vocab-concept-definition'>
+Ranges
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RATIO
+</td>
+<td class='vocab-concept-display'>
+Ratios
+</td>
+<td class='vocab-concept-definition'>
+Ratios
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RDEN
+</td>
+<td class='vocab-concept-display'>
+Relative Density
+</td>
+<td class='vocab-concept-definition'>
+Relative Density
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+REL
+</td>
+<td class='vocab-concept-display'>
+Relative
+</td>
+<td class='vocab-concept-definition'>
+Relative
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SATFR
+</td>
+<td class='vocab-concept-display'>
+Saturation Fraction
+</td>
+<td class='vocab-concept-definition'>
+Saturation Fraction
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SHAPE
+</td>
+<td class='vocab-concept-display'>
+Shape
+</td>
+<td class='vocab-concept-definition'>
+Shape
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SMELL
+</td>
+<td class='vocab-concept-display'>
+Smell
+</td>
+<td class='vocab-concept-definition'>
+Smell
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SUSC
+</td>
+<td class='vocab-concept-display'>
+Susceptibility
+</td>
+<td class='vocab-concept-definition'>
+Susceptibility
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TASTE
+</td>
+<td class='vocab-concept-display'>
+Taste
+</td>
+<td class='vocab-concept-definition'>
+Taste
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TEMP
+</td>
+<td class='vocab-concept-display'>
+Temperature
+</td>
+<td class='vocab-concept-definition'>
+Temperature
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TEMPDF
+</td>
+<td class='vocab-concept-display'>
+Temperature Difference
+</td>
+<td class='vocab-concept-definition'>
+Temperature Difference
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TEMPIN
+</td>
+<td class='vocab-concept-display'>
+Temperature Increment
+</td>
+<td class='vocab-concept-definition'>
+Temperature Increment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TITR
+</td>
+<td class='vocab-concept-display'>
+Dilution Factor (Titer)
+</td>
+<td class='vocab-concept-definition'>
+Dilution Factor (Titer)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TYPE
+</td>
+<td class='vocab-concept-display'>
+Type
+</td>
+<td class='vocab-concept-definition'>
+Type
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VEL
+</td>
+<td class='vocab-concept-display'>
+Velocity
+</td>
+<td class='vocab-concept-definition'>
+Velocity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VELRT
+</td>
+<td class='vocab-concept-display'>
+Velocity Ratio
+</td>
+<td class='vocab-concept-definition'>
+Velocity Ratio
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VISC
+</td>
+<td class='vocab-concept-display'>
+Viscosity
+</td>
+<td class='vocab-concept-definition'>
+Viscosity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

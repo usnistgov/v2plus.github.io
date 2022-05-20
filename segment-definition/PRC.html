@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PRC - Pricing Segment
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the PRC segment is Financial Management.</p><p class="v2 v2-normalindented">The PRC segment contains the pricing information for the preceding CDM segment&#39;s chargeable item.  It contains the fields which, for the same chargeable item, might vary depending upon facility or department or patient type.  The preceding CDM segment contains the fields which, for one chargeable item, remain the same across facilities, departments, and patient types.  </p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PRC - Pricing Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PRC
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Primary Key Value - PRC
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0132-Transaction-Code.html' title='Transaction Code'>
+0132
+<span class='vocab-link-text'>Transaction Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PRC-1'>
+00982
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Facility ID - PRC
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0464-Facility-ID.html' title='Facility ID'>
+0464
+<span class='vocab-link-text'>Facility ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRC-2'>
+00995
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Department
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0184-Department.html' title='Department'>
+0184
+<span class='vocab-link-text'>Department</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRC-3'>
+00676
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Valid Patient Classes
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0004-Patient-Class.html' title='Patient Class'>
+0004
+<span class='vocab-link-text'>Patient Class</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRC-4'>
+00967
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Price
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRC-5'>
+00998
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Formula
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRC-6'>
+00999
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Minimum Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-7'>
+01000
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Maximum Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-8'>
+01001
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Minimum Price
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-9'>
+01002
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Maximum Price
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-10'>
+01003
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Effective Start Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-11'>
+01004
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Effective End Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-12'>
+01005
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Price Override Flag
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0268-Override.html' title='Override(Suggested)'>
+0268(S)
+<span class='vocab-link-text'>Override(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-13'>
+01006
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Billing Category
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0293-Billing-Category.html' title='Billing Category'>
+0293
+<span class='vocab-link-text'>Billing Category</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRC-14'>
+01007
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Chargeable Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-15'>
+01008
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Active/Inactive Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0183-Active/Inactive.html' title='Active/Inactive(Required)'>
+0183(R)
+<span class='vocab-link-text'>Active/Inactive(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-16'>
+00675
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Cost
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-17'>
+00989
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+18
+</td>
+<td>
+Charge on Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0269-Charge-On-Indicator.html' title='Charge On Indicator'>
+0269
+<span class='vocab-link-text'>Charge On Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRC-18'>
+01009
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PRC-1'>
+PRC-1: Primary Key Value - PRC (<a href='/data-type/CWE.html'>CWE</a>) 00982
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code assigned by the institution for the purpose of uniquely identifying the thing that can be charged.  The key field of the entry.  For example, this field would be used to uniquely identify a procedure, item, or test for charging purposes.  Probably the same set of values as used in <a href="/segment-definition/FT1.html#FT1-7">FT1-7 - Transaction Code</a> in financial messages.  Must match <a href="/segment-definition/MFE.html#MFE-4">MFE-4 - Primary Key - MFE</a> and <a href="/segment-definition/CDM.html#CDM-1">CDM-1 - Primary Key - CDM</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 - Transaction code</a> in Chapter 2C, Code Tables, for suggested values.  See Chapter 7 for discussion of the universal service ID.  </p>
+
+<h4 class='v2' id='PRC-2'>
+PRC-2: Facility ID - PRC (<a href='/data-type/CWE.html'>CWE</a>) 00995
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the facility of the institution for which this price (for the preceding CDM entry) is valid.  For use when needing multi-facility pricing.  If null, assume all facilities.  In a multi-facility environment, the facility associated with this chargeable item may not be the same as the sending or receiving facility identified in the MSH segment.  Use only when the price is not the same for all facilities, that is, a null value indicates that this pricing is valid for all facilities.</p><p class="v2 v2-normalindented">When two PRC segments are sent with the same key values but different facility identifiers, the second is sent in addition to the first, not to replace the first.  The effective unique identifier is the charge code (<a href="/segment-definition/PRC.html#PRC-1">PRC-1 - Primary Key Value - PRC</a>) plus the facility ID (<a href="/segment-definition/PRC.html#PRC-2">PRC-2 - Facility ID</a>).  Multiple facility identifiers can be sent in the same segment to indicate that those facilities use the same pricing. Refer to <a href="https://www.hl7.org/fhir/v2/0464/index.html">User-defined Table 0464 - Facility ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PRC-3'>
+PRC-3: Department (<a href='/data-type/CWE.html'>CWE</a>) 00676
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the department of the facility which accrues revenue/cost for this type of charge.  When pricing is different for different departments within the same facility, this will indicate for which department the following pricing information is valid.  Use only when the price is not the same for all departments, that is, a null value indicates that this pricing is valid for all departments.</p><p class="v2 v2-normalindented">When two PRC segments are sent the same key values but with different departments, the second is sent in addition to the first, not to replace the first.  The effective unique identifier is the charge code <a href="/segment-definition/PRC.html#PRC-1">(PRC-1 - Primary Key - PRC</a>) plus the facility ID (<a href="/segment-definition/PRC.html#PRC-2">PRC-2 - Facility ID</a>) plus the department (<a href="/segment-definition/PRC.html#PRC-3">PRC-3 - Department</a>).  Multiple departments can be sent in the same segment to indicate that those departments use the same pricing. Refer to <a href="https://www.hl7.org/fhir/v2/0184/index.html">User-defined Table 0184 - Department</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PRC-4'>
+PRC-4: Valid Patient Classes (<a href='/data-type/CWE.html'>CWE</a>) 00967
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient types for which this charge description is valid.  For example, Inpatient, Outpatient, Series, Clinic, ER, Ambulatory, Observation, etc.  These values should be the same set of values as those used for <a href="/segment-definition/PV1.html#PV1-3">PV1-3 - Patient Class</a>, which is site defined.  Use only when the price is not valid for all patient types, that is, a null value indicates that this pricing is valid for all patient classes.  Refer to <a href="https://www.hl7.org/fhir/v2/0004/index.html">User-defined Table 0004 - Patient Class</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">When two PRC segments are sent the same key values but with different valid patient classes, the second is sent in addition to the first, not to replace the first.  The effective unique identifier is the charge code (<a href="/segment-definition/PRC.html#PRC-1">PRC-1 - PRC Primary Key</a>) plus the facility ID (<a href="/segment-definition/PRC.html#PRC-2">PRC-2 - Facility ID</a>) plus the department (<a href="/segment-definition/PRC.html#PRC-3">PRC-3 - Department</a>) plus the patient class (<a href="/segment-definition/PRC.html#PRC-4">PRC-4 - Valid Patient Classes</a>).  Multiple patient classes can be sent in the same segment to indicate that those patient classes use the same pricing.</p>
+
+<h4 class='v2' id='PRC-5'>
+PRC-5: Price (<a href='/data-type/CP.html'>CP</a>) 00998
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the price to be charged for service, item, or procedure.  If CDM price will always be overridden when charges are posted, then this field is optional.  Otherwise, price would be a required field.  The formula or calculation that is to be used to get total price from these price components is left to implementation negotiations agreed upon by the participating institutions.  See Chapter 2, section 2.8.8, &quot;CP - composite price,&quot; for a description of the use of the composite price (CP) data type.</p>
+
+<h4 class='v2' id='PRC-6'>
+PRC-6: Formula (<a href='/data-type/ST.html'>ST</a>) 00999
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the mathematical formula to apply to <a href="/segment-definition/PRC.html#PRC-5">PRC-5 - Price</a> in order to compute total price.  The syntax of this formula must conform to Arden Syntax rules.</p>
+
+<h4 class='v2' id='PRC-7'>
+PRC-7: Minimum Quantity (<a href='/data-type/NM.html'>NM</a>) 01000
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the minimum number of identical charges allowed on one patient account for this CDM entry.</p>
+
+<h4 class='v2' id='PRC-8'>
+PRC-8: Maximum Quantity (<a href='/data-type/NM.html'>NM</a>) 01001
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the maximum number of identical charges allowed on one patient account for this CDM entry.</p>
+
+<h4 class='v2' id='PRC-9'>
+PRC-9: Minimum Price (<a href='/data-type/MO.html'>MO</a>) 01002
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the minimum total price (after computation of components of price) that can be charged for this item.</p>
+
+<h4 class='v2' id='PRC-10'>
+PRC-10: Maximum Price (<a href='/data-type/MO.html'>MO</a>) 01003
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the maximum total price (after computation of components of price) that can be charged for this item.</p>
+
+<h4 class='v2' id='PRC-11'>
+PRC-11: Effective Start Date (<a href='/data-type/DTM.html'>DTM</a>) 01004
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time when this CDM entry becomes effective.</p>
+
+<h4 class='v2' id='PRC-12'>
+PRC-12: Effective End Date (<a href='/data-type/DTM.html'>DTM</a>) 01005
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time when this CDM entry is no longer effective.</p>
+
+<h4 class='v2' id='PRC-13'>
+PRC-13: Price Override Flag (<a href='/data-type/CWE.html'>CWE</a>) 01006
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether this CDM entry&#39;s price can be overridden.  Refer to <a href="https://www.hl7.org/fhir/v2/0268/index.html">User-defined Table 0268 - Override</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PRC-14'>
+PRC-14: Billing Category (<a href='/data-type/CWE.html'>CWE</a>) 01007
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the billing category codes for any classification systems needed, for example, general ledger codes and UB92 categories.  Repeating field with coded entry made up of category code plus category system.  Refer to <a href="https://www.hl7.org/fhir/v2/0293/index.html">User-defined Table 0293 - Billing category</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PRC-15'>
+PRC-15: Chargeable Flag (<a href='/data-type/ID.html'>ID</a>) 01008
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a chargeable indicator. Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values. </p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;charge is not billable, that is, do not create charges for this CDM entry; this is zero price item</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;item is billable (this is also the default when NULL)</p></li></ul>
+
+<h4 class='v2' id='PRC-16'>
+PRC-16: Active/Inactive Flag (<a href='/data-type/ID.html'>ID</a>) 00675
+</h4>
+<p class="v2 v2-normalindented">Definition:  This indicates whether this is a usable CDM entry.  Refer to <a href="https://www.hl7.org/fhir/v2/0183/index.html">HL7 Table 0183 - Active/Inactive</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='PRC-17'>
+PRC-17: Cost (<a href='/data-type/MO.html'>MO</a>) 00989
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the institution&#39;s calculation of how much it costs to provide this item, that is, what the institution had to pay for the material plus any specified payment expenditure, effort or loss due to performing or providing the chargeable item.</p>
+
+<h4 class='v2' id='PRC-18'>
+PRC-18: Charge on Indicator (<a href='/data-type/CWE.html'>CWE</a>) 01009
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the user-defined table of values which indicates when a charge for services or procedures should be accrued.  Refer to <a href="https://www.hl7.org/fhir/v2/0269/index.html">User-defined Table 0269 - Charge On Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

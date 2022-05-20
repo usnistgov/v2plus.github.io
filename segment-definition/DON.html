@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+DON - Donation Segment
+</h3>
+<p class="v2 v2-normalindented">The intent of this segment is to describe the actual donation procedure.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - DON - Donation Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+DON
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Donation Identification Number - DIN
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DON-1'>
+03340
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Donation Type
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DON-2'>
+03341
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Phlebotomy Start Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-3'>
+03342
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Phlebotomy End Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-4'>
+03343
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Donation Duration
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-5'>
+03344
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Donation Duration Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0932-Donation-Duration-Units.html' title='Donation Duration Units'>
+0932
+<span class='vocab-link-text'>Donation Duration Units</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-6'>
+03345
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Intended Procedure Type
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0933-Intended-Procedure-Type.html' title='Intended Procedure Type(Required)'>
+0933(R)
+<span class='vocab-link-text'>Intended Procedure Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#DON-7'>
+03346
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Actual Procedure Type
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0933-Intended-Procedure-Type.html' title='Intended Procedure Type(Required)'>
+0933(R)
+<span class='vocab-link-text'>Intended Procedure Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#DON-8'>
+03347
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Donor Eligibility Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-9'>
+03348
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Donor Eligibility Procedure Type
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0933-Intended-Procedure-Type.html' title='Intended Procedure Type(Required)'>
+0933(R)
+<span class='vocab-link-text'>Intended Procedure Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#DON-10'>
+03349
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Donor Eligibility Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-11'>
+03350
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Process Interruption
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0923-Process-Interruption.html' title='Process Interruption'>
+0923
+<span class='vocab-link-text'>Process Interruption</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-12'>
+03351
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Process Interruption Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0935-Process-Interruption-Reason.html' title='Process Interruption Reason'>
+0935
+<span class='vocab-link-text'>Process Interruption Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-13'>
+03352
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Phlebotomy Issue
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0925-Phlebotomy-Issue.html' title='Phlebotomy Issue(Required)'>
+0925(R)
+<span class='vocab-link-text'>Phlebotomy Issue(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#DON-14'>
+03353
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Intended Recipient Blood Relative
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-15'>
+03354
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Intended Recipient Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-16'>
+03355
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Intended Recipient DOB
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-17'>
+03356
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Intended Recipient Facility
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-18'>
+03357
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Intended Recipient Procedure Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-19'>
+03358
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Intended Recipient Ordering Provider
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-20'>
+03359
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Phlebotomy Status
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0926-Phlebotomy-Status.html' title='Phlebotomy Status(Required)'>
+0926(R)
+<span class='vocab-link-text'>Phlebotomy Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-21'>
+03360
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Arm Stick
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0927-Arm-Stick.html' title='Arm Stick(Required)'>
+0927(R)
+<span class='vocab-link-text'>Arm Stick(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-22'>
+03361
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Bleed Start Phlebotomist
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-23'>
+03362
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Bleed End Phlebotomist
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-24'>
+03363
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Aphaeresis Type Machine
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-25'>
+03364
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+75
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Aphaeresis Machine Serial Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-26'>
+03365
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+25
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Donor Reaction
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-27'>
+03366
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Final Review Staff ID
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-28'>
+03367
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Final Review Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-29'>
+03368
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Number of Tubes Collected
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-30'>
+03369
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Donation Sample Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#DON-31'>
+03370
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Donation Accept Staff
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DON-32'>
+03371
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Donation Material Review Staff
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#DON-33'>
+03372
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+34
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DON-34'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2"></p>
+<h4 class='v2' id='DON-1'>
+DON-1: Donation Identification Number - DIN (<a href='/data-type/EI.html'>EI</a>) 03340
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier, Donation Identification Number (DIN), for the specific donation and is therefore mandatory except when using an eligibility message type in which only <a href="/segment-definition/DON.html#DON-9">DON-9</a>, <a href="/segment-definition/DON.html#DON-10">DON-10</a>, and <a href="/segment-definition/DON.html#DON-11">DON-11</a> are populated. DON-2 Donation Type   (CNE)   03341</p>
+
+<h4 class='v2' id='DON-2'>
+DON-2: Donation Type (<a href='/data-type/CNE.html'>CNE</a>) 03341
+</h4>
+<p class="v2 v2-normalindented">Definition:  The type of donation.  This element is mandatory except when using an eligibility message type in which only <a href="/segment-definition/DON.html#DON-9">DON-9</a>, <a href="/segment-definition/DON.html#DON-10">DON-10</a>, and <a href="/segment-definition/DON.html#DON-11">DON-11</a> are populated.  The values for this field are defined in Table RT008 - Type of Donation or Collection in 6th Position of Product Code in the ISBT 128 Standard Technical Specification, which is maintained by ICCBBA.  Link: <a href="http://iccbba.org/technicalspecification.pdf.">http://iccbba.org/technicalspecification.pdf.</a>  Table 5 Data Structure 002.</p>
+
+<h4 class='v2' id='DON-3'>
+DON-3: Phlebotomy Start Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03342
+</h4>
+<p class="v2 v2-normalindented">Definition:  The start date and time of the phlebotomy.</p>
+
+<h4 class='v2' id='DON-4'>
+DON-4: Phlebotomy End Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03343
+</h4>
+<p class="v2 v2-normalindented">Definition:  The end date and time of the phlebotomy.</p>
+
+<h4 class='v2' id='DON-5'>
+DON-5: Donation Duration (<a href='/data-type/NM.html'>NM</a>) 03344
+</h4>
+<p class="v2 v2-normalindented">Definition:  The duration of the phlebotomy or the length of time that elapsed between the phlebotomy start date and time and the phlebotomy end date and time.</p>
+
+<h4 class='v2' id='DON-6'>
+DON-6: Donation Duration Units (<a href='/data-type/CNE.html'>CNE</a>) 03345
+</h4>
+<p class="v2 v2-normalindented">Definition:  The duration units.  The duration units and duration are restricted to minutes and seconds.  Concepts are pulled from the UCUM code system (<a href="http://www.unitsofmeasure.org">www.unitsofmeasure.org</a><a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-1">).  Refer to </a><a href="https://www.hl7.org/fhir/v2/0932/index.html">HL7-Defined Table 0932 – Donation Duration Units</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries.</a></p>
+
+<h4 class='v2' id='DON-7'>
+DON-7: Intended Procedure Type (<a href='/data-type/CNE.html'>CNE</a>) 03346
+</h4>
+<p class="v2 v2-normalindented">Definition: The procedure(s) intended to be performed on the donor. Refer to <a href="https://www.hl7.org/fhir/v2/0933/index.html">HL7-Defined Table 0933 – Intended Procedure Type</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries.</a></p>
+
+<h4 class='v2' id='DON-8'>
+DON-8: Actual Procedure Type (<a href='/data-type/CNE.html'>CNE</a>) 03347
+</h4>
+<p class="v2 v2-normalindented">Definition: The actual procedure(s) performed on the donor.  Refer to <a href="https://www.hl7.org/fhir/v2/0933/index.html">HL7-Defined Table 0933 – Intended Procedure Type</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+
+<h4 class='v2' id='DON-9'>
+DON-9: Donor Eligibility Flag (<a href='/data-type/ID.html'>ID</a>) 03348
+</h4>
+<p class="v2 v2-normalindented">Definition:  Is the Donor eligible for donation?  Yes or No.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 -Yes/No Indicator</a> as defined in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='DON-10'>
+DON-10: Donor Eligibility Procedure Type (<a href='/data-type/CNE.html'>CNE</a>) 03349
+</h4>
+<p class="v2 v2-normalindented">Definition:  The procedure(s) for which the donor is eligible. Refer to <a href="https://www.hl7.org/fhir/v2/0933/index.html">HL7-Defined Table 0933 – Intended Procedure Type</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+
+<h4 class='v2' id='DON-11'>
+DON-11: Donor Eligibility Date (<a href='/data-type/DTM.html'>DTM</a>) 03350
+</h4>
+<p class="v2 v2-normalindented">Definition:  The date and time on which the donor is eligible to donate.</p>
+
+<h4 class='v2' id='DON-12'>
+DON-12: Process Interruption (<a href='/data-type/CNE.html'>CNE</a>) 03351
+</h4>
+<p class="v2 v2-normalindented">Definition:  Was the donation process interrupted after it began?  Refer to <a href="https://www.hl7.org/fhir/v2/0923/index.html">HL7-Defined Table 0923 – Process Interruption</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+
+<h4 class='v2' id='DON-13'>
+DON-13: Process Interruption Reason (<a href='/data-type/CNE.html'>CNE</a>) 03352
+</h4>
+<p class="v2 v2-normalindented">Definition:  Reason that the donation process was interrupted.  Refer to <a href="https://www.hl7.org/fhir/v2/0935/index.html">HL7-Defined Table 0935 – Process Interruption Reason</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+
+<h4 class='v2' id='DON-14'>
+DON-14: Phlebotomy Issue (<a href='/data-type/CNE.html'>CNE</a>) 03353
+</h4>
+<p class="v2 v2-normalindented">Definition:  Indicates whether there is a problem or issue with the phlebotomy itself.  This may be due to an incorrect needle procedure, needle defect, tube blockage, problem with the apheresis machine, or improper action by the phlebotomist. Refer to <a href="https://www.hl7.org/fhir/v2/0925/index.html">HL7-Defined Table 0925 – Phlebotomy Issue</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+
+<h4 class='v2' id='DON-15'>
+DON-15: Intended Recipient Blood Relative (<a href='/data-type/ID.html'>ID</a>) 03354
+</h4>
+<p class="v2 v2-normalindented">Definition:  If this donation has an intended recipient (directed, dedicated, designated), is the intended recipient a blood relative of the donor? Yes or No.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 -Yes/No Indicator</a> as defined in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='DON-16'>
+DON-16: Intended Recipient Name (<a href='/data-type/XPN.html'>XPN</a>) 03355
+</h4>
+<p class="v2 v2-normalindented">Definition:  If this is donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s name.</p>
+
+<h4 class='v2' id='DON-17'>
+DON-17: Intended Recipient DOB (<a href='/data-type/DTM.html'>DTM</a>) 03356
+</h4>
+<p class="v2 v2-normalindented">Definition:  If this donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s date of birth.</p>
+
+<h4 class='v2' id='DON-18'>
+DON-18: Intended Recipient Facility (<a href='/data-type/XON.html'>XON</a>) 03357
+</h4>
+<p class="v2 v2-normalindented">Definition:  If this donation has an intended recipient (autologous, directed, dedicated, designated), the facility where the intended recipient is expected to receive the transfusion. </p>
+
+<h4 class='v2' id='DON-19'>
+DON-19: Intended Recipient Procedure Date (<a href='/data-type/DTM.html'>DTM</a>) 03358
+</h4>
+<p class="v2 v2-normalindented">Definition: If this donation has an intended recipient (autologous, directed, dedicated, designated), the date the intended recipient is expected to receive the transfusion. </p>
+
+<h4 class='v2' id='DON-20'>
+DON-20: Intended Recipient Ordering Provider (<a href='/data-type/XPN.html'>XPN</a>) 03359
+</h4>
+<p class="v2 v2-normalindented">Definition: If this is donation has an intended recipient (autologous, directed, dedicated, designated), the provider who ordered the directed donation for the intended recipient. </p>
+
+<h4 class='v2' id='DON-21'>
+DON-21: Phlebotomy Status (<a href='/data-type/CNE.html'>CNE</a>) 03360
+</h4>
+<p class="v2 v2-normalindented">Definition:  Whether the phlebotomy was successful, not drawn, or unsuccessful, and if unsuccessful, the extent to which it was unsuccessful. Refer to <a href="https://www.hl7.org/fhir/v2/0926/index.html">HL7-Defined Table 0926 – Phlebotomy Status</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>. </p>
+
+<h4 class='v2' id='DON-22'>
+DON-22: Arm Stick (<a href='/data-type/CNE.html'>CNE</a>) 03361
+</h4>
+<p class="v2 v2-normalindented">Definition:  The arm(s) stuck for the donation. Refer to <a href="https://www.hl7.org/fhir/v2/0927/index.html">HL7-Defined Table 0927 – Arm Stick</a><a href="in Chapter 2C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+
+<h4 class='v2' id='DON-23'>
+DON-23: Bleed Start Phlebotomist (<a href='/data-type/XPN.html'>XPN</a>) 03362
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Phlebotomist who starts the blood flow into the container. </p>
+
+<h4 class='v2' id='DON-24'>
+DON-24: Bleed End Phlebotomist (<a href='/data-type/XPN.html'>XPN</a>) 03363
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Phlebotomist who ends the blood flow into the container. </p>
+
+<h4 class='v2' id='DON-25'>
+DON-25: Aphaeresis Type Machine (<a href='/data-type/ST.html'>ST</a>) 03364
+</h4>
+<p class="v2 v2-normalindented">Definition:  The type of aphaeresis machine, if used, for the donation. It will be the specific product name of the machine (e.g. Trima, Amicus, Alyx, Symal, etc.).</p>
+
+<h4 class='v2' id='DON-26'>
+DON-26: Aphaeresis Machine Serial Number (<a href='/data-type/ST.html'>ST</a>) 03365
+</h4>
+<p class="v2 v2-normalindented">Definition:  The serial number of the aphaeresis machine, if used, for the donation.</p>
+
+<h4 class='v2' id='DON-27'>
+DON-27: Donor Reaction (<a href='/data-type/ID.html'>ID</a>) 03366
+</h4>
+<p class="v2 v2-normalindented">Definition:  Did the donor have any adverse reaction during the donation procedure?  Yes or No.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 -Yes/No Indicator</a> as defined in Chapter 2C, Code Tables.  If this element is valued &quot;Y&quot;es, there should be OBX segments following the Donation segment which details the adverse reactions.  </p>
+
+<h4 class='v2' id='DON-28'>
+DON-28: Final Review Staff ID (<a href='/data-type/XPN.html'>XPN</a>) 03367
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Staff member conducting the final review and reconciliation of all documentation created during the collection process.</p>
+
+<h4 class='v2' id='DON-29'>
+DON-29: Final Review Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03368
+</h4>
+<p class="v2 v2-normalindented">Definition:  The date and time a final review of all documentation and labeling of the blood material is completed.</p>
+
+<h4 class='v2' id='DON-30'>
+DON-30: Number of Tubes Collected (<a href='/data-type/NM.html'>NM</a>) 03369
+</h4>
+<p class="v2 v2-normalindented">Definition:  The number of samples collected during the donation which will be used for subsequent testing. </p>
+
+<h4 class='v2' id='DON-31'>
+DON-31: Donation Sample Identifier (<a href='/data-type/EI.html'>EI</a>) 03370
+</h4>
+<p class="v2 v2-normalindented">Definition:  The sample identifier for the sample collected during a donation for the purpose of testing. This is a field for sample or specimen identifiers.</p>
+
+<h4 class='v2' id='DON-32'>
+DON-32: Donation Accept Staff (<a href='/data-type/XCN.html'>XCN</a>) 03371
+</h4>
+<p class="v2 v2-normalindented">Definition:  The staff member who reviewed all the intake materials, assessments and determined the donor can undergo a donation procedure at this time.</p>
+
+<h4 class='v2' id='DON-33'>
+DON-33: Donation Material Review Staff (<a href='/data-type/XCN.html'>XCN</a>) 03372
+</h4>
+<p class="v2 v2-normalindented">Definition:  The staff member who performs review on all documentation subsequent to donation procedure.</p>
+
+<h4 class='v2' id='DON-34'>
+DON-34: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p><p class="v2 v2-normalindented">The action code can only be used when an DON is uniquely identified sufficiently within the specific implementation using DON-1 in accordance with Chapter 2, Section 2.10.4.2.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

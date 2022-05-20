@@ -1,0 +1,3113 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+GT1 - Guarantor Segment
+</h3>
+<p class="v2 v2-normalindented">The GT1 segment contains guarantor (e.g., the person or the organization with financial responsibility for payment of a patient account) data for patient and insurance billing applications.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - GT1 - Guarantor Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+GT1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - GT1
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#GT1-1'>
+00405
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Guarantor Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-2'>
+00406
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Guarantor Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#GT1-3'>
+00407
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Guarantor Spouse Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-4'>
+00408
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Guarantor Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-5'>
+00409
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Guarantor Ph Num – Home
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-6'>
+00410
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Guarantor Ph Num – Business
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-7'>
+00411
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Guarantor Date/Time Of Birth
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-8'>
+00412
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Guarantor Administrative Sex
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0001-Administrative-Sex.html' title='Administrative Sex(Suggested)'>
+0001(S)
+<span class='vocab-link-text'>Administrative Sex(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-9'>
+00413
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Guarantor Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0068-Guarantor-Type.html' title='Guarantor Type'>
+0068
+<span class='vocab-link-text'>Guarantor Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-10'>
+00414
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Guarantor Relationship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0063-Relationship.html' title='Relationship'>
+0063
+<span class='vocab-link-text'>Relationship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-11'>
+00415
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Guarantor SSN
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-12'>
+00416
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+11
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Guarantor Date - Begin
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-13'>
+00417
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Guarantor Date - End
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-14'>
+00418
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Guarantor Priority
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-15'>
+00419
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Guarantor Employer Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-16'>
+00420
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Guarantor Employer Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-17'>
+00421
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Guarantor Employer Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-18'>
+00422
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Guarantor Employee ID Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-19'>
+00423
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Guarantor Employment Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0066-Employment-Status.html' title='Employment Status(Suggested)'>
+0066(S)
+<span class='vocab-link-text'>Employment Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-20'>
+00424
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Guarantor Organization Name
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-21'>
+00425
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Guarantor Billing Hold Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-22'>
+00773
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Guarantor Credit Rating Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0341-Guarantor-Credit-Rating-Code.html' title='Guarantor Credit Rating Code'>
+0341
+<span class='vocab-link-text'>Guarantor Credit Rating Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-23'>
+00774
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Guarantor Death Date And Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-24'>
+00775
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Guarantor Death Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-25'>
+00776
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Guarantor Charge Adjustment Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0218-Patient-Charge-Adjustment.html' title='Patient Charge Adjustment'>
+0218
+<span class='vocab-link-text'>Patient Charge Adjustment</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-26'>
+00777
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Guarantor Household Annual Income
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-27'>
+00778
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Guarantor Household Size
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-28'>
+00779
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+3
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Guarantor Employer ID Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-29'>
+00780
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Guarantor Marital Status Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0002-Marital-Status.html' title='Marital Status(Suggested)'>
+0002(S)
+<span class='vocab-link-text'>Marital Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-30'>
+00781
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Guarantor Hire Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-31'>
+00782
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Employment Stop Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-32'>
+00783
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Living Dependency
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0223-Living-Dependency.html' title='Living Dependency'>
+0223
+<span class='vocab-link-text'>Living Dependency</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-33'>
+00755
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Ambulatory Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0009-Ambulatory-Status.html' title='Ambulatory Status(Suggested)'>
+0009(S)
+<span class='vocab-link-text'>Ambulatory Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-34'>
+00145
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Citizenship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0171-Citizenship.html' title='Citizenship'>
+0171
+<span class='vocab-link-text'>Citizenship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-35'>
+00129
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Primary Language
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0296-Primary-Language.html' title='Primary Language'>
+0296
+<span class='vocab-link-text'>Primary Language</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-36'>
+00118
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Living Arrangement
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0220-Living-Arrangement.html' title='Living Arrangement'>
+0220
+<span class='vocab-link-text'>Living Arrangement</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-37'>
+00742
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Publicity Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0215-Publicity-Code.html' title='Publicity Code'>
+0215
+<span class='vocab-link-text'>Publicity Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-38'>
+00743
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Protection Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-39'>
+00744
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+Student Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0231-Student-Status.html' title='Student Status(Suggested)'>
+0231(S)
+<span class='vocab-link-text'>Student Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-40'>
+00745
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+Religion
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0006-Religion.html' title='Religion(Suggested)'>
+0006(S)
+<span class='vocab-link-text'>Religion(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-41'>
+00120
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+Mother's Maiden Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-42'>
+00109
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+Nationality
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0212-Nationality.html' title='Nationality'>
+0212
+<span class='vocab-link-text'>Nationality</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-43'>
+00739
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+Ethnic Group
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0189-Ethnic-Group.html' title='Ethnic Group'>
+0189
+<span class='vocab-link-text'>Ethnic Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-44'>
+00125
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+Contact Person's Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0200-Name-Type.html' title='Name Type(Required)'>
+0200(R)
+<span class='vocab-link-text'>Name Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-45'>
+00748
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+Contact Person's Telephone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-46'>
+00749
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+Contact Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0222-Contact-Reason.html' title='Contact Reason'>
+0222
+<span class='vocab-link-text'>Contact Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-47'>
+00747
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+Contact Relationship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0063-Relationship.html' title='Relationship'>
+0063
+<span class='vocab-link-text'>Relationship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-48'>
+00784
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+49
+</td>
+<td>
+Job Title
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-49'>
+00785
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+50
+</td>
+<td>
+Job Code/Class
+</td>
+<td class='centered'>
+<a href='/data-type/JCC.html'>
+JCC
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0327-Job-Code.html' title='Job Code'>
+0327
+<span class='vocab-link-text'>Job Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-50'>
+00786
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+51
+</td>
+<td>
+Guarantor Employer's Organization Name
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-51'>
+01299
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+52
+</td>
+<td>
+Handicap
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0295-Handicap.html' title='Handicap'>
+0295
+<span class='vocab-link-text'>Handicap</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-52'>
+00753
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+53
+</td>
+<td>
+Job Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0311-Job-Status.html' title='Job Status'>
+0311
+<span class='vocab-link-text'>Job Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-53'>
+00752
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+54
+</td>
+<td>
+Guarantor Financial Class
+</td>
+<td class='centered'>
+<a href='/data-type/FC.html'>
+FC
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-54'>
+01231
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+55
+</td>
+<td>
+Guarantor Race
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0005-Race.html' title='Race(Suggested)'>
+0005(S)
+<span class='vocab-link-text'>Race(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GT1-55'>
+01291
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+56
+</td>
+<td>
+Guarantor Birth Place
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-56'>
+01851
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+100
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+57
+</td>
+<td>
+VIP Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0099-VIP-Indicator.html' title='VIP Indicator'>
+0099
+<span class='vocab-link-text'>VIP Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GT1-57'>
+00146
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='GT1-1'>
+GT1-1: Set ID - GT1 (<a href='/data-type/SI.html'>SI</a>) 00405
+</h4>
+<p class="v2 v2-normalindented">Definition: <a href="/segment-definition/GT1.html#GT1-1">GT1-1 - Set ID</a> contains a number that identifies this transaction.  For the first occurrence of the segment the sequence shall be 1, for the second occurrence it shall be 2, etc.</p>
+
+<h4 class='v2' id='GT1-2'>
+GT1-2: Guarantor Number (<a href='/data-type/CX.html'>CX</a>) 00406
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the primary identifier, or other identifiers, assigned to the guarantor.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='GT1-3'>
+GT1-3: Guarantor Name (<a href='/data-type/XPN.html'>XPN</a>) 00407
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the guarantor.  Multiple names for the same guarantor may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p><p class="v2 v2-normalindented">Beginning with version 2.3, if the guarantor is an organization, send a Delete Indication value (&quot;&quot;) in <a href="/segment-definition/GT1.html#GT1-3">GT1-3 - Guarantor Name</a> and put the organization name in <a href="/segment-definition/GT1.html#GT1-21">GT1-21 - Guarantor Organization Name</a>.  Either guarantor name or guarantor organization name is required.</p>
+
+<h4 class='v2' id='GT1-4'>
+GT1-4: Guarantor Spouse Name (<a href='/data-type/XPN.html'>XPN</a>) 00408
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the guarantor&#39;s spouse.  Multiple names for the same guarantor spouse may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='GT1-5'>
+GT1-5: Guarantor Address (<a href='/data-type/XAD.html'>XAD</a>) 00409
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s address.  Multiple addresses for the same person may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated. </p>
+
+<h4 class='v2' id='GT1-6'>
+GT1-6: Guarantor Ph Num – Home (<a href='/data-type/XTN.html'>XTN</a>) 00410
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s home phone number.  All personal phone numbers for the guarantor may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  .</p>
+
+<h4 class='v2' id='GT1-7'>
+GT1-7: Guarantor Ph Num – Business (<a href='/data-type/XTN.html'>XTN</a>) 00411
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s business phone number.  All business phone numbers for the guarantor may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='GT1-8'>
+GT1-8: Guarantor Date/Time Of Birth (<a href='/data-type/DTM.html'>DTM</a>) 00412
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s date of birth.</p>
+
+<h4 class='v2' id='GT1-9'>
+GT1-9: Guarantor Administrative Sex (<a href='/data-type/CWE.html'>CWE</a>) 00413
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s gender.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 - Administrative Sex</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-10'>
+GT1-10: Guarantor Type (<a href='/data-type/CWE.html'>CWE</a>) 00414
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the type of guarantor, e.g., individual, institution, etc.  Refer to <a href="https://www.hl7.org/fhir/v2/0068/index.html">User-defined Table 0068 - Guarantor Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-11'>
+GT1-11: Guarantor Relationship (<a href='/data-type/CWE.html'>CWE</a>) 00415
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the relationship of the guarantor with the patient, e.g., parent, child, etc. Refer to <a href="https://www.hl7.org/fhir/v2/0063/index.html">User-defined Table 0063 - Relationship</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-12'>
+GT1-12: Guarantor SSN (<a href='/data-type/ST.html'>ST</a>) 00416
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s social security number.</p>
+
+<h4 class='v2' id='GT1-13'>
+GT1-13: Guarantor Date - Begin (<a href='/data-type/DT.html'>DT</a>) 00417
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the guarantor becomes responsible for the patient&#39;s account.</p>
+
+<h4 class='v2' id='GT1-14'>
+GT1-14: Guarantor Date - End (<a href='/data-type/DT.html'>DT</a>) 00418
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the guarantor stops being responsible for the patient&#39;s account.</p>
+
+<h4 class='v2' id='GT1-15'>
+GT1-15: Guarantor Priority (<a href='/data-type/NM.html'>NM</a>) 00419
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to determine the order in which the guarantors are responsible for the patient&#39;s account.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">&quot;1&quot; = primary guarantor</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">&quot;2&quot; = secondary guarantor, etc.</p></li></ul>
+
+<h4 class='v2' id='GT1-16'>
+GT1-16: Guarantor Employer Name (<a href='/data-type/XPN.html'>XPN</a>) 00420
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the guarantor&#39;s employer, if the employer is a person.  When the guarantor&#39;s employer is an organization, use <a href="/segment-definition/GT1.html#GT1-51">GT1-51 - Guarantor Employer&#39;s Organization Name</a>.  Multiple names for the same person may be sent in this field, not multiple employers.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='GT1-17'>
+GT1-17: Guarantor Employer Address (<a href='/data-type/XAD.html'>XAD</a>) 00421
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s employer&#39;s address.  Multiple addresses for the same employer may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='GT1-18'>
+GT1-18: Guarantor Employer Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00422
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s employer&#39;s phone number.  Multiple phone numbers for the same employer may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  .</p>
+
+<h4 class='v2' id='GT1-19'>
+GT1-19: Guarantor Employee ID Number (<a href='/data-type/CX.html'>CX</a>) 00423
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s employee number.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='GT1-20'>
+GT1-20: Guarantor Employment Status (<a href='/data-type/CWE.html'>CWE</a>) 00424
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code that indicates the guarantor&#39;s employment status. Refer to <a href="https://www.hl7.org/fhir/v2/0066/index.html">User-Defined Table 0066 - Employment Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-21'>
+GT1-21: Guarantor Organization Name (<a href='/data-type/XON.html'>XON</a>) 00425
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the guarantor when the guarantor is an organization.  Multiple names for the same guarantor may be sent in this field, not multiple guarantors.   .Specification of meaning based on sequence is deprecated</p><p class="v2 v2-normalindented">Beginning with version 2.3, if the guarantor is a person, send a Delete Indication value (&quot;&quot;) in <a href="/segment-definition/GT1.html#GT1-21">GT1-21 - Guarantor Organization Name</a> and put the person name in <a href="/segment-definition/GT1.html#GT1-3">GT1-3 - Guarantor Name</a>.  Either guarantor person name or guarantor organization name is required.</p>
+
+<h4 class='v2' id='GT1-22'>
+GT1-22: Guarantor Billing Hold Flag (<a href='/data-type/ID.html'>ID</a>) 00773
+</h4>
+<p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.  This field indicates whether or not a system should suppress printing of the guarantor&#39;s bills.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;a system should suppress printing of guarantor&#39;s bills</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;a system should not suppress printing of guarantor&#39;s bills</p></li></ul>
+
+<h4 class='v2' id='GT1-23'>
+GT1-23: Guarantor Credit Rating Code (<a href='/data-type/CWE.html'>CWE</a>) 00774
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s credit rating.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0341/index.html">User-defined Table 0341 - Guarantor Credit Rating Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-24'>
+GT1-24: Guarantor Death Date And Time (<a href='/data-type/DTM.html'>DTM</a>) 00775
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to indicate the date and time at which the guarantor&#39;s death occurred.</p>
+
+<h4 class='v2' id='GT1-25'>
+GT1-25: Guarantor Death Flag (<a href='/data-type/ID.html'>ID</a>) 00776
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether or not the guarantor is deceased.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the guarantor is deceased</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;the guarantor is living</p></li></ul>
+
+<h4 class='v2' id='GT1-26'>
+GT1-26: Guarantor Charge Adjustment Code (<a href='/data-type/CWE.html'>CWE</a>) 00777
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains user-defined codes that indicate which adjustments should be made to this guarantor&#39;s charges.  For example, when the hospital agrees to adjust this guarantor&#39;s charges to a sliding scale.  Refer to <a href="https://www.hl7.org/fhir/v2/0218/index.html">User-defined Table 0218 - Patient Charge Adjustment</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">Example:  This field would contain the value used for sliding-fee scale processing.</p>
+
+<h4 class='v2' id='GT1-27'>
+GT1-27: Guarantor Household Annual Income (<a href='/data-type/CP.html'>CP</a>) 00778
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the combined annual income of all members of the guarantor&#39;s household.</p>
+
+<h4 class='v2' id='GT1-28'>
+GT1-28: Guarantor Household Size (<a href='/data-type/NM.html'>NM</a>) 00779
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the number of people living at the guarantor&#39;s primary residence.</p>
+
+<h4 class='v2' id='GT1-29'>
+GT1-29: Guarantor Employer ID Number (<a href='/data-type/CX.html'>CX</a>) 00780
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is a code that uniquely identifies the guarantor&#39;s employer when the employer is a person.  It may be a user-defined code or a code defined by a government agency (Federal Tax ID#).</p><p class="v2 v2-normalindented">When further breakdowns of employer information are needed, such as a division or plant, it is recommended that the coding scheme incorporate the relationships (e.g., define separate codes for each division).  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='GT1-30'>
+GT1-30: Guarantor Marital Status Code (<a href='/data-type/CWE.html'>CWE</a>) 00781
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the marital status of the guarantor.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-31'>
+GT1-31: Guarantor Hire Effective Date (<a href='/data-type/DT.html'>DT</a>) 00782
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the guarantor&#39;s employment began.</p>
+
+<h4 class='v2' id='GT1-32'>
+GT1-32: Employment Stop Date (<a href='/data-type/DT.html'>DT</a>) 00783
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the date on which the guarantor&#39;s employment with a particular employer ended.</p>
+
+<h4 class='v2' id='GT1-33'>
+GT1-33: Living Dependency (<a href='/data-type/CWE.html'>CWE</a>) 00755
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies the specific living conditions of the guarantor.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-34'>
+GT1-34: Ambulatory Status (<a href='/data-type/CWE.html'>CWE</a>) 00145
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies the transient state of mobility for the guarantor.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0009/index.html">User-defined Table 0009 - Ambulatory Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-35'>
+GT1-35: Citizenship (<a href='/data-type/CWE.html'>CWE</a>) 00129
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code to identify the guarantor&#39;s citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='GT1-36'>
+GT1-36: Primary Language (<a href='/data-type/CWE.html'>CWE</a>) 00118
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the guarantor&#39;s primary speaking language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='GT1-37'>
+GT1-37: Living Arrangement (<a href='/data-type/CWE.html'>CWE</a>) 00742
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the situation in which the person lives at his residential address.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-38'>
+GT1-38: Publicity Code (<a href='/data-type/CWE.html'>CWE</a>) 00743
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for a guarantor.  Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-39'>
+GT1-39: Protection Indicator (<a href='/data-type/ID.html'>ID</a>) 00744
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the guarantor&#39;s protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;restrict access</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;do not restrict access</p></li></ul>
+
+<h4 class='v2' id='GT1-40'>
+GT1-40: Student Indicator (<a href='/data-type/CWE.html'>CWE</a>) 00745
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the guarantor is currently a student, and whether the guarantor is a full-time or part-time student.  This field does not indicate the degree level (high school, college) of the student, or his/her field of study (accounting, engineering, etc.).  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231- Student Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-41'>
+GT1-41: Religion (<a href='/data-type/CWE.html'>CWE</a>) 00120
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the guarantor. Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a><a href=""> </a>in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-42'>
+GT1-42: Mother's Maiden Name (<a href='/data-type/XPN.html'>XPN</a>) 00109
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the guarantor&#39;s mother&#39;s maiden name.</p>
+
+<h4 class='v2' id='GT1-43'>
+GT1-43: Nationality (<a href='/data-type/CWE.html'>CWE</a>) 00739
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the nation or national grouping to which the person belongs.  This may be different from a person&#39;s citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  HL7 recommends using ISO table 3166 as suggested values in <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a><a href=""> </a>in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='GT1-44'>
+GT1-44: Ethnic Group (<a href='/data-type/CWE.html'>CWE</a>) 00125
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s ethnic group. Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+
+<h4 class='v2' id='GT1-45'>
+GT1-45: Contact Person's Name (<a href='/data-type/XPN.html'>XPN</a>) 00748
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the person who should be contacted regarding the guarantor bills, etc.  This may be someone other than the guarantor.  (E.g., Contact guarantor&#39;s wife regarding all bills - guarantor lives out of country.)</p><p class="v2 v2-normalindented">This is a repeating field that allows for multiple names for the same person.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='GT1-46'>
+GT1-46: Contact Person's Telephone Number (<a href='/data-type/XTN.html'>XTN</a>) 00749
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the telephone number of the guarantor (person) to contact regarding guarantor bills, etc.  Multiple phone numbers for that person may be sent in this sequence.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='GT1-47'>
+GT1-47: Contact Reason (<a href='/data-type/CWE.html'>CWE</a>) 00747
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a user-defined code that identifies the reason for contacting the guarantor, for example, to phone the guarantor if payments are late.  Refer to <a href="https://www.hl7.org/fhir/v2/0222/index.html">User-defined Table 0222 - Contact reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-48'>
+GT1-48: Contact Relationship (<a href='/data-type/CWE.html'>CWE</a>) 00784
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies the guarantor relationship to the contact person specified above.  Refer to <a href="https://www.hl7.org/fhir/v2/0063/index.html">User-defined Table 0063 - Relationship</a> in Chapter 2C, Code Tables, for suggested values.  Examples include wife, attorney, power of attorney, self, and organization.</p>
+
+<h4 class='v2' id='GT1-49'>
+GT1-49: Job Title (<a href='/data-type/ST.html'>ST</a>) 00785
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a descriptive name of the guarantor&#39;s occupation (e.g., Sr. Systems Analyst, Sr. Accountant).</p>
+
+<h4 class='v2' id='GT1-50'>
+GT1-50: Job Code/Class (<a href='/data-type/JCC.html'>JCC</a>) 00786
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the guarantor&#39;s job code and employee classification.  </p>
+
+<h4 class='v2' id='GT1-51'>
+GT1-51: Guarantor Employer's Organization Name (<a href='/data-type/XON.html'>XON</a>) 01299
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the guarantor&#39;s employer when the guarantor&#39;s employer is an organization.  When the guarantor&#39;s employer is a person, use<a href="/segment-definition/GT1.html#GT1-16"> GT1-16 - Guarantor Employer Name</a>.  Multiple names for the same guarantor may be sent in this field Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='GT1-52'>
+GT1-52: Handicap (<a href='/data-type/CWE.html'>CWE</a>) 00753
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code to describe the guarantor&#39;s disability. Refer to <a href="https://www.hl7.org/fhir/v2/0295/index.html">User-defined Table 0295 - Handicap</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-53'>
+GT1-53: Job Status (<a href='/data-type/CWE.html'>CWE</a>) 00752
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the guarantor&#39;s current job status. Refer to <a href="https://www.hl7.org/fhir/v2/0311/index.html">User-defined Table 0311 - Job Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GT1-54'>
+GT1-54: Guarantor Financial Class (<a href='/data-type/FC.html'>FC</a>) 01231
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the financial class (FC) assigned to the guarantor for the purpose of identifying sources of reimbursement.  It can be different than that of the patient.  When the FC of the guarantor is different than the FC of the patient, and the guarantor&#39;s coverage for that patient has been exhausted, the source of reimbursement falls back onto the FC of the patient. </p>
+
+<h4 class='v2' id='GT1-55'>
+GT1-55: Guarantor Race (<a href='/data-type/CWE.html'>CWE</a>) 01291
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field refers to the guarantor&#39;s race. Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+
+<h4 class='v2' id='GT1-56'>
+GT1-56: Guarantor Birth Place (<a href='/data-type/ST.html'>ST</a>) 01851
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the description of the guarantor&#39;s birth place, for example &quot;St. Francis Community Hospital of Lower South Side.&quot;  The actual address is reported in <a href="/segment-definition/GT1.html#GT1-5">GT1-5 – Guarantor Address</a> with an identifier of &quot;N&quot;.</p>
+
+<h4 class='v2' id='GT1-57'>
+GT1-57: VIP Indicator (<a href='/data-type/CWE.html'>CWE</a>) 00146
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of VIP for the guarantor.  Refer to <a href="https://www.hl7.org/fhir/v2/0099/index.html">User-defined Table 0099 – VIP Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Universal ID Type
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Universal ID Type
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70301
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+HD.3, EI.4
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes specifying the type of UID (Universal Identifier).  Open Issue:  Table 0301 has a mix of class and instance identifiers for namespaces, which is improper.  The values for instances. such as CLIA, CLIP, CAP, and NPI. These were added for pragmatic issues related to older datatypes that were universally bound tand should not be here but are needed for implementation pragmatics.   These should be annotated in Comment or Usage Notes that these are not universal ID types really.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Universal ID Type - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CAP
+</td>
+<td class='vocab-concept-display'>
+College of American Pathologist Accreditation Number
+</td>
+<td class='vocab-concept-definition'>
+Allows for the ability to designate organization identifier as a "CAP" assigned number (for labs)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CLIA
+</td>
+<td class='vocab-concept-display'>
+Clinical Laboratory Improvement Amendments
+</td>
+<td class='vocab-concept-definition'>
+Clinical Laboratory Improvement Amendments. Allows for the ability to designate organization identifier as a "CLIA" assigned number (for labs)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CLIP
+</td>
+<td class='vocab-concept-display'>
+Clinical laboratory Improvement Program
+</td>
+<td class='vocab-concept-definition'>
+Clinical laboratory Improvement Program. Allows for the ability to designate organization identifier as a "CLIP" assigned number (for labs).Â  Used by US Department of Defense.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DNS
+</td>
+<td class='vocab-concept-display'>
+Domain Name System
+</td>
+<td class='vocab-concept-definition'>
+An Internet host name, in accordance with RFC 1035; or an IP address. Either in ASCII or as integers, with periods between components ("dotted" notation).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EUI64
+</td>
+<td class='vocab-concept-display'>
+IEEE 64-bit Extended Unique Identifier
+</td>
+<td class='vocab-concept-definition'>
+IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, “AABBCC1122334455”.  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., “MAC” address format for IPv4 & IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.html for a detailed explanation of the format.]
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GUID
+</td>
+<td class='vocab-concept-display'>
+globally unique identifier
+</td>
+<td class='vocab-concept-definition'>
+Same as UUID.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HCD
+</td>
+<td class='vocab-concept-display'>
+CEN Healthcare Coding Identifier
+</td>
+<td class='vocab-concept-definition'>
+The CEN Healthcare Coding Scheme Designator
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HL7
+</td>
+<td class='vocab-concept-display'>
+HL7 registration schemes
+</td>
+<td class='vocab-concept-definition'>
+HL7 registration schemes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO
+</td>
+<td class='vocab-concept-display'>
+ISO Object Identifier
+</td>
+<td class='vocab-concept-definition'>
+An International Standards Organization Object Identifier (OID), in accordance with ISO/IEC 8824.  Formatted as decimal digits separated by periods; recommended limit of 64 characters
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+L
+</td>
+<td class='vocab-concept-display'>
+Local
+</td>
+<td class='vocab-concept-definition'>
+These are reserved for locally defined coding schemes.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+L,M,N
+</td>
+<td class='vocab-concept-display'>
+Local
+</td>
+<td class='vocab-concept-definition'>
+These are reserved for locally defined coding schemes.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+M
+</td>
+<td class='vocab-concept-display'>
+Local
+</td>
+<td class='vocab-concept-definition'>
+These are reserved for locally defined coding schemes.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+N
+</td>
+<td class='vocab-concept-display'>
+Local
+</td>
+<td class='vocab-concept-definition'>
+These are reserved for locally defined coding schemes.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NPI
+</td>
+<td class='vocab-concept-display'>
+US National Provider Identifier
+</td>
+<td class='vocab-concept-definition'>
+Allows for the ability to designate organization identifier as a "NPI" assigned number (lab, any medical provider, can be a person or an organization)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+Random
+</td>
+<td class='vocab-concept-display'>
+Random
+</td>
+<td class='vocab-concept-definition'>
+Usually a base64 encoded string of random bits.<p>Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+URI
+</td>
+<td class='vocab-concept-display'>
+Uniform Resource Identifier
+</td>
+<td class='vocab-concept-definition'>
+Uniform Resource Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UUID
+</td>
+<td class='vocab-concept-display'>
+Universal Unique Identifier
+</td>
+<td class='vocab-concept-definition'>
+The DCE Universal Unique Identifier, in accordance with RFC 4122. Recommended format is 32 hexadecimal digits separated by hyphens, in the digit grouping 8-4-4-4-12
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+x400
+</td>
+<td class='vocab-concept-display'>
+X.400 MHS identifier
+</td>
+<td class='vocab-concept-definition'>
+An X.400 MHS identifier. Recommended format is in accordance with RFC 1649
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+x500
+</td>
+<td class='vocab-concept-display'>
+X500 directory Name
+</td>
+<td class='vocab-concept-definition'>
+An X.500 directory name
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

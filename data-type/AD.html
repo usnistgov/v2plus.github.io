@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+AD - address
+</h3>
+<div class='v2-data-type-content'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - AD - address
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+AD
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-1'>
+1
+</a>
+</td>
+<td>
+Street Address
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+120
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-2'>
+2
+</a>
+</td>
+<td>
+Other Designation
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+120
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-3'>
+3
+</a>
+</td>
+<td>
+City
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;50
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-4'>
+4
+</a>
+</td>
+<td>
+State or Province
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;50
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-5'>
+5
+</a>
+</td>
+<td>
+Zip or Postal Code
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;12
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-6'>
+6
+</a>
+</td>
+<td>
+Country
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0399-Country-Code.html' title='Country Code(Suggested)'>
+0399(S)
+<span class='vocab-link-text'>Country Code(Suggested)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#AD-7'>
+7
+</a>
+</td>
+<td>
+Address Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0190-Address-Type.html' title='Address Type(Required)'>
+0190(R)
+<span class='vocab-link-text'>Address Type(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..3]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#AD-8'>
+8
+</a>
+</td>
+<td>
+Other Geographic Designation
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;50
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;Street Address (ST)&#62; &#38; &#60;Other Designation (ST)&#62; &#38; &#60;City (ST)&#62; &#38; &#60;State or Province (ST)&#62; &#38; &#60;Zip or Postal Code (ST)&#62; &#38; &#60;Country (ID)&#62; &#38; &#60;Address Type (ID)&#62; &#38; &#60;Other Geographic Designation (ST)&#62;</p>
+</div>
+<br/><p class="v2 v2-normalindented">Example:</p><p class="v2 v2-example">|10 ASH LN^#3^LIMA^OH^48132|</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='AD-1'>
+AD-1: Street Address (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the street or mailing address of a person or institution. When referencing an institution, this first component is used to specify the institution name. When used in connection with a person, this component specifies the first line of the address.</p>
+
+<h4 id='AD-2'>
+AD-2: Other Designation (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the second line of address. In general, it qualifies address. Examples: Suite 555 or Fourth Floor. When referencing an institution, this component specifies the street address.</p>
+
+<h4 id='AD-3'>
+AD-3: City (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the city, district or place where the addressee is located depending upon the national convention for formatting addresses for postal usage.</p>
+
+<h4 id='AD-4'>
+AD-4: State or Province (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the state or province where the addressee is located. State or province should be represented by the official postal service codes for that country.</p>
+
+<h4 id='AD-5'>
+AD-5: Zip or Postal Code (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the zip or postal code where the addressee is located. Zip or postal codes should be represented by the official codes for that country. In the US, the zip code takes the form 99999[-9999], while the Canadian postal code takes the form A9A9A9 and the Australian Postcode takes the form 9999.</p>
+
+<h4 id='AD-6'>
+AD-6: Country (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the country where the addressee is located. HL7 specifies that the 3-character (alphabetic) form of ISO 3166 be used for the country code. Refer to <a href="https://www.hl7.org/fhir/v2/0399/index.html">HL7 Table 0399 - Country Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 id='AD-7'>
+AD-7: Address Type (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the kind or type of address. Refer to <a href="https://www.hl7.org/fhir/v2/0190/index.html">HL7 Table 0190 - Address Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 id='AD-8'>
+AD-8: Other Geographic Designation (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies any other geographic designation that may be necessary. It includes county, bioregion, SMSA, etc.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

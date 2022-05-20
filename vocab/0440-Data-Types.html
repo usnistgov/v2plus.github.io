@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Data Types
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Data Types
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70440
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+RCD.2, RDF-2
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes specifying the data type.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Data Types - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AD
+</td>
+<td class='vocab-concept-display'>
+Address
+</td>
+<td class='vocab-concept-definition'>
+Address
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AUI
+</td>
+<td class='vocab-concept-display'>
+Authorization information
+</td>
+<td class='vocab-concept-definition'>
+Authorization information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCD
+</td>
+<td class='vocab-concept-display'>
+Charge code and date
+</td>
+<td class='vocab-concept-definition'>
+Charge code and date
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCP
+</td>
+<td class='vocab-concept-display'>
+Channel calibration parameters
+</td>
+<td class='vocab-concept-definition'>
+Channel calibration parameters
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CD
+</td>
+<td class='vocab-concept-display'>
+Channel definition
+</td>
+<td class='vocab-concept-definition'>
+Channel definition
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CE
+</td>
+<td class='vocab-concept-display'>
+Coded element
+</td>
+<td class='vocab-concept-definition'>
+Coded element
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CF
+</td>
+<td class='vocab-concept-display'>
+Coded element with formatted values
+</td>
+<td class='vocab-concept-definition'>
+Coded element with formatted values
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CK
+</td>
+<td class='vocab-concept-display'>
+Composite ID with check digit
+</td>
+<td class='vocab-concept-definition'>
+Composite ID with check digit
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CM
+</td>
+<td class='vocab-concept-display'>
+Composite
+</td>
+<td class='vocab-concept-definition'>
+Composite
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CN
+</td>
+<td class='vocab-concept-display'>
+Composite ID number and name
+</td>
+<td class='vocab-concept-definition'>
+Composite ID number and name
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNE
+</td>
+<td class='vocab-concept-display'>
+Coded with no exceptions
+</td>
+<td class='vocab-concept-definition'>
+Coded with no exceptions
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNS
+</td>
+<td class='vocab-concept-display'>
+Composite ID number and name simplified
+</td>
+<td class='vocab-concept-definition'>
+Composite ID number and name simplified
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNN
+</td>
+<td class='vocab-concept-display'>
+Composite ID number and name simplified
+</td>
+<td class='vocab-concept-definition'>
+Composite ID number and name simplified
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CP
+</td>
+<td class='vocab-concept-display'>
+Composite price
+</td>
+<td class='vocab-concept-definition'>
+Composite price
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CQ
+</td>
+<td class='vocab-concept-display'>
+Composite quantity with units
+</td>
+<td class='vocab-concept-definition'>
+Composite quantity with units
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CSU
+</td>
+<td class='vocab-concept-display'>
+Channel sensitivity and units
+</td>
+<td class='vocab-concept-definition'>
+Channel sensitivity and units
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CWE
+</td>
+<td class='vocab-concept-display'>
+Coded with exceptions
+</td>
+<td class='vocab-concept-definition'>
+Coded with exceptions
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CX
+</td>
+<td class='vocab-concept-display'>
+Extended composite ID with check digit
+</td>
+<td class='vocab-concept-definition'>
+Extended composite ID with check digit
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DDI
+</td>
+<td class='vocab-concept-display'>
+Daily deductible information
+</td>
+<td class='vocab-concept-definition'>
+Daily deductible information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DIN
+</td>
+<td class='vocab-concept-display'>
+Date and institution name
+</td>
+<td class='vocab-concept-definition'>
+Date and institution name
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DLD
+</td>
+<td class='vocab-concept-display'>
+Discharge to location and date
+</td>
+<td class='vocab-concept-definition'>
+Discharge to location and date
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DLN
+</td>
+<td class='vocab-concept-display'>
+Driver's license number
+</td>
+<td class='vocab-concept-definition'>
+Driver's license number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DLT
+</td>
+<td class='vocab-concept-display'>
+Delta
+</td>
+<td class='vocab-concept-definition'>
+Delta
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DR
+</td>
+<td class='vocab-concept-display'>
+Date/time range
+</td>
+<td class='vocab-concept-definition'>
+Date/time range
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DT
+</td>
+<td class='vocab-concept-display'>
+Date
+</td>
+<td class='vocab-concept-definition'>
+Date
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DTM
+</td>
+<td class='vocab-concept-display'>
+Date/time
+</td>
+<td class='vocab-concept-definition'>
+Date/time
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DTN
+</td>
+<td class='vocab-concept-display'>
+Day type and number
+</td>
+<td class='vocab-concept-definition'>
+Day type and number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ED
+</td>
+<td class='vocab-concept-display'>
+Encapsulated data
+</td>
+<td class='vocab-concept-definition'>
+Encapsulated data
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EI
+</td>
+<td class='vocab-concept-display'>
+Entity identifier
+</td>
+<td class='vocab-concept-definition'>
+Entity identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EIP
+</td>
+<td class='vocab-concept-display'>
+Entity identifier pair
+</td>
+<td class='vocab-concept-definition'>
+Entity identifier pair
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ELD
+</td>
+<td class='vocab-concept-display'>
+Error location and description
+</td>
+<td class='vocab-concept-definition'>
+Error location and description
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ERL
+</td>
+<td class='vocab-concept-display'>
+Error location
+</td>
+<td class='vocab-concept-definition'>
+Error location
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FC
+</td>
+<td class='vocab-concept-display'>
+Financial class
+</td>
+<td class='vocab-concept-definition'>
+Financial class
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FN
+</td>
+<td class='vocab-concept-display'>
+Family name
+</td>
+<td class='vocab-concept-definition'>
+Family name
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FT
+</td>
+<td class='vocab-concept-display'>
+Formatted text
+</td>
+<td class='vocab-concept-definition'>
+Formatted text
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GTS
+</td>
+<td class='vocab-concept-display'>
+General timing specification
+</td>
+<td class='vocab-concept-definition'>
+General timing specification
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HD
+</td>
+<td class='vocab-concept-display'>
+Hierarchic designator
+</td>
+<td class='vocab-concept-definition'>
+Hierarchic designator
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD
+</td>
+<td class='vocab-concept-display'>
+Insurance certification definition
+</td>
+<td class='vocab-concept-definition'>
+Insurance certification definition
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ID
+</td>
+<td class='vocab-concept-display'>
+Coded values for HL7 tables
+</td>
+<td class='vocab-concept-definition'>
+Coded values for HL7 tables
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IS
+</td>
+<td class='vocab-concept-display'>
+Coded value for user-defined tables
+</td>
+<td class='vocab-concept-definition'>
+Coded value for user-defined tables
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+JCC
+</td>
+<td class='vocab-concept-display'>
+Job code/class
+</td>
+<td class='vocab-concept-definition'>
+Job code/class
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LA1
+</td>
+<td class='vocab-concept-display'>
+Location with address variation 1
+</td>
+<td class='vocab-concept-definition'>
+Location with address variation 1
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LA2
+</td>
+<td class='vocab-concept-display'>
+Location with address variation 2
+</td>
+<td class='vocab-concept-definition'>
+Location with address variation 2
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MA
+</td>
+<td class='vocab-concept-display'>
+Multiplexed array
+</td>
+<td class='vocab-concept-definition'>
+Multiplexed array
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MO
+</td>
+<td class='vocab-concept-display'>
+Money
+</td>
+<td class='vocab-concept-definition'>
+Money
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MOC
+</td>
+<td class='vocab-concept-display'>
+Money and charge code
+</td>
+<td class='vocab-concept-definition'>
+Money and charge code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MOP
+</td>
+<td class='vocab-concept-display'>
+Money or percentage
+</td>
+<td class='vocab-concept-definition'>
+Money or percentage
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MSG
+</td>
+<td class='vocab-concept-display'>
+Message type
+</td>
+<td class='vocab-concept-definition'>
+Message type
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NA
+</td>
+<td class='vocab-concept-display'>
+Numeric array
+</td>
+<td class='vocab-concept-definition'>
+Numeric array
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NDL
+</td>
+<td class='vocab-concept-display'>
+Name with date and location
+</td>
+<td class='vocab-concept-definition'>
+Name with date and location
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NM
+</td>
+<td class='vocab-concept-display'>
+Numeric
+</td>
+<td class='vocab-concept-definition'>
+Numeric
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NR
+</td>
+<td class='vocab-concept-display'>
+Numeric range
+</td>
+<td class='vocab-concept-definition'>
+Numeric range
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OCD
+</td>
+<td class='vocab-concept-display'>
+Occurrence code and date
+</td>
+<td class='vocab-concept-definition'>
+Occurrence code and date
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSD
+</td>
+<td class='vocab-concept-display'>
+Order sequence definition
+</td>
+<td class='vocab-concept-definition'>
+Order sequence definition
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSP
+</td>
+<td class='vocab-concept-display'>
+Occurrence span code and date
+</td>
+<td class='vocab-concept-definition'>
+Occurrence span code and date
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PIP
+</td>
+<td class='vocab-concept-display'>
+Practitioner institutional privileges
+</td>
+<td class='vocab-concept-definition'>
+Practitioner institutional privileges
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PL
+</td>
+<td class='vocab-concept-display'>
+Person location
+</td>
+<td class='vocab-concept-definition'>
+Person location
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLN
+</td>
+<td class='vocab-concept-display'>
+Practitioner license or other ID number
+</td>
+<td class='vocab-concept-definition'>
+Practitioner license or other ID number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PN
+</td>
+<td class='vocab-concept-display'>
+Person name
+</td>
+<td class='vocab-concept-definition'>
+Person name
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPN
+</td>
+<td class='vocab-concept-display'>
+Performing person time stamp
+</td>
+<td class='vocab-concept-definition'>
+Performing person time stamp
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRL
+</td>
+<td class='vocab-concept-display'>
+Parent result link
+</td>
+<td class='vocab-concept-definition'>
+Parent result link
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PT
+</td>
+<td class='vocab-concept-display'>
+Processing type
+</td>
+<td class='vocab-concept-definition'>
+Processing type
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PTA
+</td>
+<td class='vocab-concept-display'>
+Policy type and amount
+</td>
+<td class='vocab-concept-definition'>
+Policy type and amount
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QIP
+</td>
+<td class='vocab-concept-display'>
+Query input parameter list
+</td>
+<td class='vocab-concept-definition'>
+Query input parameter list
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QSC
+</td>
+<td class='vocab-concept-display'>
+Query selection criteria
+</td>
+<td class='vocab-concept-definition'>
+Query selection criteria
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RCD
+</td>
+<td class='vocab-concept-display'>
+Row column definition
+</td>
+<td class='vocab-concept-definition'>
+Row column definition
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RFR
+</td>
+<td class='vocab-concept-display'>
+Reference range
+</td>
+<td class='vocab-concept-definition'>
+Reference range
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RI
+</td>
+<td class='vocab-concept-display'>
+Repeat interval
+</td>
+<td class='vocab-concept-definition'>
+Repeat interval
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RMC
+</td>
+<td class='vocab-concept-display'>
+Room coverage
+</td>
+<td class='vocab-concept-definition'>
+Room coverage
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RP
+</td>
+<td class='vocab-concept-display'>
+Reference pointer
+</td>
+<td class='vocab-concept-definition'>
+Reference pointer
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPT
+</td>
+<td class='vocab-concept-display'>
+Repeat pattern
+</td>
+<td class='vocab-concept-definition'>
+Repeat pattern
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SAD
+</td>
+<td class='vocab-concept-display'>
+Street Address
+</td>
+<td class='vocab-concept-definition'>
+Street Address
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCV
+</td>
+<td class='vocab-concept-display'>
+Scheduling class value pair
+</td>
+<td class='vocab-concept-definition'>
+Scheduling class value pair
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SI
+</td>
+<td class='vocab-concept-display'>
+Sequence ID
+</td>
+<td class='vocab-concept-definition'>
+Sequence ID
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SN
+</td>
+<td class='vocab-concept-display'>
+Structured numeric
+</td>
+<td class='vocab-concept-definition'>
+Structured numeric
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNM
+</td>
+<td class='vocab-concept-display'>
+String of telephone number digits
+</td>
+<td class='vocab-concept-definition'>
+String of telephone number digits
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPD
+</td>
+<td class='vocab-concept-display'>
+Specialty description
+</td>
+<td class='vocab-concept-definition'>
+Specialty description
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPS
+</td>
+<td class='vocab-concept-display'>
+Specimen source
+</td>
+<td class='vocab-concept-definition'>
+Specimen source
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SRT
+</td>
+<td class='vocab-concept-display'>
+Sort order
+</td>
+<td class='vocab-concept-definition'>
+Sort order
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ST
+</td>
+<td class='vocab-concept-display'>
+String data
+</td>
+<td class='vocab-concept-definition'>
+String data
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TM
+</td>
+<td class='vocab-concept-display'>
+Time
+</td>
+<td class='vocab-concept-definition'>
+Time
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TN
+</td>
+<td class='vocab-concept-display'>
+Telephone number
+</td>
+<td class='vocab-concept-definition'>
+Telephone number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TQ
+</td>
+<td class='vocab-concept-display'>
+Timing/quantity
+</td>
+<td class='vocab-concept-definition'>
+Timing/quantity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TS
+</td>
+<td class='vocab-concept-display'>
+Time stamp
+</td>
+<td class='vocab-concept-definition'>
+Time stamp
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TX
+</td>
+<td class='vocab-concept-display'>
+Text data
+</td>
+<td class='vocab-concept-definition'>
+Text data
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UVC
+</td>
+<td class='vocab-concept-display'>
+UB value code and amount
+</td>
+<td class='vocab-concept-definition'>
+UB value code and amount
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VH
+</td>
+<td class='vocab-concept-display'>
+Visiting hours
+</td>
+<td class='vocab-concept-definition'>
+Visiting hours
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VID
+</td>
+<td class='vocab-concept-display'>
+Version identifier
+</td>
+<td class='vocab-concept-definition'>
+Version identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VR
+</td>
+<td class='vocab-concept-display'>
+Value range
+</td>
+<td class='vocab-concept-definition'>
+Value range
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WVI
+</td>
+<td class='vocab-concept-display'>
+Channel Identifier
+</td>
+<td class='vocab-concept-definition'>
+Channel Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WVS
+</td>
+<td class='vocab-concept-display'>
+Waveform source
+</td>
+<td class='vocab-concept-definition'>
+Waveform source
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XAD
+</td>
+<td class='vocab-concept-display'>
+Extended address
+</td>
+<td class='vocab-concept-definition'>
+Extended address
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XCN
+</td>
+<td class='vocab-concept-display'>
+Extended composite ID number and name for persons
+</td>
+<td class='vocab-concept-definition'>
+Extended composite ID number and name for persons
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XON
+</td>
+<td class='vocab-concept-display'>
+Extended composite name and ID number for organizations
+</td>
+<td class='vocab-concept-definition'>
+Extended composite name and ID number for organizations
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XPN
+</td>
+<td class='vocab-concept-display'>
+Extended person name
+</td>
+<td class='vocab-concept-definition'>
+Extended person name
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XTN
+</td>
+<td class='vocab-concept-display'>
+Extended telecommunications number
+</td>
+<td class='vocab-concept-definition'>
+Extended telecommunications number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html'>
+Chapter 17 - Materials Management
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-1'>
+    17.1  Chapter 17 Contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-2'>
+    17.2  PURPOSE
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-2-1'>
+        17.2.1  Inventory Item Master Updates
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-2-1-1'>
+            17.2.1.1  Item Master Catalog
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-2-1-2'>
+            17.2.1.2  Inventory Locations
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-2-2'>
+        17.2.2  Sterilization and Decontamination
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-2-3'>
+        17.2.3  Application roles
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3'>
+    17.3  Trigger Events
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-1'>
+        17.3.1  Statuses
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2'>
+        17.3.2  Glossary
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-1'>
+            17.3.2.1  Bowie-Dick Test
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-2'>
+            17.3.2.2  Catalog Item
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-3'>
+            17.3.2.3  Cycle - Sterilization
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-4'>
+            17.3.2.4  Cycle - Steam Sterilization, Gravity Displacement Type
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-5'>
+            17.3.2.5  Cycle Time
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-6'>
+            17.3.2.6  Decontamination
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-7'>
+            17.3.2.7  Entrainment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-8'>
+            17.3.2.8  EO
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-9'>
+            17.3.2.9  Exposure Time
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-10'>
+            17.3.2.10  Lot Control
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-11'>
+            17.3.2.11  Nonstocked Items
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-12'>
+            17.3.2.12  NonCatalog Item
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-13'>
+            17.3.2.13  Par Level
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-14'>
+            17.3.2.14  Sterile
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-15'>
+            17.3.2.15  Sterilization
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-16'>
+            17.3.2.16  Sterilizer
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-17'>
+            17.3.2.17  Stocked Items
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-18'>
+            17.3.2.18  TDC
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-2-19'>
+            17.3.2.19  Washer
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-3'>
+        17.3.3  Organization of This Chapter: Trigger Events and Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-3-3-1'>
+            17.3.3.1  Update mode
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4'>
+    17.4  Inventory Item Master Messages Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1'>
+        17.4.1  IIM - Inventory Item Master Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-1'>
+            17.4.1.1  IIM-1   Primary Key Value - IIM   (CWE)   01897
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-2'>
+            17.4.1.2  IIM-2   Service Item Code   (CWE)   01799
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-3'>
+            17.4.1.3  IIM-3   Inventory Lot Number   (ST)   01800
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-4'>
+            17.4.1.4  IIM-4   Inventory Expiration Date   (DTM)   01801
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-5'>
+            17.4.1.5  IIM-5   Inventory Manufacturer Name   (CWE)   01802
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-6'>
+            17.4.1.6  IIM-6   Inventory Location   (CWE)   01803
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-7'>
+            17.4.1.7  IIM-7   Inventory Received Date   (DTM)   01804
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-8'>
+            17.4.1.8  IIM-8   Inventory Received Quantity   (NM)   01805
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-9'>
+            17.4.1.9  IIM-9   Inventory Received Quantity Unit   (CWE)   01806
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-10'>
+            17.4.1.10  IIM-10   Inventory Received Item Cost   (MO)   01807
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-11'>
+            17.4.1.11  IIM-11   Inventory on Hand Date   (DTM)   01808
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-12'>
+            17.4.1.12  IIM-12   Inventory on Hand Quantity   (NM)   01809
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-13'>
+            17.4.1.13  IIM-13   Inventory on Hand Quantity Unit   (CWE)   01810
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-14'>
+            17.4.1.14  IIM-14   Procedure Code   (CNE)   00393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-1-15'>
+            17.4.1.15  IIM-15   Procedure Code Modifier   (CNE)   01316
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2'>
+        17.4.2  ITM - Material Item Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-1'>
+            17.4.2.1  ITM-1   Item Identifier   (EI)   02186
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-2'>
+            17.4.2.2  ITM-2   Item Description   (ST)   02274
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-3'>
+            17.4.2.3  ITM-3   Item Status   (CWE)   02187
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-4'>
+            17.4.2.4  ITM-4   Item Type   (CWE)   02188
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-5'>
+            17.4.2.5  ITM-5   Item Category   (CWE)   02189
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-6'>
+            17.4.2.6  ITM-6   Subject To Expiration Indicator   (CNE)   02190
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-7'>
+            17.4.2.7  ITM-7   Manufacturer Identifier   (EI)   02191
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-8'>
+            17.4.2.8  ITM-8   Manufacturer Name   (ST)   02275
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-9'>
+            17.4.2.9  ITM-9   Manufacturer Catalog Number   (ST)   02192
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-10'>
+            17.4.2.10  ITM-10   Manufacturer Labeler Identification Code   (CWE)   02193
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-11'>
+            17.4.2.11  ITM-11   Patient Chargeable Indicator   (CNE)   02070
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-12'>
+            17.4.2.12  ITM-12   Transaction Code   (CWE)   00361
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-13'>
+            17.4.2.13  ITM-13   Transaction Amount Unit   (CP)   00366
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-14'>
+            17.4.2.14  ITM-14   Stocked Item Indicator   (CNE)   02197
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-15'>
+            17.4.2.15  ITM-15   Supply Risk Codes   (CWE)   02266
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-16'>
+            17.4.2.16  ITM-16   Approving Regulatory Agency   (XON)   02199
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-17'>
+            17.4.2.17  ITM-17   Latex Indicator   (CNE)   02200
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-18'>
+            17.4.2.18  ITM-18   Ruling Act   (CWE)   02201
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-19'>
+            17.4.2.19  ITM-19   Item Natural Account Code   (CWE)   00282
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-20'>
+            17.4.2.20  ITM-20   Approved to Buy Quantity   (NM)   02203
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-21'>
+            17.4.2.21  ITM-21   Approved to Buy Price   (MO)   02204
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-22'>
+            17.4.2.22  ITM-22   Taxable Item Indicator   (CNE)   02205
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-23'>
+            17.4.2.23  ITM-23   Freight Charge Indicator   (CNE)   02206
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-24'>
+            17.4.2.24  ITM-24   Item Set Indicator   (CNE)   02207
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-25'>
+            17.4.2.25  ITM–25   Item Set Identifier   (EI)   02208
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-26'>
+            17.4.2.26  ITM–26   Track Department Usage Indicator   (CNE)   02209
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-27'>
+            17.4.2.27  ITM-27   Procedure Code   (CNE)   00393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-28'>
+            17.4.2.28  ITM-28   Procedure Code Modifier   (CNE)   01316
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-29'>
+            17.4.2.29  ITM-29   Special Handling Code   (CWE)   01370
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-30'>
+            17.4.2.30  ITM-30   Hazardous Indicator   (CNE)   03388
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-31'>
+            17.4.2.31  ITM-31   Sterile Indicator   (CNE)   03304
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-32'>
+            17.4.2.32  ITM-32   Material Safety Data Sheet Number   (EI)   03305
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-33'>
+            17.4.2.33  ITM-33  United Nations Standard Products and Services Code (CWE)   03306
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-34'>
+            17.4.2.34  ITM-34  Contract Date (DR)   02415
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-35'>
+            17.4.2.35  ITM-35 Manufacturer Contact Name (XPN)   02416
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-36'>
+            17.4.2.36  ITM-36 Manufacturer Contact Information (XTN)   02417
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-37'>
+            17.4.2.37  ITM-37 Class of Trade (ST)   02418
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-2-38'>
+            17.4.2.38  ITM-38 Field Level Event Code (ID)   02419
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-3'>
+        17.4.3  STZ - Sterilization Parameter Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-3-1'>
+            17.4.3.1  STZ-1   Sterilization Type   (CWE)   02213
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-3-2'>
+            17.4.3.2  STZ-2   Sterilization Cycle   (CWE)   02214
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-3-3'>
+            17.4.3.3  STZ-3   Maintenance Cycle   (CWE)   02215
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-3-4'>
+            17.4.3.4  STZ-4   Maintenance Type   (CWE)   02216
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4'>
+        17.4.4  VND – Purchasing Vendor Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-1'>
+            17.4.4.1  VND-1   Set ID - VND   (SI)   02217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-2'>
+            17.4.4.2  VND-2   Vendor Identifier   (EI)   02218
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-3'>
+            17.4.4.3  VND-3   Vendor Name   (ST)   02276
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-4'>
+            17.4.4.4  VND-4   Vendor Catalog Number   (EI)   02219
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-5'>
+            17.4.4.5  VND-5   Primary Vendor Indicator   (CNE)   02220
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-6'>
+            17.4.4.6  VND-6   Corporation   (EI)   02420
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-7'>
+            17.4.4.7  VND-7   Primary Contact   (XCN)   02421
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-8'>
+            17.4.4.8  VND-8   Contract Adjustment   (MOP)   02422
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-9'>
+            17.4.4.9  VND-9   Associated Contract ID   (EI)   02423
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-10'>
+            17.4.4.10  VND-10   Class of Trade   (ST)   02424
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-4-11'>
+            17.4.4.11  VND-11   Pricing Tier Level   (CWE)   02425
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5'>
+        17.4.5  PKG - Packaging Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-1'>
+            17.4.5.1  PKG-1   Set ID - PKG   (SI)   02221
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-2'>
+            17.4.5.2  PKG-2   Packaging Units   (CWE)   02222
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-3'>
+            17.4.5.3  PKG-3   Default Order Unit of Measure Indicator   (CNE)   02223
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-4'>
+            17.4.5.4  PKG-4   Package Quantity   (NM)   02224
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-5'>
+            17.4.5.5  PKG-5   Price   (CP)   02225
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-6'>
+            17.4.5.6  PKG-6   Future Item Price   (CP)   02226
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-7'>
+            17.4.5.7  PKG-7   Future Item Price Effective Date   (DTM)   02227
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-8'>
+            17.4.5.8  PKG-8   Global Trade Item Number   (CWE)   03307
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-9'>
+            17.4.5.9  PKG-9   Contract Price   (MO)   02426
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-10'>
+            17.4.5.10  PKG-10   Quantity of Each   (NM)   02427
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-5-11'>
+            17.4.5.11  PKG-11   Vendor Catalog Number (EI)   02428
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-6'>
+        17.4.6  PCE – Patient Charge Cost Center Exception Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-6-1'>
+            17.4.6.1  PCE-1   Set ID – PCE   (SI)   02228
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-6-2'>
+            17.4.6.2  PCE-2   Cost Center Account Number   (CX)   00281
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-6-3'>
+            17.4.6.3  PCE-3   Transaction Code   (CWE)   00361
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-6-4'>
+            17.4.6.4  PCE-4   Transaction Amount - Unit   (CP)   00366
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7'>
+        17.4.7  IVT – Material Location Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-1'>
+            17.4.7.1  IVT-1   Set ID - IVT   (SI)   02062
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-2'>
+            17.4.7.2  IVT-2   Inventory Location Identifier   (EI)   02063
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-3'>
+            17.4.7.3  IVT-3   Inventory Location Name   (ST)   02277
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-4'>
+            17.4.7.4  IVT-4   Source Location Identifier   (EI)   02064
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-5'>
+            17.4.7.5  IVT-5   Source Location Name   (ST)   02278
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-6'>
+            17.4.7.6  IVT-6   Item Status   (CWE)   02065
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-7'>
+            17.4.7.7  IVT-7   Bin Location Identifier   (EI)   02066
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-8'>
+            17.4.7.8  IVT-8   Order Packaging   (CWE)   02067
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-9'>
+            17.4.7.9  IVT-9   Issue Packaging   (CWE)   02068
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-10'>
+            17.4.7.10  IVT-10   Default Inventory Asset Account   (EI)   02069
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-11'>
+            17.4.7.11  IVT-11   Patient Chargeable Indicator   (CNE)   02070
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-12'>
+            17.4.7.12  IVT-12   Transaction Code   (CWE)   00361
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-13'>
+            17.4.7.13  IVT-13   Transaction Amount – Unit   (CP)   00366
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-14'>
+            17.4.7.14  IVT-14   Item Importance Code   (CWE)   02073
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-15'>
+            17.4.7.15  IVT-15   Stocked Item Indicator   (CNE)   02074
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-16'>
+            17.4.7.16  IVT-16   Consignment Item Indicator   (CNE)   02075
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-17'>
+            17.4.7.17  IVT-17   Reusable Item Indicator   (CNE)   02076
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-18'>
+            17.4.7.18  IVT-18   Reusable Cost   (CP)   02077
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-19'>
+            17.4.7.19  IVT-19   Substitute Item Identifier   (EI)   02078
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-20'>
+            17.4.7.20  IVT-20   Latex-Free Substitute Item Identifier   (EI)   02079
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-21'>
+            17.4.7.21  IVT-21   Recommended Reorder Theory   (CWE)   02080
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-22'>
+            17.4.7.22  IVT-22   Recommended Safety Stock Days   (NM)   02081
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-23'>
+            17.4.7.23  IVT-23   Recommended Maximum Days Inventory   (NM)   02082
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-24'>
+            17.4.7.24  IVT-24   Recommended Order Point   (NM)   02083
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-25'>
+            17.4.7.25  IVT-25   Recommended Order Amount   (NM)   02084
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-7-26'>
+            17.4.7.26  IVT-26   Operating Room Par Level Indicator   (CNE)   02085
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8'>
+        17.4.8  ILT – Material Lot Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-1'>
+            17.4.8.1  ILT-1   Set ID – ILT   (SI)   02086
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-2'>
+            17.4.8.2  ILT-2   Inventory Lot Number   (ST)   01800
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-3'>
+            17.4.8.3  ILT-3   Inventory Expiration Date   (DTM)   01801
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-4'>
+            17.4.8.4  ILT-4   Inventory Received Date   (DTM)   01804
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-5'>
+            17.4.8.5  ILT-5   Inventory Received Quantity   (NM)   01805
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-6'>
+            17.4.8.6  ILT-6   Inventory Received Quantity Unit   (CWE)   01806
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-7'>
+            17.4.8.7  ILT-7   Inventory Received Item Cost   (MO)   01807
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-8'>
+            17.4.8.8  ILT-8   Inventory on Hand Date   (DTM)   01808
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-9'>
+            17.4.8.9  ILT-9   Inventory on Hand Quantity   (NM)   01809
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-4-8-10'>
+            17.4.8.10  ILT-10   Inventory on Hand Quantity Unit   (CWE)   01810
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-5'>
+    17.5  Placer Application Requests and Trigger Events
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-5-1'>
+        17.5.1  SLR/ACK/SLS - Request New Sterilization Lot (Event S28)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-5-2'>
+        17.5.2  SLR/ACK/SLS - Request Sterilization Lot Deletion (Event S29)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-5-3'>
+        17.5.3  STI/ACK/STS - Request Item (Event S30)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-5-4'>
+        17.5.4  SDR/ACK/SDS - Request Anti-Microbial Device Data (Event S31)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-5-5'>
+        17.5.5  SMD/ACK/SMS - Request Anti-Microbial Device Cycle Data (Event S32)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-6'>
+    17.6  Filler Application Messages and Trigger Events Unsolicited
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-6-1'>
+        17.6.1  STC/ACK - Notification of Sterilization Configuration (Event S33)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-6-2'>
+        17.6.2  SLN/ACK - Notification of New Sterilization Lot (Event S34)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-6-3'>
+        17.6.3  SLN/ACK - Notification of Sterilization Lot Deletion (Event S35)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-6-4'>
+        17.6.4  SDN/ACK - Notification of Anti-Microbial Device Data (Event S36)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-6-5'>
+        17.6.5  SCN/ACK - Notification of Anti-Microbial Device Cycle Data (Event S37)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7'>
+    17.7  Sterilization and Decontamination Message segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1'>
+        17.7.1  SCP – Sterilizer Configuration Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-1'>
+            17.7.1.1  SCP-1   Number of Decontamination/Sterilization Devices   (NM)   02087
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-2'>
+            17.7.1.2  SCP-2   Labor Calculation Type   (CWE)   02088
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-3'>
+            17.7.1.3  SCP-3   Date Format   (CWE)   02089
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-4'>
+            17.7.1.4  SCP-4   Device Number   (EI)   02090
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-5'>
+            17.7.1.5  SCP-5   Device Name   (ST)   02279
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-6'>
+            17.7.1.6  SCP-6   Device Model Name   (ST)   02091
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-7'>
+            17.7.1.7  SCP-7   Device Type   (CWE)   02092
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-1-8'>
+            17.7.1.8  SCP-8   Lot Control   (CWE)   02093
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-2'>
+        17.7.2  SLT – Sterilization Lot Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-2-1'>
+            17.7.2.1  SLT-1   Device Number   (EI)   02094
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-2-2'>
+            17.7.2.2  SLT-2   Device Name   (ST)   02280
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-2-3'>
+            17.7.2.3  SLT-3   Lot Number   (EI)   02095
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-2-4'>
+            17.7.2.4  SLT-4   Item Identifier   (EI)   02096
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-2-5'>
+            17.7.2.5  SLT-5   Bar Code   (ST)   02097
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3'>
+        17.7.3  SDD - Sterilization Device Data Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-1'>
+            17.7.3.1  SDD-1   Lot Number   (EI)   02098
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-2'>
+            17.7.3.2  SDD-2   Device Number   (EI)   02099
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-3'>
+            17.7.3.3  SDD-3   Device Name   (ST)   02281
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-4'>
+            17.7.3.4  SDD-4   Device Data State   (CWE)   02100
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-5'>
+            17.7.3.5  SDD-5   Load Status   (CWE)   02101
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-6'>
+            17.7.3.6  SDD-6   Control Code   (NM)   02102
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-3-7'>
+            17.7.3.7  SDD-7   Operator Name   (ST)   02103
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4'>
+        17.7.4  SCD – Anti-Microbial Cycle Data Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-1'>
+            17.7.4.1  SCD-1   Cycle Start Time   (TM)   02104
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-2'>
+            17.7.4.2  SCD-2   Cycle Count   (NM)   02105
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-3'>
+            17.7.4.3  SCD-3   Temp Max   (CQ)   02106
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-4'>
+            17.7.4.4  SCD-4   Temp Min   (CQ)   02107
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-5'>
+            17.7.4.5  SCD-5   Load Number   (NM)   02108
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-6'>
+            17.7.4.6  SCD-6   Condition Time   (CQ)   02109
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-7'>
+            17.7.4.7  SCD-7   Sterilize Time   (CQ)   02110
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-8'>
+            17.7.4.8  SCD-8   Exhaust Time   (CQ)   02111
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-9'>
+            17.7.4.9  SCD-9   Total Cycle Time   (CQ)   02112
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-10'>
+            17.7.4.10  SCD-10   Device Status   (CWE)   02113
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-11'>
+            17.7.4.11  SCD-11   Cycle Start Date/Time   (DTM)   02114
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-12'>
+            17.7.4.12  SCD-12   Dry Time   (CQ)   02115
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-13'>
+            17.7.4.13  SCD-13   Leak Rate   (CQ)   02116
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-14'>
+            17.7.4.14  SCD-14   Control Temperature   (CQ)   02117
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-15'>
+            17.7.4.15  SCD-15   Sterilizer Temperature   (CQ)   02118
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-16'>
+            17.7.4.16  SCD-16   Cycle Complete Time   (TM)   02119
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-17'>
+            17.7.4.17  SCD-17   Under Temperature   (CQ)   02120
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-18'>
+            17.7.4.18  SCD-18   Over Temperature   (CQ)   02121
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-19'>
+            17.7.4.19  SCD-19   Abort Cycle   (CNE)   02122
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-20'>
+            17.7.4.20  SCD-20   Alarm   (CNE)   02123
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-21'>
+            17.7.4.21  SCD-21   Long in Charge Phase   (CNE)   02124
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-22'>
+            17.7.4.22  SCD-22   Long in Exhaust Phase   (CNE)   02125
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-23'>
+            17.7.4.23  SCD-23   Long in Fast Exhaust Phase   (CNE)   02126
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-24'>
+            17.7.4.24  SCD-24   Reset   (CNE)   02127
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-25'>
+            17.7.4.25  SCD-25   Operator – Unload   (XCN)   02128
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-26'>
+            17.7.4.26  SCD-26   Door Open   (CNE)   02129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-27'>
+            17.7.4.27  SCD-27   Reading Failure   (CNE)   02130
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-28'>
+            17.7.4.28  SCD-28   Cycle Type   (CWE)   02131
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-29'>
+            17.7.4.29  SCD-29   Thermal Rinse Time   (CQ)   02132
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-30'>
+            17.7.4.30  SCD-30   Wash Time   (CQ)   02133
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-31'>
+            17.7.4.31  SCD-31   Injection Rate   (CQ)   02134
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-32'>
+            17.7.4.32  SCD-32   Procedure Code   (CNE)   00393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-33'>
+            17.7.4.33  SCD–33   Patient Identifier List   (CX)   00106
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-34'>
+            17.7.4.34  SCD–34   Attending Doctor   (XCN)   01137
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-35'>
+            17.7.4.35  SCD–35   Dilution Factor   (SN)   01356
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-36'>
+            17.7.4.36  SCD–36   Fill Time   (CQ)   02139
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-7-4-37'>
+            17.7.4.37  SCD–37   Inlet Temperature   (CQ)   02140
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8'>
+    17.8  Material Management Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1'>
+        17.8.1  DEV – Device Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-1'>
+            17.8.1.1  DEV-1   Action code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-2'>
+            17.8.1.2  DEV-2   Unique Device Identifier   (EI)   02457
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-3'>
+            17.8.1.3  DEV-3   Device Type   (CNE)   03483
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-4'>
+            17.8.1.4  DEV-4   Device Status   (CNE)   02501
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-5'>
+            17.8.1.5  DEV-5   Manufacturer/Distributor   (XON)   01247
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-6'>
+            17.8.1.6  DEV-6   Brand Name   (ST)   01249
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-7'>
+            17.8.1.7  DEV-7   Model Identifier   (ST)   01252
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-8'>
+            17.8.1.8  DEV-8   Catalogue Identifier   (ST)   01253
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-9'>
+            17.8.1.9  DEV-9   UDI Device Identifier   (EI)   03476
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-10'>
+            17.8.1.10  DEV-10   Device Lot Number   (ST)   03479
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-11'>
+            17.8.1.11  DEV-11   Device Serial Number   (ST)   03480
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-12'>
+            17.8.1.12  DEV-12   Device Manufacture Date   (DTM)   03477
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-13'>
+            17.8.1.13  DEV-13   Device Expiry Date   (DTM)   03478
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-14'>
+            17.8.1.14  DEV-14   Safety Characteristics   (CWE)   02465
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-15'>
+            17.8.1.15  DEV-15   Device Donation Identification   (EI)   03481
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-16'>
+            17.8.1.16  DEV-16   Software Version Number   (ST)   02502
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-8-1-17'>
+            17.8.1.17  DEV-17   Implantation Status   (CNE)   02459
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-9'>
+    17.9  Example Transactions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-9-1'>
+        17.9.1  Inventory Item Master Catalog Add - Event M16
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-9-2'>
+        17.9.2  Request New Sterilization Lot - Event S28
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-10'>
+    17.10  Implementation Considerations
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Materials-Management.html#Materials-Management-11'>
+    17.11  OUtstanding Issues
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

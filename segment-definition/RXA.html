@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+RXA - Pharmacy/Treatment Administration Segment
+</h3>
+<p class="v2 v2-normalindented">The ORC must have the filler order number and the order control code RE.  As a site-specific variant, the RXO and associated RXCs and/or the RXE (and associated RXCs) may be present if the receiving application needs any of their data.  The RXA carries the administration data.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - RXA - Pharmacy/Treatment Administration Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+RXA
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Give Sub-ID Counter
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXA-1'>
+00342
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Administration Sub-ID Counter
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXA-2'>
+00344
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Date/Time Start of Administration
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXA-3'>
+00345
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Date/Time End of Administration
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXA-4'>
+00346
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Administered Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0292-Vaccines-Administered.html' title='Vaccines Administered(Required)'>
+0292(R)
+<span class='vocab-link-text'>Vaccines Administered(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXA-5'>
+00347
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Administered Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXA-6'>
+00348
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Administered Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0689-ERROR! Bad Data! FIXME.html'>
+0689
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-7'>
+00349
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Administered Dosage Form
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0690-ERROR! Bad Data! FIXME.html'>
+0690
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-8'>
+00350
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Administration Notes
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0737-ERROR! Bad Data! FIXME.html'>
+0737
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-9'>
+00351
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Administering Provider
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-10'>
+00352
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Administered-at Location
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-11'>
+00353
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Administered Per
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-12'>
+00354
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Administered Strength
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-13'>
+01134
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Administered Strength Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0692-ERROR! Bad Data! FIXME.html'>
+0692
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-14'>
+01135
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Substance Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-15'>
+01129
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Substance Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-16'>
+01130
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Substance Manufacturer Name
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-17'>
+01131
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Substance/Treatment Refusal Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0693-ERROR! Bad Data! FIXME.html'>
+0693
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-18'>
+01136
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Indication
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0758-ERROR! Bad Data! FIXME.html'>
+0758
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-19'>
+01123
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Completion Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0322-Completion-Status.html' title='Completion Status(Required)'>
+0322(R)
+<span class='vocab-link-text'>Completion Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-20'>
+01223
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Action Code – RXA
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-21'>
+01224
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+System Entry Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-22'>
+01225
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Administered Drug Strength Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-23'>
+01696
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Administered Drug Strength Volume Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0695-ERROR! Bad Data! FIXME.html'>
+0695
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-24'>
+01697
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Administered Barcode Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0696-ERROR! Bad Data! FIXME.html'>
+0696
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-25'>
+01698
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Pharmacy Order Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0480-Pharmacy-Order-Types.html' title='Pharmacy Order Types(Required)'>
+0480(R)
+<span class='vocab-link-text'>Pharmacy Order Types(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-26'>
+01699
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Administer-at
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-27'>
+02264
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Administered-at Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXA-28'>
+02265
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+29
+</td>
+<td>
+Administered Tag Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXA-29'>
+03396
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='RXA-1'>
+RXA-1: Give Sub-ID Counter (<a href='/data-type/NM.html'>NM</a>) 00342
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use this field if matching this RXA segment to its corresponding RXG segment.  If the two applications are not matching RXG and RXA segments, this field&#39;s value is zero (0).</p>
+
+<h4 class='v2' id='RXA-2'>
+RXA-2: Administration Sub-ID Counter (<a href='/data-type/NM.html'>NM</a>) 00344
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field starts with 1 the first time that medication/treatment is administered for this order.  Increments by one with each additional administration of the medication/treatment.  </p><div class="v2-note"><p class="v2"><strong>Note:</strong>  More than one RXA segment can be &quot;matched&quot; to a single RXG segment, as is the case when recording a change of the rate of administration of an IV solution.</p></div><br/>
+
+<h4 class='v2' id='RXA-3'>
+RXA-3: Date/Time Start of Administration (<a href='/data-type/DTM.html'>DTM</a>) 00345
+</h4>
+<p class="v2 v2-normalindented">Definition:  If the order is for a continuous administration (such as an IV), and the rate is changed at a certain time after the start, an RAS message can be issued to record the change.  For such an RAS message, this field records the time the rate was changed to the new value recorded in the <a href="/segment-definition/RXA.html#RXA-12">RXA-12-Administered Per (time unit) </a>of the same message.  </p>
+
+<h4 class='v2' id='RXA-4'>
+RXA-4: Date/Time End of Administration (<a href='/data-type/DTM.html'>DTM</a>) 00346
+</h4>
+<p class="v2 v2-normalindented">Definition:  If null, the date/time of <a href="/segment-definition/RXA.html#RXA-3">RXA-3-Date/Time Start of Administration </a>is assumed.</p>
+
+<h4 class='v2' id='RXA-5'>
+RXA-5: Administered Code (<a href='/data-type/CWE.html'>CWE</a>) 00347
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier of the medical substance/treatment administered.  It is equivalent to <a href="/segment-definition/OBR.html#OBR-4">OBR-4-universal service ID</a> in function. If the substance administered is a vaccine, CVX codes may be used to code this field (see <a href="https://www.hl7.org/fhir/v2/0292/index.html">HL7 Table 0292 - Vaccines Administered</a>).  If CVX code is used to identify vaccines, the coding system component (RXA-5.3) should be valued as &quot;CVX&quot;, not as &quot;HL70292.&quot;</p>
+
+<h4 class='v2' id='RXA-6'>
+RXA-6: Administered Amount (<a href='/data-type/NM.html'>NM</a>) 00348
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount administered.</p>
+
+<h4 class='v2' id='RXA-7'>
+RXA-7: Administered Units (<a href='/data-type/CWE.html'>CWE</a>) 00349
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is conditional because it is required if the administered amount code does not imply units.  This field must be in simple units that reflect the actual quantity of the substance administered.  It does not include compound units. Refer to Table 0689 - Administered Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXA-8'>
+RXA-8: Administered Dosage Form (<a href='/data-type/CWE.html'>CWE</a>) 00350
+</h4>
+<p class="v2 v2-normalindented">Definition:  The dosage form indicates the manner in which the medication/treatment is aggregated for dispensing, e.g., tablets, capsules, suppositories.  In some cases, this information is implied by the dispense/give code in <a href="/segment-definition/RXA.html#RXA-5">RXA-5-Administered Code</a>.  Use this field when the administered code does not specify the dosage form. Refer to Table 0690 - Administered Dosage Form in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXA-9'>
+RXA-9: Administration Notes (<a href='/data-type/CWE.html'>CWE</a>) 00351
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains notes from the provider administering the medication/treatment.  If coded, requires a user-defined table.  If free text (describing a custom IV, mixture, or salve, for example) place a null in the first component and the text in the second, e.g., |^this is a free text administration note|. Refer to Table 0691 - Administration Notes in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXA-10'>
+RXA-10: Administering Provider (<a href='/data-type/.html'></a>) 00352
+</h4>
+<p class="v2 v2-normalindented">Attention: This field was retained for backward compatibilty only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.  The reader is referred to the PRT segment described in Chapter 7.</p><p class="v2 v2-normalindented"></p>
+
+<h4 class='v2' id='RXA-11'>
+RXA-11: Administered-at Location (<a href='/data-type/.html'></a>) 00353
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field is retained for backward compatibility only as of v 2.6 and withdrawn from the standard as of v 2.8</strong>. The reader is referred to RXA-27 and RXA-28..</p>
+
+<h4 class='v2' id='RXA-12'>
+RXA-12: Administered Per (<a href='/data-type/ST.html'>ST</a>) 00354
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the rate at which this medication/treatment was administered as calculated by using <a href="/segment-definition/RXA.html#RXA-6">RXA-6-administered amount</a> and <a href="/segment-definition/RXA.html#RXA-7">RXA-7-administered units</a>.  This field is conditional because it is required when a treatment is administered continuously at a prescribed rate, e.g., certain IV solutions.</p>
+
+<h4 class='v2' id='RXA-13'>
+RXA-13: Administered Strength (<a href='/data-type/NM.html'>NM</a>) 01134
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use when <a href="/segment-definition/RXA.html#RXA-5">RXA-5-Administered Code</a> does not specify the strength.  This is the numeric part of the strength, used in combination with <a href="/segment-definition/RXA.html#RXA-14">RXA-14-Administered Strength Units</a>.</p>
+
+<h4 class='v2' id='RXA-14'>
+RXA-14: Administered Strength Units (<a href='/data-type/CWE.html'>CWE</a>) 01135
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use when <a href="/segment-definition/RXA.html#RXA-5">RXA-5-Administered Code</a> does not specify the strength.  This is the unit of the strength, used in combination with <a href="/segment-definition/RXA.html#RXA-13">RXA-13-Administered Strength</a>. Refer to Table 0692 - Administered Strength Units in Chapter 2C for valid values.</p><div class="v2-note"><p class="v2"><strong>Note</strong>:  These units can be a &quot;compound quantity;&quot; i.e., the units may express a quantity per unit of time.  For example, micrograms per hour (micg/h) is an acceptable value.  These compound units are contained in the ISO+ table. See Chapter 7 for full definition of ISO+ units.</p></div><br/>
+
+<h4 class='v2' id='RXA-15'>
+RXA-15: Substance Lot Number (<a href='/data-type/ST.html'>ST</a>) 01129
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the lot number of the medical substance administered.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The lot number is the number printed on the label attached to the container holding the substance and on the packaging which houses the container.  If the substance is a vaccine, for example, and a diluent is required, a lot number may appear on the vial containing the diluent; however, any such identifier associated with a diluent is not the identifier of interest. The substance lot number should be reported, not that of the diluent.</p></div><br/>
+
+<h4 class='v2' id='RXA-16'>
+RXA-16: Substance Expiration Date (<a href='/data-type/DTM.html'>DTM</a>) 01130
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the expiration date of the medical substance administered.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  Vaccine expiration date does not always have a &quot;day&quot; component; therefore, such a date may be transmitted as YYYYMM.</p></div><br/>
+
+<h4 class='v2' id='RXA-17'>
+RXA-17: Substance Manufacturer Name (<a href='/data-type/CWE.html'>CWE</a>) 01131
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the manufacturer of the medical substance administered.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  For vaccines, code system MVX may be used to code this field.   See section <a href="/composition/Observation-Reporting.html#Observation-Reporting-1">4A.7.1</a>, &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-1">Vaccine administration data</a>.&quot; This field may be used if the manufacturer of the substance is not identified by the code used in RXA-5- administered code.  When using this code system to identify vaccines, the coding system component of the CWE field should be valued as &quot;MVX&quot;, not as &quot;HL70227.&quot;</p></div><br/>
+
+<h4 class='v2' id='RXA-18'>
+RXA-18: Substance/Treatment Refusal Reason (<a href='/data-type/CWE.html'>CWE</a>) 01136
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the reason the patient refused the medical substance/treatment.  Any entry in the field indicates that the patient did not take the substance. Refer to Table 0693 - Substance/Treatment Refusal Reason in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXA-19'>
+RXA-19: Indication (<a href='/data-type/CWE.html'>CWE</a>) 01123
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier of the condition or problem for which the drug/treatment was prescribed.  May repeat if multiple indications are relevant. Refer to Table 0694 - Indication in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXA-20'>
+RXA-20: Completion Status (<a href='/data-type/ID.html'>ID</a>) 01223
+</h4>
+<p class="v2 v2-normalindented">Definition:  Status of treatment administration event.  Refer to <a href="https://www.hl7.org/fhir/v2/0322/index.html">HL7 Table 0322 - Completion Status</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='RXA-21'>
+RXA-21: Action Code – RXA (<a href='/data-type/ID.html'>ID</a>) 01224
+</h4>
+<p class="v2 v2-normalindented">Definition:  Status of record. The information in this field enables the use of the RXA in the vaccine messages (see Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html">4A.8</a>, &quot;<a href="Vaccine Segments">Vaccine Segments</a>&quot;), where a method of correcting vaccination information transmitted with incorrect patient identifying information is needed.  Refer To <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='RXA-22'>
+RXA-22: System Entry Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01225
+</h4>
+<p class="v2 v2-normalindented">Definition: Date/time the administration information was entered into the source system.  This field is used to detect instances where treatment administration information is inadvertently entered multiple times by providing a unique identification field.  Under usual circumstances, this field would be provided automatically by the computer system rather than being entered by a person. </p>
+
+<h4 class='v2' id='RXA-23'>
+RXA-23: Administered Drug Strength Volume (<a href='/data-type/NM.html'>NM</a>) 01696
+</h4>
+<p class="v2 v2-normalindented">Description: This numeric field defines the volume measurement in which the drug strength concentration is contained. For example, Acetaminophen 120 MG/5ML Elixir means that 120 MG of the drug is in a solution with a volume of 5 ML , which would be encoded in RXA-13, RXA-14, RXA-23 and RXA-24 as:</p><p class="v2 v2-example">RXA|||||||||||||120|mg^^ISO|||||||||5|ml^^ISO ...&#60;cr&#62; </p>
+
+<h4 class='v2' id='RXA-24'>
+RXA-24: Administered Drug Strength Volume Units (<a href='/data-type/CWE.html'>CWE</a>) 01697
+</h4>
+<p class="v2 v2-normalindented">Description: This field indicates the volumetric unit associated with <a href="/segment-definition/RXA.html#RXA-23">RXA-23 Administered Drug Strength Volume</a>.  See example in RXA-23. Refer to Table 0695 - Administered Drug Strength Volume Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXA-25'>
+RXA-25: Administered Barcode Identifier (<a href='/data-type/CWE.html'>CWE</a>) 01698
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the pharmacy system&#39;s assigned barcode number for the give occurrence.  For IV orders, many pharmacy systems generate a barcode number to identify a specific bag/bottle of the order. This number can be an instance identifier; unique for the patient, drug combination, and schedule instance or it may be just a drug identifier. Refer to Table 0696 - Administered Barcode Identifier in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">The composition and use of the barcode number is dependent on application negotiation. An example of this field follows:  The barcode number is in the following format, 9XXXXXXX000.  The number &#39;9&#39; is a constant, XXXXXXX is seven (7) characters for a unique identifier assigned or derived from the patient account and order ID and 000 is the zero-filled three (3) character IV bottle number.</p><p class="v2 v2-normalindented">The maximum length of the first component of this field is 40 characters to allow for the maximum existing barcode length in use today.  The second component contains the description of the item being coded and the third component may define the barcode type.</p><p class="v2 v2-example">Example: 12345678901^IV bottle^3X9 </p>
+
+<h4 class='v2' id='RXA-26'>
+RXA-26: Pharmacy Order Type (<a href='/data-type/ID.html'>ID</a>) 01699
+</h4>
+<p class="v2 v2-normalindented">Definition: The Pharmacy Order Type field defines the general category of pharmacy order which may be used to determine the processing path the order will take.  Refer to <a href="https://www.hl7.org/fhir/v2/0480/index.html">HL7 Table 0480 - Pharmacy Order Types</a> in Chapter 2C, Code Tables, for valid values. </p><p class="v2 v2-normalindented">This field may also be used for grouping of related orders for processing and/or reports.  For example, Medication Administration Records (MARs) often group large volume solutions, medications and small volume solutions differently based upon site-specific workflow. </p><p class="v2 v2-normalindented">Usage Rule: This field is optional for all Pharmacy transactions.  When not populated, a default value of &quot;M&quot; is assumed. </p>
+
+<h4 class='v2' id='RXA-27'>
+RXA-27: Administer-at (<a href='/data-type/PL.html'>PL</a>) 02264
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the location where the drug or treatment was administered.  </p>
+
+<h4 class='v2' id='RXA-28'>
+RXA-28: Administered-at Address (<a href='/data-type/XAD.html'>XAD</a>) 02265
+</h4>
+<p class="v2 v2-normalindented">Definition: This field specifies the address of the location where the drug or treatment was administered.</p>
+
+<h4 class='v2' id='RXA-29'>
+RXA-29: Administered Tag Identifier (<a href='/data-type/EI.html'>EI</a>) 03396
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an identifier for the individual product instance for the dispense occurrence.  This may represent a barcode, RFID or other means of automatically-readable product instance.  Repetitions represent the same instance where more than one barcode, RFID or other identification is present.  </p><p class="v2 v2-normalindented">For example, the medication preparer, e.g., a semi-automatic system, can inform the nurse that “for the 8.am administration event, the medication that has been assigned and available at the patient bedside has the barcode BBBBBBBBBBB.” The nurse would scan the barcode, to ensure that the right medication is being administered.  </p><p class="v2 v2-normalindented">This differs from <a href="/segment-definition/RXA.html#RXA-25">RXA-25 Administered Barcode Identifier</a> in that RXA-25 may include other workflow content or the product at various levels of granularity.  RXA-29 specifically identifies the product instance.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

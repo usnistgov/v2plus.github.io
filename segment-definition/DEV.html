@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+DEV - Device Segment
+</h3>
+<p class="v2 v2-normalindented">The Device segment identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device. Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Non-medical devices may include items such as a machine, cellphone, computer, application, etc.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - DEV - Device Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+DEV
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#DEV-1'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Unique Device Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-2'>
+02457
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Device Type
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0961-Device-Type.html' title='Device Type'>
+0961
+<span class='vocab-link-text'>Device Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#DEV-3'>
+03483
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Device Status
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0962-Device-Status.html' title='Device Status(Suggested)'>
+0962(S)
+<span class='vocab-link-text'>Device Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#DEV-4'>
+02501
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Manufacturer/Distributor
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-5'>
+01247
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Brand Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-6'>
+01249
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Model Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-7'>
+01252
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Catalogue Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-8'>
+01253
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+UDI Device Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-9'>
+03476
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Device Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-10'>
+03479
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Device Serial Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-11'>
+03480
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Device Manufacture Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-12'>
+03477
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Device Expiry Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-13'>
+03478
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Safety Characteristics
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0963-Device-Safety.html' title='Device Safety'>
+0963
+<span class='vocab-link-text'>Device Safety</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#DEV-14'>
+02465
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Device Donation Identification
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-15'>
+03481
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Software Version Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-16'>
+02502
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+17
+</td>
+<td>
+Implantation Status
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0795-ERROR! Bad Data! FIXME.html'>
+0795
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#DEV-17'>
+02459
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2"></p>
+<h4 class='v2' id='DEV-1'>
+DEV-1: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+
+<h4 class='v2' id='DEV-2'>
+DEV-2: Unique Device Identifier (<a href='/data-type/EI.html'>EI</a>) 02457
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the Device represented, either an actual device, or type of device.</p><p class="v2 v2-normalindented">When this segment is used as an extension of a PRT segment in the message, e.g., additional device information obtained for an implantable device, DEV-2 must be equal to PRT-10 Participation Device.  When PRT-22 Participation Device Type is used, DEV-3 must be equal to PRT-22.</p><p class="v2 v2-normalindented">Condition: Either DEV-2 Unique Device Identifier or DEV-3 Device Type must be valued, or both are valued.</p>
+
+<h4 class='v2' id='DEV-3'>
+DEV-3: Device Type (<a href='/data-type/CNE.html'>CNE</a>) 03483
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the type of device used in the participation.  </p><p class="v2 v2-normalindented">See Externally HL7 defined 0961 in Chapter 2C for a list of suggested values.  This field can repeat.</p><p class="v2 v2-normalindented">When intended to have the additional device information for the device referenced in a PRT segment in the message, DEV-2 must be equal to PRT-10 Device.  When PRT-22 Device Type is used, DEV-3 must be equal.</p><p class="v2 v2-normalindented">When communicating a UDI Carrier, the UDI may either be uniquely identifying an instance of a device, or a type of device.  This can be asserted based on the inclusion or absence of a serial number in the Product Identifier section of the UDI.  When the serial number is present, PRT-10 must be used, while if it is absent, PRT-22 must be used.</p><p class="v2 v2-normalindented">When communicating a UDI Carrier in this field, the coding system used is limited to FDA (FDAUDI), HIBCC (HIBUDI), ICCBBA (ICCUDI), and GS1 (GS1UDI) coding systems defined in <a href="https://www.hl7.org/fhir/v2/0396/index.html">HL7 Table 0396</a>.</p><p class="v2 v2-normalindented">Condition: Either DEV-2 Unique Device Identifier or DEV-3 Device Type must be valued, or both are valued.</p>
+
+<h4 class='v2' id='DEV-4'>
+DEV-4: Device Status (<a href='/data-type/CNE.html'>CNE</a>) 02501
+</h4>
+<p class="v2 v2-normalindented">Definition: The device status indicates the availability of the device, e.g., active, inactive.  Refer to Externally HL7 Defined Table 0962 for a list of valid values.</p>
+
+<h4 class='v2' id='DEV-5'>
+DEV-5: Manufacturer/Distributor (<a href='/data-type/XON.html'>XON</a>) 01247
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identity of the manufacturer/distributor.</p>
+
+<h4 class='v2' id='DEV-6'>
+DEV-6: Brand Name (<a href='/data-type/ST.html'>ST</a>) 01249
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name under which the product is marketed by this manufacturer.</p>
+
+<h4 class='v2' id='DEV-7'>
+DEV-7: Model Identifier (<a href='/data-type/ST.html'>ST</a>) 01252
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the manufacturer&#39;s model identifier for the product.</p>
+
+<h4 class='v2' id='DEV-8'>
+DEV-8: Catalogue Identifier (<a href='/data-type/ST.html'>ST</a>) 01253
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the manufacturer&#39;s catalogue identifier for the product.</p>
+
+<h4 class='v2' id='DEV-9'>
+DEV-9: UDI Device Identifier (<a href='/data-type/EI.html'>EI</a>) 03476
+</h4>
+<p class="v2 v2-normalindented">Definition: Provides the U.S. FDA UDI device identifier (DI) element.  This is not the same as DEV-2, Unique Device Identifier as DEV-2 represents either the full UDI Carrier in the case of an implantable Device,</p><p class="v2 v2-normalindented">This is the first component in the UDI and acts as the look up key for the Global Unique Device Identification Database (GUDID<span id="chapter-17-footnote-reference-2"><a href="#chapter-17-footnote-2"><sup>2</sup></a></span>), and may be used for retrieving additional attributes.</p><p class="v2 v2-normalindented">When exchanging Device Identifiers (DI) the root shall be the OID, or standards’ appropriate corollary to the OID, assigned to DI and the extension shall be the Human Readable Form of the content. For example, for DIs the root shall be:</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;GS1 DIs: &#160;&#160;&#160;&#160;2.51.1.1</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;HIBCC DIs:&#160;&#160;&#160;&#160;1.0.15961.10.816</p><p class="v2 v2-normalindented v2-indent2880">ICCBBA DIs:&#160;&#160;&#160;&#160;2.16.840.1.113883.6.18.1.17 for Blood containers and 2.16.840.1.113883.6.18.1.34 otherwise.</p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|00643169001763^^2.51.1.1^ISO|</p>
+
+<h4 class='v2' id='DEV-10'>
+DEV-10: Device Lot Number (<a href='/data-type/ST.html'>ST</a>) 03479
+</h4>
+<p class="v2 v2-normalindented">Definition: Alphanumeric string that identifies the device’s production lot number.</p><p class="v2 v2-normalindented v2-indent0">&#160;&#160;&#160;&#160;Example:&#160;&#160;&#160;&#160;|123ABC|</p>
+
+<h4 class='v2' id='DEV-11'>
+DEV-11: Device Serial Number (<a href='/data-type/ST.html'>ST</a>) 03480
+</h4>
+<p class="v2 v2-normalindented">Definition: Manufacturer’s serial number for this device.  This field may be the same as DEV-2, Unique Device Identifier when the device does not involve a UDI Carrier for UDI and DEV-2 represents a serial number.  The implementation guide would determine whether DEV-11 is then used or not.</p>
+
+<h4 class='v2' id='DEV-12'>
+DEV-12: Device Manufacture Date (<a href='/data-type/DTM.html'>DTM</a>) 03477
+</h4>
+<p class="v2 v2-normalindented">Definition: Date and time when the device was manufacturered.</p><p class="v2 v2-noteindented"><strong>Note:</strong>  The user system may need to convert the date and optional hour from the UDI Human Readable Form to a timestamp style data type, augmenting the date as required to provide for a complete date and optionally the hour.  </p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|20140401|</p>
+
+<h4 class='v2' id='DEV-13'>
+DEV-13: Device Expiry Date (<a href='/data-type/DTM.html'>DTM</a>) 03478
+</h4>
+<p class="v2 v2-normalindented">Definition: Date and time when the device is no longer approved for use.</p><p class="v2 v2-noteindented"><strong>Note:</strong>  The user system may need to convert the date and optional hour from the UDI Human Readable Form to a timestamp style data type, augmenting the date as required to provide for a complete date and optionally the hour.  </p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|20160712|</p><p class="v2 v2-normalindented">CAUTION:  See the related privacy considerations discussion in PRT-10.  </p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;|21A11F4855|</p>
+
+<h4 class='v2' id='DEV-14'>
+DEV-14: Safety Characteristics (<a href='/data-type/CWE.html'>CWE</a>) 02465
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field a safety characteristic of a device, e.g., latex safety, MRI safety.</p><p class="v2 v2-normalindented">See Externally HL7 defined 0963 in Chapter 2C for a suggested values.</p>
+
+<h4 class='v2' id='DEV-15'>
+DEV-15: Device Donation Identification (<a href='/data-type/EI.html'>EI</a>) 03481
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies a device related to a donation.  </p><p class="v2 v2-normalindented">When exchanging Donation Identification Numbers (DIN) the root shall be the OID assigned to DIN and the extension shall be the Human Readable Form of the content. For example, for DINs the root shall be:</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;ICCBBA DINs:&#160;&#160;&#160;&#160;2.16.840.1.113883.6.18.2.1</p><p class="v2 v2-normalindented">An ICCBBA DIN OID is available for reference where required, but is not required when the specific data element is scoped to ICCBBA DINs.</p><p class="v2 v2-normalindented">Example:&#160;&#160;&#160;&#160;| RA12345678BA123^^2.16.840.1.113883.6.18.1.34^ISO|</p>
+
+<h4 class='v2' id='DEV-16'>
+DEV-16: Software Version Number (<a href='/data-type/ST.html'>ST</a>) 02502
+</h4>
+<p class="v2 v2-normalindented">Definition: The version number of the software that is part of the device.</p>
+
+<h4 class='v2' id='DEV-17'>
+DEV-17: Implantation Status (<a href='/data-type/CNE.html'>CNE</a>) 02459
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the implantation status of the device, e.g., implanted, explanted.  Refer to <a href="https://www.hl7.org/fhir/v2/0795/index.html">HL7 Table 0795 – Implanatation Status</a> in Chapter 2C for valid values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

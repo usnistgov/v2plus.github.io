@@ -1,0 +1,3013 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+IN1 - Insurance Segment
+</h3>
+<p class="v2 v2-normalindented">The IN1 segment contains insurance policy coverage information necessary to produce properly pro-rated and patient and insurance bills.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - IN1 - Insurance Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+IN1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - IN1
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IN1-1'>
+00426
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Health Plan ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0072-Insurance-Plan-ID.html' title='Insurance Plan ID'>
+0072
+<span class='vocab-link-text'>Insurance Plan ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IN1-2'>
+00368
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Insurance Company ID
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#IN1-3'>
+00428
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Insurance Company Name
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-4'>
+00429
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Insurance Company Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-5'>
+00430
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Insurance Co Contact Person
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-6'>
+00431
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Insurance Co Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-7'>
+00432
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-8'>
+00433
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+12
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Group Name
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-9'>
+00434
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Insured's Group Emp ID
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-10'>
+00435
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Insured's Group Emp Name
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-11'>
+00436
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Plan Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-12'>
+00437
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Plan Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-13'>
+00438
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Authorization Information
+</td>
+<td class='centered'>
+<a href='/data-type/AUI.html'>
+AUI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-14'>
+00439
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Plan Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0086-Plan-ID.html' title='Plan ID'>
+0086
+<span class='vocab-link-text'>Plan ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-15'>
+00440
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Name Of Insured
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-16'>
+00441
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Insured's Relationship To Patient
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0063-Relationship.html' title='Relationship'>
+0063
+<span class='vocab-link-text'>Relationship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-17'>
+00442
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Insured's Date Of Birth
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-18'>
+00443
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Insured's Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-19'>
+00444
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Assignment Of Benefits
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0135-Assignment-of-Benefits.html' title='Assignment of Benefits(Suggested)'>
+0135(S)
+<span class='vocab-link-text'>Assignment of Benefits(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-20'>
+00445
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Coordination Of Benefits
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0173-Coordination-of-Benefits.html' title='Coordination of Benefits(Suggested)'>
+0173(S)
+<span class='vocab-link-text'>Coordination of Benefits(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-21'>
+00446
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Coord Of Ben. Priority
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-22'>
+00447
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+2
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Notice Of Admission Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-23'>
+00448
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Notice Of Admission Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-24'>
+00449
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Report Of Eligibility Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-25'>
+00450
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Report Of Eligibility Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-26'>
+00451
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Release Information Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0093-Release-Information.html' title='Release Information'>
+0093
+<span class='vocab-link-text'>Release Information</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-27'>
+00452
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Pre-Admit Cert
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-28'>
+00453
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+15
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Verification Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-29'>
+00454
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Verification By
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-30'>
+00455
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Type Of Agreement Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0098-Type-of-Agreement.html' title='Type of Agreement'>
+0098
+<span class='vocab-link-text'>Type of Agreement</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-31'>
+00456
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Billing Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0022-Billing-Status.html' title='Billing Status'>
+0022
+<span class='vocab-link-text'>Billing Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-32'>
+00457
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Lifetime Reserve Days
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-33'>
+00458
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Delay Before L.R. Day
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-34'>
+00459
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Company Plan Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0042-Company-Plan-Code.html' title='Company Plan Code'>
+0042
+<span class='vocab-link-text'>Company Plan Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-35'>
+00460
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Policy Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-36'>
+00461
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+15
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Policy Deductible
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-37'>
+00462
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Policy Limit - Amount
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-38'>
+00463
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Policy Limit - Days
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-39'>
+00464
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+Room Rate - Semi-Private
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-40'>
+00465
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+Room Rate - Private
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-41'>
+00466
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+Insured's Employment Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0066-Employment-Status.html' title='Employment Status(Suggested)'>
+0066(S)
+<span class='vocab-link-text'>Employment Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-42'>
+00467
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+Insured's Administrative Sex
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0001-Administrative-Sex.html' title='Administrative Sex(Suggested)'>
+0001(S)
+<span class='vocab-link-text'>Administrative Sex(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-43'>
+00468
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+Insured's Employer's Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-44'>
+00469
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+Verification Status
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-45'>
+00470
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+2
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+Prior Insurance Plan ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0072-Insurance-Plan-ID.html' title='Insurance Plan ID'>
+0072
+<span class='vocab-link-text'>Insurance Plan ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-46'>
+00471
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+Coverage Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0309-Coverage-Type.html' title='Coverage Type'>
+0309
+<span class='vocab-link-text'>Coverage Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-47'>
+01227
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+Handicap
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0295-Handicap.html' title='Handicap'>
+0295
+<span class='vocab-link-text'>Handicap</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-48'>
+00753
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+49
+</td>
+<td>
+Insured's ID Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-49'>
+01230
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+50
+</td>
+<td>
+Signature Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0535-Signature-Code.html' title='Signature Code'>
+0535
+<span class='vocab-link-text'>Signature Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-50'>
+01854
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+51
+</td>
+<td>
+Signature Code Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-51'>
+01855
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+52
+</td>
+<td>
+Insured's Birth Place
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-52'>
+01899
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+53
+</td>
+<td>
+VIP Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0099-VIP-Indicator.html' title='VIP Indicator'>
+0099
+<span class='vocab-link-text'>VIP Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-53'>
+01852
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+54
+</td>
+<td>
+External Health Plan Identifiers
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IN1-54'>
+03292
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+55
+</td>
+<td>
+Insurance Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IN1-55'>
+03335
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='IN1-1'>
+IN1-1: Set ID - IN1 (<a href='/data-type/SI.html'>SI</a>) 00426
+</h4>
+<p class="v2 v2-normalindented">Definition: <a href="/segment-definition/IN1.html#IN1-1">IN1-1 - set ID - IN1</a> contains the number that identifies this transaction.  For the first occurrence the sequence number shall be 1, for the second occurrence it shall be 2, etc. The Set ID in the IN1 segment is used to aggregate the grouping of insurance segments.  For example, a patient with two insurance plans would have two groupings of insurance segments.  IN1, IN2, and IN3 segments for Insurance Plan A with set ID 1, followed by IN1, IN2, and IN3 segments for Insurance Plan B, with set ID 2.  There is no set ID in the IN2 segment because it is contained in the IN1, IN2, IN3 grouping, and is therefore not needed.  The set ID in the IN3 segment is provided because there can be multiple repetitions of the IN3 segment if there are multiple certifications for the same insurance plan, e.g., IN1 (Set ID 1), IN2, IN3 (Set ID 1), IN3 (Set ID 2), IN3 (Set ID 3)</p>
+
+<h4 class='v2' id='IN1-2'>
+IN1-2: Health Plan ID (<a href='/data-type/CWE.html'>CWE</a>) 00368
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the insurance plan.  Refer to <a href="https://www.hl7.org/fhir/v2/0072/index.html">User-defined Table 0072 - Insurance Plan ID</a> in Chapter 2C, Code Tables, for suggested values.  To eliminate a plan, the plan could be sent with Delete Indication values in each subsequent element.  If the respective systems can support it, a Delete Indication value can be sent in the plan field.</p><p class="v2 v2-normalindented">The assigning authority for <a href="/segment-definition/IN1.html#IN1-2">IN1-2, Health Plan ID</a> is assumed to be the Entity named in <a href="/segment-definition/IN1.html#IN1-3">IN1-3, Insurance Company ID</a>.</p>
+
+<h4 class='v2' id='IN1-3'>
+IN1-3: Insurance Company ID (<a href='/data-type/CX.html'>CX</a>) 00428
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains unique identifiers for the insurance company.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='IN1-4'>
+IN1-4: Insurance Company Name (<a href='/data-type/XON.html'>XON</a>) 00429
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the insurance company.  Multiple names for the same insurance company may be sent in this field.   Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN1-5'>
+IN1-5: Insurance Company Address (<a href='/data-type/XAD.html'>XAD</a>) 00430
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address of the insurance company.  Multiple addresses for the same insurance company may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN1-6'>
+IN1-6: Insurance Co Contact Person (<a href='/data-type/XPN.html'>XPN</a>) 00431
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the person who should be contacted at the insurance company.  Multiple names for the same contact person may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='IN1-7'>
+IN1-7: Insurance Co Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00432
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number of the insurance company.  Multiple phone numbers for the same insurance company may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='IN1-8'>
+IN1-8: Group Number (<a href='/data-type/ST.html'>ST</a>) 00433
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the group number of the insured&#39;s insurance.</p>
+
+<h4 class='v2' id='IN1-9'>
+IN1-9: Group Name (<a href='/data-type/XON.html'>XON</a>) 00434
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the group name of the insured&#39;s insurance.</p>
+
+<h4 class='v2' id='IN1-10'>
+IN1-10: Insured's Group Emp ID (<a href='/data-type/CX.html'>CX</a>) 00435
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field holds the group employer ID for the insured&#39;s insurance.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='IN1-11'>
+IN1-11: Insured's Group Emp Name (<a href='/data-type/XON.html'>XON</a>) 00436
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the employer that provides the employee&#39;s insurance.  Multiple names for the same employer may be sent in this sequence Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN1-12'>
+IN1-12: Plan Effective Date (<a href='/data-type/DT.html'>DT</a>) 00437
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the insurance goes into effect.</p>
+
+<h4 class='v2' id='IN1-13'>
+IN1-13: Plan Expiration Date (<a href='/data-type/DT.html'>DT</a>) 00438
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the last date of service that the insurance will cover or be responsible for.</p>
+
+<h4 class='v2' id='IN1-14'>
+IN1-14: Authorization Information (<a href='/data-type/AUI.html'>AUI</a>) 00439
+</h4>
+<p class="v2 v2-normalindented">Definition:  Based on the type of insurance, some coverage plans require that an authorization number or code be obtained prior to all non-emergency admissions, and within 48 hours of an emergency admission.  Insurance billing would not be permitted without this number.  The date and source of authorization are the components of this field.</p>
+
+<h4 class='v2' id='IN1-15'>
+IN1-15: Plan Type (<a href='/data-type/CWE.html'>CWE</a>) 00440
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the coding structure that identifies the various plan types, for example, Medicare, Medicaid, Blue Cross, HMO, etc.  Refer to <a href="https://www.hl7.org/fhir/v2/0086/index.html">User-defined Table 0086 - Plan ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-16'>
+IN1-16: Name Of Insured (<a href='/data-type/XPN.html'>XPN</a>) 00441
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the insured person.  The insured is the person who has an agreement with the insurance company to provide healthcare services to persons covered by the insurance policy.  Multiple names for the same insured person may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+
+<h4 class='v2' id='IN1-17'>
+IN1-17: Insured's Relationship To Patient (<a href='/data-type/CWE.html'>CWE</a>) 00442
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the insured&#39;s relationship to the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0063/index.html">User-defined Table 0063 - Relationship</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-18'>
+IN1-18: Insured's Date Of Birth (<a href='/data-type/DTM.html'>DTM</a>) 00443
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date of birth of the insured.</p>
+
+<h4 class='v2' id='IN1-19'>
+IN1-19: Insured's Address (<a href='/data-type/XAD.html'>XAD</a>) 00444
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address of the insured person.  The insured is the person who has an agreement with the insurance company to provide healthcare services to persons covered by an insurance policy.  Multiple addresses for the same insured person may be in this field. As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN1-20'>
+IN1-20: Assignment Of Benefits (<a href='/data-type/CWE.html'>CWE</a>) 00445
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the insured agreed to assign the insurance benefits to the healthcare provider.  If so, the insurance will pay the provider directly.  Refer to <a href="https://www.hl7.org/fhir/v2/0135/index.html">User-defined Table 0135 - Assignment of Benefits</a>  in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-21'>
+IN1-21: Coordination Of Benefits (<a href='/data-type/CWE.html'>CWE</a>) 00446
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether this insurance works in conjunction with other insurance plans, or if it provides independent coverage and payment of benefits regardless of other insurance that might be available to the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0173/index.html">User-defined Table 0173 - Coordination of Benefits</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-22'>
+IN1-22: Coord Of Ben. Priority (<a href='/data-type/ST.html'>ST</a>) 00447
+</h4>
+<p class="v2 v2-normalindented">Definition:  If the insurance works in conjunction with other insurance plans, this field contains priority sequence.  Values are: 1, 2, 3, etc.</p>
+
+<h4 class='v2' id='IN1-23'>
+IN1-23: Notice Of Admission Flag (<a href='/data-type/ID.html'>ID</a>) 00448
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the insurance company requires a written notice of admission from the healthcare provider.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;written notice of admission required</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;no notice required</p></li></ul>
+
+<h4 class='v2' id='IN1-24'>
+IN1-24: Notice Of Admission Date (<a href='/data-type/DT.html'>DT</a>) 00449
+</h4>
+<p class="v2 v2-normalindented">Definition:  If a notice is required, this field indicates the date that it was sent.</p>
+
+<h4 class='v2' id='IN1-25'>
+IN1-25: Report Of Eligibility Flag (<a href='/data-type/ID.html'>ID</a>) 00450
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether this insurance carrier sends a report that indicates that the patient is eligible for benefits and whether it identifies those benefits.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;eligibility report is sent</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;no eligibility report is sent</p></li></ul>
+
+<h4 class='v2' id='IN1-26'>
+IN1-26: Report Of Eligibility Date (<a href='/data-type/DT.html'>DT</a>) 00451
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether a report of eligibility (ROE) was received, and also indicates the date that it was received.</p>
+
+<h4 class='v2' id='IN1-27'>
+IN1-27: Release Information Code (<a href='/data-type/CWE.html'>CWE</a>) 00452
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the healthcare provider can release information about the patient, and what information can be released.  Refer to <a href="https://www.hl7.org/fhir/v2/0093/index.html">User-defined Table 0093 - Release Information</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-28'>
+IN1-28: Pre-Admit Cert (<a href='/data-type/ST.html'>ST</a>) 00453
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the pre-admission certification code.  If the admission must be certified before the admission, this is the code associated with the admission.</p>
+
+<h4 class='v2' id='IN1-29'>
+IN1-29: Verification Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00454
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time that the healthcare provider verified that the patient has the indicated benefits.</p>
+
+<h4 class='v2' id='IN1-30'>
+IN1-30: Verification By (<a href='/data-type/XCN.html'>XCN</a>) 00455
+</h4>
+<p class="v2 v2-normalindented">Definition:  Refers to the person who verified the benefits.  Multiple names for the same insured person may be sent in this field Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN1-31'>
+IN1-31: Type Of Agreement Code (<a href='/data-type/CWE.html'>CWE</a>) 00456
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to further identify an insurance plan.  Refer to <a href="https://www.hl7.org/fhir/v2/0098/index.html">User-defined Table 0098 - Type of Agreement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-32'>
+IN1-32: Billing Status (<a href='/data-type/CWE.html'>CWE</a>) 00457
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the particular insurance has been billed and, if so, the type of bill. Refer to <a href="https://www.hl7.org/fhir/v2/0022/index.html">User-defined Table 0022 - Billing Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-33'>
+IN1-33: Lifetime Reserve Days (<a href='/data-type/NM.html'>NM</a>) 00458
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number of days left for a certain service to be provided or covered under an insurance policy.</p>
+
+<h4 class='v2' id='IN1-34'>
+IN1-34: Delay Before L.R. Day (<a href='/data-type/NM.html'>NM</a>) 00459
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the delay before lifetime reserve days.</p>
+
+<h4 class='v2' id='IN1-35'>
+IN1-35: Company Plan Code (<a href='/data-type/CWE.html'>CWE</a>) 00460
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains optional information to further define the data in <a href="/segment-definition/IN1.html#IN1-3">IN1-3 - Insurance Company ID</a>. Refer to <a href="https://www.hl7.org/fhir/v2/0042/index.html">User-defined Table 0042 - Company Plan Code</a> in Chapter 2C, Code Tables, for suggested values.  This table contains codes used to identify an insurance company plan uniquely.</p>
+
+<h4 class='v2' id='IN1-36'>
+IN1-36: Policy Number (<a href='/data-type/ST.html'>ST</a>) 00461
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the individual policy number of the insured to uniquely identify this patient&#39;s plan.  For special types of insurance numbers, there are also special fields in the IN2 segment for Medicaid, Medicare, Champus (i.e., <a href="/segment-definition/IN2.html#IN2-6">IN2-6 - Medicare Health Ins Card Number</a>, <a href="/segment-definition/IN2.html#IN2-8">IN2-8 - Medicaid Case Number</a>, <a href="/segment-definition/IN2.html#IN2-10">IN2-10 - Military ID Number</a>).  But we recommend that this field (<a href="/segment-definition/IN1.html#IN1-36">IN1-36 - Policy Number</a>) be filled even when the patient&#39;s insurance number is also passed in one of these other fields.</p>
+
+<h4 class='v2' id='IN1-37'>
+IN1-37: Policy Deductible (<a href='/data-type/CP.html'>CP</a>) 00462
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount specified by the insurance plan that is the responsibility of the guarantor (i.e., deductible, excess, etc.).</p>
+
+<h4 class='v2' id='IN1-38'>
+IN1-38: Policy Limit - Amount (<a href='/data-type/.html'></a>) 00463
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: IN1-38 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='IN1-39'>
+IN1-39: Policy Limit - Days (<a href='/data-type/NM.html'>NM</a>) 00464
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the maximum number of days that the insurance policy will cover.</p>
+
+<h4 class='v2' id='IN1-40'>
+IN1-40: Room Rate - Semi-Private (<a href='/data-type/.html'></a>) 00465
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: IN1-40 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='IN1-41'>
+IN1-41: Room Rate - Private (<a href='/data-type/.html'></a>) 00466
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: IN1-41 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='IN1-42'>
+IN1-42: Insured's Employment Status (<a href='/data-type/CWE.html'>CWE</a>) 00467
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field holds the employment status of the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0066/index.html">User-defined Table 0066 - Employment Status</a> in Chapter 2C, Code Tables, for suggested values.  This field contains UB92 field 64. For this field element, values from the US CMS UB92 and others are used.</p>
+
+<h4 class='v2' id='IN1-43'>
+IN1-43: Insured's Administrative Sex (<a href='/data-type/CWE.html'>CWE</a>) 00468
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the gender of the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 - Administrative Sex</a><a href=""> </a>in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-44'>
+IN1-44: Insured's Employer's Address (<a href='/data-type/XAD.html'>XAD</a>) 00469
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address of the insured employee&#39;s employer.  Multiple addresses for the same employer may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.</p>
+
+<h4 class='v2' id='IN1-45'>
+IN1-45: Verification Status (<a href='/data-type/ST.html'>ST</a>) 00470
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of this patient&#39;s relationship with this insurance carrier.</p>
+
+<h4 class='v2' id='IN1-46'>
+IN1-46: Prior Insurance Plan ID (<a href='/data-type/CWE.html'>CWE</a>) 00471
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field uniquely identifies the prior insurance plan when the plan ID changes.  Refer to <a href="https://www.hl7.org/fhir/v2/0072/index.html">User-defined Table 0072 - Insurance Plan ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-47'>
+IN1-47: Coverage Type (<a href='/data-type/CWE.html'>CWE</a>) 01227
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the coding structure that identifies the type of insurance coverage, or what types of services are covered for the purposes of a billing system.  For example, a physician billing system will only want to receive insurance information for plans that cover physician/professional charges.  Refer to <a href="https://www.hl7.org/fhir/v2/0309/index.html">User-defined Table 0309 - Coverage Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-48'>
+IN1-48: Handicap (<a href='/data-type/CWE.html'>CWE</a>) 00753
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code to describe the insured&#39;s disability.  Refer to <a href="https://www.hl7.org/fhir/v2/0295/index.html">User-defined Table 0295 - Handicap</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-49'>
+IN1-49: Insured's ID Number (<a href='/data-type/CX.html'>CX</a>) 01230
+</h4>
+<p class="v2 v2-normalindented">Definition:  This data element contains a healthcare institution&#39;s identifiers for the insured.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='IN1-50'>
+IN1-50: Signature Code (<a href='/data-type/CWE.html'>CWE</a>) 01854
+</h4>
+<p class="v2 v2-normalindented"><span class="v2-normal-indented-char">Definition: This field contains the code </span>to indicate how the patient/subscriber authorization signature was obtained and how it is being retained by the provider.  <span class="v2-normal-indented-char">Refer to </span><a href="https://www.hl7.org/fhir/v2/0535/index.html">User-defined Table 0535 - Signature Code</a> in Chapter 2C, Code Tables, <span class="v2-normal-indented-char">for suggested values.</span></p>
+
+<h4 class='v2' id='IN1-51'>
+IN1-51: Signature Code Date (<a href='/data-type/DT.html'>DT</a>) 01855
+</h4>
+<p class="v2 v2-normalindented">Definition: The date the patient/subscriber authorization signature was obtained.</p>
+
+<h4 class='v2' id='IN1-52'>
+IN1-52: Insured's Birth Place (<a href='/data-type/ST.html'>ST</a>) 01899
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the description of the insured&#39;s birth place, for example &quot;St. Francis Community Hospital of Lower South Side.&quot;  The actual address is reported in <a href="/segment-definition/IN1.html#IN1-19">IN1-19 – Insured&#39;s Address</a> with an identifier of &quot;N&quot;.</p>
+
+<h4 class='v2' id='IN1-53'>
+IN1-53: VIP Indicator (<a href='/data-type/CWE.html'>CWE</a>) 01852
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of VIP for the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0099/index.html">User-defined Table 0099 – VIP Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IN1-54'>
+IN1-54: External Health Plan Identifiers (<a href='/data-type/CX.html'>CX</a>) 03292
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the external Health Plan Identifiers that correspond to the internal Health Plan ID in <a href="/segment-definition/IN1.html#IN1-2">IN1-2 – Health Plan ID</a>. The assigning authority and identifier type code are strongly recommended for al CX data types.</p>
+
+<h4 class='v2' id='IN1-55'>
+IN1-55: Insurance Action Code (<a href='/data-type/ID.html'>ID</a>) 03335
+</h4>
+<p class="v2 v2-normalindented">Definition: The Insurance Action Code Defines the action to be taken for this insurance.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.  When this field is valued, the IN1, IN2, and IN3 are not in &quot;snapshot mode&quot;, rather in &quot;action mode&quot;.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

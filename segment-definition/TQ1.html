@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+TQ1 - Timing/Quantity Segment
+</h3>
+<p class="v2">The TQ1 segment is used to specify the complex timing of events and actions such as those that occur in order management and scheduling systems. This segment determines the quantity, frequency, priority and timing of a service.  By allowing the segment to repeat, it is possible to have service requests that vary the quantity, frequency and priority of a service request over time. </p><p class="v2">Use cases showing when TQ1 may need to repeat:</p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Cardiac enzymes STAT and then q 4 hours.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Streptokinase studies, draw 1st Stat and run Stat, then draw q 4 hours and run Stat.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Gentamicin 100mg Now and 80mg q12h second dose (First 80mg dose) given exactly 12 hours after the 100mg dose. (Might be 2 service requests.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Activase 15mg bolus Stat  then 50mg over 30 minutes, then 35mg over the next 60 minutes. (Might be 2 service requests.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Imodium 4mg (2 caps) po initially, then 2mg (1cap) after each unformed stool to a maximum of 16 mg per day. (Might be 2 service requests.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Zithromax 500mg (2tabs) po on the first day then 250mg (1tab) po qd for 5 days. (Might be 2 service requests.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Zyban (Bupropion) Start 150mg po qam x 3 days, then increase to 150mg po bid for 7 to 12 weeks.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Colchicine 1mg (2 tabs) po now then 1 tablet q1 to 2 hours until pain relief or undesirable side effects (Diarrhea, GI upset). (Might be 2 service requests.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">doxycylcine 100mg po bid on the first day then 100mg po qd.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">scopolamine, xxx mg, 1 hour before surgery. Relative time = -1^hour, priority = P (preop), or alternately repeat pattern = P1H^Preop, 1 Hour before Surgery^99LocalCode, Relative time would be empty and priority would be P (preop).</p></li></ol><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - TQ1 - Timing/Quantity Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+TQ1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - TQ1
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-1'>
+01627
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-2'>
+01628
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Repeat Pattern
+</td>
+<td class='centered'>
+<a href='/data-type/RPT.html'>
+RPT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ1-3'>
+01629
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Explicit Time
+</td>
+<td class='centered'>
+<a href='/data-type/TM.html'>
+TM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ1-4'>
+01630
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Relative Time and Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ1-5'>
+01631
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Service Duration
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-6'>
+01632
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Start date/time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-7'>
+01633
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+End date/time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-8'>
+01634
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Priority
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0485-Extended-Priority-Codes.html' title='Extended Priority Codes'>
+0485
+<span class='vocab-link-text'>Extended Priority Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ1-9'>
+01635
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Condition text
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-10'>
+01636
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Text instruction
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-11'>
+01637
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Conjunction
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0472-TQ-Conjunction-ID.html' title='TQ Conjunction ID(Required)'>
+0472(R)
+<span class='vocab-link-text'>TQ Conjunction ID(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-12'>
+01638
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Occurrence duration
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-13'>
+01639
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+14
+</td>
+<td>
+Total occurrences
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ1-14'>
+01640
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='TQ1-1'>
+TQ1-1: Set ID - TQ1 (<a href='/data-type/SI.html'>SI</a>) 01627
+</h4>
+<p class="v2 v2-normalindented">Definition: For the first timing specification transmitted, the sequence number shall be 1; for the second timing specification, it shall be 2; and so on.</p>
+
+<h4 class='v2' id='TQ1-2'>
+TQ1-2: Quantity (<a href='/data-type/CQ.html'>CQ</a>) 01628
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the numeric quantity of the service that should be provided at each service interval.  For example, if two blood cultures are to be obtained every 4 hours, the quantity would be &#39;2&#39;, or if three units of blood are to be typed and cross-matched, the quantity would be &#39;3&#39;.  The default value for this field is &#39;1&#39;.</p><p class="v2 v2-normalindented">If multiple identical services are to be requested, it is strongly recommended that multiple service requests be placed, giving each service request its own unique placer/filler number.</p>
+
+<h4 class='v2' id='TQ1-3'>
+TQ1-3: Repeat Pattern (<a href='/data-type/RPT.html'>RPT</a>) 01629
+</h4>
+<p class="v2 v2-normalindented">Definition:  The repeating frequency with which the treatment is to be administered.  It is similar to the frequency and SIG code tables used in order entry systems.</p><p class="v2 v2-normalindented">This field may be repeated to build up more complex repeat patterns. For example, daily at bedtime can be represent as &quot;|QD~HS|&quot;.  </p><p class="v2 v2-normalindented">When the quantity timing specification must change to a different repeat pattern after some period of time, a new TQ1 segment must be used to show the new repeat pattern. Note that the end date of the current TQ1 will show when the current timing specification ends, and the start date of the next TQ1 shows when the new timing specification begins.  The Conjunction field, TQ1-12 determines if the next TQ1 segment is to be performed sequentially or in parallel.</p>
+
+<h4 class='v2' id='TQ1-4'>
+TQ1-4: Explicit Time (<a href='/data-type/TM.html'>TM</a>) 01630
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field explicitly lists the actual times referenced by the code in TQ1-3. This field will be used to clarify the TQ1-3 in cases where the actual administration times vary within an institution.  If the time of the service request spans more than a single day, this field is only practical if the same times of administration occur for each day of the service request.  If the actual start time of the service request (as given by TQ1-7) is after the first explicit time, the first administration is taken to be the first explicit time after the start time.  In the case where the patient moves to a location having a different set of explicit times, the existing service request may be updated with a new quantity/timing segment showing the changed explicit times.</p><p class="v2 v2-normalindented">Usage Note: This field is not valued if a Repeat Pattern is not present.</p>
+
+<h4 class='v2' id='TQ1-5'>
+TQ1-5: Relative Time and Units (<a href='/data-type/CQ.html'>CQ</a>) 01631
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to define the interval between schedules for service request or bottle records. If this field contains a value, it overrides any value in the explicit time interval field. The units component of the CQ data type is constrained to units of time.</p><p class="v2 v2-normalindented">Examples:</p><p class="v2 v2-example">TQ1|1|1|Q1H||60^min&#38;&#38;ANS+  - Q1H is defined with an interval between services of 60 minutes</p><p class="v2 v2-example">TQ1|1|1|Q6H||6^hr&#38;&#38;ANS+  - Q6H is defined with an interval between services of 6 hours</p><p class="v2 v2-example">TQ1|1|1|QD||1^d&#38;&#38;ANS+  - QD is defined with an interval between services of 1 day</p>
+
+<h4 class='v2' id='TQ1-6'>
+TQ1-6: Service Duration (<a href='/data-type/CQ.html'>CQ</a>) 01632
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the duration for which the service is requested. </p><p class="v2 v2-normalindented">The quantity component of this field must be a positive, non-zero number. The unit&#39;s portion of this field is constrained to units of time.</p><p class="v2 v2-normalindented">Example:  Whirlpool twenty minutes three times per day for 3 days.  Three days is the service duration.</p><p class="v2 v2-example">TQ1|1||TID|||3^d&#38;&#38;ANS+||||||20^min&#38;&#38;ANS+|9&#60;cr&#62;</p>
+
+<h4 class='v2' id='TQ1-7'>
+TQ1-7: Start date/time (<a href='/data-type/DTM.html'>DTM</a>) 01633
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field may be specified by the requester, in which case it indicates the earliest date/time at which the services should be started.  In many cases, however, the start date/time will be implied or will be defined by other fields in the service request record (e.g., urgency - STAT).  In such a case, this field will be empty. </p><p class="v2 v2-normalindented">The filling service will often record a value in this field after receipt of the service request, however, and compute an end time on the basis of the start date/time for the filling service&#39;s internal use. </p>
+
+<h4 class='v2' id='TQ1-8'>
+TQ1-8: End date/time (<a href='/data-type/DTM.html'>DTM</a>) 01634
+</h4>
+<p class="v2 v2-normalindented">Definition:  When filled in by the requester of the service, this field should contain the latest date/time that the service should be performed.  If it has not been performed by the specified time, it should not be performed at all.  The requester may not always fill in this value, yet the filling service may fill it in on the basis of the instruction it receives and the actual start time. </p><p class="v2 v2-normalindented">Regardless of the value of the end date/time, the service should be stopped at the earliest of the date/times specified by either the duration or the end date/time.</p>
+
+<h4 class='v2' id='TQ1-9'>
+TQ1-9: Priority (<a href='/data-type/CWE.html'>CWE</a>) 01635
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes the urgency of the request. If this field is blank, the default is R. Refer to <a href="https://www.hl7.org/fhir/v2/0485/index.html">User-Defined Table 0485 – Extended Priority Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='TQ1-10'>
+TQ1-10: Condition text (<a href='/data-type/TX.html'>TX</a>) 01636
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is a free text field that describes the conditions under which the drug is to be given.  For example, &quot;<strong>PRN pain,&quot;</strong> or &quot;<strong>to keep blood pressure below 110</strong>.&quot;  </p><p class="v2 v2-normalindented">The presence of text in this field should be taken to mean that human review is needed to determine the how and/or when this drug should be given.</p><p class="v2 v2-normalindented">For complex codified conditions see the TQ2 segment below.</p>
+
+<h4 class='v2' id='TQ1-11'>
+TQ1-11: Text instruction (<a href='/data-type/TX.html'>TX</a>) 01637
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is a full text version of the instruction (optional).</p>
+
+<h4 class='v2' id='TQ1-12'>
+TQ1-12: Conjunction (<a href='/data-type/ID.html'>ID</a>) 01638
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates that a second TQ1 segment is to follow.  Refer To <a href="https://www.hl7.org/fhir/v2/0472/index.html">HL7 Table 0472 – TQ Conjunction ID</a> in Chapter 2C, Code Tables, for allowed values. </p><p class="v2 v2-normalindented">For continuous or periodic services, the point at which the service is actually stopped is determined by the field <a href="/segment-definition/TQ1.html#TQ1-8">TQ1-8 end date/time</a> and <a href="/segment-definition/TQ1.html#TQ1-6">TQ1-6 duration</a>, whichever indicates an earlier stopping time.  Ordinarily, only one of these fields would be present. </p><p class="v2 v2-normalindented">Condition Rule: If the TQ1 segment is repeated in the message, this field must be populated with the appropriate Conjunction code indicating the sequencing of the following TQ1 segment.</p>
+
+<h4 class='v2' id='TQ1-13'>
+TQ1-13: Occurrence duration (<a href='/data-type/CQ.html'>CQ</a>) 01639
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the duration for which a single performance of a service is requested. The quantity component of this field must be a positive, non-zero number when populated. The units component is constrained to be units of time.</p><p class="v2 v2-normalindented">Example: Whirlpool twenty minutes three times per day for three days. Twenty minutes is the occurrence duration.</p><p class="v2 v2-example">TQ1|1||TID|||3^d&#38;&#38;ANS+||||||20^min&#38;&#38;ANS+|9&#60;cr&#62;</p>
+
+<h4 class='v2' id='TQ1-14'>
+TQ1-14: Total occurrences (<a href='/data-type/NM.html'>NM</a>) 01640
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the total number of occurrences of a service that should result from this service request.    If both the end date/time (TQ1-8) and the total occurrences are valued and the occurrences would extend beyond the end date/time, then the end date/time takes precedence.  Otherwise the number of occurrences takes precedence.</p><p class="v2 v2-normalindented">Example: Whirlpool twenty minutes three times per day for three days. The total occurrences would be 9.</p><p class="v2 v2-example">TQ1|1||TID|||3^d&#38;&#38;ANS+||||||20^min&#38;&#38;ANS+|9&#60;cr&#62;</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+TQ2 - Timing/Quantity Relationship Segment
+</h3>
+<p class="v2 v2-normalindented">The TQ2 segment is used to form a relationship between the service request the TQ1/TQ2 segments are associated with, and other service requests.  The TQ2 segment will link the current service request with one or more other service requests.</p><p class="v2 v2-normalindented">There are many situations, such as the creation of a service request for a group of intravenous (IV) solutions, where the sequence of the individual intravenous solutions (each a service in itself) needs to be specified, e.g., hyperalimentation with multi-vitamins in every third bottle.</p><p class="v2 v2-normalindented">There are other situations where part of the service request&#39;s instructions contains a results condition of some type, such as &quot;PRN pain.&quot; There is currently a free text &quot;condition&quot; field of <a href="/segment-definition/TQ1.html#TQ1-10">TQ1-10 - Condition text</a> which allows any condition to be specified. However, to support a fully encoded version of service request sequencing, or results condition, the TQ2, Timing/Quantity Relationship segment has been defined.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - TQ2 - Timing/Quantity Relationship Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+TQ2
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - TQ2
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-1'>
+01648
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Sequence/Results Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0503-Sequence/Results-Flag.html' title='Sequence/Results Flag(Required)'>
+0503(R)
+<span class='vocab-link-text'>Sequence/Results Flag(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-2'>
+01649
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Related Placer Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ2-3'>
+01650
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Related Filler Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ2-4'>
+01651
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Related Placer Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TQ2-5'>
+01652
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Sequence Condition Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0504-Sequence-Condition-Code.html' title='Sequence Condition Code(Required)'>
+0504(R)
+<span class='vocab-link-text'>Sequence Condition Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-6'>
+01653
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Cyclic Entry/Exit Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-7'>
+01654
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Sequence Condition Time Interval
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-8'>
+01655
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Cyclic Group Maximum Number of Repeats
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-9'>
+01656
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+10
+</td>
+<td>
+Special Service Request Relationship
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0506-Service-Request-Relationship.html' title='Service Request Relationship(Required)'>
+0506(R)
+<span class='vocab-link-text'>Service Request Relationship(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TQ2-10'>
+01657
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2 v2-normalindented">TQ2 Usage notes:</p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Cyclic placer service request groups</p></li></ol><p class="v2 v2-normalindented v2-indent1440">To implement a cyclic group of four IV service requests using the parent/child paradigm, the parent specifies a custom group of IVs, and the following occurs:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><ul class="v2 v2-list v2-sublist v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><ul class="v2 v2-list v2-sublist v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">TQ2 of the second child service request specifies that it follow the first child service request.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">TQ2 of the third child service request specifies that it follow the second child service request.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">TQ2 of the fourth child service request specifies that it follow the third service request.</p></li></ul></li></ul></li></ul><p class="v2 v2-normalindented v2-indent1440">To repeat the group of four child service requests in a cyclic manner, the following occurs:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><ul class="v2 v2-list v2-sublist v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><ul class="v2 v2-list v2-sublist v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">TQ2 of the first child service request specifies that it is to be executed once without any dependence on the completion of other service requests. Its second execution follows the completion of the fourth service request. See example in Section 4A.5.2 RXO segment field examples.</p></li></ul></li></ul></li></ul><p class="v2 v2-normalindented v2-indent1440">This scheme allows the following to be tracked:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets v2-indent2160">The status of the whole group of service requests to be reported back at the level of the parent service request.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets v2-indent2160">The status for each individual IV service request by following the status of the corresponding child service request.</p></li></ul><p class="v2 v2-normalindented v2-indent1440">Separate Service requests example:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets v2-indent2160">The same group of service requests can be sent as a group of four service requests (without a common parent), linked only by the data in their quantity/timing fields. In this case, there is no convenient HL7 method of transmitting the service request status of the group as a whole without transmitting the status of each of the four separate service requests.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">Inheritance of service request status</p></li></ul><p class="v2 v2-normalindented v2-indent1440">Cancellation/discontinuation/hold service request control events: </p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><ul class="v2 v2-list v2-sublist v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><ul class="v2 v2-list v2-sublist v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">This logic implies the normal execution of the referenced predecessor service request. Thus a cancel (or discontinuation or hold) of a predecessor service request implies the cancellation (or discontinuation or hold) of all subsequent service requests in the chain.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">If the referenced service request has been canceled (or discontinued or held), the current service request inherits that same status.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">In the case of hold, the removal of the hold of the predecessor implies a removal of the hold for the given service request (which can then be executed according to the specification in the TQ2 segment).</p></li></ul></li></ul></li></ul>
+<h4 class='v2' id='TQ2-1'>
+TQ2-1: Set ID - TQ2 (<a href='/data-type/SI.html'>SI</a>) 01648
+</h4>
+<p class="v2 v2-normalindented">Definition: For the first timing specification transmitted, the sequence number shall be 1; for the second timing specification, it shall be 2; and so on.</p>
+
+<h4 class='v2' id='TQ2-2'>
+TQ2-2: Sequence/Results Flag (<a href='/data-type/ID.html'>ID</a>) 01649
+</h4>
+<p class="v2 v2-normalindented">Definition:  This flag defines the sequencing relationship between the current service request, and the related service request(s) specified in this TQ2 segment. See <a href="https://www.hl7.org/fhir/v2/0503/index.html">HL7 Table 0503 – Sequence/Results Flag</a> in Chapter 2C, Code Tables, for values.  If not value is present, the S - Sequential is the default value.</p>
+
+<h4 class='v2' id='TQ2-3'>
+TQ2-3: Related Placer Number (<a href='/data-type/EI.html'>EI</a>) 01650
+</h4>
+<p class="v2 v2-normalindented">Definition:  The placer numbers of the service request(s) to which this TQ2 segment links the current service request. This field should be populated with the appropriate &quot;Placer number&quot; from the current service request. For orders, the Placer Order Number from ORC-2 is the appropriate &quot;Placer number&quot;. Repeats of this field indicate the current service request is related to multiple service requests.</p><p class="v2 v2-normalindented">Conditional Rule: At least one of TQ2-3, TQ2-4, TQ2-5 must contain a value.</p>
+
+<h4 class='v2' id='TQ2-4'>
+TQ2-4: Related Filler Number (<a href='/data-type/EI.html'>EI</a>) 01651
+</h4>
+<p class="v2 v2-normalindented">Definition: The filler numbers of the service request(s) to which this TQ2 segment links the current service request. This field should be populated with the appropriate &quot;Filler number&quot; from the current service request. For orders, the Filler Order Number from ORC-3 is the appropriate &quot;Filler number&quot;.  Repeats of this field indicate the current service request is related to multiple service requests.</p><p class="v2 v2-normalindented">Conditional Rule: At least one of TQ2-3, TQ2-4, TQ2-5 must contain a value.</p>
+
+<h4 class='v2' id='TQ2-5'>
+TQ2-5: Related Placer Group Number (<a href='/data-type/EI.html'>EI</a>) 01652
+</h4>
+<p class="v2 v2-normalindented">Definition: The placer group numbers of the service request(s) to which this TQ2 segment links the current service request.  This field should be populated with the appropriate &quot;Placer group number&quot; from the current service request. For orders, the Placer Group Number from ORC-4 is the appropriate &quot;Placer group number&quot;. Repeats of this field indicate that the current service request is related to multiple groups of service requests.</p><p class="v2 v2-normalindented">Conditional Rule: At least one of TQ2-3, TQ2-4, TQ2-5 must contain a value.</p>
+
+<h4 class='v2' id='TQ2-6'>
+TQ2-6: Sequence Condition Code (<a href='/data-type/ID.html'>ID</a>) 01653
+</h4>
+<p class="v2 v2-normalindented">Definition: Defines the relationship between the start/end of the related service request(s) (from TQ2-3, TQ2-4, or TQ2-5) and the current service request from ORC-2, 3 or 4. See <a href="https://www.hl7.org/fhir/v2/0504/index.html">HL7 Table 0504 – Sequence Condition Code</a> in Chapter 2C Code Tables, for allowed values.</p><p class="v2 v2-normalindented">Conditional Rule: Either this field or TQ2-10 must be present.</p>
+
+<h4 class='v2' id='TQ2-7'>
+TQ2-7: Cyclic Entry/Exit Indicator (<a href='/data-type/ID.html'>ID</a>) 01654
+</h4>
+<p class="v2 v2-normalindented">Definition:  Indicates if this service request is the first, last, service request in a cyclic series of service requests. If null or not present, this field indicates that the current service request is neither the first or last service request in a cyclic series of service requests.  Refer to <a href="https://www.hl7.org/fhir/v2/0505/index.html">HL7 Table 0505 – Cyclic Entry/Exit Indicator</a> in Chapter 2C, Code Tables, for allowed values.</p><p class="v2 v2-normalindented">Conditional Rule: Should not be populated when TQ2-2 (Sequence/Results Flag) is not equal to a &#39;C&#39; (cyclic service request).</p><p class="v2 v2-normalindented">Example of TQ2 - 6, 7, &#38; 8 Usage:</p><table class="v2" style="width: 86%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 23.54%;'/><col span='1' style='width: 76.45%;'/></colgroup><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:23.54%; '><p class="v2 v2-othertableheader">Example</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:76.45%; '><p class="v2 v2-othertableheader">Translation</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:23.54%; '><p class="v2 centered v2-othertablebody">...|ES|*|+10^min|...</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:76.45%; '><p class="v2 v2-othertablebody">translates to: execute this service request the first time without evaluating the condition specified in the TQ2 segment; but repeat only its execution when the specified external service request&#39;s start or finish date/time has met this condition. This specification generates a repetition of the service request for each iteration of the cycle.</p></td></tr></table><br/><div class="v2-note"><p class="v2"><strong>Note: </strong>This requires that the requesting application be able to specify the placer/filler/placer group number of the last service request in the cycle in the first service request&#39;s quantity/timing specification.</p></div><br/>
+
+<h4 class='v2' id='TQ2-8'>
+TQ2-8: Sequence Condition Time Interval (<a href='/data-type/CQ.html'>CQ</a>) 01655
+</h4>
+<p class="v2 v2-normalindented">Definition:  Defines the interval of time between the start/end of the related service request(s) and the start/end of the current service request.  The unit&#39;s component is constrained to units of time. If this field is not populated, then there should be no interruption between start/ending the current service request, and the related service request(s).</p>
+
+<h4 class='v2' id='TQ2-9'>
+TQ2-9: Cyclic Group Maximum Number of Repeats (<a href='/data-type/NM.html'>NM</a>) 01656
+</h4>
+<p class="v2 v2-normalindented">Definition: The maximum number of repeats for a cyclic group. </p><p class="v2 v2-normalindented">The total number of repeats is constrained by the end date/time of the last repeat or the end date/time of the parent, whichever is first. For example, if the total number or repeats is valued at 10 and the group has already repeated 5 times, the current order will not be repeated again if either the current order, or the prior order in the cycle, has reached its end date/time.</p><p class="v2 v2-normalindented">This field is meaningful only when TQ2-2 Sequence/Results Flag is valued with &#39;C&#39;.  However, even in this case this field is optional.</p>
+
+<h4 class='v2' id='TQ2-10'>
+TQ2-10: Special Service Request Relationship (<a href='/data-type/ID.html'>ID</a>) 01657
+</h4>
+<p class="v2 v2-normalindented">Definition:  This defines an additional or alternate relationship between this service request and other service requests.  Its primary intended use is for Pharmacy administration service requests, but it may be useful for other domains.  See <a href="https://www.hl7.org/fhir/v2/0506/index.html">HL7 Table 0506 – Service Request Relationship</a> in Chapter 2C, Code Tables, for allowed values.</p><p class="v2 v2-normalindented">Conditional Rule: Either this field or TQ2-6 must be present.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

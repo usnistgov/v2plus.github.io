@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PR1 - Procedures Segment
+</h3>
+<p class="v2 v2-normalindented">The PR1 segment contains information relative to various types of procedures that can be performed on a patient.  The PR1 segment can be used to send procedure information, for example: Surgical, Nuclear Medicine, X-ray with contrast, etc.  The PR1 segment is used to send multiple procedures, for example, for medical records encoding or for billing systems.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PR1 - Procedures Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PR1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - PR1
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PR1-1'>
+00391
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Procedure Coding Method
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-2'>
+00392
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Procedure Code
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PR1-3'>
+00393
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Procedure Description
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-4'>
+00394
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Procedure Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PR1-5'>
+00395
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Procedure Functional Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0230-Procedure-Functional-Type.html' title='Procedure Functional Type'>
+0230
+<span class='vocab-link-text'>Procedure Functional Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-6'>
+00396
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Procedure Minutes
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-7'>
+00397
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Anesthesiologist
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-8'>
+00398
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Anesthesia Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0019-Anesthesia-Code.html' title='Anesthesia Code'>
+0019
+<span class='vocab-link-text'>Anesthesia Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-9'>
+00399
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Anesthesia Minutes
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-10'>
+00400
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Surgeon
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-11'>
+00401
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Procedure Practitioner
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-12'>
+00402
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Consent Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0059-Consent-Code.html' title='Consent Code'>
+0059
+<span class='vocab-link-text'>Consent Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-13'>
+00403
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Procedure Priority
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0418-Procedure-Priority.html' title='Procedure Priority(Suggested)'>
+0418(S)
+<span class='vocab-link-text'>Procedure Priority(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-14'>
+00404
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Associated Diagnosis Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0051-Diagnosis-Code.html' title='Diagnosis Code'>
+0051
+<span class='vocab-link-text'>Diagnosis Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-15'>
+00772
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Procedure Code Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PR1-16'>
+01316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Procedure DRG Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0416-Procedure-DRG-Type.html' title='Procedure DRG Type(Suggested)'>
+0416(S)
+<span class='vocab-link-text'>Procedure DRG Type(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-17'>
+01501
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Tissue Type Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0417-Tissue-Type-Code.html' title='Tissue Type Code'>
+0417
+<span class='vocab-link-text'>Tissue Type Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PR1-18'>
+01502
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Procedure Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-19'>
+01848
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Procedure Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-20'>
+01849
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+DRG Procedure Determination Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0761-DRG-Procedure-Determination-Status.html' title='DRG Procedure Determination Status'>
+0761
+<span class='vocab-link-text'>DRG Procedure Determination Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-21'>
+02177
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+DRG Procedure Relevance
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0763-DRG-Procedure-Relevance.html' title='DRG Procedure Relevance(Suggested)'>
+0763(S)
+<span class='vocab-link-text'>DRG Procedure Relevance(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-22'>
+02178
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Treating Organizational Unit
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PR1-23'>
+02371
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Respiratory Within Surgery
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-24'>
+02372
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+25
+</td>
+<td>
+Parent Procedure ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PR1-25'>
+02373
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PR1-1'>
+PR1-1: Set ID - PR1 (<a href='/data-type/SI.html'>SI</a>) 00391
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number that identifies this transaction.  For the first occurrence of the segment the sequence number shall be 1, for the second occurrence it shall be 2, etc.</p>
+
+<h4 class='v2' id='PR1-2'>
+PR1-2: Procedure Coding Method (<a href='/data-type/.html'></a>) 00392
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: PR1-2 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='PR1-3'>
+PR1-3: Procedure Code (<a href='/data-type/CNE.html'>CNE</a>) 00393
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a unique identifier assigned to the procedure.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined Table 0088 - Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a CNE data type for compatibility with clinical and ancillary systems.</p>
+
+<h4 class='v2' id='PR1-4'>
+PR1-4: Procedure Description (<a href='/data-type/.html'></a>) 00394
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: PR1-4 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='PR1-5'>
+PR1-5: Procedure Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00395
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time that the procedure was performed.</p>
+
+<h4 class='v2' id='PR1-6'>
+PR1-6: Procedure Functional Type (<a href='/data-type/CWE.html'>CWE</a>) 00396
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the optional code that further defines the type of procedure.  Refer to <a href="https://www.hl7.org/fhir/v2/0230/index.html">User-defined Table 0230 - Procedure Functional Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-7'>
+PR1-7: Procedure Minutes (<a href='/data-type/NM.html'>NM</a>) 00397
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the length of time in whole minutes that the procedure took to complete. The duration starts with the point in time in PR1-5.</p>
+
+<h4 class='v2' id='PR1-8'>
+PR1-8: Anesthesiologist (<a href='/data-type/.html'></a>) 00398
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: PR1-8 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='PR1-9'>
+PR1-9: Anesthesia Code (<a href='/data-type/CWE.html'>CWE</a>) 00399
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier of the anesthesia used during the procedure.  Refer to <a href="https://www.hl7.org/fhir/v2/0019/index.html">User-defined Table 0019 - Anesthesia Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-10'>
+PR1-10: Anesthesia Minutes (<a href='/data-type/NM.html'>NM</a>) 00400
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the length of time in minutes that the anesthesia was administered.</p>
+
+<h4 class='v2' id='PR1-11'>
+PR1-11: Surgeon (<a href='/data-type/.html'></a>) 00401
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: PR1-11 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='PR1-12'>
+PR1-12: Procedure Practitioner (<a href='/data-type/.html'></a>) 00402
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: PR1-12 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong></p>
+
+<h4 class='v2' id='PR1-13'>
+PR1-13: Consent Code (<a href='/data-type/CWE.html'>CWE</a>) 00403
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the type of consent that was obtained for permission to treat the patient. Refer to <a href="https://www.hl7.org/fhir/v2/0059/index.html">User-defined Table 0059 - Consent Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-14'>
+PR1-14: Procedure Priority (<a href='/data-type/NM.html'>NM</a>) 00404
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a number that identifies the significance or priority of the procedure code.  Refer to <a href="https://www.hl7.org/fhir/v2/0418/index.html">HL7 Table 0418 - Procedure Priority</a> in Chapter 2C, Code Tables, for valid values. </p><p class="v2 v2-notechar"><strong>Note</strong>:  As of v 2.7, the data type has been changed to numeric.  The meaning of the values remain the same as those in <a href="https://www.hl7.org/fhir/v2/0418/index.html">HL7 Table 0418 – Procedure Priority</a>, The value 0 conveys that this procedure is not included in the ranking.  The value 1 means that this is the primary procedure.  Values 2-99 convey ranked secondary procedures.</p>
+
+<h4 class='v2' id='PR1-15'>
+PR1-15: Associated Diagnosis Code (<a href='/data-type/CWE.html'>CWE</a>) 00772
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the diagnosis that is the primary reason this procedure was performed, e.g., in the US, Medicare wants to know for which diagnosis this procedure is submitted for inclusion on <span class="v2-normal-indented-char">CMS</span> 1500 form.  Refer to <a href="https://www.hl7.org/fhir/v2/0051/index.html">User-defined Table 0051 - Diagnosis Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-16'>
+PR1-16: Procedure Code Modifier (<a href='/data-type/CNE.html'>CNE</a>) 01316
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in field 3, when applicable.  Procedure code modifiers are defined by regulatory agencies such as <span class="v2-normal-indented-char">CMS</span> and the AMA.  Multiple modifiers may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally-defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-17'>
+PR1-17: Procedure DRG Type (<a href='/data-type/CWE.html'>CWE</a>) 01501
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates a procedure&#39;s priority ranking relative to its DRG. Refer to <a href="https://www.hl7.org/fhir/v2/0416/index.html">User-defined Table 0416 - Procedure DRG Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-18'>
+PR1-18: Tissue Type Code (<a href='/data-type/CWE.html'>CWE</a>) 01502
+</h4>
+<p class="v2 v2-normalindented">Definition:  Code representing type of tissue removed from a patient during this procedure.  Refer to <a href="https://www.hl7.org/fhir/v2/0417/index.html">User-defined Table 0417 - Tissue Type Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-19'>
+PR1-19: Procedure Identifier (<a href='/data-type/EI.html'>EI</a>) 01848
+</h4>
+<p class="v2 v2-normalindented">This field contains a value that uniquely identifies a single procedure for an encounter. It is unique across all segments and messages for an encounter.  This field is required in all implementations employing Update Diagnosis/Procedures (P12) messages.</p>
+
+<h4 class='v2' id='PR1-20'>
+PR1-20: Procedure Action Code (<a href='/data-type/ID.html'>ID</a>) 01849
+</h4>
+<p class="v2 v2-normalindented">This field defines the action to be taken for this procedure. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.  This field is required for the Update Diagnosis/Procedures (P12) message.  In all other events it is optional.</p>
+
+<h4 class='v2' id='PR1-21'>
+PR1-21: DRG Procedure Determination Status (<a href='/data-type/CWE.html'>CWE</a>) 02177
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the use of this particular procedure for the DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0761/index.html">User-defined Table 0761 – DRG Procedure Determination Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-22'>
+PR1-22: DRG Procedure Relevance (<a href='/data-type/CWE.html'>CWE</a>) 02178
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the relevance of this particular procedure for the DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0763/index.html">User-defined Table 0763 – DRG Procedure Relevance</a> in Chapter 2C, code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PR1-23'>
+PR1-23: Treating Organizational Unit (<a href='/data-type/PL.html'>PL</a>) 02371
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains information about the organizational unit that has performed the procedure.</p>
+
+<h4 class='v2' id='PR1-24'>
+PR1-24: Respiratory Within Surgery (<a href='/data-type/ID.html'>ID</a>) 02372
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether or not a respiratory procedure has occurred during a surgery. This field is optional and only needs to be valued for respiratory procedures.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code TableS, for valid values.</p>
+
+<h4 class='v2' id='PR1-25'>
+PR1-25: Parent Procedure ID (<a href='/data-type/EI.html'>EI</a>) 02373
+</h4>
+<p class="v2 v2-normalindented">Definitions:  This field contains a procedure ID which points to the procedure group (e.g., complete surgery) in which this instance belongs.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

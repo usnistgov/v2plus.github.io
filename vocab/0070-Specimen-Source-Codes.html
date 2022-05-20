@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Specimen Source Codes
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Specimen Source
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70070
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of concepts which specify sources for speciments for clinical testing.  These concepts are used in HL7 Version 2.x messaging in the OBR segment prior to version 2.7, and was replaced by the concepts in table 0487 Specimen Type and table 0488 Specimen Collection Method as of version 2.5 and thereafter.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Specimen Source Codes - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MN
+</td>
+<td class='vocab-concept-display'>
+Amniotic Fluid
+</td>
+<td class='vocab-concept-definition'>
+Amniotic Fluid
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OTH
+</td>
+<td class='vocab-concept-display'>
+Other
+</td>
+<td class='vocab-concept-definition'>
+Other
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TIS
+</td>
+<td class='vocab-concept-display'>
+Tissue
+</td>
+<td class='vocab-concept-definition'>
+Tissue
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ABS
+</td>
+<td class='vocab-concept-display'>
+Abscess
+</td>
+<td class='vocab-concept-definition'>
+Abscess
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AMN
+</td>
+<td class='vocab-concept-display'>
+Amniotic fluid
+</td>
+<td class='vocab-concept-definition'>
+Amniotic fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ASP
+</td>
+<td class='vocab-concept-display'>
+Aspirate
+</td>
+<td class='vocab-concept-definition'>
+Aspirate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BPH
+</td>
+<td class='vocab-concept-display'>
+Basophils
+</td>
+<td class='vocab-concept-definition'>
+Basophils
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ABLD
+</td>
+<td class='vocab-concept-display'>
+Arterial blood
+</td>
+<td class='vocab-concept-definition'>
+Arterial blood
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BIFL
+</td>
+<td class='vocab-concept-display'>
+Bile fluid
+</td>
+<td class='vocab-concept-definition'>
+Bile fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BLDA
+</td>
+<td class='vocab-concept-display'>
+Blood  arterial
+</td>
+<td class='vocab-concept-definition'>
+Blood  arterial
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BBL
+</td>
+<td class='vocab-concept-display'>
+Blood bag
+</td>
+<td class='vocab-concept-definition'>
+Blood bag
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BLDC
+</td>
+<td class='vocab-concept-display'>
+Blood  capillary
+</td>
+<td class='vocab-concept-definition'>
+Blood  capillary
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BPU
+</td>
+<td class='vocab-concept-display'>
+Blood product unit
+</td>
+<td class='vocab-concept-definition'>
+Blood product unit
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BLDV
+</td>
+<td class='vocab-concept-display'>
+Blood  venous
+</td>
+<td class='vocab-concept-definition'>
+Blood  venous
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BON
+</td>
+<td class='vocab-concept-display'>
+Bone
+</td>
+<td class='vocab-concept-definition'>
+Bone
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BRTH
+</td>
+<td class='vocab-concept-display'>
+Breath (use EXHLD)
+</td>
+<td class='vocab-concept-definition'>
+Breath (use EXHLD)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BRO
+</td>
+<td class='vocab-concept-display'>
+Bronchial
+</td>
+<td class='vocab-concept-definition'>
+Bronchial
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BRN
+</td>
+<td class='vocab-concept-display'>
+Burn
+</td>
+<td class='vocab-concept-definition'>
+Burn
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CALC
+</td>
+<td class='vocab-concept-display'>
+Calculus (=Stone)
+</td>
+<td class='vocab-concept-definition'>
+Calculus (=Stone)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDM
+</td>
+<td class='vocab-concept-display'>
+Cardiac muscle
+</td>
+<td class='vocab-concept-definition'>
+Cardiac muscle
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNL
+</td>
+<td class='vocab-concept-display'>
+Cannula
+</td>
+<td class='vocab-concept-definition'>
+Cannula
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CTP
+</td>
+<td class='vocab-concept-display'>
+Catheter tip
+</td>
+<td class='vocab-concept-definition'>
+Catheter tip
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CSF
+</td>
+<td class='vocab-concept-display'>
+Cerebral spinal fluid
+</td>
+<td class='vocab-concept-definition'>
+Cerebral spinal fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CVM
+</td>
+<td class='vocab-concept-display'>
+Cervical mucus
+</td>
+<td class='vocab-concept-definition'>
+Cervical mucus
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CVX
+</td>
+<td class='vocab-concept-display'>
+Cervix
+</td>
+<td class='vocab-concept-definition'>
+Cervix
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+COL
+</td>
+<td class='vocab-concept-display'>
+Colostrum
+</td>
+<td class='vocab-concept-definition'>
+Colostrum
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CBLD
+</td>
+<td class='vocab-concept-display'>
+Cord blood
+</td>
+<td class='vocab-concept-definition'>
+Cord blood
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BLDCO
+</td>
+<td class='vocab-concept-display'>
+Cord blood
+</td>
+<td class='vocab-concept-definition'>
+Cord blood
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNJT
+</td>
+<td class='vocab-concept-display'>
+Conjunctiva
+</td>
+<td class='vocab-concept-definition'>
+Conjunctiva
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CUR
+</td>
+<td class='vocab-concept-display'>
+Curettage
+</td>
+<td class='vocab-concept-definition'>
+Curettage
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CYST
+</td>
+<td class='vocab-concept-display'>
+Cyst
+</td>
+<td class='vocab-concept-definition'>
+Cyst
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DIAF
+</td>
+<td class='vocab-concept-display'>
+Dialysis fluid
+</td>
+<td class='vocab-concept-definition'>
+Dialysis fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DOSE
+</td>
+<td class='vocab-concept-display'>
+Dose med or substance
+</td>
+<td class='vocab-concept-definition'>
+Dose med or substance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DRN
+</td>
+<td class='vocab-concept-display'>
+Drain
+</td>
+<td class='vocab-concept-definition'>
+Drain
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DUFL
+</td>
+<td class='vocab-concept-display'>
+Duodenal fluid
+</td>
+<td class='vocab-concept-definition'>
+Duodenal fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EAR
+</td>
+<td class='vocab-concept-display'>
+Ear
+</td>
+<td class='vocab-concept-definition'>
+Ear
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EARW
+</td>
+<td class='vocab-concept-display'>
+Ear wax (cerumen)
+</td>
+<td class='vocab-concept-definition'>
+Ear wax (cerumen)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ELT
+</td>
+<td class='vocab-concept-display'>
+Electrode
+</td>
+<td class='vocab-concept-definition'>
+Electrode
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENDC
+</td>
+<td class='vocab-concept-display'>
+Endocardium
+</td>
+<td class='vocab-concept-definition'>
+Endocardium
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENDM
+</td>
+<td class='vocab-concept-display'>
+Endometrium
+</td>
+<td class='vocab-concept-definition'>
+Endometrium
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EOS
+</td>
+<td class='vocab-concept-display'>
+Eosinophils
+</td>
+<td class='vocab-concept-definition'>
+Eosinophils
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RBC
+</td>
+<td class='vocab-concept-display'>
+Erythrocytes
+</td>
+<td class='vocab-concept-definition'>
+Erythrocytes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EYE
+</td>
+<td class='vocab-concept-display'>
+Eye
+</td>
+<td class='vocab-concept-definition'>
+Eye
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EXHLD
+</td>
+<td class='vocab-concept-display'>
+Exhaled gas (=breath)
+</td>
+<td class='vocab-concept-definition'>
+Exhaled gas (=breath)
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EXG
+</td>
+<td class='vocab-concept-display'>
+Exhaled gas (=breath)
+</td>
+<td class='vocab-concept-definition'>
+Exhaled gas (=breath)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FIB
+</td>
+<td class='vocab-concept-display'>
+Fibroblasts
+</td>
+<td class='vocab-concept-definition'>
+Fibroblasts
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FLT
+</td>
+<td class='vocab-concept-display'>
+Filter
+</td>
+<td class='vocab-concept-definition'>
+Filter
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FIST
+</td>
+<td class='vocab-concept-display'>
+Fistula
+</td>
+<td class='vocab-concept-definition'>
+Fistula
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FLU
+</td>
+<td class='vocab-concept-display'>
+Body fluid, unsp
+</td>
+<td class='vocab-concept-definition'>
+Body fluid, unsp
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GAS
+</td>
+<td class='vocab-concept-display'>
+Gas
+</td>
+<td class='vocab-concept-definition'>
+Gas
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GAST
+</td>
+<td class='vocab-concept-display'>
+Gastric fluid/contents
+</td>
+<td class='vocab-concept-definition'>
+Gastric fluid/contents
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GEN
+</td>
+<td class='vocab-concept-display'>
+Genital
+</td>
+<td class='vocab-concept-definition'>
+Genital
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GENC
+</td>
+<td class='vocab-concept-display'>
+Genital cervix
+</td>
+<td class='vocab-concept-definition'>
+Genital cervix
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GENL
+</td>
+<td class='vocab-concept-display'>
+Genital lochia
+</td>
+<td class='vocab-concept-definition'>
+Genital lochia
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GENV
+</td>
+<td class='vocab-concept-display'>
+Genital vaginal
+</td>
+<td class='vocab-concept-definition'>
+Genital vaginal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HAR
+</td>
+<td class='vocab-concept-display'>
+Hair
+</td>
+<td class='vocab-concept-definition'>
+Hair
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IHG
+</td>
+<td class='vocab-concept-display'>
+Inhaled Gas
+</td>
+<td class='vocab-concept-definition'>
+Inhaled Gas
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IT
+</td>
+<td class='vocab-concept-display'>
+Intubation tube
+</td>
+<td class='vocab-concept-definition'>
+Intubation tube
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISLT
+</td>
+<td class='vocab-concept-display'>
+Isolate
+</td>
+<td class='vocab-concept-definition'>
+Isolate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LAM
+</td>
+<td class='vocab-concept-display'>
+Lamella
+</td>
+<td class='vocab-concept-definition'>
+Lamella
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WBC
+</td>
+<td class='vocab-concept-display'>
+Leukocytes
+</td>
+<td class='vocab-concept-definition'>
+Leukocytes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LN
+</td>
+<td class='vocab-concept-display'>
+Line
+</td>
+<td class='vocab-concept-definition'>
+Line
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LNA
+</td>
+<td class='vocab-concept-display'>
+Line arterial
+</td>
+<td class='vocab-concept-definition'>
+Line arterial
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PER
+</td>
+<td class='vocab-concept-display'>
+Peritoneum
+</td>
+<td class='vocab-concept-definition'>
+Peritoneum
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LNV
+</td>
+<td class='vocab-concept-display'>
+Line venous
+</td>
+<td class='vocab-concept-definition'>
+Line venous
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LIQ
+</td>
+<td class='vocab-concept-display'>
+Liquid NOS
+</td>
+<td class='vocab-concept-definition'>
+Liquid NOS
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LYM
+</td>
+<td class='vocab-concept-display'>
+Lymphocytes
+</td>
+<td class='vocab-concept-definition'>
+Lymphocytes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MAC
+</td>
+<td class='vocab-concept-display'>
+Macrophages
+</td>
+<td class='vocab-concept-definition'>
+Macrophages
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MAR
+</td>
+<td class='vocab-concept-display'>
+Marrow
+</td>
+<td class='vocab-concept-definition'>
+Marrow
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MEC
+</td>
+<td class='vocab-concept-display'>
+Meconium
+</td>
+<td class='vocab-concept-definition'>
+Meconium
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MBLD
+</td>
+<td class='vocab-concept-display'>
+Menstrual blood
+</td>
+<td class='vocab-concept-definition'>
+Menstrual blood
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MLK
+</td>
+<td class='vocab-concept-display'>
+Milk
+</td>
+<td class='vocab-concept-definition'>
+Milk
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MILK
+</td>
+<td class='vocab-concept-display'>
+Breast milk
+</td>
+<td class='vocab-concept-definition'>
+Breast milk
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NAIL
+</td>
+<td class='vocab-concept-display'>
+Nail
+</td>
+<td class='vocab-concept-definition'>
+Nail
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NOS
+</td>
+<td class='vocab-concept-display'>
+Nose (nasal passage)
+</td>
+<td class='vocab-concept-definition'>
+Nose (nasal passage)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORH
+</td>
+<td class='vocab-concept-display'>
+Other
+</td>
+<td class='vocab-concept-definition'>
+Other
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PAFL
+</td>
+<td class='vocab-concept-display'>
+Pancreatic fluid
+</td>
+<td class='vocab-concept-definition'>
+Pancreatic fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PAT
+</td>
+<td class='vocab-concept-display'>
+Patient
+</td>
+<td class='vocab-concept-definition'>
+Patient
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRT
+</td>
+<td class='vocab-concept-display'>
+Peritoneal fluid /ascites
+</td>
+<td class='vocab-concept-definition'>
+Peritoneal fluid /ascites
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLC
+</td>
+<td class='vocab-concept-display'>
+Placenta
+</td>
+<td class='vocab-concept-definition'>
+Placenta
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLAS
+</td>
+<td class='vocab-concept-display'>
+Plasma
+</td>
+<td class='vocab-concept-definition'>
+Plasma
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLB
+</td>
+<td class='vocab-concept-display'>
+Plasma bag
+</td>
+<td class='vocab-concept-definition'>
+Plasma bag
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLR
+</td>
+<td class='vocab-concept-display'>
+Pleural fluid (thoracentesis fld)
+</td>
+<td class='vocab-concept-definition'>
+Pleural fluid (thoracentesis fld)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PMN
+</td>
+<td class='vocab-concept-display'>
+Polymorphonuclear neutrophils
+</td>
+<td class='vocab-concept-definition'>
+Polymorphonuclear neutrophils
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPP
+</td>
+<td class='vocab-concept-display'>
+Platelet poor plasma
+</td>
+<td class='vocab-concept-definition'>
+Platelet poor plasma
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRP
+</td>
+<td class='vocab-concept-display'>
+Platelet rich plasma
+</td>
+<td class='vocab-concept-definition'>
+Platelet rich plasma
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PUS
+</td>
+<td class='vocab-concept-display'>
+Pus
+</td>
+<td class='vocab-concept-definition'>
+Pus
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISB
+</td>
+<td class='vocab-concept-display'>
+Tissue bone marrow
+</td>
+<td class='vocab-concept-definition'>
+Tissue bone marrow
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RT
+</td>
+<td class='vocab-concept-display'>
+Route of medicine
+</td>
+<td class='vocab-concept-definition'>
+Route of medicine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SAL
+</td>
+<td class='vocab-concept-display'>
+Saliva
+</td>
+<td class='vocab-concept-definition'>
+Saliva
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SEM
+</td>
+<td class='vocab-concept-display'>
+Seminal fluid
+</td>
+<td class='vocab-concept-definition'>
+Seminal fluid
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISL
+</td>
+<td class='vocab-concept-display'>
+Tissue lung
+</td>
+<td class='vocab-concept-definition'>
+Tissue lung
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SMN
+</td>
+<td class='vocab-concept-display'>
+Seminal fluid
+</td>
+<td class='vocab-concept-definition'>
+Seminal fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SER
+</td>
+<td class='vocab-concept-display'>
+Serum
+</td>
+<td class='vocab-concept-definition'>
+Serum
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISP
+</td>
+<td class='vocab-concept-display'>
+Tissue peritoneum
+</td>
+<td class='vocab-concept-definition'>
+Tissue peritoneum
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SKN
+</td>
+<td class='vocab-concept-display'>
+Skin
+</td>
+<td class='vocab-concept-definition'>
+Skin
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SKM
+</td>
+<td class='vocab-concept-display'>
+Skeletal muscle
+</td>
+<td class='vocab-concept-definition'>
+Skeletal muscle
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISC
+</td>
+<td class='vocab-concept-display'>
+Tissue curettage
+</td>
+<td class='vocab-concept-definition'>
+Tissue curettage
+</td>
+<td class='vocab-concept-deprecated'>
+2.6
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPRM
+</td>
+<td class='vocab-concept-display'>
+Spermatozoa
+</td>
+<td class='vocab-concept-definition'>
+Spermatozoa
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPT
+</td>
+<td class='vocab-concept-display'>
+Sputum
+</td>
+<td class='vocab-concept-definition'>
+Sputum
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPTC
+</td>
+<td class='vocab-concept-display'>
+Sputum - coughed
+</td>
+<td class='vocab-concept-definition'>
+Sputum - coughed
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPTT
+</td>
+<td class='vocab-concept-display'>
+Sputum - tracheal aspirate
+</td>
+<td class='vocab-concept-definition'>
+Sputum - tracheal aspirate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+STON
+</td>
+<td class='vocab-concept-display'>
+Stone (use CALC)
+</td>
+<td class='vocab-concept-definition'>
+Stone (use CALC)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+STL
+</td>
+<td class='vocab-concept-display'>
+Stool = Fecal
+</td>
+<td class='vocab-concept-definition'>
+Stool = Fecal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SWT
+</td>
+<td class='vocab-concept-display'>
+Sweat
+</td>
+<td class='vocab-concept-definition'>
+Sweat
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNV
+</td>
+<td class='vocab-concept-display'>
+Synovial fluid (Joint fluid)
+</td>
+<td class='vocab-concept-definition'>
+Synovial fluid (Joint fluid)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TEAR
+</td>
+<td class='vocab-concept-display'>
+Tears
+</td>
+<td class='vocab-concept-definition'>
+Tears
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+THRT
+</td>
+<td class='vocab-concept-display'>
+Throat
+</td>
+<td class='vocab-concept-definition'>
+Throat
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+THRB
+</td>
+<td class='vocab-concept-display'>
+Thrombocyte (platelet)
+</td>
+<td class='vocab-concept-definition'>
+Thrombocyte (platelet)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISS
+</td>
+<td class='vocab-concept-display'>
+Tissue
+</td>
+<td class='vocab-concept-definition'>
+Tissue
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISG
+</td>
+<td class='vocab-concept-display'>
+Tissue gall bladder
+</td>
+<td class='vocab-concept-definition'>
+Tissue gall bladder
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TLGI
+</td>
+<td class='vocab-concept-display'>
+Tissue large intestine
+</td>
+<td class='vocab-concept-definition'>
+Tissue large intestine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TLNG
+</td>
+<td class='vocab-concept-display'>
+Tissue lung
+</td>
+<td class='vocab-concept-definition'>
+Tissue lung
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISPL
+</td>
+<td class='vocab-concept-display'>
+Tissue placenta
+</td>
+<td class='vocab-concept-definition'>
+Tissue placenta
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TSMI
+</td>
+<td class='vocab-concept-display'>
+Tissue small intestine
+</td>
+<td class='vocab-concept-definition'>
+Tissue small intestine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TISU
+</td>
+<td class='vocab-concept-display'>
+Tissue ulcer
+</td>
+<td class='vocab-concept-definition'>
+Tissue ulcer
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TUB
+</td>
+<td class='vocab-concept-display'>
+Tube NOS
+</td>
+<td class='vocab-concept-definition'>
+Tube NOS
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ULC
+</td>
+<td class='vocab-concept-display'>
+Ulcer
+</td>
+<td class='vocab-concept-definition'>
+Ulcer
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UMB
+</td>
+<td class='vocab-concept-display'>
+Umbilical blood
+</td>
+<td class='vocab-concept-definition'>
+Umbilical blood
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UMED
+</td>
+<td class='vocab-concept-display'>
+Unknown medicine
+</td>
+<td class='vocab-concept-definition'>
+Unknown medicine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+URTH
+</td>
+<td class='vocab-concept-display'>
+Urethra
+</td>
+<td class='vocab-concept-definition'>
+Urethra
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UR
+</td>
+<td class='vocab-concept-display'>
+Urine
+</td>
+<td class='vocab-concept-definition'>
+Urine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+URC
+</td>
+<td class='vocab-concept-display'>
+Urine clean catch
+</td>
+<td class='vocab-concept-definition'>
+Urine clean catch
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+URT
+</td>
+<td class='vocab-concept-display'>
+Urine catheter
+</td>
+<td class='vocab-concept-definition'>
+Urine catheter
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+URNS
+</td>
+<td class='vocab-concept-display'>
+Urine sediment
+</td>
+<td class='vocab-concept-definition'>
+Urine sediment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+USUB
+</td>
+<td class='vocab-concept-display'>
+Unknown substance
+</td>
+<td class='vocab-concept-definition'>
+Unknown substance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VITF
+</td>
+<td class='vocab-concept-display'>
+Vitreous Fluid
+</td>
+<td class='vocab-concept-definition'>
+Vitreous Fluid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VOM
+</td>
+<td class='vocab-concept-display'>
+Vomitus
+</td>
+<td class='vocab-concept-definition'>
+Vomitus
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BLD
+</td>
+<td class='vocab-concept-display'>
+Whole blood
+</td>
+<td class='vocab-concept-definition'>
+Whole blood
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BDY
+</td>
+<td class='vocab-concept-display'>
+Whole body
+</td>
+<td class='vocab-concept-definition'>
+Whole body
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WAT
+</td>
+<td class='vocab-concept-display'>
+Water
+</td>
+<td class='vocab-concept-definition'>
+Water
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WICK
+</td>
+<td class='vocab-concept-display'>
+Wick
+</td>
+<td class='vocab-concept-definition'>
+Wick
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WND
+</td>
+<td class='vocab-concept-display'>
+Wound
+</td>
+<td class='vocab-concept-definition'>
+Wound
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WNDA
+</td>
+<td class='vocab-concept-display'>
+Wound abscess
+</td>
+<td class='vocab-concept-definition'>
+Wound abscess
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WNDE
+</td>
+<td class='vocab-concept-display'>
+Wound exudate
+</td>
+<td class='vocab-concept-definition'>
+Wound exudate
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WNDD
+</td>
+<td class='vocab-concept-display'>
+Wound drainage
+</td>
+<td class='vocab-concept-definition'>
+Wound drainage
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XXX
+</td>
+<td class='vocab-concept-display'>
+To be specified in another part of the message
+</td>
+<td class='vocab-concept-definition'>
+To be specified in another part of the message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,4059 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Coding System
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Representative (HL7-EXT)
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Coding System
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70396
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+CWE.3, CWE.6, CWE, and numerous places
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of specifying the coding system.  This table is maintained outside of the published Version 2 standards; the content is not listed here; the content is maintained outside of the Version 2 Product Family maintenance process.  For the list of codes in the table, see the HL7 Webpage rendering, at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Coding System - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+General code
+</td>
+<td class='vocab-concept-display'>
+Active
+</td>
+<td class='vocab-concept-definition'>
+Active
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2012
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2013
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2012
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2013
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2013
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2013
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2014
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2014
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2014
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2015
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2015
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2015
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2016
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2016
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2016
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2012
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2012
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2012
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2013
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2013
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2013
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2014
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2014
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2014
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2015
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2015
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2015
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2016
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2016
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2016
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2012
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2012
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2012
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2013
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2013
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2013
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2014
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2014
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2014
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2015
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2015
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2015
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2016
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2016
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2016
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+99zzz or L
+</td>
+<td class='vocab-concept-display'>
+Local general code (where z is an alphanumeric character)
+</td>
+<td class='vocab-concept-definition'>
+Local general code (where z is an alphanumeric character)
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+99zzz
+</td>
+<td class='vocab-concept-display'>
+Local general code for a site-defined code system used for a specific set of trading partners.  The 'zzz' SHALL be any printable ASCII string.  Length of the name SHALL not exceed field width, and is subject to local implementation.
+</td>
+<td class='vocab-concept-definition'>
+Local general code for a site-defined code system used for a specific set of trading partners.  The 'zzz' SHALL be any printable ASCII string.  Length of the name SHALL not exceed field width, and is subject to local implementation.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACR
+</td>
+<td class='vocab-concept-display'>
+American College of Radiology finding codes
+</td>
+<td class='vocab-concept-definition'>
+American College of Radiology finding codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACTCODE
+</td>
+<td class='vocab-concept-display'>
+Table of HL7 Version 3 ActCode values
+</td>
+<td class='vocab-concept-definition'>
+Table of HL7 Version 3 ActCode values
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACTRELSS
+</td>
+<td class='vocab-concept-display'>
+Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.
+Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtere
+</td>
+<td class='vocab-concept-definition'>
+Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.
+Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtere
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2006
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2006
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2006
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2007
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2007
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2007
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2008
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2008
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2009
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2009
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2009
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2010
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2010
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2010
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ALPHAID2011
+</td>
+<td class='vocab-concept-display'>
+German Alpha-ID v2011
+</td>
+<td class='vocab-concept-definition'>
+German Alpha-ID v2011
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AMTv2
+</td>
+<td class='vocab-concept-display'>
+Australian Medicines Terminology (v2)
+</td>
+<td class='vocab-concept-definition'>
+Australian Medicines Terminology (v2)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ANS+
+</td>
+<td class='vocab-concept-display'>
+HL7 set of units of measure
+</td>
+<td class='vocab-concept-definition'>
+HL7 set of units of measure
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ART
+</td>
+<td class='vocab-concept-display'>
+WHO Adverse Reaction Terms
+</td>
+<td class='vocab-concept-definition'>
+WHO Adverse Reaction Terms
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AS4
+</td>
+<td class='vocab-concept-display'>
+ASTM E1238/ E1467 Universal
+</td>
+<td class='vocab-concept-definition'>
+ASTM E1238/ E1467 Universal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AS4E
+</td>
+<td class='vocab-concept-display'>
+AS4 Neurophysiology Codes
+</td>
+<td class='vocab-concept-definition'>
+AS4 Neurophysiology Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ATC
+</td>
+<td class='vocab-concept-display'>
+American Type Culture Collection
+</td>
+<td class='vocab-concept-definition'>
+American Type Culture Collection
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+C4
+</td>
+<td class='vocab-concept-display'>
+CPT-4
+</td>
+<td class='vocab-concept-definition'>
+CPT-4
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+C5
+</td>
+<td class='vocab-concept-display'>
+CPT-5
+</td>
+<td class='vocab-concept-definition'>
+CPT-5
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CAPECC
+</td>
+<td class='vocab-concept-display'>
+College of American Pathologists Electronic Cancer Checklist
+</td>
+<td class='vocab-concept-definition'>
+College of American Pathologists Electronic Cancer Checklist
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CAS
+</td>
+<td class='vocab-concept-display'>
+Chemical abstract codes
+</td>
+<td class='vocab-concept-definition'>
+Chemical abstract codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DCL
+</td>
+<td class='vocab-concept-display'>
+DICOM Class Label
+</td>
+<td class='vocab-concept-definition'>
+DICOM Class Label
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCC
+</td>
+<td class='vocab-concept-display'>
+Clinical Care Classification system
+</td>
+<td class='vocab-concept-definition'>
+Clinical Care Classification system
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CD2
+</td>
+<td class='vocab-concept-display'>
+CDT-2 Codes
+</td>
+<td class='vocab-concept-definition'>
+CDT-2 Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCA
+</td>
+<td class='vocab-concept-display'>
+CDC Analyte Codes
+</td>
+<td class='vocab-concept-definition'>
+CDC Analyte Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DQL
+</td>
+<td class='vocab-concept-display'>
+DICOM Query Label
+</td>
+<td class='vocab-concept-definition'>
+DICOM Query Label
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCEDACUITY
+</td>
+<td class='vocab-concept-display'>
+CDC Emergency Department Acuity
+</td>
+<td class='vocab-concept-definition'>
+CDC Emergency Department Acuity
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+cdcgs1vis
+</td>
+<td class='vocab-concept-display'>
+VIS Bar Codes (IIS)
+</td>
+<td class='vocab-concept-definition'>
+VIS Bar Codes (IIS)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCINDUSTRY2010
+</td>
+<td class='vocab-concept-display'>
+Industry CDC Census 2010
+</td>
+<td class='vocab-concept-definition'>
+Industry CDC Census 2010
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCM
+</td>
+<td class='vocab-concept-display'>
+CDC Methods/Instruments Codes
+</td>
+<td class='vocab-concept-definition'>
+CDC Methods/Instruments Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCNHSN
+</td>
+<td class='vocab-concept-display'>
+CDC National Healthcare Safety Network Codes
+</td>
+<td class='vocab-concept-definition'>
+CDC National Healthcare Safety Network Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CE (obsolete)
+</td>
+<td class='vocab-concept-display'>
+CEN ECG diagnostic codes
+</td>
+<td class='vocab-concept-definition'>
+CEN ECG diagnostic codes
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCOBS
+</td>
+<td class='vocab-concept-display'>
+CDC BioSense RT observations (Census) - CDC
+</td>
+<td class='vocab-concept-definition'>
+CDC BioSense RT observations (Census) - CDC
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCOCCUPATION2010
+</td>
+<td class='vocab-concept-display'>
+Occupation CDC Census 2010
+</td>
+<td class='vocab-concept-definition'>
+Occupation CDC Census 2010
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCODH
+</td>
+<td class='vocab-concept-display'>
+Occupational Data for Health (ODH)
+</td>
+<td class='vocab-concept-definition'>
+Occupational Data for Health (ODH)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCPHINVS
+</td>
+<td class='vocab-concept-display'>
+CDC PHIN Vocabulary Coding System
+</td>
+<td class='vocab-concept-definition'>
+CDC PHIN Vocabulary Coding System
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDCREC
+</td>
+<td class='vocab-concept-display'>
+Race & Ethnicity - CDC
+</td>
+<td class='vocab-concept-definition'>
+Race & Ethnicity - CDC
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CDS
+</td>
+<td class='vocab-concept-display'>
+CDC Surveillance
+</td>
+<td class='vocab-concept-definition'>
+CDC Surveillance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CE
+</td>
+<td class='vocab-concept-display'>
+CEN ECG diagnostic codes
+</td>
+<td class='vocab-concept-definition'>
+CEN ECG diagnostic codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+Chrom-Loc
+</td>
+<td class='vocab-concept-display'>
+Cytogenetic (chromosome) location
+</td>
+<td class='vocab-concept-definition'>
+Cytogenetic (chromosome) location
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CLINVAR-V
+</td>
+<td class='vocab-concept-display'>
+ClinVar Variant ID
+</td>
+<td class='vocab-concept-definition'>
+ClinVar Variant ID
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CLP
+</td>
+<td class='vocab-concept-display'>
+CLIP
+</td>
+<td class='vocab-concept-definition'>
+CLIP
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CMSOEC
+</td>
+<td class='vocab-concept-display'>
+OCE Edit Code
+</td>
+<td class='vocab-concept-definition'>
+OCE Edit Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CMSOMC
+</td>
+<td class='vocab-concept-display'>
+OCE Modifier Code
+</td>
+<td class='vocab-concept-definition'>
+OCE Modifier Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDAUDI
+</td>
+<td class='vocab-concept-display'>
+FDA Unique Device Identifier
+</td>
+<td class='vocab-concept-definition'>
+FDA Unique Device Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+COSMIC-Smpl
+</td>
+<td class='vocab-concept-display'>
+COSMIC – Simple variants
+</td>
+<td class='vocab-concept-definition'>
+COSMIC – Simple variants
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+COSMIC-Strc
+</td>
+<td class='vocab-concept-display'>
+COSMIC-Structural variants
+</td>
+<td class='vocab-concept-definition'>
+COSMIC-Structural variants
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CPTM
+</td>
+<td class='vocab-concept-display'>
+CPT Modifier Code
+</td>
+<td class='vocab-concept-definition'>
+CPT Modifier Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CST
+</td>
+<td class='vocab-concept-display'>
+COSTART
+</td>
+<td class='vocab-concept-definition'>
+COSTART
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CVX
+</td>
+<td class='vocab-concept-display'>
+CDC Vaccine Codes
+</td>
+<td class='vocab-concept-definition'>
+CDC Vaccine Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+dbVar-GL
+</td>
+<td class='vocab-concept-display'>
+dbVar-Germline
+</td>
+<td class='vocab-concept-definition'>
+dbVar-Germline
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+dbVar-som
+</td>
+<td class='vocab-concept-display'>
+dbVar-Somatic
+</td>
+<td class='vocab-concept-definition'>
+dbVar-Somatic
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DCM
+</td>
+<td class='vocab-concept-display'>
+DICOM Controlled Terminology
+</td>
+<td class='vocab-concept-definition'>
+DICOM Controlled Terminology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+E
+</td>
+<td class='vocab-concept-display'>
+EUCLIDES
+</td>
+<td class='vocab-concept-definition'>
+EUCLIDES
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+E5
+</td>
+<td class='vocab-concept-display'>
+Euclides  quantity codes
+</td>
+<td class='vocab-concept-definition'>
+Euclides  quantity codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+E6
+</td>
+<td class='vocab-concept-display'>
+Euclides Lab method codes
+</td>
+<td class='vocab-concept-definition'>
+Euclides Lab method codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+E7
+</td>
+<td class='vocab-concept-display'>
+Euclides Lab equipment codes
+</td>
+<td class='vocab-concept-definition'>
+Euclides Lab equipment codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EDLEVEL
+</td>
+<td class='vocab-concept-display'>
+Education Level
+</td>
+<td class='vocab-concept-definition'>
+Education Level
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ensembl-G
+</td>
+<td class='vocab-concept-display'>
+Ensembl genomic reference sequence
+</td>
+<td class='vocab-concept-definition'>
+Ensembl genomic reference sequence
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+Ensembl-P
+</td>
+<td class='vocab-concept-display'>
+Ensembl protein reference sequence
+</td>
+<td class='vocab-concept-definition'>
+Ensembl protein reference sequence
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ensembl-T
+</td>
+<td class='vocab-concept-display'>
+Ensembl transcript reference sequence
+</td>
+<td class='vocab-concept-definition'>
+Ensembl transcript reference sequence
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENTITYCODE
+</td>
+<td class='vocab-concept-display'>
+Entity Code
+</td>
+<td class='vocab-concept-definition'>
+Entity Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENTITYHDLG
+</td>
+<td class='vocab-concept-display'>
+Entity Handling Code
+</td>
+<td class='vocab-concept-definition'>
+Entity Handling Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ENZC
+</td>
+<td class='vocab-concept-display'>
+Enzyme Codes
+</td>
+<td class='vocab-concept-definition'>
+Enzyme Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GMDC2009
+</td>
+<td class='vocab-concept-display'>
+German Major Diagnostic Codes v2009
+</td>
+<td class='vocab-concept-definition'>
+German Major Diagnostic Codes v2009
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EPASRS
+</td>
+<td class='vocab-concept-display'>
+EPA SRS
+</td>
+<td class='vocab-concept-definition'>
+EPA SRS
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GS1UDI
+</td>
+<td class='vocab-concept-display'>
+GS1 Unique Device Identifier
+</td>
+<td class='vocab-concept-definition'>
+GS1 Unique Device Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDAUNII
+</td>
+<td class='vocab-concept-display'>
+Unique Ingredient Identifier (UNII)
+</td>
+<td class='vocab-concept-definition'>
+Unique Ingredient Identifier (UNII)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDDC
+</td>
+<td class='vocab-concept-display'>
+First DataBank Drug Codes
+</td>
+<td class='vocab-concept-definition'>
+First DataBank Drug Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDDX
+</td>
+<td class='vocab-concept-display'>
+First DataBank Diagnostic Codes
+</td>
+<td class='vocab-concept-definition'>
+First DataBank Diagnostic Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDK
+</td>
+<td class='vocab-concept-display'>
+FDA K10
+</td>
+<td class='vocab-concept-definition'>
+FDA K10
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FIPS5_2
+</td>
+<td class='vocab-concept-display'>
+FIPS 5-2 (State)
+</td>
+<td class='vocab-concept-definition'>
+FIPS 5-2 (State)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HIBUDI
+</td>
+<td class='vocab-concept-display'>
+HIBCC Unique Device Identifier
+</td>
+<td class='vocab-concept-definition'>
+HIBCC Unique Device Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FIPS55_3
+</td>
+<td class='vocab-concept-display'>
+Populated Places (FIPS 55-3)
+</td>
+<td class='vocab-concept-definition'>
+Populated Places (FIPS 55-3)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FIPS6_4
+</td>
+<td class='vocab-concept-display'>
+FIPS 6-4 (County)
+</td>
+<td class='vocab-concept-definition'>
+FIPS 6-4 (County)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GDRG2004
+</td>
+<td class='vocab-concept-display'>
+G-DRG German DRG Codes v 2004
+</td>
+<td class='vocab-concept-definition'>
+G-DRG German DRG Codes v 2004
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GDRG2005
+</td>
+<td class='vocab-concept-display'>
+G-DRG German DRG Codes v 2005
+</td>
+<td class='vocab-concept-definition'>
+G-DRG German DRG Codes v 2005
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GDRG2006
+</td>
+<td class='vocab-concept-display'>
+G-DRG German DRG Codes v 2006
+</td>
+<td class='vocab-concept-definition'>
+G-DRG German DRG Codes v 2006
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GDRG2007
+</td>
+<td class='vocab-concept-display'>
+G-DRG German DRG Codes v2007
+</td>
+<td class='vocab-concept-definition'>
+G-DRG German DRG Codes v2007
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GDRG2008
+</td>
+<td class='vocab-concept-display'>
+G-DRG German DRG Codes v2008
+</td>
+<td class='vocab-concept-definition'>
+G-DRG German DRG Codes v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GDRG2009
+</td>
+<td class='vocab-concept-display'>
+G-DRG German DRG Codes v2008
+</td>
+<td class='vocab-concept-definition'>
+G-DRG German DRG Codes v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GMDC2004
+</td>
+<td class='vocab-concept-display'>
+German Major Diagnostic Codes v 1004
+</td>
+<td class='vocab-concept-definition'>
+German Major Diagnostic Codes v 1004
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GMDC2005
+</td>
+<td class='vocab-concept-display'>
+German Major Diagnostic Codes v2005
+</td>
+<td class='vocab-concept-definition'>
+German Major Diagnostic Codes v2005
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GMDC2006
+</td>
+<td class='vocab-concept-display'>
+German Major v2006 Diagnostic Codes
+</td>
+<td class='vocab-concept-definition'>
+German Major v2006 Diagnostic Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GMDC2007
+</td>
+<td class='vocab-concept-display'>
+German Major Diagnostic Codes v2007
+</td>
+<td class='vocab-concept-definition'>
+German Major Diagnostic Codes v2007
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GMDC2008
+</td>
+<td class='vocab-concept-display'>
+German Major Diagnostic Codes v2008
+</td>
+<td class='vocab-concept-definition'>
+German Major Diagnostic Codes v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HB
+</td>
+<td class='vocab-concept-display'>
+HIBCC
+</td>
+<td class='vocab-concept-definition'>
+HIBCC
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HCPCS
+</td>
+<td class='vocab-concept-display'>
+CMS (formerly HCFA)  Common Procedure Coding System
+</td>
+<td class='vocab-concept-definition'>
+CMS (formerly HCFA)  Common Procedure Coding System
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IBTnnnn
+</td>
+<td class='vocab-concept-display'>
+ISBT 128 codes where nnnn  specifies a specific table within ISBT 128.
+</td>
+<td class='vocab-concept-definition'>
+ISBT 128 codes where nnnn  specifies a specific table within ISBT 128.
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HCPT
+</td>
+<td class='vocab-concept-display'>
+Health Care Provider Taxonomy
+</td>
+<td class='vocab-concept-definition'>
+Health Care Provider Taxonomy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICCUDI
+</td>
+<td class='vocab-concept-display'>
+ICCBBA Unique Device Identifier
+</td>
+<td class='vocab-concept-definition'>
+ICCBBA Unique Device Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HGNC-Symb
+</td>
+<td class='vocab-concept-display'>
+HGNC-symb
+</td>
+<td class='vocab-concept-definition'>
+HGNC-symb
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HGVS.c
+</td>
+<td class='vocab-concept-display'>
+HGVS- Transcript syntax
+</td>
+<td class='vocab-concept-definition'>
+HGVS- Transcript syntax
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HGVS.g
+</td>
+<td class='vocab-concept-display'>
+HGVS- Genomic syntax
+</td>
+<td class='vocab-concept-definition'>
+HGVS- Genomic syntax
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HGVS.p
+</td>
+<td class='vocab-concept-display'>
+HGVS-Protein syntax
+</td>
+<td class='vocab-concept-definition'>
+HGVS-Protein syntax
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HHC
+</td>
+<td class='vocab-concept-display'>
+Home Health Care
+</td>
+<td class='vocab-concept-definition'>
+Home Health Care
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2010
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2010
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2010
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HI
+</td>
+<td class='vocab-concept-display'>
+Health Outcomes
+</td>
+<td class='vocab-concept-definition'>
+Health Outcomes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2011
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2011
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2011
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HL7nnnn
+</td>
+<td class='vocab-concept-display'>
+Health Level Seven defined table of codes, where nnnn is the HL7 table number.  The number is four numeric digits as published in HL7 Version 2 chapter 2C.  For example, HL70001.
+</td>
+<td class='vocab-concept-definition'>
+Health Level Seven defined table of codes, where nnnn is the HL7 table number.  The number is four numeric digits as published in HL7 Version 2 chapter 2C.  For example, HL70001.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HOT
+</td>
+<td class='vocab-concept-display'>
+Japanese Nationwide Medicine Code
+</td>
+<td class='vocab-concept-definition'>
+Japanese Nationwide Medicine Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HPC
+</td>
+<td class='vocab-concept-display'>
+CMS (formerly HCFA )Procedure Codes (HCPCS)
+</td>
+<td class='vocab-concept-definition'>
+CMS (formerly HCFA )Procedure Codes (HCPCS)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HSLOC
+</td>
+<td class='vocab-concept-display'>
+Healthcare Service Location
+</td>
+<td class='vocab-concept-definition'>
+Healthcare Service Location
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10
+</td>
+<td class='vocab-concept-display'>
+ICD-10
+</td>
+<td class='vocab-concept-definition'>
+ICD-10
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10C
+</td>
+<td class='vocab-concept-display'>
+International Classification of Diseases, 10th  Revision, Clinical Modification (ICD-10-CM)
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Diseases, 10th  Revision, Clinical Modification (ICD-10-CM)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10G2004
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany 2004
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany 2004
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10G2005
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany 2005
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany 2005
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISOnnnn (deprecated)
+</td>
+<td class='vocab-concept-display'>
+ISO Defined Codes where nnnn is the ISO table number
+</td>
+<td class='vocab-concept-definition'>
+ISO Defined Codes where nnnn is the ISO table number
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10G2006
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany 2006
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany 2006
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO
+</td>
+<td class='vocab-concept-display'>
+ISO 2955.83 (units of measure) with HL7 extensions
+</td>
+<td class='vocab-concept-definition'>
+ISO 2955.83 (units of measure) with HL7 extensions
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10P
+</td>
+<td class='vocab-concept-display'>
+International Classification of Diseases, 10th  Revision, Procedure Coding System (ICD-10-PCS)
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Diseases, 10th  Revision, Procedure Coding System (ICD-10-PCS)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I10P0
+</td>
+<td class='vocab-concept-display'>
+ICD-10 Place of Occurrence
+</td>
+<td class='vocab-concept-definition'>
+ICD-10 Place of Occurrence
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I9
+</td>
+<td class='vocab-concept-display'>
+ICD9
+</td>
+<td class='vocab-concept-definition'>
+ICD9
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I9C
+</td>
+<td class='vocab-concept-display'>
+International Classification of Diseases, 9th  Revision, Clinical Modification (ICD-9-CM)
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Diseases, 9th  Revision, Clinical Modification (ICD-9-CM)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I9CDX
+</td>
+<td class='vocab-concept-display'>
+ICD-9CM Diagnosis codes
+</td>
+<td class='vocab-concept-definition'>
+ICD-9CM Diagnosis codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+I9CP
+</td>
+<td class='vocab-concept-display'>
+ICD-9CM Procedure codes
+</td>
+<td class='vocab-concept-definition'>
+ICD-9CM Procedure codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IBT
+</td>
+<td class='vocab-concept-display'>
+ISBT
+</td>
+<td class='vocab-concept-definition'>
+ISBT
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IBT0001
+</td>
+<td class='vocab-concept-display'>
+ISBT 128 Standard transfusion/transplantation data items
+</td>
+<td class='vocab-concept-definition'>
+ISBT 128 Standard transfusion/transplantation data items
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IC2
+</td>
+<td class='vocab-concept-display'>
+ICHPPC-2
+</td>
+<td class='vocab-concept-definition'>
+ICHPPC-2
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10AM
+</td>
+<td class='vocab-concept-display'>
+ICD-10 Australian modification
+</td>
+<td class='vocab-concept-definition'>
+ICD-10 Australian modification
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10CA
+</td>
+<td class='vocab-concept-display'>
+ICD-10 Canada
+</td>
+<td class='vocab-concept-definition'>
+ICD-10 Canada
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2007
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2007
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2007
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2008
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2008
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICD10GM2009
+</td>
+<td class='vocab-concept-display'>
+ICD 10 Germany v2009
+</td>
+<td class='vocab-concept-definition'>
+ICD 10 Germany v2009
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICDO
+</td>
+<td class='vocab-concept-display'>
+International Classification of Diseases for Oncology
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Diseases for Oncology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICDO2
+</td>
+<td class='vocab-concept-display'>
+International Classification of Disease for Oncology Second Edition
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Disease for Oncology Second Edition
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICDO3
+</td>
+<td class='vocab-concept-display'>
+International Classification of Disease for Oncology Third Edition
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Disease for Oncology Third Edition
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICF
+</td>
+<td class='vocab-concept-display'>
+International Classification of Functioning, Disability and Health (ICF)
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Functioning, Disability and Health (ICF)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICS
+</td>
+<td class='vocab-concept-display'>
+ICCS
+</td>
+<td class='vocab-concept-definition'>
+ICCS
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICSD
+</td>
+<td class='vocab-concept-display'>
+International Classification of Sleep Disorders
+</td>
+<td class='vocab-concept-definition'>
+International Classification of Sleep Disorders
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IHELAW
+</td>
+<td class='vocab-concept-display'>
+IHE Laboratory Analytical Workflow (LAW) Profile Codes.
+</td>
+<td class='vocab-concept-definition'>
+IHE Laboratory Analytical Workflow (LAW) Profile Codes.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISCN
+</td>
+<td class='vocab-concept-display'>
+International System for Human Cytogenetic Nomenclature (ISCN)
+</td>
+<td class='vocab-concept-definition'>
+International System for Human Cytogenetic Nomenclature (ISCN)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO+
+</td>
+<td class='vocab-concept-display'>
+ISO 2955.83 (units of measure) with HL7 extensions
+</td>
+<td class='vocab-concept-definition'>
+ISO 2955.83 (units of measure) with HL7 extensions
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO3166_1
+</td>
+<td class='vocab-concept-display'>
+ISO 3166-1 Country Codes
+</td>
+<td class='vocab-concept-definition'>
+ISO 3166-1 Country Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO3166_2
+</td>
+<td class='vocab-concept-display'>
+ISO 3166-2 Country subdivisions
+</td>
+<td class='vocab-concept-definition'>
+ISO 3166-2 Country subdivisions
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO4217
+</td>
+<td class='vocab-concept-display'>
+ISO4217 Currency Codes
+</td>
+<td class='vocab-concept-definition'>
+ISO4217 Currency Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISO639
+</td>
+<td class='vocab-concept-display'>
+ISO 639 Language
+</td>
+<td class='vocab-concept-definition'>
+ISO 639 Language
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ISOnnnn
+</td>
+<td class='vocab-concept-display'>
+ISO Defined Codes where nnnn is the ISO table number. (deprecated)
+</td>
+<td class='vocab-concept-definition'>
+ISO Defined Codes where nnnn is the ISO table number. (deprecated)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ITIS
+</td>
+<td class='vocab-concept-display'>
+Integrated Taxonomic Information System
+</td>
+<td class='vocab-concept-definition'>
+Integrated Taxonomic Information System
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IUPC
+</td>
+<td class='vocab-concept-display'>
+IUPAC/IFCC Component Codes
+</td>
+<td class='vocab-concept-definition'>
+IUPAC/IFCC Component Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IUPP
+</td>
+<td class='vocab-concept-display'>
+IUPAC/IFCC Property Codes
+</td>
+<td class='vocab-concept-definition'>
+IUPAC/IFCC Property Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+JC10
+</td>
+<td class='vocab-concept-display'>
+JLAC/JSLM, nationwide laboratory code
+</td>
+<td class='vocab-concept-definition'>
+JLAC/JSLM, nationwide laboratory code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+JC8
+</td>
+<td class='vocab-concept-display'>
+Japanese Chemistry
+</td>
+<td class='vocab-concept-definition'>
+Japanese Chemistry
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+JJ1017
+</td>
+<td class='vocab-concept-display'>
+Japanese Image Examination Cache
+</td>
+<td class='vocab-concept-definition'>
+Japanese Image Examination Cache
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+L
+</td>
+<td class='vocab-concept-display'>
+Local general code for a site-defined code system used for a specific set of trading partners.  The 'zzz' SHALL be any printable ASCII string.  Length of the name SHALL not exceed field width, and is subject to local implementation.
+</td>
+<td class='vocab-concept-definition'>
+Local general code for a site-defined code system used for a specific set of trading partners.  The 'zzz' SHALL be any printable ASCII string.  Length of the name SHALL not exceed field width, and is subject to local implementation.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LANGUAL
+</td>
+<td class='vocab-concept-display'>
+LanguaL
+</td>
+<td class='vocab-concept-definition'>
+LanguaL
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LB
+</td>
+<td class='vocab-concept-display'>
+Local billing code
+</td>
+<td class='vocab-concept-definition'>
+Local billing code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LN
+</td>
+<td class='vocab-concept-display'>
+Logical Observation Identifier Names and Codes (LOINC®)
+</td>
+<td class='vocab-concept-definition'>
+Logical Observation Identifier Names and Codes (LOINC®)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LRG-RefSeq
+</td>
+<td class='vocab-concept-display'>
+Locus Reference Genomic (LRG)
+</td>
+<td class='vocab-concept-definition'>
+Locus Reference Genomic (LRG)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCD
+</td>
+<td class='vocab-concept-display'>
+Medicaid
+</td>
+<td class='vocab-concept-definition'>
+Medicaid
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCR
+</td>
+<td class='vocab-concept-display'>
+Medicare
+</td>
+<td class='vocab-concept-definition'>
+Medicare
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MDC
+</td>
+<td class='vocab-concept-display'>
+Medical Device Communication
+</td>
+<td class='vocab-concept-definition'>
+Medical Device Communication
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MDDX
+</td>
+<td class='vocab-concept-display'>
+Medispan Diagnostic Codes
+</td>
+<td class='vocab-concept-definition'>
+Medispan Diagnostic Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MEDC
+</td>
+<td class='vocab-concept-display'>
+Medical Economics Drug Codes
+</td>
+<td class='vocab-concept-definition'>
+Medical Economics Drug Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+Medgen-Dis
+</td>
+<td class='vocab-concept-display'>
+NCBI MedGen disease subset
+</td>
+<td class='vocab-concept-definition'>
+NCBI MedGen disease subset
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MEDIATYPE
+</td>
+<td class='vocab-concept-display'>
+MIME Media Type IANA
+</td>
+<td class='vocab-concept-definition'>
+MIME Media Type IANA
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MEDR
+</td>
+<td class='vocab-concept-display'>
+Medical Dictionary for Drug Regulatory Affairs (MEDDRA)
+</td>
+<td class='vocab-concept-definition'>
+Medical Dictionary for Drug Regulatory Affairs (MEDDRA)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2010
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2010
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2010
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MEDX
+</td>
+<td class='vocab-concept-display'>
+Medical Economics Diagnostic Codes
+</td>
+<td class='vocab-concept-definition'>
+Medical Economics Diagnostic Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2011
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2011
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2011
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MGPI
+</td>
+<td class='vocab-concept-display'>
+Medispan GPI
+</td>
+<td class='vocab-concept-definition'>
+Medispan GPI
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MVX
+</td>
+<td class='vocab-concept-display'>
+CDC Vaccine Manufacturer Codes
+</td>
+<td class='vocab-concept-definition'>
+CDC Vaccine Manufacturer Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NAICS
+</td>
+<td class='vocab-concept-display'>
+Industry (NAICS)
+</td>
+<td class='vocab-concept-definition'>
+Industry (NAICS)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NCPDPnnnnsss
+</td>
+<td class='vocab-concept-display'>
+NCPDP code list for data element nnnn [as used in segment sss]
+</td>
+<td class='vocab-concept-definition'>
+NCPDP code list for data element nnnn [as used in segment sss]
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NDA
+</td>
+<td class='vocab-concept-display'>
+NANDA
+</td>
+<td class='vocab-concept-definition'>
+NANDA
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NDC
+</td>
+<td class='vocab-concept-display'>
+National drug codes
+</td>
+<td class='vocab-concept-definition'>
+National drug codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NDFRT
+</td>
+<td class='vocab-concept-display'>
+NDF-RT (Drug Classification)
+</td>
+<td class='vocab-concept-definition'>
+NDF-RT (Drug Classification)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIC
+</td>
+<td class='vocab-concept-display'>
+Nursing Interventions Classification
+</td>
+<td class='vocab-concept-definition'>
+Nursing Interventions Classification
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP001
+</td>
+<td class='vocab-concept-display'>
+Source of Information (Immunization)
+</td>
+<td class='vocab-concept-definition'>
+Source of Information (Immunization)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP002
+</td>
+<td class='vocab-concept-display'>
+Substance refusal reason
+</td>
+<td class='vocab-concept-definition'>
+Substance refusal reason
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP004
+</td>
+<td class='vocab-concept-display'>
+Vaccination - Contraindications, Precautions, and Immunities
+</td>
+<td class='vocab-concept-definition'>
+Vaccination - Contraindications, Precautions, and Immunities
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP007
+</td>
+<td class='vocab-concept-display'>
+Vaccinated at location (facility)
+</td>
+<td class='vocab-concept-definition'>
+Vaccinated at location (facility)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP008
+</td>
+<td class='vocab-concept-display'>
+Vaccine purchased with (Type of funding)
+</td>
+<td class='vocab-concept-definition'>
+Vaccine purchased with (Type of funding)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP009
+</td>
+<td class='vocab-concept-display'>
+Reported adverse event previously
+</td>
+<td class='vocab-concept-definition'>
+Reported adverse event previously
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIP010
+</td>
+<td class='vocab-concept-display'>
+VAERS Report type
+</td>
+<td class='vocab-concept-definition'>
+VAERS Report type
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NND
+</td>
+<td class='vocab-concept-display'>
+Notifiable Event (Disease/Condition) Code List
+</td>
+<td class='vocab-concept-definition'>
+Notifiable Event (Disease/Condition) Code List
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NPI
+</td>
+<td class='vocab-concept-display'>
+National Provider Identifier
+</td>
+<td class='vocab-concept-definition'>
+National Provider Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NUBC
+</td>
+<td class='vocab-concept-display'>
+National Uniform Billing Committee Code
+</td>
+<td class='vocab-concept-definition'>
+National Uniform Billing Committee Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NULLFL
+</td>
+<td class='vocab-concept-display'>
+Flavors of NULL
+</td>
+<td class='vocab-concept-definition'>
+Flavors of NULL
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+O301
+</td>
+<td class='vocab-concept-display'>
+German Procedure Codes
+</td>
+<td class='vocab-concept-definition'>
+German Procedure Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+O3012004
+</td>
+<td class='vocab-concept-display'>
+OPS Germany 2004
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany 2004
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+O3012005
+</td>
+<td class='vocab-concept-display'>
+OPS Germany 2005
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany 2005
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+O3012006
+</td>
+<td class='vocab-concept-display'>
+Ops Germany 2006
+</td>
+<td class='vocab-concept-definition'>
+Ops Germany 2006
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OBSMETHOD
+</td>
+<td class='vocab-concept-display'>
+Observation Method Code
+</td>
+<td class='vocab-concept-definition'>
+Observation Method Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OHA
+</td>
+<td class='vocab-concept-display'>
+Omaha System
+</td>
+<td class='vocab-concept-definition'>
+Omaha System
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2007
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2007
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2007
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2008
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2008
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPS2009
+</td>
+<td class='vocab-concept-display'>
+OPS Germany v2008
+</td>
+<td class='vocab-concept-definition'>
+OPS Germany v2008
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHDSCSOPT
+</td>
+<td class='vocab-concept-display'>
+Source of Payment Typology
+</td>
+<td class='vocab-concept-definition'>
+Source of Payment Typology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHINQUESTION
+</td>
+<td class='vocab-concept-display'>
+CDC Public Health Information Network (PHIN) Question
+</td>
+<td class='vocab-concept-definition'>
+CDC Public Health Information Network (PHIN) Question
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLR
+</td>
+<td class='vocab-concept-display'>
+CDC PHLIP Lab result codes that are not covered in SNOMED at the time of this implementation
+</td>
+<td class='vocab-concept-definition'>
+CDC PHLIP Lab result codes that are not covered in SNOMED at the time of this implementation
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLT
+</td>
+<td class='vocab-concept-display'>
+CDC PHLIP Lab test codes, where LOINC concept is too broad or not yet available, especially as needed for ordering and or lab to lab reporting )
+</td>
+<td class='vocab-concept-definition'>
+CDC PHLIP Lab test codes, where LOINC concept is too broad or not yet available, especially as needed for ordering and or lab to lab reporting )
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+X12Dennnn
+</td>
+<td class='vocab-concept-display'>
+ASC X12 Code List nnnn
+</td>
+<td class='vocab-concept-definition'>
+ASC X12 Code List nnnn
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+POS
+</td>
+<td class='vocab-concept-display'>
+POS Codes
+</td>
+<td class='vocab-concept-definition'>
+POS Codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRTCPTNMODE
+</td>
+<td class='vocab-concept-display'>
+Paticipation Mode Code
+</td>
+<td class='vocab-concept-definition'>
+Paticipation Mode Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RC
+</td>
+<td class='vocab-concept-display'>
+Read Classification
+</td>
+<td class='vocab-concept-definition'>
+Read Classification
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+refSeq-G
+</td>
+<td class='vocab-concept-display'>
+NCBI - genomic and chromosome reference sequences
+</td>
+<td class='vocab-concept-definition'>
+NCBI - genomic and chromosome reference sequences
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RefSeq-P
+</td>
+<td class='vocab-concept-display'>
+NCBI - protein reference sequence
+</td>
+<td class='vocab-concept-definition'>
+NCBI - protein reference sequence
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+refSeq-T
+</td>
+<td class='vocab-concept-display'>
+NCBI-transcript reference sequences (RefSeq)
+</td>
+<td class='vocab-concept-definition'>
+NCBI-transcript reference sequences (RefSeq)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ROLECLASS
+</td>
+<td class='vocab-concept-display'>
+Used initially for contact roles.
+</td>
+<td class='vocab-concept-definition'>
+Used initially for contact roles.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ROLECODE
+</td>
+<td class='vocab-concept-display'>
+Participation Mode
+</td>
+<td class='vocab-concept-definition'>
+Participation Mode
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RSPMODE
+</td>
+<td class='vocab-concept-display'>
+Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities.
+</td>
+<td class='vocab-concept-definition'>
+Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RXNORM
+</td>
+<td class='vocab-concept-display'>
+RxNorm
+</td>
+<td class='vocab-concept-definition'>
+RxNorm
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RxT-Ingrd
+</td>
+<td class='vocab-concept-display'>
+RxTerms-Ingredients Subset
+</td>
+<td class='vocab-concept-definition'>
+RxTerms-Ingredients Subset
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCT
+</td>
+<td class='vocab-concept-display'>
+SNOMED Clinical Terms
+</td>
+<td class='vocab-concept-definition'>
+SNOMED Clinical Terms
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCT2
+</td>
+<td class='vocab-concept-display'>
+SNOMED Clinical Terms alphanumeric codes
+</td>
+<td class='vocab-concept-definition'>
+SNOMED Clinical Terms alphanumeric codes
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SDM
+</td>
+<td class='vocab-concept-display'>
+SNOMED- DICOM Microglossary
+</td>
+<td class='vocab-concept-definition'>
+SNOMED- DICOM Microglossary
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SIC
+</td>
+<td class='vocab-concept-display'>
+Industry (SIC)
+</td>
+<td class='vocab-concept-definition'>
+Industry (SIC)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNM
+</td>
+<td class='vocab-concept-display'>
+Systemized Nomenclature of Medicine (SNOMED)
+</td>
+<td class='vocab-concept-definition'>
+Systemized Nomenclature of Medicine (SNOMED)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNM3
+</td>
+<td class='vocab-concept-display'>
+SNOMED International
+</td>
+<td class='vocab-concept-definition'>
+SNOMED International
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNT
+</td>
+<td class='vocab-concept-display'>
+SNOMED topology codes (anatomic sites)
+</td>
+<td class='vocab-concept-definition'>
+SNOMED topology codes (anatomic sites)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SOC
+</td>
+<td class='vocab-concept-display'>
+Occupation (SOC 2000)
+</td>
+<td class='vocab-concept-definition'>
+Occupation (SOC 2000)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL14
+</td>
+<td class='vocab-concept-display'>
+Priority (Type) of Visit
+</td>
+<td class='vocab-concept-definition'>
+Priority (Type) of Visit
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL15
+</td>
+<td class='vocab-concept-display'>
+Point of Origin
+</td>
+<td class='vocab-concept-definition'>
+Point of Origin
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL17
+</td>
+<td class='vocab-concept-display'>
+Patient Discharge Status
+</td>
+<td class='vocab-concept-definition'>
+Patient Discharge Status
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL31
+</td>
+<td class='vocab-concept-display'>
+Occurrence Code
+</td>
+<td class='vocab-concept-definition'>
+Occurrence Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL35
+</td>
+<td class='vocab-concept-display'>
+Occurrence Span
+</td>
+<td class='vocab-concept-definition'>
+Occurrence Span
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL39
+</td>
+<td class='vocab-concept-display'>
+Value Code
+</td>
+<td class='vocab-concept-definition'>
+Value Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL42
+</td>
+<td class='vocab-concept-display'>
+Revenue Code
+</td>
+<td class='vocab-concept-definition'>
+Revenue Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UB04FL67
+</td>
+<td class='vocab-concept-display'>
+Present on Admission
+</td>
+<td class='vocab-concept-definition'>
+Present on Admission
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UC
+</td>
+<td class='vocab-concept-display'>
+UCDS
+</td>
+<td class='vocab-concept-definition'>
+UCDS
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UCUM
+</td>
+<td class='vocab-concept-display'>
+UCUM code set for units of measure(from Regenstrief)
+</td>
+<td class='vocab-concept-definition'>
+UCUM code set for units of measure(from Regenstrief)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UMD
+</td>
+<td class='vocab-concept-display'>
+MDNS
+</td>
+<td class='vocab-concept-definition'>
+MDNS
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UML
+</td>
+<td class='vocab-concept-display'>
+Unified Medical Language
+</td>
+<td class='vocab-concept-definition'>
+Unified Medical Language
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UPC
+</td>
+<td class='vocab-concept-display'>
+Universal Product Code
+</td>
+<td class='vocab-concept-definition'>
+Universal Product Code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UPIN
+</td>
+<td class='vocab-concept-display'>
+UPIN
+</td>
+<td class='vocab-concept-definition'>
+UPIN
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+USGSGNIS
+</td>
+<td class='vocab-concept-display'>
+U.S. Board on Geographic Names (USGS - GNIS)
+</td>
+<td class='vocab-concept-definition'>
+U.S. Board on Geographic Names (USGS - GNIS)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+USPS
+</td>
+<td class='vocab-concept-display'>
+United States Postal Service
+</td>
+<td class='vocab-concept-definition'>
+United States Postal Service
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VIS
+</td>
+<td class='vocab-concept-display'>
+Clinicians are required to track the Vaccine Information Sheet (VIS) that was shared with the recipient of a vaccination.  This code system contains codes that  identify the document type and the owner of the document.
+</td>
+<td class='vocab-concept-definition'>
+Clinicians are required to track the Vaccine Information Sheet (VIS) that was shared with the recipient of a vaccination.  This code system contains codes that  identify the document type and the owner of the document.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+W1
+</td>
+<td class='vocab-concept-display'>
+WHO record # drug codes (6 digit)
+</td>
+<td class='vocab-concept-definition'>
+WHO record # drug codes (6 digit)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+W2
+</td>
+<td class='vocab-concept-display'>
+WHO record # drug codes (8 digit)
+</td>
+<td class='vocab-concept-definition'>
+WHO record # drug codes (8 digit)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+W4
+</td>
+<td class='vocab-concept-display'>
+WHO record # code with ASTM extension
+</td>
+<td class='vocab-concept-definition'>
+WHO record # code with ASTM extension
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WC
+</td>
+<td class='vocab-concept-display'>
+WHO ATC
+</td>
+<td class='vocab-concept-definition'>
+WHO ATC
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+X12DEnnnn
+</td>
+<td class='vocab-concept-display'>
+ASC X12 Code List nnnn
+</td>
+<td class='vocab-concept-definition'>
+ASC X12 Code List nnnn
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html'>
+Chapter 12 - Patient Care
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-1'>
+    12.1  chapter 12 contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2'>
+    12.2  INTRODUCTION AND OVERVIEW
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-1'>
+        12.2.1  Glossary
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-1-1'>
+            12.2.1.1  Goal:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-1-2'>
+            12.2.1.2  Problem:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-1-3'>
+            12.2.1.3  Role:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-1-4'>
+            12.2.1.4  Clinical pathway:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-1-5'>
+            12.2.1.5  Variance:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-2'>
+        12.2.2  Scenario Descriptions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-2-1'>
+            12.2.2.1  Patient pre-admission or patient admission
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-2-2'>
+            12.2.2.2  Consultation
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-2-3'>
+            12.2.2.3  Loading a clinical repository
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-2-4'>
+            12.2.2.4  Communicating clinical pathways and multidisciplinary plans of care
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-3'>
+        12.2.3  Trigger Events
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-4'>
+        12.2.4  Use of Action Codes
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-4-1'>
+            12.2.4.1  Examples of action code usage
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5'>
+        12.2.5  Message Construction Rules
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5-1'>
+            12.2.5.1  Rule 1
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5-2'>
+            12.2.5.2  Rule 2
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5-3'>
+            12.2.5.3  Rule 3
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5-4'>
+            12.2.5.4  Rule 4
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5-5'>
+            12.2.5.5  Rule 5
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-5-6'>
+            12.2.5.6  Rule 6
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-2-6'>
+        12.2.6  Acknowledgment Choreography
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3'>
+    12.3  MESSAGE DEFINITIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-1'>
+        12.3.1  PGL/ACK - Patient Goal Message (Events PC6, PC7, PC8)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-2'>
+        12.3.2  PPR/ACK - Patient Problem Message (Events PC1, PC2, PC3)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-3'>
+        12.3.3  PPP/ACK - Patient Pathway Message (Problem-Oriented) (Events PCB, PCC, PCD)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-4'>
+        12.3.4  PPG/ACK - Patient Pathway Message (Goal-Oriented) (Events PCG, PCH, PCJ)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-5'>
+        12.3.5  QRY - Patient Care Problem Query (Event PC4)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-6'>
+        12.3.6  PRR - Patient Problem Response (Event PC5)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-7'>
+        12.3.7  QRY - Patient Goal Query (Event PC9)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-8'>
+        12.3.8  PPV - Patient Goal Response (Event PCA)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-9'>
+        12.3.9  QRY - Patient Pathway (Problem-Oriented) Query (Event PCE)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-10'>
+        12.3.10  PTR - Patient Pathway (Problem-Oriented) Response (Event PCF)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-11'>
+        12.3.11  QRY - Patient Pathway (Goal-Oriented) Query (Event PCK)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-3-12'>
+        12.3.12  PPT - Patient Pathway (Goal-Oriented) Response (Event PCL)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4'>
+    12.4  MESSAGE SEGMENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1'>
+        12.4.1  GOL - Goal Detail Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-1'>
+            12.4.1.1  GOL-1   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-2'>
+            12.4.1.2  GOL-2   Action Date/Time   (DTM)   00817
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-3'>
+            12.4.1.3  GOL-3   Goal ID   (CWE)   00818
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-4'>
+            12.4.1.4  GOL-4   Goal Instance ID   (EI)   00819
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-5'>
+            12.4.1.5  GOL-5   Episode of Care   ID   (EI)   00820
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-6'>
+            12.4.1.6  GOL-6   Goal List Priority   (NM)   00821
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-7'>
+            12.4.1.7  GOL-7   Goal Established Date/Time   (DTM)   00822
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-8'>
+            12.4.1.8  GOL-8   Expected Goal Achieve Date/Time   (DTM)   00824
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-9'>
+            12.4.1.9  GOL-9   Goal Classification   (CWE)   00825
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-10'>
+            12.4.1.10  GOL-10   Goal Management Discipline   (CWE)   00826
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-11'>
+            12.4.1.11  GOL-11   Current Goal Review Status   (CWE)   00827
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-12'>
+            12.4.1.12  GOL-12   Current Goal Review Date/Time   (DTM)   00828
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-13'>
+            12.4.1.13  GOL-13   Next Goal Review Date/Time   (DTM)   00829
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-14'>
+            12.4.1.14  GOL-14   Previous Goal Review Date/Time   (DTM)   00830
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-15'>
+            12.4.1.15  GOL-15   Goal Review Interval      00831
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-16'>
+            12.4.1.16  GOL-16   Goal Evaluation   (CWE)   00832
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-17'>
+            12.4.1.17  GOL-17   Goal Evaluation Comment   (ST)   00833
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-18'>
+            12.4.1.18  GOL-18   Goal Life Cycle Status   (CWE)   00834
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-19'>
+            12.4.1.19  GOL-19   Goal Life Cycle Status Date/Time   (DTM)   00835
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-20'>
+            12.4.1.20  GOL-20   Goal Target Type   (CWE)   00836
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-21'>
+            12.4.1.21  GOL-21   Goal Target Name   (XPN)   00837
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-1-22'>
+            12.4.1.22  GOL-22   Mood Code    (CNE)   02182
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2'>
+        12.4.2  PRB - Problem Detail Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-1'>
+            12.4.2.1  PRB-1   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-2'>
+            12.4.2.2  PRB-2   Action Date/Time   (DTM)   00817
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-3'>
+            12.4.2.3  PRB-3   Problem ID   (CWE)   00838
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-4'>
+            12.4.2.4  PRB-4   Problem Instance ID   (EI)   00839
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-5'>
+            12.4.2.5  PRB-5   Episode of Care ID   (EI)   00820
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-6'>
+            12.4.2.6  PRB-6   Problem List Priority   (NM)   00841
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-7'>
+            12.4.2.7  PRB-7   Problem Established Date/Time   (DTM)   00842
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-8'>
+            12.4.2.8  PRB-8   Anticipated Problem Resolution Date/Time   (DTM)   00843
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-9'>
+            12.4.2.9  PRB-9   Actual Problem Resolution Date/Time   (DTM)   00844
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-10'>
+            12.4.2.10  PRB-10   Problem Classification   (CWE)   00845
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-11'>
+            12.4.2.11  PRB-11   Problem Management Discipline  (CWE)   00846
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-12'>
+            12.4.2.12  PRB-12   Problem Persistence   (CWE)   00847
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-13'>
+            12.4.2.13  PRB-13   Problem Confirmation Status   (CWE)   00848
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-14'>
+            12.4.2.14  PRB-14   Problem Life Cycle Status   (CWE)   00849
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-15'>
+            12.4.2.15  PRB-15   Problem Life Cycle Status Date/Time   (DTM)   00850
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-16'>
+            12.4.2.16  PRB-16   Problem Date of Onset   (DTM)   00851
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-17'>
+            12.4.2.17  PRB-17   Problem Onset Text   (ST)   00852
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-18'>
+            12.4.2.18  PRB-18   Problem Ranking   (CWE)   00853
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-19'>
+            12.4.2.19  PRB-19   Certainty of Problem   (CWE)   00854
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-20'>
+            12.4.2.20  PRB-20   Probability of Problem  (0-1) (NM)   00855
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-21'>
+            12.4.2.21  PRB-21   Individual Awareness of Problem   (CWE)   00856
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-22'>
+            12.4.2.22  PRB-22   Problem Prognosis   (CWE)   00857
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-23'>
+            12.4.2.23  PRB-23   Individual Awareness of Prognosis   (CWE)   00858
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-24'>
+            12.4.2.24  PRB-24   Family/Significant Other Awareness of Problem/Prognosis   (ST)   00859
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-25'>
+            12.4.2.25  PRB-25   Security/Sensitivity   (CWE)   00823
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-26'>
+            12.4.2.26  PRB-26   Problem Severity   (CWE)   02234
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-27'>
+            12.4.2.27  PRB-27   Problem Perspective   (CWE)   02235
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-2-28'>
+            12.4.2.28  PRB-28   Mood Code    (CNE)   02237
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3'>
+        12.4.3  PTH - Pathway Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-1'>
+            12.4.3.1  PTH-1   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-2'>
+            12.4.3.2  PTH-2   Pathway ID   (CWE)   01207
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-3'>
+            12.4.3.3  PTH-3   Pathway Instance ID   (EI)   01208
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-4'>
+            12.4.3.4  PTH-4   Pathway Established Date/Time   (DTM)   01209
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-5'>
+            12.4.3.5  PTH-5   Pathway Life Cycle Status   (CWE)   01210
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-6'>
+            12.4.3.6  PTH-6   Change Pathway Life Cycle Status Date/Time  (DTM)   01211
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-3-7'>
+            12.4.3.7  PTH-7   Mood Code    (CNE)   02239
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4'>
+        12.4.4  VAR - Variance Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4-1'>
+            12.4.4.1  VAR-1   Variance Instance ID   (EI)   01212
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4-2'>
+            12.4.4.2  VAR-2   Documented Date/Time   (DTM)   01213
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4-3'>
+            12.4.4.3  VAR-3   Stated Variance Date/Time   (DTM)   01214
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4-4'>
+            12.4.4.4  VAR-4   Variance Originator   (XCN)   01215
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4-5'>
+            12.4.4.5  VAR-5   Variance Classification   (CWE)   01216
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-4-6'>
+            12.4.4.6  VAR-6   Variance Description   (ST)   01217
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5'>
+        12.4.5  REL - Clinical Relationship Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-1'>
+            12.4.5.1  REL-1   Set ID - REL   (SI)   02240
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-2'>
+            12.4.5.2  REL-2   Relationship Type   (CWE)   02241
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-3'>
+            12.4.5.3  REL-3   This Relationship Instance Identifier   (EI)    02242
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-4'>
+            12.4.5.4  REL-4   Source Information Instance Identifier   (EI)   02243
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-5'>
+            12.4.5.5  REL-5   Target Information Instance Identifier   (EI)   02244
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-6'>
+            12.4.5.6  REL-6   Asserting Entity Instance ID   (EI)   02245
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-7'>
+            12.4.5.7  REL-7   Asserting Person   (XCN)   02246
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-8'>
+            12.4.5.8  REL-8   Asserting Organization   (XON)   02247
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-9'>
+            12.4.5.9  REL-9   Assertor Address   (XAD)   02248
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-10'>
+            12.4.5.10  REL-10   Assertor Contact   (XTN)   02249
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-11'>
+            12.4.5.11  REL-11   Assertion Date Range   (DR)   02250
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-12'>
+            12.4.5.12  REL-12   Negation Indicator   (ID)   02251
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-13'>
+            12.4.5.13  REL-13   Certainty of Relationship   (CWE)   02252
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-14'>
+            12.4.5.14  REL-14   Priority No   (NM)   02253
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-15'>
+            12.4.5.15  REL-15   Priority Sequence No    (NM)   02254
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-16'>
+            12.4.5.16  REL-16   Separability Indicator   (ID)   02255
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-17'>
+            12.4.5.17  REL-17   Source Information Instance Object Type   (ID)   02455
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-4-5-18'>
+            12.4.5.18  REL-18   Target Information Instance Object Type   (ID)   02456
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-5'>
+    12.5  EXAMPLE TRANSACTIONS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-6'>
+    12.6  IMPLEMENTATION CONSIDERATIONS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Care.html#Patient-Care-7'>
+    12.7  Outstanding ISSUES
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

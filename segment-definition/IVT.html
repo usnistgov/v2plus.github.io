@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+IVT - Material Location Segment
+</h3>
+<p class="v2 v2-normalindented">The Material Location segment (IVT) contains information specific to an inventory location for the inventory supply item in the Material Item (ITM) segment.  </p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - IVT - Material Location Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+IVT
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set Id – IVT
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVT-1'>
+02062
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Inventory Location Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IVT-2'>
+02063
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Inventory Location Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-3'>
+02277
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+999
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Source Location Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-4'>
+02064
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Source Location Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-5'>
+02278
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+999
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Item Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0625-Item-Status-Codes.html' title='Item Status Codes(Suggested)'>
+0625(S)
+<span class='vocab-link-text'>Item Status Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-6'>
+02065
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Bin Location Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IVT-7'>
+02066
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Order Packaging
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0818-Package.html' title='Package'>
+0818
+<span class='vocab-link-text'>Package</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-8'>
+02067
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Issue Packaging
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-9'>
+02068
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Default Inventory Asset Account
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-10'>
+02069
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Patient Chargeable Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-11'>
+02070
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Transaction Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0132-Transaction-Code.html' title='Transaction Code'>
+0132
+<span class='vocab-link-text'>Transaction Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-12'>
+00361
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Transaction Amount - Unit
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-13'>
+00366
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Item Importance Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0634-Item-Importance-Codes.html' title='Item Importance Codes'>
+0634
+<span class='vocab-link-text'>Item Importance Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-14'>
+02073
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Stocked Item Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-15'>
+02074
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Consignment Item Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-16'>
+02075
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Reusable Item Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-17'>
+02076
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Reusable Cost
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-18'>
+02077
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Substitute Item Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IVT-19'>
+02078
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Latex-Free Substitute Item Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-20'>
+02079
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Recommended Reorder Theory
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0642-Reorder-Theory-Codes.html' title='Reorder Theory Codes'>
+0642
+<span class='vocab-link-text'>Reorder Theory Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-21'>
+02080
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Recommended Safety Stock Days
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-22'>
+02081
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Recommended Maximum Days Inventory
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-23'>
+02082
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Recommended Order Point
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-24'>
+02083
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+8
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Recommended Order Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-25'>
+02084
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+8
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+26
+</td>
+<td>
+Operating Room Par Level Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IVT-26'>
+02085
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2 v2-normalindented"></p>
+<h4 class='v2' id='IVT-1'>
+IVT-1: Set Id – IVT (<a href='/data-type/SI.html'>SI</a>) 02062
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a sequential number that identifies this segment within a given Material Location segment group. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc. </p>
+
+<h4 class='v2' id='IVT-2'>
+IVT-2: Inventory Location Identifier (<a href='/data-type/EI.html'>EI</a>) 02063
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the code identifying an inventory supply location that stocks or purchases this item.</p>
+
+<h4 class='v2' id='IVT-3'>
+IVT-3: Inventory Location Name (<a href='/data-type/ST.html'>ST</a>) 02277
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the name of the inventory supply location identified in <a href="/segment-definition/IVT.html#IVT-2">IVT-2, Inventory Location Identifier</a>.</p>
+
+<h4 class='v2' id='IVT-4'>
+IVT-4: Source Location Identifier (<a href='/data-type/EI.html'>EI</a>) 02064
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the code identifying the source location that purchases and stocks items in addition to filling supply requests for the location specified in <a href="/segment-definition/IVT.html#IVT-2">IVT-2, Inventory Location Identifier</a>.  For example, IVT-2 may be considered Central Supply, an inventory location that issues to departments.  <a href="/segment-definition/IVT.html#IVT-3">IVT-3, Inventory Location Name</a>, may be considered General Stores, a supply location that most items are received into when delivered to the healthcare facility.  General Stores would then replenish the Central Supply inventory.  Central Supply would then issue supplies to departments based on requests for supplies.</p>
+
+<h4 class='v2' id='IVT-5'>
+IVT-5: Source Location Name (<a href='/data-type/ST.html'>ST</a>) 02278
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the name of the source supply location identified in <a href="/segment-definition/IVT.html#IVT-4">IVT-4, Source Location Identifier</a>.</p>
+
+<h4 class='v2' id='IVT-6'>
+IVT-6: Item Status (<a href='/data-type/CWE.html'>CWE</a>) 02065
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the status that applies to the inventory supply item for the inventory location specified in IVT-2.  Refer to <a href="https://www.hl7.org/fhir/v2/0625/index.html">User-defined Table 0625 – Item Status Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVT-7'>
+IVT-7: Bin Location Identifier (<a href='/data-type/EI.html'>EI</a>) 02066
+</h4>
+<p class="v2 v2-normalindented">Definition: A unique code assigned to a bin location located within the inventory location in IVT-2, where the inventory supply item may be stored.</p>
+
+<h4 class='v2' id='IVT-8'>
+IVT-8: Order Packaging (<a href='/data-type/CWE.html'>CWE</a>) 02067
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the primary packaging unit by which the item can be requisitioned or ordered to replenish the inventory supply item for the corresponding inventory location specified in <a href="/segment-definition/IVT.html#IVT-2">IVT-2, Inventory Location Identifier</a>.  See <a href="https://www.hl7.org/fhir/v2/0818/index.html">User-defined Table 0818 – Package</a> as described in <a href="/segment-definition/PKG.html#PKG-2">PKG-2 Packaging Units</a>, and presented in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVT-9'>
+IVT-9: Issue Packaging (<a href='/data-type/CWE.html'>CWE</a>) 02068
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the primary issue packaging unit by which the inventory supply item can be issued to departments or other locations by the corresponding inventory location specified in IVT-2.  See <a href="https://www.hl7.org/fhir/v2/0818/index.html">User-defined Table 0818 – Package</a> as described in <a href="/segment-definition/PKG.html#PKG-2">PKG-2 Packaging Units</a>, and presented in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVT-10'>
+IVT-10: Default Inventory Asset Account (<a href='/data-type/EI.html'>EI</a>) 02069
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the general ledger number for the default inventory asset account used in journal transactions associated with items stored in this inventory location.  The account includes all elements of a general ledger account (a fully qualified general ledger account number).  All elements may include a corporation, department/cost center account, and expense account.</p>
+
+<h4 class='v2' id='IVT-11'>
+IVT-11: Patient Chargeable Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02070
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether the item is patient chargeable at this inventory location.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator Table</a> in Chapter 2C, Code Tables, for valid values.  </p>
+
+<h4 class='v2' id='IVT-12'>
+IVT-12: Transaction Code (<a href='/data-type/CWE.html'>CWE</a>) 00361
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient&#39;s bill or charge labels) and the name of the coding system that assigned the charge code.  Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 – Transaction Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVT-13'>
+IVT-13: Transaction Amount - Unit (<a href='/data-type/CP.html'>CP</a>) 00366
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the dollar amount charged to patients for this single inventory supply item.</p>
+
+<h4 class='v2' id='IVT-14'>
+IVT-14: Item Importance Code (<a href='/data-type/CWE.html'>CWE</a>) 02073
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator of the level of importance of an item considered for this inventory location, such as an indicator signifying whether the item is considered critical for this inventory location.  Refer to <a href="https://www.hl7.org/fhir/v2/0634/index.html">User-defined Table 0634 – Item Importance Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVT-15'>
+IVT-15: Stocked Item Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02074
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator that identifies whether the item is regularly stocked in this inventory location.  Stock items are ordered regularly as part of the healthcare organization&#39;s inventory replenishment cycle.  If the item is not regularly stocked in this inventory location (non-stock item), the item is available to be ordered from this inventory location if requested by a department.   Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator Table</a> in Chapter 2C, Code Tables, for valid values.  </p>
+
+<h4 class='v2' id='IVT-16'>
+IVT-16: Consignment Item Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02075
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the inventory supply item is purchased on consignment. If the item is purchased on consignment, the healthcare organization does not pay for the inventory supply item until it is used.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator Table</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='IVT-17'>
+IVT-17: Reusable Item Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02076
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying that the inventory supply item is reusable, for example, after sterilization.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator Table</a> in Chapter 2C, Code Tables, for valid values.  </p>
+
+<h4 class='v2' id='IVT-18'>
+IVT-18: Reusable Cost (<a href='/data-type/CP.html'>CP</a>) 02077
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the issue cost charged to a department or patient for a reusable item.  This cost is calculated based on the cost of reprocessing the item.  Examples of reusable items are linens, restraints, and procedure packs (custom for specific procedures).</p>
+
+<h4 class='v2' id='IVT-19'>
+IVT-19: Substitute Item Identifier (<a href='/data-type/EI.html'>EI</a>) 02078
+</h4>
+<p class="v2 v2-normalindented">Definition: The substitute item is an item that is recommended as a substitute for the corresponding item in ITM-1.</p>
+
+<h4 class='v2' id='IVT-20'>
+IVT-20: Latex-Free Substitute Item Identifier (<a href='/data-type/EI.html'>EI</a>) 02079
+</h4>
+<p class="v2 v2-normalindented">Definition: The latex-free substitute item is an item that is latex-free, recommended as a substitute for the corresponding item in the <a href="/segment-definition/ITM.html#ITM-1">ITM-1</a> segment when a latex-free item is needed.</p>
+
+<h4 class='v2' id='IVT-21'>
+IVT-21: Recommended Reorder Theory (<a href='/data-type/CWE.html'>CWE</a>) 02080
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the method used to calculate a recommendation for when and how much of an inventory supply item to reorder.  Refer to <a href="https://www.hl7.org/fhir/v2/0642/index.html">User-defined Table 0642 – Reorder Theory Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='IVT-22'>
+IVT-22: Recommended Safety Stock Days (<a href='/data-type/NM.html'>NM</a>) 02081
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the number of days for stock to be kept on-hand to cushion against a stock-out for this item.  </p>
+
+<h4 class='v2' id='IVT-23'>
+IVT-23: Recommended Maximum Days Inventory (<a href='/data-type/NM.html'>NM</a>) 02082
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the maximum number of days of inventory to have on-hand at any one point in time.  This value is used in calculations of recommended order quantities</p>
+
+<h4 class='v2' id='IVT-24'>
+IVT-24: Recommended Order Point (<a href='/data-type/NM.html'>NM</a>) 02083
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the on-hand quantity referencing the recommended level of inventory at which the item should be re-ordered.</p>
+
+<h4 class='v2' id='IVT-25'>
+IVT-25: Recommended Order Amount (<a href='/data-type/NM.html'>NM</a>) 02084
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the quantity that the system should recommend to order when the on-hand quantity is equal to or less than the reorder point.  The quantity should be set at the Order Unit of Measure.  </p>
+
+<h4 class='v2' id='IVT-26'>
+IVT-26: Operating Room Par Level Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02085
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator that determines whether on-hands inventory will be decremented when performing Preference List Issues. Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator Table</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">If valued with a &#39;Y&#39;, this indicates to the system that the item to be issued is contained in an OR Par Level area (in an actual Operating Room) and not an Operating Room inventory area; therefore, on-hands of the Operation Room inventory area will not be decremented. If valued with a &#39;N&#39;, the item is contained in an Operating Room inventory location and on-hands will be decremented when performing Preference List Issues.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

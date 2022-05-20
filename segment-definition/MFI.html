@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+MFI - Master File Identification Segment
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the MFI segment is Infrastructure and Messaging.</p><p class="v2 v2-normalindented">The fields in the MFI segment are defined in HL7 Attribute Table - MFI.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - MFI - Master File Identification Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+MFI
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Master File Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0175-Master-File-Identifier-Code.html' title='Master File Identifier Code(Required)'>
+0175(R)
+<span class='vocab-link-text'>Master File Identifier Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MFI-1'>
+00658
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Master File Application Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0361-Application.html' title='Application'>
+0361
+<span class='vocab-link-text'>Application</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#MFI-2'>
+00659
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+File-Level Event Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0178-File-Level-Event-Code.html' title='File Level Event Code(Required)'>
+0178(R)
+<span class='vocab-link-text'>File Level Event Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MFI-3'>
+00660
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Entered Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MFI-4'>
+00661
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Effective Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MFI-5'>
+00662
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+6
+</td>
+<td>
+Response Level Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0179-Response-Level.html' title='Response Level(Required)'>
+0179(R)
+<span class='vocab-link-text'>Response Level(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MFI-6'>
+00663
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='MFI-1'>
+MFI-1: Master File Identifier (<a href='/data-type/CWE.html'>CWE</a>) 00658
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is a CWE data type that identifies a standard HL7 master file.  This table may be extended by local agreement during implementation to cover site-specific master files (z-master files).  HL7 recommends use of the HL7 assigned table number as the master file identifier code if one is not specified in Table 0175.  For example, a master file of Marital Status codes would be identified by HL70002 as the <a href="/segment-definition/MFI.html#MFI-1">MFI-1 - Master file identifier</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0175/index.html">HL7 Table 0175 – Master File Identifier Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='MFI-2'>
+MFI-2: Master File Application Identifier (<a href='/data-type/HD.html'>HD</a>) 00659
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an optional code of up to 180 characters which (if applicable) uniquely identifies the application responsible for maintaining this file at a particular site.  A group of intercommunicating applications may use more than a single instance of a master file of certain type (e.g., charge master or physician master).  The particular instance of the file is identified by this field.  Refer to <a href="https://www.hl7.org/fhir/v2/0361/index.html">User-defined table 0361 - Applications</a>.</p>
+
+<h4 class='v2' id='MFI-3'>
+MFI-3: File-Level Event Code (<a href='/data-type/ID.html'>ID</a>) 00660
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field defines the file-level event code.  Refer to <a href="https://www.hl7.org/fhir/v2/0178/index.html">HL7 Table 0178 – File Level Event Code</a> in Chapter 2C, Code Tables, for valid values.</p><div class="v2-note"><p class="v2"><strong>Note</strong>:  The replace option allows the sending system to replace a file without sending delete record-level events for each record in that file.  UPD means that the events are defined according to the record-level event code contained in each MFE segment in that message.</p><p class="v2">If the <a href="/segment-definition/MFI.html#MFI-3">MFI-3 - File-Level Event Code</a> is &quot;REP&quot; (replace file), then each MFE segment must have an <a href="/segment-definition/MFE.html#MFE-1">MFE-1 - Record-Level Event Code</a> of &quot;MAD&quot; (add record to master file).</p></div><br/>
+
+<h4 class='v2' id='MFI-4'>
+MFI-4: Entered Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00661
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time for the file-level event on originating system.</p>
+
+<h4 class='v2' id='MFI-5'>
+MFI-5: Effective Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00662
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional field contains the effective date/time, which can be included for file-level action specified.  It is the date/time the originating system expects that the event is to have been completed on the receiving system.  If this field is not present, the action date/time should default to the current date/time (when the message is received).</p>
+
+<h4 class='v2' id='MFI-6'>
+MFI-6: Response Level Code (<a href='/data-type/ID.html'>ID</a>) 00663
+</h4>
+<p class="v2 v2-normalindented">Definition:  These codes specify the application response level defined for a given Master File Message at the MFE segment level as defined in <a href="https://www.hl7.org/fhir/v2/0179/index.html">HL7 Table 0179 – Response Level</a> in Chapter 2C, Code Tables.  Required for MFN-Master File Notification message.  Specifies additional detail (beyond <a href="/segment-definition/MSH.html#MSH-15">MSH-15 - Accept Acknowledgment Type</a> and <a href="/segment-definition/MSH.html#MSH-16">MSH-16 - Application Acknowledgment Type</a>) for application-level acknowledgment paradigms for Master Files transactions.  <a href="/segment-definition/MSH.html#MSH-15">MSH-15 - Accept Acknowledgment Type</a> and <a href="/segment-definition/MSH.html#MSH-16">MSH-16 - Application Acknowledgment Type</a> operate as defined in Chapter 2.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

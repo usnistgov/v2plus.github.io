@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+ARQ - Appointment Request Segment
+</h3>
+<p class="v2 v2-normalindented">The ARQ segment defines a request for the booking of an appointment.  It is used in transactions sent from an application acting in the role of a placer.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - ARQ - Appointment Request Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+ARQ
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Placer Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-1'>
+00860
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Filler Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-2'>
+00861
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Occurrence Number
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-3'>
+00862
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Placer Order Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-4'>
+00218
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Schedule ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-5'>
+00864
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Request Event Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-6'>
+00865
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Appointment Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0276-Appointment-reason-codes.html' title='Appointment reason codes'>
+0276
+<span class='vocab-link-text'>Appointment reason codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-7'>
+00866
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Appointment Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0277-Appointment-Type-Codes.html' title='Appointment Type Codes(Suggested)'>
+0277(S)
+<span class='vocab-link-text'>Appointment Type Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-8'>
+00867
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Appointment Duration
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-9'>
+00868
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Appointment Duration Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-10'>
+00869
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Requested Start Date/Time Range
+</td>
+<td class='centered'>
+<a href='/data-type/DR.html'>
+DR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-11'>
+00870
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Priority-ARQ
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-12'>
+00871
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Repeating Interval
+</td>
+<td class='centered'>
+<a href='/data-type/RI.html'>
+RI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-13'>
+00872
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Repeating Interval Duration
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-14'>
+00873
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Placer Contact Person
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-15'>
+00874
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Placer Contact Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-16'>
+00875
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Placer Contact Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-17'>
+00876
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Placer Contact Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-18'>
+00877
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Entered By Person
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-19'>
+00878
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Entered By Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-20'>
+00879
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Entered By Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-21'>
+00880
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Parent Placer Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-22'>
+00881
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Parent Filler Appointment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-23'>
+00882
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-24'>
+00216
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Filler Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ARQ-25'>
+00217
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+26
+</td>
+<td>
+Alternate Placer Order Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ARQ-26'>
+03547
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='ARQ-1'>
+ARQ-1: Placer Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00860
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains placer application&#39;s permanent identifier for the appointment request (and the scheduled appointment itself, when confirmed as booked by the filler application).  This is a composite field.  The first component is a string that identifies an individual appointment request, or booked appointment.  It is assigned by the placer application, and it identifies an appointment request, and the subsequent scheduled appointment, uniquely among all such requests and/or booked appointments from a particular requesting application.  If the placer appointment ID identifies a parent of a repeating schedule request, then the individual scheduled child appointments can be uniquely identified either by a new placer appointment ID or the parent&#39;s placer appointment ID plus an occurrence number, specified in <a href="/segment-definition/ARQ.html#ARQ-3">ARQ-3-Occurrence number.</a></p><p class="v2 v2-normalindented">The second through fourth components contain the assigning authority identifying information.  </p>
+
+<h4 class='v2' id='ARQ-2'>
+ARQ-2: Filler Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00861
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the filler application&#39;s permanent identifier for the appointment request (and the scheduled appointment itself, when confirmed as a booked slot by the filler application).  This is a composite field. The first component is a string that identifies an individual appointment request, or booked appointment.  It is assigned by the filler application, and it identifies an appointment request and the subsequent scheduled appointment, uniquely among all such requests and/or booked appointments from a particular processing application.  If the filler appointment ID identifies a parent of a repeating schedule request, then the individual scheduled child appointments can be uniquely identified either by a new filler appointment ID or the parent&#39;s filler appointment ID plus an occurrence number, specified in <a href="/segment-definition/ARQ.html#ARQ-3">ARQ-3-Occurrence number</a>.</p><p class="v2 v2-normalindented">The second through fourth components contain the assigning authority identifying information. This is a conditionally required field.  On initial request messages and other messages where a filler has not yet assigned a filler appointment ID, this field should not contain a value.  In all other subsequent messages, where a filler application has assigned a filler appointment ID and communicated it to other applications, this field is required.</p>
+
+<h4 class='v2' id='ARQ-3'>
+ARQ-3: Occurrence Number (<a href='/data-type/NM.html'>NM</a>) 00862
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used in conjunction with the placer appointment ID and/or the filler appointment ID to uniquely identify an individual occurrence (a child) of a parent repeating schedule appointment.</p><p class="v2 v2-normalindented">This field is conditionally required.  If the transaction using this segment is meant to apply only to one occurrence of a repeating appointment, and an occurrence number is required to uniquely identify the child appointment (that is, the child does not have a separate and unique placer appointment ID or filler appointment ID), then this field is required.</p>
+
+<h4 class='v2' id='ARQ-4'>
+ARQ-4: Placer Order Group Number (<a href='/data-type/EI.html'>EI</a>) 00218
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the Placer Group as referenced by the Placer application. A Placer Order Group is a set of appointments grouped together by the placer application, and subsequently identified by the placer application.</p><p class="v2 v2-normalindented">The second through fourth components contain the assigning authority identifying information.  </p>
+
+<h4 class='v2' id='ARQ-5'>
+ARQ-5: Schedule ID (<a href='/data-type/CWE.html'>CWE</a>) 00864
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier code for the schedule in which this appointment should be (or is) booked.  This field is provided for situations in which filler applications maintain multiple schedules, and in which a particular resource or set of resources is controlled by more than one of those schedules.</p><p class="v2 v2-normalindented">If a new appointment must be booked, it may be necessary to provide a schedule ID to uniquely identify the intended slot(s) being requested in the transaction.  After the request has been assigned to one or more slots; however, the filler application should assign a unique filler appointment ID (see sections <a href="/composition/Scheduling.html#Scheduling-6-1-1">10.6.1.1</a>, &quot;<a href="/segment-definition/ARQ.html#ARQ-1">ARQ-1   Placer Appointment ID   (EI)   00860</a>,&quot; and <a href="/composition/Scheduling.html#Scheduling-6-1-2">10.6.1.2</a>, &quot;<a href="/segment-definition/ARQ.html#ARQ-2">ARQ-2   Filler Appointment ID   (EI)   00861</a>).&quot;  This filler appointment ID, as its definition indicates, should uniquely identify the appointment among all such requests and appointments within the filler application.  This means that, once assigned, the filler appointment ID should uniquely identify the appointment (either as a request or as a booked appointment) without a need to provide the schedule ID too.  As a cautionary note regarding implementation, if the filler appointment ID would not otherwise be unique, it may be necessary to include the schedule ID as part of the filler appointment ID.  This can be done either by prefixing the appointment ID with the schedule ID, or by appending the schedule ID to the appointment ID.</p>
+
+<h4 class='v2' id='ARQ-6'>
+ARQ-6: Request Event Reason (<a href='/data-type/CWE.html'>CWE</a>) 00865
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier code for the reason that the request event is being triggered.  This field may contain a code describing the cancel reason, the delete reason, the discontinue reason, the add reason, or any other code describing the reason that a specific event is occurring.</p>
+
+<h4 class='v2' id='ARQ-7'>
+ARQ-7: Appointment Reason (<a href='/data-type/CWE.html'>CWE</a>) 00866
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier code for the reason that the appointment is to take place.  This field may contain a Universal Service ID describing the observation/test/battery/procedure or other activity that is to be performed during the requested appointment, similar to the Universal Service ID defined for the OBR segment in Chapter 4 on Order Entry.  It may also contain a site-specific code describing a pre-defined set of reasons that an appointment may be set to occur.  This code can be based on local and/or universal codes.  The use of universal codes is recommended.  Refer to <a href="https://www.hl7.org/fhir/v2/0276/index.html">User-defined Table 0276 - Appointment reason codes</a> in Chapter 2C, Code Tables, for suggested values.  This table provides codes for appointment reasons such as routine appointment, previously unscheduled walk-in visit, etc.</p>
+
+<h4 class='v2' id='ARQ-8'>
+ARQ-8: Appointment Type (<a href='/data-type/CWE.html'>CWE</a>) 00867
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier code for the type of appointment being requested.  Refer to <a href="https://www.hl7.org/fhir/v2/0277/index.html">User-Defined Table 0277 - Appointment Type Codes</a> in Chapter 2C, Code Tables, for suggested values.  This table provides codes for appointment types such as routine schedule request, request for a tentative appointment, etc.</p>
+
+<h4 class='v2' id='ARQ-9'>
+ARQ-9: Appointment Duration (<a href='/data-type/NM.html'>NM</a>) 00868
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount of time being requested for the appointment.  In cases of requests for repeating appointments, this field describes the duration of one instance of the appointment.  If this field is unvalued, then the institution&#39;s standard duration for the type of appointment requested will be assumed.</p><p class="v2 v2-normalindented">The appointment duration field must contain a positive, non-zero number.  A negative number or zero (0) is nonsensical in the context of a duration.</p>
+
+<h4 class='v2' id='ARQ-10'>
+ARQ-10: Appointment Duration Units (<a href='/data-type/CNE.html'>CNE</a>) 00869
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code describing the units of time used in expressing the <a href="/segment-definition/ARQ.html#ARQ-9">ARQ-9-Appointment duration</a> field.  This field should be valued according to the recommendations in Chapters 2 and 7.  If this component is not valued, the ISO base unit of seconds (code &quot;<em>s&quot;</em>) will be assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO and ANSI+ unit codes.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 96%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.05%;'/><col span='1' style='width: 27.73%;'/><col span='1' style='width: 56.20%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.05%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:27.73%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:56.20%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.05%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:27.73%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:56.20%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.05%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:27.73%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:56.20%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/>
+
+<h4 class='v2' id='ARQ-11'>
+ARQ-11: Requested Start Date/Time Range (<a href='/data-type/DR.html'>DR</a>) 00870
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time that the appointment is requested to begin, in the form of a date/time range.  The first component contains the earliest date and time that the appointment may be scheduled to begin.  The second component contains the latest date and time that the appointment may be scheduled to begin.</p><p class="v2 v2-normalindented">The DTM (time stamp) data type allows for two components: the time stamp, and a degree of precision.  If used, the degree of precision should be separated from the time stamp by a subcomponent delimiter.</p><p class="v2 v2-normalindented">If only the range start date/time has been provided, then the range end date/time is assumed to be infinity.  Using this scenario is equivalent to requesting the next available slot on/after a particular date and time.  If only the range end date/time has been provided, then the range start date/time is assumed to be immediate.  Using this scenario is equivalent to requesting the appointment start some time between the current date and time, and the specified range end date/time.  Requesting an appointment when the range start and range end date/time are the same is equivalent to requesting a specific slot on a schedule.  If this field is unvalued, then the filler application will assume that the next available slot should be scheduled, using the institution&#39;s processing rules for scheduling appointments.</p><p class="v2 v2-normalindented">This field may repeat.  Repetitions of this field are used to construct a list of acceptable ranges.  Repetitions of this field are connected with a logical OR to construct this list.  This procedure allows applications to provide multiple preferences for the scheduling of appointments.  Applications should take steps to ensure that nonsensical ranges are not indicated in this field (for example, redundant ranges).</p><p class="v2 v2-normalindented">Examples:</p><p class="v2 v2-normalindented">Schedule the appointment to begin at some time between 8:00AM on Tuesday, May 17th, 1994 and 12:00PM on Friday, May 20th, 1994 local time:</p><p class="v2 v2-example">...|199405170800^199405201200|...</p><p class="v2 v2-normalindented">Schedule the appointment in the next available slot on/after 6:00AM on Monday, April 25th, 1994 local time:</p><p class="v2 v2-example">...|199405250600^|...</p><div class="v2-note"><p class="v2">Note:  The field value ...|199405250600|... is equivalent to making the above request, according to the HL7 rules for processing fields.</p></div><br/><p class="v2 v2-normalindented">Schedule the appointment in the next available slot on/<strong>before</strong> 6:00AM on Monday, April 25th, 1994 local time:</p><p class="v2 v2-example">...|^199405250600|...</p><p class="v2 v2-normalindented">Schedule the appointment in the next available slot:</p><p class="v2 v2-example">...||...</p><p class="v2 v2-normalindented">Schedule the appointment to begin on any weekday during the two weeks beginning Monday, April 4th, 1994.  In this example, the degree of precision (sub)component of the time stamp is used to indicate that the date/time ranges refer to the institution&#39;s standard operating day:</p><p class="v2 v2-example">...|199404040000&#38;D^199404080000&#38;D~199404110000&#38;D^199404150000&#38;D|...</p><p class="v2 v2-normalindented">Schedule the appointment in the next available slot that does not occur during the May 1994 HL7 Working Group Meeting:</p><p class="v2 v2-example">...|^199405161600~199405230800^|...</p><p class="v2 v2-normalindented">Schedule the appointment to begin on/before 4:00PM on Thursday, December 23rd, 1993, or any weekday between Monday, December 27th, and Thursday, December 30th, or on/after 8:00AM on Monday, January 3rd, 1994:</p><p class="v2 v2-example">...|^199312231600~199312270000&#38;D^199312300000&#38;D~199401030800^|...</p>
+
+<h4 class='v2' id='ARQ-12'>
+ARQ-12: Priority-ARQ (<a href='/data-type/ST.html'>ST</a>) 00871
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the urgency of the request.  The definition of this field is equivalent to the definition of TQ1-9 in the Order Entry chapter (Chapter 4), &quot;Priority&quot; component.&quot;</p>
+
+<h4 class='v2' id='ARQ-13'>
+ARQ-13: Repeating Interval (<a href='/data-type/RI.html'>RI</a>) 00872
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the interval between repeating appointments.  The default setting indicates that the appointment should occur once, if the component is not valued.  If an explicit time interval is specified for the repeat pattern, then it specifies the actual time(s) at which the appointment should be scheduled.  The <a href="/segment-definition/ARQ.html#ARQ-11">ARQ-11-Requested Start Date/Time Range</a> ought to indicate the first repetition that should occur.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The subcomponent delimiter defined for the Interval component of the Quantity/Timing field definition has been replaced by a component delimiter for this field.</p></div><br/>
+
+<h4 class='v2' id='ARQ-14'>
+ARQ-14: Repeating Interval Duration (<a href='/data-type/ST.html'>ST</a>) 00873
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates how long the appointment repetitions should continue, once they have begun.  The default setting indicates that the appointment should occur once.  If the Interval Duration is defined as indefinitely repeating, the repetition of this appointment can only be stopped by using a discontinue event.</p>
+
+<h4 class='v2' id='ARQ-15'>
+ARQ-15: Placer Contact Person (<a href='/data-type/XCN.html'>XCN</a>) 00874
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person responsible for requesting the scheduling of a requested appointment.  This person could be the same person responsible for executing the actual appointment, or it could be the provider requesting that an appointment be made on behalf of the patient, with another provider.  </p>
+
+<h4 class='v2' id='ARQ-16'>
+ARQ-16: Placer Contact Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00875
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number used to contact the placer contact person.</p>
+
+<h4 class='v2' id='ARQ-17'>
+ARQ-17: Placer Contact Address (<a href='/data-type/XAD.html'>XAD</a>) 00876
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address used to contact the placer contact person. </p>
+
+<h4 class='v2' id='ARQ-18'>
+ARQ-18: Placer Contact Location (<a href='/data-type/PL.html'>PL</a>) 00877
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the location of the placer contact person. </p>
+
+<h4 class='v2' id='ARQ-19'>
+ARQ-19: Entered By Person (<a href='/data-type/XCN.html'>XCN</a>) 00878
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person responsible for entering the request for the scheduling of an appointment.  It is included to provide an audit trail of persons responsible for the request.  This person may be someone other than the placer contact person, who is responsible for entering orders and requests. </p>
+
+<h4 class='v2' id='ARQ-20'>
+ARQ-20: Entered By Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00879
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the phone number used to contact the <a href="/segment-definition/ARQ.html#ARQ-19">ARQ-19-Entered by Person</a>.</p>
+
+<h4 class='v2' id='ARQ-21'>
+ARQ-21: Entered By Location (<a href='/data-type/PL.html'>PL</a>) 00880
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the location of the entered by person.  </p>
+
+<h4 class='v2' id='ARQ-22'>
+ARQ-22: Parent Placer Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00881
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child to its parent, when a parent-child relationship exists.  It contains the placer application&#39;s permanent identifier for the parent of the appointment request.  This is a composite field.</p><p class="v2 v2-normalindented">The first component is a string that identifies the parent appointment request.  It is assigned by the placer application, and identifies an appointment request uniquely among all such requests from a particular requesting application.</p>
+
+<h4 class='v2' id='ARQ-23'>
+ARQ-23: Parent Filler Appointment ID (<a href='/data-type/EI.html'>EI</a>) 00882
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child to its parent, when a parent-child relationship exists.  It contains the filler application&#39;s permanent identifier for the parent of the appointment request.  This is a composite field.</p><p class="v2 v2-normalindented">The first component is a string that identifies the parent appointment request.  It is assigned by the filler application, and identifies an appointment request uniquely among all such requests on a particular processing application.</p>
+
+<h4 class='v2' id='ARQ-24'>
+ARQ-24: Placer Order Number (<a href='/data-type/EI.html'>EI</a>) 00216
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the placer application&#39;s order number for the order associated with this scheduling request.</p><p class="v2 v2-normalindented">This field is described in detail in Chapter 4, section 4.5.1.2, &quot;ORC-2 – Placer Order Number.&quot;  It is an optional field, but if a Placer order number is present, then a Filler order number (<a href="/segment-definition/ARQ.html#ARQ-25">ARQ-25 – Filler Order Number</a>) must also be present. </p>
+
+<h4 class='v2' id='ARQ-25'>
+ARQ-25: Filler Order Number (<a href='/data-type/EI.html'>EI</a>) 00217
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the order number assigned by the filler application for the order associated with this scheduling request.  </p><p class="v2 v2-normalindented">This field is described in detail in Chapter 4, section 4.5.1.3, &quot;ORC-3 – Filler Order Number.”  It is conditionally mandatory depending on the presence of the Placer order number (<a href="/segment-definition/ARQ.html#ARQ-24">ARQ-24 – Placer Order Number</a>).  This conditionally mandatory requirement addresses the concern that a Scheduling system cannot and should not create or fill an order.  Therefore, an order must have been accepted by the filler application before scheduling the resources associated with that order.</p>
+
+<h4 class='v2' id='ARQ-26'>
+ARQ-26: Alternate Placer Order Group Number (<a href='/data-type/EIP.html'>EIP</a>) 03547
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the Placer Group as referenced by the Placer application, the Filler application, or both. A Placer Group is a set of appointments grouped together by the placer application, and subsequently identified by the placer application and/or by the filler application.</p><p class="v2 v2-normalindented">Within each of the two Subcomponents, the first component is a string that identifies a group of appointment requests.  It is assigned by the placer or filler application, and it identifies an appointment group uniquely among all such groups of requests from a particular requesting application.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

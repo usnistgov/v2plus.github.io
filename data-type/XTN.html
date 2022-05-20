@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+XTN - extended telecommunication number
+</h3>
+<div class='v2-data-type-content'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - XTN - extended telecommunication number
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+XTN
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-1'>
+1
+</a>
+</td>
+<td>
+Telephone Number
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-2'>
+2
+</a>
+</td>
+<td>
+Telecommunication Use Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0201-Telecommunication-Use-Code.html' title='Telecommunication Use Code(Required)'>
+0201(R)
+<span class='vocab-link-text'>Telecommunication Use Code(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-3'>
+3
+</a>
+</td>
+<td>
+Telecommunication Equipment Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0202-Telecommunication-Equipment-Type.html' title='Telecommunication Equipment Type(Required)'>
+0202(R)
+<span class='vocab-link-text'>Telecommunication Equipment Type(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[2..8]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-4'>
+4
+</a>
+</td>
+<td>
+Communication Address
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-5'>
+5
+</a>
+</td>
+<td>
+Country Code
+</td>
+<td class='centered'>
+<a href='/data-type/SNM.html'>
+SNM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;3
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-6'>
+6
+</a>
+</td>
+<td>
+Area/City Code
+</td>
+<td class='centered'>
+<a href='/data-type/SNM.html'>
+SNM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;3
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-7'>
+7
+</a>
+</td>
+<td>
+Local Number
+</td>
+<td class='centered'>
+<a href='/data-type/SNM.html'>
+SNM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;9
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-8'>
+8
+</a>
+</td>
+<td>
+Extension
+</td>
+<td class='centered'>
+<a href='/data-type/SNM.html'>
+SNM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;5
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-9'>
+9
+</a>
+</td>
+<td>
+Any Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-10'>
+10
+</a>
+</td>
+<td>
+Extension Prefix
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;4
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-11'>
+11
+</a>
+</td>
+<td>
+Speed Dial Code
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;6
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-12'>
+12
+</a>
+</td>
+<td>
+Unformatted Telephone Number 
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-13'>
+13
+</a>
+</td>
+<td>
+Effective Start Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-14'>
+14
+</a>
+</td>
+<td>
+Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-15'>
+15
+</a>
+</td>
+<td>
+Expiration Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0868-Telecommunication-Expiration-Reason.html' title='Telecommunication Expiration Reason(Suggested)'>
+0868(S)
+<span class='vocab-link-text'>Telecommunication Expiration Reason(Suggested)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-16'>
+16
+</a>
+</td>
+<td>
+Protection Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0618-Protection-Code.html' title='Protection Code'>
+0618
+<span class='vocab-link-text'>Protection Code</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#XTN-17'>
+17
+</a>
+</td>
+<td>
+Shared Telecommunication Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#XTN-18'>
+18
+</a>
+</td>
+<td>
+Preference Order
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;2
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;WITHDRAWN Telephone Number&#62; &#38; &#60;Telecommunication Use Code (ID)&#62; &#38; &#60;Telecommunication Equipment Type (ID)&#62; &#38; &#60;Communication Address (ST)&#62; &#38; &#60;Country Code (SNM)&#62; &#38; &#60;Area/City Code (SNM)&#62; &#38; &#60;Local Number (SNM)&#62; &#38; &#60;Extension (SNM)&#62; &#38; &#60;Any Text (ST)&#62; &#38; &#60;Extension Prefix (ST)&#62; &#38; &#60;Speed Dial Code (ST)&#62; &#38; &#60;Unformatted Telephone Number  (ST)&#62; &#38; &#60;Effective Start Date (DTM)&#62; &#38; &#60;Expiration Date (DTM)&#62; &#38; &#60;Expiration Reason (CWE)&#62; &#38; &#60;Protection Code (CWE)&#62; &#38; &#60;Shared Telecommunication Identifier (EI)&#62; &#38; &#60;Preference Order (NM)&#62;</p><p class='v2-components'>Subcomponents for Expiration Reason (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+<p class='v2-components'>Subcomponents for Protection Code (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+<p class='v2-components'>Subcomponents for Shared Telecommunication Identifier (EI): &#60;Entity Identifier (ST)&#62; &#94; &#60;Namespace ID (IS)&#62; &#94; &#60;Universal ID (ST)&#62; &#94; &#60;Universal ID Type (ID)&#62;</p>
+</div>
+<p class="v2 v2-normalindented">Example 1: A Work fax number</p><p class="v2 v2-example">^WPN^FX^^^734^6777777</p><p class="v2 v2-normalindented">Example 2: Telephone number with extension</p><p class="v2 v2-example">^WPN^PH^^^734^6777777^1</p><p class="v2 v2-normalindented">Example 2: Telephone number with internal code. In this example, assume that a corporation&#39;s telephone system supports a full external telephone number (area code and telephone number). It also supports internal dialing standards that assign a code to each facility and an extension to each telephone (which happens to be the last 4 digits of the external telephone number, by convention).</p><p class="v2 v2-normalindented">So, if the Los Angeles facility were assigned code 333, and if the &quot;outside&quot; telephone number at the LA office is (626) 555-1234, the components would be:</p><table class="v2" style="width: 57%; "><colgroup><col span='1' style='width: 41.12%;'/><col span='1' style='width: 58.87%;'/></colgroup><tr><td style='width:41.12%; '><p class="v2 v2-othertableheader">Component</p></td><td style='width:58.87%; '><p class="v2 v2-othertableheader">Value</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">area/city code</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">626</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">phone number</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">555-1234</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">extension</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">1234</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">extension prefix</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">333</p></td></tr></table><br/><p class="v2 v2-normalindented">The field would be transmitted as follows:</p><p class="v2 v2-example">^WPN^PH^^^626^5551234^1234^333</p><p class="v2 v2-normalindented">Example 3: speed dial. In this example, assume that a corporation&#39;s telephone system supports speed dialing numbers. For example, suppose that a corporation has a contract with a travel agency, whose external number is 1-610-555-1234.  Since it is so frequently dialed, the company assigns a speed code: #6098.  The components would be:</p><table class="v2" style="width: 57%; "><colgroup><col span='1' style='width: 41.12%;'/><col span='1' style='width: 58.87%;'/></colgroup><tr><td style='width:41.12%; '><p class="v2 v2-othertableheader">Component</p></td><td style='width:58.87%; '><p class="v2 v2-othertableheader">Value</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">Area/city code</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">610</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">Phone number</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">555-1234</p></td></tr><tr><td style='width:41.12%; '><p class="v2 v2-othertablebody">Speed Dial</p></td><td style='width:58.87%; '><p class="v2 v2-othertablebody">#6098</p></td></tr></table><br/><p class="v2 v2-normalindented">The field would be transmitted as follows:</p><p class="v2 v2-example">^WPN^PH^^^610^5551234^^^#6098</p><p class="v2 v2-normalindented">Example 4: home e-mail address. In this example, assume that a person has a primary home e-mail address such as someone@somewhere.com.  The components would be:</p><table class="v2" style="width: 57%; "><colgroup><col span='1' style='width: 55.93%;'/><col span='1' style='width: 44.06%;'/></colgroup><tr><td style='width:55.93%; '><p class="v2 v2-othertableheader">Component</p></td><td style='width:44.06%; '><p class="v2 v2-othertableheader">Value</p></td></tr><tr><td style='width:55.93%; '><p class="v2 v2-othertablebody">Telecommunication Use Code</p></td><td style='width:44.06%; '><p class="v2 v2-othertablebody">PRN</p></td></tr><tr><td style='width:55.93%; '><p class="v2 v2-othertablebody">Telecommunication Equipment Type </p></td><td style='width:44.06%; '><p class="v2 v2-othertablebody">Internet</p></td></tr><tr><td style='width:55.93%; '><p class="v2 v2-othertablebody">Communication Address</p></td><td style='width:44.06%; '><p class="v2 v2-othertablebody">someone@somewhere.com</p></td></tr></table><br/><p class="v2 v2-normalindented">The field would be transmitted as follows:</p><p class="v2 v2-example">^PRN^Internet^someone@somewhere.com</p><p class="v2 v2-normalindented">Example 5: work e-mail address. In this example, assume that a person has a work e-mail address such as someone@somewhere.com.  The components would be:</p><table class="v2" style="width: 63%; "><colgroup><col span='1' style='width: 53.84%;'/><col span='1' style='width: 46.15%;'/></colgroup><tr><td style='width:53.84%; '><p class="v2 v2-othertableheader">Component</p></td><td style='width:46.15%; '><p class="v2 v2-othertableheader">Value</p></td></tr><tr><td style='width:53.84%; '><p class="v2 v2-othertablebody">Telecommunication Use Code</p></td><td style='width:46.15%; '><p class="v2 v2-othertablebody">WPN</p></td></tr><tr><td style='width:53.84%; '><p class="v2 v2-othertablebody">Telecommunication Equipment Type </p></td><td style='width:46.15%; '><p class="v2 v2-othertablebody">Internet</p></td></tr><tr><td style='width:53.84%; '><p class="v2 v2-othertablebody">Communication Address</p></td><td style='width:46.15%; '><p class="v2 v2-othertablebody">someone@somewhere.com</p></td></tr></table><br/><p class="v2 v2-normalindented">The field would be transmitted as follows:</p><p class="v2 v2-example">^WPN^Internet^someone@somewhere.com</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='XTN-1'>
+XTN-1: Telephone Number (<a href='/data-type/XTN.html'>XTN</a>)
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: </strong>The XTN-1 component was deprecated as of v2.3 and the detail was withdrawn and removed from the standard as of v2.6.</p>
+
+<h4 id='XTN-2'>
+XTN-2: Telecommunication Use Code (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A code that represents a specific use of a telecommunication<strong> </strong>number. Refer to <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> for valid values. This component along with<a href="/data-type/XTN-3.html#XTN-3"> XTN.3</a> describes the nature of the telecommunication data that follows. Best practice requires the population of <a href="/data-type/XTN-2.html#XTN-2">XTN.2</a> when <a href="/data-type/XTN-4.html#XTN-4">XTN.4</a> or <a href="/data-type/XTN-7.html#XTN-7">XTN.7</a> is populated. </p>
+
+<h4 id='XTN-3'>
+XTN-3: Telecommunication Equipment Type (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A code that represents the type of telecommunication<strong> </strong>equipment. Refer to <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> for valid values. This component along with <a href="/data-type/XTN-2.html#XTN-2">XTN.2</a> describes the nature of the telecommunication data that follows and is necessary to accurately interpret it.</p>
+
+<h4 id='XTN-4'>
+XTN-4: Communication Address (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<div class="v2-note"><p class="v2"><strong>Note</strong>: This component is required if, and only allowed if, XTN.7 or XTN.12 are not populated.  </p><p class="v2"><strong>Note</strong>: If any of the HL7 delimiters are found in the Communication Address, such as @, the appropriate HL7 escape sequence SHALL be used when encoding an Internet address (see Chapter 2, &quot;Control&quot;, section 2.7.1, &quot;Formatting Codes&quot;).</p></div><br/>
+
+<h4 id='XTN-5'>
+XTN-5: Country Code (<a href='/data-type/SNM.html'>SNM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The numeric code assigned by the <a href="International Telecommunication Union">International Telecommunication Union</a> in standard <a href="/composition/Control.html">E.164</a> to access telephone services in another country.  For example, &quot;+1&quot; is the country code for the United States, &quot;+49&quot; is the code for Germany.</p>
+
+<h4 id='XTN-6'>
+XTN-6: Area/City Code (<a href='/data-type/SNM.html'>SNM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The numeric code to access telephone services in another area/city within a country. This number historically needs not be dialed if the caller is located in the same area/city as the phone number of the called party.</p><p class="v2 v2-normalindented">The use and size of area/city codes is however country specific: some countries do not use area/city codes, or the use of area/city codes may be mandatory when dialing, or area/city codes may be used to group phone numbers based on other criteria than geographic location, such as cell-phone area/city-codes, or free information numbers (e.g., 800 numbers).</p><p class="v2 v2-normalindented">Most countries have a prefix for Area/City codes which only has to be dialed if one doesn&#39;t use a country code. This prefix (mostly &quot;0&quot;, sometimes &quot;9&quot;) should be omitted from the content of this field. If the prefix for the Area/Code is also mandatory if one uses the country code (e.g., in Italy) then this field should also contain the prefix.</p>
+
+<h4 id='XTN-7'>
+XTN-7: Local Number (<a href='/data-type/SNM.html'>SNM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The numeric code used to contact the called party, exclusive of country and area/city codes. The Local Number is required when, and allowed only if, <a href="/data-type/XTN-4.html#XTN-4">XTN.4</a> and <a href="/data-type/XTN-12.html#XTN-12">XTN.12</a> are not populated. </p><p class="v2 v2-normalindented">The size of the Local Number is country specific.</p><div class="v2-note"><p class="v2"><strong>Note</strong>: The Local Number does not include the numeric codes that have to be dialed once a connection has been established. Examples include (automated) organizational phone systems which allow external callers to dial additional numeric codes. These additional numeric codes should be specified as an extension.</p></div><br/>
+
+<h4 id='XTN-8'>
+XTN-8: Extension (<a href='/data-type/SNM.html'>SNM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The numeric code to contact the called party used within an organization, e.g., the number used if both caller and called party are located within the same organization. The extension is often the same as the last few digits of the Local Number. The use of extensions is country and site specific, and may depend on the type of phone system (PBX) used by the organization.</p>
+
+<h4 id='XTN-9'>
+XTN-9: Any Text (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Contains comments with respect to the telephone number.</p><p class="v2 v2-example">Example: |^^^^^^^^Do not use after 5PM|</p>
+
+<h4 id='XTN-10'>
+XTN-10: Extension Prefix (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The characters established within a company’s internal telephone system network used as a prefix to the Extension component for internal dialing. </p><div class="v2-note"><p class="v2"><strong>Note:</strong> The use of Extension Prefix requires that the Extension component be valued and that digits, as well as special characters (e.g., *, #) may be used.</p></div><br/>
+
+<h4 id='XTN-11'>
+XTN-11: Speed Dial Code (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The characters established within a company’s internal telephone system used in place of the (external) telephone number to facilitate calling because its length is shorter than that of the telephone number. </p><div class="v2-note"><p class="v2"><strong>Note:</strong> Digits, as well as special characters (e.g., *, #) may be used.</p></div><br/>
+
+<h4 id='XTN-12'>
+XTN-12: Unformatted Telephone Number  (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: An expression of the telephone number as an unparsable string. The Unformatted Telephone number is required when, and allowed only if, <a href="/data-type/XTN-4.html#XTN-4">XTN.4</a> and <a href="/data-type/XTN-7.html#XTN-7">XTN.7</a> are not populated.</p><p class="v2 v2-normalindented">The phone number was entered as free text and sending system does not know how to parse it. </p><p class="v2 v2-example">Example: |^^^^^^^^^^^1-800-Dentist|</p>
+
+<h4 id='XTN-13'>
+XTN-13: Effective Start Date (<a href='/data-type/DTM.html'>DTM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The first date, if known, on which the telecommunication number is valid and active.</p>
+
+<h4 id='XTN-14'>
+XTN-14: Expiration Date (<a href='/data-type/DTM.html'>DTM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The last date, if known, on which the telecommunication number is valid and active.</p>
+
+<h4 id='XTN-15'>
+XTN-15: Expiration Reason (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Indicates why this contact number/e-mail was marked as &quot;ended&quot;.  Refer to <a href="https://www.hl7.org/fhir/v2/0868/index.html">User-defined Table 0868 – Telecommunication Expiration Reason</a> for valid values.</p>
+
+<h4 id='XTN-16'>
+XTN-16: Protection Code (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Indicates whether this information is considered sensitive or should be protected in some way. Refer to <a href="https://www.hl7.org/fhir/v2/0618/index.html">User-defined table 0618 - Protection Code</a> for suggested values.</p><p class="v2 v2-normalindented">The specific set of codes and appropriate handling of such telecommunications addresses will vary by jurisdiction and is subject to site-specific negotiation. For example, a provider address marked as &#39;unlisted&#39; might not be printed in an internal address listing.</p>
+
+<h4 id='XTN-17'>
+XTN-17: Shared Telecommunication Identifier (<a href='/data-type/EI.html'>EI</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A unique identifier for the phone number or e-mail address.</p><p class="v2 v2-normalindented">This component allows a phone number to be uniquely identified, and enables the linking of a single phone number to multiple people and contexts. For example, each member of a family living at the same location would share the same phone number, having the same identifier. A correction to the phone number of one family member could be automatically propagated to other members of the family.</p><p class="v2 v2-normalindented">HL7 does not assume responsibility for the processing rules for this component.</p>
+
+<h4 id='XTN-18'>
+XTN-18: Preference Order (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: For an entity having multiple telecommunication addresses, indicates which is the &quot;most preferred&quot; (lowest number) to &quot;least preferred&quot; (highest number).</p><p class="v2 v2-normalindented">If the preference order is unique across all usages for a given type, then it indicates the preference across all usages, (e.g. first try my home number, then my business number). If the preference order is unique across all usages and types, then it indicates the preference across all types of telecommunication addresses.  (E.g., first try my phone; if that doesn&#39;t work, use my pager.) Otherwise, the preference order is assumed to only apply within a specific type and usage.</p><p class="v2 v2-normalindented">Preference order numbers need not be sequential (i.e., three numbers with the priority orders of 0, 5 and 15 are legitimate).  The preference order numbers must be non-negative.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

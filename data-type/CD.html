@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+CD - channel definition
+</h3>
+<div class='v2-data-type-content'>
+<p class="v2 v2-normalindented"><strong>Attention: Retained for backward compatibility onlyas of v 2.7.</strong>  This is used only in the waveform message, CHM category, which has been retained for backward compatibility only in v 2.7.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - CD - channel definition
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+CD
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CD-1'>
+1
+</a>
+</td>
+<td>
+Channel Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/WVI.html'>
+WVI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CD-2'>
+2
+</a>
+</td>
+<td>
+Waveform Source
+</td>
+<td class='centered'>
+<a href='/data-type/WVS.html'>
+WVS
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CD-3'>
+3
+</a>
+</td>
+<td>
+Channel Sensitivity and Units
+</td>
+<td class='centered'>
+<a href='/data-type/CSU.html'>
+CSU
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CD-4'>
+4
+</a>
+</td>
+<td>
+Channel Calibration Parameters
+</td>
+<td class='centered'>
+<a href='/data-type/CCP.html'>
+CCP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CD-5'>
+5
+</a>
+</td>
+<td>
+Channel Sampling Frequency
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;6
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#CD-6'>
+6
+</a>
+</td>
+<td>
+Minimum and Maximum Data Values
+</td>
+<td class='centered'>
+<a href='/data-type/NR.html'>
+NR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;Channel Identifier (WVI)&#62; &#38; &#60;Waveform Source (WVS)&#62; &#38; &#60;Channel Sensitivity and Units (CSU)&#62; &#38; &#60;Channel Calibration Parameters (CCP)&#62; &#38; &#60;Channel Sampling Frequency (NM)&#62; &#38; &#60;Minimum and Maximum Data Values (NR)&#62;</p><p class='v2-components'>Subcomponents for Channel Identifier (WVI): &#60;Channel Number (NM)&#62; &#94; &#60;Channel Name  (ST)&#62;</p>
+<p class='v2-components'>Subcomponents for Waveform Source (WVS): &#60;Source One Name (ST)&#62; &#94; &#60;Source Two Name (ST)&#62;</p>
+<p class='v2-components'>Subcomponents for Channel Sensitivity and Units (CSU): &#60;Channel Sensitivity (NM)&#62; &#94; &#60;Unit of Measure Identifier (ST)&#62; &#94; &#60;Unit of Measure Description (ST)&#62; &#94; &#60;Unit of Measure Coding System (ID)&#62; &#94; &#60;Alternate Unit of Measure Identifier (ST)&#62; &#94; &#60;Alternate Unit of Measure Description (ST)&#62; &#94; &#60;Alternate Unit of Measure Coding System (ID)&#62; &#94; &#60;Unit of Measure Coding System Version ID (ST)&#62; &#94; &#60;Alternate Unit of Measure Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Unit of Measure Identifier (ST)&#62; &#94; &#60;Second Alternate Unit of Measure Text (ST)&#62; &#94; &#60;Name of Second Alternate Unit of Measure Coding System (ID)&#62; &#94; &#60;Second Alternate Unit of Measure Coding System Version ID (ST)&#62; &#94; &#60;Unit of Measure Coding System OID (ST)&#62; &#94; &#60;Unit of Measure Value Set OID (ST)&#62; &#94; &#60;Unit of Measure Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Unit of Measure Coding System OID (ST)&#62; &#94; &#60;Alternate Unit of Measure Value Set OID (ST)&#62; &#94; &#60;Alternate Unit of Measure Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Unit of Measure Coding System OID (ST)&#62; &#94; &#60;Alternate Unit of Measure Value Set OID (ST)&#62; &#94; &#60;Alternate Unit of Measure Value Set Version ID (ST)&#62;</p>
+<p class='v2-components'>Subcomponents for Channel Calibration Parameters (CCP): &#60;Channel Calibration Sensitivity Correction Factor (NM)&#62; &#94; &#60;Channel Calibration Baseline (NM)&#62; &#94; &#60;Channel Calibration Time Skew (NM)&#62;</p>
+<p class='v2-components'>Subcomponents for Minimum and Maximum Data Values (NR): &#60;Low Value (NM)&#62; &#94; &#60;High Value (NM)&#62;</p>
+</div>
+<p class="v2 v2-normalindented">Definition: This data type is used for labeling of digital waveform data. It defines a recording channel, which is associated with one of the values in each time sample of waveform data. Each channel has a number (which generally defines its position in a multichannel display) and an optional name or label (also used in displays). One or two named waveform sources may also be associated with a channel (providing for the use of differential amplifiers with two inputs). The other components of the channel definition data type are optional. The individual components are defined as follows:</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='CD-1'>
+CD-1: Channel Identifier (<a href='/data-type/WVI.html'>WVI</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component specifies the number and name of the recording channel where waveform data is transmitted. </p>
+
+<h4 id='CD-2'>
+CD-2: Waveform Source (<a href='/data-type/WVS.html'>WVS</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component identifies the source of the waveform connected to the channel. Two names may be specified if it is necessary to individually identify the two inputs for a waveform. Only one name need be specified if the channel is connected to a single input. For example, in EKG recordings typically only one name is used (such as I or II); in electroencephalography, two names are typically used, one for each input of the differential amplifier (such as F3 and C3). </p>
+
+<h4 id='CD-3'>
+CD-3: Channel Sensitivity and Units (<a href='/data-type/CSU.html'>CSU</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component defines the channel sensitivity (gain) and the units in which it is measured.</p>
+
+<h4 id='CD-4'>
+CD-4: Channel Calibration Parameters (<a href='/data-type/CCP.html'>CCP</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component identifies the corrections to channel sensitivity, the baseline, and the channel time skew. </p>
+
+<h4 id='CD-5'>
+CD-5: Channel Sampling Frequency (<a href='/data-type/NM.html'>NM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component defines the sampling frequency in hertz of the channel, that is, the reciprocal of the time in seconds between successive samples</p>
+
+<h4 id='CD-6'>
+CD-6: Minimum and Maximum Data Values (<a href='/data-type/NR.html'>NR</a>)
+</h4>
+<div class="v2-note"><p class="v2"><strong>Note:</strong> this is the frequency of transmitted data, which may or may not be the actual frequency at which the data was acquired by an analog-to-digital converter or other digital data source (i.e. the data transmitted may be subsampled, or interpolated, from the originally acquired data.)</p></div><br/><p class="v2 v2-normalindented">Definition: This component defines the minimum and maximum data values which can occur in this channel in the digital waveform data, that is, the range of the ADC. , and also specifies whether or not non-integral data values may occur in this channel in the waveform data. If the minimum and maximum values are both integers (or not present), only integral data values may be used in this channel. If either the minimum or the maximum value contains a decimal point, then non-integral as well as integral data values may be used in this channel. For an n-bit signed ADC, the nominal baseline B = 0, and the minimum (L) and maximum (H) values may be calculated as follows:</p><p class="v2 v2-normalindented v2-indent2040">L = -2n-1</p><p class="v2 v2-normalindented v2-indent2040">H = 2n-1 - 1</p><p class="v2 v2-normalindented">For an unsigned n-bit ADC, the minimum value L = 0, and the nominal baseline value (B) and maximum value (H) may be calculated from the formulas,</p><p class="v2 v2-normalindented v2-indent2040">B = 2n-1</p><p class="v2 v2-normalindented v2-indent2040">H = 2n - 1</p><p class="v2 v2-normalindented">The actual signal amplitude A (for differentially amplified potential measurements, the potential at electrode number one minus that at electrode number two) may be calculated from the value D (range L to H) in the waveform data using the actual baseline value B and the nominal sensitivity S and actual sensitivity correction factor C by the formula,</p><p class="v2 v2-normalindented v2-indent2040"><em>A = SC(D-B)</em></p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

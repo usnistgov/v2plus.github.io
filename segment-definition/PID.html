@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PID - Patient Identification Segment
+</h3>
+<p class="v2 v2-normalindented">The PID segment is used by all applications as the primary means of communicating patient identification information.  This segment contains permanent patient identifying and demographic information that, for the most part, is not likely to change frequently.</p><p class="v2 v2-normalindented">It should be noted that from V2.4 onwards the demographics of animals can also be sent in the PID segment (see PID-35 to PID-38).</p><p class="v2 v2-normalindented">The assigning authority, the fourth component of the patient identifiers, is a HD data type that is uniquely associated with the assigning authority that originally assigned the number.  A given institution, or group of intercommunicating institutions, should establish a list of assigning authorities that may be potential assignors of patient identification (and other important identification) numbers.  The list will be one of the institution&#39;s master dictionary lists.  Since third parties (other than the assignors of patient identification numbers) may send or receive HL7 messages containing patient identification numbers, the assigning authority in the patient identification numbers may not be the same as the sending and receiving systems identified in the MSH.  The assigning authority must be unique across applications at a given site.  This field is required in HL7 implementations that have more than a single Patient Administration application assigning such numbers. The assigning authority and identifier type codes are strongly recommended for all CX data types.</p><p class="v2 v2-normalindented">With HL7 V2.3, the nomenclature for the fourth component of the patient identifiers was changed from &quot;assigning facility ID&quot; to &quot;assigning authority&quot;.  While the identifier may be unique to a given healthcare facility (for example, a medical record assigned by facility A in Hospital XYZ), the identifier might also be assigned at a system level (for example a corporate person index or enterprise number spanning multiple facilities) or by a government entity, for example a nationally assigned unique individual identifier.  While a facility is usually an assigning authority, not all assigning authorities are facilities.  Therefore, the fourth component is referred to as an assigning authority, but retains backward compatibility using the construct of the HD data type (see the note in chapter 2).  Additionally, CX data types support the use of assigning facility (HD) as the sixth component.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PID - Patient Identification Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PID
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - PID
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-1'>
+00104
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Patient ID
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-2'>
+00105
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Patient Identifier List
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#PID-3'>
+00106
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Alternate Patient ID - PID
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-4'>
+00107
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Patient Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0200-Name-Type.html' title='Name Type(Required)'>
+0200(R)
+<span class='vocab-link-text'>Name Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#PID-5'>
+00108
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Mother's Maiden Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-6'>
+00109
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Date/Time of Birth
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-7'>
+00110
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Administrative Sex
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0001-Administrative-Sex.html' title='Administrative Sex(Suggested)'>
+0001(S)
+<span class='vocab-link-text'>Administrative Sex(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-8'>
+00111
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Patient Alias
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-9'>
+00112
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Race
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0005-Race.html' title='Race(Suggested)'>
+0005(S)
+<span class='vocab-link-text'>Race(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-10'>
+00113
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Patient Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-11'>
+00114
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+County Code
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-12'>
+00115
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Phone Number - Home
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#PID-13'>
+00116
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Phone Number - Business
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#PID-14'>
+00117
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Primary Language
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0296-Primary-Language.html' title='Primary Language'>
+0296
+<span class='vocab-link-text'>Primary Language</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-15'>
+00118
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Marital Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0002-Marital-Status.html' title='Marital Status(Suggested)'>
+0002(S)
+<span class='vocab-link-text'>Marital Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-16'>
+00119
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Religion
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0006-Religion.html' title='Religion(Suggested)'>
+0006(S)
+<span class='vocab-link-text'>Religion(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-17'>
+00120
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Patient Account Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0061-Check-Digit-Scheme.html' title='Check Digit Scheme(Required)'>
+0061(R)
+<span class='vocab-link-text'>Check Digit Scheme(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-18'>
+00121
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+SSN Number - Patient
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-19'>
+00122
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Driver's License Number - Patient
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-20'>
+00123
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Mother's Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0061-Check-Digit-Scheme.html' title='Check Digit Scheme(Required)'>
+0061(R)
+<span class='vocab-link-text'>Check Digit Scheme(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-21'>
+00124
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Ethnic Group
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0189-Ethnic-Group.html' title='Ethnic Group'>
+0189
+<span class='vocab-link-text'>Ethnic Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-22'>
+00125
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Birth Place
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-23'>
+00126
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Multiple Birth Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-24'>
+00127
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Birth Order
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-25'>
+00128
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+2
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Citizenship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0171-Citizenship.html' title='Citizenship'>
+0171
+<span class='vocab-link-text'>Citizenship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-26'>
+00129
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Veterans Military Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0172-Veterans-Military-Status.html' title='Veterans Military Status'>
+0172
+<span class='vocab-link-text'>Veterans Military Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-27'>
+00130
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Nationality
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0212-Nationality.html' title='Nationality'>
+0212
+<span class='vocab-link-text'>Nationality</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-28'>
+00739
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Patient Death Date and Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-29'>
+00740
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Patient Death Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-30'>
+00741
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Identity Unknown Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-31'>
+01535
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Identity Reliability Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0445-Identity-Reliability-Code.html' title='Identity Reliability Code'>
+0445
+<span class='vocab-link-text'>Identity Reliability Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-32'>
+01536
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Last Update Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-33'>
+01537
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Last Update Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-34'>
+01538
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Taxonomic Classification Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0446-Species-Code.html' title='Species Code'>
+0446
+<span class='vocab-link-text'>Species Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-35'>
+01539
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Breed Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0447-Breed-Code.html' title='Breed Code'>
+0447
+<span class='vocab-link-text'>Breed Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-36'>
+01540
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Strain
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PID-37'>
+01541
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+80
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Production Class Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0429-Production-Class-Code.html' title='Production Class Code(Suggested)'>
+0429(S)
+<span class='vocab-link-text'>Production Class Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..2]
+</td>
+<td class='centered'>
+<a href='#PID-38'>
+01542
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Tribal Citizenship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0171-Citizenship.html' title='Citizenship'>
+0171
+<span class='vocab-link-text'>Citizenship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-39'>
+01840
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+40
+</td>
+<td>
+Patient Telecommunication Information
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PID-40'>
+02289
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PID-1'>
+PID-1: Set ID - PID (<a href='/data-type/SI.html'>SI</a>) 00104
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number that identifies this transaction.  For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.</p>
+
+<h4 class='v2' id='PID-2'>
+PID-2: Patient ID (<a href='/data-type/.html'></a>) 00105
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-2 field was retained for backward compatibility only as of v2.3.1</strong> and was withdrawn and removed from this message structure as of v2.7. It is recommended to use <a href="/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers.</p>
+
+<h4 class='v2' id='PID-3'>
+PID-3: Patient Identifier List (<a href='/data-type/CX.html'>CX</a>) 00106
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the list of identifiers (one or more) used by the healthcare facility to uniquely identify a patient (e.g., medical record number, billing number, birth registry, national unique individual identifier, etc.).  In Canada, the Canadian Provincial Healthcare Number should be sent in this field.  The arbitrary term of &quot;internal ID&quot; has been removed from the name of this field for clarity.</p>
+
+<h4 class='v2' id='PID-4'>
+PID-4: Alternate Patient ID - PID (<a href='/data-type/.html'></a>) 00107
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-4 field was retained for backward compatibility only as of v2.3.1</strong> and was withdrawn and removed from this message structure as of v2.7.  It is recommended to use <a href="/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers. </p>
+
+<h4 class='v2' id='PID-5'>
+PID-5: Patient Name (<a href='/data-type/XPN.html'>XPN</a>) 00108
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains one or more of the names of the patient. The XPN.7 Name Type Code, and not the order, conveys how the name should be interpreted. As of v2.7, Name Type Code is Required. Refer to <a href="https://www.hl7.org/fhir/v2/0200/index.html">HL7 Table 0200 - Name Type</a> in Chaper 2C, Code Tables, for valid values.  Specification of meaning based on sequence is deprecated.</p><p class="v2 v2-normalindented">In addition to allowing repetition of this field for transmitting multiple names with different Name Type Codes, repetition also allows for representing the same name in different character sets based on the value in XPN.8 Name Representation Code.  </p><p class="v2 v2-normalindented">Multiple given names and/or initials are separated by spaces.</p><p class="v2 v2-normalindented">For animals, if a Name Type of &quot;R&quot; is used, use &quot;Name Context&quot; to identify the authority with which the animal&#39;s name is registered.</p>
+
+<h4 class='v2' id='PID-6'>
+PID-6: Mother's Maiden Name (<a href='/data-type/XPN.html'>XPN</a>) 00109
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the family name under which the mother was born (i.e., before marriage). It is used to distinguish between patients with the same last name.</p>
+
+<h4 class='v2' id='PID-7'>
+PID-7: Date/Time of Birth (<a href='/data-type/DTM.html'>DTM</a>) 00110
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient&#39;s date and time of birth.</p>
+
+<h4 class='v2' id='PID-8'>
+PID-8: Administrative Sex (<a href='/data-type/CWE.html'>CWE</a>) 00111
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient&#39;s sex.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 - Administrative Sex</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PID-9'>
+PID-9: Patient Alias (<a href='/data-type/.html'></a>) 00112
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-9 field was retained for backward compatibility only as of v2.4</strong> and was withdrawn and removed from this message structure as of v2.7. it is recommended to use <a href="/segment-definition/PID.html#PID-5">PID-5 - Patient Name</a> for all patient names. </p>
+
+<h4 class='v2' id='PID-10'>
+PID-10: Race (<a href='/data-type/CWE.html'>CWE</a>) 00113
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field refers to the patient&#39;s race.  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+
+<h4 class='v2' id='PID-11'>
+PID-11: Patient Address (<a href='/data-type/XAD.html'>XAD</a>) 00114
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the address of the patient. Multiple addresses for the same person may be sent. As of v2.7 the &quot;primary mailing address&quot; constraint as the first sequence has been removed...</p>
+
+<h4 class='v2' id='PID-12'>
+PID-12: County Code (<a href='/data-type/.html'></a>) 00115
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-12 field was retained for backward compatibility only as of v2.3</strong> and was withdrawn and removed from this message structure as of v2.7.   The county can now be supported in the county/parish code component of the XAD data type (<a href="/segment-definition/PID.html#PID-11">PID-11 - Patient Address</a>).  </p>
+
+<h4 class='v2' id='PID-13'>
+PID-13: Phone Number - Home (<a href='/data-type/XTN.html'>XTN</a>) 00116
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention:</strong>  The PID13 field has been retained for backward compatibility as of v 2.7 and withdrawn as of v 2.9. The reader is referrred to section <a href="/composition/Patient-Administration.html#Patient-Administration-4-2-40">3.4.2.40</a>, <a href="/segment-definition/PID.html#PID-40">PID-40 – Patient Telecommunication Information</a> instead, which replaces<a href="/segment-definition/PID.html#PID-13"> PID-13 – Phone Number - Home</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). </p><p class="v2 v2-normalindented">This field contains the patient&#39;s personal phone numbers.  All personal phone numbers for the patient are sent in the following sequence.  The first sequence is considered the primary number (for backward compatibility).  If the primary number is not sent, then a repeat delimiter is sent in the first sequence.  Refer to <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='PID-14'>
+PID-14: Phone Number - Business (<a href='/data-type/XTN.html'>XTN</a>) 00117
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention:</strong>  The PID-14 field has been retained for backward compatibility only as of v2.7 and withdrawn as of v 2.9.. The reader is referred to section <a href="/composition/Patient-Administration.html#Patient-Administration-4-2-40">3.4.2.40</a>, <a href="/segment-definition/PID.html#PID-40">PID-40 – Patient Telecommunication Information</a> instead, which replaces <a href="/segment-definition/PID.html#PID-14">PID-14 – Phone Number - Business</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). </p><p class="v2 v2-normalindented">This field contains the patient&#39;s business telephone numbers.  All business numbers for the patient are sent in the following sequence.  The first sequence is considered the patient&#39;s primary business phone number (for backward compatibility).  If the primary business phone number is not sent, then a repeat delimiter must be sent in the first sequence.  Refer to  <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='PID-15'>
+PID-15: Primary Language (<a href='/data-type/CWE.html'>CWE</a>) 00118
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient&#39;s primary language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a> within Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='PID-16'>
+PID-16: Marital Status (<a href='/data-type/CWE.html'>CWE</a>) 00119
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient&#39;s marital (civil) status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PID-17'>
+PID-17: Religion (<a href='/data-type/CWE.html'>CWE</a>) 00120
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient&#39;s religion.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PID-18'>
+PID-18: Patient Account Number (<a href='/data-type/CX.html'>CX</a>) 00121
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient account number assigned by accounting to which all charges, payments, etc., are recorded.  It is used to identify the patient&#39;s account.  Refer to <a href="https://www.hl7.org/fhir/v2/0061/index.html">HL7 Table 0061 - Check Digit Scheme</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='PID-19'>
+PID-19: SSN Number - Patient (<a href='/data-type/.html'></a>) 00122
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-19 field was retained for backward compatibility only as of v 2.3.1</strong> and was withdrawn and removed from this message structure as of v 2.7.  It is recommended to use <a href="/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers. </p>
+
+<h4 class='v2' id='PID-20'>
+PID-20: Driver's License Number - Patient (<a href='/data-type/.html'></a>) 00123
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-20 field was retained for backward compatibility only as of v 2.5</strong> and was withdrawn and removed from this message structure as of v 2.7. <strong> </strong> It is recommended to use <a href="/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers. </p>
+
+<h4 class='v2' id='PID-21'>
+PID-21: Mother's Identifier (<a href='/data-type/CX.html'>CX</a>) 00124
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used, for example, as a link field for newborns.  Typically a patient ID or account number may be used.  This field can contain multiple identifiers for the same mother.  Refer to <a href="https://www.hl7.org/fhir/v2/0061/index.html">HL7 Table 0061 - Check Digit Scheme</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='PID-22'>
+PID-22: Ethnic Group (<a href='/data-type/CWE.html'>CWE</a>) 00125
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field further defines the patient&#39;s ancestry.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+
+<h4 class='v2' id='PID-23'>
+PID-23: Birth Place (<a href='/data-type/ST.html'>ST</a>) 00126
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the location of the patient&#39;s birth, for example &quot;St. Francis Community Hospital of Lower South Side&quot;. The actual address is reported in PID-11 with an identifier of &quot;N&quot;.</p>
+
+<h4 class='v2' id='PID-24'>
+PID-24: Multiple Birth Indicator (<a href='/data-type/ID.html'>ID</a>) 00127
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the patient was part of a multiple birth.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the patient was part of a multiple birth</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;the patient was a single birth</p></li></ul>
+
+<h4 class='v2' id='PID-25'>
+PID-25: Birth Order (<a href='/data-type/NM.html'>NM</a>) 00128
+</h4>
+<p class="v2 v2-normalindented">Definition:  When a patient was part of a multiple birth, a value (number) indicating the patient&#39;s birth order is entered in this field.</p>
+
+<h4 class='v2' id='PID-26'>
+PID-26: Citizenship (<a href='/data-type/CWE.html'>CWE</a>) 00129
+</h4>
+<p class="v2 v2-normalindented">This field contains the information related to a person&#39;s country citizenship. For country citizenship HL7 recommends using ISO table 3166.  For a local definition, <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables, should be used.</p><p class="v2 v2-normalindented">This field repeats since persons can be citizens of more than one country.  The Name of Coding System component(s) of the CWE datatype should be used to identify the table from which citizenship membership is drawn.</p><p class="v2 v2-normalindented">In the Netherlands, this field is used for &quot;Nationaliteit&quot;.</p>
+
+<h4 class='v2' id='PID-27'>
+PID-27: Veterans Military Status (<a href='/data-type/CWE.html'>CWE</a>) 00130
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the military status assigned to a veteran.  Refer to <a href="https://www.hl7.org/fhir/v2/0172/index.html">User-defined Table 0172 - Veterans Military Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PID-28'>
+PID-28: Nationality (<a href='/data-type/CWE.html'>CWE</a>) 00739
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The PID-28 field was retained for backward compatibility only as of v 2.4</strong> and was withdrawn and removed from this message structure as of v 2.7. It is recommended to refer to <a href="/segment-definition/PID.html#PID-10">PID-10 - Race</a>, <a href="/segment-definition/PID.html#PID-22">PID-22 - Ethnic group</a> and <a href="/segment-definition/PID.html#PID-26">PID-26 - Citizenship</a>. </p>
+
+<h4 class='v2' id='PID-29'>
+PID-29: Patient Death Date and Time (<a href='/data-type/DTM.html'>DTM</a>) 00740
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time at which the patient death occurred.</p>
+
+<h4 class='v2' id='PID-30'>
+PID-30: Patient Death Indicator (<a href='/data-type/ID.html'>ID</a>) 00741
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the patient is deceased.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the patient is deceased</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;the patient is not deceased</p></li></ul>
+
+<h4 class='v2' id='PID-31'>
+PID-31: Identity Unknown Indicator (<a href='/data-type/ID.html'>ID</a>) 01535
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether or not the patient&#39;s/person&#39;s identity is known.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the patient&#39;s/person&#39;s identity is unknown</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;the patient&#39;s/person&#39;s identity is known</p></li></ul>
+
+<h4 class='v2' id='PID-32'>
+PID-32: Identity Reliability Code (<a href='/data-type/CWE.html'>CWE</a>) 01536
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a coded value used to communicate information regarding the reliability of patient/person identifying data transmitted via a transaction.  Values could indicate that certain fields on a PID segment for a given patient/person are known to be false (e.g., use of default or system-generated values for Date of Birth or Social Security Number).  Refer to <a href="https://www.hl7.org/fhir/v2/0445/index.html">User-defined Table 0445 - Identity Reliability Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PID-33'>
+PID-33: Last Update Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01537
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the last update date and time for the patient&#39;s/person&#39;s identifying and demographic data, as defined in the PID segment.  Receiving systems will use this field to determine how to apply the transaction to their systems.  If the receiving system (such as an enterprise master patient index) already has a record for the person with a later last update date/time, then the EMPI could decide not to apply the patient&#39;s/person&#39;s demographic and identifying data from this transaction.</p>
+
+<h4 class='v2' id='PID-34'>
+PID-34: Last Update Facility (<a href='/data-type/HD.html'>HD</a>) 01538
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the facility of the last update to a patient&#39;s/person&#39;s identifying and demographic data, as defined in the PID segment.  Receiving systems or users will use this field to determine how to apply the transaction to their systems.  If the receiving system (such as a hospital&#39;s patient management system) already has a record for the patient/person, then it may decide to only update its data if the source is a &quot;trusted&quot; source.  A hospital might consider other hospitals trusted sources, but not &quot;trust&quot; updates from non-acute care facilities.  For example:</p><p class="v2 v2-example">...|GOOD HEALTH Hospital|...</p>
+
+<h4 class='v2' id='PID-35'>
+PID-35: Taxonomic Classification Code (<a href='/data-type/CWE.html'>CWE</a>) 01539
+</h4>
+<p class="v2 v2-normalindented">Definition: A code representing the taxonomic classification (e.g. species and/or breed) of an organism.  This may include the common or scientific name in the description component, based on the coding system(s) used.  SNOMED-CT is the recommended coding system.  If this field is not valued, a human is assumed.  If the specificity of the coding system is insufficient to represent the organism to the degree desired, the most detailed coded value available may be used in this field and additional information sent in the text field, <a href="/segment-definition/PID.html#PID-37">PID-37 – Strain</a>. </p><p class="v2 v2-normalindented">For example:</p><p class="v2 v2-example">...|L-80700^Canine, NOS^SNM3|...</p><p class="v2 v2-example">...|L-80100^Bovine^SNM3|...</p><p class="v2 v2-example">...|L-80A00^Feline^SNM3|...</p>
+
+<h4 class='v2' id='PID-36'>
+PID-36: Breed Code (<a href='/data-type/CWE.html'>CWE</a>) 01540
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>From v 2.8 onward, this field has been retained for backward compatibility only.</strong> The specific breed of animal.  This field, unlike Species and Strain is specific to animals and cannot be generally used for all living organisms.  SNOMED is the recommended coding system. Refer to <a href="https://www.hl7.org/fhir/v2/0447/index.html">User-defined Table 0447 - Breed Code</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">Conditionality Rule: This field must be valued if <a href="/segment-definition/PID.html#PID-37">PID-37 - Strain</a> is valued.</p><p class="v2 v2-normalindented">For example, (showing primary and alternative coding systems, using locally defined &quot;American Kennel Club&quot; nomenclature):</p><p class="v2 v2-example">...|L-80733^ Staffordshire bull terrier^SNM3^^American Staffordshire Terrier^99AKC|...</p><p class="v2 v2-example">...|L-80900^Weimaraner^SNM3|...</p><p class="v2 v2-example">...|L-80439^Peruvian Paso Horse^SNM3|...</p>
+
+<h4 class='v2' id='PID-37'>
+PID-37: Strain (<a href='/data-type/ST.html'>ST</a>) 01541
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the specific strain of animal.  It can also be expanded to include strain of any living organism and is not restricted to animals.</p><p class="v2 v2-normalindented">Example:</p><p class="v2 v2-example">...|DeKalb|...</p><p class="v2 v2-example">...|Balb/c|...</p><p class="v2 v2-example">...|DXL|...</p>
+
+<h4 class='v2' id='PID-38'>
+PID-38: Production Class Code (<a href='/data-type/CWE.html'>CWE</a>) 01542
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the code and/or text indicating the primary use for which the living subject was bred or grown. Refer to <a href="https://www.hl7.org/fhir/v2/0429/index.html">User-defined Table 0429 - Production Class Code</a> in Chapter 2C, Code Tables, for suggested values. For example:</p><p class="v2 v2-example">...|DA^Dairy^L|...</p><p class="v2 v2-example">...|MT^Meat^L|...</p><p class="v2 v2-example">...|RA^Racing^L|...</p>
+
+<h4 class='v2' id='PID-39'>
+PID-39: Tribal Citizenship (<a href='/data-type/CWE.html'>CWE</a>) 01840
+</h4>
+<p class="v2 v2-normalindented">This field contains the information related to a person&#39;s tribal citizenship.  For tribal citizenship, in the United States, HL7 recommends using the Bureau of Indian Affairs (BIA) Tribal Identity List.  For a local definition,<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables should be used.</p><p class="v2 v2-normalindented">This field repeats since persons can have tribal membership(s) and can be members of more than one tribe.  The Name of Coding System component(s) of the CWE datatype should be used to identify the table from which tribal membership is drawn.</p>
+
+<h4 class='v2' id='PID-40'>
+PID-40: Patient Telecommunication Information (<a href='/data-type/XTN.html'>XTN</a>) 02289
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the patient&#39;s personal telecommunication contact information. This field replaces <a href="/segment-definition/PID.html#PID-13">PID-13 – Phone Number - Home</a> and <a href="/segment-definition/PID.html#PID-14">PID-14 – Phone Number – Business</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). Jointly, these components will describe the nature of the telecommunication data contained in this field and removes the sequenced-based assumptions in PID-13 and PID-14.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

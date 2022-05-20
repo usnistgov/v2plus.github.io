@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html'>
+Chapter 4A - A.Order Entry: Pharmacy/Treatment, Vaccination
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-1'>
+    4A.1  Chapter 4A contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-2'>
+    4A.2  Purpose
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-2-1'>
+        4A.2.1  Preface (organization of this chapter)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3'>
+    4A.3  Pharmacy/Treatment Trigger Events & Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-1'>
+        4A.3.1  Usage notes for pharmacy/treatment messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-2'>
+        4A.3.2  IV solution groups
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-3'>
+        4A.3.3  OMP - Pharmacy/Treatment Order Message (Event O09)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-4'>
+        4A.3.4  ORP - Pharmacy/Treatment Order Acknowledgment (Event O10)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-5'>
+        4A.3.5  RDE/RRE - pharmacy/treatment encoded order message (O01/O02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-6'>
+        4A.3.6  RDE - Pharmacy/Treatment Encoded Order Message (Event O11)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-7'>
+        4A.3.7  RRE - Pharmacy/Treatment Encoded Order Acknowledgment (Event O12)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-8'>
+        4A.3.8  RDS - Pharmacy/Treatment Dispense Message (Event O13)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-9'>
+        4A.3.9  RRD - Pharmacy/Treatment Dispense Acknowledgement Message (Event O14)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-10'>
+        4A.3.10  RGV/RRG - pharmacy/treatment give message (O01/O02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-11'>
+        4A.3.11  RGV - Pharmacy/Treatment Give Message (Event O15)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-12'>
+        4A.3.12  RRG - Pharmacy/Treatment Give Acknowledgment Message (Event O16)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-13'>
+        4A.3.13  RAS/RRA - pharmacy/treatment administration message (O01/O02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-14'>
+        4A.3.14  RAS - Pharmacy/Treatment Administration Message (Event O17)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-15'>
+        4A.3.15  RRA - Pharmacy/Treatment Administration Acknowledgment Message (Event O18)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-16'>
+        4A.3.16  RDE - Pharmacy/Treatment Refill Authorization Request Message (Event O25)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-17'>
+        4A.3.17  RRE - Pharmacy/Treatment Refill Authorization Request Acknowledgment (Event O26)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-18'>
+        4A.3.18  ROR - Pharmacy/Treatment Order Response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-19'>
+        4A.3.19  RAR - Pharmacy/Treatment Administration Information
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-20'>
+        4A.3.20  RDR - Pharmacy/Treatment Dispense Information
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-21'>
+        4A.3.21  RER - Pharmacy/Treatment Encoded Order
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-22'>
+        4A.3.22  RGR - Pharmacy/Treatment Dose Information
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-23'>
+        4A.3.23  Pharmacy Query/Response Message Pair
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-23-1'>
+            4A.3.23.1  Example
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-24'>
+        4A.3.24  RDE - Pharmacy/Treatment Dispense Request Message (Event O49)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-25'>
+        4A.3.25  RRE - Pharmacy/Treatment Encoded Order Acknowledgment (Event O50)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-3-26'>
+        4A.3.26  RCV - Pharmacy/Treatment Dispense Message (Event O59)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4'>
+    4A.4  Pharmacy/Treatment Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1'>
+        4A.4.1  RXO - Pharmacy/Treatment Order Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-1'>
+            4A.4.1.1  RXO-1   Requested Give Code   (CWE)   00292
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-2'>
+            4A.4.1.2  RXO-2   Requested Give Amount - Minimum   (NM)   00293
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-3'>
+            4A.4.1.3  RXO-3   Requested Give Amount - Maximum   (NM)   00294
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-4'>
+            4A.4.1.4  RXO-4   Requested Give Units   (CWE)   00295
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-5'>
+            4A.4.1.5  RXO-5   Requested Dosage Form   (CWE)   00296
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-6'>
+            4A.4.1.6  RXO-6   Provider's Pharmacy/Treatment Instructions   (CWE)   00297
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-7'>
+            4A.4.1.7  RXO-7   Provider's Administration Instructions   (CWE)   00298
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-8'>
+            4A.4.1.8  RXO-8   Deliver-to Location
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-9'>
+            4A.4.1.9  RXO-9   Allow Substitutions   (ID)   00300
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-10'>
+            4A.4.1.10  RXO-10   Requested Dispense Code   (CWE)   00301
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-11'>
+            4A.4.1.11  RXO-11   Requested Dispense Amount   (NM)   00302
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-12'>
+            4A.4.1.12  RXO-12   Requested Dispense Units   (CWE)   00303
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-13'>
+            4A.4.1.13  RXO-13   Number of Refills   (NM)   00304
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-14'>
+            4A.4.1.14  RXO-14   Ordering Provider's DEA Number
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-15'>
+            4A.4.1.15  RXO-15   Pharmacist/Treatment Supplier's Verifier ID   (XCN)   00306
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-16'>
+            4A.4.1.16  RXO-16   Needs Human Review   (ID)   00307
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-17'>
+            4A.4.1.17  RXO-17   Requested Give Per (Time Unit)   (ST)   00308
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-18'>
+            4A.4.1.18  RXO-18   Requested Give Strength   (NM)   01121
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-19'>
+            4A.4.1.19  RXO-19   Requested Give Strength Units   (CWE)   01122
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-20'>
+            4A.4.1.20  RXO-20   Indication   (CWE)   01123
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-21'>
+            4A.4.1.21  RXO-21   Requested Give Rate Amount   (ST)   01218
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-22'>
+            4A.4.1.22  RXO-22   Requested Give Rate Units   (CWE)   01219
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-23'>
+            4A.4.1.23  RXO-23   Total Daily Dose   (CQ)   00329
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-24'>
+            4A.4.1.24  RXO-24   Supplementary Code   (CWE)   01476
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-25'>
+            4A.4.1.25  RXO-25   Requested Drug Strength Volume   (NM)   01666
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-26'>
+            4A.4.1.26  RXO-26   Requested Drug Strength Volume Units   (CWE)   01667
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-27'>
+            4A.4.1.27  RXO-27   Pharmacy Order Type   (ID)   01668
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-28'>
+            4A.4.1.28  RXO-28   Dispensing Interval   (NM)   01669
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-29'>
+            4A.4.1.29  RXO-29   Medication Instance Identifier   (EI)   02149
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-30'>
+            4A.4.1.30  RXO-30   Segment Instance Identifier   (EI)   02150
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-31'>
+            4A.4.1.31  RXO-31   Mood Code   (CNE)   02151
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-32'>
+            4A.4.1.32  RXO-32   Dispensing Pharmacy
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-33'>
+            4A.4.1.33  RXO-33   Dispensing Pharmacy Address
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-34'>
+            4A.4.1.34  RXO-34   Deliver-to Patient Location   (PL)   01683
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-35'>
+            4A.4.1.35  RXO-35   Deliver-to Address   (XAD)   01684
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-1-36'>
+            4A.4.1.36  RXO-36   Pharmacy Phone Number   (XTN)   02309
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2'>
+        4A.4.2  RXR - Pharmacy/Treatment Route Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2-1'>
+            4A.4.2.1  RXR-1   Route   (CWE)   00309
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2-2'>
+            4A.4.2.2  RXR-2   Administration Site   (CWE)   00310
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2-3'>
+            4A.4.2.3  RXR-3   Administration Device   (CWE)   00311
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2-4'>
+            4A.4.2.4  RXR-4   Administration Method   (CWE)   00312
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2-5'>
+            4A.4.2.5  RXR-5   Routing Instruction   (CWE)   01315
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-2-6'>
+            4A.4.2.6  RXR-6   Administration Site Modifier   (CWE)   01670
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3'>
+        4A.4.3  RXC - Pharmacy/Treatment Component Order Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-1'>
+            4A.4.3.1  RXC-1   RX Component Type   (ID)   00313
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-2'>
+            4A.4.3.2  RXC-2   Component Code   (CWE)   00314
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-3'>
+            4A.4.3.3  RXC-3   Component Amount   (NM)   00315
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-4'>
+            4A.4.3.4  RXC-4   Component Units   (CWE)   00316
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-5'>
+            4A.4.3.5  RXC-5   Component Strength   (NM)   01124
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-6'>
+            4A.4.3.6  RXC-6   Component Strength Units   (CWE)   01125
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-7'>
+            4A.4.3.7  RXC-7   Supplementary Code   (CWE)   01476
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-8'>
+            4A.4.3.8  RXC-8   Component Drug Strength Volume   (NM)   01671
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-9'>
+            4A.4.3.9  RXC-9   Component Drug Strength Volume Units   (CWE)   01672
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-10'>
+            4A.4.3.10  RXC-10   Dispense Amount   (NM)   03314
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-3-11'>
+            4A.4.3.11  RXC-11   Dispense Units   (CWE)   03315
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4'>
+        4A.4.4  RXE - Pharmacy/Treatment Encoded Order Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-1'>
+            4A.4.4.1  RXE-1   Quantity/Timing
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-2'>
+            4A.4.4.2  RXE-2   Give Code   (CWE)   00317
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-3'>
+            4A.4.4.3  RXE-3   Give Amount - Minimum   (NM)   00318
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-4'>
+            4A.4.4.4  RXE-4   Give Amount - Maximum   (NM)   00319
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-5'>
+            4A.4.4.5  RXE-5   Give Units   (CWE)   00320
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-6'>
+            4A.4.4.6  RXE-6   Give Dosage Form   (CWE)   00321
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-7'>
+            4A.4.4.7  RXE-7   Provider's Administration Instructions   (CWE)   00298
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-8'>
+            4A.4.4.8  RXE-8   Deliver-to Location
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-9'>
+            4A.4.4.9  RXE-9   Substitution Status   (ID)   00322
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-10'>
+            4A.4.4.10  RXE-10   Dispense Amount   (NM)   00323
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-11'>
+            4A.4.4.11  RXE-11   Dispense Units   (CWE)   00324
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-12'>
+            4A.4.4.12  RXE-12   Number of Refills   (NM)   00304
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-13'>
+            4A.4.4.13  RXE-13   Ordering Provider's DEA Number   (XCN)   00305
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-14'>
+            4A.4.4.14  RXE-14   Pharmacist/Treatment Supplier's Verifier ID   (XCN)   00306
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-15'>
+            4A.4.4.15  RXE-15   Prescription Number   (ST)   00325
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-16'>
+            4A.4.4.16  RXE-16   Number of Refills Remaining   (NM)   00326
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-17'>
+            4A.4.4.17  RXE-17   Number of Refills/Doses Dispensed   (NM)   00327
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-18'>
+            4A.4.4.18  RXE-18   D/T of Most Recent Refill or Dose Dispensed   (DTM)   00328
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-19'>
+            4A.4.4.19  RXE-19   Total Daily Dose   (CQ)   00329
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-20'>
+            4A.4.4.20  RXE-20   Needs Human Review   (ID)   00307
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-21'>
+            4A.4.4.21  RXE-21   Special Dispensing Instructions   (CWE)   00330
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-22'>
+            4A.4.4.22  RXE-22   Give Per (Time Unit)    (ST)   00331
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-23'>
+            4A.4.4.23  RXE-23   Give Rate Amount   (ST)   00332
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-24'>
+            4A.4.4.24  RXE-24   Give Rate Units   (CWE)   00333
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-25'>
+            4A.4.4.25  RXE-25   Give Strength   (NM)   01126
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-26'>
+            4A.4.4.26  RXE-26   Give Strength Units   (CWE)   01127
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-27'>
+            4A.4.4.27  RXE-27   Give Indication   (CWE)   01128
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-28'>
+            4A.4.4.28  RXE-28   Dispense Package Size   (NM)   01220
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-29'>
+            4A.4.4.29  RXE-29   Dispense Package Size Unit   (CWE)   01221
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-30'>
+            4A.4.4.30  RXE-30   Dispense Package Method   (ID)   01222
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-31'>
+            4A.4.4.31  RXE-31   Supplementary Code   (CWE)   01476
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-32'>
+            4A.4.4.32  RXE-32   Original Order Date/Time   (DTM)   01673
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-33'>
+            4A.4.4.33  RXE-33   Give Drug Strength Volume   (NM)   01674
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-34'>
+            4A.4.4.34  RXE-34   Give Drug Strength Volume Units   (CWE)   01675
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-35'>
+            4A.4.4.35  RXE-35   Controlled Substance Schedule   (CWE)   01676
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-36'>
+            4A.4.4.36  RXE-36   Formulary Status   (ID)   01677
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-37'>
+            4A.4.4.37  RXE-37   Pharmaceutical Substance Alternative   (CWE)   01678
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-38'>
+            4A.4.4.38  RXE-38   Pharmacy of Most Recent Fill   (CWE)   01679
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-39'>
+            4A.4.4.39  RXE-39   Initial Dispense Amount   (NM)   01680
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-40'>
+            4A.4.4.40  RXE-40   Dispensing Pharmacy   (CWE)   01681
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-41'>
+            4A.4.4.41  RXE-41   Dispensing Pharmacy Address   (XAD)   01682
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-42'>
+            4A.4.4.42  RXE-42   Deliver-To Patient Location   (PL)   01683
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-43'>
+            4A.4.4.43  RXE-43   Deliver-to Address   (XAD)   01684
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-44'>
+            4A.4.4.44  RXE-44   Pharmacy Order Type   (ID)   01685
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-4-45'>
+            4A.4.4.45  RXE-45   Pharmacy Phone Number   (XTN)   02310
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5'>
+        4A.4.5  RXD - Pharmacy/Treatment Dispense Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-1'>
+            4A.4.5.1  RXD-1   Dispense Sub-ID counter   (NM)   00334
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-2'>
+            4A.4.5.2  RXD-2   Dispense/Give Code   (CWE)   00335
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-3'>
+            4A.4.5.3  RXD-3   Date/Time Dispensed   (DTM)   00336
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-4'>
+            4A.4.5.4  RXD-4   Actual Dispense Amount   (NM)   00337
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-5'>
+            4A.4.5.5  RXD-5   Actual Dispense Units   (CWE)   00338
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-6'>
+            4A.4.5.6  RXD-6   Actual Dosage Form   (CWE)   00339
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-7'>
+            4A.4.5.7  RXD-7   Prescription Number   (ST)   00325
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-8'>
+            4A.4.5.8  RXD-8   Number of Refills Remaining   (NM)   00326
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-9'>
+            4A.4.5.9  RXD-9   Dispense Notes   (ST)   00340
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-10'>
+            4A.4.5.10  RXD-10   Dispensing Provider   (XCN)   00341
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-11'>
+            4A.4.5.11  RXD-11   Substitution Status   (ID)   00322
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-12'>
+            4A.4.5.12  RXD-12   Total Daily Dose   (CQ)   00329
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-13'>
+            4A.4.5.13  RXD-13   Dispense-to Location
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-14'>
+            4A.4.5.14  RXD-14   Needs Human Review   (ID)   00307
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-15'>
+            4A.4.5.15  RXD-15   Special Dispensing Instructions   (CWE)   00330
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-16'>
+            4A.4.5.16  RXD-16   Actual Strength   (NM)   01132
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-17'>
+            4A.4.5.17  RXD-17   Actual Strength Unit   (CWE)   01133
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-18'>
+            4A.4.5.18  RXD-18   Substance Lot Number   (ST)   01129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-19'>
+            4A.4.5.19  RXD-19   Substance Expiration Date   (DTM)   01130
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-20'>
+            4A.4.5.20  RXD-20   Substance Manufacturer Name   (CWE)   01131
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-21'>
+            4A.4.5.21  RXD-21   Indication   (CWE)   01123
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-22'>
+            4A.4.5.22  RXD-22   Dispense Package Size   (NM)   01220
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-23'>
+            4A.4.5.23  RXD-23   Dispense Package Size Unit   (CWE)   01221
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-24'>
+            4A.4.5.24  RXD-24   Dispense Package Method   (ID)   01222
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-25'>
+            4A.4.5.25  RXD-25   Supplementary code   (CWE)   01476
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-26'>
+            4A.4.5.26  RXD-26   Initiating Location   (CWE)   01477
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-27'>
+            4A.4.5.27  RXD-27   Packaging/Assembly Location   (CWE)   01478
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-28'>
+            4A.4.5.28  RXD-28   Actual Drug Strength Volume   (NM)   01686
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-29'>
+            4A.4.5.29  RXD-29   Actual Drug Strength Volume Units   (CWE)   01687
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-30'>
+            4A.4.5.30  RXD-30   Dispense to Pharmacy   (CWE)   01688
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-31'>
+            4A.4.5.31  RXD-31   Dispense to Pharmacy Address   (XAD)   01689
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-32'>
+            4A.4.5.32  RXD-32   Pharmacy Order Type   (ID)   01690
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-33'>
+            4A.4.5.33  RXD-33   Dispense Type   (CWE)   01691
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-34'>
+            4A.4.5.34  RXD-34   Pharmacy Phone Number   (XTN)   02311
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-5-35'>
+            4A.4.5.35  RXD-35   Dispense Tag Identifier   (EI)   03392
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6'>
+        4A.4.6  RXG - Pharmacy/Treatment Give Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-1'>
+            4A.4.6.1  RXG-1   Give Sub-ID Counter   (NM)   00342
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-2'>
+            4A.4.6.2  RXG-2   Dispense Sub-ID Counter   (NM)   00334
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-3'>
+            4A.4.6.3  RXG-3   Quantity/Timing
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-4'>
+            4A.4.6.4  RXG-4   Give Code   (CWE)   00317
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-5'>
+            4A.4.6.5  RXG-5   Give Amount – Minimum   (NM)   00318
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-6'>
+            4A.4.6.6  RXG-6   Give Amount - Maximum   (NM)   00319
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-7'>
+            4A.4.6.7  RXG-7   Give Units   (CWE)   00320
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-8'>
+            4A.4.6.8  RXG-8   Give Dosage Form   (CWE)   00321
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-9'>
+            4A.4.6.9  RXG-9   Administration Notes   (CWE)   00351
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-10'>
+            4A.4.6.10  RXG-10   Substitution Status   (ID)   00322
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-11'>
+            4A.4.6.11  RXG-11   Dispense-to Location
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-12'>
+            4A.4.6.12  RXG-12   Needs Human Review   (ID)   00307
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-13'>
+            4A.4.6.13  RXG-13   Special Administration Instructions   (CWE)   00343
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-14'>
+            4A.4.6.14  RXG-14   Give Per (Time Unit)   (ST)   00331
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-15'>
+            4A.4.6.15  RXG-15   Give Rate Amount   (ST)   00332
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-16'>
+            4A.4.6.16  RXG-16   Give Rate Units   (CWE)   00333
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-17'>
+            4A.4.6.17  RXG-17   Give Strength   (NM)   01126
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-18'>
+            4A.4.6.18  RXG-18   Give Strength Units   (CWE)   01127
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-19'>
+            4A.4.6.19  RXG-19   Substance Lot Number   (ST)   01129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-20'>
+            4A.4.6.20  RXG-20   Substance Expiration Date   (DTM)   01130
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-21'>
+            4A.4.6.21  RXG-21   Substance Manufacturer Name   (CWE)   01131
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-22'>
+            4A.4.6.22  RXG-22   Indication   (CWE)   01123
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-23'>
+            4A.4.6.23  RXG-23   Give Drug Strength Volume   (NM)   01692
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-24'>
+            4A.4.6.24  RXG-24   Give Drug Strength Volume Units   (CWE)   01693
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-25'>
+            4A.4.6.25  RXG-25   Give Barcode Identifier   (CWE)   01694
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-26'>
+            4A.4.6.26  RXG-26   Pharmacy Order Type   (ID)   01695
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-27'>
+            4A.4.6.27  RXG-27   Dispense to Pharmacy
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-28'>
+            4A.4.6.28  RXG-28   Dispense to Pharmacy Address
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-29'>
+            4A.4.6.29  RXG-29   Deliver-to Patient Location   (PL)   01683
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-30'>
+            4A.4.6.30  RXG-30   Deliver-to Address   (XAD)   01684
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-31'>
+            4A.4.6.31  RXG-31   Give Tag Identifier   (EI)   03393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-32'>
+            4A.4.6.32  RXG-32   Dispense Amount   (NM)   03316
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-6-33'>
+            4A.4.6.33  RXG-33   Dispense Units   (CWE)   03317
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7'>
+        4A.4.7  RXA - Pharmacy/Treatment Administration Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-1'>
+            4A.4.7.1  RXA-1   Give Sub-ID Counter   (NM)   00342
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-2'>
+            4A.4.7.2  RXA-2   Administration Sub-ID Counter   (NM)   00344
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-3'>
+            4A.4.7.3  RXA-3   Date/Time Start of Administration   (DTM)   00345
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-4'>
+            4A.4.7.4  RXA-4   Date/Time End of Administration   (DTM)   00346
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-5'>
+            4A.4.7.5  RXA-5   Administered Code   (CWE)   00347
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-6'>
+            4A.4.7.6  RXA-6   Administered Amount   (NM)   00348
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-7'>
+            4A.4.7.7  RXA-7   Administered units   (CWE)   00349
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-8'>
+            4A.4.7.8  RXA-8   Administered Dosage Form   (CWE)   00350
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-9'>
+            4A.4.7.9  RXA-9   Administration Notes   (CWE)   00351
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-10'>
+            4A.4.7.10  RXA-10   Administering Provider
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-11'>
+            4A.4.7.11  RXA-11   Administered-at Location
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-12'>
+            4A.4.7.12  RXA-12   Administered Per (Time Unit)   (ST)   00354
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-13'>
+            4A.4.7.13  RXA-13   Administered Strength   (NM)   01134
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-14'>
+            4A.4.7.14  RXA-14   Administered Strength Units   (CWE)   01135
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-15'>
+            4A.4.7.15  RXA-15   Substance Lot Number   (ST)   01129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-16'>
+            4A.4.7.16  RXA-16   Substance Expiration Date   (DTM)   01130
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-17'>
+            4A.4.7.17  RXA-17   Substance Manufacturer Name   (CWE)   01131
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-18'>
+            4A.4.7.18  RXA-18   Substance/Treatment Refusal Reason   (CWE)   01136
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-19'>
+            4A.4.7.19  RXA-19   Indication   (CWE)   01123
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-20'>
+            4A.4.7.20  RXA-20   Completion Status   (ID)   01223
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-21'>
+            4A.4.7.21  RXA-21   Action Code – RXA   (ID)   01224
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-22'>
+            4A.4.7.22  RXA-22   System Entry Date/Time   (DTM)   01225
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-23'>
+            4A.4.7.23  RXA-23   Administered Drug Strength Volume   (NM)   01696
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-24'>
+            4A.4.7.24  RXA-24   Administered Drug Strength Volume Units   (CWE)   01697
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-25'>
+            4A.4.7.25  RXA-25   Administered Barcode Identifier   (CWE)   01698
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-26'>
+            4A.4.7.26  RXA-26   Pharmacy Order Type   (ID)   01699
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-27'>
+            4A.4.7.27  RXA-27   Administered-At   (PL)   02264
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-28'>
+            4A.4.7.28  RXA-28   Administered-at Address   (XAD)   02265
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-7-29'>
+            4A.4.7.29  RXA-29   Administration Tag Identifier   (EI)   03396
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8'>
+        4A.4.8  RXV - Pharmacy/Treatment Infusion Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-1'>
+            4A.4.8.1  RXV-1   Set ID    (SI)   03318
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-2'>
+            4A.4.8.2  RXV-2   Bolus Type    (ID)   03319
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-3'>
+            4A.4.8.3  RXV-3   Bolus Dose Amount    (NM)   03320
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-4'>
+            4A.4.8.4  RXV-4   Bolus Dose Amount Units    (CWE)   03321
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-5'>
+            4A.4.8.5  RXV-5   Bolus Dose Volume    (NM)   03322
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-6'>
+            4A.4.8.6  RXV-6   Bolus Dose Volume Units    (CWE)   03323
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-7'>
+            4A.4.8.7  RXV-7   PCA Type    (ID)   03324
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-8'>
+            4A.4.8.8  RXV-8   PCA Dose Amount    (NM)   03325
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-9'>
+            4A.4.8.9  RXV-9   PCA Dose Amount Units    (CWE)   03326
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-10'>
+            4A.4.8.10  RXV-10   PCA Dose Amount Volume    (NM)   03327
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-11'>
+            4A.4.8.11  RXV-11   PCA Dose Amount Volume Units    (CWE)   03328
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-12'>
+            4A.4.8.12  RXV-12   Max Dose Amount    (NM)   03329
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-13'>
+            4A.4.8.13  RXV-13   Max Dose Amount Units    (CWE)   03330
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-14'>
+            4A.4.8.14  RXV-14   Max Dose Amount Volume    (NM)   03331
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-15'>
+            4A.4.8.15  RXV-15   Max Dose Amount Volume Units    (CWE)   03332
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-16'>
+            4A.4.8.16  RXV-16   Max Dose per Time    (CQ)   03333
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-17'>
+            4A.4.8.17  RXV-17   Lockout Interval    (CQ)   03334
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-18'>
+            4A.4.8.18  RXV-18   Syringe Manufacturer    (CWE)   03339
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-19'>
+            4A.4.8.19  RXV-19   Syringe Model Number    (CWE)   03385
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-20'>
+            4A.4.8.20  RXV-20   Syringe Size    (NM)   03386
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-21'>
+            4A.4.8.21  RXV-21   Syringe Size Units    (CWE)   03431
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-8-22'>
+            4A.4.8.22  RXV-22   Action Code    (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-9'>
+        4A.4.9  CDO – Cumulative Dosage Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-9-1'>
+            4A.4.9.1  CDO-1   Set ID – CDO   (SI)   03430
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-9-2'>
+            4A.4.9.2  CDO-2   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-9-3'>
+            4A.4.9.3  CDO-3   Cumulative Dosage Limit   (CQ)   03397
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-4-9-4'>
+            4A.4.9.4  CDO-4   Cumulative Dosage Limit Time Interval   (CQ)   03398
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5'>
+    4A.5  Pharmacy/Treatment Message Examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-1'>
+        4A.5.1  Example of various levels of coding in an order
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-2'>
+        4A.5.2  RXO segment field examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-2-1'>
+            4A.5.2.1  RXO segment field examples
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-2-2'>
+            4A.5.2.2  RXO-1 Requested Give code example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-2-3'>
+            4A.5.2.3  RXO-18 and RXO-19 Requested Strength and Strength Unit examples
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-3'>
+        4A.5.3  RXD segment field examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-3-1'>
+            4A.5.3.1  RXD segment field examples
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-3-2'>
+            4A.5.3.2  RXD-4 and RXD-5 Dispense amount and Actual dispense units
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-3-3'>
+            4A.5.3.3  Actual dispense amount, Actual dispense units, Actual strength, Actual strength units
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-3-4'>
+            4A.5.3.4  Valuing the Dispense Package Size Unit
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-4'>
+        4A.5.4  RDS with FT1 segments example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-5'>
+        4A.5.5  Alternating IV order messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-5-6'>
+        4A.5.6  Query examples
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-6'>
+    4A.6  Pharmacy/Treatment Transaction Flow Diagram
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-6-1'>
+        4A.6.1  OMP:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-6-2'>
+        4A.6.2  RDE:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-6-3'>
+        4A.6.3  RDS:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-6-4'>
+        4A.6.4  RGV:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-6-5'>
+        4A.6.5  RAS:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7'>
+    4A.7  Vaccine Trigger Events & Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7-1'>
+        4A.7.1  Vaccine administration data
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7-2'>
+        4A.7.2  Queries for immunization records (QRF Segments)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7-3'>
+        4A.7.3  XQ - Query for Vaccination Record (Event V01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7-4'>
+        4A.7.4  VXX - RESPONSE TO VACCINATION QUERY RETURNING MULTIPLE PID MATCHES (Event V02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7-5'>
+        4A.7.5  VXR - Vaccination Record Response (Event V03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-7-6'>
+        4A.7.6  VXU - Unsolicited Vaccination Record Update (Event V04)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-8'>
+    4A.8  Vaccine Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-8-1'>
+        4A.8.1  RXA - segment usage in vaccine messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-8-1-1'>
+            4A.8.1.1  Using RXA-5 in vaccine messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-8-1-2'>
+            4A.8.1.2  Using RXA-17 in vaccine messages
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-9'>
+    4A.9  Vaccination Message Examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-9-1'>
+        4A.9.1  VXQ - query for vaccination record
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-9-2'>
+        4A.9.2  VXX - response to vaccination query with multiple PID matches
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-9-3'>
+        4A.9.3  VXR - vaccination record response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-9-4'>
+        4A.9.4  VXU - unsolicited vaccination record update
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html#Order-Entry-Pharmacy-Treatment-Vaccination-9-5'>
+        4A.9.5  Query acknowledgment with no records found
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

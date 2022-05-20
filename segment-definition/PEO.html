@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PEO - Product Experience Observation Segment
+</h3>
+<p class="v2 v2-normalindented">Details related to a particular clinical experience or event are embodied in the PEO segment.  This segment can be used to characterize an event which might be attributed to a product to which the patient was exposed.   Products with a possible causal relationship to the observed experience are described in the following PCR (possible causal relationship) segments.  The message format was designed to be robust and includes many optional elements which may not be required for a particular regulatory purpose but allow a complete representation of the drug experience if needed.</p><p class="v2 v2-normalindented">A PEX message can contain multiple PEO segments if the patient experienced more than one event but must contain at least one PEO segment.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PEO - Product Experience Observation Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PEO
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Event Identifiers Used
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0678-ERROR! Bad Data! FIXME.html'>
+0678
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-1'>
+01073
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Event Symptom/Diagnosis Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0679-ERROR! Bad Data! FIXME.html'>
+0679
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-2'>
+01074
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Event Onset Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PEO-3'>
+01075
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Event Exacerbation Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-4'>
+01076
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Event Improved Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-5'>
+01077
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Event Ended Data/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-6'>
+01078
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Event Location Occurred Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-7'>
+01079
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Event Qualification
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0237-Event-Qualification.html' title='Event Qualification(Required)'>
+0237(R)
+<span class='vocab-link-text'>Event Qualification(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-8'>
+01080
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Event Serious
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0238-Event-Seriousness.html' title='Event Seriousness(Required)'>
+0238(R)
+<span class='vocab-link-text'>Event Seriousness(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-9'>
+01081
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Event Expected
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0239-Event-Expected.html' title='Event Expected(Required)'>
+0239(R)
+<span class='vocab-link-text'>Event Expected(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-10'>
+01082
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Event Outcome
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0240-Event-Consequence.html' title='Event Consequence(Required)'>
+0240(R)
+<span class='vocab-link-text'>Event Consequence(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-11'>
+01083
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Patient Outcome
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0241-Patient-Outcome.html' title='Patient Outcome(Required)'>
+0241(R)
+<span class='vocab-link-text'>Patient Outcome(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-12'>
+01084
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Event Description from Others
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-13'>
+01085
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+600
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Event Description from Original Reporter
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-14'>
+01086
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+600
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Event Description from Patient
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-15'>
+01087
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+600
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Event Description from Practitioner
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-16'>
+01088
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+600
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Event Description from Autopsy
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-17'>
+01089
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+600
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Cause Of Death
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0680-ERROR! Bad Data! FIXME.html'>
+0680
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-18'>
+01090
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Primary Observer Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-19'>
+01091
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Primary Observer Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-20'>
+01092
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Primary Observer Telephone
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PEO-21'>
+01093
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Primary Observer's Qualification
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0242-Primary-Observer&#39;s-Qualification.html' title='Primary Observer&#39;s Qualification(Required)'>
+0242(R)
+<span class='vocab-link-text'>Primary Observer's Qualification(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-22'>
+01094
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Confirmation Provided By
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0242-Primary-Observer&#39;s-Qualification.html' title='Primary Observer&#39;s Qualification(Required)'>
+0242(R)
+<span class='vocab-link-text'>Primary Observer's Qualification(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-23'>
+01095
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Primary Observer Aware Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-24'>
+01096
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+25
+</td>
+<td>
+Primary Observer's identity May Be Divulged
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0243-Identity-May-Be-Divulged.html' title='Identity May Be Divulged(Required)'>
+0243(R)
+<span class='vocab-link-text'>Identity May Be Divulged(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PEO-25'>
+01097
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PEO-1'>
+PEO-1: Event Identifiers Used (<a href='/data-type/CWE.html'>CWE</a>) 01073
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field may be used to transmit the event identifier used by other entities for this event.   The entry would typically contain a unique alphanumeric identifier assigned by an entity with the text component null or repeating the unique alphanumeric identifier followed by the organization&#39;s identifier.  An event identifier might be GB1234^GB1234^PharmaGiant for example. Refer to Table 0678 - Event Identifiers Used in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PEO-2'>
+PEO-2: Event Symptom/Diagnosis Code (<a href='/data-type/CWE.html'>CWE</a>) 01074
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is the coded diagnosis or problem description which best describes the event.  A text representation of the coded item should routinely be included.  MEDDRA and WHO-ART are examples of appropriate coding schemes, as are the patient and device codes included in the FDA Center for Devices and Radiologic Health&#39;s coding manual for Form 3500A. Refer to Table 0679 - Event Symptom/Diagnosis Code in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PEO-3'>
+PEO-3: Event Onset Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01075
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a report or best estimate of the date/time of onset of the event.  The date/time can be recorded to any level of precision it is known (hour, day, month, year).</p>
+
+<h4 class='v2' id='PEO-4'>
+PEO-4: Event Exacerbation Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01076
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the best estimate of the date/time the event was exacerbated.</p>
+
+<h4 class='v2' id='PEO-5'>
+PEO-5: Event Improved Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01077
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the best estimate of the date/time the event improved.</p>
+
+<h4 class='v2' id='PEO-6'>
+PEO-6: Event Ended Data/Time (<a href='/data-type/DTM.html'>DTM</a>) 01078
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the best estimate of the date/time the event resolved.</p>
+
+<h4 class='v2' id='PEO-7'>
+PEO-7: Event Location Occurred Address (<a href='/data-type/XAD.html'>XAD</a>) 01079
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the location at which the event started. Often this will specify only the country in which the event started.</p>
+
+<h4 class='v2' id='PEO-8'>
+PEO-8: Event Qualification (<a href='/data-type/ID.html'>ID</a>) 01080
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is contains a classification of the type of product experience this event is considered to represent.  Refer to <a href="https://www.hl7.org/fhir/v2/0237/index.html">HL7 Table 0237 - Event Qualification</a> for valid values.</p><p class="v2 v2-normalindented">Unexpected beneficial effects would not often be reported but are required by certain countries.</p>
+
+<h4 class='v2' id='PEO-9'>
+PEO-9: Event Serious (<a href='/data-type/ID.html'>ID</a>) 01081
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the event was judged as serious.  If the event did not meet the criteria for seriousness but the sender judges the event significant on other grounds, the event can be identified as significant [<em>but not serious</em>].  Refer to <a href="https://www.hl7.org/fhir/v2/0238/index.html">HL7 Table 0238 - Event Seriousness</a> for valid values.</p>
+
+<h4 class='v2' id='PEO-10'>
+PEO-10: Event Expected (<a href='/data-type/ID.html'>ID</a>) 01082
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the observed event was expected or unexpected as judged.  Refer to <a href="https://www.hl7.org/fhir/v2/0239/index.html">HL7 Table 0239 - Event Expected</a> for valid values.</p>
+
+<h4 class='v2' id='PEO-11'>
+PEO-11: Event Outcome (<a href='/data-type/ID.html'>ID</a>) 01083
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the consequence of the event on the patient.  If the consequence of the event is not understood or not available, the patient outcome element may be used although neither is required.  May be repeated if more than one is appropriate.  Refer to <a href="https://www.hl7.org/fhir/v2/0240/index.html">HL7 Table 0240 - Event Consequence</a> for valid values.</p>
+
+<h4 class='v2' id='PEO-12'>
+PEO-12: Patient Outcome (<a href='/data-type/ID.html'>ID</a>) 01084
+</h4>
+<p class="v2 v2-normalindented">When an event specific outcome is not available, the patient outcome element may be used to represent the patient&#39;s overall outcome if that information is known.  Refer to <a href="https://www.hl7.org/fhir/v2/0241/index.html">HL7 Table 0241 - Patient Outcome</a> for valid values.</p>
+
+<h4 class='v2' id='PEO-13'>
+PEO-13: Event Description from Others (<a href='/data-type/FT.html'>FT</a>) 01085
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a summary narrative text description of the event that occurred written by the sender.  Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.  By representing clinical information in OBX segments rather than in the narrative, these data become much more useful and flexible.</p>
+
+<h4 class='v2' id='PEO-14'>
+PEO-14: Event Description from Original Reporter (<a href='/data-type/FT.html'>FT</a>) 01086
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a summary narrative text description of the event provided by the original reporter.  Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.</p>
+
+<h4 class='v2' id='PEO-15'>
+PEO-15: Event Description from Patient (<a href='/data-type/FT.html'>FT</a>) 01087
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a summary narrative text description of the event obtained directly from the patient.  Note that laboratory results can be encoded as OBX segments rather then including them in the narrative, which will allow the data to be more readily represented and manipulated.</p>
+
+<h4 class='v2' id='PEO-16'>
+PEO-16: Event Description from Practitioner (<a href='/data-type/FT.html'>FT</a>) 01088
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a summary narrative text description of the event provided by the practitioner most familiar with the event.  Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.</p>
+
+<h4 class='v2' id='PEO-17'>
+PEO-17: Event Description from Autopsy (<a href='/data-type/FT.html'>FT</a>) 01089
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a summary narrative text description of the autopsy results.  Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.</p>
+
+<h4 class='v2' id='PEO-18'>
+PEO-18: Cause Of Death (<a href='/data-type/CWE.html'>CWE</a>) 01090
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the coded cause of death.  May be repeated as necessary to list multiple contributing causes.  A text description can be included by including text but no code or coding system.  For example, if the cause of death is to be determined at autopsy but results are not yet available, the cause of death element could be ^Pending autopsy^.  The date/time of death can be sent in the PID and the autopsy results sent in the event description from autopsy element of the PEO segment.  Refer to Table 0680 - Cause Of Death in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PEO-19'>
+PEO-19: Primary Observer Name (<a href='/data-type/XPN.html'>XPN</a>) 01091
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the name of the person who initially described the event.  </p>
+
+<h4 class='v2' id='PEO-20'>
+PEO-20: Primary Observer Address (<a href='/data-type/XAD.html'>XAD</a>) 01092
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the address of the person who initially described the event.</p>
+
+<h4 class='v2' id='PEO-21'>
+PEO-21: Primary Observer Telephone (<a href='/data-type/XTN.html'>XTN</a>) 01093
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the telephone number of the person who initially described the event.</p>
+
+<h4 class='v2' id='PEO-22'>
+PEO-22: Primary Observer's Qualification (<a href='/data-type/ID.html'>ID</a>) 01094
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the qualification of the primary observer which may assist in assessing the validity of the observations.  Refer to <a href="https://www.hl7.org/fhir/v2/0242/index.html">HL7 Table 0242 - Primary Observer&#39;s Qualification</a> for valid values.</p>
+
+<h4 class='v2' id='PEO-23'>
+PEO-23: Confirmation Provided By (<a href='/data-type/ID.html'>ID</a>) 01095
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the qualification of the health professional who confirmed the observation if the primary observer was not a health professional.  Refer to <a href="https://www.hl7.org/fhir/v2/0242/index.html">HL7 Table 0242 - Primary Observer&#39;s Qualification</a> for valid values.  </p>
+
+<h4 class='v2' id='PEO-24'>
+PEO-24: Primary Observer Aware Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01096
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the date/time the primary observer became aware of event.</p>
+
+<h4 class='v2' id='PEO-25'>
+PEO-25: Primary Observer's identity May Be Divulged (<a href='/data-type/ID.html'>ID</a>) 01097
+</h4>
+<p class="v2 v2-normalindented">Definition: Indicates whether or not the primary observer, if known to the sender, grants permission to disclose his or her identity to the product manufacturer for the purpose of further investigating the event.  If the element is absent, the assumption should be made that permission is not granted.  Refer to <a href="https://www.hl7.org/fhir/v2/0243/index.html">HL7 Table 0243 - Identity May Be Divulged</a> for valid values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,3213 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+OM1 - General Segment (Fields That Apply To Most Observations)
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the OM1 segment is Orders and Observations.</p><p class="v2 v2-normalindented">The OM1 segment contains the attributes that apply to the definition of most observations.  This segment also contains the field attributes that specify what additional segments might also be defined for this observation.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - OM1 - General Segment (Fields That Apply to Most Observations)
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+OM1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Sequence Number - Test/Observation Master File
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM1-1'>
+00586
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Producer's Service/Test/Observation ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0630-ERROR! Bad Data! FIXME.html'>
+0630
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM1-2'>
+00587
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Permitted Data Types
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0125-Value-Type.html' title='Value Type(Required)'>
+0125(R)
+<span class='vocab-link-text'>Value Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-3'>
+00588
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Specimen Required
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM1-4'>
+00589
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Producer ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0631-ERROR! Bad Data! FIXME.html'>
+0631
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM1-5'>
+00590
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Observation Description
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-6'>
+00591
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Other Service/Test/Observation IDs for the Observation
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0632-ERROR! Bad Data! FIXME.html'>
+0632
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-7'>
+00592
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Other Names
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-8'>
+00593
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Preferred Report Name for the Observation
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-9'>
+00594
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+30
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Preferred Short Name or Mnemonic for the Observation
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-10'>
+00595
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..8]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Preferred Long Name for the Observation
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-11'>
+00596
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Orderability
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-12'>
+00597
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Identity of Instrument Used to Perform this Study
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0633-ERROR! Bad Data! FIXME.html'>
+0633
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-13'>
+00598
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Coded Representation of Method
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0635-ERROR! Bad Data! FIXME.html'>
+0635
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-14'>
+00599
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Portable Device Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-15'>
+00600
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Observation Producing Department/Section
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0636-ERROR! Bad Data! FIXME.html'>
+0636
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-16'>
+00601
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Telephone Number of Section
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-17'>
+00602
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Nature of Service/Test/Observation
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0174-Nature-of-Service/Test/Observation.html' title='Nature of Service/Test/Observation'>
+0174
+<span class='vocab-link-text'>Nature of Service/Test/Observation</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OM1-18'>
+00603
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Report Subheader
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0637-ERROR! Bad Data! FIXME.html'>
+0637
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-19'>
+00604
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Report Display Order
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-20'>
+00605
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Date/Time Stamp for Any Change in Definition for the Observation
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-21'>
+00606
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Effective Date/Time of Change
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-22'>
+00607
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Typical Turn-Around Time
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-23'>
+00608
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Processing Time
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-24'>
+00609
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Processing Priority
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0168-Processing-Priority.html' title='Processing Priority(Required)'>
+0168(R)
+<span class='vocab-link-text'>Processing Priority(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-25'>
+00610
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Reporting Priority
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0169-Reporting-Priority.html' title='Reporting Priority(Required)'>
+0169(R)
+<span class='vocab-link-text'>Reporting Priority(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-26'>
+00611
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Outside Site(s) Where Observation May Be Performed
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0638-ERROR! Bad Data! FIXME.html'>
+0638
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-27'>
+00612
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Address of Outside Site(s)
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-28'>
+00613
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Phone Number of Outside Site
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-29'>
+00614
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Confidentiality Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0177-Confidentiality-Code.html' title='Confidentiality Code'>
+0177
+<span class='vocab-link-text'>Confidentiality Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-30'>
+00615
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Observations Required to Interpret this Observation
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0639-ERROR! Bad Data! FIXME.html'>
+0639
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-31'>
+00616
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Interpretation of Observations
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-32'>
+00617
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Contraindications to Observations
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0640-ERROR! Bad Data! FIXME.html'>
+0640
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-33'>
+00618
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Reflex Tests/Observations
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0641-ERROR! Bad Data! FIXME.html'>
+0641
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-34'>
+00619
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Rules that Trigger Reflex Testing
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-35'>
+00620
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Fixed Canned Message
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0643-ERROR! Bad Data! FIXME.html'>
+0643
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-36'>
+00621
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Patient Preparation
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-37'>
+00622
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Procedure Medication
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0644-ERROR! Bad Data! FIXME.html'>
+0644
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-38'>
+00623
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Factors that may Affect the Observation
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-39'>
+00624
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+Service/Test/Observation Performance Schedule
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-40'>
+00625
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+60
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+Description of Test Methods
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-41'>
+00626
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+Kind of Quantity Observed
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0254-Kind-of-Quantity.html' title='Kind of Quantity(Required)'>
+0254(R)
+<span class='vocab-link-text'>Kind of Quantity(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-42'>
+00937
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+Point Versus Interval
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0255-Duration-Categories.html' title='Duration Categories(Suggested)'>
+0255(S)
+<span class='vocab-link-text'>Duration Categories(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-43'>
+00938
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+Challenge Information
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0256-Time-Delay-Post-Challenge.html' title='Time Delay Post Challenge(Required)'>
+0256(R)
+<span class='vocab-link-text'>Time Delay Post Challenge(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-44'>
+00939
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+Relationship Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0258-Relationship-Modifier.html' title='Relationship Modifier(Required)'>
+0258(R)
+<span class='vocab-link-text'>Relationship Modifier(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-45'>
+00940
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+Target Anatomic Site Of Test
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0645-ERROR! Bad Data! FIXME.html'>
+0645
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-46'>
+00941
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+Modality of Imaging Measurement
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0910-Acquisition-Modality.html' title='Acquisition Modality'>
+0910
+<span class='vocab-link-text'>Acquisition Modality</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-47'>
+00942
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+Exclusive Test
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0919-Exclusive-Test.html' title='Exclusive Test(Required)'>
+0919(R)
+<span class='vocab-link-text'>Exclusive Test(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-48'>
+03310
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+49
+</td>
+<td>
+Diagnostic Serv Sect ID
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0074-Diagnostic-Service-Section-ID.html' title='Diagnostic Service Section ID(Required)'>
+0074(R)
+<span class='vocab-link-text'>Diagnostic Service Section ID(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-49'>
+00257
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+50
+</td>
+<td>
+Taxonomic Classification Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0446-Species-Code.html' title='Species Code'>
+0446
+<span class='vocab-link-text'>Species Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-50'>
+01539
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+51
+</td>
+<td>
+Other Names
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-51'>
+03399
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[200..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+52
+</td>
+<td>
+Replacement Producer's Service/Test/Observation ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-52'>
+03433
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+53
+</td>
+<td>
+Prior Resuts Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-53'>
+03434
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+54
+</td>
+<td>
+Special Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-54'>
+03435
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+55
+</td>
+<td>
+Test Category
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-55'>
+03436
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+56
+</td>
+<td>
+Observation/Identifier associated with Producer’s Service/Test/Observation ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0647-ERROR! Bad Data! FIXME.html'>
+0647
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-56'>
+03437
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+57
+</td>
+<td>
+Typical Turn-Around Time
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OM1-57'>
+03438
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+58
+</td>
+<td>
+Gender Restriction
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0001-Administrative-Sex.html' title='Administrative Sex(Suggested)'>
+0001(S)
+<span class='vocab-link-text'>Administrative Sex(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-58'>
+03439
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+59
+</td>
+<td>
+Age Restriction
+</td>
+<td class='centered'>
+<a href='/data-type/NR.html'>
+NR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OM1-59'>
+03440
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='OM1-1'>
+OM1-1: Sequence Number - Test/Observation Master File (<a href='/data-type/NM.html'>NM</a>) 00586
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the first OM1 segment in a message and is described as 1, the second as 2, and so on.</p>
+
+<h4 class='v2' id='OM1-2'>
+OM1-2: Producer's Service/Test/Observation ID (<a href='/data-type/CWE.html'>CWE</a>) 00587
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the producer&#39;s usual or preferred identification of the test or observation.   Only three components should be included: &#60;ID code&#62;^&#60;service text name/description&#62;^&#60;source list of code&#62;.  All components should be non-null.  Refer to Table 0630 - Producer&#39;s Service/Test/Observation ID in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-3'>
+OM1-3: Permitted Data Types (<a href='/data-type/ID.html'>ID</a>) 00588
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the allowed data type(s) for this observation.  The codes are the same as those listed for OBX (a given observation may, under different circumstances, take on different data types). Indeed, under limited circumstances, an observation can consist of one or more fragments of different data types. When an observation may have more than one data type, e.g., coded (CWE) and numeric (NM) the allowable data types should be separated by repeat delimiters.  Refer to <a href="https://www.hl7.org/fhir/v2/0125/index.html">HL7 Table 0125 – Value Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OM1-4'>
+OM1-4: Specimen Required (<a href='/data-type/ID.html'>ID</a>) 00589
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a flag indicating whether or not at least one specimen is required for the service/test/observation.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> as defined in Chapter 2C, Code Tables.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y &#160;&#160;&#160;&#160;one or more specimens are required to obtain this observation</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N &#160;&#160;&#160;&#160;a specimen is not required</p></li></ul><p class="v2 v2-normalindented">When a specimen is required, segment OM4 will usually be included (one per specimen is required).</p>
+
+<h4 class='v2' id='OM1-5'>
+OM1-5: Producer ID (<a href='/data-type/CWE.html'>CWE</a>) 00590
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field uniquely identifies the service producing the observation described in this segment.  Three components should be included: an identifying code, the name of the producer, and the identity of the coding system (e.g., 323-5678^Acme Special Lab^MC).  The identity of the coding system will usually be MC (Medicare provider number or HIBCC site codes) in the United States.  Each country may want to specify its preferred coding system and define a coding system ID to identify it. Refer to Table 0631 - Producer ID in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">Remember that the magnitude of a treatment or the setting on a machine, such as a ventilator, can be regarded as an observation.  Thus, pharmacy, respiratory care, and nursing may be producers of such observations.</p>
+
+<h4 class='v2' id='OM1-6'>
+OM1-6: Observation Description (<a href='/data-type/TX.html'>TX</a>) 00591
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a text description of this observation.</p>
+
+<h4 class='v2' id='OM1-7'>
+OM1-7: Other Service/Test/Observation IDs for the Observation (<a href='/data-type/CWE.html'>CWE</a>) 00592
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains all alias codes/identifiers for this observation.  If more than one alias code needs to be specified, multiple three-component, CWE-format entries (&#60;code 1&#62;^&#60;name 1&#62;^&#60;code system 1&#62;) may be given, separated by repeat delimiters.  An observation may have as many names/codes as are applicable (e.g., ICD9, ACR-NEMA, SNOMED, and READ).  We encourage the inclusion of as many different codes as may apply to assist cross-system mapping of terminology.  All components of each triplet should be non-null (that is, names and coding system IDs within the CWE data type are required in addition to codes).  Refer to Table 0632 - Other Service/Test/Observation IDs for the Observation in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">Because the size (dose) of a treatment can also be an observation, codes that identify treatments (e.g., NDC, ICCS) may also be included in this field.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  In this field, the names within the CWE data type are required.</p></div><br/>
+
+<h4 class='v2' id='OM1-8'>
+OM1-8: Other Names (<a href='/data-type/ST.html'>ST</a>) 00593
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. See OM1-51.</strong></p><p class="v2 v2-normalindented">Definition:  This field contains any test aliases or synonyms for the name in the context of the ordering service.  These are alternative names, not associated with a particular coding system, by which the battery, test, or observation (e.g., measurement, test, diagnostic study, treatment, etc.) is known to users of the system.  Multiple names in this list are separated by repeat delimiters.</p>
+
+<h4 class='v2' id='OM1-9'>
+OM1-9: Preferred Report Name for the Observation (<a href='/data-type/ST.html'>ST</a>) 00594
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the preferred name for reporting the observation or battery.  The name can contain up to 30 characters (including blanks).  It is the preferred name for columnar reports that require a maximum name size.</p>
+
+<h4 class='v2' id='OM1-10'>
+OM1-10: Preferred Short Name or Mnemonic for the Observation (<a href='/data-type/ST.html'>ST</a>) 00595
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name that can be used in space-limited reports (e.g., specimen labels) to identify the observation for the convenience of human readers.  The name can contain up to eight characters.</p>
+
+<h4 class='v2' id='OM1-11'>
+OM1-11: Preferred Long Name for the Observation (<a href='/data-type/ST.html'>ST</a>) 00596
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the fully-specified name for the observation or battery.  It may include the full (unabbreviated) multiple-word names and contain up to 200 characters.  It should be as scientifically precise as possible.</p>
+
+<h4 class='v2' id='OM1-12'>
+OM1-12: Orderability (<a href='/data-type/ID.html'>ID</a>) 00597
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether or not a service/test/observation is an orderable code.   Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y &#160;&#160;&#160;&#160;the service/test/observation is an orderable code</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N &#160;&#160;&#160;&#160;the service/test/observation is not orderable</p></li></ul><p class="v2 v2-normalindented">For example, blood differential count is usually an orderable &quot;test,&quot; MCV, contained within the differential count, is usually not independently orderable.</p>
+
+<h4 class='v2' id='OM1-13'>
+OM1-13: Identity of Instrument Used to Perform this Study (<a href='/data-type/CWE.html'>CWE</a>) 00598
+</h4>
+<p class="v2 v2-normalindented">Definition: When applicable, this field identifies the instrument or device that is used to generate this observation or battery.  Examples are the automated instrument in the laboratory, the imaging device and model number in radiology, and the automatic blood pressure machine on the ward.  The instrument is specified as a coded entry in anticipation that these identifiers could be specified as codes.  Initially, we expect that most of the information about devices will be transmitted as text in the second component of the CWE identifier.  If more than one kind of instrument is used, all of them can be listed, separated by repeat delimiters. Refer to Table 0633 - Identity of Instrument Used to Perform this Study in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-14'>
+OM1-14: Coded Representation of Method (<a href='/data-type/CWE.html'>CWE</a>) 00599
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the method(s) used to produce the observation and should be recorded in a computer-understandable (coded) form here.  This field should report the same method(s) reported in narrative in the following field.  More than one method may be listed, but only if they produce results that are clinically indistinguishable.  Multiple methods must be separated by repeat delimiters. Refer to Table 0635 - Coded Representation of Method in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-15'>
+OM1-15: Portable Device Indicator (<a href='/data-type/ID.html'>ID</a>) 00600
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether or not a portable device may be used for the service/test/observation.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y &#160;&#160;&#160;&#160;the observation can be obtained with a portable device brought to the patient</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N &#160;&#160;&#160;&#160;the patient or specimen must be transported to the device</p></li></ul>
+
+<h4 class='v2' id='OM1-16'>
+OM1-16: Observation Producing Department/Section (<a href='/data-type/CWE.html'>CWE</a>) 00601
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition:  This field permits the sorting of observation orders and values by the providing service&#39;s department/section.  It provides &quot;source oriented&quot; reporting when required.  Free text may be used instead of these codes, but in that case, they should be recorded as the second &quot;component&quot; of the field to distinguish them from the standard codes.  Multiple codes in this field are separated by repeat delimiters. Refer to Table 0636 - Observation Producing Department/Section in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-17'>
+OM1-17: Telephone Number of Section (<a href='/data-type/XTN.html'>XTN</a>) 00602
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition:  This field contains the telephone number for calling responsible parties in this section to ask results or advice about the use of this test.</p>
+
+<h4 class='v2' id='OM1-18'>
+OM1-18: Nature of Service/Test/Observation (<a href='/data-type/CWE.html'>CWE</a>) 00603
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the definition entry identifies a test battery, an entire functional procedure or study, a single test value (observation), multiple test batteries or functional procedures as an orderable unit (profile), or a single test value (observation) calculated from other independent observations.  Refer to <a href="https://www.hl7.org/fhir/v2/0174/index.html">User-defined Table 0174 - Nature of Service/Test/Observation</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM1-19'>
+OM1-19: Report Subheader (<a href='/data-type/CWE.html'>CWE</a>) 00604
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an optional string that defines the preferred header under which this observation should be listed on a standard display.  For example, if the test is hemoglobin, this string might be &quot;Complete blood count.&quot;  It is represented as a coded data type so that a battery can be a header.  Only the description part of the string may be included in case the subheader does not have an associated code.  When a series of observations is displayed according to the sort order given below, the subheader that groups those observations is presented whenever the subheader changes. Refer to Table 0637 - Report Subheader in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-20'>
+OM1-20: Report Display Order (<a href='/data-type/ST.html'>ST</a>) 00605
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an optional string that defines the sort order in which this observation is presented in a standard report or display that contains the many observations.</p>
+
+<h4 class='v2' id='OM1-21'>
+OM1-21: Date/Time Stamp for Any Change in Definition for the Observation (<a href='/data-type/DTM.html'>DTM</a>) 00606
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time that the last of any field change was made and in the host&#39;s record corresponding to the OM1 segment.</p>
+
+<h4 class='v2' id='OM1-22'>
+OM1-22: Effective Date/Time of Change (<a href='/data-type/DTM.html'>DTM</a>) 00607
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time of the last change in the test procedure that would make previous results incompatible with new results, e.g., the last time that normal reference range or units changed for a numeric test/observation.</p><p class="v2 v2-normalindented">We strongly suggest that observation producers never use the same observation ID when the measurement procedures change in such a way that results produced under the new procedure are clinically different from those produced with the old procedure. Rather, the producer should try to adjust the new procedure so that its values are clinically indistinguishable from the old. Failing that, one should create a new observation ID for the observation produced under the new procedure.</p><p class="v2 v2-normalindented">In the rare circumstances when a procedure change occurs and neither of the above two options is viable, this field shall be used to transmit the effective date/time of the new procedure. The receiving system shall assume that any values that come across under this observation ID are under the new procedure after this date and take appropriate steps to distinguish the old from the new observations.</p><p class="v2 v2-normalindented">This number is included to provide a means of communicating with the observation producing service when they have questions about particular observations or results.</p>
+
+<h4 class='v2' id='OM1-23'>
+OM1-23: Typical Turn-Around Time (<a href='/data-type/NM.html'>NM</a>) 00608
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8.2. See OM1-57.</strong></p><p class="v2 v2-normalindented">Definition:  This field contains the typical processing time for single test/observation.  This field indicates the time from the delivery of a specimen or transport of a patient to a diagnostic service and the completion of the study.  It includes the usual waiting time.  The units are measured in minutes. </p>
+
+<h4 class='v2' id='OM1-24'>
+OM1-24: Processing Time (<a href='/data-type/NM.html'>NM</a>) 00609
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the usual length of time (in minutes) between the start of a test process and its completion.</p>
+
+<h4 class='v2' id='OM1-25'>
+OM1-25: Processing Priority (<a href='/data-type/ID.html'>ID</a>) 00610
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains one or more available priorities for performing the observation or test.  This is the priority that can be placed in <a href="/segment-definition/TQ1.html#TQ1-9">TQ1-9 - Priority</a>.  Multiple priorities may be given, separated by repeat delimiters.  For example, S~A~R~P~T indicates that the test may be ordered using codes S, A, R, P, or T.  Refer to <a href="https://www.hl7.org/fhir/v2/0168/index.html">HL7 Table 0168 - Processing Priority</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">For tests requiring a specimen, the priority for obtaining the specimen is included in <a href="/segment-definition/OM4.html#OM4-13">OM4-13 - Specimen Priorities</a>.</p>
+
+<h4 class='v2' id='OM1-26'>
+OM1-26: Reporting Priority (<a href='/data-type/ID.html'>ID</a>) 00611
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the available priorities reporting the test results when the user is asked to specify the reporting priority independent of the processing priority.  Refer to <a href="https://www.hl7.org/fhir/v2/0169/index.html">HL7 Table 0169 - Reporting Priority</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OM1-27'>
+OM1-27: Outside Site(s) Where Observation May Be Performed (<a href='/data-type/CWE.html'>CWE</a>) 00612
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition:  This field contains the identification(s) of the outside service(s) that produce(s) the observation.  The format of this CWE field uses the producer ID (as defined in <a href="/segment-definition/OM1.html#OM1-5">OM1-5 - Producer ID</a>) and the name of the service separated by component delimiters.  An example is ...|39221^ACME lab^MC|...  If multiple services are used, they should be separated by repeat delimiter(s). Refer to Table 0638 - Outside Site(s) Where Observation May Be Performed in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-28'>
+OM1-28: Address of Outside Site(s) (<a href='/data-type/XAD.html'>XAD</a>) 00613
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition:  This field contains the address of the outside services listed in <a href="/segment-definition/OM1.html#OM1-28">OM1-28 - Address of Outside Site(s)</a> where observation may be performed.  If multiple services are recorded in that field, their addresses should be separated by repeat delimiters, and the addresses should appear in the same order in which the services appear in the preceding field.</p>
+
+<h4 class='v2' id='OM1-29'>
+OM1-29: Phone Number of Outside Site (<a href='/data-type/XTN.html'>XTN</a>) 00614
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8. </strong></p><p class="v2 v2-normalindented">Definition:  This field contains the telephone number of the outside site.</p>
+
+<h4 class='v2' id='OM1-30'>
+OM1-30: Confidentiality Code (<a href='/data-type/CWE.html'>CWE</a>) 00615
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the degree to which special confidentiality protection should be applied to the observation.  For example, a tighter control may be applied to an HIV test than to a CBC.  Refer to <a href="https://www.hl7.org/fhir/v2/0177/index.html">User-defined Table 0177 - Confidentiality Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM1-31'>
+OM1-31: Observations Required to Interpret this Observation (<a href='/data-type/CWE.html'>CWE</a>) 00616
+</h4>
+<p class="v2 v2-normalindented"><strong>Note: This  field is deprecated and retained for backward compatibility as of v 2.8.2. See OMC Segment.</strong></p><p class="v2 v2-normalindented">Definition:  This field contains the list of variables that the diagnostic service needs to interpret the results of an ordered study.  The observations specified here should be sent to the diagnostic service as OBX segments along with the order (OBR) segment.  Separate multiple items by repeat delimiters. Refer to Table 0639 - Observations Required to Interpret this Observation in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-32'>
+OM1-32: Interpretation of Observations (<a href='/data-type/TX.html'>TX</a>) 00617
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the clinical information about interpreting test results.  Examples are the conditions (drugs) that may cause false abnormals, and the information about the sensitivity and specificity of the test for diagnoses.</p>
+
+<h4 class='v2' id='OM1-33'>
+OM1-33: Contraindications to Observations (<a href='/data-type/CWE.html'>CWE</a>) 00618
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the diagnosis or problem for which the test is a contraindication or of possible danger (e.g., pacemaker, pregnancy, diabetes).  For example, if the test identified in OM1 was an intravenous pyelogram, this field would include warnings about the use of contrast media in diabetes. The contraindication diagnoses should be separated by repeat delimiters. Refer to Table 0640 - Contraindications to Observations in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">Most contraindication rules will be transmitted as free text.  In such cases, the contents serve only as information for human reading.  However, an alternative for machine readable contraindication rules also exists. The rule may be defined formally in the Arden Syntax (ASTM 1460-1992) which has syntax for defining algebraic and transcendental equations, as well as temporal and logical selection criteria based on patient information stored in the computer record. Reflex rules that are written in Arden Syntax should begin and end with a double semi-colon (;;), the Arden slot delimiter.</p>
+
+<h4 class='v2' id='OM1-34'>
+OM1-34: Reflex Tests/Observations (<a href='/data-type/CWE.html'>CWE</a>) 00619
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the test names as type CWE (i.e., &#60;code&#62;^&#60;text name&#62;^&#60;coding system&#62;) that may be ordered automatically by the diagnostic service, depending on the results obtained from the ordered battery.  A screening CBC might trigger a reticulocyte count if the Hgb is less than 12.  Multiple reflex tests are separated by repeat delimiters. Refer to Table 0641 - Reflex Tests/Observations in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-35'>
+OM1-35: Rules that Trigger Reflex Testing (<a href='/data-type/TX.html'>TX</a>) 00620
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the rules that trigger the reflex tests listed above.  If multiple reflex tests are listed in <a href="/segment-definition/OM1.html#OM1-34">OM1-34 - Reflex Text/Observations </a>separated by repeat delimiters, a set of corresponding rules will be included in this section.  The first rule will apply to the first test, the second to the second test, and so on. </p><p class="v2 v2-normalindented">Most reflex rules will usually be transmitted as free text.  In such cases, the contents serve only as information for human reading.  However, an alternative for machine readable rules also exists. The rule may be defined formally in the Arden Syntax (ASTM 1460-1992) which has syntax for defining algebraic and transcendental equations, as well as temporal and logical selection criteria based on patient information stored in the computer record.  Reflex rules that are written in Arden Syntax should begin and end with a double semi-colon (;;), the Arden slot delimiter.</p>
+
+<h4 class='v2' id='OM1-36'>
+OM1-36: Fixed Canned Message (<a href='/data-type/CWE.html'>CWE</a>) 00621
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the codes and a fixed text message that is always associated with an abbreviation.  The field may include multiple messages separated by repeat delimiters. Refer to Table 0643 - Fixed Canned Message in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">Most rules about patient testing will be transmitted as free text.  In such cases, the contents serve only as information for human reading.  However, an alternative for machine readable rules also exists.  The rule may be defined formally in the Arden Syntax (ASTM 1460-1992) which has syntax for defining algebraic and transcendental equations, as well as temporal and logical selection criteria based on patient information stored in the computer record.  Rules about patient preparation are written in Arden Syntax should begin and end with a double semi-colon (;;), the Arden slot delimiter.</p>
+
+<h4 class='v2' id='OM1-37'>
+OM1-37: Patient Preparation (<a href='/data-type/TX.html'>TX</a>) 00622
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the tests or observations that require special patient preparation, diet, or medications.  For GI contrast studies, this field would contain the pretest diet, e.g., low residue for two days, NPO before study, and the preferred purgatives.  Each separate med, diet, or preparation should be delimited by a repeat delimiter.  Separate each requirement by a repeat delimiter.  Example for a sigmoidectomy:</p><p class="v2 v2-example">...|clear liquid diet full day before procedure~take 8 oz mag citrate 6pm day before procedure~take 2 ducat tabs (5m) at 4pm day before procedure~NPO past midnight.|...</p>
+
+<h4 class='v2' id='OM1-38'>
+OM1-38: Procedure Medication (<a href='/data-type/CWE.html'>CWE</a>) 00623
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the treatments that may be needed as part of the procedure.  Examples are radioactive iodine for a thyroid screen, and methacholine for a methacholine spirometry challenge.  This field should be identified as a CWE data type. Refer to Table 0644 - Procedure Medication in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-39'>
+OM1-39: Factors that may Affect the Observation (<a href='/data-type/TX.html'>TX</a>) 00624
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the text description of the foods, diagnoses, drugs, or other conditions that may influence the interpretation of the observation. Information about the direction of the effect, and any recommendation about altering the diet, conditions, or drug before initiating the test observation.</p><p class="v2 v2-normalindented">Most rules about factors that effect the test interpretation will be transmitted as free text.  In such cases, the contents serve only as information for human reading.  However, an alternative for machine readable rules also exists.  The rule may be defined formally in the Arden Syntax (ASTM 1460-1992) which has syntax for defining algebraic and transcendental equations, as well as temporal and logical selection criteria based on patient information stored in the computer record.  Rules about patient preparation are written in Arden Syntax and should begin and end with a double semi-colon (;;), the Arden slot delimiter.</p>
+
+<h4 class='v2' id='OM1-40'>
+OM1-40: Service/Test/Observation Performance Schedule (<a href='/data-type/ST.html'>ST</a>) 00625
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the diagnostic studies/tests that are performed only at certain times during the course of a work day or work week.  This field indicates the maximum interval between successive test performances (the test may actually be performed more frequently).  The format given in Chapter 4, Section 4.3.2.1, &quot;Repeat Pattern,&quot; should be used.  If necessary, multiple codes may be given, separated by repeat delimiters.  The use of multiple codes indicates that the test is performed at multiple concurrent intervals.  For example, Q6H indicates that the test is performed at least once every 6 hours around the clock.  QJ1 indicates that the test is performed at least every week on Mondays.  QAM~QPM indicates that the test is performed at least once every morning and every evening. QJ1~QJ3~QJ5 indicates that the test is performed at least every week on Mondays, Wednesdays, and Fridays.  C indicates that the test is performed continuously, 7 days per week.</p>
+
+<h4 class='v2' id='OM1-41'>
+OM1-41: Description of Test Methods (<a href='/data-type/TX.html'>TX</a>) 00626
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the text description of the methods used to perform the text and generate the observations.  Bibliographic citations may be included.</p>
+
+<h4 class='v2' id='OM1-42'>
+OM1-42: Kind of Quantity Observed (<a href='/data-type/CWE.html'>CWE</a>) 00937
+</h4>
+<p class="v2 v2-normalindented">Definitions:  This optional attribute describes the underlying kind of property represented by this observation.  This attribute distinguishes concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth.  These are discussed more fully in the LOINC Users&#39; Manual.<span id="chapter-8-footnote-reference-1"><a href="#chapter-8-footnote-1"><sup>1</sup></a></span>  They are derived from the approach described in 1995 edition of the IUPAC Silver Book.<span id="chapter-8-footnote-reference-2"><a href="#chapter-8-footnote-2"><sup>2</sup></a></span> These distinctions are used in IUPAC and LOINC standard codes.  Defined categories are listed in <a href="https://www.hl7.org/fhir/v2/0254/index.html">HL7 Table 0254 - Kind of Quantity</a> in Chapter 2C, Code Tables.</p><p class="v2 v2-normalindented">The distinctions of true quantities in this table are based primarily on dimensional analyses. The table contains a number of &quot;families,&quot; those related to simple counts (number, number concentration, etc.), to mass (mass, mass concentration, etc.), to enzyme activity (catalytic content, catalytic concentration, etc.), and molar or equivalents (substance content, substance concentration).  </p><p class="v2 v2-normalindented">By this classification, a glucose (in the US) would be classed as a mass concentration.  A sodium would be classed as a substance concentration. Within the family, a total amount should be described as the unadorned variant; e.g., the property of measure for a patient&#39;s weight would be mass, not mass content.  Most chemical measures produce concentrations, as exemplified by sodium and glucose. However, a 24-hour urine protein is not a mass concentration, but a mass rate (mass per unit time).  The content variants (e.g., mass content, substance content) are used to reflect an amount per mass (usually) of tissue.</p><p class="v2 v2-normalindented">This attribute would be valued in a master file only if the service sending the master file classified observations by their principle of measurement.</p>
+
+<h4 class='v2' id='OM1-43'>
+OM1-43: Point Versus Interval (<a href='/data-type/CWE.html'>CWE</a>) 00938
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional attribute allows master files to classify observations as measuring the patient&#39;s state at a point in time (e.g., spot urines, random urines, serum potassium), or averaged over an interval of time (e.g., concentration, total amount, or clearance over a 24-hour collection).  Interval measures most often apply to urine and stool specimens (e.g., 24-hour urines, 3-day stool fats).  They also apply to clinical measurements such as urine outputs, which are reported as shift totals and 24-hour totals, and event counts on physiologic monitors such as the number of PVCs on a 24-hour Holter monitor.  </p><p class="v2 v2-normalindented">This field would only be valued in a transaction if the service sending this master file message classified its observation by point versus time interval. This field is <strong>not</strong> used to record the time collection interval for a particular sample. It is used to specify a characteristic of an observation which has a defined normal range and to distinguish observations of the same kind but observed over varying periods of time.  A spot urine sodium would have PT stored in this field. A 24-hour urine sodium and a 24-hour Holter monitor would have 24H stored here. This attribute would only be valued if the filling service classified its observations by timing.  Refer to <a href="https://www.hl7.org/fhir/v2/0255/index.html">User-defined Table 0255 - Duration Categories</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM1-44'>
+OM1-44: Challenge Information (<a href='/data-type/TX.html'>TX</a>) 00939
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional attribute provides information for classifying observations by the challenge component of the test, if a challenge does speciate the observation.  For example, distinguishing tests that have a challenge component in database. There co-ascribes the physiologic or drug challenge that is intrinsic to the measurement. To identify, for example, tests that include a glucose challenge.  </p><p class="v2 v2-normalindented">To construct this text string, use the following template.  (Note:  This field is not constructed of formally defined components; it is a free text field.  Component delimiters are not used and it is not necessary to supply placeholders if some &quot;components&quot; are not used.)</p><p class="v2 v2-normalindented">The time delay follows the syntax: n&#60;S|M|H|D|W&#62; where n is a number (possibly a decimal); S denotes seconds; M denotes minutes; H denotes hours; D denotes days; and W denotes weeks.  The time delay can be preceded by a &#39;greater than&#39; (&#62;) sign, e.g. &#62;4H.</p><p class="v2 v2-normalindented"><a href="https://www.hl7.org/fhir/v2/0256/index.html">HL7 Table 0256 - Time Delay Post Challenge</a> in Chapter 2C, Code Tables, lists possible values for time delay.</p><p class="v2 v2-normalindented">Examples:</p><p class="v2 v2-example">PRE 100 GM GLUCOSE PO</p><p class="v2 v2-example">PRE 100 GM GLUCOSE PO</p><p class="v2 v2-example">30M POST 100 GM GLUCOSE PO</p><p class="v2 v2-example">2H POST 100 GM GLUCOSE PO</p><p class="v2 v2-example">TROUGH</p><p class="v2 v2-normalindented">For drug peak and trough measures the nature of the substance challenged is the same as the analyte name, and need not be included. </p><p class="v2 v2-normalindented">We denote the route of the challenge via abbreviations for medication routes (see Chapter 4A, section 4A.4.2.1, &quot;Route,&quot; which references <a href="https://www.hl7.org/fhir/v2/0162/index.html">HL7 Table 0162 - Route of Administration</a> in Chapter 2C, Code Tables).  An oral route of administration would be denoted by &quot;PO,&quot; an intravenous route by &quot;IV.&quot; </p><p class="v2 v2-normalindented">Details of the drug dose, time the dose was given, route of administration, etc., would be noted in separate OBX, and would have corresponding master observation definitions stored in the observation master file map to different records stored in the master file segments contained in the drug level message.</p><p class="v2 v2-normalindented">The nature of a physiologic (non-drug) challenge may also be specified, using the terms in <a href="https://www.hl7.org/fhir/v2/0257/index.html">HL7 Table 0257 - Nature of challenge</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='OM1-45'>
+OM1-45: Relationship Modifier (<a href='/data-type/CWE.html'>CWE</a>) 00940
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional attribute provides a mechanism for classifying observations according to the subject, in relation to the patient whose results might be stored with as &quot;patient&quot; data.  It is standard practice, for example, to report values for controls, donors, and blood product units as well as the patient&#39;s own values, and store them in the patient&#39;s record. (This may not be the best way to model such information, but it is the way it is usually reported.) This should be valued when two values (e.g., one for patient and one for a blood product unit) could otherwise be confused.</p><p class="v2 v2-normalindented">The default value is &quot;Patient,&quot; and if not specified, this value is assumed.  The persons sub-component can refer to <a href="https://www.hl7.org/fhir/v2/0258/index.html">HL7 Table 0258 - Relationship Modifier</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OM1-46'>
+OM1-46: Target Anatomic Site Of Test (<a href='/data-type/CWE.html'>CWE</a>) 00941
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional attribute formally indicates the site of the observation (to make it easy for a system to find all tests related to one anatomic site). It can be used to classify the observation by target site of the examination.  For example, &quot;heart&quot; might be recorded as the target of the electrocardiogram, cardiac echo, and thallium exercise test.  This attribute would be applicable to most imaging and electro-physiologic examinations. The SNOMED topology axis is an example of a coding system for anatomic sites.  User-defined tables may also apply here. Refer to Table 0645 - Target Anatomic Site Of Test in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-47'>
+OM1-47: Modality of Imaging Measurement (<a href='/data-type/CWE.html'>CWE</a>) 00942
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional attribute describes the modality used to acquire the observation data, e.g., radiograph, ultrasound, CT scan, MR, etc.  This attribute is especially important for imaging studies.  Refer to <a href="https://www.hl7.org/fhir/v2//index.html">External Table 0910 – Acquisition Modality</a> in Chapter 2C, Code Tables, for the defined value set, which may be repalce or extended with local codes.  If the DICOM codes are used, the coding system ID is DCM.</p><p class="v2 v2-normalindented"><strong>Note: The use of User-defined Table 0259 - Modality for this field is deprecated and retained for backward compatibility as of v 2.7. </strong></p>
+
+<h4 class='v2' id='OM1-48'>
+OM1-48: Exclusive Test (<a href='/data-type/ID.html'>ID</a>) 03310
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field defines if this test should be a specific event with no other tests to be performed with this test.  Refer to<a href="https://www.hl7.org/fhir/v2/0919/index.html"> HL7 Table 0919 – Exclusive Test</a> in Chapter 2C, Code Tables, for valid values.  </p><p class="v2 v2-normalindented">If not populated, the default value of &quot;N&quot; is assumed and  that this test can be included with any number of other tests.</p><p class="v2 v2-normalindented">When D is specified for this field, using field OM1-49 determines how tests must be grouped together.  Tests within the same Diagnostic Service Sector may be on the same requisition, and therefore in the same message.</p>
+
+<h4 class='v2' id='OM1-49'>
+OM1-49: Diagnostic Serv Sect ID (<a href='/data-type/ID.html'>ID</a>) 00257
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the section of the diagnostic service where the observation was performed. If the study was performed by an outside service, the identification of that service should be recorded here. Refer to <a href="https://www.hl7.org/fhir/v2/0074/index.html">HL7 Table 0074 – Diagnostic Service Section ID</a> in Chapter 2C, Code Tables, for valid entries.  Same as OBR-24.</p>
+
+<h4 class='v2' id='OM1-50'>
+OM1-50: Taxonomic Classification Code (<a href='/data-type/CWE.html'>CWE</a>) 01539
+</h4>
+<p class="v2 v2-normalindented">Definition:  The species of living organism. This may include the common or scientific name, based on the coding system(s) used. SNOMED is the recommended coding system. If this field is not valued, a human is assumed. Refer to <a href="https://www.hl7.org/fhir/v2/0446/index.html">User-defined Table 0446 - Species Code</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">For example:</p><p class="v2 v2-example">...|L-80700^Canine, NOS^SNM3|...</p><p class="v2 v2-example">...|L-80100^Bovine^SNM3|...</p><p class="v2 v2-example">...|L-80A00^Feline^SNM3|....</p><p class="v2 v2-normalindented">This field is a list of species or other taxonomic classification(s) to which the indicated specimen type may appropriately be applied for the indicated observation or test.  If this field is omitted the default meaning is that the test or observation is applicable to humans.  In a veterinary context if the test is applicable to any species, an appropriate code such as &quot;Kingdom Animalia (organism)&quot; should be used to avoid confusion with the meaning of human only.</p>
+
+<h4 class='v2' id='OM1-51'>
+OM1-51: Other Names (<a href='/data-type/ST.html'>ST</a>) 03399
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains any test aliases or synonyms for the name in the context of the ordering service.  These are alternative names, not associated with a particular coding system, by which the battery, test, or observation (e.g., measurement, test, diagnostic study, treatment, etc.) is known to users of the system.  Multiple names in this list are separated by repeat delimiters.</p>
+
+<h4 class='v2' id='OM1-52'>
+OM1-52: Replacement Producer's Service/Test/Observation ID (<a href='/data-type/CWE.html'>CWE</a>) 03433
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used in conjunction with a MFE-1 Record-Level Event Code &#39;MDC&#39; defined as:  &quot;Deactivate:  discontinue using record in master file, but do not delete from database&quot;, in conjunction with an OM1 segment providing detail for the deactivate code.  When the OM1-2 Producer&#39;s Service/Test/Observation ID is being deactivated, use OM1-52 to indicate the producer&#39;s replacement test or observation code(s), as it was defined in the OM1-2 Producer&#39;s Service/Test/Observation ID when the new/replacement code was added. Refer to Table 0646 - Replacement Producer&#39;s Service/Test/Observation ID in Chapter 2C for valid values.</p><div class="v2-note"><p class="v2"><strong>Note:  </strong>Replacement<strong> </strong>codes referenced by OM1-52 must be added to the receiver&#39;s system before sending a deactivate record for the code being obsoleted. The Sequence is illustrated below:</p><p class="v2">Sequence 1 – Activate new code</p><p class="v2">&#160;&#160;&#160;&#160;OM1-2 Adding a new code X; Example:  X^New Code X^L</p><p class="v2">&#160;&#160;&#160;&#160;OM1-52 Empty</p><p class="v2">Sequence 2 – Deactive obsolete code and indicate it&#39;s new replacement code</p><p class="v2">&#160;&#160;&#160;&#160;OM1-2 obsolete code:  Examle: Y^Deactivated code^L</p><p class="v2">&#160;&#160;&#160;&#160;OM1-52 X^New Code X^L</p></div><br/><p class="v2">Table below for information in change request proposal process and not intended for inclusion in the base standard:</p><table class="v2" style="width: 100%; border-top: 2px solid 000080; border-left: 2px solid 000080; border-bottom: 2px solid 000080; border-right: 2px solid 000080; "><colgroup><col span='1' style='width: 18.43%;'/><col span='1' style='width: 26.53%;'/><col span='1' style='width: 55.02%;'/></colgroup><tr><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top: 1px solid #000080; border-bottom:none; background-color:#D9D9D9; width:18.43%; '><p class="v2"><strong>File-Level Event</strong></p><p class="v2"><strong>MFI-3</strong></p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top: 1px solid #000080; border-bottom:none; background-color:#D9D9D9; width:26.53%; '><p class="v2"><strong>Record-Level Event</strong></p><p class="v2"><strong>MFE-1</strong></p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top: 1px solid #000080; border-bottom:none; background-color:#D9D9D9; width:55.02%; '><p class="v2"><strong>Comment</strong></p></td></tr><tr><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:18.43%; '><p class="v2">REP</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:26.53%; '><p class="v2">MAD – Add record to master file</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:55.02%; '><p class="v2">Note: If the MFI-3 - File-Level Event Code is &quot;REP&quot; (replace file), then each MFE segment must have an MFE-1 - Record-Level Event Code of &quot;MAD&quot; (add record to master file).</p></td></tr><tr><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:18.43%; '><p class="v2">UPD</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:26.53%; '><p class="v2">MAD – Add record to master file</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:55.02%; '><p class="v2">(MFI-3) UPD means that the events are defined according to the record-level event code contained in each MFE segment in that message.</p></td></tr><tr><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:18.43%; '><p class="v2">UPD</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:26.53%; '><p class="v2">MDC – Deactivate:  discontinue using record in master file, but do not delete from database</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom:none; width:55.02%; '><p class="v2">(MFI-3) UPD means that the events are defined according to the record-level event code contained in each MFE segment in that message.</p></td></tr><tr><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom: 1px solid #000080; width:18.43%; '><p class="v2">UPD</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom: 1px solid #000080; width:26.53%; '><p class="v2">MAC – Reactivate deactivated record</p></td><td style='border-right: 1px solid #000080; border-left: 1px solid #000080; border-top:none; border-bottom: 1px solid #000080; width:55.02%; '><p class="v2">(MFI-3) UPD means that the events are defined according to the record-level event code contained in each MFE segment in that message.</p></td></tr></table><br/>
+
+<h4 class='v2' id='OM1-53'>
+OM1-53: Prior Resuts Instructions (<a href='/data-type/TX.html'>TX</a>) 03434
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to indicate when the test in OM1-2 Producer&#39;s Service/Test/Observation ID is ordered, prior results  should accompany the order (OML^O21^OML_O21: Laboratory Order Message).  For example, when ordering a Thyroid FNA (Fine Needle Aspiration) Evaluation, send the prior results of Ultrasound Findings.  The instructions may also indicate a timeframe; for example, send the prior results of CBC in past 60 days.</p>
+
+<h4 class='v2' id='OM1-54'>
+OM1-54: Special Instructions (<a href='/data-type/TX.html'>TX</a>) 03435
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to convey special instructions for the test, for example: &quot;Chain-of-custody documentation is required for samples submitted for pre-employment, random employee testing, and forensic purposes. For other applications, use the standard request form.&quot;  (Note: this is for toxicology testing); &quot;If  reflex test is performed, additional charges/CPT code(s) may apply.&quot;; &quot;Please direct any questions regarding this test to Oncology Customer Service&quot;; &quot;Please include tentative diagnosis/treatment on the request form.  This is necessary for proper culturing and result interpretation.&quot;  (Note: this is for chromosome analysis.)</p>
+
+<h4 class='v2' id='OM1-55'>
+OM1-55: Test Category (<a href='/data-type/CWE.html'>CWE</a>) 03436
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field may be used to organize tests for display or other user defined purpose.  For example, tests might be categorized by disease state, such as molecular tests for solid tumors; example categories are: breast, colorectal, lung, and melanoma.</p>
+
+<h4 class='v2' id='OM1-56'>
+OM1-56: Observation/Identifier associated with Producer’s Service/Test/Observation ID (<a href='/data-type/CWE.html'>CWE</a>) 03437
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code for resulted tests, which are associated with the Producer’s Service/Test/Observation ID code in OM1-2 and will appear in OBX-3 Observation Identifier in a result message. Refer to Table 0647 - Observation/Identifier associated with Producer’s Service/Test/Observation ID in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OM1-57'>
+OM1-57: Typical Turn-Around Time (<a href='/data-type/CQ.html'>CQ</a>) 03438
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the typical processing time for single test/observation.  This field indicates the time from delivery of a specimen or transport of a patient to a diagnostic service and the completion of the study.  It includes the usual waiting time.</p>
+
+<h4 class='v2' id='OM1-58'>
+OM1-58: Gender Restriction (<a href='/data-type/CWE.html'>CWE</a>) 03439
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to convey gender restrictions for ordering the test specified in OM1-2 Producer&#39;s Service/Test/Observation ID.  If there are no restrictions the field is left empty.  If the test is restricted to order for certain gender(s), the restricted genders are listed.  For example, a Prostate Specific AG (PSA) test is typically ordered only for male patients, thus for PSA the field would be valued &#39;M&#39; for Male.  Refer to User-defined Table 0001 – Administrative Sex in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OM1-59'>
+OM1-59: Age Restriction (<a href='/data-type/NR.html'>NR</a>) 03440
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to convey age restrictions for ordering the test specified in OM1-2 Producer&#39;s Service/Test/Observation ID.  If there are no restrictions the field is left empty.  If the test is restricted to order for certain age(s), the age range restriction(s) are listed in years.  For example, newborn tests are typically restricted to age 1 year or below, thus for newborn tests the field would be valued 0^1.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

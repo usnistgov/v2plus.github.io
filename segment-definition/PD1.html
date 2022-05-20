@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PD1 - Patient Additional Demographic Segment
+</h3>
+<p class="v2 v2-normalindented">The patient additional demographic segment contains demographic information that is likely to change about the patient.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PD1 - Patient Additional Demographic Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PD1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Living Dependency
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0223-Living-Dependency.html' title='Living Dependency'>
+0223
+<span class='vocab-link-text'>Living Dependency</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PD1-1'>
+00755
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Living Arrangement
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0220-Living-Arrangement.html' title='Living Arrangement'>
+0220
+<span class='vocab-link-text'>Living Arrangement</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-2'>
+00742
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Patient Primary Facility
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0204-Organizational-Name-Type.html' title='Organizational Name Type'>
+0204
+<span class='vocab-link-text'>Organizational Name Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PD1-3'>
+00756
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Patient Primary Care Provider Name & ID No.
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-4'>
+00757
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Student Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0231-Student-Status.html' title='Student Status(Suggested)'>
+0231(S)
+<span class='vocab-link-text'>Student Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-5'>
+00745
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Handicap
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0295-Handicap.html' title='Handicap'>
+0295
+<span class='vocab-link-text'>Handicap</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-6'>
+00753
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Living Will Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0315-Living-Will-Code.html' title='Living Will Code(Suggested)'>
+0315(S)
+<span class='vocab-link-text'>Living Will Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-7'>
+00759
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Organ Donor Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0316-Organ-Donor-Code.html' title='Organ Donor Code(Suggested)'>
+0316(S)
+<span class='vocab-link-text'>Organ Donor Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-8'>
+00760
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Separate Bill
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-9'>
+00761
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Duplicate Patient
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PD1-10'>
+00762
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Publicity Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0215-Publicity-Code.html' title='Publicity Code'>
+0215
+<span class='vocab-link-text'>Publicity Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-11'>
+00743
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Protection Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-12'>
+00744
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Protection Indicator Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-13'>
+01566
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Place of Worship
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PD1-14'>
+01567
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Advance Directive Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0435-Advance-Directive-Code.html' title='Advance Directive Code'>
+0435
+<span class='vocab-link-text'>Advance Directive Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PD1-15'>
+01548
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Immunization Registry Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0441-Immunization-Registry-Status.html' title='Immunization Registry Status(Suggested)'>
+0441(S)
+<span class='vocab-link-text'>Immunization Registry Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-16'>
+01569
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Immunization Registry Status Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-17'>
+01570
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Publicity Code Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-18'>
+01571
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Military Branch
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0140-Military-Service.html' title='Military Service'>
+0140
+<span class='vocab-link-text'>Military Service</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-19'>
+01572
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Military Rank/Grade
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0141-Military-Rank/Grade.html' title='Military Rank/Grade'>
+0141
+<span class='vocab-link-text'>Military Rank/Grade</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-20'>
+00486
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Military Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0142-Military-Status.html' title='Military Status'>
+0142
+<span class='vocab-link-text'>Military Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-21'>
+01573
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Advance Directive Last Verified Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-22'>
+02141
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+23
+</td>
+<td>
+Retirement Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PD1-23'>
+03511
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PD1-1'>
+PD1-1: Living Dependency (<a href='/data-type/CWE.html'>CWE</a>) 00755
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient&#39;s healthcare needs.  This information can be used for discharge planning. This field repeats because, for example, &quot;spouse dependent&quot; and &quot;medical supervision required&quot; can apply at the same time.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-2'>
+PD1-2: Living Arrangement (<a href='/data-type/CWE.html'>CWE</a>) 00742
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the situation in which the patient lives at his residential address.  Examples might include Alone, Family, Relatives, Institution, etc.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-3'>
+PD1-3: Patient Primary Facility (<a href='/data-type/XON.html'>XON</a>) 00756
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name and identifier that specifies the &quot;primary care&quot; healthcare facility selected by the patient at the time of enrolment in an HMO Insurance Plan.  Multiple names and identifiers are allowed for the same facility.  The legal name of the healthcare facility must be sent in the first sequence.  If the legal name of the facility is not sent, then the repeat delimiter must be sent in the first sequence.  Refer to <a href="https://www.hl7.org/fhir/v2/0204/index.html">User-defined Table 0204 - Organizational Name Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-4'>
+PD1-4: Patient Primary Care Provider Name & ID No. (<a href='/data-type/.html'></a>) 00757
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>The PD1-4 field was retained for backward compatibility only as of v 2.4 and withdrawn as of v 2.7.</strong> The reader is advised that the PRT segment is now used to convey more complete information about the primary care provider.  </p>
+
+<h4 class='v2' id='PD1-5'>
+PD1-5: Student Indicator (<a href='/data-type/CWE.html'>CWE</a>) 00745
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates if the patient is currently a student or not, and whether the patient is a full-time or a part-time student.  This field does not indicate the student&#39;s degree level (high school, college, elementary) or the student&#39;s field of study (accounting, engineering, etc.).  Refer to <a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231 - Student Status</a> in chapter 2C, for suggested values.</p>
+
+<h4 class='v2' id='PD1-6'>
+PD1-6: Handicap (<a href='/data-type/CWE.html'>CWE</a>) 00753
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the nature of the patient&#39;s permanent handicapped condition (e.g., deaf, blind).  A handicapped condition is defined as a physical or mental disability that is permanent.  Transient handicapped conditions should be sent in the ambulatory status.  Refer to <a href="https://www.hl7.org/fhir/v2/0295/index.html">User-defined Table 0295 - Handicap</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-7'>
+PD1-7: Living Will Code (<a href='/data-type/CWE.html'>CWE</a>) 00759
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether or not the patient has a living will and, if so, whether a copy of the living will is on file at the healthcare facility.  If the patient does not have a living will, the value of this field indicates whether the patient was provided information on living wills.  Refer to <a href="https://www.hl7.org/fhir/v2/0315/index.html">User-defined Table 0315 - Living Will Code</a> in Chapter 2C, Code Tables, for suggested values.  See also <a href="/segment-definition/PV2.html#PV2-43">PV2-43 - Living Will Code</a>.</p>
+
+<h4 class='v2' id='PD1-8'>
+PD1-8: Organ Donor Code (<a href='/data-type/CWE.html'>CWE</a>) 00760
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether the patient wants to donate his/her organs and whether an organ donor card or similar documentation is on file with the healthcare organization.  Refer to <a href="https://www.hl7.org/fhir/v2/0316/index.html">User-defined Table 0316 - Organ Donor Code</a> in Chapter 2C, Code Tables, for suggested values. See also <a href="/segment-definition/PV2.html#PV2-44">PV2-44 - Organ donor Code</a>.</p>
+
+<h4 class='v2' id='PD1-9'>
+PD1-9: Separate Bill (<a href='/data-type/ID.html'>ID</a>) 00761
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies that charges for this patient are to be billed separately from other patient bills with the same guarantor.  (This bill is now a patient bill rather than a guarantor bill.)  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;Bill separately</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;normal processing</p></li></ul>
+
+<h4 class='v2' id='PD1-10'>
+PD1-10: Duplicate Patient (<a href='/data-type/CX.html'>CX</a>) 00762
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates that a patient is the same as, or a duplicate of, another patient found on the sending system.  The intent is to be informational only and no action is required by the receiver.  Include the patient identifier if the sender knows an identifier for the patient.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+
+<h4 class='v2' id='PD1-11'>
+PD1-11: Publicity Code (<a href='/data-type/CWE.html'>CWE</a>) 00743
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for the patient.    Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.  Refer to <a href="/segment-definition/PV2.html#PV2-21">PV2-21 - Visit Publicity Code</a> for visit level code.</p>
+
+<h4 class='v2' id='PD1-12'>
+PD1-12: Protection Indicator (<a href='/data-type/ID.html'>ID</a>) 00744
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>From V2.6 onward, this field has been retained for backward compatibility only.</strong>  Use the ARV segment instead.  This field identifies the patient&#39;s protection that determines, in turn, whether access to information about this person should be kept from users who do not have adequate authority for the patient.    Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;protect access to information</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;normal access</p></li></ul><p class="v2 v2-normalindented">Refer to <a href="/segment-definition/PV2.html#PV2-22">PV2-22 - Visit Protection Indicator</a> for visit level code.</p>
+
+<h4 class='v2' id='PD1-13'>
+PD1-13: Protection Indicator Effective Date (<a href='/data-type/DT.html'>DT</a>) 01566
+</h4>
+<p class="v2 v2-normalindented">Definition: <strong>From v 2.6 onward, this field has been retained for backward compatibility only.</strong>  Use the ARV segment instead.  This field indicates the effective date for <a href="/segment-definition/PD1.html#PD1-12">PD1-12 - Protection Indicator</a>.</p>
+
+<h4 class='v2' id='PD1-14'>
+PD1-14: Place of Worship (<a href='/data-type/XON.html'>XON</a>) 01567
+</h4>
+<p class="v2 v2-normalindented">Definition:  The patient&#39;s place of worship.  For example, the patient attends the First Baptist Church of Atlanta.</p>
+
+<h4 class='v2' id='PD1-15'>
+PD1-15: Advance Directive Code (<a href='/data-type/CWE.html'>CWE</a>) 01548
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the patient&#39;s instructions to the healthcare facility.  Refer to <a href="https://www.hl7.org/fhir/v2/0435/index.html">User-defined Table 0435 - Advance Directive Code</a> in Chapter 2C, Code Tables, for suggested values. See also <a href="/segment-definition/PV2.html#PV2-45">PV2-45 - Advance Directive Code</a>.  When <a href="/segment-definition/PD1.html#PD1-22">PD1-22 - Advanced Directive Last Verified Date</a> is valued, this field is required.</p>
+
+<h4 class='v2' id='PD1-16'>
+PD1-16: Immunization Registry Status (<a href='/data-type/CWE.html'>CWE</a>) 01569
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the immunization registry status of the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0441/index.html">User-defined Table 0441 - Immunization Registry Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-17'>
+PD1-17: Immunization Registry Status Effective Date (<a href='/data-type/DT.html'>DT</a>) 01570
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the effective date for the immunization registry status reported in <a href="/segment-definition/PD1.html#PD1-16">PD1-16 - Immunization Registry Status</a>.</p>
+
+<h4 class='v2' id='PD1-18'>
+PD1-18: Publicity Code Effective Date (<a href='/data-type/DT.html'>DT</a>) 01571
+</h4>
+<p class="v2 v2-normalindented">Definition: This is the effective date for <a href="/segment-definition/PD1.html#PD1-11">PD1-11 - Publicity Code</a>.</p>
+
+<h4 class='v2' id='PD1-19'>
+PD1-19: Military Branch (<a href='/data-type/CWE.html'>CWE</a>) 01572
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.  Refer to <a href="https://www.hl7.org/fhir/v2/0140/index.html">User-defined Table 0140 - Military Service</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-20'>
+PD1-20: Military Rank/Grade (<a href='/data-type/CWE.html'>CWE</a>) 00486
+</h4>
+<p class="v2 v2-normalindented">Definition:  This user-defined field identifies the military rank/grade of the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0141/index.html">User-defined Table 0141 - Military Rank/Grade</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-21'>
+PD1-21: Military Status (<a href='/data-type/CWE.html'>CWE</a>) 01573
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.  Refer to <a href="https://www.hl7.org/fhir/v2/0142/index.html">User-defined Table 0142 - Military Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='PD1-22'>
+PD1-22: Advance Directive Last Verified Date (<a href='/data-type/DT.html'>DT</a>) 02141
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the date that all the advance directives held in <a href="/segment-definition/PD1.html#PD1-15">PD1-15 - Advance Directive Code</a> were last validated.  When this field is valued, the field <a href="/segment-definition/PD1.html#PD1-15">PD1-15 - Advance Directive Code</a> is required.</p>
+
+<h4 class='v2' id='PD1-23'>
+PD1-23: Retirement Date (<a href='/data-type/DT.html'>DT</a>) 03511
+</h4>
+<p class="v2">Definition: This field asserts a self-identified date that an individual considers themselves to have ‘retired’. </p><p class="v2 v2-normalindented"></p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Participation
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Representative (HL7-EXT)
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Participation
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70912
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+PRT-4
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes that represent functional involvement of a caregiver or member of a care team with an activity being transmitted (e.g., Case Manager, Evaluator, Transcriber, Nurse Care Practitioner, Midwife, Physician Assistant, etc.).
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Participation - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AAP
+</td>
+<td class='vocab-concept-display'>
+Alert Acknowledging Provider
+</td>
+<td class='vocab-concept-definition'>
+Alert Acknowledging Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AC
+</td>
+<td class='vocab-concept-display'>
+Administration Cosigner
+</td>
+<td class='vocab-concept-definition'>
+Person that cosigned the prescription
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AD
+</td>
+<td class='vocab-concept-display'>
+Admitting Provider
+</td>
+<td class='vocab-concept-definition'>
+Admitting Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AHP
+</td>
+<td class='vocab-concept-display'>
+Authorized Performing Health Professional
+</td>
+<td class='vocab-concept-definition'>
+The specific Health Professional who has been approved to perform the ordered services for the patient.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AI
+</td>
+<td class='vocab-concept-display'>
+Assistant/Alternate Interpreter
+</td>
+<td class='vocab-concept-definition'>
+Assistant/Alternate Interpreter
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AP
+</td>
+<td class='vocab-concept-display'>
+Administering Provider
+</td>
+<td class='vocab-concept-definition'>
+Administering Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+APO
+</td>
+<td class='vocab-concept-display'>
+Authorized Performing Provider Organization
+</td>
+<td class='vocab-concept-definition'>
+The Provider Organization that has been approved to perform the sanctioned procedures to which the patient was referred to.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ARI
+</td>
+<td class='vocab-concept-display'>
+Assistant Result Interpreter
+</td>
+<td class='vocab-concept-definition'>
+Assistant Result Interpreter
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AT
+</td>
+<td class='vocab-concept-display'>
+Attending Provider
+</td>
+<td class='vocab-concept-definition'>
+Attending Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AUT
+</td>
+<td class='vocab-concept-display'>
+Author/Event Initiator
+</td>
+<td class='vocab-concept-definition'>
+Identifies the entity responsible for initiating the event
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CLPO
+</td>
+<td class='vocab-concept-display'>
+Collecting Provider Organization
+</td>
+<td class='vocab-concept-definition'>
+The organization that is responsible for collecting the specimen.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CP
+</td>
+<td class='vocab-concept-display'>
+Consulting Provider
+</td>
+<td class='vocab-concept-definition'>
+Consulting Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DIE
+</td>
+<td class='vocab-concept-display'>
+De-Identification Entity
+</td>
+<td class='vocab-concept-definition'>
+Organization, person or device that has the authority to remove a specimen identifier.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DP
+</td>
+<td class='vocab-concept-display'>
+Dispensing Provider
+</td>
+<td class='vocab-concept-definition'>
+Dispensing Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EARI
+</td>
+<td class='vocab-concept-display'>
+Expected Assistant Result Interpreter
+</td>
+<td class='vocab-concept-definition'>
+The Assistant Result Interpreter who is expected to interpret the result (in the future).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ED
+</td>
+<td class='vocab-concept-display'>
+Entering Device
+</td>
+<td class='vocab-concept-definition'>
+Identifies the device that was used to enter the order into the system.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EO
+</td>
+<td class='vocab-concept-display'>
+Entering Organization
+</td>
+<td class='vocab-concept-definition'>
+Identifies the organization that entered the order into the system.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EP
+</td>
+<td class='vocab-concept-display'>
+Entering Person
+</td>
+<td class='vocab-concept-definition'>
+Identifies the person that entered the order into the system
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EPRI
+</td>
+<td class='vocab-concept-display'>
+Expected Principal Result Interpreter
+</td>
+<td class='vocab-concept-definition'>
+The Principal Result Interpreter who is expected to interpret the result (in the future).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EQUIP
+</td>
+<td class='vocab-concept-display'>
+Equipment
+</td>
+<td class='vocab-concept-definition'>
+Equipment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FHCP
+</td>
+<td class='vocab-concept-display'>
+Family Health Care Professional
+</td>
+<td class='vocab-concept-definition'>
+Family Health Care Professional
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FL
+</td>
+<td class='vocab-concept-display'>
+From Location
+</td>
+<td class='vocab-concept-definition'>
+Describes the location (coordinates) of the specimen/container in the previous holder / storage equipment before the move or the geographical location from which the specimen/container was moved.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MDIR
+</td>
+<td class='vocab-concept-display'>
+Medical Director
+</td>
+<td class='vocab-concept-definition'>
+Medical Director
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OF
+</td>
+<td class='vocab-concept-display'>
+Ordering Facility
+</td>
+<td class='vocab-concept-definition'>
+The facility from where the order was placed
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OP
+</td>
+<td class='vocab-concept-display'>
+Ordering Provider
+</td>
+<td class='vocab-concept-definition'>
+Ordering Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPO
+</td>
+<td class='vocab-concept-display'>
+Ordering Provider Organization
+</td>
+<td class='vocab-concept-definition'>
+The organization the ordering provider is associated with.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OS
+</td>
+<td class='vocab-concept-display'>
+Outside Site(s) Where Observation May Be Performed
+</td>
+<td class='vocab-concept-definition'>
+Outside Site(s) Where Observation May Be Performed
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PB
+</td>
+<td class='vocab-concept-display'>
+Packed by
+</td>
+<td class='vocab-concept-definition'>
+Packed by
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PH
+</td>
+<td class='vocab-concept-display'>
+Pharmacist
+</td>
+<td class='vocab-concept-definition'>
+Identifies the person taking responsibility for the prescription dispense
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PI
+</td>
+<td class='vocab-concept-display'>
+Primary Interpreter
+</td>
+<td class='vocab-concept-definition'>
+Primary Interpreter
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PO
+</td>
+<td class='vocab-concept-display'>
+Performing Organization
+</td>
+<td class='vocab-concept-definition'>
+Performing Organization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+POMD
+</td>
+<td class='vocab-concept-display'>
+Performing Organization Medical Director
+</td>
+<td class='vocab-concept-definition'>
+Performing Organization Medical Director
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PP
+</td>
+<td class='vocab-concept-display'>
+Primary Care Provider
+</td>
+<td class='vocab-concept-definition'>
+Primary Care Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPH
+</td>
+<td class='vocab-concept-display'>
+Patient Preferred Pharmacy
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy the patient would prefer to use for any future medication orders.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRI
+</td>
+<td class='vocab-concept-display'>
+Principal Result Interpreter
+</td>
+<td class='vocab-concept-definition'>
+Identifies the person responsible for interpreting the results of the study/test
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RCT
+</td>
+<td class='vocab-concept-display'>
+Results Copies To
+</td>
+<td class='vocab-concept-definition'>
+Results Copies To
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RHP
+</td>
+<td class='vocab-concept-display'>
+Referring Health Professional
+</td>
+<td class='vocab-concept-definition'>
+The Health Professional who refers the patient.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RIE
+</td>
+<td class='vocab-concept-display'>
+Re-Identification Entity
+</td>
+<td class='vocab-concept-definition'>
+Organization, person or device that has the authority to assign a specimen identifier.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RO
+</td>
+<td class='vocab-concept-display'>
+Responsible Observer
+</td>
+<td class='vocab-concept-definition'>
+Responsible Observer
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RP
+</td>
+<td class='vocab-concept-display'>
+Referring Provider
+</td>
+<td class='vocab-concept-definition'>
+Referring Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPO
+</td>
+<td class='vocab-concept-display'>
+Referring Provider Organization
+</td>
+<td class='vocab-concept-definition'>
+The Provider Organization that refers the patient.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RT
+</td>
+<td class='vocab-concept-display'>
+Referred to Provider
+</td>
+<td class='vocab-concept-definition'>
+Referred to Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SB
+</td>
+<td class='vocab-concept-display'>
+Send by
+</td>
+<td class='vocab-concept-definition'>
+Send by
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SC
+</td>
+<td class='vocab-concept-display'>
+Specimen Collector
+</td>
+<td class='vocab-concept-definition'>
+The person that collected the specimen.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TL
+</td>
+<td class='vocab-concept-display'>
+To Location
+</td>
+<td class='vocab-concept-definition'>
+Describes the location (coordinates) of the specimen/container in the previous holder / storage equipment after the move or the geographical location to which the specimen/container was moved.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TN
+</td>
+<td class='vocab-concept-display'>
+Technician
+</td>
+<td class='vocab-concept-definition'>
+Technician
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TR
+</td>
+<td class='vocab-concept-display'>
+Transcriptionist
+</td>
+<td class='vocab-concept-definition'>
+Transcriptionist
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VP
+</td>
+<td class='vocab-concept-display'>
+Verifier (Verifying Person)
+</td>
+<td class='vocab-concept-definition'>
+Identifies the person verifying the dispense / a step in the dispense process / verifying the treatment corresponds to the order
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VPS
+</td>
+<td class='vocab-concept-display'>
+Verifying Pharmaceutical Supplier   (not sure how to dissect Pharmacist/Treatment Supplier's Verifier ID)
+</td>
+<td class='vocab-concept-definition'>
+Verifying Pharmaceutical Supplier   (not sure how to dissect Pharmacist/Treatment Supplier's Verifier ID)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VTS
+</td>
+<td class='vocab-concept-display'>
+Verifying Treatment Supplier   (not sure how to dissect Pharmacist/Treatment Supplier's Verifier ID)
+</td>
+<td class='vocab-concept-definition'>
+Verifying Treatment Supplier   (not sure how to dissect Pharmacist/Treatment Supplier's Verifier ID)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WAY
+</td>
+<td class='vocab-concept-display'>
+Waypoint
+</td>
+<td class='vocab-concept-definition'>
+Waypoint
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WAYR
+</td>
+<td class='vocab-concept-display'>
+Waypoint Recipient
+</td>
+<td class='vocab-concept-definition'>
+Waypoint Recipient
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Route of Administration
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Representative
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Route of Administration
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70162
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+RXR-1
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+Table of codes which specify the route of administration.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Route of Administration - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AP
+</td>
+<td class='vocab-concept-display'>
+Apply Externally
+</td>
+<td class='vocab-concept-definition'>
+Apply Externally
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+B
+</td>
+<td class='vocab-concept-display'>
+Buccal
+</td>
+<td class='vocab-concept-definition'>
+Buccal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DT
+</td>
+<td class='vocab-concept-display'>
+Dental
+</td>
+<td class='vocab-concept-definition'>
+Dental
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EP
+</td>
+<td class='vocab-concept-display'>
+Epidural
+</td>
+<td class='vocab-concept-definition'>
+Epidural
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ET
+</td>
+<td class='vocab-concept-display'>
+Endotrachial Tube
+</td>
+<td class='vocab-concept-definition'>
+Endotrachial Tube*
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GTT
+</td>
+<td class='vocab-concept-display'>
+Gastrostomy Tube
+</td>
+<td class='vocab-concept-definition'>
+Gastrostomy Tube
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GU
+</td>
+<td class='vocab-concept-display'>
+GU Irrigant
+</td>
+<td class='vocab-concept-definition'>
+GU Irrigant
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IMR
+</td>
+<td class='vocab-concept-display'>
+Immerse (Soak) Body Part
+</td>
+<td class='vocab-concept-definition'>
+Immerse (Soak) Body Part
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IA
+</td>
+<td class='vocab-concept-display'>
+Intra-arterial
+</td>
+<td class='vocab-concept-definition'>
+Intra-arterial
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IB
+</td>
+<td class='vocab-concept-display'>
+Intrabursal
+</td>
+<td class='vocab-concept-definition'>
+Intrabursal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IC
+</td>
+<td class='vocab-concept-display'>
+Intracardiac
+</td>
+<td class='vocab-concept-definition'>
+Intracardiac
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICV
+</td>
+<td class='vocab-concept-display'>
+Intracervical (uterus)
+</td>
+<td class='vocab-concept-definition'>
+Intracervical (uterus)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ID
+</td>
+<td class='vocab-concept-display'>
+Intradermal
+</td>
+<td class='vocab-concept-definition'>
+Intradermal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IH
+</td>
+<td class='vocab-concept-display'>
+Inhalation
+</td>
+<td class='vocab-concept-definition'>
+Inhalation
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IHA
+</td>
+<td class='vocab-concept-display'>
+Intrahepatic Artery
+</td>
+<td class='vocab-concept-definition'>
+Intrahepatic Artery
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IM
+</td>
+<td class='vocab-concept-display'>
+Intramuscular
+</td>
+<td class='vocab-concept-definition'>
+Intramuscular
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IN
+</td>
+<td class='vocab-concept-display'>
+Intranasal
+</td>
+<td class='vocab-concept-definition'>
+Intranasal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IO
+</td>
+<td class='vocab-concept-display'>
+Intraocular
+</td>
+<td class='vocab-concept-definition'>
+Intraocular
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IP
+</td>
+<td class='vocab-concept-display'>
+Intraperitoneal
+</td>
+<td class='vocab-concept-definition'>
+Intraperitoneal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IS
+</td>
+<td class='vocab-concept-display'>
+Intrasynovial
+</td>
+<td class='vocab-concept-definition'>
+Intrasynovial
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IT
+</td>
+<td class='vocab-concept-display'>
+Intrathecal
+</td>
+<td class='vocab-concept-definition'>
+Intrathecal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IU
+</td>
+<td class='vocab-concept-display'>
+Intrauterine
+</td>
+<td class='vocab-concept-definition'>
+Intrauterine
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IV
+</td>
+<td class='vocab-concept-display'>
+Intravenous
+</td>
+<td class='vocab-concept-definition'>
+Intravenous
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MTH
+</td>
+<td class='vocab-concept-display'>
+Mouth/Throat
+</td>
+<td class='vocab-concept-definition'>
+Mouth/Throat
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MM
+</td>
+<td class='vocab-concept-display'>
+Mucous Membrane
+</td>
+<td class='vocab-concept-definition'>
+Mucous Membrane
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NS
+</td>
+<td class='vocab-concept-display'>
+Nasal
+</td>
+<td class='vocab-concept-definition'>
+Nasal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NG
+</td>
+<td class='vocab-concept-display'>
+Nasogastric
+</td>
+<td class='vocab-concept-definition'>
+Nasogastric
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NP
+</td>
+<td class='vocab-concept-display'>
+Nasal Prongs
+</td>
+<td class='vocab-concept-definition'>
+Nasal Prongs*
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NT
+</td>
+<td class='vocab-concept-display'>
+Nasotrachial Tube
+</td>
+<td class='vocab-concept-definition'>
+Nasotrachial Tube
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OP
+</td>
+<td class='vocab-concept-display'>
+Ophthalmic
+</td>
+<td class='vocab-concept-definition'>
+Ophthalmic
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OT
+</td>
+<td class='vocab-concept-display'>
+Otic
+</td>
+<td class='vocab-concept-definition'>
+Otic
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OTH
+</td>
+<td class='vocab-concept-display'>
+Other/Miscellaneous
+</td>
+<td class='vocab-concept-definition'>
+Other/Miscellaneous
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PF
+</td>
+<td class='vocab-concept-display'>
+Perfusion
+</td>
+<td class='vocab-concept-definition'>
+Perfusion
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PO
+</td>
+<td class='vocab-concept-display'>
+Oral
+</td>
+<td class='vocab-concept-definition'>
+Oral
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PR
+</td>
+<td class='vocab-concept-display'>
+Rectal
+</td>
+<td class='vocab-concept-definition'>
+Rectal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RM
+</td>
+<td class='vocab-concept-display'>
+Rebreather Mask
+</td>
+<td class='vocab-concept-definition'>
+Rebreather Mask*
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SD
+</td>
+<td class='vocab-concept-display'>
+Soaked Dressing
+</td>
+<td class='vocab-concept-definition'>
+Soaked Dressing
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SC
+</td>
+<td class='vocab-concept-display'>
+Subcutaneous
+</td>
+<td class='vocab-concept-definition'>
+Subcutaneous
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SL
+</td>
+<td class='vocab-concept-display'>
+Sublingual
+</td>
+<td class='vocab-concept-definition'>
+Sublingual
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TP
+</td>
+<td class='vocab-concept-display'>
+Topical
+</td>
+<td class='vocab-concept-definition'>
+Topical
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TRA
+</td>
+<td class='vocab-concept-display'>
+Tracheostomy
+</td>
+<td class='vocab-concept-definition'>
+Tracheostomy*
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TD
+</td>
+<td class='vocab-concept-display'>
+Transdermal
+</td>
+<td class='vocab-concept-definition'>
+Transdermal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TL
+</td>
+<td class='vocab-concept-display'>
+Translingual
+</td>
+<td class='vocab-concept-definition'>
+Translingual
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UR
+</td>
+<td class='vocab-concept-display'>
+Urethral
+</td>
+<td class='vocab-concept-definition'>
+Urethral
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VG
+</td>
+<td class='vocab-concept-display'>
+Vaginal
+</td>
+<td class='vocab-concept-definition'>
+Vaginal
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VM
+</td>
+<td class='vocab-concept-display'>
+Ventimask
+</td>
+<td class='vocab-concept-definition'>
+Ventimask
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WND
+</td>
+<td class='vocab-concept-display'>
+Wound
+</td>
+<td class='vocab-concept-definition'>
+Wound
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

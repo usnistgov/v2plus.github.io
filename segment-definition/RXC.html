@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+RXC - Pharmacy/Treatment Component Order Segment
+</h3>
+<p class="v2 v2-normalindented">If the drug or treatment ordered with the RXO segment is a compound drug OR an IV solution, AND there is not a coded value for OBR-4-universal service ID, which specifies the components (base and all additives), then the components (the base and additives) are specified by two or more RXC segments.  The policy of the pharmacy or treatment application on substitutions at the RXC level is identical to that for the RXO level.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - RXC - Pharmacy/Treatment Component Order Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+RXC
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+RX Component Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0166-RX-Component-Type.html' title='RX Component Type(Required)'>
+0166(R)
+<span class='vocab-link-text'>RX Component Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXC-1'>
+00313
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Component Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0697-ERROR! Bad Data! FIXME.html'>
+0697
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXC-2'>
+00314
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Component Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXC-3'>
+00315
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Component Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0698-ERROR! Bad Data! FIXME.html'>
+0698
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXC-4'>
+00316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Component Strength
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXC-5'>
+01124
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Component Strength Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0699-ERROR! Bad Data! FIXME.html'>
+0699
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXC-6'>
+01125
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Supplementary Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0762-ERROR! Bad Data! FIXME.html'>
+0762
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXC-7'>
+01476
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Component Drug Strength Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXC-8'>
+01671
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Component Drug Strength Volume Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0701-ERROR! Bad Data! FIXME.html'>
+0701
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXC-9'>
+01672
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Dispense Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXC-10'>
+03314
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+11
+</td>
+<td>
+Dispense Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0703-ERROR! Bad Data! FIXME.html'>
+0703
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXC-11'>
+03315
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='RXC-1'>
+RXC-1: RX Component Type (<a href='/data-type/ID.html'>ID</a>) 00313
+</h4>
+<p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0166/index.html">HL7 Table 0166 – RX Component Type</a> in Chapter 2C, Code Tables for valide values.</p><p class="v2 v2-normalindented">For the non-IV case, the &quot;B&quot; value may still apply.  For example, if a custom dermatologic salve is being prepared, the &quot;B&quot; item might be a standard base ointment into which other components are mixed.</p><p class="v2 v2-normalindented">The amount of the &quot;base&quot; specified in the &quot;B&quot; segment(s) is defined to be the quantity into which amounts specified in the &quot;A&quot; components are mixed.  Thus the RXC segments as a group define the &quot;recipe&quot; for a particular amount (defined by the base segment(s)).  The give amount, as defined in the RXO, does not need to correspond to this base amount.  For example, the RXC segments may specify a recipe for a liter of a standard type of saline with 1 gram of a particular antimicrobial, while the give amount (from the RXO) may specify the administration of 2 liters of this IV-solution every 24 hours.</p><p class="v2 v2-normalindented">The amount specified in each &quot;A&quot; segment is defined to be the quantity to be added to the amount of the base as specified in its RXC segment.</p><p class="v2 v2-normalindented">If any &quot;base&quot; components are present then these should be transmitted first.  The first &quot;base&quot; component in the transmission should be considered the &quot;primary base&quot; if such a distinction is necessary.  Similarly, the first &quot;additive&quot; in the transmission should be considered the &quot;primary additive&quot; if such a distinction is necessary.</p>
+
+<h4 class='v2' id='RXC-2'>
+RXC-2: Component Code (<a href='/data-type/CWE.html'>CWE</a>) 00314
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is equivalent to <a href="/segment-definition/OBR.html#OBR-4">OBR-4-universal service ID</a>.  It defines the base or component in the same manner as the give and dispense codes.  As with the give and dispense codes, it may contain text only, code only, text + code, or text + code + units (implied or explicit).  As with the give and dispense codes, if <a href="/segment-definition/RXC.html#RXC-4">RXC-4-component units</a> is present, this overrides the units implied by the code.  If only text is present, the pharmacy or treatment application must include a manual review or reentering of the component drug or treatment. Refer to Table 0697 - Component Code in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXC-3'>
+RXC-3: Component Amount (<a href='/data-type/NM.html'>NM</a>) 00315
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the amount of this component to be added to the specified amount of the base.</p>
+
+<h4 class='v2' id='RXC-4'>
+RXC-4: Component Units (<a href='/data-type/CWE.html'>CWE</a>) 00316
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the units for the component amount.  If present, this overrides the units implied by <a href="/segment-definition/RXC.html#RXC-2">RXC-2-component code</a>.  This must be in simple units that reflect the actual quantity of the component being added.  It does not include compound units. Refer to Table 0698 - Component Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXC-5'>
+RXC-5: Component Strength (<a href='/data-type/NM.html'>NM</a>) 01124
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use when <a href="/segment-definition/RXC.html#RXC-2">RXC-2-component code</a> does not specify the strength.  This is the numeric part of the strength, used in combination with <a href="/segment-definition/RXC.html#RXC-6">RXC-6-component strength units</a>.</p>
+
+<h4 class='v2' id='RXC-6'>
+RXC-6: Component Strength Units (<a href='/data-type/CWE.html'>CWE</a>) 01125
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use when <a href="/segment-definition/RXC.html#RXC-2">RXC-2-component code</a> does not specify the strength.  This is the unit of the strength, used in combination with <a href="/segment-definition/RXC.html#RXC-5">RXC-5-component strength</a>. Refer to Table 0699 - Component Strength Units in Chapter 2C for valid values.<strong>Note:</strong>  These units can be a &quot;compound quantity;&quot; i.e., the units may express a quantity per unit of time.  For example, micrograms per hour (micg/h) is an acceptable value.  These compound units are contained in the ISO+ table.  See Chapter 7 for full definition of ISO+ units.</p>
+
+<h4 class='v2' id='RXC-7'>
+RXC-7: Supplementary Code (<a href='/data-type/CWE.html'>CWE</a>) 01476
+</h4>
+<p class="v2 v2-normalindented">Definition: This field accommodates the identification of any codes that might be associated with the pharmaceutical or other treatment substance. Common codes include: the Generic Product Identifier (GPI), Generic Code Number_Sequence Number (GCN_SEQNO), National Drug Code (NDC). Refer to Table 0700 - Supplementary Code in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXC-8'>
+RXC-8: Component Drug Strength Volume (<a href='/data-type/NM.html'>NM</a>) 01671
+</h4>
+<p class="v2 v2-normalindented">Definition: This numeric field defines the volume measurement in which the drug strength concentration is contained. For example, Acetaminophen 120 MG/5ML Elixir means that 120 MG of the drug is in a solution with a volume of 5, which would be encoded in RXC-5, RXC-6, RXC-8 and RXC-9 as</p><p class="v2 v2-example">RXC|||||120|mg^^ISO||5|ml^^ISO ...&#60;cr&#62; </p>
+
+<h4 class='v2' id='RXC-9'>
+RXC-9: Component Drug Strength Volume Units (<a href='/data-type/CWE.html'>CWE</a>) 01672
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates the volumetric unit associated with <a href="/segment-definition/RXC.html#RXC-8">RXC-8 Component Drug Strength Volume</a>.  See example in RXC-8. Refer to Table 0701 - Component Drug Strength Volume Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXC-10'>
+RXC-10: Dispense Amount (<a href='/data-type/NM.html'>NM</a>) 03314
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the amount to be dispensed as encoded by the pharmacy or treatment supplier.  </p>
+
+<h4 class='v2' id='RXC-11'>
+RXC-11: Dispense Units (<a href='/data-type/CWE.html'>CWE</a>) 03315
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the units for the dispense amount as encoded by the pharmacy or treatment supplier.  This field is required if the units are not implied by the actual dispense code. This must be in simple units that reflect the actual quantity of the substance dispensed.  It does not include compound units. Refer to Table 0703 - Dispense Units in Chapter 2C for valid values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

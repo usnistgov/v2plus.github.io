@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html'>
+Chapter 5 - Query
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-1'>
+    5.1  CHAPTER 5 CONTENTS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2'>
+    5.2  INTRODUCTION
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-1'>
+        5.2.1  Query/response model
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-2'>
+        5.2.2  Evolution of the query standard
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-3'>
+        5.2.3  Query development methodology
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-4'>
+        5.2.4  Response format
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-4-1'>
+            5.2.4.1  Segment pattern response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-4-2'>
+            5.2.4.2  Tabular response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-4-3'>
+            5.2.4.3  Display response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-4-4'>
+            5.2.4.4  Choosing among available response formats
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-5'>
+        5.2.5  Query specification formats
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-5-1'>
+            5.2.5.1  Expressing the same data using the variants
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-5-1-1'>
+                5.2.5.1.1  Expression as simple parameters
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-5-1-2'>
+                5.2.5.1.2  Expression as query by example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-5-1-3'>
+                5.2.5.1.3  Expression as a complex expression
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-6'>
+        5.2.6  Summary chart of query/response pairs
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-2-7'>
+        5.2.7  Acknowledgment Choreography
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3'>
+    5.3  QUERY/RESPONSE PROFILE
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-1'>
+        5.3.1  Using the Query Profile
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-1-1'>
+            5.3.1.1  Query with tabular response example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-1-2'>
+            5.3.1.2  Example of Query Profile with tabular response
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2'>
+        5.3.2  Formal specification of the Query Profile
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-1'>
+            5.3.2.1  Steps for developing a Query Profile
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-2'>
+            5.3.2.2  Query Profile introduction
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-3'>
+            5.3.2.3  Query grammar
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-4'>
+            5.3.2.4  Response grammar
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-5'>
+            5.3.2.5  Response grammar for display response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-6'>
+            5.3.2.6  QPD input parameter specification
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-7'>
+            5.3.2.7  QPD input parameter field description and commentary
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-8'>
+            5.3.2.8  QBE input parameter specification
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-9'>
+            5.3.2.9  QBE input parameter field description and commentary
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-10'>
+            5.3.2.10  RCP input parameter field description and commentary
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-11'>
+            5.3.2.11  Input specification:  virtual table
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-12'>
+            5.3.2.12  Virtual table field description and commentary
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-2-13'>
+            5.3.2.13  Output specification for tabular response
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-3'>
+        5.3.3  Query Profile templates
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-3-1'>
+            5.3.3.1  Query Profile template for query with tabular response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-3-2'>
+            5.3.3.2  Query Profile template for query with segment pattern response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-3-3'>
+            5.3.3.3  Query Profile for query with display response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-3-3-4'>
+            5.3.3.4  Query Profile table summaries
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4'>
+    5.4  QUERY/RESPONSE MESSAGE PAIRS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-1'>
+        5.4.1  QBP/RSP – query by parameter/segment pattern response (events vary)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-2'>
+        5.4.2  QBP/RTB – query by parameter/tabular response (events vary)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-3'>
+        5.4.3  QBP/RDY – query by parameter/display response (events vary)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-4'>
+        5.4.4  QSB – Create subscription (Event Q16)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-5'>
+        5.4.5  QVR – query for previous events (Event Q17)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-6'>
+        5.4.6  QCN/ACK – cancel query/acknowledge message (Event J01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-4-7'>
+        5.4.7  QSX /ACK – cancel subscription/acknowledge message (Event J02)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5'>
+    5.5  QUERY/RESPONSE MESSAGE SEGMENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-1'>
+        5.5.1  DSP – display data segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-1-1'>
+            5.5.1.1  DSP-1   Set ID – DSP   (SI)   00061
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-1-2'>
+            5.5.1.2  DSP-2   Display Level   (SI)   00062
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-1-3'>
+            5.5.1.3  DSP-3   Data Line   (TX)   00063
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-1-4'>
+            5.5.1.4  DSP-4   Logical Break Point   (ST)   00064
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-1-5'>
+            5.5.1.5  DSP-5   Result ID   (TX)   00065
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2'>
+        5.5.2  QAK - query acknowledgment segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2-1'>
+            5.5.2.1  QAK-1   Query Tag   (ST)   00696
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2-2'>
+            5.5.2.2  QAK-2   Query Response Status   (ID)   00708
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2-3'>
+            5.5.2.3  QAK-3   Message Query Name   (CWE)   01375
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2-4'>
+            5.5.2.4  QAK-4   Hit Count Total   (NM)   01434
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2-5'>
+            5.5.2.5  QAK-5   This Payload   (NM)   01622
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-2-6'>
+            5.5.2.6  QAK-6   Hits Remaining   (NM)   01623
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-3'>
+        5.5.3  QID - query identification segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-3-1'>
+            5.5.3.1  QID-1   Query Tag   (ST)   00696
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-3-2'>
+            5.5.3.2  QID-2   Message Query Name   (CWE)   01375
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-4'>
+        5.5.4  QPD – query parameter definition segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-4-1'>
+            5.5.4.1  QPD-1   Message Query Name   (CWE)   01375
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-4-2'>
+            5.5.4.2  QPD-2   Query Tag   (ST)   00696
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-4-3'>
+            5.5.4.3  QPD-3   User Parameters   (Varies)   01435
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-4-3-1'>
+                5.5.4.3.1  Note on QPD usage for query by example variant.
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-5'>
+        5.5.5  QRI – query response instance segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-5-1'>
+            5.5.5.1  QRI-1   Candidate Confidence   (NM)   01436
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-5-2'>
+            5.5.5.2  QRI-2   Match Reason Code   (CWE)   01437
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-5-3'>
+            5.5.5.3  QRI-3   Algorithm Descriptor   (CWE)   01438
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6'>
+        5.5.6  RCP – response control parameter segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-1'>
+            5.5.6.1  RCP-1   Query Priority   (ID)   00027
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-2'>
+            5.5.6.2  RCP-2   Quantity Limited Request   (CQ)   00031
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-3'>
+            5.5.6.3  RCP-3   Response Modality   (CNE)   01440
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-4'>
+            5.5.6.4  RCP-4   Execution and Delivery Time   (DTM)   01441
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-5'>
+            5.5.6.5  RCP-5   Modify Indicator   (ID)   01443
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-6'>
+            5.5.6.6  RCP-6   Sort-by Field   (SRT)   01624
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-6-7'>
+            5.5.6.7  RCP-7   Segment Group Inclusion   (ID)   01594
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-7'>
+        5.5.7  RDF – table row definition segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-7-1'>
+            5.5.7.1  RDF-1   Number of Columns per Row   (NM)   00701
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-7-2'>
+            5.5.7.2  RDF-2   Column Description   (RCD)   00702
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-8'>
+        5.5.8  RDT – table row data segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-5-8-1'>
+            5.5.8.1  RDT-1   Column Value   (varies)   00703
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6'>
+    5.6  AUXILIARY QUERY PROTOCOLS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-1'>
+        5.6.1  Immediate vs. deferred response
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-1-1'>
+            5.6.1.1  Immediate response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-1-2'>
+            5.6.1.2  Deferred response example
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-2'>
+        5.6.2  Query cancellation
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-3'>
+        5.6.3  Interactive continuation of response messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-3-1'>
+            5.6.3.1  Interactive continuation algorithm and rules
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-3-2'>
+            5.6.3.2  Use case
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-3-3'>
+            5.6.3.3  Example of interactive continuation protocol
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-3-4'>
+            5.6.3.4  Message fragmentation example
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-4'>
+        5.6.4  Batch message as a query response
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-6-5'>
+        5.6.5  Query error response
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7'>
+    5.7  PUBLISH AND SUBSCRIBE
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7-1'>
+        5.7.1  Introduction
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7-2'>
+        5.7.2  Details
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7-3'>
+        5.7.3  Examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7-3-1'>
+            5.7.3.1  Example of a publish and subscribe Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7-4'>
+        5.7.4  Establishing a subscription
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-7-5'>
+        5.7.5  Canceling a subscription
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-8'>
+    5.8  QUERY IMPLEMENTATION CONSIDERATIONS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9'>
+    5.9  QUERY/RESPONSE MESSAGE EXAMPLES
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-1'>
+        5.9.1  Query by parameter (QBP) / segment pattern response (RSP)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-1-1'>
+            5.9.1.1  Proposed dispense history example and Query Profile
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-1-1-1'>
+                5.9.1.1.1  Associated dispense history Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-1-2'>
+            5.9.1.2  Comprehensive pharmacy information examples and Query Profile
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-1-2-1'>
+                5.9.1.2.1  Comprehensive pharmacy information Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2'>
+        5.9.2  Query using QSC variant / segment pattern response examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2-1'>
+            5.9.2.1  Dispense information example and Query Profile
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2-1-1'>
+                5.9.2.1.1  Associated dispense information Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2-2'>
+            5.9.2.2  Dispense information query showing different instantiation
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2-3'>
+            5.9.2.3  Lab results history example
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2-4'>
+            5.9.2.4  Lab results history Query Profile
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-2-5'>
+            5.9.2.5  Lab example different instantiation
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-3'>
+        5.9.3  Query by parameter (QBP) / tabular response (RTB)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-3-1'>
+            5.9.3.1  MPI example
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-3-1-1'>
+                5.9.3.1.1  MPI Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-3-2'>
+            5.9.3.2  Pharmacy example:
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-3-2-1'>
+                5.9.3.2.1  QBP/RTB dispense history Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-4'>
+        5.9.4  Query using QSC variant / tabular response (RTB)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-4-1'>
+            5.9.4.1  Pharmacy example
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-4-1-1'>
+                5.9.4.1.1  QBP/RTB dispense history Query Profile using QSC variant
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-5'>
+        5.9.5  Query by parameter (QBP) / display response (RDY)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-5-1'>
+            5.9.5.1  Dispense history display Query Profile
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-6'>
+        5.9.6  Query using QSC variant (QBP) / display response (RDY)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-6-1'>
+            5.9.6.1  Dispense history display Query Profile using QSC variant
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-7'>
+        5.9.7  Query by example (QBP) / tabular response (RTB)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-7-1'>
+            5.9.7.1  MPI Query Profile using QBE variant
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-9-7-2'>
+            5.9.7.2  MPI Query Profile – Non query by example version
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-10'>
+    5.10  SUPERSEDED QUERY/RESPONSE TRIGGER EVENTS AND MESSAGE PAIRS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-10-1'>
+        5.10.1  Display message
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-10-1-1'>
+            5.10.1.1  Display vs. record-oriented messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-10-1-2'>
+            5.10.1.2  UDM/ACK - unsolicited display update message (event Q05)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-10-1-3'>
+            5.10.1.3  Continuation of unsolicited display update message
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-10-2'>
+        5.10.2  Original mode queries
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Query.html#Query-11'>
+    5.11  OUTSTANDING ISSUES
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

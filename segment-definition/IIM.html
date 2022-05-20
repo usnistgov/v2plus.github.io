@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+IIM - Inventory Item Master Segment
+</h3>
+<p class="v2 v2-normalindented">The Inventory Item Master segment (IIM) contains information about the stock of product that can be used to fulfill an ordered test/service. All of the fields in this segment describe the test/service and other basic attributes pertaining to Service Item defined within an Other Observation/Service Item master file. This segment is related to centrally stocked or supply management concerns.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - IIM - Inventory Item Master Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+IIM
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Primary Key Value - IIM
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IIM-1'>
+01897
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Service Item Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#IIM-2'>
+01799
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Inventory Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-3'>
+01800
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Inventory Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-4'>
+01801
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Inventory Manufacturer Name
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-5'>
+01802
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Inventory Location
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-6'>
+01803
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Inventory Received Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-7'>
+01804
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Inventory Received Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-8'>
+01805
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+12
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Inventory Received Quantity Unit
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0818-Package.html' title='Package'>
+0818
+<span class='vocab-link-text'>Package</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-9'>
+01806
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Inventory Received Item Cost
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-10'>
+01807
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Inventory On Hand Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-11'>
+01808
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Inventory On Hand Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-12'>
+01809
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+12
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Inventory On Hand Quantity Unit
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0818-Package.html' title='Package'>
+0818
+<span class='vocab-link-text'>Package</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-13'>
+01810
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Procedure Code
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#IIM-14'>
+00393
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+15
+</td>
+<td>
+Procedure Code Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#IIM-15'>
+01316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='IIM-1'>
+IIM-1: Primary Key Value - IIM (<a href='/data-type/CWE.html'>CWE</a>) 01897
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code assigned by the institution for the purpose of uniquely identifying an inventoried item.  It is the identifying key value, and must match <a href="/segment-definition/MFE.html#MFE-4">MFE-4 Primary Key Value - MFE</a>.</p>
+
+<h4 class='v2' id='IIM-2'>
+IIM-2: Service Item Code (<a href='/data-type/CWE.html'>CWE</a>) 01799
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier of the service item.  It relates the inventory item of this message to an entry in an Other Observation/Service Item master file.  </p>
+
+<h4 class='v2' id='IIM-3'>
+IIM-3: Inventory Lot Number (<a href='/data-type/ST.html'>ST</a>) 01800
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the lot number of the service item in inventory.</p><div class="v2-note"><p class="v2"><strong>Note: </strong> The lot number is the number printed on the label attached to the item or container holding the substance.  If the substance is a vaccine, for example, and a diluent is required, a lot number may appear on the vial containing the diluent; however, any such identifier associated with a diluent is not the identifier of interest. The substance lot number should be reported, not that of the diluent.</p></div><br/>
+
+<h4 class='v2' id='IIM-4'>
+IIM-4: Inventory Expiration Date (<a href='/data-type/DTM.html'>DTM</a>) 01801
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the expiration date of the service item in inventory.</p><div class="v2-note"><p class="v2"><strong>Note: </strong> Expiration date does not always have a &quot;day&quot; component; therefore, such a date may be transmitted as YYYYMM.</p></div><br/>
+
+<h4 class='v2' id='IIM-5'>
+IIM-5: Inventory Manufacturer Name (<a href='/data-type/CWE.html'>CWE</a>) 01802
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the manufacturer of the service item in inventory.</p>
+
+<h4 class='v2' id='IIM-6'>
+IIM-6: Inventory Location (<a href='/data-type/CWE.html'>CWE</a>) 01803
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the location of the inventory.  As an implementation consideration, this location can have a range of specificity.  The location can be very general, e.g., a facility where the inventory is warehoused, or very specific, e.g., a shelf location.</p>
+
+<h4 class='v2' id='IIM-7'>
+IIM-7: Inventory Received Date (<a href='/data-type/DTM.html'>DTM</a>) 01804
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the most recent date that the product in question was received into inventory.</p>
+
+<h4 class='v2' id='IIM-8'>
+IIM-8: Inventory Received Quantity (<a href='/data-type/NM.html'>NM</a>) 01805
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the quantity of this inventory item that was received on the date specific in <a href="/segment-definition/IIM.html#IIM-7">IIM-7 Inventory Received Date</a>.</p>
+
+<h4 class='v2' id='IIM-9'>
+IIM-9: Inventory Received Quantity Unit (<a href='/data-type/CWE.html'>CWE</a>) 01806
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the unit for <a href="/segment-definition/IIM.html#IIM-8">IIM-8 Inventory Received Quantity</a> and <a href="/segment-definition/IIM.html#IIM-10">IIM-10 Inventory Received Item Cost</a>.</p>
+
+<h4 class='v2' id='IIM-10'>
+IIM-10: Inventory Received Item Cost (<a href='/data-type/MO.html'>MO</a>) 01807
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the per-unit cost of the inventory item at the time of receipt.  <a href="/segment-definition/IIM.html#IIM-9">IIM-9 Inventory Received Quantity Unit</a> specifies the per-unit basis of this field.</p>
+
+<h4 class='v2' id='IIM-11'>
+IIM-11: Inventory On Hand Date (<a href='/data-type/DTM.html'>DTM</a>) 01808
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the most recent date that an inventory count for the inventory item was performed.</p>
+
+<h4 class='v2' id='IIM-12'>
+IIM-12: Inventory On Hand Quantity (<a href='/data-type/NM.html'>NM</a>) 01809
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the quantity of this inventory item that was available for issue/use as of the date specified in <a href="/segment-definition/IIM.html#IIM-11">IIM-11 Inventory on Hand Date</a>.  No adjustment has been made for subsequent use.  </p>
+
+<h4 class='v2' id='IIM-13'>
+IIM-13: Inventory On Hand Quantity Unit (<a href='/data-type/CWE.html'>CWE</a>) 01810
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the unit for <a href="/segment-definition/IIM.html#IIM-12">IIM-12 Inventory on Hand Quantity</a>.</p>
+
+<h4 class='v2' id='IIM-14'>
+IIM-14: Procedure Code (<a href='/data-type/CNE.html'>CNE</a>) 00393
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the service item, if any, associated with the charge.  In the United States this is often the HCPCS code.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally Defined Table 0088 - Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a CNE data type for compatibility with clinical and ancillary systems. </p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Procedure Code Coding Systems</p><table class="v2" style="width: 87%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 17.79%;'/><col span='1' style='width: 30.73%;'/><col span='1' style='width: 51.47%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:17.79%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:30.73%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:51.47%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; '><p class="v2 v2-othertablebody">C4</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; '><p class="v2 v2-othertablebody">CPT-4</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; '><p class="v2 v2-othertablebody">American Medical Association, P.O. Box 10946, Chicago IL  60610.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; '><p class="v2 v2-othertablebody">C5</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; '><p class="v2 v2-othertablebody">CPT-5  </p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; '><p class="v2 v2-othertablebody">(under development – same contact as above)</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; '><p class="v2 v2-othertablebody">HCPCS</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; '><p class="v2 v2-othertablebody">CMS (formerly HCFA)  Common Procedure Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; '><p class="v2 v2-othertablebody">HCPCS: contains codes for medical equipment, injectable drugs, transportation services, and other services not found in CPT4.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; '><p class="v2 v2-othertablebody">HPC</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; '><p class="v2 v2-othertablebody">CMS (formerly HCFA) Procedure Codes (HCPCS)</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; '><p class="v2 v2-othertablebody">Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.</p></td></tr></table><br/>
+
+<h4 class='v2' id='IIM-15'>
+IIM-15: Procedure Code Modifier (<a href='/data-type/CNE.html'>CNE</a>) 01316
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/segment-definition/IIM.html#IIM-14">IIM-14 Procedure Code</a>, when applicable.  Procedure code modifiers are defined by USA regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.  </p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

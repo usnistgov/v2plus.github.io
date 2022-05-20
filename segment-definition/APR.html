@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+APR - Appointment Preferences Segment
+</h3>
+<p class="v2 v2-normalindented">The APR segment contains parameters and preference specifications used for requesting appointments in the SRM message.  It allows placer applications to provide coded parameters and preference indicators to the filler application, to help determine when a requested appointment should be scheduled.  An APR segment can be provided in conjunction with either the ARQ segment or any of the service and resource segments (AIG, AIS, AIP, and AIL).  If an APR segment appears in conjunction with an ARQ segment, its parameters and preference indicators pertain to the schedule request as a whole.  If the APR segment appears with any of the service and resource segments, then its parameters and preferences apply only to the immediately preceding service or resource.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - APR - Appointment Preferences Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+APR
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Time Selection Criteria
+</td>
+<td class='centered'>
+<a href='/data-type/SCV.html'>
+SCV
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0294-Time-Selection-Criteria-Parameter-Class-Codes.html' title='Time Selection Criteria Parameter Class Codes(Suggested)'>
+0294(S)
+<span class='vocab-link-text'>Time Selection Criteria Parameter Class Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#APR-1'>
+00908
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Resource Selection Criteria
+</td>
+<td class='centered'>
+<a href='/data-type/SCV.html'>
+SCV
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0294-Time-Selection-Criteria-Parameter-Class-Codes.html' title='Time Selection Criteria Parameter Class Codes(Suggested)'>
+0294(S)
+<span class='vocab-link-text'>Time Selection Criteria Parameter Class Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#APR-2'>
+00909
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Location Selection Criteria
+</td>
+<td class='centered'>
+<a href='/data-type/SCV.html'>
+SCV
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0294-Time-Selection-Criteria-Parameter-Class-Codes.html' title='Time Selection Criteria Parameter Class Codes(Suggested)'>
+0294(S)
+<span class='vocab-link-text'>Time Selection Criteria Parameter Class Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#APR-3'>
+00910
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Slot Spacing Criteria
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#APR-4'>
+00911
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+5
+</td>
+<td>
+Filler Override Criteria
+</td>
+<td class='centered'>
+<a href='/data-type/SCV.html'>
+SCV
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#APR-5'>
+00912
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='APR-1'>
+APR-1: Time Selection Criteria (<a href='/data-type/SCV.html'>SCV</a>) 00908
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to communicate parameters and preferences to the filler application regarding the selection of an appropriate time slot for an appointment.  The first component of this field is a code identifying the parameter or preference being passed to the filler application.  The second component is the actual data value for that parameter.</p><p class="v2 v2-normalindented">For example, if a filler application allows preference parameters to be passed to specify a preferred start time, a preferred end time, and preferred days of the week for the appointment, it may define the parameter class codes and valid data sets based on suggested codes from <a href="https://www.hl7.org/fhir/v2/0294/index.html">User-defined Table 0294 - Time Selection Criteria Parameter Class Codes</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">Given the set of parameter class codes and valid value sets from User-Defined table 0294, a placer may indicate a preferred start time of 8:00 AM on Monday, Wednesday or Friday by specifying the following in <a href="/segment-definition/APR.html#APR-1">APR-1 Time Selection Criteria</a>:</p><p class="v2 v2-example">...|PREFSTART^0800~MON^OK~WED^OK~FRI^OK~TUE^NO~THU^NO~SAT^NO~SUN^NO|...</p><p class="v2 v2-normalindented">The valid set of preferences should be determined by the placer and filler applications during implementation of the interface.</p>
+
+<h4 class='v2' id='APR-2'>
+APR-2: Resource Selection Criteria (<a href='/data-type/SCV.html'>SCV</a>) 00909
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to communicate parameters and preferences to the filler application regarding the selection of an appropriate resource for an appointment.  The first component of this field is a code identifying the parameter or preference being passed to the filler application.  The second component is the actual data value for that parameter.</p><p class="v2 v2-normalindented">Refer to Section <a href="/composition/Scheduling.html#Scheduling-6-8-1">10.6.8.1</a>, &quot;<a href="/segment-definition/APR.html#APR-1">APR-1   Time Selection Criteria   (SCV)   00908</a>,&quot; for an example illustrating how this mechanism works within an interface.</p><p class="v2 v2-normalindented">The valid set of preferences should be determined by the placer and filler applications during implementation of the interface.  Refer to <a href="https://www.hl7.org/fhir/v2/0294/index.html">User-defined Table 0294 - Time Selection Criteria Parameter Class Codes</a> in Chapter 2C, Code Tables, for suggested examples.</p>
+
+<h4 class='v2' id='APR-3'>
+APR-3: Location Selection Criteria (<a href='/data-type/SCV.html'>SCV</a>) 00910
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to communicate parameters and preferences to the filler application regarding the selection of an appropriate location for the appointment.  The first component of this field is a code identifying the parameter or preference being passed to the filler application.  The second component is the actual data value for that parameter.</p><p class="v2 v2-normalindented">Refer to Section <a href="/composition/Scheduling.html#Scheduling-6-8-1">10.6.8.1</a>, &quot;<a href="/segment-definition/APR.html#APR-1">APR-1   Time Selection Criteria   (SCV)   00908</a>,&quot; for an example illustrating how this mechanism works within an interface.</p><p class="v2 v2-normalindented">The valid set of preferences should be determined by the placer and filler applications during implementation of the interface.  Refer to <a href="https://www.hl7.org/fhir/v2/0294/index.html">User-defined Table 0294 - Time Selection Criteria Parameter Class Codes</a> in Chapter 2C, Code Tables, for suggested examples.</p>
+
+<h4 class='v2' id='APR-4'>
+APR-4: Slot Spacing Criteria (<a href='/data-type/NM.html'>NM</a>) 00911
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used in queries returning lists of possible appointment slots, or other lists of slots.  If the filler application allows it, the querying application may indicate the spacing of the slots returned to the querying application, in relation to the requested start date/time in the ARQ segment.  The value in this field should be a positive integer, representing the number of minutes between slot starting times that is returned in the query.</p><p class="v2 v2-normalindented">For example, if there is a request that an appointment with a duration of 1.5 hours be scheduled some time between 9:00 AM and 11:30 AM, and the <a href="/segment-definition/APR.html#APR-4">APR-4 Slot Spacing Criteria</a> field contains a value of 15, then the list of slots returned should read as follows:</p><p class="v2 v2-normalindented v2-indent1440">9:00 - 10:30<br/>9:15 - 10:45<br/>9:30 - 11:00<br/>9:45 - 11:15<br/>10:00 - 11:30</p>
+
+<h4 class='v2' id='APR-5'>
+APR-5: Filler Override Criteria (<a href='/data-type/SCV.html'>SCV</a>) 00912
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is used to communicate override parameters to the filler application.  These override parameters allow placer applications to override specific features of filler applications such as conflict checking.  It is assumed that the placer and filler applications will pass enough information to determine whether the requestor is allowed to override such features.  This chapter does not provide any security or permission information.  </p><p class="v2 v2-normalindented">The first component of this field is a code identifying the parameter being passed to the filler application.  The second component is the actual data value for that parameter.</p><p class="v2 v2-normalindented">Refer to Section <a href="/composition/Scheduling.html#Scheduling-6-8-1">10.6.8.1</a>, &quot;<a href="/segment-definition/APR.html#APR-1">APR-1   Time Selection Criteria   (SCV)   00908</a>,&quot; for an example illustrating how this mechanism works within an interface.</p><p class="v2 v2-normalindented">The valid set of parameters should be determined by the placer and filler applications during implementation of the interface.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

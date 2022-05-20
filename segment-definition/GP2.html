@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+GP2 - Grouping/Reimbursement - Procedure Line Item Segment
+</h3>
+<p class="v2 v2-normalindented">This segment is used for items that pertain to each HCPC/CPT line item.</p><p class="v2 v2-normalindented"><strong>The GP2 segment is specific to the US and may not be implemented in non-US systems.</strong></p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - GP2 - Grouping/Reimbursement - Procedure Line Item Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+GP2
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Revenue Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0456-Revenue-code.html' title='Revenue code(Suggested)'>
+0456(S)
+<span class='vocab-link-text'>Revenue code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-1'>
+01600
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Number of Service Units
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-2'>
+01604
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+7
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Charge
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-3'>
+01605
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Reimbursement Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0459-Reimbursement-Action-Code.html' title='Reimbursement Action Code'>
+0459
+<span class='vocab-link-text'>Reimbursement Action Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-4'>
+01606
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Denial or Rejection Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0460-Denial-or-Rejection-Code.html' title='Denial or Rejection Code'>
+0460
+<span class='vocab-link-text'>Denial or Rejection Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-5'>
+01607
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+OCE Edit Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0458-OCE-Edit-Code.html' title='OCE Edit Code'>
+0458
+<span class='vocab-link-text'>OCE Edit Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GP2-6'>
+01608
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Ambulatory Payment Classification Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0466-Ambulatory-Payment-Classification-Code.html' title='Ambulatory Payment Classification Code'>
+0466
+<span class='vocab-link-text'>Ambulatory Payment Classification Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-7'>
+01609
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Modifier Edit Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0467-Modifier-Edit-Code.html' title='Modifier Edit Code'>
+0467
+<span class='vocab-link-text'>Modifier Edit Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#GP2-8'>
+01610
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Payment Adjustment Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0468-Payment-Adjustment-Code.html' title='Payment Adjustment Code'>
+0468
+<span class='vocab-link-text'>Payment Adjustment Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-9'>
+01611
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Packaging Status Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0469-Packaging-Status-Code.html' title='Packaging Status Code'>
+0469
+<span class='vocab-link-text'>Packaging Status Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-10'>
+01617
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Expected CMS Payment Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-11'>
+01618
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Reimbursement Type Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0470-Reimbursement-Type-Code.html' title='Reimbursement Type Code'>
+0470
+<span class='vocab-link-text'>Reimbursement Type Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-12'>
+01619
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Co-Pay Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-13'>
+01620
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+14
+</td>
+<td>
+Pay Rate per Service Unit
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#GP2-14'>
+01621
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='GP2-1'>
+GP2-1: Revenue Code (<a href='/data-type/CWE.html'>CWE</a>) 01600
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies a specific ancillary service for each HCPC/CPT   This field is the same as UB92 Form Locator 42 &quot;Revenue Code&quot;.  Refer to <a href="https://www.hl7.org/fhir/v2/0456/index.html">User-defined Table 0456 - Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-2'>
+GP2-2: Number of Service Units (<a href='/data-type/NM.html'>NM</a>) 01604
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the quantitative count of units for each HCPC/CPT.  This field is the same as UB92 Form Locator 46 &quot;Units of Service&quot;.  This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-3'>
+GP2-3: Charge (<a href='/data-type/CP.html'>CP</a>) 01605
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount charged for the specific individual line item (HCPC/CPT).  This field is the same as UB92 Form Locator 56.  This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-4'>
+GP2-4: Reimbursement Action Code (<a href='/data-type/CWE.html'>CWE</a>) 01606
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the action to be taken during reimbursement calculations.  If valued, this code overrides the value in <a href="/segment-definition/GP2.html#GP2-6">GP2-6 - OCE Edit Code</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0459/index.html">User-defined Table 0459 - Reimbursement Action Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies</p>
+
+<h4 class='v2' id='GP2-5'>
+GP2-5: Denial or Rejection Code (<a href='/data-type/CWE.html'>CWE</a>) 01607
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field determines the OCE status of the line item.  Refer to <a href="https://www.hl7.org/fhir/v2/0460/index.html">User-defined table 0460 - Denial or Rejection Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-6'>
+GP2-6: OCE Edit Code (<a href='/data-type/CWE.html'>CWE</a>) 01608
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the edit that results from the processing of HCPCS/CPT procedures for a line item HCPCS/CPT, after evaluating all the codes, revenue codes, and modifiers.  Refer to <a href="/composition/Introduction.html#Introduction-8-5">User-defined Table 0458 - OCE Edit Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='GP2-7'>
+GP2-7: Ambulatory Payment Classification Code (<a href='/data-type/CWE.html'>CWE</a>) 01609
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the derived APC code.  This is the APC code used for payment, which is the same as the assigned APC, for all situations except partial hospitalization.  If partial hospitalization is billed in this visit, the assigned APC will differ from the APC used for payment.  Partial hospitalization is the only time an assigned APC differs from the APC used for payment. The payment APC is used for billing and should be displayed in this field.  The first component contains the APC identifier.  The second component reports the text description for the APC group.  Refer to <a href="https://www.hl7.org/fhir/v2/0466/index.html">User-defined table 0466 - Ambulatory Payment Classification Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-8'>
+GP2-8: Modifier Edit Code (<a href='/data-type/CWE.html'>CWE</a>) 01610
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains calculated edits of the modifiers for each line or HCPCS/CPT.  This field can be repeated up to five times, one edit for each of the modifiers present.    This field relates to the values in <a href="/segment-definition/PR1.html#PR1-16">PR1-16 - Procedure Code Modifier</a>.  Each repetition corresponds positionally to the order of the PR1-16 modifier codes.  If no modifier code exists, use the code &quot;U&quot; (modifier edit code unknown) as a placeholder.  The repetitions of Modifier Edit Codes must match the repetitions of Procedure Code Modifiers.  For example, if <a href="/segment-definition/PR1.html#PR1-16">PR1-16 - Procedure Code Modifier</a> reports ...|01~02~03~04|... as modifier codes, and modifier code 03 modifier status code is unknown, <a href="/segment-definition/GP2.html#GP2-8">GP2-8 - Modifier Edit Code</a> would report ...|1~1~U~1|...  Refer to <a href="https://www.hl7.org/fhir/v2/0467/index.html">User-defined table 0467 - Modifier Edit Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies</p>
+
+<h4 class='v2' id='GP2-9'>
+GP2-9: Payment Adjustment Code (<a href='/data-type/CWE.html'>CWE</a>) 01611
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains any payment adjustment due to drugs or medical devices.  Refer to <a href="https://www.hl7.org/fhir/v2/0468/index.html">User-defined Table 0468 - Payment Adjustment Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies</p>
+
+<h4 class='v2' id='GP2-10'>
+GP2-10: Packaging Status Code (<a href='/data-type/CWE.html'>CWE</a>) 01617
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the packaging status of the service. A status indicator of N may accompany this, unless it is part of a partial hospitalization.  Refer to <a href="https://www.hl7.org/fhir/v2//index.html">User-defined (CMS) Table 0469 - Packaging Status Code</a> in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-11'>
+GP2-11: Expected CMS Payment Amount (<a href='/data-type/CP.html'>CP</a>) 01618
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the calculated dollar amount that CMS is expected to pay for the line item.</p>
+
+<h4 class='v2' id='GP2-12'>
+GP2-12: Reimbursement Type Code (<a href='/data-type/CWE.html'>CWE</a>) 01619
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the fee schedule reimbursement type applied to the line item. Refer to <a href="https://www.hl7.org/fhir/v2/0470/index.html">User-defined Table 0470 - Reimbursement Type Code</a> in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.</p>
+
+<h4 class='v2' id='GP2-13'>
+GP2-13: Co-Pay Amount (<a href='/data-type/CP.html'>CP</a>) 01620
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the patient&#39;s Co-pay amount for the line item.</p>
+
+<h4 class='v2' id='GP2-14'>
+GP2-14: Pay Rate per Service Unit (<a href='/data-type/NM.html'>NM</a>) 01621
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the calculated rate, or multiplying factor, for each service unit for the line item.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

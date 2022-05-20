@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+CON - Consent Segment
+</h3>
+<p class="v2 v2-normalindented">This segment identifies patient consent information relating to a particular message.  It can be used as part of existing messages to convey information about patient consent to procedures, admissions, information release/exchange or other events discussed by the message.  It may also be used in messages focusing on recording or requesting consent and for   consents related to employees or service providers.</p><p class="v2 v2-normalindented">The segment will be used in conjunction with various other segments to identify the practitioner (PRA/STF) or patient (PID) the consent is for, the various individuals involved in the consent (ROL) as witnesses, consenting person (not always the patient), translators, consulting providers, etc., and the specific procedures being proposed (PR1).</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - CON - Consent Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+CON
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - CON
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#CON-1'>
+01776
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Consent Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0496-Consent-Type.html' title='Consent Type(Suggested)'>
+0496(S)
+<span class='vocab-link-text'>Consent Type(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-2'>
+01777
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Consent Form ID and Version
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-3'>
+01778
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Consent Form Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-4'>
+01779
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Consent Text
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#CON-5'>
+01780
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Subject-specific Consent Text
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#CON-6'>
+01781
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Consent Background Information
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#CON-7'>
+01782
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Subject-specific Consent Background Text
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#CON-8'>
+01783
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Consenter-imposed limitations
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#CON-9'>
+01784
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Consent Mode
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0497-Consent-Mode.html' title='Consent Mode(Required)'>
+0497(R)
+<span class='vocab-link-text'>Consent Mode(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-10'>
+01785
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Consent Status
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0498-Consent-Status.html' title='Consent Status(Required)'>
+0498(R)
+<span class='vocab-link-text'>Consent Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#CON-11'>
+01786
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Consent Discussion Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-12'>
+01787
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Consent Decision Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-13'>
+01788
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Consent Effective Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-14'>
+01789
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Consent End Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-15'>
+01790
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Subject Competence Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-16'>
+01791
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Translator Assistance Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-17'>
+01792
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Language Translated To
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0296-Primary-Language.html' title='Primary Language'>
+0296
+<span class='vocab-link-text'>Primary Language</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-18'>
+01793
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Informational Material Supplied Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-19'>
+01794
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Consent Bypass Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0499-Consent-Bypass-Reason.html' title='Consent Bypass Reason'>
+0499
+<span class='vocab-link-text'>Consent Bypass Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-20'>
+01795
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Consent Disclosure Level
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0500-Consent-Disclosure-Level.html' title='Consent Disclosure Level(Required)'>
+0500(R)
+<span class='vocab-link-text'>Consent Disclosure Level(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-21'>
+01796
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Consent Non-disclosure Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0501-Consent-Non-Disclosure-Reason.html' title='Consent Non-Disclosure Reason'>
+0501
+<span class='vocab-link-text'>Consent Non-Disclosure Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-22'>
+01797
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Non-subject Consenter Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0502-Non-Subject-Consenter-Reason.html' title='Non-Subject Consenter Reason(Suggested)'>
+0502(S)
+<span class='vocab-link-text'>Non-Subject Consenter Reason(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#CON-23'>
+01798
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Consenter ID
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#CON-24'>
+01909
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+25
+</td>
+<td>
+Relationship to Subject
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0548-Signatory&#39;s-Relationship-to-Subject.html' title='Signatory&#39;s Relationship to Subject(Suggested)'>
+0548(S)
+<span class='vocab-link-text'>Signatory's Relationship to Subject(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#CON-25'>
+01898
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='CON-1'>
+CON-1: Set ID - CON (<a href='/data-type/SI.html'>SI</a>) 01776
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number that identifies this segment instance within the message.  For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.</p>
+
+<h4 class='v2' id='CON-2'>
+CON-2: Consent Type (<a href='/data-type/CWE.html'>CWE</a>) 01777
+</h4>
+<p class="v2 v2-normalindented">Definition: This field describes what the subject is consenting to, i.e., what type of service, surgical procedure, information access/release or other event.  For values see <a href="https://www.hl7.org/fhir/v2/0496/index.html">User-Defined Table 0496 – Consent Type.</a></p>
+
+<h4 class='v2' id='CON-3'>
+CON-3: Consent Form ID and Version (<a href='/data-type/ST.html'>ST</a>) 01778
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies a specific version of a consent form used to record the consent.  A given version of a consent form implies a particular set of wording that appears on the form. </p>
+
+<h4 class='v2' id='CON-4'>
+CON-4: Consent Form Number (<a href='/data-type/EI.html'>EI</a>) 01779
+</h4>
+<p class="v2 v2-normalindented">Definition:  Uniquely identifies a specific recorded consent.  This may be the number assigned to an electronic consent, or may be the number on a printed consent form.</p>
+
+<h4 class='v2' id='CON-5'>
+CON-5: Consent Text (<a href='/data-type/FT.html'>FT</a>) 01780
+</h4>
+<p class="v2 v2-normalindented">Definition:  Describes the specific procedures/information releases/events the subject is consenting to.</p>
+
+<h4 class='v2' id='CON-6'>
+CON-6: Subject-specific Consent Text (<a href='/data-type/FT.html'>FT</a>) 01781
+</h4>
+<p class="v2 v2-normalindented">Definition:  Describes any additions or variations to the standard procedures/information releases/events from a standard consent that are applicable to the subject whose consent is sought.</p>
+
+<h4 class='v2' id='CON-7'>
+CON-7: Consent Background Information (<a href='/data-type/FT.html'>FT</a>) 01782
+</h4>
+<p class="v2 v2-normalindented">Definition:  Describes any additional information relating to the procedure/information release/event that needs to be understood by the subject for informed consent.  May include the reason for the service, the expected benefit, risks, etc.</p>
+
+<h4 class='v2' id='CON-8'>
+CON-8: Subject-specific Consent Background Text (<a href='/data-type/FT.html'>FT</a>) 01783
+</h4>
+<p class="v2 v2-normalindented">Definition:  Describes any additions or variations to the standard additional information that needs to be understood by the patient for informed consent.  May include a description of benefits and risks that are specific to the subject from whom consent is sought.  May also include an indication that there are <strong>no</strong> subject-specific risks/benefits.</p>
+
+<h4 class='v2' id='CON-9'>
+CON-9: Consenter-imposed limitations (<a href='/data-type/FT.html'>FT</a>) 01784
+</h4>
+<p class="v2 v2-normalindented">Definition:  Describes any restrictions or limitations placed on their consent by the subject.</p>
+
+<h4 class='v2' id='CON-10'>
+CON-10: Consent Mode (<a href='/data-type/CNE.html'>CNE</a>) 01785
+</h4>
+<p class="v2 v2-normalindented">Definition:  The method in which a subject provides consent. For values see <a href="https://www.hl7.org/fhir/v2/0497/index.html">HL7 Table 0497 – Consent Mode.</a></p>
+
+<h4 class='v2' id='CON-11'>
+CON-11: Consent Status (<a href='/data-type/CNE.html'>CNE</a>) 01786
+</h4>
+<p class="v2 v2-normalindented">Definition:  Indicates whether consent has been sought and granted. For values see <a href="https://www.hl7.org/fhir/v2/0498/index.html">HL7 Table 0498 – Consent Status</a>.</p>
+
+<h4 class='v2' id='CON-12'>
+CON-12: Consent Discussion Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01787
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies the time when consent was discussed with the subject.  This should only be specified if this differs from the time the consent decision is made.</p>
+
+<h4 class='v2' id='CON-13'>
+CON-13: Consent Decision Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01788
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies the time when the decision to grant/refuse consent was made.  In the case of written consent, this is the time the consent form is signed.</p>
+
+<h4 class='v2' id='CON-14'>
+CON-14: Consent Effective Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01789
+</h4>
+<p class="v2 v2-normalindented">Definition:  The time the consent becomes/became effective.  This only needs to be specified if the time differs from the Consent Decision Date/Time</p>
+
+<h4 class='v2' id='CON-15'>
+CON-15: Consent End Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01790
+</h4>
+<p class="v2 v2-normalindented">Definition:  The time the consent becomes ineffective.  If not specified, the consent is assumed to be indefinite.  For consents relating to information release, the end date/time is the date by which the released information must be returned/destroyed.</p>
+
+<h4 class='v2' id='CON-16'>
+CON-16: Subject Competence Indicator (<a href='/data-type/ID.html'>ID</a>) 01791
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies whether the subject was deemed competent to provide consent.  Refer to table <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator.</a></p>
+
+<h4 class='v2' id='CON-17'>
+CON-17: Translator Assistance Indicator (<a href='/data-type/ID.html'>ID</a>) 01792
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies whether translation was (or will be) required to obtain informed consent from the subject.  Refer to table <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator.</a></p>
+
+<h4 class='v2' id='CON-18'>
+CON-18: Language Translated To (<a href='/data-type/CWE.html'>CWE</a>) 01793
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies the language the consent material must be translated to.  Refer to <a href="https://www.hl7.org/fhir/v2/0296/index.html">User Defined table 0296 – Primary Language</a><a href=""> </a>which contains no suggested values.  This table may be populated with values similar to those that may be found in <em>ISO table 639 – Language Codes.</em></p>
+
+<h4 class='v2' id='CON-19'>
+CON-19: Informational Material Supplied Indicator (<a href='/data-type/ID.html'>ID</a>) 01794
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies whether additional educational or reference material was provided to the subject as part of the consent process.  Refer to table <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator.</a></p>
+
+<h4 class='v2' id='CON-20'>
+CON-20: Consent Bypass Reason (<a href='/data-type/CWE.html'>CWE</a>) 01795
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies why the subject&#39;s consent was not sought.  This field must be populated when <a href="/segment-definition/CON.html#CON-11">CON-11 - Consent Status</a> is B – Bypassed.  Refer to <a href="https://www.hl7.org/fhir/v2/0499/index.html">User Defined table 0499 – Consent Bypass Reason</a> for suggested values.</p>
+
+<h4 class='v2' id='CON-21'>
+CON-21: Consent Disclosure Level (<a href='/data-type/ID.html'>ID</a>) 01796
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies how much information was disclosed to the subject as part of the informed consent process.  Refer to table <a href="https://www.hl7.org/fhir/v2/0500/index.html">HL7 Table 0500 – Consent Disclosure Level</a><a href=".">.</a></p>
+
+<h4 class='v2' id='CON-22'>
+CON-22: Consent Non-disclosure Reason (<a href='/data-type/CWE.html'>CWE</a>) 01797
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies why the subject did not receive full disclosure. . Refer to <a href="https://www.hl7.org/fhir/v2/0501/index.html">User-Defined Table 0501 – Consent Non-Disclosure Reason</a> for suggested values.</p>
+
+<h4 class='v2' id='CON-23'>
+CON-23: Non-subject Consenter Reason (<a href='/data-type/CWE.html'>CWE</a>) 01798
+</h4>
+<p class="v2 v2-normalindented">Definition:  Identifies why consent was granted by a person other than the subject of the consent. Refer to <a href="https://www.hl7.org/fhir/v2/0502/index.html">User-defined Table 0502 – Non-Subject Consenter Reason</a> for suggested values.</p>
+
+<h4 class='v2' id='CON-24'>
+CON-24: Consenter ID (<a href='/data-type/XPN.html'>XPN</a>) 01909
+</h4>
+<p class="v2 v2-normalindented">Definition: Identification of the individual(s) who is (are) consenting.</p>
+
+<h4 class='v2' id='CON-25'>
+CON-25: Relationship to Subject (<a href='/data-type/CWE.html'>CWE</a>) 01898
+</h4>
+<p class="v2 v2-normalindented">Definition: Identification of the relationship of the consenter to the subject.  Receivers are required to inspect the Coding System component of the CWE data type to accurately interpret the meaning of the code. Senders transmitting messages to Receivers on earlier version of the standard may elect to negotiate business rules to ensure that expected data is not lost. HL7 does not assign positional meaning to user-defined codes.  Refer to <a href="https://www.hl7.org/fhir/v2/0548/index.html">User-Defined Table 0548 – Signatory&#39;s Relationship to Subject</a> for suggested values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

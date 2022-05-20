@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+DATA TYPES
+</h2>
+<p class='v2'>
+The data types in this section are listed in alphabetical order.
+</p>
+<p class='v2'>
+The data type examples in this Standard are given using the standard HL7 encoding rules, with the delimiter values from Figure 2-1 of Chapter 2, "Control", section 2.5.4, "Message delimiters".
+</p>
+<p class='v2 v2_note'>
+Note: These message construction rules define the standard HL7 encoding rules, creating variable length delimited messages. Although only one set of encoding rules has been defined as a standard since HL7 Version 2.3, other encoding rules are possible (but since they are non-standard, they may only be used by a site-specific agreement).
+In this chapter, square brackets, "[" and "]", are used to specify optional parts of a string. For instance, the format of a date field is "YYYY[MM[DD]]" which denotes that the field may contain four, six, or eight characters respectively. The characters may further constrain the possible contents of the string - this will be documented at the point of use.
+</p>
+<ul>
+<li class='data_type_toc_entry'>
+<a href='/data-type/AD.html'>
+AD - address
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/AUI.html'>
+AUI - authorization information
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CCD.html'>
+CCD - charge code and date
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CCP.html'>
+CCP - channel calibration parameters
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CD.html'>
+CD - channel definition
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CE.html'>
+CE - coded entry
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CF.html'>
+CF - coded element with formatted values
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CNE.html'>
+CNE - coded with no exceptions
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CNN.html'>
+CNN - composite ID number and name simplified
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CP.html'>
+CP - composite price
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CQ.html'>
+CQ - composite quantity with units
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CSU.html'>
+CSU - channel sensitivity and units
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CWE.html'>
+CWE - coded with exceptions
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/CX.html'>
+CX - extended composite ID with check digit
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DDI.html'>
+DDI - daily deductible information
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DIN.html'>
+DIN - date and institution name
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DLD.html'>
+DLD - discharge to location and date
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DLN.html'>
+DLN - driver’s license number
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DLT.html'>
+DLT - delta
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DR.html'>
+DR - date/time range
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DT.html'>
+DT - date
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DTM.html'>
+DTM - date/time
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/DTN.html'>
+DTN - day type and number
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/ED.html'>
+ED - encapsulated data
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/EI.html'>
+EI - entity identifier
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/EIP.html'>
+EIP - entity identifier pair
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/ELD.html'>
+ELD - error location and description
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/ERL.html'>
+ERL - Message location
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/FC.html'>
+FC - financial class
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/FN.html'>
+FN - family name
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/FT.html'>
+FT - formatted text data
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/GTS.html'>
+GTS - general timing specification
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/HD.html'>
+HD - hierarchic designator
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/ICD.html'>
+ICD - insurance certification definition
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/ID.html'>
+ID - coded value for HL7 defined tables
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/IS.html'>
+IS - coded value for user-defined tables
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/JCC.html'>
+JCC - job code/class
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/LA1.html'>
+LA1 - location with address variation 1
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/LA2.html'>
+LA2 - location with address variation 2
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/MA.html'>
+MA - multiplexed array
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/MO.html'>
+MO - money
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/MOC.html'>
+MOC - money and charge code
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/MOP.html'>
+MOP - money or percentage
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/MSG.html'>
+MSG - message type
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/NA.html'>
+NA - numeric array
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/NDL.html'>
+NDL - name with date and location
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/NM.html'>
+NM - numeric
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/NR.html'>
+NR - numeric range
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/OCD.html'>
+OCD - occurrence code and date
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/OG.html'>
+OG - observation grouper
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/OSD.html'>
+OSD - order sequence definition
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/OSP.html'>
+OSP - occurrence span code and date
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PIP.html'>
+PIP - practitioner institutional privileges
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PL.html'>
+PL - person location
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PLN.html'>
+PLN - practitioner license or other Id number
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PPN.html'>
+PPN - performing person time stamp
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PRL.html'>
+PRL - parent result link
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PT.html'>
+PT - processing type
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/PTA.html'>
+PTA - policy type and amount
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/QIP.html'>
+QIP - query input parameter list
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/QSC.html'>
+QSC - query selection criteria
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/RCD.html'>
+RCD - row column definition
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/RFR.html'>
+RFR - reference range
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/RI.html'>
+RI - repeat interval
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/RMC.html'>
+RMC - room coverage
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/RP.html'>
+RP - reference pointer
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/RPT.html'>
+RPT - repeat pattern
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SAD.html'>
+SAD - street address
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SCV.html'>
+SCV - scheduling class value pair
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SI.html'>
+SI - sequence ID
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SN.html'>
+SN - structured numeric
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SNM.html'>
+SNM - string of telephone number digits
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SPD.html'>
+SPD - specialty description
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SPS.html'>
+SPS - specimen source
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/SRT.html'>
+SRT - sort order
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/ST.html'>
+ST - string data
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/TM.html'>
+TM - time
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/TQ.html'>
+TQ - timing/quantity
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/TS.html'>
+TS - timestamp
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/TX.html'>
+TX - text data
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/UVC.html'>
+UVC - UB value code and amount
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/VH.html'>
+VH - visiting hours
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/VID.html'>
+VID - version identifier
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/VR.html'>
+VR - value range
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/Varies.html'>
+Varies - Varies
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/WVI.html'>
+WVI - channel identifier
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/WVS.html'>
+WVS - waveform source
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/XAD.html'>
+XAD - extended address
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/XCN.html'>
+XCN - extended composite ID number and name for persons
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/XON.html'>
+XON - extended composite name and identification number for organizations
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/XPN.html'>
+XPN - extended person name
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/data-type/XTN.html'>
+XTN - extended telecommunication number
+</a>
+</li>
+
+</ul>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

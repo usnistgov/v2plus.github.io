@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+STF - Staff Identification Segment
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the STF segment is PA and Personnel Management.</p><p class="v2 v2-normalindented">The STF segment can identify any personnel referenced by information systems.  These can be providers, staff, system users, and referring agents.  In a network environment, this segment can be used to define personnel to other applications, for example, order entry clerks, insurance verification clerks, admission clerks, as well as provider demographics. When using the STF and PRA segments in the Staff/Practitioner Master File message, <a href="/segment-definition/MFE.html#MFE-4">MFE-4-primary key value</a> is used to link all the segments pertaining to the same master file entry.  Therefore, in the MFE segment, <a href="/segment-definition/MFE.html#MFE-4">MFE-4-primary key value</a> must be filled in.  Other segments may follow the STF segment to provide data for a particular type of staff member. The PRA segment (practitioner) is one such.  It may optionally follow the STF segment in order to add practitioner-specific data. Other segments may be defined as needed. When using the segments included in this chapter for other then Staff/Practitioner Master File messages, disregard references to <a href="/segment-definition/MFE.html#MFE-4">MFE-4 - primary key value</a>.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - STF - Staff Identification Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+STF
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Primary Key Value – STF
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0786-ERROR! Bad Data! FIXME.html'>
+0786
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-1'>
+00671
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Staff Identifier List
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0061-Check-Digit-Scheme.html' title='Check Digit Scheme(Required)'>
+0061(R)
+<span class='vocab-link-text'>Check Digit Scheme(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-2'>
+00672
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Staff Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-3'>
+00673
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Staff Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0182-Staff-type.html' title='Staff type'>
+0182
+<span class='vocab-link-text'>Staff type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-4'>
+00674
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Administrative Sex
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0001-Administrative-Sex.html' title='Administrative Sex(Suggested)'>
+0001(S)
+<span class='vocab-link-text'>Administrative Sex(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-5'>
+00111
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Date/Time of Birth
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-6'>
+00110
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Active/Inactive Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0183-Active/Inactive.html' title='Active/Inactive(Required)'>
+0183(R)
+<span class='vocab-link-text'>Active/Inactive(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-7'>
+00675
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Department
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0184-Department.html' title='Department'>
+0184
+<span class='vocab-link-text'>Department</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-8'>
+00676
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Hospital Service – STF
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0069-Hospital-Service.html' title='Hospital Service'>
+0069
+<span class='vocab-link-text'>Hospital Service</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-9'>
+00677
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Phone
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-10'>
+00678
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Office/Home Address/Birthplace
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-11'>
+00679
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Institution Activation Date
+</td>
+<td class='centered'>
+<a href='/data-type/DIN.html'>
+DIN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0537-Institution.html' title='Institution'>
+0537
+<span class='vocab-link-text'>Institution</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-12'>
+00680
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Institution Inactivation Date
+</td>
+<td class='centered'>
+<a href='/data-type/DIN.html'>
+DIN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0537-Institution.html' title='Institution'>
+0537
+<span class='vocab-link-text'>Institution</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-13'>
+00681
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Backup Person ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-14'>
+00682
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+E-Mail Address
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-15'>
+00683
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+40
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Preferred Method of Contact
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0185-Preferred-Method-of-Contact.html' title='Preferred Method of Contact(Required)'>
+0185(R)
+<span class='vocab-link-text'>Preferred Method of Contact(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-16'>
+00684
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Marital Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0002-Marital-Status.html' title='Marital Status(Suggested)'>
+0002(S)
+<span class='vocab-link-text'>Marital Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-17'>
+00119
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Job Title
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-18'>
+00785
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Job Code/Class
+</td>
+<td class='centered'>
+<a href='/data-type/JCC.html'>
+JCC
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0327-Job-Code.html' title='Job Code'>
+0327
+<span class='vocab-link-text'>Job Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-19'>
+00786
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Employment Status Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0066-Employment-Status.html' title='Employment Status(Suggested)'>
+0066(S)
+<span class='vocab-link-text'>Employment Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-20'>
+01276
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Additional Insured on Auto
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-21'>
+01275
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Driver's License Number – Staff
+</td>
+<td class='centered'>
+<a href='/data-type/DLN.html'>
+DLN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-22'>
+01302
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Copy Auto Ins
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-23'>
+01229
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Auto Ins Expires
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-24'>
+01232
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Date Last DMV Review
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-25'>
+01298
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Date Next DMV Review
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-26'>
+01234
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Race
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0005-Race.html' title='Race(Suggested)'>
+0005(S)
+<span class='vocab-link-text'>Race(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-27'>
+00113
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Ethnic Group
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0189-Ethnic-Group.html' title='Ethnic Group'>
+0189
+<span class='vocab-link-text'>Ethnic Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-28'>
+00125
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Re-activation Approval Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-29'>
+01596
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Citizenship
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0171-Citizenship.html' title='Citizenship'>
+0171
+<span class='vocab-link-text'>Citizenship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-30'>
+00129
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Date/Time of Death
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-31'>
+01886
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Death Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-32'>
+01887
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Institution Relationship Type Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0538-Institution-Relationship-Type.html' title='Institution Relationship Type'>
+0538
+<span class='vocab-link-text'>Institution Relationship Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-33'>
+01888
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Institution Relationship Period
+</td>
+<td class='centered'>
+<a href='/data-type/DR.html'>
+DR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-34'>
+01889
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Expected Return Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-35'>
+01890
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Cost Center Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0539-Cost-Center-Code.html' title='Cost Center Code'>
+0539
+<span class='vocab-link-text'>Cost Center Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-36'>
+01891
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Generic Classification Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-37'>
+01892
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Inactive Reason Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0540-Inactive-Reason-Code.html' title='Inactive Reason Code'>
+0540
+<span class='vocab-link-text'>Inactive Reason Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-38'>
+01893
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Generic resource type or category
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#STF-39'>
+02184
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+Religion
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0006-Religion.html' title='Religion(Suggested)'>
+0006(S)
+<span class='vocab-link-text'>Religion(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-40'>
+00120
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+41
+</td>
+<td>
+Signature
+</td>
+<td class='centered'>
+<a href='/data-type/ED.html'>
+ED
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#STF-41'>
+01861
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='STF-1'>
+STF-1: Primary Key Value – STF (<a href='/data-type/CWE.html'>CWE</a>) 00671
+</h4>
+<p class="v2 v2-normalindented">Definition:  For MFN Master File Notification, this field is required and must match <a href="/segment-definition/MFE.html#MFE-4">MFE-4 Primary Key Value</a> to identify which entry is being referenced.  For all other messages, this field should not be used. Refer to Table 0786 - Primary Key Value – STF in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='STF-2'>
+STF-2: Staff Identifier List (<a href='/data-type/CX.html'>CX</a>) 00672
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the list of identifiers (one or more) used by the institution to identify this person. Refer to <a href="https://www.hl7.org/fhir/v2/0061/index.html">HL7 Table 0061 - Check Digit Scheme</a> (component 2), <a href="https://www.hl7.org/fhir/v2/0203/index.html">User-defined Table 0203 - Identifier Type</a> (component 5) and <a href="https://www.hl7.org/fhir/v2/0363/index.html">User-defined Table 0363 - Assigning Authority</a> (component 4) for valid values (see Chapter 2A). If a Staff Member has institution identifiers that are valid only in specific organization units, that Staff identifier should be recorded in the <a href="/composition/Personnel-Management.html#Personnel-Management-4-1-2">ORG Practitioner Organization Unit</a> segment.</p>
+
+<h4 class='v2' id='STF-3'>
+STF-3: Staff Name (<a href='/data-type/XPN.html'>XPN</a>) 00673
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the staff person&#39;s name.  This field may repeat to transmit multiple names for the same person.</p>
+
+<h4 class='v2' id='STF-4'>
+STF-4: Staff Type (<a href='/data-type/CWE.html'>CWE</a>) 00674
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code identifying what type of staff. Refer to <a href="https://www.hl7.org/fhir/v2/0182/index.html">User-defined Table 0182 - Staff type</a> in Chapter 2C, Code Tables, for suggested values.  This table contains no suggested values.  Values may include codes for staff, practitioner, referral agent or agency, etc. This field may repeat to allow for staff to be assigned multiple types.</p><p class="v2 v2-normalindented">Typically, this field would be populated with the most granular types that may be associated with the staff.  If less granular typing or categorization of the staff is required in addition to the specific type(s) found in this field, the reader is referred to <a href="/segment-definition/STF.html#STF-39">STF-39 Generic Resource Type or Category</a>. Thus, while STF-4 may contain the code for a specific staff or practitioner type, STF-39 may contain &quot;staff&quot; or &quot;practitioner&quot;.  For further discussion of specific and generic types, the reader is referred to <a href="/segment-definition/STF.html#STF-39">STF-39 Generic Resource Type or Category</a>.</p>
+
+<h4 class='v2' id='STF-5'>
+STF-5: Administrative Sex (<a href='/data-type/CWE.html'>CWE</a>) 00111
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the staff person&#39;s sex.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 – Administrative Sex</a> for suggested values.</p>
+
+<h4 class='v2' id='STF-6'>
+STF-6: Date/Time of Birth (<a href='/data-type/DTM.html'>DTM</a>) 00110
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a staff member&#39;s date and time of birth.</p>
+
+<h4 class='v2' id='STF-7'>
+STF-7: Active/Inactive Flag (<a href='/data-type/ID.html'>ID</a>) 00675
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether person is currently a valid staff member.  Refer to <a href="https://www.hl7.org/fhir/v2/0183/index.html">HL7 Table 0183 - Active/Inactive</a><a href=""> </a>in Chapter 2C, Code Tables, for valid values. This table contains values for active or inactive. </p>
+
+<h4 class='v2' id='STF-8'>
+STF-8: Department (<a href='/data-type/CWE.html'>CWE</a>) 00676
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the institution department to which this person reports or belongs.  Refer to <a href="https://www.hl7.org/fhir/v2/0184/index.html">User-defined Table 0184 - Departmen</a><a href="t">t</a> in Chapter 2C, Code Tables, for suggested values.  This table contains no suggested values.</p>
+
+<h4 class='v2' id='STF-9'>
+STF-9: Hospital Service – STF (<a href='/data-type/CWE.html'>CWE</a>) 00677
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the hospital or ancillary service with which this staff person is associated.  Refer to <a href="https://www.hl7.org/fhir/v2/0069/index.html">User-defined Table 0069 - Hospital Service</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='STF-10'>
+STF-10: Phone (<a href='/data-type/XTN.html'>XTN</a>) 00678
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the staff person&#39;s phone number.  This is a repeating field with a component for indicating which phone number is which. </p>
+
+<h4 class='v2' id='STF-11'>
+STF-11: Office/Home Address/Birthplace (<a href='/data-type/XAD.html'>XAD</a>) 00679
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the office, and home address and/or place of birth of the staff person.  This is a repeating field.  The address type identifies the usage.</p>
+
+<h4 class='v2' id='STF-12'>
+STF-12: Institution Activation Date (<a href='/data-type/DIN.html'>DIN</a>) 00680
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date when staff became active for an institution.  This is a repeating field.  Refer to <a href="https://www.hl7.org/fhir/v2/0537/index.html">User-defined Table 0537 - Institution</a> in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.</p>
+
+<h4 class='v2' id='STF-13'>
+STF-13: Institution Inactivation Date (<a href='/data-type/DIN.html'>DIN</a>) 00681
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date when staff became inactive for an institution.  This is a repeating field.  Refer to <a href="https://www.hl7.org/fhir/v2/0537/index.html">HL7 Table 0537 - Institution</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='STF-14'>
+STF-14: Backup Person ID (<a href='/data-type/CWE.html'>CWE</a>) 00682
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the <a href="/segment-definition/MFE.html#MFE-4">MFE-4 Primary Key Value</a> of the master file entry that corresponds to the designated backup person for this staff person.</p>
+
+<h4 class='v2' id='STF-15'>
+STF-15: E-Mail Address (<a href='/data-type/ST.html'>ST</a>) 00683
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field has been retained for backward compatibility.</strong>  (It is now present in the fourth component of <a href="/segment-definition/STF.html#STF-10">STF-10 Phone</a>).</p>
+
+<h4 class='v2' id='STF-16'>
+STF-16: Preferred Method of Contact (<a href='/data-type/CWE.html'>CWE</a>) 00684
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates which of a group of multiple phone numbers is the preferred method of contact for this person.  Note that all values of this code refer to this segment&#39;s phone field, except for the value &quot;E,&quot; which refers to the E-mail address field.  If more than one phone number of the preferred type exists in <a href="/segment-definition/STF.html#STF-10">STF-10-phone</a>, this field refers to the first such instance.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0185/index.html">HL7 Table 0185 - Preferred Method of Contact</a> in Chapter 2C, Code Tables, for valid values. This table contains values for beeper, cell phone etc. </p>
+
+<h4 class='v2' id='STF-17'>
+STF-17: Marital Status (<a href='/data-type/CWE.html'>CWE</a>) 00119
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the staff member&#39;s marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.  Same values as those for <a href="/segment-definition/PID.html#PID-16">PID-16 Marital Status</a>.</p>
+
+<h4 class='v2' id='STF-18'>
+STF-18: Job Title (<a href='/data-type/ST.html'>ST</a>) 00785
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a descriptive name of the staff member&#39;s occupation (e.g., Sr. Systems Analyst, Sr. Accountant).</p>
+
+<h4 class='v2' id='STF-19'>
+STF-19: Job Code/Class (<a href='/data-type/JCC.html'>JCC</a>) 00786
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the staff member&#39;s job code and employee classification.  Refer to <a href="https://www.hl7.org/fhir/v2/0327/index.html">User-defined Table 0327 - Job Code</a> and <a href="https://www.hl7.org/fhir/v2/0328/index.html">User-defined Table 0328 - Employee Classification</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='STF-20'>
+STF-20: Employment Status Code (<a href='/data-type/CWE.html'>CWE</a>) 01276
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code that indicates the staff member&#39;s employment status, e.g., full-time, part-time, self-employed, etc. Refer to <a href="https://www.hl7.org/fhir/v2/0066/index.html">User-defined Table 0066 - Employment Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='STF-21'>
+STF-21: Additional Insured on Auto (<a href='/data-type/ID.html'>ID</a>) 01275
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an indicator for whether the present institution is named as an additional insured on the staff member&#39;s auto insurance, especially for use when staff is a driver for the institution.   Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">&#160;&#160;&#160;&#160;Y&#160;&#160;&#160;&#160;indicates that the institution is named as an additional insured</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">&#160;&#160;&#160;&#160;N&#160;&#160;&#160;&#160;indicates that the institution is not named as an additional insured</p></li></ul>
+
+<h4 class='v2' id='STF-22'>
+STF-22: Driver's License Number – Staff (<a href='/data-type/DLN.html'>DLN</a>) 01302
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the driver&#39;s license information of staff, especially for use when staff is a driver for the institution.  For state or province refer to official postal codes for that country; for country refer to ISO 3166 for codes.</p>
+
+<h4 class='v2' id='STF-23'>
+STF-23: Copy Auto Ins (<a href='/data-type/ID.html'>ID</a>) 01229
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an indicator for whether the institution has on file a copy of the staff member&#39;s auto insurance, especially for use when staff is a driver for the institution.   Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">&#160;&#160;&#160;&#160;Y&#160;&#160;&#160;&#160;indicates that the institution has a copy on file</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">&#160;&#160;&#160;&#160;N&#160;&#160;&#160;&#160;indicates that the institution does not have a copy on file</p></li></ul>
+
+<h4 class='v2' id='STF-24'>
+STF-24: Auto Ins Expires (<a href='/data-type/DT.html'>DT</a>) 01232
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date on which the staff member&#39;s driver&#39;s license expires, especially for use when staff is a driver for the institution.</p>
+
+<h4 class='v2' id='STF-25'>
+STF-25: Date Last DMV Review (<a href='/data-type/DT.html'>DT</a>) 01298
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date of the staff member&#39;s most recent Department of Motor Vehicles review, especially for use when staff is a driver for the institution.</p>
+
+<h4 class='v2' id='STF-26'>
+STF-26: Date Next DMV Review (<a href='/data-type/DT.html'>DT</a>) 01234
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date of the staff member&#39;s next Department of Motor Vehicles review, especially for use when staff is a driver for the institution.</p>
+
+<h4 class='v2' id='STF-27'>
+STF-27: Race (<a href='/data-type/CWE.html'>CWE</a>) 00113
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field refers to the person&#39;s race.  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+
+<h4 class='v2' id='STF-28'>
+STF-28: Ethnic Group (<a href='/data-type/CWE.html'>CWE</a>) 00125
+</h4>
+<ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Definition:  This field further defines the person&#39;s ancestry.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values. The second couplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the United States, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p></li></ul>
+
+<h4 class='v2' id='STF-29'>
+STF-29: Re-activation Approval Indicator (<a href='/data-type/ID.html'>ID</a>) 01596
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an indicator for whether the re-activation of this record requires special approval.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;the re-activation requires approval</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;this re-activation does not require approval</p></li></ul>
+
+<h4 class='v2' id='STF-30'>
+STF-30: Citizenship (<a href='/data-type/CWE.html'>CWE</a>) 00129
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the staff person&#39;s current country of citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> (in Chapter 2C, Code Tables).</p>
+
+<h4 class='v2' id='STF-31'>
+STF-31: Date/Time of Death (<a href='/data-type/DTM.html'>DTM</a>) 01886
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time at which the staff person death occurred.</p>
+
+<h4 class='v2' id='STF-32'>
+STF-32: Death Indicator (<a href='/data-type/ID.html'>ID</a>) 01887
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the staff person is deceased.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">Y&#160;&#160;&#160;&#160;the staff person is deceased<br/>N&#160;&#160;&#160;&#160;the staff person is not deceased</p>
+
+<h4 class='v2' id='STF-33'>
+STF-33: Institution Relationship Type Code (<a href='/data-type/CWE.html'>CWE</a>) 01888
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the relationship the staff person has with the institution for whom he/she provides services.  Refer to <a href="https://www.hl7.org/fhir/v2/0538/index.html">User–defined Table 0538 – Institution Relationship Type</a> in Chapter 2C, Code Tables, for suggested values. This table contains values for employee, volunteer, etc. </p>
+
+<h4 class='v2' id='STF-34'>
+STF-34: Institution Relationship Period (<a href='/data-type/DR.html'>DR</a>) 01889
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the period during which the staff person started and ended the relationship specified in <a href="/segment-definition/STF.html#STF-33">STF-33 Institution Relationship Type Code</a>. </p>
+
+<h4 class='v2' id='STF-35'>
+STF-35: Expected Return Date (<a href='/data-type/DT.html'>DT</a>) 01890
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date on which an inactive staff member expects to return to work.  </p>
+
+<h4 class='v2' id='STF-36'>
+STF-36: Cost Center Code (<a href='/data-type/CWE.html'>CWE</a>) 01891
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes the organization unit in the General Ledger to which the staff member is currently assigned.  It is sometimes referred to as the &quot;home&quot; cost center because it is the organization unit to which the staff member&#39;s regular costs are accrued.  Refer to <a href="https://www.hl7.org/fhir/v2/0539/index.html">User-defined Table 0539 – Cost Center Code</a><a href=""> </a>in Chapter 2C, Code Tables,<a href=""> </a>for valid values. This table contains no suggested values.</p>
+
+<h4 class='v2' id='STF-37'>
+STF-37: Generic Classification Indicator (<a href='/data-type/ID.html'>ID</a>) 01892
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes whether or not this STF record represents an identifiable (i.e., real) human being or is a &quot;placeholder&quot; for one whose identity is not yet known.   For example, work schedules may need to be created before the actual staff member has been hired, or appointments may be made with a floating resource who is not specifically known until the actual appointment date/time.  Because these functions require a Staff Member ID code, it is important to distinguish whether or not the Staff Member is a real human resource or not.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> for valid values.</p><ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none"><li class="v2 v2-li"><p class="v2 v2-normallist">Y&#160;&#160;&#160;&#160;indicates that the staff member is an identifiable human being</p></li><li class="v2 v2-li"><p class="v2 v2-normallist">N&#160;&#160;&#160;&#160;indicates that the staff member is not an identifiable human being </p></li></ul>
+
+<h4 class='v2' id='STF-38'>
+STF-38: Inactive Reason Code (<a href='/data-type/CWE.html'>CWE</a>) 01893
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the reason that the staff member is inactive.  Refer to <a href="https://www.hl7.org/fhir/v2/0540/index.html">User-defined Table 0540 – Inactive Reason Code</a> in Chapter 2C, Code Tables, for suggested values. This table contains values for leave of absence, terminated, etc. </p>
+
+<h4 class='v2' id='STF-39'>
+STF-39: Generic resource type or category (<a href='/data-type/CWE.html'>CWE</a>) 02184
+</h4>
+<p class="v2 v2-normalindented">Definition: This field transmits a code that represents a high level categorization of resources. This is a companion field for the <a href="/segment-definition/STF.html#STF-4">STF-4 Staff Type</a> and allows an institution or enterprise to impose a one or more super category levels. Refer to <a href="https://www.hl7.org/fhir/v2/0771/index.html">User-defined Table 0771 – Resource Type or Category</a> in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values.</p><p class="v2 v2-normalindented">An enterprise might have more than one method to categorize or type resources at a high level. Therefore, this field can repeat.</p><p class="v2 v2-normalindented">Example:  An organization may define discreet staff types (e.g., Pediatric Oncologist, Gerontologist, Oncology Pharmacist, Pediatric Pharmacist, Critical Care Nurse, Nurse Case Manager – Cardiology) as well as broad categories (e.g., Physician, Pharmacist, Nurse, Pediatric, Oncology, Cardiology, Case Management, Nephrology).  Employing STF-4 for the discreet terms and STF-39 for the more generic terms allows both the levels of granularity to be apply to the staff without confusing the specific types with generic types.  Thus, one may see:</p><p class="v2 v2-normalindented"></p><table class="v2" style="width: 69%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 48.45%;'/><col span='1' style='width: 51.54%;'/></colgroup><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertableheader">STF-4</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertableheader">STF-39</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Custodian</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Staff</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Non-clinical Nursing Supervisor</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Manager</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Pediatric Oncologist</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Physician ~ Pediatrics ~ Oncology</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Gerontologist</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Physician</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Oncology Pharmacist</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Pharmacist ~ Oncology</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Pediatric Pharmacist</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Pediatrics ~ Pharmacist</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Critical Care Nurse</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Nurse</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.45%; '><p class="v2 v2-othertablebody">Nurse Case Manager – Cardiology</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.54%; '><p class="v2 v2-othertablebody">Nurse ~ Cardiology ~ Case Management</p></td></tr></table><br/>
+
+<h4 class='v2' id='STF-40'>
+STF-40: Religion (<a href='/data-type/CWE.html'>CWE</a>) 00120
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the staff member&#39;s religion.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='STF-41'>
+STF-41: Signature (<a href='/data-type/ED.html'>ED</a>) 01861
+</h4>
+<p class="v2 v2-normalindented">Definition:  Digital Signature of the staff member.  The Digital Signature includes a seal concept and is verifiable.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

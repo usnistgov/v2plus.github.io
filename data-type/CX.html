@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+CX - extended composite ID with check digit
+</h3>
+<div class='v2-data-type-content'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - CX - extended composite ID with check digit
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+CX
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-1'>
+1
+</a>
+</td>
+<td>
+ID Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;15
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-2'>
+2
+</a>
+</td>
+<td>
+Identifier Check Digit
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;4
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-3'>
+3
+</a>
+</td>
+<td>
+Check Digit Scheme 
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0061-Check-Digit-Scheme.html' title='Check Digit Scheme(Required)'>
+0061(R)
+<span class='vocab-link-text'>Check Digit Scheme(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-4'>
+4
+</a>
+</td>
+<td>
+Assigning Authority
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0363-Assigning-Authority.html' title='Assigning Authority'>
+0363
+<span class='vocab-link-text'>Assigning Authority</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-5'>
+5
+</a>
+</td>
+<td>
+Identifier Type Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0203-Identifier-Type.html' title='Identifier Type(Suggested)'>
+0203(S)
+<span class='vocab-link-text'>Identifier Type(Suggested)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[2..5]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-6'>
+6
+</a>
+</td>
+<td>
+Assigning Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-7'>
+7
+</a>
+</td>
+<td>
+Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-8'>
+8
+</a>
+</td>
+<td>
+Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-9'>
+9
+</a>
+</td>
+<td>
+Assigning Jurisdiction
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-10'>
+10
+</a>
+</td>
+<td>
+Assigning Agency or Department
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CX-11'>
+11
+</a>
+</td>
+<td>
+Security Check
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;4
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#CX-12'>
+12
+</a>
+</td>
+<td>
+Security Check Scheme
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0904-Security-Check-Scheme.html' title='Security Check Scheme(Required)'>
+0904(R)
+<span class='vocab-link-text'>Security Check Scheme(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;ID Number (ST)&#62; &#38; &#60;Identifier Check Digit (ST)&#62; &#38; &#60;Check Digit Scheme  (ID)&#62; &#38; &#60;Assigning Authority (HD)&#62; &#38; &#60;Identifier Type Code (ID)&#62; &#38; &#60;Assigning Facility (HD)&#62; &#38; &#60;Effective Date (DT)&#62; &#38; &#60;Expiration Date (DT)&#62; &#38; &#60;Assigning Jurisdiction (CWE)&#62; &#38; &#60;Assigning Agency or Department (CWE)&#62; &#38; &#60;Security Check (ST)&#62; &#38; &#60;Security Check Scheme (ID)&#62;</p><p class='v2-components'>Subcomponents for Assigning Authority (HD): &#60;Namespace ID (IS)&#62; &#94; &#60;Universal ID (ST)&#62; &#94; &#60;Universal ID Type (ID)&#62;</p>
+<p class='v2-components'>Subcomponents for Assigning Facility (HD): &#60;Namespace ID (IS)&#62; &#94; &#60;Universal ID (ST)&#62; &#94; &#60;Universal ID Type (ID)&#62;</p>
+<p class='v2-components'>Subcomponents for Assigning Jurisdiction (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+<p class='v2-components'>Subcomponents for Assigning Agency or Department (CWE): &#60;Identifier (ST)&#62; &#94; &#60;Text (ST)&#62; &#94; &#60;Name of Coding System (ID)&#62; &#94; &#60;Alternate Identifier (ST)&#62; &#94; &#60;Alternate Text (ST)&#62; &#94; &#60;Name of Alternate Coding System (ID)&#62; &#94; &#60;Coding System Version ID (ST)&#62; &#94; &#60;Alternate Coding System Version ID (ST)&#62; &#94; &#60;Original Text (ST)&#62; &#94; &#60;Second Alternate Identifier (ST)&#62; &#94; &#60;Second Alternate Text (ST)&#62; &#94; &#60;Name of Second Alternate Coding System (ID)&#62; &#94; &#60;Second Alternate Coding System Version ID (ST)&#62; &#94; &#60;Coding System OID (ST)&#62; &#94; &#60;Value Set OID (ST)&#62; &#94; &#60;Value Set Version ID (DTM)&#62; &#94; &#60;Alternate Coding System OID (ST)&#62; &#94; &#60;Alternate Value Set OID (ST)&#62; &#94; &#60;Alternate Value Set Version ID (DTM)&#62; &#94; &#60;Second Alternate Coding System OID (ST)&#62; &#94; &#60;Second Alternate Value Set OID (ST)&#62; &#94; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+</div>
+<br/><p class="v2 v2-normalindented">Example:</p><p class="v2 v2-example">|1234567^4^M11^ADT01^MR^University Hospital|</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='CX-1'>
+CX-1: ID Number (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The value of the identifier itself.</p>
+
+<h4 id='CX-2'>
+CX-2: Identifier Check Digit (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A digit, or digits, exclusive of the identifier in <a href="/data-type/CX-1.html#CX-1">CX.1</a>, calculated by applying an algorithm to all or some of the digits in the number, which may be used to test validity of the non-check-digit identifier.</p>
+
+<h4 id='CX-3'>
+CX-3: Check Digit Scheme  (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Contains the code identifying the check digit scheme employed.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0061/index.html">HL7 Table 0061 - Check Digit Scheme</a> for valid values.</p><p class="v2 v2-normalindented">The algorithm for calculating a Mod10 check digit is as follows:</p><p class="v2 v2-normalindented">Assume you have an identifier - 12345. Take the odd digit positions, counting from the right, i.e., 531, multiply this number by 2 to get 1062. Take the even digit positions, starting from the right (i.e., 42), prepend these to the 1062 to get 421062. Add all of these six digits together to get 15. Subtract this number from the next highest multiple of 10, i.e., 20 - 15 to get 5. The Mod10 check digit is 5. The Mod10 check digit for 401 is 0; for 9999, it’s 4; for 99999999, it’s 8.</p><p class="v2 v2-normalindented">The algorithm for calculating a Mod11 check digit is as follows:</p><p class="v2 v2-normalindented"><strong>Terms</strong></p><table class="v2" style="width: 90%; "><colgroup><col span='1' style='width: 6.75%;'/><col span='1' style='width: 5.67%;'/><col span='1' style='width: 87.56%;'/></colgroup><tr><td style='width:6.75%; '><p class="v2">d</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:87.56%; '><p class="v2">digit of number starting from units digit, followed by 10’s position, followed by 100’s position, etc.</p></td></tr><tr><td style='width:6.75%; '><p class="v2">w</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:87.56%; '><p class="v2">weight of digit position starting with the units position, followed by 10’s position, followed by 100’s position etc. Values for w = 2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7, etc. (repeats for each group of 6 digits)</p></td></tr><tr><td style='width:6.75%; '><p class="v2">c</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:87.56%; '><p class="v2">check digit </p></td></tr></table><br/><p class="v2 v2-normalindented"><strong>Calculation</strong></p><table class="v2" style="width: 90%; "><colgroup><col span='1' style='width: 17.20%;'/><col span='1' style='width: 5.67%;'/><col span='1' style='width: 77.12%;'/></colgroup><tr><td style='width:17.20%; '><p class="v2">(Step 1) m</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:77.12%; '><p class="v2">sum of (d * w) for positions 1, 2, etc. starting with units digit</p><p class="v2">for d = digit value starting with units position to highest order</p><p class="v2">for w = weight value from 2 to 7 for every six positions starting with units digit</p></td></tr><tr><td style='width:17.20%; '><p class="v2">(Step 2) c1</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:77.12%; '><p class="v2">m mod 11</p></td></tr><tr><td style='width:17.20%; '><p class="v2">(Step 3) if c1</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:77.12%; '><p class="v2">0 then reset c1 = 1</p></td></tr><tr><td style='width:17.20%; '><p class="v2">(Step 4)</p></td><td style='width:5.67%; '><p class="v2">=</p></td><td style='width:77.12%; '><p class="v2">(11 - c1) mod 10</p></td></tr></table><br/><p class="v2 v2-normalindented"><strong>Example:</strong></p><p class="v2 v2-example">If the number is 1234567, then the mod 11 check digit = 4 </p><p class="v2 v2-normalindented">The calculations are:</p><p class="v2 v2-example">M  = (7*2)+(6*3)+(5*4)+(4*5)+(3*6)+(2*7)+(1*2)</p><p class="v2 v2-example">   = 14 + 18 + 20 + 20 + 18 + 14 + 2</p><p class="v2 v2-example">   = 106</p><p class="v2 v2-example">c1 = 106 mod 11</p><p class="v2 v2-example">   = 7</p><p class="v2 v2-example">c  = (11-c1) mod 10</p><p class="v2 v2-example">   = 4 mod 10</p><p class="v2 v2-example">   = 4</p><p class="v2 v2-normalindented">Other variants of these check digit algorithms exist and may be used by local bilateral site agreement.</p><div class="v2-note"><p class="v2"><strong>Note:</strong> The check digit and code identifying check digit scheme are null if ID is alphanumeric.</p></div><br/>
+
+<h4 id='CX-4'>
+CX-4: Assigning Authority (<a href='/data-type/HD.html'>HD</a>)
+</h4>
+<p class="v2 v2-normalindented">The assigning authority is a unique name of the system (or organization or agency or department) that creates the data. As of v2.7, <a href="/data-type/CX-4.html#CX-4">CX.4 Assigning Authority</a> is required if neither <a href="/data-type/CX-9.html#CX-9">CX.9</a> nor <a href="/data-type/CX-10.html#CX-10">CX.10</a> are populated. Best practice is to always send an OID in the Assigning Authority component</p><p class="v2 v2-normalindented"> Refer to <a href="https://www.hl7.org/fhir/v2/0363/index.html">User-defined Table 0363 - Assigning Authority</a> for suggested values.</p><p class="v2 v2-normalindented">The reader is referred to the <a href="/data-type/CX-9.html#CX-9">CX.9</a> and the <a href="/data-type/CX-10.html#CX-10">CX.10</a> if there is a need to transmit values with semantic meaning for an assigning jurisdiction or assigning department or agency in addition to, or instead of, an assigning authority. However, all 3 components may be valued. If, in so doing, it is discovered that the values in <a href="/data-type/CX-9.html#CX-9">CX.9</a> and/or <a href="/data-type/CX-10.html#CX-10">CX.10</a> conflict with <a href="/data-type/CX-4.html#CX-4">CX.4</a>, the user would look to the Message Profile or other implementation agreement for a statement as to which takes precedence.</p><div class="v2-note"><p class="v2"><strong>Note:</strong> When the HD data type is used in a given segment as a component of a field of another data type, <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 - Namespace ID</a> (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.&#160;&#160;&#160;&#160;<br/><br/>By site agreement, implementers may continue to use <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 – Namespace ID</a> for the first sub-component.</p></div><br/>
+
+<h4 id='CX-5'>
+CX-5: Identifier Type Code (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">A code corresponding to the type of identifier. As of v2.7, <a href="/data-type/CX-5.html#CX-5">CX.5 Identifier Type Code</a> is required. Refer to <a href="https://www.hl7.org/fhir/v2/0203/index.html">HL7 Table 0203 – Identifier Type</a> for suggested values.</p>
+
+<h4 id='CX-6'>
+CX-6: Assigning Facility (<a href='/data-type/HD.html'>HD</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The place or location identifier where the identifier was first assigned to the patient. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.</p><div class="v2-note"><p class="v2"><strong>Note:</strong> When the HD data type is used in a given segment as a component of a field of another data type, <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 - Namespace ID</a> (referenced by the first sub-component of the HD component), may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.</p></div><br/>
+
+<h4 id='CX-7'>
+CX-7: Effective Date (<a href='/data-type/DT.html'>DT</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The first date, if known, on which the identifier is valid and active.</p>
+
+<h4 id='CX-8'>
+CX-8: Expiration Date (<a href='/data-type/DT.html'>DT</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The last date, if known, on which the identifier is valid and active.</p>
+
+<h4 id='CX-9'>
+CX-9: Assigning Jurisdiction (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The geo-political body that assigned the identifier in component 1. As of v2.7, Assigning Jurisdiction is required if neither <a href="/data-type/CX-4.html#CX-4">CX.4</a> nor <a href="/data-type/CX-10.html#CX-10">CX.10</a> are populated. </p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Refer to <a href="https://www.hl7.org/fhir/v2/0399/index.html">HL7 Table 0399 – Country Code</a><span class="v2-normal-indented-char"> </span>for valid values if the administrative unit under whose jurisdiction the identifier was issued is a country.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Refer to <a href="https://www.hl7.org/fhir/v2/0347/index.html">User-Defined Table 0347 – State/Province</a> for suggested values if the administrative unit under whose jurisdiction the identifier was issued is a state or province. This table is country specific. In the US, postal codes may be used.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Refer to <a href="/composition/Introduction.html#Introduction-36">User-defined Table –0289 County/Parish</a><span class="v2-normal-indented-char"> </span>for suggested values if the administrative unit under whose jurisdiction the identifier was issued is a county or parish.</p></li></ul><p class="v2 v2-normalindented">The reader is referred to the <a href="/data-type/CX-4.html#CX-4">CX.4</a> if there is a need to transmit this information as an OID.</p>
+
+<h4 id='CX-10'>
+CX-10: Assigning Agency or Department (<a href='/data-type/CWE.html'>CWE</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The agency or department that assigned the identifier in component 1. As of v2.7, Assigning Agency or Department is required if neither <a href="/data-type/CX-4.html#CX-4">CX.4</a> nor <a href="/data-type/CX-9.html#CX-9">CX.9</a> are populated.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0530/index.html">User-defined Table 0530 – Organizations, agency, department</a> for suggested values if the administrative unit under whose jurisdiction the identifier was issued is an organization, agency or department. This is populated with site-specific assigning authorities. It also should contain national or international codes when <a href="/data-type/CX-5.html#CX-5">CX.5 Identifier Type Code</a> may be assigned by more than one authority within a governmental or organizational unit. For example, a federal government may have 2 departments that assign a military identifier, its Veterans Affairs department and its Department of Defense. It is <strong>not</strong> recommended to include values for entities such as Social Security Administration (SSA), Immigration and Naturalization Service (INS), Center for Medicare and Medicaid Services (CMS) because they are included in the identifier type table. In these cases the name of the country plus the identifier type yields the correct interpretation of the identifier in component 1. Likewise, entries like department of motor vehicles (DMV) and licensing boards are <strong>not</strong> recommended for inclusion because the combination of state and identifier type yields the correct interpretation of the identifier in component 1. This approach is not to be confused with the detailed information provided in the Chapter 15 segments that have provision for specifying the precise granting body and issuing body information needed in personnel management messages.</p><p class="v2 v2-normalindented">Example 1: &#60;Identifier&#62; plus &#60;Visa&#62; yields a unique identifier.</p><p class="v2 v2-normalindented">Example 2: &#60;identifier&#62; plus &#60;state&#62; plus &#60;DLN&#62; yields a unique driver’s license number.</p><p class="v2 v2-normalindented">Example 3: &#60;identifier&#62; plus &#60;country&#62; plus &#60;INS&#62; yields a unique immigration number.</p><p class="v2 v2-normalindented">The reader is referred to the CX.4, if there is a need to transmit this information as an OID.</p>
+
+<h4 id='CX-11'>
+CX-11: Security Check (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component is used to communicate a version code that may be assigned to the value given in <a href="/data-type/CX-1.html#CX-1">CX.1 ID</a>.</p>
+
+<h4 id='CX-12'>
+CX-12: Security Check Scheme (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component is used to transmit information intended to validate the veracity of the supplied identifier or the presenter of the identifier. For example, this component may be used to ensure that the presenter of a credit card is an authorized user of that card.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0904/index.html">HL7 Table 0904 - Security Check Scheme</a> for valid values.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

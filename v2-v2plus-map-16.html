@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html'>
+Chapter 16 - Claims and Reimbursement
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-1'>
+    16.1  CHAPTER 16 Contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-2'>
+    16.2  Purpose
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-2-1'>
+        16.2.1  Scope
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3'>
+    16.3  Trigger Events and Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-1'>
+        16.3.1  EHC^E01 – Submit HealthCare Services Invoice (event E01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-2'>
+        16.3.2  EHC^E02 – Cancel HealthCare Services Invoice (event E02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-3'>
+        16.3.3  QBP^E03 – Query HealthCare Services Invoice Status (event E03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-4'>
+        16.3.4  RSP^E03 – HealthCare Services Invoice Status Query Response (event E03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-5'>
+        16.3.5  EHC^E04 – Re-Assess HealthCare Services Invoice Request (event E04)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-6'>
+        16.3.6  EHC^E10 – Edit/Adjudication Results (event E10)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-7'>
+        16.3.7  EHC^E12 – Request Additional Information (event E12)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-8'>
+        16.3.8  EHC^E13 – Additional Information Response (event E13)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-9'>
+        16.3.9  EHC^E15 – Payment/Remittance Advice (event E15)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-10'>
+        16.3.10  EHC^E20 – Submit Authorization Request (event E20)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-11'>
+        16.3.11  EHC^E21 – Cancel Authorization Request (event E21)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-12'>
+        16.3.12  QBP^E22 – Query Authorization Request Status (event E22)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-13'>
+        16.3.13  RSP^E22 – Authorization Request Status Query Response (event E22)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-14'>
+        16.3.14  EHC^E24 – Authorization Response (event E24)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-15'>
+        16.3.15  EHC^E30 – Submit Health Document related to Authorization Request (event E30)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-3-16'>
+        16.3.16  EHC^E31 – Cancel Health Document related to Authorization Request (event E31)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4'>
+    16.4  Message Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-1'>
+        16.4.1  RFI – Request for Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-1-1'>
+            16.4.1.1  RFI-1   Request Date   (DTM)   01910
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-1-2'>
+            16.4.1.2  RFI-2   Response Due Date   (DTM)   01911
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-1-3'>
+            16.4.1.3  RFI-3   Patient Consent   (ID)   01912
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-1-4'>
+            16.4.1.4  RFI-4   Date Additional Information Was Submitted   (DTM)   01913
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2'>
+        16.4.2  IVC – Invoice Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-1'>
+            16.4.2.1  IVC-1   Provider Invoice Number   (EI)   01914
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-2'>
+            16.4.2.2  IVC-2   Payer Invoice Number   (EI)   01915
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-3'>
+            16.4.2.3  IVC-3   Contract/Agreement Number   (EI)   01916
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-4'>
+            16.4.2.4  IVC-4   Invoice Control   (CWE)   01917
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-5'>
+            16.4.2.5  IVC-5   Invoice Reason   (CWE)   01918
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-6'>
+            16.4.2.6  IVC-6   Invoice Type   (CWE)   01919
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-7'>
+            16.4.2.7  IVC-7   Invoice Date/Time   (DTM)   01920
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-8'>
+            16.4.2.8  IVC-8   Invoice Amount   (CP)   01921
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-9'>
+            16.4.2.9  IVC-9   Payment Terms   (ST)   01922
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-10'>
+            16.4.2.10  IVC-10   Provider Organization   (XON)   01923
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-11'>
+            16.4.2.11  IVC-11   Payer Organization   (XON)   01924
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-12'>
+            16.4.2.12  IVC-12   Attention   (XCN)   01925
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-13'>
+            16.4.2.13  IVC-13   Last Invoice Indicator   (ID)   01926
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-14'>
+            16.4.2.14  IVC-14   Invoice Booking Period   (DTM)   01927
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-15'>
+            16.4.2.15  IVC-15   Origin   (ST)   01928
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-16'>
+            16.4.2.16  IVC-16   Invoice Fixed Amount   (CP)   01929
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-17'>
+            16.4.2.17  IVC-17   Special Costs    (CP)   01930
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-18'>
+            16.4.2.18  IVC-18   Amount for Doctors Treatment   (CP)   01931
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-19'>
+            16.4.2.19  IVC-19   Responsible Physician   (XCN)   01932
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-20'>
+            16.4.2.20  IVC-20   Cost Center   (CX)   01933
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-21'>
+            16.4.2.21  IVC-21   Invoice Prepaid Amount   (CP)   01934
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-22'>
+            16.4.2.22  IVC-22   Total Invoice Amount without Prepaid Amount  (CP)   01935
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-23'>
+            16.4.2.23  IVC-23   Total-Amount of VAT   (CP)   01936
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-24'>
+            16.4.2.24  IVC-24   VAT-Rates applied   (NM)   01937
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-25'>
+            16.4.2.25  IVC-25   Benefit group  (CWE)   01938
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-26'>
+            16.4.2.26  IVC-26   Provider Tax ID   (ST)   02038
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-27'>
+            16.4.2.27  IVC-27   Payer Tax ID   (ST)   02039
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-28'>
+            16.4.2.28  IVC-28   Provider Tax Status   (CWE)   02040
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-29'>
+            16.4.2.29  IVC-29   Payer Tax Status   (CWE)   02041
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-2-30'>
+            16.4.2.30  IVC-30   Sales Tax ID   (ST)   02042
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3'>
+        16.4.3  PYE – Payee Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-1'>
+            16.4.3.1  PYE-1   Set ID – PYE   (SI)   01939
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-2'>
+            16.4.3.2  PYE-2   Payee Type   (CWE)   01940
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-3'>
+            16.4.3.3  PYE-3   Payee Relationship to Invoice (Patient)   (CWE)   01941
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-4'>
+            16.4.3.4  PYE-4   Payee Identification List   (XON)   01942
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-5'>
+            16.4.3.5  PYE-5   Payee Person Name   (XPN)   01943
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-6'>
+            16.4.3.6  PYE-6   Payee Address   (XAD)   01944
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-3-7'>
+            16.4.3.7  PYE-7   Payment Method   (CWE)   01945
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-4'>
+        16.4.4  PSS – Product/Service Section Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-4-1'>
+            16.4.4.1  PSS-1   Provider Product/Service Section Number   (EI)   01946
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-4-2'>
+            16.4.4.2  PSS-2   Payer Product/Service Section Number   (EI)   01947
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-4-3'>
+            16.4.4.3  PSS-3   Product/Service Section Sequence Number   (SI)   01948
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-4-4'>
+            16.4.4.4  PSS-4   Billed Amount   (CP)   01949
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-4-5'>
+            16.4.4.5  PSS-5   Section Description or Heading   (ST)   02043
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5'>
+        16.4.5  PSG – Product/Service Group Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5-1'>
+            16.4.5.1  PSG-1   Provider Product/Service Group Number   (EI)   01950
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5-2'>
+            16.4.5.2  PSG-2   Payer Product/Service Group Number   (EI)   01951
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5-3'>
+            16.4.5.3  PSG-3   Product/Service Group Sequence Number   (SI)   01952
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5-4'>
+            16.4.5.4  PSG-4   Adjudicate as Group   (ID)   01953
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5-5'>
+            16.4.5.5  PSG-5   Product/Service Group Billed Amount   (CP)   01954
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-5-6'>
+            16.4.5.6  PSG-6   Product/Service Group Description   (ST)   02044
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6'>
+        16.4.6  PSL – Product/Service Line Item Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-1'>
+            16.4.6.1  PSL-1   Provider Product/Service Line Item Number   (EI)   01955
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-2'>
+            16.4.6.2  PSL-2   Payer Product/Service Line Item Number   (EI)   01956
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-3'>
+            16.4.6.3  PSL-3   Product/Service Line Item Sequence Number   (SI)   01957
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-4'>
+            16.4.6.4  PSL-4   Provider Tracking ID   (EI)   01958
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-5'>
+            16.4.6.5  PSL-5   Payer Tracking ID   (EI)   01959
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-6'>
+            16.4.6.6  PSL-6   Product/Service Line Item Status   (CWE)   01960
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-7'>
+            16.4.6.7  PSL-7   Product/Service Code   (CWE)   01961
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-8'>
+            16.4.6.8  PSL-8   Product/Service Code Modifier   (CWE)   01962
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-9'>
+            16.4.6.9  PSL-9   Product/Service Code Description   (ST)   01963
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-10'>
+            16.4.6.10  PSL-10   Product/Service Effective Date   (DTM)   01964
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-11'>
+            16.4.6.11  PSL-11   Product/Service Expiration Date   (DTM)   01965
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-12'>
+            16.4.6.12  PSL-12   Product/Service Quantity   (CQ)   01966
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-13'>
+            16.4.6.13  PSL-13   Product/Service Unit Cost   (CP)   01967
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-14'>
+            16.4.6.14  PSL-14   Number of Items per Unit   (NM)   01968
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-15'>
+            16.4.6.15  PSL-15   Product/Service Gross Amount   (CP)   01969
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-16'>
+            16.4.6.16  PSL-16   Product/Service Billed Amount   (CP)   01970
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-17'>
+            16.4.6.17  PSL-17   Product/Service Clarification Code Type   (CWE)   01971
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-18'>
+            16.4.6.18  PSL-18   Product/Service Clarification Code Value   (ST)   01972
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-19'>
+            16.4.6.19  PSL-19   Health Document Reference Identifier   (EI)   01973
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-20'>
+            16.4.6.20  PSL-20   Processing Consideration Code   (CWE)   01974
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-21'>
+            16.4.6.21  PSL-21   Restricted Disclosure Indicator   (ID)   01975
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-22'>
+            16.4.6.22  PSL-22   Related Product/Service Code Indicator   (CWE)   01976
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-23'>
+            16.4.6.23  PSL-23   Product/Service Amount for Physician   (CP)   01977
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-24'>
+            16.4.6.24  PSL-24   Product/Service Cost Factor   (NM)   01978
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-25'>
+            16.4.6.25  PSL-25   Cost Center   (CX)   01933
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-26'>
+            16.4.6.26  PSL-26   Billing Period   (DR)   01980
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-27'>
+            16.4.6.27  PSL-27   Days without Billing   (NM)   01981
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-28'>
+            16.4.6.28  PSL-28   Session-No   (NM)   01982
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-29'>
+            16.4.6.29  PSL-29   Executing Physician ID   (XCN)   01983
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-30'>
+            16.4.6.30  PSL-30   Responsible Physician ID   (XCN)   01984
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-31'>
+            16.4.6.31  PSL-31   Role Executing Physician   (CWE)   01985
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-32'>
+            16.4.6.32  PSL-32   Medical Role Executing Physician   (CWE)   01986
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-33'>
+            16.4.6.33  PSL-33   Side of body   (CWE)   01987
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-34'>
+            16.4.6.34  PSL-34   Number of TP's PP   (NM)   01988
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-35'>
+            16.4.6.35  PSL-35   TP-Value PP   (CP)   01989
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-36'>
+            16.4.6.36  PSL-36   Internal Scaling Factor PP   (NM)   01990
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-37'>
+            16.4.6.37  PSL-37   External Scaling Factor PP   (NM)   01991
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-38'>
+            16.4.6.38  PSL-38   Amount PP   (CP)   01992
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-39'>
+            16.4.6.39  PSL-39   Number of TP's Technical Part   (NM)   01993
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-40'>
+            16.4.6.40  PSL-40   TP-Value Technical Part   (CP)   01994
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-41'>
+            16.4.6.41  PSL-41   Internal Scaling Factor Technical Part   (NM)   01995
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-42'>
+            16.4.6.42  PSL-42   External Scaling Factor Technical Part   (NM)   01996
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-43'>
+            16.4.6.43  PSL-43   Amount Technical Part   (CP)   01997
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-44'>
+            16.4.6.44  PSL-44   Total Amount Professional Part + Technical Part   (CP)   01998
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-45'>
+            16.4.6.45  PSL-45   VAT-Rate   (NM)   01999
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-46'>
+            16.4.6.46  PSL-46   Main-Service   (ID)   02000
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-47'>
+            16.4.6.47  PSL-47   Validation   (ID)   02001
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-6-48'>
+            16.4.6.48  PSL-48   Comment   (ST)   02002
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7'>
+        16.4.7  ADJ – Adjustment Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-1'>
+            16.4.7.1  ADJ-1   Provider Adjustment Number    (EI)   02003
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-2'>
+            16.4.7.2  ADJ-2   Payer Adjustment Number    (EI)   02004
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-3'>
+            16.4.7.3  ADJ-3   Adjustment Sequence Number    (SI)   02005
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-4'>
+            16.4.7.4  ADJ-4   Adjustment Category    (CWE)   02006
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-5'>
+            16.4.7.5  ADJ-5   Adjustment Amount    (CP)   02007
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-6'>
+            16.4.7.6  ADJ-6   Adjustment Quantity   (CQ)   02008
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-7'>
+            16.4.7.7  ADJ-7   Adjustment Reason PA   (CWE)   02009
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-8'>
+            16.4.7.8  ADJ-8   Adjustment Description    (ST)   02010
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-9'>
+            16.4.7.9  ADJ-9   Original Value    (NM)   02011
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-10'>
+            16.4.7.10  ADJ-10   Substitute Value    (NM)   02012
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-11'>
+            16.4.7.11  ADJ-11   Adjustment Action    (CWE)   02013
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-12'>
+            16.4.7.12  ADJ-12   Provider Adjustment Number Cross Reference   (EI)   02014
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-13'>
+            16.4.7.13  ADJ-13   Provider Product/Service Line Item Number Cross Reference   (EI)   02015
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-14'>
+            16.4.7.14  ADJ-14   Adjustment Date   (DTM)   02016
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-7-15'>
+            16.4.7.15  ADJ-15   Responsible Organization   (XON)   02017
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8'>
+        16.4.8  PMT – Payment Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-1'>
+            16.4.8.1  PMT-1   Payment/Remittance Advice Number   (EI)   02018
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-2'>
+            16.4.8.2  PMT-2   Payment/Remittance Effective Date/Time   (DTM)   02019
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-3'>
+            16.4.8.3  PMT-3   Payment/Remittance Expiration Date/Time   (DTM)   02020
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-4'>
+            16.4.8.4  PMT-4   Payment Method   (CWE)   02021
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-5'>
+            16.4.8.5  PMT-5   Payment/Remittance Date/Time   (DTM)   02022
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-6'>
+            16.4.8.6  PMT-6   Payment/Remittance Amount   (CP)   02023
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-7'>
+            16.4.8.7  PMT-7   Check Number    (EI)   02024
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-8'>
+            16.4.8.8  PMT-8   Payee Bank Identification    (XON)   02025
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-9'>
+            16.4.8.9  PMT-9   Payee Transit Number   (ST)   02026
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-10'>
+            16.4.8.10  PMT-10   Payee Bank Account ID   (CX)   02027
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-11'>
+            16.4.8.11  PMT-11   Payment Organization   (XON)   02028
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-8-12'>
+            16.4.8.12  PMT-12   ESR-Code-Line  (ST)   02029
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9'>
+        16.4.9  IPR – Invoice Processing Results Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-1'>
+            16.4.9.1  IPR-1   IPR Identifier   (EI)   02030
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-2'>
+            16.4.9.2  IPR-2   Provider Cross Reference Identifier    (EI)   02031
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-3'>
+            16.4.9.3  IPR-3   Payer Cross Reference Identifier   (EI)   02032
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-4'>
+            16.4.9.4  IPR-4   IPR Status   (CWE)   02033
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-5'>
+            16.4.9.5  IPR-5   IPR Date/Time   (DTM)   02034
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-6'>
+            16.4.9.6  IPR-6   Adjudicated/Paid Amount   (CP)   02035
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-7'>
+            16.4.9.7  IPR-7   Expected Payment Date/Time   (DTM)   02036
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-4-9-8'>
+            16.4.9.8  IPR-8   IPR Checksum   (ST)   02037
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Claims-and-Reimbursement.html#Claims-and-Reimbursement-5'>
+    16.5  Outstanding Issues
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

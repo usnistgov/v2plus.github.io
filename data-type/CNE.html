@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+CNE - coded with no exceptions
+</h3>
+<div class='v2-data-type-content'>
+<p class="v2 v2-normalindented">As of v2.7 a third tuple, formerly known as triplet, has been added to the CNE data type. Additionally, 3 new components were added to each tuple such that each tuple now has a total of 7 components. The Original Text component applies to the CNE as a whole.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - CNE - coded with no exceptions
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Data Type
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/data-types.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+CNE
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-1'>
+1
+</a>
+</td>
+<td>
+Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;20
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-2'>
+2
+</a>
+</td>
+<td>
+Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-3'>
+3
+</a>
+</td>
+<td>
+Name of Coding System
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0396-Coding-System.html' title='Coding System(Required)'>
+0396(R)
+<span class='vocab-link-text'>Coding System(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..12]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-4'>
+4
+</a>
+</td>
+<td>
+Alternate Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;20
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-5'>
+5
+</a>
+</td>
+<td>
+Alternate Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-6'>
+6
+</a>
+</td>
+<td>
+Name of Alternate Coding System
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0396-Coding-System.html' title='Coding System(Required)'>
+0396(R)
+<span class='vocab-link-text'>Coding System(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..12]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-7'>
+7
+</a>
+</td>
+<td>
+Coding System Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-8'>
+8
+</a>
+</td>
+<td>
+Alternate Coding System Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-9'>
+9
+</a>
+</td>
+<td>
+Original Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-10'>
+10
+</a>
+</td>
+<td>
+Second Alternate Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;20
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-11'>
+11
+</a>
+</td>
+<td>
+Second Alternate Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-12'>
+12
+</a>
+</td>
+<td>
+Name of Second Alternate Coding System
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0396-Coding-System.html' title='Coding System(Required)'>
+0396(R)
+<span class='vocab-link-text'>Coding System(Required)</span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+[1..12]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-13'>
+13
+</a>
+</td>
+<td>
+Second Alternate Coding System Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;10
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-14'>
+14
+</a>
+</td>
+<td>
+Coding System OID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-15'>
+15
+</a>
+</td>
+<td>
+Value Set OID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-16'>
+16
+</a>
+</td>
+<td>
+Value Set Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;8
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-17'>
+17
+</a>
+</td>
+<td>
+Alternate Coding System OID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-18'>
+18
+</a>
+</td>
+<td>
+Alternate Value Set OID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-19'>
+19
+</a>
+</td>
+<td>
+Alternate Value Set Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;8
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-20'>
+20
+</a>
+</td>
+<td>
+Second Alternate Coding System OID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+<a href='#CNE-21'>
+21
+</a>
+</td>
+<td>
+Second Alternate Value Set OID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='datatype_component'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+<a href='#CNE-22'>
+22
+</a>
+</td>
+<td>
+Second Alternate Value Set Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<!-- %td.centered -->
+<!-- =cardinality -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+&nbsp;&nbsp;8
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<div class='v2-data-type-components'>
+<p class='v2-components'>Components: &#60;Identifier (ST)&#62; &#38; &#60;Text (ST)&#62; &#38; &#60;Name of Coding System (ID)&#62; &#38; &#60;Alternate Identifier (ST)&#62; &#38; &#60;Alternate Text (ST)&#62; &#38; &#60;Name of Alternate Coding System (ID)&#62; &#38; &#60;Coding System Version ID (ST)&#62; &#38; &#60;Alternate Coding System Version ID (ST)&#62; &#38; &#60;Original Text (ST)&#62; &#38; &#60;Second Alternate Identifier (ST)&#62; &#38; &#60;Second Alternate Text (ST)&#62; &#38; &#60;Name of Second Alternate Coding System (ID)&#62; &#38; &#60;Second Alternate Coding System Version ID (ST)&#62; &#38; &#60;Coding System OID (ST)&#62; &#38; &#60;Value Set OID (ST)&#62; &#38; &#60;Value Set Version ID (DTM)&#62; &#38; &#60;Alternate Coding System OID (ST)&#62; &#38; &#60;Alternate Value Set OID (ST)&#62; &#38; &#60;Alternate Value Set Version ID (DTM)&#62; &#38; &#60;Second Alternate Coding System OID (ST)&#62; &#38; &#60;Second Alternate Value Set OID (ST)&#62; &#38; &#60;Second Alternate Value Set Version ID (DTM)&#62;</p>
+</div>
+<br/><p class="v2 v2-normalindented">Example 1: The drug must be coded and must be taken from the specified coding system. The coding system is an external coding system. Example is derived from <a href="/segment-definition/FT1.html#FT1-26">FT1-26</a>.</p><p class="v2 v2-example">|0006-0106-58^Prinivil 10mg oral tablet^NDC|</p><p class="v2 v2-normalindented">Example 2: Consent mode must be coded and must be taken from the specified coding system. The coding system is an HL7 code table. Example is taken from <a href="/segment-definition/CON.html#CON-10">CON-10</a>.</p><p class="v2 v2-example">|V^Verbal^HL70497^^^^2.8|</p>
+</div>
+<div class='v2-data-type-component-definitions'>
+<h4 id='CNE-1'>
+CNE-1: Identifier (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The first component contains the sequence of characters (the code) that uniquely identifies the item being referenced by the <a href="/data-type/CNE-2.html#CNE-2">CNE.2</a>. Different coding schemes will have different elements here.</p><p class="v2 v2-normalindented"><strong>Usage Note</strong>: The identifier is required and must be a valid code.</p>
+
+<h4 id='CNE-2'>
+CNE-2: Text (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The second component contains the descriptive or textual name of the identifier, e.g., myocardial infarction or X-ray impression. This is the corresponding text assigned by the coding system to the identifier.</p><p class="v2 v2-normalindented"><strong>Usage Note</strong>: Text description of code is optional but its use should be encouraged since it makes messages easier to review for accuracy, especially during interface testing and debugging.</p>
+
+<h4 id='CNE-3'>
+CNE-3: Name of Coding System (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The third component contains the code for the name of the coding system from which the value in <a href="/data-type/CNE-1.html#CNE-1">CNE.1</a> is obtained.Refer to <a href="https://www.hl7.org/fhir/v2/0396/index.html">HL7 Table 0396 - Coding Systems</a> in Chapter 2C, Code Tables, for valid values. Each coding system is assigned a unique identifier.</p><p class="v2 v2-normalindented">As of v2.7 this component is required when <a href="/data-type/CNE-1.html#CNE-1">CNE.1</a> is populated and <a href="/data-type/CNE-14.html#CNE-14">CNE.14</a> is not populated. Both <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a> and <a href="/data-type/CNE-14.html#CNE-14">CNE.14</a> may be populated. Receivers should not identify a code based on its position within the tuples (Identifier, Alternate Identifier, or Second Alternate Identifier) or position within a repeating field. Instead, the receiver should always examine the codingSystem as specified in <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a> and/or <a href="/data-type/CNE-14.html#CNE-14">CNE.14</a> the Coding System component or the Coding System OID for the tuple.The combination of the <strong>identifier</strong> and <strong>name of coding system</strong> represent a unique concept for a data item.</p><p class="v2 v2-normalindented">Some organizations that publish code sets author more than one. The coding system, then, to be unique, is a concatenation of the name of the coding authority organization and the name of its code set or table. When an HL7 table is used for a CNE data type, the <strong>name of coding system</strong> component is defined as <strong>HL7nnnn</strong> where <strong>nnnn</strong> is the HL7 table number. Similarly, ISO tables will be named ISOnnnn, where nnnn is the ISO table number.</p><p class="v2 v2-normalindented"><strong>Usage Note: The following statement is retained for backward compatibility as of v2.7.</strong> Best practice would recommend that this component always be populated. However, if the field narrative explicitly states &quot;Refer to HL7 Table nnnn for valid values”, and, if the sending and receiving systems are HL7 compliant, the coding system would be known from the standard.  This would be similar to a field with an ID data type, except that there is a second triplet in which to express an alternate code.</p>
+
+<h4 id='CNE-4'>
+CNE-4: Alternate Identifier (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A sequence of characters that uniquely identifies an alternate code. Analogous to <a href="/data-type/CNE-1.html#CNE-1">CNE.1</a> <a href="/composition/Introduction.html#Introduction-5-1">Identifier</a>. </p><p class="v2 v2-normalindented"><strong>Usage Notes:</strong> The Alternate Identifier is used to represent the local or user seen code as described. If present, it obeys the same rules of use and interpretation as described for component 1. If both are present, the identifiers in component 4 and component 1 should have exactly the same meaning, i.e., they should be exact synonyms.</p>
+
+<h4 id='CNE-5'>
+CNE-5: Alternate Text (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The descriptive or textual name of the alternate identifier. Analogous to <a href="/data-type/CNE-2.html#CNE-2">CNE.2 Text</a>. </p><p class="v2 v2-normalindented"><strong>Usage Notes:</strong> If present, <a href="/data-type/CNE-5.html#CNE-5">CNE.5</a> obeys the same rules of use and interpretation as described for <a href="/data-type/CNE-2.html#CNE-2">CNE.2</a>. </p>
+
+<h4 id='CNE-6'>
+CNE-6: Name of Alternate Coding System (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies the coding scheme being used in the alternate identifier component.  Analogous to <a href="/data-type/CNE-3.html#CNE-3">CNE.3 Name of Coding System</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0396/index.html">HL7 Table 0396 - Coding Systems</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">As of v2.7 this component is required when <a href="/data-type/CNE-4.html#CNE-4">CNE.4</a> is populated and <a href="/data-type/CNE-17.html#CNE-17">CNE.17</a> is not populated. Both <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> and <a href="/data-type/CNE-17.html#CNE-17">CNE.17</a> may be populated. Receivers should not identify a code based on its position within the tuples (Identifier, Alternate Identifier, or Second Alternate Identifier) or position within a repeating field. Instead, the receiver should always examine the codingSystem as specified in <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> and/or <a href="/data-type/CNE-17.html#CNE-17">CNE.17</a>, the &quot;Coding System&quot; component or the &quot;Coding System OID&quot;, for the tuple.</p><p class="v2 v2-normalindented"><strong>Usage Notes:</strong> If present, <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> obeys the same rules of use and interpretation as described for <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a>.</p>
+
+<h4 id='CNE-7'>
+CNE-7: Coding System Version ID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: the version ID for the coding system identified by <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a>. It belongs conceptually to components 1-3 and appears here only for reasons of backward compatibility.</p><p class="v2 v2-normalindented"><strong>Usage Note:</strong> If the coding system is any system other than an &quot;HL7 coding system,&quot; version ID must be valued with an actual version ID. If the coding system is &quot;HL7 coding system,&quot; version ID may have an actual value or it may be absent. If version ID is absent, it will be interpreted to have the same value as the HL7 version number in the message header. Text description of code is optional but its use should be encouraged since it makes messages easier to review for accuracy, especially during interface testing and debugging.</p>
+
+<h4 id='CNE-8'>
+CNE-8: Alternate Coding System Version ID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: the version ID for the coding system identified by <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a>.  It belongs conceptually to the group of Alternate components (see note <a href="/composition/Control.html">2.A.1</a>) and appears here only for reasons of backward compatibility. Analogous to <a href="/data-type/CNE-7.html#CNE-7">CNE.7 Coding System Version ID</a>.</p><p class="v2 v2-normalindented"><strong>Usage Notes:</strong> If present, <a href="/data-type/CNE-8.html#CNE-8">CNE.8</a> obeys the same rules of use and interpretation as described for <a href="/data-type/CNE-7.html#CNE-7">CNE.7</a>.</p>
+
+<h4 id='CNE-9'>
+CNE-9: Original Text (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The text as seen and/or selected by the user who entered the data. Original text can be used in a structured user interface to capture what the user saw as a representation of the code on the data input screen, or in a situation where the user dictates or directly enters text, it is the text entered or uttered by the user. In a situation where the code is assigned sometime after the text was entered, original text is the text or phrase used as the basis for assigning the code.</p>
+
+<h4 id='CNE-10'>
+CNE-10: Second Alternate Identifier (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: A sequence of characters that uniquely identifies a second alternate code. Analogous to <a href="/composition/Introduction.html#Introduction-8">CN-1 Identifier</a>.</p>
+
+<h4 id='CNE-11'>
+CNE-11: Second Alternate Text (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: The descriptive or textual name of the Second Alternate Identifier. Analogous to <a href="/data-type/CNE-2.html#CNE-2">CNE.2 Text</a>.</p>
+
+<h4 id='CNE-12'>
+CNE-12: Name of Second Alternate Coding System (<a href='/data-type/ID.html'>ID</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies the coding scheme being used in the Second Alternate Identifier component. Analogous to<a href="/data-type/CNE-3.html#CNE-3"> CNE.3 Name of Coding System</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0396/index.html">HL7 Table 0396 - Coding Systems</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">As of v2.7 this component is required when <a href="/data-type/CNE-10.html#CNE-10">CNE.10</a> is populated and <a href="/data-type/CNE-20.html#CNE-20">CNE.20</a> is not populated. Both <a href="/data-type/CNE-12.html#CNE-12">CNE.12</a> and <a href="/data-type/CNE-20.html#CNE-20">CNE.20</a> may be populated. Receivers should not identify a code based on its position within the tuples (Identifier, Alternate Identifier, or Second Alternate Identifier) or position within a repeating field. Instead, the receiver should always examine the codingSystem as specified in <a href="/data-type/CNE-12.html#CNE-12">CNE.12</a> and/or <a href="/data-type/CNE-20.html#CNE-20">CNE.20</a>, the &quot;Coding System&quot; component or the &quot;Coding System OID&quot;, for the tuple.</p>
+
+<h4 id='CNE-13'>
+CNE-13: Second Alternate Coding System Version ID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component carries the version for the coding system identified by components 10-12. Analogous to <a href="/data-type/CNE-7.html#CNE-7">CNE.7 Coding System Version ID</a>.</p>
+
+<h4 id='CNE-14'>
+CNE-14: Coding System OID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component contains the ISO Object Identifier (OID) for the coding system or value set named in <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a>. The value for this component is 2.16.840.1.113883.12.#### where &quot;####&quot; is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined code systems the OID registered in the HL7 OID registry SHALL be used. </p><p class="v2 v2-normalindented">This component is required when <a href="/data-type/CNE-1.html#CNE-1">CNE.1</a> is populated and <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a> is not populated. Both <a href="/data-type/CNE-3.html#CNE-3">CNE.3</a> and <a href="/data-type/CNE-14.html#CNE-14">CNE.14</a> may be populated.</p>
+
+<h4 id='CNE-15'>
+CNE-15: Value Set OID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component contains the ISO Object Identifier (OID) to allow identification of the value set from which the value in <a href="/data-type/CNE-1.html#CNE-1">CNE.1</a> is obtained. The value for this component is 2.16.840.1.113883.12.#### where &quot;####&quot; is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined value sets, the OID registered in the HL7 OID registry SHALL be used. </p><p class="v2 v2-normalindented">A value set may or need not be present irrespective of other fields. </p><div class="v2-note"><p class="v2"><strong>Note</strong>: If a code is provided, the meaning of the code must come from the definition of the code in the code system. The meaning of the code SHALL NOT depend on the value set.  Applications SHALL NOT be required to interpret the code in light of the valueSet, and they SHALL NOT reject an instance because of the presence or absence of any or a particular value set/ value set version ID.</p></div><br/>
+
+<h4 id='CNE-16'>
+CNE-16: Value Set Version ID (<a href='/data-type/DTM.html'>DTM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component carries the version for the value set identified by <a href="/data-type/CNE-15.html#CNE-15">CNE.15</a>. The version is a date. The date is the date/time that the value set being used was published.</p><p class="v2 v2-normalindented">Value set version ID is required if <a href="/data-type/CNE-15.html#CNE-15">CNE.15</a> is populated.</p>
+
+<h4 id='CNE-17'>
+CNE-17: Alternate Coding System OID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component contains the ISO Object Identifier (OID) for the coding system or value set named in <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a>. Analogous to <a href="/data-type/CNE-14.html#CNE-14">CNE.14 OID for Coding System</a>. </p><p class="v2 v2-normalindented">The value for this component is 2.16.840.1.113883.12.#### where &quot;####&quot; is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined code systems the OID registered in the HL7 OID registry SHALL be used. </p><p class="v2 v2-normalindented">This component is required when <a href="/data-type/CNE-4.html#CNE-4">CNE.4</a> is populated and <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> is not populated. Both <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> and <a href="/data-type/CNE-17.html#CNE-17">CNE.17</a> may be populated.</p>
+
+<h4 id='CNE-18'>
+CNE-18: Alternate Value Set OID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component contains the ISO Object Identifier (OID) to allow identification of the value set from which the value in <a href="/data-type/CNE-4.html#CNE-4">CNE.4</a> is obtained. The value for this component is 2.16.840.1.113883.12.#### where &quot;####&quot; is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined value sets, the OID registered in the HL7 OID registry SHALL be used. </p><div class="v2-note"><p class="v2"><strong>Note</strong>: If a code is provided, the meaning of the code must come from the definition of the code in the code system. The meaning of the code SHALL NOT depend on the value set.  Applications SHALL NOT be required to interpret the code in light of the valueSet, and they SHALL NOT reject an instance because of the presence or absence of any or a particular value set/ value set version ID.</p></div><br/><p class="v2 v2-normalindented">A value set may or need not be present irrespective of other fields. </p>
+
+<h4 id='CNE-19'>
+CNE-19: Alternate Value Set Version ID (<a href='/data-type/DTM.html'>DTM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component carries the version for the value set identified by <a href="/data-type/CNE-18.html#CNE-18">CNE.18</a>. The version is a date. The date is the date/time that the value set being used was published.</p><p class="v2 v2-normalindented">Value set version ID is required if <a href="/data-type/CNE-18.html#CNE-18">CNE.18</a> is populated.</p>
+
+<h4 id='CNE-20'>
+CNE-20: Second Alternate Coding System OID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component contains the ISO Object Identifier (OID) from which the value in <a href="/data-type/CNE-12.html#CNE-12">CNE.12</a> is obtained. The value for this component is 2.16.840.1.113883.12.#### where &quot;####&quot; is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined numbers, the OID registered in the HL7 OID registry should be used. </p><p class="v2 v2-normalindented">This component is required when <a href="/data-type/CNE-4.html#CNE-4">CNE.4</a> is populated and neither <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> nor <a href="/data-type/CNE-18.html#CNE-18">CNE.18</a> is populated. In short either the <a href="/data-type/CNE-6.html#CNE-6">CNE.6</a> or the <a href="/data-type/CNE-14.html#CNE-14">CNE.14</a> or <a href="/data-type/CNE-17.html#CNE-17">CNE.17</a> must be populated when <a href="/data-type/CNE-4.html#CNE-4">CNE.4</a> is populated.</p>
+
+<h4 id='CNE-21'>
+CNE-21: Second Alternate Value Set OID (<a href='/data-type/ST.html'>ST</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component contains the ISO Object Identifier (OID) to allow identification of the value set from which the value in <a href="/data-type/CNE-10.html#CNE-10">CNE.10</a> is obtained. The value for this component is 2.16.840.1.113883.12.#### where &quot;####&quot; is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined value sets, the OID registered in the HL7 OID registry SHALL be used. A value set may or need not be present irrespective of other fields.</p><div class="v2-note"><p class="v2"><strong>Note</strong>: If a code is provided, the meaning of the code must come from the definition of the code in the code system. The meaning of the code SHALL NOT depend on the value set.  Applications SHALL NOT be required to interpret the code in light of the valueSet, and they SHALL NOT reject an instance because of the presence or absence of any or a particular value set/ value set version ID.</p></div><br/>
+
+<h4 id='CNE-22'>
+CNE-22: Second Alternate Value Set Version ID (<a href='/data-type/DTM.html'>DTM</a>)
+</h4>
+<p class="v2 v2-normalindented">Definition: This component carries the version for the value set identified by <a href="/data-type/CNE-21.html#CNE-21">CNE.21</a>. The version is a date. The date is the date/time that the value set being used was published.</p><p class="v2 v2-normalindented">Value set version ID is required if <a href="/data-type/CNE-21.html#CNE-21">CNE.21</a> is populated.</p>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

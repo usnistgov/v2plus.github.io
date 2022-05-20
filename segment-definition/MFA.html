@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+MFA - Master File Acknowledgment Segment
+</h3>
+<p class="v2 v2-normalindented">The Technical Steward for the MFA segment is Infrastructure and Messaging.</p><p class="v2 v2-normalindented">The MFA segment contains the following fields as defined in HL7 Attribute Table - MFA - Master File Acknowledgment</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - MFA - Master File Acknowledgment Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+MFA
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Record-Level Event Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0180-Record-level-Event-Code.html' title='Record-level Event Code(Required)'>
+0180(R)
+<span class='vocab-link-text'>Record-level Event Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MFA-1'>
+00664
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+MFN Control ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MFA-2'>
+00665
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Event Completion Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MFA-3'>
+00668
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+MFN Record Level Error Return
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0181-MFN-Record-level-Error-Return.html' title='MFN Record-level Error Return(Suggested)'>
+0181(S)
+<span class='vocab-link-text'>MFN Record-level Error Return(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MFA-4'>
+00669
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Primary Key Value - MFA
+</td>
+<td class='centered'>
+<a href='/data-type/Varies.html'>
+Varies
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0607-ERROR! Bad Data! FIXME.html'>
+0607
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#MFA-5'>
+01308
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+6
+</td>
+<td>
+Primary Key Value Type - MFA
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0355-Primary-Key-Value-Type.html' title='Primary Key Value Type(Required)'>
+0355(R)
+<span class='vocab-link-text'>Primary Key Value Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#MFA-6'>
+01320
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='MFA-1'>
+MFA-1: Record-Level Event Code (<a href='/data-type/ID.html'>ID</a>) 00664
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field defines record-level event for the master file record identified by the MFI segment and the primary key in this segment.  Refer to <a href="https://www.hl7.org/fhir/v2/0180/index.html">HL7 Table 0180 - Record-level Event Code</a> in Chapter 2C, Code Tables, for valid values.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  If the <a href="/segment-definition/MFI.html#MFI-3">MFI-3 - File-level event code</a> is &quot;REP&quot; (replace file), then each MFA segment must have an <a href="/segment-definition/MFA.html#MFA-1">MFA-1 - Record-level event code</a> of &quot;MAD&quot; (add record to master file).</p></div><br/>
+
+<h4 class='v2' id='MFA-2'>
+MFA-2: MFN Control ID (<a href='/data-type/ST.html'>ST</a>) 00665
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a number or other identifier that uniquely identifies this change to this record from the point of view of the originating system.  This field uniquely identifies the particular record (identified by the MFE segment) being acknowledged by this MFA segment.  When returned to the originating system via the MFA segment, this field allows the target system to precisely identify which change to this record is being acknowledged.  It is only required if <a href="/segment-definition/MFI.html#MFI-6">MFI-6 - Response Level Code</a> requires responses at the record level (any value other than NE). </p>
+
+<h4 class='v2' id='MFA-3'>
+MFA-3: Event Completion Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00668
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field may be required or optional depending on the site specifications for the given master file, master file event, and receiving facility.</p>
+
+<h4 class='v2' id='MFA-4'>
+MFA-4: MFN Record Level Error Return (<a href='/data-type/CWE.html'>CWE</a>) 00669
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the requested update.  Site-defined table, specific to each master file being updated via this transaction.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0181/index.html">User-defined Table 0181 - MFN Record-level Error Return</a> in Chapter 2C, Code Tables, for suggested values.  All such tables will have at least the following two return code values: &quot;S&quot; for successful and &quot;U&quot; for unsuccessful.</p>
+
+<h4 class='v2' id='MFA-5'>
+MFA-5: Primary Key Value - MFA (<a href='/data-type/Varies.html'>Varies</a>) 01308
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field uniquely identifies the record of the master file (identified in the MFI segment) for which the update status is being acknowledged (as defined by the field <a href="/composition/Master-Files.html#Master-Files-4-1">MFN-4 - Record Level Error Return</a>).  The data type of this field is defined by the value of <a href="/segment-definition/MFA.html#MFA-6">MFA-6 - Value Type - MFA</a>, and may take on the format of any of the HL7 data types defined in <a href="https://www.hl7.org/fhir/v2/0355/index.html">HL7 Table 0355 - Primary Key Value Type</a> in Chapter 2C, Code Tables.  The PL data type is used only on location master transactions. Refer to Table 0607 - Primary Key Value - MFA in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">The repetition of the primary key permits the identification of an individual component of a complex record as the object of the record-level event code.  This feature allows the Master Files protocol to be used for modifications of single components of complex records.  If this field repeats, the field <a href="/segment-definition/MFA.html#MFA-6">MFA-6 - Primary Key Value Type - MFA</a> must also repeat (with the same number of repetitions), and the data type of each repetition of <a href="/segment-definition/MFA.html#MFA-5">MFA-5 - Primary Key Value - MFA</a> is specified by the corresponding repetition of <a href="/segment-definition/MFA.html#MFA-6">MFA-6 - Value Type - MFA</a>.</p>
+
+<h4 class='v2' id='MFA-6'>
+MFA-6: Primary Key Value Type - MFA (<a href='/data-type/ID.html'>ID</a>) 01320
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the HL7 data type of <a href="/segment-definition/MFA.html#MFA-5">MFA-5 - Primary Key Value - MFA</a>.  The valid HL7 data types are listed in <a href="https://www.hl7.org/fhir/v2/0355/index.html">HL7 Table 0355 - Primary Key Value Type</a> in Chapter 2C, Code Tables.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

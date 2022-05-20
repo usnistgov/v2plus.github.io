@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<div class='container'>
+<h1 class='self-link-parent v2'>
+Welcome to HL7 v2+&#153; - HL7 v2 refactored
+</h1>
+<p style='background-color: gold; border:1px solid maroon; padding: 5px;;'>
+This is the working draft for what is preliminary called
+<b>HL7v2+</b>
+</p>
+<p>HL7 v2+ is a standard for health care data exchange, built as a successor of HL7 v2.x, and published by HL7®.</p>
+<div id='v2-homepage-message'>
+<p>
+<a href='#notes_to_balloters'>Notes to Balloters</a>
+</p>
+</div>
+<div id='diagram'>
+<p class='level-text'>
+<a href='/domain/Introduction.html'>
+<b>Introduction to the HL7 v2+ Standard</b>
+</a>
+</p>
+<p class='content'>
+<a href='/toc.html'>Table of Contents</a>
+</p>
+<p class='level-text'>
+<b>
+Level 1
+</b>
+Basic framework on which the specification is built.
+</p>
+<div class='box_row box_more' id='foundation'>
+<div class='box' id=''>
+<p class='head'>
+<a href='/' style='background-image: url(&#39;images/foundation.png&#39;);'>
+Foundation
+</a>
+</p>
+<p class='content'>
+<span><a href='/domain/Control.html'>
+Control
+</a>
+(Messaging)</span>
+</p>
+</div>
+<div class='box' id='encoding'>
+<p class='head'>
+<a href='/domain/Control.html#Control-12' style='background-image: url(&#39;images/workflow.png&#39;);'>
+<span>Encoding</span>
+</a>
+</p>
+<p class='content'>
+<a href='/domain/Control.html#Control-5'>
+Abstract Message Syntax (AMS)
+</a>
+<br>
+<a href='/domain/Control.html#Control-6'>
+Encoding Rules 7 (ER)
+</a>
+<br>
+<a href='/xml-encoding-rules.html'>
+XML-Encoding (v2.x)ml
+</a>
+</p>
+</div>
+<div class='box' id='transport'>
+<p class='head'>
+<a href='#transport' style='background-image: url(&#39;images/linked-data.png&#39;);'>
+Transport
+</a>
+</p>
+<p class='content'>
+<a href='/lower-layer-protocol.html#Heading3'>
+HLLP
+</a>
+<br>
+<a href='/lower-layer-protocol.html#Heading45'>
+MLLP
+</a>
+<br>
+<a href='hl7-over-http.html'>
+HTTP
+</a>
+</p>
+</div>
+</div>
+<p class='level-text'>
+<b>Level 2</b>
+Vocabulary
+</p>
+<div class='box box_row box_one' id='terminology'>
+<p class='head'>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2' style='background-image: url(&#39;images/terminology.png&#39;);'>
+<span>Terminology (Tables)</span>
+</a>
+</p>
+<p class='content'>
+<a href='https://www.hl7.org/fhir/terminologies-systems.html#tabs-v2'>
+CodeSystem
+</a>
+,&nbsp;
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+ValueSet
+</a>
+</p>
+</div>
+<p class='level-text'>
+<b>Level 3</b>
+Building Blocks
+</p>
+<div class='box box_row box_one' id='technical'>
+<p class='head'>
+<a href='/' style='background-image: url(&#39;images/index.png&#39;);'>
+<span>Technical</span>
+</a>
+</p>
+<p class='content'>
+<a href='/data-types.html'>Data Types</a>
+&gt;
+<a href='/segment-definitions.html'>Segments</a>
+&gt;
+<a href='/message-structures.html'>Message Structures</a>
+</p>
+</div>
+<p class='level-text'>
+<b>Level 4</b>
+Domains
+</p>
+<div class='box_row box_more' id='domains'>
+<div class='box' id='administrative'>
+<p class='head'>
+<a href='/domains.html' style='background-image: url(&#39;images/secpriv.jpg&#39;&#39;);'>
+Administrative
+</a>
+</p>
+<p class='content'>
+<a href='/domain/Master-Files.html'>
+Master Files
+</a>
+<br>
+<a href='/domain/Query.html'>
+Queries
+</a>
+<br>
+<a href='/domain/Personnel-Management.html'>
+Personnel Mngmt
+</a>
+<br>
+<a href='/domain/Application-Management.html'>
+Appl Mngmt
+</a>
+</p>
+</div>
+<div class='box' id='patient'>
+<p class='head'>
+<a href='/domains.html' style='background-image: url(&#39;images/administration.jpg&#39;&#39;);'>
+Patient
+</a>
+</p>
+<p class='content'>
+<a href='/domain/Patient-Administration.html'>
+ADT
+</a>
+<br>
+<a href='/domain/Patient-Referral.html'>
+Referral
+</a>
+<br>
+<a href='/domain/Scheduling.html'>
+Scheduling
+</a>
+<br>
+<a href='/domain/Materials-Management.html'>
+Materials Mngmt
+</a>
+</p>
+</div>
+<div class='box' id='financial'>
+<p class='head'>
+<a href='/domains.html' style='background-image: url(&#39;images/financial.png&#39;);'>
+Financial
+</a>
+</p>
+<p class='content'>
+<a href='/domain/Financial-Management.html'>
+Billing
+</a>
+<br>
+<a href='/domain/Claims-and-Reimbursement.html'>
+Claims &amp; Reimbursement
+</a>
+</p>
+</div>
+<div class='box' id='clinical'>
+<p class='head'>
+<a href='/domains.html' style='background-image: url(&#39;images/clinical.png&#39;);'>
+Clinical
+</a>
+</p>
+<p class='content'>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html'>
+General Orders
+</a>
+<br>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html'>
+Laboratory Orders
+</a>
+<br>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html'>
+Dietary Orders
+</a>
+<br>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html'>
+Supply
+</a>
+<br>
+<a href='/domain/Order-Entry-Pharmacy-Treatment-Vaccination.html'>
+Pharmacy/Treatment
+</a>
+<br>
+<a href='/domain/Clinical-Laboratory-Automation.html'>
+Lab Automation
+</a>
+</p>
+</div>
+<div class='box' id='medication'>
+<p class='head'>
+<a href='/domains.html' style='background-image: url(&#39;images/medication.png&#39;);'>
+Medical
+</a>
+</p>
+<p class='content'>
+<a href='/domain/Patient-Care.html'>
+Patient Care
+</a>
+<br>
+<a href='/domain/Medical-Records-Information-Management-Document-Management-.html'>
+Medical Record
+</a>
+</p>
+</div>
+</div>
+<p class='level-text'>
+<b>
+Level 5
+</b>
+Conformance
+</p>
+<div class='box box_row box_one' id='conformance'>
+<p class='head'>
+<a href='http://v2.hl7.org/conformance/' style='background-image: url(&#39;images/conformance.jpg&#39;&#39;);'>
+Conformance
+</a>
+</p>
+<p class='content'>
+<a href='http://v2.hl7.org/conformance/Introduction.html'>
+Introduction
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Profile-Levels.html'>
+Profile&nbsp;Levels
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/HL7-v2-Implementation-Guides.html'>
+HL7&nbsp;v2&nbsp;Implementation&nbsp;Guides
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Message-Profiles.html'>
+Message&nbsp;Profiles
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Constraints.html'>
+Constraints
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Vocabulary-Constraints.html'>
+Vocabulary&nbsp;Constraints
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Profile-Construction.html'>
+Profile&nbsp;Construction
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Pairing-Sender-and-Receiver-Profile-for-Use-.html'>
+Pairing&nbsp;Sender&nbsp;and&nbsp;Receiver&nbsp;Profile&nbsp;for&nbsp;Use&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Profile-Documentation.html'>
+Profile&nbsp;Documentation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Computable-Document-Definitions.html'>
+Computable&nbsp;Document&nbsp;Definitions
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Glossary.html'>
+Glossary
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Appendix-A-Predicate-Definition-Language.html'>
+Appendix&nbsp;A:&nbsp;Predicate&nbsp;Definition&nbsp;Language
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+<a href='http://v2.hl7.org/conformance/Appendix-B-Conformance-Statement-Definition-Language.html'>
+Appendix&nbsp;B:&nbsp;Conformance&nbsp;Statement&nbsp;Definition&nbsp;Language
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+</p>
+</div>
+<p class='level-text'>
+<b>
+Level 6
+</b>
+Implementable Technology Specification
+</p>
+<p class='level-text'>
+<b>
+Level 7
+</b>
+Core Profiles
+</p>
+<div class='box_row box_more' id='implementable-technology-specification'>
+<div class='box' id='datatype-flavors'>
+<p class='head'>
+<a href='/' style='background-image: url(&#39;images/index.png&#39;);'>
+Data Type Flavors
+</a>
+</p>
+<p class='content'></p>
+<p class='content'>TBD: This is where profile components like official data type flavors should be listed.</p>
+<p></p>
+</div>
+<div class='box' id='ig-registry'>
+<p class='head'>
+<a href='/' style='background-image: url(&#39;images/index.png&#39;);'>
+Implementation Guide Registry
+</a>
+</p>
+<p class='content'></p>
+<p class='content'>TBD: This is where implementations begin and guides should be listed. Maintaining the implementation guides on this platform will be too tedious, so that a list with hyperlinks should be sufficient.</p>
+<p></p>
+</div>
+</div>
+</div>
+<h1 class='self-link-parent v2'>
+Notes to Balloters
+</h1>
+<div id='notes_to_balloters'>
+<p>
+V2+ is an initiative to modernize the widespread, dependable V2 standard. It will give implementers worldwide a new and modern way to access and use the specifications in their efforts. The initiative will make it easier for HL7 to develop and maintain the V2 standard as the workhorse specification of worldwide healthcare data exchange. The goals of presenting the V2 standard in a web-based format include:
+</p>
+<ul>
+<li>
+Enhanced navigation that allows users to move more easily through the content from either technical or workflow perspectives
+</li>
+<li>
+Common look and feel to other HL7 published standards
+</li>
+<li>
+More consistent content accessible from different locations in the standard
+</li>
+<li>
+New ways to represent the cardinality and usage of elements
+</li>
+<li>
+Better integration with other content such as UTG terminology and conformance methodology
+</li>
+</ul>
+<p>
+As part of this For Comment ballot, the majority of technical content remains unchanged from V2.9 except where necessary to achieve the new format (eg. the consolidation of duplicate message structures). Only the presentation of the content has changed. We are specifically requesting feedback on the organization of the content in the new web-based format including:
+</p>
+<ul>
+<li>
+Input on the overall organization of the standard in the new format. For example:
+<ul>
+<li>
+Does the navigation menu at the top of the pages provide sufficient functionality? Are the right links linked?
+</li>
+<li>
+On the home page, is the organization of content into the Levels appropriate?
+</li>
+</ul>
+</li>
+<li>
+Are the available navigation options sufficient? Are there additional links to specific areas of content that should be added?
+</li>
+<li>
+For the major artifacts (messages, segments, data types, etc.), is the format of the pages useable? Are the tables defining the artifacts formatted appropriately?
+</li>
+<li>
+On the Message Structures page, should the name of the message structure be included along with the list of message structure identifiers?
+</li>
+<li>
+Suggestions on dealing with multiple definitions for an element
+</li>
+</ul>
+<p>
+While this ballot includes many of the features that will be central to V2+, several issues still need to be resolved including:
+</p>
+<ul>
+<li>
+The content of the various Domains, currently the content of the existing V2.x chapters, will be broken down into more granular pages to make it easier to navigate
+</li>
+<li>
+Links to vocabulary will be pointed to the appropriate UTG content
+</li>
+<li>
+Description will be added for each message structure
+</li>
+<li>
+Content will be added for the Data Type Flavors and Implementation Guide Registry sections
+</li>
+<li>
+Broken links will be corrected
+</li>
+<li>
+The ability to submit comments against V2+ in Jira will be added
+</li>
+</ul>
+<p>
+We invite feedback on how to best implement solutions to these outstanding issues.
+</p>
+</div>
+
+<script>
+  try {
+     var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+   } catch(exception){
+   }
+   if (!currentTabIndex)
+     currentTabIndex = '0';
+   $( '#tabs-1' ).tabs({
+     active: currentTabIndex,
+     activate: function( event, ui ) { store(ui.newTab.index()); }
+   });
+  function store(currentTab) {
+    document.activeElement.blur();
+    try {
+      sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+    } catch(exception){
+  }
+   $( '#tabs' ).tabs('option', 'active', currentTab);
+  }
+</script>
+<script>
+  try {
+     var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+   } catch(exception){ 
+   }
+   if (!currentTabIndex)
+     currentTabIndex = '0';
+  
+  $( '#tabs-Extension' ).tabs({ 
+  active: currentTabIndex, 
+  activate: function( event, ui ) { store(ui.newTab.index()); } 
+  });
+  function store(currentTab) {
+    document.activeElement.blur();
+    try {
+      sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+    } catch(exception){ 
+    }
+    $( '#tabs-Extension' ).tabs('option', 'active', currentTab);
+  }
+</script>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

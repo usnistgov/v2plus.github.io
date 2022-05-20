@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+TXA - Transcription Document Header Segment
+</h3>
+<p class="v2 v2-normalindented">The TXA segment contains information specific to a transcribed document but does not include the text of the document.  The message is created as a result of a document status change.  This information updates other healthcare systems and allows them to identify reports that are available in the transcription system. By maintaining the TXA message information in these systems, the information is available when constructing queries to the transcription system requesting the full document text.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - TXA - Transcription Document Header Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+TXA
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID- TXA
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#TXA-1'>
+00914
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Document Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0270-Document-Type.html' title='Document Type'>
+0270
+<span class='vocab-link-text'>Document Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#TXA-2'>
+00915
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Document Content Presentation
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0191-Type-of-Referenced-Data.html' title='Type of Referenced Data(Required)'>
+0191(R)
+<span class='vocab-link-text'>Type of Referenced Data(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-3'>
+00916
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Activity Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-4'>
+00917
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Primary Activity Provider Code/Name
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-5'>
+00918
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Origination Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-6'>
+00919
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Transcription Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-7'>
+00920
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Edit Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-8'>
+00921
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Originator Code/Name
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-9'>
+00922
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Assigned Document Authenticator
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-10'>
+00923
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Transcriptionist Code/Name
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-11'>
+00924
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Unique Document Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#TXA-12'>
+00925
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Parent Document Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-13'>
+00926
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-14'>
+00216
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Filler Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-15'>
+00217
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Unique Document File Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-16'>
+00927
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Document Completion Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#TXA-17'>
+00928
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Document Confidentiality Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0272-Document-Confidentiality-Status.html' title='Document Confidentiality Status(Required)'>
+0272(R)
+<span class='vocab-link-text'>Document Confidentiality Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-18'>
+00929
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Document Availability Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-19'>
+00930
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Document Storage Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0275-Document-Storage-Status.html' title='Document Storage Status(Required)'>
+0275(R)
+<span class='vocab-link-text'>Document Storage Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-20'>
+00932
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Document Change Reason
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-21'>
+00933
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Authentication Person, Time Stamp
+</td>
+<td class='centered'>
+<a href='/data-type/PPN.html'>
+PPN
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-22'>
+00934
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Distributed Copies
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-23'>
+00935
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Folder Assignment
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0791-ERROR! Bad Data! FIXME.html'>
+0791
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-24'>
+02378
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Document Title
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#TXA-25'>
+03301
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Agreed Due Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-26'>
+03302
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Creating Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-27'>
+02413
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+28
+</td>
+<td>
+Creating Specialty
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0792-ERROR! Bad Data! FIXME.html'>
+0792
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#TXA-28'>
+02414
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='TXA-1'>
+TXA-1: Set ID- TXA (<a href='/data-type/SI.html'>SI</a>) 00914
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a number that uniquely identifies this transaction for the purpose of adding, changing, or deleting the transaction.</p>
+
+<h4 class='v2' id='TXA-2'>
+TXA-2: Document Type (<a href='/data-type/CWE.html'>CWE</a>) 00915
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of document (as defined in the transcription system).  Refer to <a href="https://www.hl7.org/fhir/v2/0270/index.html">User-Defined Table 0270 - Document Type</a> for suggested values.  The organization is free to add more entries.  Receivers are required to inspect the Coding System component of the CWE data type to accurately interpret the meaning of the code. Senders transmitting messages to Receivers on earlier version of the standard may elect to negotiate business rules to ensure that expected data is not lost. HL7 does not assign positional meaning to user-defined codes.</p>
+
+<h4 class='v2' id='TXA-3'>
+TXA-3: Document Content Presentation (<a href='/data-type/ID.html'>ID</a>) 00916
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is a conditional field which is required whenever the message contains content as presented in one or more OBX segments.  This field identifies the method by which this document was obtained or originated.  Refer to <a href="https://www.hl7.org/fhir/v2/0191/index.html">HL7 Table 0191 – Type of Referenced Data</a> for valid values.</p>
+
+<h4 class='v2' id='TXA-4'>
+TXA-4: Activity Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00917
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date/time identified in the document as the date a procedure or activity was performed.  This date can identify date of surgery, non-invasive procedure, consultation, examination, etc.</p>
+
+<h4 class='v2' id='TXA-5'>
+TXA-5: Primary Activity Provider Code/Name (<a href='/data-type/XCN.html'>XCN</a>) 00918
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the person identified in the document as being responsible for performing the procedure or activity.  This field includes the code and name (if available) of the caregiver. This field is conditional based upon the presence of a value in <a href="/segment-definition/TXA.html#TXA-4">TXA-4-Activity Date/Time</a>.</p><p class="v2 v2-normalindented"></p>
+
+<h4 class='v2' id='TXA-6'>
+TXA-6: Origination Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00919
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time the document was created (i.e., dictated, recorded, etc.).</p>
+
+<h4 class='v2' id='TXA-7'>
+TXA-7: Transcription Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00920
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time the input was actually transcribed.  This field is conditional based upon the presence of a value in <a href="/segment-definition/TXA.html#TXA-17">TXA-17-Document Completion Status</a> of anything except &quot;dictated.&quot;</p>
+
+<h4 class='v2' id='TXA-8'>
+TXA-8: Edit Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00921
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time the document was edited.</p>
+
+<h4 class='v2' id='TXA-9'>
+TXA-9: Originator Code/Name (<a href='/data-type/XCN.html'>XCN</a>) 00922
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person who originated (i.e., dictated) the document.  The document originator may differ from the person responsible for authenticating the document.</p>
+
+<h4 class='v2' id='TXA-10'>
+TXA-10: Assigned Document Authenticator (<a href='/data-type/XCN.html'>XCN</a>) 00923
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person(s) responsible for authenticating the document, who may differ from the originator.  Multiple persons may be responsible for authentication, especially in teaching facilities.  This field is allowed to repeat an undefined number of times.</p>
+
+<h4 class='v2' id='TXA-11'>
+TXA-11: Transcriptionist Code/Name (<a href='/data-type/XCN.html'>XCN</a>) 00924
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the person transcribing the document. This is a conditional value; it is required on all transcribed documents.</p><p class="v2 v2-normalindented">TXA-11 - Condition: If TXA-11 is valued and the corresponding OBR segment is present in the message OBR-35 must be blank.  If OBR-35 is valued while TXA-11 is valued,  OBR-35 shall be ignored.  See message definitions including TXA for further guidanceon which ORC/OBR pairs to consider.</p>
+
+<h4 class='v2' id='TXA-12'>
+TXA-12: Unique Document Number (<a href='/data-type/EI.html'>EI</a>) 00925
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique document identification number assigned by the sending system. This document number is used to assist the receiving system in matching future updates to the document, as well as to identify the document in a query.  When the vendor does not provide a unique document ID number, some type of document identifier should be entered here, or the Unique Document File name should be utilized.  See Chapter 2A, section 2.A.89, &quot;XTN - extended telecommunication number.&quot;  Where the system does not customarily have a document filler number, this number could serve as that value, as well.</p>
+
+<h4 class='v2' id='TXA-13'>
+TXA-13: Parent Document Number (<a href='/data-type/EI.html'>EI</a>) 00926
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a document number that identifies the parent document to which this document belongs.  The parent document number can be used to assist the receiving system in matching future updates to this document.  This is a conditional field that is always required on T05 (document addendum notification), T06 (document addendum notification and content), T09 (document replacement notification), and T10 (document replacement notification and content) events.  </p>
+
+<h4 class='v2' id='TXA-14'>
+TXA-14: Placer Order Number (<a href='/data-type/EI.html'>EI</a>) 00216
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the placer application&#39;s order number.</p><p class="v2 v2-normalindented">This is a composite field.  The first component is a string of characters that identifies an individual order (i.e., OBR).  It is assigned by the placer (ordering application).  It identifies an order uniquely among all orders from a particular ordering application.  The second through fourth components contain the (filler) assigning authority of the placing application.  The (filler) assigning authority is a string of characters that will be uniquely associated with an application.  A given institution or group of intercommunicating institutions should establish a unique list of applications that may be potential placers and fillers and assign unique entity identifiers.  The components are separated by component delimiters.</p><p class="v2 v2-normalindented">TXA-14 - Condition: If corresponding ORC and/or OBR segments are present in the message and ORC-2 or OBR-2 is valued, this field must be blank.  If TXA-14 is valued while ORC-2 or OBR-2 is valued it shall be ignored.  See message definitions including TXA for further guidance on which ORC/OBR pairs to consider.</p>
+
+<h4 class='v2' id='TXA-15'>
+TXA-15: Filler Order Number (<a href='/data-type/EI.html'>EI</a>) 00217
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the order number associated with the filling application.  Where a transcription service or similar organization creates the document and uses an internally unique identifier, that number should be inserted in this field.  Its first component is a string of characters that identifies an order detail segment (i.e., OBR).  This string must uniquely identify the order (as specified in the order detail segment) from other orders in a particular filling application (i.e., transcription service).  This uniqueness must persist over time.  Where a number is reused over time, a date can be affixed to the non-unique number to make it unique.</p><p class="v2 v2-normalindented">The second through fourth components contains the (filler) assigning authority.  The (filler) assigning authority is a string of characters that uniquely defines the application from other applications on the network.  The second through fourth components of the filler order number always identify the actual filler of an order.</p><p class="v2 v2-normalindented">TXA-15 - Condition: If corresponding ORC and/or OBR segments are present in the message and ORC-3 or OBR-3 is valued, this field must be blank.  If TXA-14 is valued while ORC-3 or OBR-3 is valued it shall be ignored.  See message definitions including TXA for further guidanceon which ORC/OBR pairs to consider.</p><p class="v2 v2-normalindented"> For further details, please see the definitions provided in Chapter 4, &quot;Orders&quot;.</p>
+
+<h4 class='v2' id='TXA-16'>
+TXA-16: Unique Document File Name (<a href='/data-type/ST.html'>ST</a>) 00927
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique name assigned to a document by the sending system.  The file name is used to assist the receiving system in matching future updates to the document.</p>
+
+<h4 class='v2' id='TXA-17'>
+TXA-17: Document Completion Status (<a href='/data-type/ID.html'>ID</a>) 00928
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the current completion state of the document.  This is a required, table-driven field.  Refer to <a href="https://www.hl7.org/fhir/v2/0271/index.html">HL7 Table 0271 - Document Completion Status</a> for valid values.</p><p class="v2 v2-othertablecaption">Figure 9-1. Document completion status state transition table</p><table class="v2" style="width: 85%; border-top: 2px double black; border-left: 2px double black; border-bottom: 2px double black; border-right: 2px double black; "><colgroup><col span='1' style='width: 44.65%;'/><col span='1' style='width: 24.98%;'/><col span='1' style='width: 30.35%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 2px solid black; background-color:#E1E1E1; width:44.65%; '><p class="v2 v2-othertableheader">Transition (Action)</p></td><td style='border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#E1E1E1; width:24.98%; '><p class="v2 v2-othertableheader">Old State</p></td><td style='border-top: 2px solid black; border-bottom: 1px solid black; border-right: 2px solid black; border-left: 1px solid black; background-color:#E1E1E1; width:30.35%; '><p class="v2 v2-othertableheader">New State</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 v2-othertablebody">T01 Original Notification</p><p class="v2 v2-othertablebody">T02 Original Notification and Content</p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top:none; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Dictated</p><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 v2-othertablebody">T03 Status Change Notification</p><p class="v2 v2-othertablebody">T04 Status Change Notification and Content</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Dictated</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top:none; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top:none; border-bottom: 1px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Incomplete</p></td><td style='border-top:none; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Pre-authenticated</p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Authenticated</p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Legally authenticated</p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">NA</p></td></tr><tr><td style='border-top:none; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Documented</p></td><td style='border-top: 1px solid black; border-bottom: 2px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 v2-othertablebody">T05 Addendum Notification</p><p class="v2 v2-othertablebody"></p><p class="v2 v2-othertablebody">T06 Addendum Notification and Content</p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top:none; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Dictated</p><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 v2-othertablebody">T07 Edit Notification</p><p class="v2 v2-othertablebody">T08 Edit Notification and Content</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Dictated</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Incomplete</p></td><td style='border-top:none; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Pre-authenticated</p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Authenticated</p></td><td style='border-top: 1px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Legally authenticated</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">NA</p></td></tr><tr><td style='border-top:none; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top:none; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Documented</p></td><td style='border-top:none; border-bottom: 2px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 v2-othertablebody">T09 Replacement Notification</p><p class="v2 v2-othertablebody">T10 Replacement Notification and Content</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Dictated</p><p class="v2 centered v2-othertablebody">In Progress</p><p class="v2 centered v2-othertablebody">Incomplete</p><p class="v2 centered v2-othertablebody">Pre-authenticated</p><p class="v2 centered v2-othertablebody">Authenticated</p><p class="v2 centered v2-othertablebody">Legally authenticated</p></td></tr><tr><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 2px solid black; width:44.65%; '><p class="v2 v2-othertablebody">T11 Cancel Notification</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.98%; '><p class="v2 centered v2-othertablebody">Dictated<br/>In Progress<br/>Incomplete<br/>Pre-authenticated<br/>and Availability status of &quot;Unavailable&quot;</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 2px solid black; border-left: 1px solid black; width:30.35%; '><p class="v2 centered v2-othertablebody">Canceled</p></td></tr></table><br/>
+
+<h4 class='v2' id='TXA-18'>
+TXA-18: Document Confidentiality Status (<a href='/data-type/ID.html'>ID</a>) 00929
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is an optional field which identifies the degree to which special confidentiality protection should be applied to this information.  The assignment of data elements to these categories is left to the discretion of the healthcare organization.  Refer to <a href="https://www.hl7.org/fhir/v2/0272/index.html">HL7 Table 0272 - Document Confidentiality Status</a> for valid values.</p>
+
+<h4 class='v2' id='TXA-19'>
+TXA-19: Document Availability Status (<a href='/data-type/ID.html'>ID</a>) 00930
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is an optional field which identifies a document&#39;s availability for use in patient care.  If an organization&#39;s business rules allow a document to be used for patient care before it is authenticated, the value of this field should be set to &quot;AV.&quot;  If a document has been made available for patient care, it cannot be changed or deleted.  If an erroneous document has been made available at any point in time and a replacement is not appropriate, then it may be marked as &quot;Canceled&quot; and removed, as in the case of a document being assigned to the wrong patient.  Additional information must be provided via an addendum, which is separately authenticated and date/time stamped.  If the content of a document whose status is &quot;Available&quot; must be revised, this is done by issuing a replacement, which is separately authenticated and date/time stamped.  Refer to <a href="https://www.hl7.org/fhir/v2/0273/index.html">HL7 Table 0273 - Document Availability Status</a> for valid values.</p><p class="v2 v2-othertablecaption">Figure 9-2.  Document availability status state transition table</p><table class="v2" style="width: 93%; border-top: 2px double black; border-left: 2px double black; border-bottom: 2px double black; border-right: 2px double black; "><colgroup><col span='1' style='width: 46.05%;'/><col span='1' style='width: 15.60%;'/><col span='1' style='width: 15.60%;'/><col span='1' style='width: 22.72%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 2px solid black; background-color:#E1E1E1; width:46.05%; '><p class="v2 v2-othertableheader">Transition (Action)</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#E1E1E1; width:15.60%; '><p class="v2 v2-othertableheader">Old State</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#E1E1E1; width:15.60%; '><p class="v2 v2-othertableheader">New State</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 2px solid black; border-left: 1px solid black; background-color:#E1E1E1; width:22.72%; '><p class="v2 v2-othertableheader">Notes</p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 v2-othertablebody">T01 Original Notification</p><p class="v2 v2-othertablebody">T02 Original Notification and Content</p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody">Available</p></td><td style='border-top:none; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr><tr><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 v2-othertablebody">T03 Status Change Notification</p><p class="v2 v2-othertablebody">T04 Status Change Notification and Content</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody">Available</p><p class="v2 centered v2-othertablebody">Obsolete</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Available</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Available</p><p class="v2 centered v2-othertablebody">Obsolete</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr><tr><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 centered v2-othertablebody"></p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Obsolete</p></td><td style='border-top:none; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top:none; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr><tr><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 v2-othertablebody">T05 Addendum Notification</p><p class="v2 v2-othertablebody">T06 Addendum Notification and Content</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody">Available</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr><tr><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 v2-othertablebody">T07 Edit Notification</p><p class="v2 v2-othertablebody">T08 Edit Notification and Content</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody"></p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody">Available</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr><tr><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 v2-othertablebody">T09 Replacement Notification</p><p class="v2 v2-othertablebody">T10 Replacement Notification and Content</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">NA</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p><p class="v2 centered v2-othertablebody">Available</p></td><td style='border-top: 2px solid black; border-bottom:none; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 v2-othertablebody">Set parent document to &quot;obsolete&quot;</p></td></tr><tr><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 2px solid black; width:46.05%; '><p class="v2 v2-othertablebody">T11 Cancel</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Unavailable</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.60%; '><p class="v2 centered v2-othertablebody">Delete</p></td><td style='border-top: 2px solid black; border-bottom: 2px solid black; border-right: 2px solid black; border-left: 1px solid black; width:22.72%; '><p class="v2 centered v2-othertablebody"></p></td></tr></table><br/><div class="v2-note"><p class="v2"><strong>Note:</strong>  NA means not applicable.</p></div><br/>
+
+<h4 class='v2' id='TXA-20'>
+TXA-20: Document Storage Status (<a href='/data-type/ID.html'>ID</a>) 00932
+</h4>
+<p class="v2 v2-normalindented">Definition:  This optional field identifies the storage status of the document.  Refer to <a href="https://www.hl7.org/fhir/v2/0275/index.html">HL7 Table 0275 - Document Storage Status</a> for valid values.</p>
+
+<h4 class='v2' id='TXA-21'>
+TXA-21: Document Change Reason (<a href='/data-type/ST.html'>ST</a>) 00933
+</h4>
+<p class="v2 v2-normalindented">Definition:  This free text field (limited to 30 characters) contains the reason for document status change.</p>
+
+<h4 class='v2' id='TXA-22'>
+TXA-22: Authentication Person, Time Stamp (<a href='/data-type/PPN.html'>PPN</a>) 00934
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a set of components describing by whom and when authentication was performed (either manually or electronically).  The Date/Time Action Performed component describes the date/time of the authentication (Authentication Time Stamp).  The remaining components identify the person performing the authentication (Authentication Person).  If either of the Authenticating Person or the Authentication Time Stamp is valued as non-null, then both must be valued as non-null.</p><p class="v2 v2-normalindented">TXA-22 - Condition: If TXA-22 is valued and the corresponding OBR segment is present in the message OBR-32 must be blank.  If OBR-32 is valued while TXA-22 is valued,  OBR-32 shall be ignored.  See message definitions including TXA for further guidanceon which ORC/OBR pairs to consider.</p>
+
+<h4 class='v2' id='TXA-23'>
+TXA-23: Distributed Copies (<a href='/data-type/XCN.html'>XCN</a>) 00935
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the persons who received a copy of this document.  </p>
+
+<h4 class='v2' id='TXA-24'>
+TXA-24: Folder Assignment (<a href='/data-type/CWE.html'>CWE</a>) 02378
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is used to assign documents to folders.  These folders are not nested; a document may either be part of none or several folders. In practice this can be used to separate the documents into domain specific types (e.g., cardiology reports, radiology reports), organizational types (e.g., administrational document, billing document), body region types (e.g., chest CT, leg CT), or something else. Furthermore, this information can be combined. This usually depends on the system involved and therefore it must be up to the user to define it. The systems can use the information to define workflows or manage access to the document.  Receivers are required to inspect the Coding System component of the CWE data type to accurately interpret the meaning of the code. Senders transmitting messages to Receivers on earlier version of the standard may elect to negotiate business rules to ensure that expected data is not lost. HL7 does not assign positional meaning to user-defined codes. Refer to Table 0791 - Folder Assignment in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='TXA-25'>
+TXA-25: Document Title (<a href='/data-type/ST.html'>ST</a>) 03301
+</h4>
+<p class="v2 v2-normalindented">Definition: This field supports the identification of the document title. When communicating the meta information without the document contents you may submit the document title as well.  </p>
+
+<h4 class='v2' id='TXA-26'>
+TXA-26: Agreed Due Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03302
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time the document is or will be due back to the original author or dictator from the transcriptionist.</p>
+
+<h4 class='v2' id='TXA-27'>
+TXA-27: Creating Facility (<a href='/data-type/HD.html'>HD</a>) 02413
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the facility in which this document has been created. </p>
+
+<h4 class='v2' id='TXA-28'>
+TXA-28: Creating Specialty (<a href='/data-type/CWE.html'>CWE</a>) 02414
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the specialty of the provider which created this document. Refer to Table 0792 - Creating Specialty in Chapter 2C for valid values.</p><p class="v2 v2-normalindented"></p><div class="v2-note"><p class="v2 v2-indent360"><strong>Note</strong>:  There are on suggested values for speciality. </p></div><br/><p class="v2 v2-normalindented"></p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

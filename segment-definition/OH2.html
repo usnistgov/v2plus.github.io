@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+OH2 - Past Or Present Job Segment
+</h3>
+<p class="v2 v2-normalindented">The OH2 segment is used to communicate the information about a job or jobs which the subject currently holds or has held in the past. It includes related observations about the occupation (type of work), the type of business (industry) in which that occupation is performed, supervisory level (including military pay grade), and the employer&#39;s name and location. It should also include observations about the job&#39;s compensation and sector employment type (e.g., paid work, self-employed, volunteer) and work schedule, and may also contain observations for job duties and occupational exposures. The type of work a person performs (occupation) and their industry (type of business in which they work) are critical data elements for patient care, population health, and public health, with the current information being the most important. In the health care encounter, current occupation and industry are important because they provide information regarding the exposures a person may have to substances/environments/hazards that may cause illness/injury or may impact the treatment plan. The combination of occupation and industry serves as a key indicator of the person’s work environment. The segment is designed to ensure that these data remain associated with one-another in perpetuity, even if multiple jobs are included.</p><p class="v2 v2-normalindented">This segment may relate either to the patient or to the Next of Kin.</p><p class="v2 v2-normalindented">The intent is for the segment to be allowed to repeat within a message definition to enable a job history for the person.</p><p class="v2 v2-normalindented">Examples:</p><p class="v2 v2-normalindented">A person/patient may currently hold a job as carpenter, and previously held a job as a painter. This would be represented by repeating OH2 segments.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - OH2 - Past or Present Job segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+OH2
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OH2-1'>
+03522
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-2'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Entered Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-3'>
+03524
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Occupation
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0958-ERROR! Bad Data! FIXME.html'>
+0958
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OH2-4'>
+03525
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Industry
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0955-ERROR! Bad Data! FIXME.html'>
+0955
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OH2-5'>
+03526
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Work Classification
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0959-Work-Classification-ODH.html' title='Work Classification ODH(Suggested)'>
+0959(S)
+<span class='vocab-link-text'>Work Classification ODH(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-6'>
+03527
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Job Start Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-7'>
+02494
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[8..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Job End Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-8'>
+02495
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[8..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Work Schedule
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0954-ERROR! Bad Data! FIXME.html'>
+0954
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-9'>
+03528
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Average Hours worked per Day
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-10'>
+03529
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Average Days Worked per Week
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-11'>
+03530
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Employer Organization
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-12'>
+03531
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[48..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Employer Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OH2-13'>
+03546
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[106..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Supervisory Level
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0956-ERROR! Bad Data! FIXME.html'>
+0956
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-14'>
+03532
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Job Duties
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OH2-15'>
+03533
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Occupational Hazards
+</td>
+<td class='centered'>
+<a href='/data-type/FT.html'>
+FT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OH2-16'>
+03534
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Job Unique Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-17'>
+02433
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+18
+</td>
+<td>
+Current Job Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OH2-18'>
+02471
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2"></p>
+<h4 class='v2' id='OH2-1'>
+OH2-1: Set ID (<a href='/data-type/SI.html'>SI</a>) 03522
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the number that identifies the OH2 segment instances in message structures where the OH2 segment repeats.  For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.  If the subject of the OH2 segment changes (e.g. Patient vs Next of Kin) the Set ID sequence will be reset.</p>
+
+<h4 class='v2' id='OH2-2'>
+OH2-2: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OH2-3'>
+OH2-3: Entered Date (<a href='/data-type/DT.html'>DT</a>) 03524
+</h4>
+<p class="v2 v2-normalindented">Definition: This field records the date that the information was entered into the patient record.</p>
+
+<h4 class='v2' id='OH2-4'>
+OH2-4: Occupation (<a href='/data-type/CWE.html'>CWE</a>) 03525
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code defining the occupation in which an individual is engaged in for the job recorded in this segment, regardless of duration. Refer to <a href="https://www.hl7.org/fhir/v2/0958/index.html">HL7 Table 0958 – Occupation Code</a> in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Occupation CDC Census 2010 codes published at <a href="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186">https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186</a></p>
+
+<h4 class='v2' id='OH2-5'>
+OH2-5: Industry (<a href='/data-type/CWE.html'>CWE</a>) 03526
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code defining the industry in which an individual is engaged for the job recorded in this segment, regardless of duration. Refer to <a href="https://www.hl7.org/fhir/v2/0955/index.html">HL7 Table 0955 – Industry Code</a> in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Industry CDC Census 2010 codes published at <a href="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187">https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187</a></p>
+
+<h4 class='v2' id='OH2-6'>
+OH2-6: Work Classification (<a href='/data-type/CWE.html'>CWE</a>) 03527
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code defining the work classification associated with the job of a person recorded in this segment.  Refer to <a href="https://www.hl7.org/fhir/v2/0959/index.html">HL7 Table 0959 – Work Classification Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OH2-7'>
+OH2-7: Job Start Date (<a href='/data-type/DT.html'>DT</a>) 02494
+</h4>
+<p class="v2 v2-normalindented">Definition: This field asserts when the job began.</p>
+
+<h4 class='v2' id='OH2-8'>
+OH2-8: Job End Date (<a href='/data-type/DT.html'>DT</a>) 02495
+</h4>
+<p class="v2 v2-normalindented">Definition: This field asserts when the job ended. If the job is current, Job End Date shall be empty. </p><p class="v2 v2-normalindented"><strong>Note:</strong> The Employment Status End Date SHALL not be greater than the date noted in OH2-3 Entered Date.</p>
+
+<h4 class='v2' id='OH2-9'>
+OH2-9: Work Schedule (<a href='/data-type/CWE.html'>CWE</a>) 03528
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code defining the work schedule associated with the job of a person recorded in this segment.  Describes an individual&#39;s typical arrangement of working hours for a job. For example, work schedule may capture that an individual typically works a regular day shift, evening shift, or night shift. It can also specify if an individual has another type of schedule such as a rotating shift, split shift, etc. In healthcare settings, knowledge of a patient&#39;s typical work schedule may assist in diagnosis of healthcare issues related to irregular work hours or sleep patterns. It may also assist in determining appropriate treatment and prevention plans that will coordinate with the patient&#39;s work schedule. Refer to <a href="https://www.hl7.org/fhir/v2/0954/index.html">HL7 Table 0954 – Work Schedule Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OH2-10'>
+OH2-10: Average Hours worked per Day (<a href='/data-type/NM.html'>NM</a>) 03529
+</h4>
+<p class="v2 v2-normalindented">Definition: This field asserts the average hours worked per day for the job of a person recorded in this segment.</p>
+
+<h4 class='v2' id='OH2-11'>
+OH2-11: Average Days Worked per Week (<a href='/data-type/NM.html'>NM</a>) 03530
+</h4>
+<p class="v2 v2-normalindented">Definition: This field asserts the average days worked per week for the job of a person recorded in this segment.</p>
+
+<h4 class='v2' id='OH2-12'>
+OH2-12: Employer Organization (<a href='/data-type/XON.html'>XON</a>) 03531
+</h4>
+<p class="v2 v2-normalindented">Definition: This field asserts the name and or identifier of the employer organization for the job of a person recorded in this segment.</p>
+
+<h4 class='v2' id='OH2-13'>
+OH2-13: Employer Address (<a href='/data-type/XAD.html'>XAD</a>) 03546
+</h4>
+<p class="v2 v2-normalindented">Definition: This field asserts the address of the employer organization for the job of a person recorded in this segment. This field shall be populated with the address of the employer rather than the site that the employee works.</p><p class="v2 v2-normalindented">The field may repeat.</p>
+
+<h4 class='v2' id='OH2-14'>
+OH2-14: Supervisory Level (<a href='/data-type/CWE.html'>CWE</a>) 03532
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code defining the supervisory level associated with the job of a person recorded in this segment. Supervisory Level reflects the amount of supervisory or management responsibilities for an individual’s job.  For example, in the US, in the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.  Refer to <a href="https://www.hl7.org/fhir/v2/0956/index.html">HL7 Table 0956 – Supervisory Level Code</a> in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Job Supervisory Level or Pay Grade (ODH)codes published at <a href="https://phinvads.cdc.gov/vads/ViewCodeSystem.action?oid=2.16.840.1.114222.4.11.7613">https://phinvads.cdc.gov/vads/ViewCodeSystem.action?oid=2.16.840.1.114222.4.11.7613</a></p>
+
+<h4 class='v2' id='OH2-15'>
+OH2-15: Job Duties (<a href='/data-type/ST.html'>ST</a>) 03533
+</h4>
+<p class="v2 v2-normalindented">Definition: This field lists the regular actions performed at work. For example, a person may have the occupation of “construction laborer” and his specific job duties are to carry construction supplies. Specific job information is important in the healthcare setting because it provides information regarding hazards to which a person may have been exposed, which is pertinent to treatment and prevention. This field may repeat to list multiple job duties, or the job duties may be compiled as a single narrative.</p>
+
+<h4 class='v2' id='OH2-16'>
+OH2-16: Occupational Hazards (<a href='/data-type/FT.html'>FT</a>) 03534
+</h4>
+<p class="v2 v2-normalindented">Definition: This field lists the hazard(s) associated with a person’s job. Job hazards are a source of potential harm to an individual’s physical or mental health. Hazards may be biological, physical, psychological, chemical, or radiological in nature. An occupational hazard is one that is specific to the work or work environment of an individual. This field may repeat to list multiple occupational hazards, or the occupational hazards may be compiled as a single narrative.</p>
+
+<h4 class='v2' id='OH2-17'>
+OH2-17: Job Unique Identifier (<a href='/data-type/EI.html'>EI</a>) 02433
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a value the uniquely identifies a single job for a person. </p>
+
+<h4 class='v2' id='OH2-18'>
+OH2-18: Current Job Indicator (<a href='/data-type/CWE.html'>CWE</a>) 02471
+</h4>
+<p class="v2 v2-normalindented">Definition: This field defines a flag indicating if this is the person’s current job (at the time the record was last updated) using &#39;Yes&#39;, when current and &#39;No&#39; when not.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/no</a> <a href="/composition/Patient-Administration.html#Patient-Administration-4-2-24">Indicator </a>in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented"></p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,3313 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html'>
+Chapter 4 - Order Entry: General, Laboratory, Dietary, Supply, Blood Transfusion
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-1'>
+    4.1  Chapter 4 contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2'>
+    4.2  Purpose
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-1'>
+        4.2.1  Preface (organization of this chapter)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2'>
+        4.2.2  Glossary
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-1'>
+            4.2.2.1  Filler:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-2'>
+            4.2.2.2  Observation segment:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-3'>
+            4.2.2.3  Order:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-4'>
+            4.2.2.4  Order detail segment:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-5'>
+            4.2.2.5  Placer:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-6'>
+            4.2.2.6  Placer order group:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-2-7'>
+            4.2.2.7  Order Number:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-3'>
+    4.3  Quantity/Timing (TQ) Data Type Definition
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4'>
+    4.4  General Trigger Events & Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-1'>
+        4.4.1  ORM – general order message
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-2'>
+        4.4.2  ORR – general order response message response to any ORM
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-3'>
+        4.4.3  OSQ/OSR- query response for order
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-4'>
+        4.4.4  OMG – general clinical order message (event O19)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-5'>
+        4.4.5  ORG – general clinical order acknowledgement message (event O20)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-6'>
+        4.4.6  OML – laboratory order message (event O21)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-7'>
+        4.4.7  ORL – general laboratory order response message to any OML
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-7-1'>
+            4.4.7.1  Patient Segments Required
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-7-2'>
+            4.4.7.2  Patient Segments Optional
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-8'>
+        4.4.8  OML – Laboratory order for multiple orders related to a single specimen (event O33)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-9'>
+        4.4.9  ORL – Laboratory order response message to a multiple order related to single specimen OML (Event O34 and O54)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-9-1'>
+            4.4.9.1  Patient Segments Required
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-9-2'>
+            4.4.9.2  Patient Segments Optional
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-10'>
+        4.4.10  OML – Laboratory order for multiple orders related to a single container of a specimen (event O35)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-11'>
+        4.4.11  ORL – Laboratory order response message to a single container of a specimen OML(Event O36 and O55)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-11-1'>
+            4.4.11.1  Patient Segments Required
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-11-2'>
+            4.4.11.2  Patient Segments Optional
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-12'>
+        4.4.12  OML – Specimen shipment centric laboratory order (event O39)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-13'>
+        4.4.13  ORL – Specimen shipment centric laboratory order response message to specimen shipment OML(Event O40 and O56)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-13-1'>
+            4.4.13.1  Patient Segments Required
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-13-2'>
+            4.4.13.2  Patient Segments Optional
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-14'>
+        4.4.14  OMI – Imaging Order Message (Event O23)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-15'>
+        4.4.15  ORI – Imaging Order Response Message to Any OMI (Event O24)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-16'>
+        4.4.16  OPL – Population/Location-Based Laboratory Order Message (Event O37)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-17'>
+        4.4.17  OPR – Population/Location-Based Laboratory Order Acknowledgment Message (Event O38)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-18'>
+        4.4.18  OSU - Order Status Update (Event O51)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-19'>
+        4.4.19  OSU – Order Status Update Acknowledgement (Event O52)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-20'>
+        4.4.20  OMQ – General Order Message with Document Payload (Event O57)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-21'>
+        4.4.21  ORX – General Order Message with Document Payload Acknowledgement Message (Event O58)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-4-22'>
+        4.4.22  OML – Laboratory Result Interpretation Request Message (Event O59)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5'>
+    4.5  General Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1'>
+        4.5.1  ORC – Common Order Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-1'>
+            4.5.1.1  ORC-1   Order Control   (ID)   00215
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-2'>
+            4.5.1.2  ORC-2   Placer Order Number   (EI)   00216
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-3'>
+            4.5.1.3  ORC-3   Filler Order Number   (EI)   00217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-4'>
+            4.5.1.4  ORC-4   Placer Order Group Number   (EI)   00218
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-5'>
+            4.5.1.5  ORC-5   Order Status   (ID)   00219
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-6'>
+            4.5.1.6  ORC-6   Response Flag   (ID)   00220
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-7'>
+            4.5.1.7  ORC-7   Quantity/Timing
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-8'>
+            4.5.1.8  ORC-8   Parent Order   (EIP)   00222
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-9'>
+            4.5.1.9  ORC-9   Date/Time of Order Event   (DTM)   00223
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-10'>
+            4.5.1.10  ORC-10   Entered By   (XCN)   00224
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-11'>
+            4.5.1.11  ORC-11   Verified By   (XCN)   00225
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-12'>
+            4.5.1.12  ORC-12   Ordering Provider   (XCN)   00226
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-13'>
+            4.5.1.13  ORC-13   Enterer's Location   (PL)   00227
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-14'>
+            4.5.1.14  ORC-14   Call Back Phone Number   (XTN)   00228
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-15'>
+            4.5.1.15  ORC-15   Order Effective Date/Time   (DTM)   00229
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-16'>
+            4.5.1.16  ORC-16   Order Control Code Reason   (CWE)   00230
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-17'>
+            4.5.1.17  ORC-17   Entering Organization   (CWE)   00231
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-18'>
+            4.5.1.18  ORC-18   Entering Device   (CWE)   00232
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-19'>
+            4.5.1.19  ORC-19   Action By   (XCN)   00233
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-20'>
+            4.5.1.20  ORC-20   Advanced Beneficiary Notice Code   (CWE)   01310
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-21'>
+            4.5.1.21  ORC-21   Ordering Facility Name   (XON)   01311
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-22'>
+            4.5.1.22  ORC-22   Ordering Facility Address   (XAD)   01312
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-23'>
+            4.5.1.23  ORC-23   Ordering Facility Phone Number   (XTN)   01313
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-24'>
+            4.5.1.24  ORC-24   Ordering Provider Address   (XAD)   01314
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-25'>
+            4.5.1.25  ORC-25   Order Status Modifier   (CWE)   01473
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-26'>
+            4.5.1.26  ORC-26   Advanced Beneficiary Notice Override Reason   (CWE)   01641
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-27'>
+            4.5.1.27  ORC-27   Filler's Expected Availability Date/Time   (DTM)   01642
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-28'>
+            4.5.1.28  ORC-28   Confidentiality Code   (CWE)   00615
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-29'>
+            4.5.1.29  ORC-29   Order Type   (CWE)   01643
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-30'>
+            4.5.1.30  ORC-30   Enterer Authorization Mode   (CNE)   01644
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-31'>
+            4.5.1.31  ORC-31   Parent Universal Service Identifier   (CWE)   02287
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-32'>
+            4.5.1.32  ORC-32   Advanced Beneficiary Notice Date   (DT)   02301
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-33'>
+            4.5.1.33  ORC-33   Alternate Placer Order Number   (CX)   03300
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-34'>
+            4.5.1.34  ORC-34   Order Workflow Profile   (EI)   03387
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-35'>
+            4.5.1.35  ORC-35   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-36'>
+            4.5.1.36  ORC-36   Order Status Date Range   (DR)   03509
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-37'>
+            4.5.1.37  ORC-37   Order Creation Date/Time   (DTM)   03515
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-38'>
+            4.5.1.38  ORC-38   Filler Order Group Number   (EI)   02482
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-2'>
+        4.5.2  BLG – Billing Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-2-1'>
+            4.5.2.1  BLG-1   When to charge   (CCD)   00234
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-2-2'>
+            4.5.2.2  BLG-2   Charge type   (ID)   00235
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-2-3'>
+            4.5.2.3  BLG-3   Account ID   (CX)   00236
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-2-4'>
+            4.5.2.4  BLG-4   Charge type reason (CWE)    01645
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3'>
+        4.5.3  OBR – Observation Request Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-1'>
+            4.5.3.1  OBR-1   Set ID – OBR   (SI)   00237
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-2'>
+            4.5.3.2  OBR-2   Placer order number   (EI)   00216
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-3'>
+            4.5.3.3  OBR-3   Filler Order Number   (EI)   00217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-4'>
+            4.5.3.4  OBR-4   Universal Service Identifier   (CWE)   00238
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-5'>
+            4.5.3.5  OBR-5   Priority
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-6'>
+            4.5.3.6  OBR-6   Requested Date/Time
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-7'>
+            4.5.3.7  OBR-7   Observation Date/Time   (DTM)   00241
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-8'>
+            4.5.3.8  OBR-8   Observation End Date/Time   (DTM)   00242
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-9'>
+            4.5.3.9  OBR-9   Collection Volume   (CQ)   00243
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-10'>
+            4.5.3.10  OBR-10   Collector Identifier   (XCN)   00244
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-11'>
+            4.5.3.11  OBR-11   Specimen Action Code   (ID)   00245
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-12'>
+            4.5.3.12  OBR-12   Danger Code   (CWE)   00246
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-13'>
+            4.5.3.13  OBR-13   Relevant Clinical Information   (CWE)   00247
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-14'>
+            4.5.3.14  OBR-14   Specimen Received Date/Time
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-15'>
+            4.5.3.15  OBR-15   Specimen Source
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-16'>
+            4.5.3.16  OBR-16   Ordering Provider   (XCN)   00226
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-17'>
+            4.5.3.17  OBR-17   Order Callback Phone Number   (XTN)   00250
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-18'>
+            4.5.3.18  OBR-18   Placer Field 1   (ST)   00251
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-19'>
+            4.5.3.19  OBR-19   Placer Field 2   (ST)   00252
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-20'>
+            4.5.3.20  OBR-20   Filler Field 1   (ST)   00253
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-21'>
+            4.5.3.21  OBR-21   Filler Field 2   (ST)   00254
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-22'>
+            4.5.3.22  OBR-22   Results Rpt/Status Chng – Date/Time   (DTM)   00255
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-23'>
+            4.5.3.23  OBR-23   Charge to Practice   (MOC)   00256
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-24'>
+            4.5.3.24  OBR-24   Diagnostic Serv Sect ID   (ID)   00257
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-25'>
+            4.5.3.25  OBR-25   Result Status   (ID)   00258
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-26'>
+            4.5.3.26  OBR-26   Parent Result   (PRL)   00259
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-27'>
+            4.5.3.27  OBR-27   Quantity/timing
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-28'>
+            4.5.3.28  OBR-28   Result Copies To   (XCN)   00260
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-29'>
+            4.5.3.29  OBR-29   Parent Result Observation Identifier   (EIP)   00261
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-30'>
+            4.5.3.30  OBR-30   Transportation Mode   (ID)   00262
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-31'>
+            4.5.3.31  OBR-31   Reason for Study   (CWE)   00263
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-32'>
+            4.5.3.32  OBR-32   Principal Result Interpreter   (NDL)   00264
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-33'>
+            4.5.3.33  OBR-33   Assistant Result Interpreter   (NDL)   00265
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-34'>
+            4.5.3.34  OBR-34   Technician   (NDL)   00266
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-35'>
+            4.5.3.35  OBR-35   Transcriptionist   (NDL)   00267
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-36'>
+            4.5.3.36  OBR-36   Scheduled Date/Time   (DTM)   00268
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-37'>
+            4.5.3.37  OBR-37   Number of Sample Containers   (NM)   01028
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-38'>
+            4.5.3.38  OBR-38   Transport Logistics of Collected Sample   (CWE)   01029
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-39'>
+            4.5.3.39  OBR-39   Collector's Comment   (CWE)   01030
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-40'>
+            4.5.3.40  OBR-40   Transport Arrangement Responsibility   (CWE)   01031
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-41'>
+            4.5.3.41  OBR-41   Transport Arranged   (ID)   01032
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-42'>
+            4.5.3.42  OBR-42   Escort Required   (ID)   01033
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-43'>
+            4.5.3.43  OBR-43   Planned Patient Transport Comment   (CWE)   01034
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-44'>
+            4.5.3.44  OBR-44   Procedure Code   (CNE)   00393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-45'>
+            4.5.3.45  OBR-45   Procedure Code Modifier   (CNE)   01316
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-46'>
+            4.5.3.46  OBR-46   Placer Supplemental Service Information   (CWE)   01474
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-47'>
+            4.5.3.47  OBR-47   Filler Supplemental Service Information   (CWE)   01475
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-48'>
+            4.5.3.48  OBR-48   Medically Necessary Duplicate Procedure Reason   (CWE)   01646
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-49'>
+            4.5.3.49  OBR-49   Result Handling   (CWE)   01647
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-50'>
+            4.5.3.50  OBR-50   Parent Universal Service Identifier   (CWE)   02286
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-51'>
+            4.5.3.51  OBR-51   Observation Group ID   (EI)   02307
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-52'>
+            4.5.3.52  OBR-52   Parent Observation Group ID    (EI)   02308
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-53'>
+            4.5.3.53  OBR-53   Alternate Placer Order Number   (CX)   03303
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-54'>
+            4.5.3.54  OBR-54 Parent Order (EIP)  00222
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-55'>
+            4.5.3.55  OBR-55   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4'>
+        4.5.4  TQ1 – Timing/Quantity Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-1'>
+            4.5.4.1  TQ1-1   Set ID - TQ1   (SI)   01627
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-2'>
+            4.5.4.2  TQ1-2   Quantity   (CQ)   01628
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-3'>
+            4.5.4.3  TQ1-3   Repeat Pattern   (RPT)   01629
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-4'>
+            4.5.4.4  TQ1-4   Explicit Time   (TM)   01630
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-5'>
+            4.5.4.5  TQ1-5   Relative Time and Units   (CQ)   01631
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-6'>
+            4.5.4.6  TQ1-6   Service Duration   (CQ)   01632
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-7'>
+            4.5.4.7  TQ1-7   Start Date/Time   (DTM)   01633
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-8'>
+            4.5.4.8  TQ1-8   End Date/Time   (DTM)   01634
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-9'>
+            4.5.4.9  TQ1-9   Priority   (CWE)   01635
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-10'>
+            4.5.4.10  TQ1-10   Condition Text   (TX)   01636
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-11'>
+            4.5.4.11  TQ1-11   Text Instruction   (TX)   01637
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-12'>
+            4.5.4.12  TQ1-12   Conjunction   (ID)   01638
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-13'>
+            4.5.4.13  TQ1-13   Occurrence Duration   (CQ)   01639
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4-14'>
+            4.5.4.14  TQ1-14   Total Occurrences   (NM)   01640
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5'>
+        4.5.5  TQ2 – Timing/Quantity Relationship Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-1'>
+            4.5.5.1  TQ2-1   Set ID – TQ2   (SI)   01648
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-2'>
+            4.5.5.2  TQ2-2   Sequence/Results Flag   (ID)   01649
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-3'>
+            4.5.5.3  TQ2-3   Related Placer Number   (EI)   01650
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-4'>
+            4.5.5.4  TQ2-4   Related Filler Number   (EI)   01651
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-5'>
+            4.5.5.5  TQ2-5   Related Placer Group Number   (EI)   01652
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-6'>
+            4.5.5.6  TQ2-6   Sequence Condition Code   (ID)   01653
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-7'>
+            4.5.5.7  TQ2-7   Cyclic Entry/Exit Indicator   (ID)   01654
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-8'>
+            4.5.5.8  TQ2-8   Sequence Condition Time Interval   (CQ)   01655
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-9'>
+            4.5.5.9  TQ2-9   Cyclic Group Maximum Number of Repeats   (NM)   01656
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5-10'>
+            4.5.5.10  TQ2-10   Special Service Request Relationship   (ID)   01657
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6'>
+        4.5.6  IPC – Imaging Procedure Control Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-1'>
+            4.5.6.1  IPC-1   Accession Identifier   (EI)   01330
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-2'>
+            4.5.6.2  IPC-2   Requested Procedure ID   (EI)   01658
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-3'>
+            4.5.6.3  IPC-3   Study Instance UID   (EI)   01659
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-4'>
+            4.5.6.4  IPC-4   Scheduled Procedure Step ID   (EI)   01660
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-5'>
+            4.5.6.5  IPC-5   Modality   (CWE)   01661
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-6'>
+            4.5.6.6  IPC-6   Protocol Code   (CWE)   01662
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-7'>
+            4.5.6.7  IPC-7   Scheduled Station Name   (EI)   01663
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-8'>
+            4.5.6.8  IPC-8   Scheduled Procedure Step Location   (CWE)   01664
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-9'>
+            4.5.6.9  IPC-9   Scheduled Station AE Title   (ST)   01665
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-6-10'>
+            4.5.6.10  IPC-10   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-6'>
+    4.6  General Message Examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-6-1'>
+        4.6.1  An order replaced by three orders
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-6-2'>
+        4.6.2  Ordering non-medical services
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-6-2-1'>
+            4.6.2.1  Examples
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-7'>
+    4.7  Diet Trigger Events & Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-7-1'>
+        4.7.1  OMD - Dietary Order (Event O03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-7-2'>
+        4.7.2  ORD - dietary order acknowledgment (Event O04)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8'>
+    4.8  Diet Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-1'>
+        4.8.1  ODS - dietary orders, supplements, and preferences segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-1-1'>
+            4.8.1.1  ODS-1   Type   (ID)   00269
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-1-2'>
+            4.8.1.2  ODS-2   Service Period   (CWE)   00270
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-1-3'>
+            4.8.1.3  ODS-3   Diet, Supplement, or Preference Code   (CWE)   00271
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-1-4'>
+            4.8.1.4  ODS-4   Text Instruction   (ST)   00272
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-2'>
+        4.8.2  ODT - diet tray instructions segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-2-1'>
+            4.8.2.1  ODT-1   Tray Type   (CWE)   00273
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-2-2'>
+            4.8.2.2  ODT-2   Service period   (CWE)   00270
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-8-2-3'>
+            4.8.2.3  ODT-3   Text Instruction   (ST)   00272
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-9'>
+    4.9  Diet Message Examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-9-1'>
+        4.9.1  Typical progression of orders for a surgery patient
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-9-2'>
+        4.9.2  Complex order
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-9-3'>
+        4.9.3  Tube feeding
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-9-4'>
+        4.9.4  Patient preference
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-10'>
+    4.10  Supply Trigger Events & Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-10-1'>
+        4.10.1  OMS - stock requisition order message (event O05)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-10-2'>
+        4.10.2  ORS - stock requisition order acknowledgment message (event O06)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-10-3'>
+        4.10.3  OMN - non-stock requisition order message (event O07)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-10-4'>
+        4.10.4  ORN - non-stock requisition order acknowledgment message (event O08)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11'>
+    4.11  Supply Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1'>
+        4.11.1  RQD - Requisition Detail Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-1'>
+            4.11.1.1  RQD-1   Requisition Line Number   (SI)   00275
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-2'>
+            4.11.1.2  RQD-2   Item Code - Internal   (CWE)   00276
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-3'>
+            4.11.1.3  RQD-3   Item Code - External   (CWE)   00277
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-4'>
+            4.11.1.4  RQD-4   Hospital Item Code   (CWE)   00278
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-5'>
+            4.11.1.5  RQD-5   Requisition Quantity   (NM)   00279
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-6'>
+            4.11.1.6  RQD-6   Requisition Unit of Measure   (CWE)   00280
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-7'>
+            4.11.1.7  RQD-7   Cost Center Account Number   (CX)   00281
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-8'>
+            4.11.1.8  RQD-8   Item Natural Account Code   (CWE)   00282
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-9'>
+            4.11.1.9  RQD-9   Deliver to ID   (CWE)   00283
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-1-10'>
+            4.11.1.10  RQD-10   Date Needed   (DT)   00284
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2'>
+        4.11.2  RQ1 - Requisition Detail-1 Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-1'>
+            4.11.2.1  RQ1-1   Anticipated Price   (ST)   00285
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-2'>
+            4.11.2.2  RQ1-2   Manufacturer Identifier   (CWE)   00286
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-3'>
+            4.11.2.3  RQ1-3   Manufacturer's Catalog   (ST)   00287
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-4'>
+            4.11.2.4  RQ1-4   Vendor ID   (CWE)   00288
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-5'>
+            4.11.2.5  RQ1-5   Vendor Catalog   (ST)   00289
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-6'>
+            4.11.2.6  RQ1-6   Taxable   (ID)   00290
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-11-2-7'>
+            4.11.2.7  RQ1-7   Substitute Allowed   (ID)   00291
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-12'>
+    4.12  Supply Message Examples
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-12-1'>
+        4.12.1  Patient order
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-12-2'>
+        4.12.2  Replenish Supply Closet
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13'>
+    4.13  Transfusion Service (Blood Bank) Trigger Events & Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-1'>
+        4.13.1  Usage notes for transfusion service messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-2'>
+        4.13.2  OMB – Blood Product Order Message (Event O27)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-2-1'>
+            4.13.2.1  OMB use notes
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-3'>
+        4.13.3  ORB – Blood Product Order Acknowledgment (Event O28)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-4'>
+        4.13.4  BPS – Blood Product Dispense Status Message (Event O29)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-5'>
+        4.13.5  BRP – Blood Product Dispense Status Acknowledgment (Event O30)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-6'>
+        4.13.6  BTS – Blood Product Transfusion/Disposition Message (Event O31)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-13-7'>
+        4.13.7  BRT – Blood Product Transfusion/Disposition Acknowledgment (Event O32)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14'>
+    4.14  Transfusion Service (Blood Bank) Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1'>
+        4.14.1  BPO – Blood Product Order Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-1'>
+            4.14.1.1  BPO-1   Set ID – BPO   (SI)   01700
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-2'>
+            4.14.1.2  BPO-2   BP Universal Service Identifier   (CWE)   01701
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-3'>
+            4.14.1.3  BPO-3   BP Processing Requirements   (CWE)   01702
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-4'>
+            4.14.1.4  BPO-4   BP Quantity   (NM)   01703
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-5'>
+            4.14.1.5  BPO-5   BP Amount   (NM)   01704
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-6'>
+            4.14.1.6  BPO-6   BP Units   (CWE)   01705
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-7'>
+            4.14.1.7  BPO-7   BP Intended Use Date/Time   (DTM)   01706
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-8'>
+            4.14.1.8  BPO-8   BP Intended Dispense From Location   (PL)   01707
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-9'>
+            4.14.1.9  BPO-9   BP Intended Dispense From Address   (XAD)   01708
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-10'>
+            4.14.1.10  BPO-10   BP Requested Dispense Date/Time   (DTM)   01709
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-11'>
+            4.14.1.11  BPO-11   BP Requested Dispense to Location   (PL)   01710
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-12'>
+            4.14.1.12  BPO-12   BP Requested Dispense to Address   (XAD)   01711
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-13'>
+            4.14.1.13  BPO-13   BP Indication for Use   (CWE)   01712
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-1-14'>
+            4.14.1.14  BPO-14   BP Informed Consent Indicator   (ID)   01713
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2'>
+        4.14.2  BPX – Blood Product Dispense Status Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-1'>
+            4.14.2.1  BPX-1   Set ID – BPX   (SI)   01714
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-2'>
+            4.14.2.2  BPX-2   BP Dispense Status   (CWE)   01715
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-3'>
+            4.14.2.3  BPX-3   BP Status   (ID)   01716
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-4'>
+            4.14.2.4  BPX-4   BP Date/Time of Status   (DTM)   01717
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-5'>
+            4.14.2.5  BPX-5   BC Donation ID   (EI)   01718
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-6'>
+            4.14.2.6  BPX-6   BC Component   (CNE)   01719
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-7'>
+            4.14.2.7  BPX-7   BC Donation Type / Intended Use   (CNE)   01720
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-8'>
+            4.14.2.8  BPX-8   CP Commercial Product   (CWE)   01721
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-9'>
+            4.14.2.9  BPX-9   CP Manufacturer   (XON)   01722
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-10'>
+            4.14.2.10  BPX-10   CP Lot Number   (EI)   01723
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-11'>
+            4.14.2.11  BPX-11   BP Blood Group   (CNE)   01724
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-12'>
+            4.14.2.12  BPX-12   BC Special Testing   (CNE)   01725
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-13'>
+            4.14.2.13  BPX-13   BP Expiration Date/Time   (DTM)   01726
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-14'>
+            4.14.2.14  BPX-14   BP Quantity   (NM)   01727
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-15'>
+            4.14.2.15  BPX-15   BP Amount   (NM)   01728
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-16'>
+            4.14.2.16  BPX-16   BP Units   (CWE)   01729
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-17'>
+            4.14.2.17  BPX-17   BP Unique ID   (EI)   01730
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-18'>
+            4.14.2.18  BPX-18   BP Actual Dispensed to Location   (PL)   01731
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-19'>
+            4.14.2.19  BPX-19   BP Actual Dispensed to Address   (XAD)   01732
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-20'>
+            4.14.2.20  BPX-20   BP Dispensed to Receiver   (XCN)   01733
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-21'>
+            4.14.2.21  BPX-21   BP Dispensing Individual   (XCN)   01734
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-2-22'>
+            4.14.2.22  BPX-22   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3'>
+        4.14.3  BTX – Blood Product Transfusion/Disposition Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-1'>
+            4.14.3.1  BTX-1   Set ID – BTX   (SI)   01735
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-2'>
+            4.14.3.2  BTX-2   BC Donation ID   (EI)   01736
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-3'>
+            4.14.3.3  BTX-3   BC Component   (CNE)   01737
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-4'>
+            4.14.3.4  BTX-4   BC Blood Group   (CNE)   01738
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-5'>
+            4.14.3.5  BTX-5   CP Commercial Product   (CWE)   01739
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-6'>
+            4.14.3.6  BTX-6 CP Manufacturer   (XON)   01740
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-7'>
+            4.14.3.7  BTX-7 CP Lot Number   (EI)   01741
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-8'>
+            4.14.3.8  BTX-8   BP Quantity   (NM)   01742
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-9'>
+            4.14.3.9  BTX-9   BP Amount   (NM)   01743
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-10'>
+            4.14.3.10  BTX-10   BP Units   (CWE)   01744
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-11'>
+            4.14.3.11  BTX-11   BP Transfusion/Disposition Status   (CWE)   01745
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-12'>
+            4.14.3.12  BTX-12   BP Message Status   (ID)   01746
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-13'>
+            4.14.3.13  BTX-13   BP Date/Time of Status   (DTM)   01747
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-14'>
+            4.14.3.14  BTX-14   BP Transfusion Administrator   (XCN)   01748
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-15'>
+            4.14.3.15  BTX-15   BP Transfusion Verifier   (XCN)   01749
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-16'>
+            4.14.3.16  BTX-16   BP Transfusion Start Date/Time of Status   (DTM)   01750
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-17'>
+            4.14.3.17  BTX-17   BP Transfusion End Date/Time of Status   (DTM)   01751
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-18'>
+            4.14.3.18  BTX-18   BP Adverse Reaction Type   (CWE)   01752
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-19'>
+            4.14.3.19  BTX-19   BP Transfusion Interrupted Reason   (CWE)   01753
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-20'>
+            4.14.3.20  BTX-20   BP Unique ID   (EI)   03391
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-14-3-21'>
+            4.14.3.21  BTX-21   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-15'>
+    4.15  Transfusion Service (Blood Bank) Transaction Flow Diagram
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16'>
+    4.16  Donation Service (Blood Bank) Trigger Events and Messages
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-1'>
+        4.16.1  Usage Notes for Donation Service (Blood Bank)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-2'>
+        4.16.2  Activity Diagram
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3'>
+        4.16.3  Actors
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-1'>
+            4.16.3.1  Ordering Provider
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-2'>
+            4.16.3.2  Registration System
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-3'>
+            4.16.3.3  Donor book of record System
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-4'>
+            4.16.3.4  Mini-physical System
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-5'>
+            4.16.3.5  Questionnaire System
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-6'>
+            4.16.3.6  Donation System
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-7'>
+            4.16.3.7  Device Interfaces
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-8'>
+            4.16.3.8  Provider Master
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-3-9'>
+            4.16.3.9  Shipping System
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-4'>
+        4.16.4  DBC - Create Donor Record Message (Event O41 )
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-5'>
+        4.16.5  DBU - Update Donor Record Message (Event O42)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-6'>
+        4.16.6  QBP - Get Donor Record Candidates (Event Q33)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-7'>
+        4.16.7  RSP - Get Donor Record Candidates Response (Event K33)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-8'>
+        4.16.8  QBP - Get Donor Record (Event Q34)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-9'>
+        4.16.9  RSP - Get Donor Record Response (Event K34)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-10'>
+        4.16.10  DRG - Donor Registration (Event O43)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-11'>
+        4.16.11  DER - Donor Eligibility Request (Event O44)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-12'>
+        4.16.12  DEO - Donor Eligibility Observations (Event O45)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-13'>
+        4.16.13  DEL - Donor Eligibility (Event O46)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-14'>
+        4.16.14  DRC - Donor Request to Collect (Event O47)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-16-15'>
+        4.16.15  DPR - Donation Procedure (Event O48)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17'>
+    4.17  Donation Service (Blood Bank) Segments
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1'>
+        4.17.1  DON – Donation Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-1'>
+            4.17.1.1  DON-1 Donation Identification Number - DIN   (EI)   03340
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-2'>
+            4.17.1.2  DON-2 Donation Type   (CNE)   03341
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-3'>
+            4.17.1.3  DON-3 Phlebotomy Start Date/Time   (DTM)   03342
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-4'>
+            4.17.1.4  DON-4 Phlebotomy End Date/Time   (DTM)   03343
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-5'>
+            4.17.1.5  DON-5 Donation Duration   (NM)   03344
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-6'>
+            4.17.1.6  DON-6 Donation Duration Units   (CNE)   03345
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-7'>
+            4.17.1.7  DON-7 Intended Procedure Type   (CNE)   03346
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-8'>
+            4.17.1.8  DON-8 Actual Procedure Type   (CNE)   03347
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-9'>
+            4.17.1.9  DON-9 Donor Eligibility Flag   (ID)   03348
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-10'>
+            4.17.1.10  DON-10 Donor Eligibility Procedure Type   (CNE)   03349
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-11'>
+            4.17.1.11  DON-11 Donor Eligibility Date   (DTM)   03350
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-12'>
+            4.17.1.12  DON-12 Process Interruption   (CNE)    03351
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-13'>
+            4.17.1.13  DON-13 - Process Interruption Reason   (CNE)   03352
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-14'>
+            4.17.1.14  DON-14 Phlebotomy Issue   (CNE)   03353
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-15'>
+            4.17.1.15  DON-15 Intended Recipient Blood Relative   (ID)   03354
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-16'>
+            4.17.1.16  DON-16 Intended Recipient Name   (XPN)   03355
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-17'>
+            4.17.1.17  DON-17 Intended Recipient DOB   (DTM)   03356
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-18'>
+            4.17.1.18  DON-18 Intended Recipient Facility   (XON)   03357
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-19'>
+            4.17.1.19  DON-19 Intended Recipient Procedure Date   (DTM)   03358
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-20'>
+            4.17.1.20  DON-20 Intended Recipient Ordering Provider   (XPN)   03359
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-21'>
+            4.17.1.21  DON-21 Phlebotomy Status   (CNE)   03360
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-22'>
+            4.17.1.22  DON-22 Arm Stick   (CWE)   03361
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-23'>
+            4.17.1.23  DON-23 Bleed Start Phlebotomist   (XPN)   03362
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-24'>
+            4.17.1.24  DON-24 Bleed End Phlebotomist   (XPN)    03363
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-25'>
+            4.17.1.25  DON-25 Aphaeresis Type Machine   (ST)   03364
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-26'>
+            4.17.1.26  DON-26 Aphaeresis Machine Serial Number   (ST)   03365
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-27'>
+            4.17.1.27  DON-27 Donor Reaction   (ID)   03366
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-28'>
+            4.17.1.28  DON-28 Final Review Staff ID   (XPN)   03367
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-29'>
+            4.17.1.29  DON-29 Final Review Date/Time   (DTM)   03368
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-30'>
+            4.17.1.30  DON-30 Number of Tubes Collected   (NM)   03369
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-31'>
+            4.17.1.31  DON-31 Donation Sample Identifier   (EI)   03370
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-32'>
+            4.17.1.32  DON-32 Donation Accept Staff   (XCN)   03371
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-33'>
+            4.17.1.33  DON-33 Donation Material Review Staff   (XCN)   03372
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-1-34'>
+            4.17.1.34  DON-34   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2'>
+        4.17.2  BUI – Blood Unit information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-1'>
+            4.17.2.1  BUI-1 Set ID   (SI)   03373
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-2'>
+            4.17.2.2  BUI-2 Blood Unit Identifier   (EI)   03374
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-3'>
+            4.17.2.3  BUI-3 Blood Unit Type   (CWE)   03375
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-4'>
+            4.17.2.4  BUI-4 Blood Unit Weight   (NM)   03376
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-5'>
+            4.17.2.5  BUI-5 Weight Units   (CNE)   03377
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-6'>
+            4.17.2.6  BUI-6 Blood Unit Volume   (NM)   03378
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-7'>
+            4.17.2.7  BUI-7 Volume Units   (CNE)   03379
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-8'>
+            4.17.2.8  BUI-8 Container Catalog Number   (ST)   03380
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-9'>
+            4.17.2.9  BUI-9 Container Lot Number   (ST)   03381
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-10'>
+            4.17.2.10  BUI-10 Container Manufacturer   (XON)   03382
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-11'>
+            4.17.2.11  BUI-11 Transport Temperature   (NR)   03383
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-12'>
+            4.17.2.12  BUI-12 Transport Temperature Units (CNE)   03384
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-17-2-13'>
+            4.17.2.13  BUI-13   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-18'>
+    4.18  TABLES LISTINGS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-18-1'>
+        4.18.1  Figure 4-8   Associations between Order Control Codes and Trigger Events
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-19'>
+    4.19  OUTSTANDING ISSUES
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

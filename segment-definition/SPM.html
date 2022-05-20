@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+SPM - Specimen Segment
+</h3>
+<p class="v2 v2-normalindented">The intent of this segment is to describe the characteristics of a specimen. It differs from the intent of the OBR in that the OBR addresses order-specific information. It differs from the SAC segment in that the SAC addresses specimen container attributes.  An advantage afforded by a separate specimen segment is that it generalizes the multiple relationships among order(s), results, specimen(s) and specimen container(s).</p><p class="v2 v2-normalindented">A specimen is defined as &quot;A physical entity that is an individual, a group, an item, or a part representative of a larger group, class or whole that is the target of an observation or analysis for the purpose of drawing conclusions about the group, class, or whole.&quot; Note that any physical entity in the universe has the potential to become a specimen</p><p class="v2 v2-normalindented">A specimen is collected or obtained from a source and may be representative of the source, or may represent a deviation within the source. A specimen may be wholly or partially consumed during an observation and any remaining portion of the specimen is persistent and can be stored.</p><p class="v2 v2-normalindented">This segment may also be used in limited cases to describe a &quot;virtual&quot; specimen.  In particular, to identify the characteristics required for a specimen in the context of a specific observation or test.</p><p class="v2 v2-normalindented">In summary, SPM represents the attributes specific and unique to a specimen.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - SPM - Specimen Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+SPM
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - SPM
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-1'>
+01754
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Specimen Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-2'>
+01755
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Specimen Parent IDs
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-3'>
+01756
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Specimen Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0487-Specimen-Type.html' title='Specimen Type(Required)'>
+0487(R)
+<span class='vocab-link-text'>Specimen Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#SPM-4'>
+01900
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Specimen Type Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0541-Specimen-Type-Modifier.html' title='Specimen Type Modifier'>
+0541
+<span class='vocab-link-text'>Specimen Type Modifier</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-5'>
+01757
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Specimen Additives
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0371-Additive/Preservative.html' title='Additive/Preservative(Required)'>
+0371(R)
+<span class='vocab-link-text'>Additive/Preservative(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-6'>
+01758
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Specimen Collection Method
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0488-Specimen-Collection-Method.html' title='Specimen Collection Method(Required)'>
+0488(R)
+<span class='vocab-link-text'>Specimen Collection Method(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-7'>
+01759
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Specimen Source Site
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0784-ERROR! Bad Data! FIXME.html'>
+0784
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-8'>
+01901
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Specimen Source Site Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0542-Specimen-Source-Type-Modifier.html' title='Specimen Source Type Modifier'>
+0542
+<span class='vocab-link-text'>Specimen Source Type Modifier</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-9'>
+01760
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Specimen Collection Site
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0543-Specimen-Collection-Site.html' title='Specimen Collection Site'>
+0543
+<span class='vocab-link-text'>Specimen Collection Site</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-10'>
+01761
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Specimen Role
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0369-Specimen-Role.html' title='Specimen Role(Suggested)'>
+0369(S)
+<span class='vocab-link-text'>Specimen Role(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-11'>
+01762
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Specimen Collection Amount
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-12'>
+01902
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Grouped Specimen Count
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-13'>
+01763
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+6
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Specimen Description
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-14'>
+01764
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Specimen Handling Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0376-Special-Handling-Code.html' title='Special Handling Code(Suggested)'>
+0376(S)
+<span class='vocab-link-text'>Special Handling Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-15'>
+01908
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Specimen Risk Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0489-Risk-Codes.html' title='Risk Codes'>
+0489
+<span class='vocab-link-text'>Risk Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-16'>
+01903
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Specimen Collection Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DR.html'>
+DR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-17'>
+01765
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Specimen Received Date/Time *
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-18'>
+00248
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Specimen Expiration Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-19'>
+01904
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Specimen Availability
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-20'>
+01766
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Specimen Reject Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0490-Specimen-Reject-Reason.html' title='Specimen Reject Reason(Required)'>
+0490(R)
+<span class='vocab-link-text'>Specimen Reject Reason(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-21'>
+01767
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Specimen Quality
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0491-Specimen-Quality.html' title='Specimen Quality'>
+0491
+<span class='vocab-link-text'>Specimen Quality</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-22'>
+01768
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Specimen Appropriateness
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0492-Specimen-Appropriateness.html' title='Specimen Appropriateness'>
+0492
+<span class='vocab-link-text'>Specimen Appropriateness</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-23'>
+01769
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Specimen Condition
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0493-Specimen-Condition.html' title='Specimen Condition'>
+0493
+<span class='vocab-link-text'>Specimen Condition</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-24'>
+01770
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Specimen Current Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-25'>
+01771
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Number of Specimen Containers
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-26'>
+01772
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Container Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0785-ERROR! Bad Data! FIXME.html'>
+0785
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-27'>
+01773
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Container Condition
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0544-Container-Condition.html' title='Container Condition(Suggested)'>
+0544(S)
+<span class='vocab-link-text'>Container Condition(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-28'>
+01774
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Specimen Child Role
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0494-Specimen-Child-Role.html' title='Specimen Child Role(Required)'>
+0494(R)
+<span class='vocab-link-text'>Specimen Child Role(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-29'>
+01775
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Accession ID
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-30'>
+02314
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Other Specimen ID
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SPM-31'>
+02315
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Shipment ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-32'>
+02316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Culture Start Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-33'>
+03485
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Culture Final Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-34'>
+03486
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+35
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SPM-35'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='SPM-1'>
+SPM-1: Set ID - SPM (<a href='/data-type/SI.html'>SI</a>) 01754
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the sequence number.  This field is used to identify SPM segment instances in message structures where the SPM segment repeats.</p>
+
+<h4 class='v2' id='SPM-2'>
+SPM-2: Specimen Identifier (<a href='/data-type/EIP.html'>EIP</a>) 01755
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the specimen as referenced by the Placer application, the Filler application, or both.</p><p class="v2 v2-normalindented">This field is not required, as there are use cases in which a unique specimen identifier may not exist.  In the first scenario, a placer application may initiate an observation request against an existing specimen without uniquely identifying the specimen.  Additionally, in the case of the TCU_U10 message structure, used in Automated equipment test code settings messages, the SPM segment is used to define required characteristics of the specimen.  As such, TCU_U10 uses SPM to define a virtual specimen, and a specific specimen identifier would not exist.  Filler applications would be expected to assign a Specimen Identifier and populate this field accordingly. </p>
+
+<h4 class='v2' id='SPM-3'>
+SPM-3: Specimen Parent IDs (<a href='/data-type/EIP.html'>EIP</a>) 01756
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifiers for the specimen or specimens that contributed to the specimen that is described by the segment instance.</p><p class="v2 v2-normalindented">If this field repeats, then <a href="/segment-definition/SPM.html#SPM-11">SPM-11-Specimen Role</a> should be valued with &quot;L&quot; (pooled).  The repetitions of this field then carry the specimen IDs of the parent specimens contributing to the pool. </p>
+
+<h4 class='v2' id='SPM-4'>
+SPM-4: Specimen Type (<a href='/data-type/CWE.html'>CWE</a>) 01900
+</h4>
+<p class="v2 v2-normalindented">Definition: This field describes the precise nature of the entity that will be the source material for the observation.</p><p class="v2 v2-normalindented">Any physical entity that may have observations made about it may qualify as a specimen.  The entry in this attribute describes the specific entity as precisely as possible, whether that is a complex organism (e.g., an ostrich) or a specific cellular mass (e.g., a specific muscle biopsy).</p><p class="v2 v2-normalindented">A nationally recognized coding system is to be used for this field. Valid coding sources for this field include:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets"><a href="https://www.hl7.org/fhir/v2/0487/index.html">HL7 Table 0487 – Specimen Type</a><span class="v2-normal-indented-char"> (replaces </span><a href="https://www.hl7.org/fhir/v2/0070/index.html">HL7 Table 0070 – Specimen source codes</a><span class="v2-normal-indented-char">)</span></p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">SNOMED, etc. </p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.</p></li></ul>
+
+<h4 class='v2' id='SPM-5'>
+SPM-5: Specimen Type Modifier (<a href='/data-type/CWE.html'>CWE</a>) 01757
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains modifying or qualifying description(s) about the specimen type</p><p class="v2 v2-normalindented">The use of this attribute is to modify, qualify or further specify, the entity described by <a href="/segment-definition/SPM.html#SPM-4">SPM-4 -Specimen Type</a>.  This is particularly useful when the code set used in <a href="/segment-definition/SPM.html#SPM-4">SPM-4-Specimen Type</a> does not provide the precision required to fully describe the specimen.  For example, if the specimen was precisely described as &#39;capillary venous blood&#39; but the code set employed only provided &#39;venous blood,&#39; this attribute could be employed to add the modifier &#39;capillary.&#39;  </p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0541/index.html">User-Defined Table 0541 Specimen Type Modifier</a> for suggested values. </p>
+
+<h4 class='v2' id='SPM-6'>
+SPM-6: Specimen Additives (<a href='/data-type/CWE.html'>CWE</a>) 01758
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies any additives introduced to the specimen before or at the time of collection.  These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen.  Refer to <a href="https://www.hl7.org/fhir/v2/0371/index.html">HL7 Table 0371 – Additive/Preservative</a> for valid values.  When multiple additives are introduced and valid individual additive codes exist but a valid value for the combination does not exist, repeating the field with individual values is most appropriate.</p>
+
+<h4 class='v2' id='SPM-7'>
+SPM-7: Specimen Collection Method (<a href='/data-type/CWE.html'>CWE</a>) 01759
+</h4>
+<p class="v2 v2-normalindented">Definition: Describes the procedure or process by which the specimen was collected. </p><p class="v2 v2-normalindented">Any nationally recognized coding system might be used for this field including SNOMED; alternatively the <a href="https://www.hl7.org/fhir/v2/0488/index.html">HL7 Table 0488 – Specimen Collection Method</a> may be used.   Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.</p>
+
+<h4 class='v2' id='SPM-8'>
+SPM-8: Specimen Source Site (<a href='/data-type/CWE.html'>CWE</a>) 01901
+</h4>
+<p class="v2 v2-normalindented">Definition: specifies the source from which the specimen was obtained.  For example, in the case where a liver biopsy is obtained via a percutaneous needle, the source would be &#39;liver&#39;. Refer to Table 0784 - Specimen Source Site in Chapter 2C for valid values.Any nationally recognized coding system might be used for this field including SNOMED; alternatively the <a href="https://www.hl7.org/fhir/v2/0163/index.html">HL7 Table 0163 – Body Site</a> may be used.   Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.</p>
+
+<h4 class='v2' id='SPM-9'>
+SPM-9: Specimen Source Site Modifier (<a href='/data-type/CWE.html'>CWE</a>) 01760
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains modifying or qualifying description(s) about the specimen source site</p><p class="v2 v2-normalindented">The use of this attribute is to modify, qualify or further specify, the entity described by <a href="/segment-definition/SPM.html#SPM-8">SPM-8 – Specimen Source Site</a>.  This is particularly useful when the code set used in <em>SPM-8</em> does not provide the precision required to fully describe the site from which the specimen originated.  For example, if the specimen source site was precisely described as &#39;left radial vein&#39; but the code set employed only provided &#39;radial vein,&#39; this attribute could be employed to add the modifier &#39;left.&#39;  </p><p class="v2 v2-normalindented">Veterinary medicine may choose the tables supported for the components of this field as decided by their industry. </p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0542/index.html">User-Defined Table 0542 – Specimen Source Type Modifier</a> for suggested values. </p>
+
+<h4 class='v2' id='SPM-10'>
+SPM-10: Specimen Collection Site (<a href='/data-type/CWE.html'>CWE</a>) 01761
+</h4>
+<p class="v2 v2-normalindented">Definition: This field differs from <a href="/segment-definition/SPM.html#SPM-8">SPM-8-Specimen Source Site</a> in those cases where the source site must be approached via a particular site (e.g., anatomic location).  For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle.  For venous blood collected from the left radial vein, the collection site could be &quot;antecubital fossa&quot;.</p><p class="v2 v2-normalindented">Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0543/index.html">User-Defined Table 0543 – Specimen Collection Site</a> for suggested values. </p>
+
+<h4 class='v2' id='SPM-11'>
+SPM-11: Specimen Role (<a href='/data-type/CWE.html'>CWE</a>) 01762
+</h4>
+<p class="v2 v2-normalindented">This field indicates the role of the sample. Refer to <a href="https://www.hl7.org/fhir/v2/0369/index.html">User-defined Table 0369 – Specimen role</a> for suggested values. Each of these values is normally identifiable by the systems and its components and can influence processing and data management related to the specimen.  </p><p class="v2 v2-normalindented">If this field is not populated, then the specimen described has no special, or specific, role other than serving as the focus of the observation.  Such specimens include patient, environmental and other specimens that are intended for analysis.</p><p class="v2 v2-normalindented">A grouped specimen consists of identical specimen types from multiple individuals that do not have individual identifiers and upon which the same services will be performed.  If the specimen role value is &quot;G&quot; then the Grouped Specimen Count (<em>SPM-13</em>) must be valued with the total number of specimens contained in the group.  </p><p class="v2 v2-normalindented">If the specimen role is &quot;L&quot;, the repetitions of Parent Specimen ID (SPM-4) represent the individual parent specimens that contribute to the pooled specimen.</p>
+
+<h4 class='v2' id='SPM-12'>
+SPM-12: Specimen Collection Amount (<a href='/data-type/CQ.html'>CQ</a>) 01902
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the volume or mass of the collected specimen. For laboratory tests, the collection volume is the volume of a specimen. Specifically, units should be expressed in the ISO Standard unit abbreviations (ISO-2955, 1977).  This is a results-only field except when the placer or a party has already drawn the specimen.  Use of UCUM is strongly recommended as one of the delivered units (could be in addition to the local units).  (See Chapter 7 Section 7.4.2.6 for a full discussion regarding units.)</p>
+
+<h4 class='v2' id='SPM-13'>
+SPM-13: Grouped Specimen Count (<a href='/data-type/NM.html'>NM</a>) 01763
+</h4>
+<p class="v2 v2-normalindented">Definition: This field refers to the number of individual specimens of a particular type represented by this instance of a specimen. The use of this field is restricted to specimens upon which all specimen related attributes are identical. This field would only be valued if SPM-11 Specimen Role has the value &quot;G&quot; or “L”.  </p>
+
+<h4 class='v2' id='SPM-14'>
+SPM-14: Specimen Description (<a href='/data-type/ST.html'>ST</a>) 01764
+</h4>
+<p class="v2 v2-normalindented">Definition: This is a text field that allows additional information <strong>specifically about the specimen</strong> to be sent in the message </p>
+
+<h4 class='v2' id='SPM-15'>
+SPM-15: Specimen Handling Code (<a href='/data-type/CWE.html'>CWE</a>) 01908
+</h4>
+<p class="v2 v2-normalindented">Definition: This describes how the specimen and/or container need to be handled from the time of collection through the initiation of testing.  As this field is not required, no assumptions can be made as to meaning when this field is not populated.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0376/index.html">User-defined Table 0376 – Special Handling Code</a> for suggested values.</p>
+
+<h4 class='v2' id='SPM-16'>
+SPM-16: Specimen Risk Code (<a href='/data-type/CWE.html'>CWE</a>) 01903
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains any known or suspected specimen hazards, e.g., exceptionally infectious agent or blood from a hepatitis patient.  Either code and/or text may be absent.  However, the code is always placed in the first component position and any free text in the second component.  Thus, a component delimiter must precede free text without a code.  Refer to <a href="https://www.hl7.org/fhir/v2/0489/index.html">User-defined Table 0489 – Risk Codes</a> for suggested entries</p>
+
+<h4 class='v2' id='SPM-17'>
+SPM-17: Specimen Collection Date/Time (<a href='/data-type/DR.html'>DR</a>) 01765
+</h4>
+<p class="v2 v2-normalindented">Definition: The date and time when the specimen was acquired from the source.  The use of the Date Range data type allows for description of specimens collected over a period of time, for example, 24-hour urine collection.  For specimens collected at a point in time, only the first component (start date/time) will be populated.</p>
+
+<h4 class='v2' id='SPM-18'>
+SPM-18: Specimen Received Date/Time * (<a href='/data-type/DTM.html'>DTM</a>) 00248
+</h4>
+<p class="v2 v2-normalindented">Definition:  The specimen received date/time is the time that the specimen is received at the diagnostic service facility.  The actual time that is recorded is based on how specimen receipt is managed and may correspond to the time the sample is logged in.  This is fundamentally different from <a href="/segment-definition/SPM.html#SPM-17">SPM-17 Specimen Collection date/time</a>. </p>
+
+<h4 class='v2' id='SPM-19'>
+SPM-19: Specimen Expiration Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01904
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is the date and time the specimen can no longer be used for the purpose implied by the order.  For example, in the Blood Banking environment the specimen can no longer be used for pre-transfusion compatibility testing.   The specimen segment will include a <a href="/segment-definition/SPM.html#SPM-21">SPM-21-Specimen Reject Reason</a> of &#39;EX&#39; indicating &#39;Expired&#39; for message instances created after this date and time.</p>
+
+<h4 class='v2' id='SPM-20'>
+SPM-20: Specimen Availability (<a href='/data-type/ID.html'>ID</a>) 01766
+</h4>
+<p class="v2 v2-normalindented">Definition: This describes whether the specimen, as it exists, is currently available to use in an analysis.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator</a> for valid values.</p>
+
+<h4 class='v2' id='SPM-21'>
+SPM-21: Specimen Reject Reason (<a href='/data-type/CWE.html'>CWE</a>) 01767
+</h4>
+<p class="v2 v2-normalindented">Definition: This describes one or more reasons the specimen is rejected for the specified observation/result/analysis.  Refer to <a href="https://www.hl7.org/fhir/v2/0490/index.html">HL7 Table 0490 – Specimen Reject Reason</a> for valid values.</p>
+
+<h4 class='v2' id='SPM-22'>
+SPM-22: Specimen Quality (<a href='/data-type/CWE.html'>CWE</a>) 01768
+</h4>
+<p class="v2 v2-normalindented">Definition: The degree or grade of excellence of the specimen at receipt.  The filler populates this attribute.  Refer to <a href="https://www.hl7.org/fhir/v2/0491/index.html">User-defined Table 0491 – Specimen Quality</a> for suggested entries.</p>
+
+<h4 class='v2' id='SPM-23'>
+SPM-23: Specimen Appropriateness (<a href='/data-type/CWE.html'>CWE</a>) 01769
+</h4>
+<p class="v2 v2-normalindented">Definition: The suitability of the specimen for the particular planned use as determined by the filler.  Refer to <a href="https://www.hl7.org/fhir/v2/0492/index.html">User-defined Table 0492 – Specimen Appropriateness</a> for suggested entries.</p>
+
+<h4 class='v2' id='SPM-24'>
+SPM-24: Specimen Condition (<a href='/data-type/CWE.html'>CWE</a>) 01770
+</h4>
+<p class="v2 v2-normalindented">Definition: A mode or state of being that describes the nature of the specimen.  Refer to <a href="https://www.hl7.org/fhir/v2/0493/index.html">User-defined Table 0493 – Specimen Condition</a> for suggested entries.</p>
+
+<h4 class='v2' id='SPM-25'>
+SPM-25: Specimen Current Quantity (<a href='/data-type/CQ.html'>CQ</a>) 01771
+</h4>
+<p class="v2 v2-normalindented">Definition: This attributes contains the amount of specimen that currently exists or is available for use in further testing.</p>
+
+<h4 class='v2' id='SPM-26'>
+SPM-26: Number of Specimen Containers (<a href='/data-type/NM.html'>NM</a>) 01772
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the number of containers for a given sample.  For sample receipt verification purposes; may be different from the total number of samples that accompany the order.</p>
+
+<h4 class='v2' id='SPM-27'>
+SPM-27: Container Type (<a href='/data-type/CWE.html'>CWE</a>) 01773
+</h4>
+<p class="v2 v2-normalindented">Definition: The container in or on which a specimen is transported. Refer to Table 0785 - Container Type  in Chapter 2C for valid values.</p><div class="v2-note"><p class="v2 v2-indent720"><strong>Note:</strong>  &#160;&#160;&#160;&#160;If the container type is categorized (e.g., FBT (false-bottom-tube), Cup, …), the specific codes should be transferred in the SPM-27 field &quot;Container Type&quot;. If the container is characterized by dimensions and other characteristics this information should be transferred as specific values in the SAC segment (fields: SAC-16 … SAC-21).</p></div><br/>
+
+<h4 class='v2' id='SPM-28'>
+SPM-28: Container Condition (<a href='/data-type/CWE.html'>CWE</a>) 01774
+</h4>
+<p class="v2 v2-normalindented">Definition: In chain of custody cases where specimens are moved from lab to lab, the status of the container that the specimen is shipped in must be recorded at each receipt.  If the container is compromised in any way (seal broken, container cracked or leaking, etc) then this needs to be recorded for legal reasons.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0544/index.html">HL7 Table 0544 – Container Condition</a> for suggested values. </p>
+
+<h4 class='v2' id='SPM-29'>
+SPM-29: Specimen Child Role (<a href='/data-type/CWE.html'>CWE</a>) 01775
+</h4>
+<p class="v2 v2-normalindented">Definition: For child specimens, this field identifies the relationship between this specimen and the parent specimen.  If this field is populated, then <a href="/segment-definition/SPM.html#SPM-3">SPM-3-Specimen Parent ID</a> must be populated.  This field differs from <a href="/segment-definition/SPM.html#SPM-15">SPM-15-Specimen Role</a> in that this field refers to the role of this specimen relative to a parent role rather than the role of this specimen to the ordered service.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0494/index.html">HL7 Table 0494 – Specimen Child Role</a> for valid values.</p>
+
+<h4 class='v2' id='SPM-30'>
+SPM-30: Accession ID (<a href='/data-type/CX.html'>CX</a>) 02314
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains accession identifier(s) associated with the specimen.  In many cases, applications involved in the collection, transportation or testing of the specimen will assign their own accession identifiers.  This field allows communication of these accession identifiers.</p><p class="v2 v2-normalindented">An accession id may or may not, depending up laboratory practice, identify a single specimen. Best practice is to use accession identifiers that are globally unique (typically ID Number + Assigning Facility components).  However, an accession id may or may not, depending up laboratory practice, identify a single specimen. In addition, accession ids are commonly re-used over time, so the accession id may not uniquely identify a specimen.</p>
+
+<h4 class='v2' id='SPM-31'>
+SPM-31: Other Specimen ID (<a href='/data-type/CX.html'>CX</a>) 02315
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains other identifier(s) for the specimen as referenced in an application.  Normally this field is used to carry additional identifiers for the specimen in addition to those identified in <a href="/segment-definition/SPM.html#SPM-2">SPM-2, Specimen ID</a>.  In may cases other applications involved in the collection, transportation or testing of the specimen will assign additional specimen identifiers.  This field allows communication of those other specimen identifiers.</p>
+
+<h4 class='v2' id='SPM-32'>
+SPM-32: Shipment ID (<a href='/data-type/EI.html'>EI</a>) 02316
+</h4>
+<p class="v2 v2-normalindented">Definition:  The shipment identifier is the identifier assigned by the shipment transportation provider that uniquely identifies this shipment from all other shipments by the same provider.  The addressee for the shipment should be able to use this identifier to match a physical shipment with the electronic manifest for the shipment.</p>
+
+<h4 class='v2' id='SPM-33'>
+SPM-33: Culture Start Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03485
+</h4>
+<p class="v2 v2-normalindented">Definition: The Culture Start date/time is the time that the specimen is plated, or inoculated to selective and differential growth mediums that are used in organism identification in microbiology. This is the start of differential diagnosis and is a clinically relevant date and time. The actual time that is recorded is based on when specimen is directly inoculated onto growth media and may correspond to the time the sample is logged in or received. </p>
+
+<h4 class='v2' id='SPM-34'>
+SPM-34: Culture Final Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03486
+</h4>
+<p class="v2 v2-indent720">Definition: The Culture Final date/time is the time in which the order filler is communicating to the clinician that all work on a cultured specimen is completed and no further updates will be received. All work, including determination of growth, Organism Identification, and sensitivity testing are completed. The clinician should expect no further updates on this cultured specimen.</p>
+
+<h4 class='v2' id='SPM-35'>
+SPM-35: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p><p class="v2 v2-normalindented">The action code can only be used when an SPM-2 or SPM-31 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

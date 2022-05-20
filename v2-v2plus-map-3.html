@@ -1,0 +1,4077 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html'>
+Chapter 3 - Patient Administration
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-1'>
+    3.1  CHAPTER 3 CONTENTS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-2'>
+    3.2  PURPOSE
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3'>
+    3.3  Trigger Events and Message Definitions
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-1'>
+        3.3.1  ADT/ACK - Admit/Visit Notification (Event A01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-2'>
+        3.3.2  ADT/ACK - Transfer a Patient (Event A02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-3'>
+        3.3.3  ADT/ACK - Discharge/End Visit (Event A03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-4'>
+        3.3.4  ADT/ACK - Register a Patient (Event A04)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-5'>
+        3.3.5  ADT/ACK - Pre-Admit a Patient (Event A05)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-6'>
+        3.3.6  ADT/ACK - Change an Outpatient to an Inpatient (Event A06)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-7'>
+        3.3.7  ADT/ACK - Change an Inpatient to an Outpatient (Event A07)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-8'>
+        3.3.8  ADT/ACK - Update Patient Information (Event A08)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-9'>
+        3.3.9  ADT/ACK - Patient Departing - Tracking (Event A09)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-10'>
+        3.3.10  ADT/ACK - Patient Arriving - Tracking (Event A10)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-11'>
+        3.3.11  ADT/ACK - Cancel Admit / Visit Notification (Event A11)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-12'>
+        3.3.12  ADT/ACK - Cancel Transfer (Event A12)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-13'>
+        3.3.13  ADT/ACK - Cancel Discharge / End Visit (Event A13)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-14'>
+        3.3.14  ADT/ACK - Pending Admit (Event A14)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-15'>
+        3.3.15  ADT/ACK - Pending Transfer (Event A15)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-16'>
+        3.3.16  ADT/ACK - Pending Discharge (Event A16)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-17'>
+        3.3.17  ADT/ACK - Swap Patients (Event A17)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-18'>
+        3.3.18  ADT/ACK - Merge Patient Information (Event A18)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-19'>
+        3.3.19  QRY/ADR - Patient Query (Event A19)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-20'>
+        3.3.20  ADT/ACK - Bed Status Update (Event A20)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-21'>
+        3.3.21  ADT/ACK - Patient Goes on a Leave of Absence (Event A21)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-22'>
+        3.3.22  ADT/ACK - Patient Returns From a Leave of Absence (Event A22)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-23'>
+        3.3.23  ADT/ACK - Delete a Patient Record (Event A23)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-24'>
+        3.3.24  ADT/ACK - Link Patient Information (Event A24)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-25'>
+        3.3.25  ADT/ACK - Cancel Pending Discharge (Event A25)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-26'>
+        3.3.26  ADT/ACK - Cancel Pending Transfer (Event A26)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-27'>
+        3.3.27  ADT/ACK - Cancel Pending Admit (Event A27)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-28'>
+        3.3.28  ADT/ACK - Add Person or Patient Information (Event A28)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-29'>
+        3.3.29  ADT/ACK - Delete Person Information (Event A29)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-30'>
+        3.3.30  ADT/ACK - Merge Person Information (Event A30)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-31'>
+        3.3.31  ADT/ACK - Update Person Information (Event A31)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-32'>
+        3.3.32  ADT/ACK - Cancel Patient Arriving - Tracking (Event A32)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-33'>
+        3.3.33  ADT/ACK - Cancel Patient Departing - Tracking (Event A33)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-34'>
+        3.3.34  ADT/ACK - Merge Patient Information - Patient ID Only (Event A34)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-35'>
+        3.3.35  ADT/ACK - Merge Patient Information - Account Number Only (Event A35)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-36'>
+        3.3.36  ADT/ACK - Merge Patient Information - Patient ID & Account Number (Event A36)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-37'>
+        3.3.37  ADT/ACK - Unlink Patient Information (Event A37)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-38'>
+        3.3.38  ADT/ACK - Cancel Pre-Admit (Event A38)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-39'>
+        3.3.39  ADT/ACK - Merge Person - Patient ID (Event A39)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-40'>
+        3.3.40  ADT/ACK - Merge Patient - Patient Identifier List (Event A40)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-41'>
+        3.3.41  ADT/ACK - Merge Account - Patient Account Number (Event A41)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-42'>
+        3.3.42  ADT/ACK - Merge Visit - Visit Number (Event A42)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-43'>
+        3.3.43  ADT/ACK - Move Patient Information - Patient Identifier List (Event A43)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-44'>
+        3.3.44  ADT/ACK - Move Account Information - Patient Account Number (Event A44)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-45'>
+        3.3.45  ADT/ACK - Move Visit Information - Visit Number (Event A45)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-46'>
+        3.3.46  ADT/ACK - Change Patient ID (Event A46)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-47'>
+        3.3.47  ADT/ACK - Change Patient Identifier List (Event A47)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-48'>
+        3.3.48  ADT/ACK - Change Alternate Patient ID (Event A48)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-49'>
+        3.3.49  ADT/ACK - Change Patient Account Number (Event A49)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-50'>
+        3.3.50  ADT/ACK - Change Visit Number (Event A50)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-51'>
+        3.3.51  ADT/ACK - Change Alternate Visit ID (Event A51)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-52'>
+        3.3.52  ADT/ACK- Cancel Leave of Absence for a Patient (Event A52)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-53'>
+        3.3.53  ADT/ACK - Cancel Patient Returns from a Leave of Absence (Event A53)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-54'>
+        3.3.54  ADT/ACK - Change Attending Doctor (Event A54)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-55'>
+        3.3.55  ADT/ACK - Cancel Change Attending Doctor (Event A55)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-56'>
+        3.3.56  QBP/RSP - Get Person Demographics (QBP) and Response (RSP) (Events Q21 and K21)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-57'>
+        3.3.57  QBP/RSP - Find Candidates (QBP) and Response (RSP) (Events Q22 and K22)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-58'>
+        3.3.58  QBP/RSP - Get Corresponding Identifiers (QBP) and Response (RSP) (Events Q23 and K23)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-59'>
+        3.3.59  QBP/RSP - Allocate Identifiers (QBP) and Response (RSP) (Events Q24 and K24)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-60'>
+        3.3.60  ADT/ACK - Update Adverse Reaction Information (Event A60)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-61'>
+        3.3.61  ADT/ACK - Change Consulting Doctor (Event A61)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-62'>
+        3.3.62  ADT/ACK - Cancel Change Consulting Doctor (Event A62)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-3-63'>
+        3.3.63  QBP/RSP - Find Candidates including Visit Information (QBP) and Response (RSP) (Events Q32  and K32 )
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4'>
+    3.4  MESSAGE SEGMENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1'>
+        3.4.1  EVN - Event Type Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-1'>
+            3.4.1.1  EVN-1   Event Type Code
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-2'>
+            3.4.1.2  EVN-2   Recorded Date/Time   (DTM)   00100
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-3'>
+            3.4.1.3  EVN-3   Date/Time Planned Event   (DTM)   00101
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-4'>
+            3.4.1.4  EVN-4   Event Reason Code   (CWE)   00102
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-5'>
+            3.4.1.5  EVN-5   Operator ID   (XCN)   00103
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-6'>
+            3.4.1.6  EVN-6   Event Occurred   (DTM)   01278
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-1-7'>
+            3.4.1.7  EVN-7   Event Facility   (HD)   01534
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2'>
+        3.4.2  PID - Patient Identification Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-1'>
+            3.4.2.1  PID-1   Set ID - PID-   (SI)   00104
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-2'>
+            3.4.2.2  PID-2   Patient ID   00105
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-3'>
+            3.4.2.3  PID-3   Patient Identifier List   (CX)   00106
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-4'>
+            3.4.2.4  PID-4   Alternate Patient ID - PID   00107
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-5'>
+            3.4.2.5  PID-5   Patient Name   (XPN)   00108
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-6'>
+            3.4.2.6  PID-6   Mother's Maiden Name   (XPN)   00109
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-7'>
+            3.4.2.7  PID-7   Date/Time of Birth   (DTM)   00110
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-8'>
+            3.4.2.8  PID-8   Administrative Sex   (CWE)   00111
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-9'>
+            3.4.2.9  PID-9   Patient Alias   00112
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-10'>
+            3.4.2.10  PID-10   Race   (CWE)   00113
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-11'>
+            3.4.2.11  PID-11   Patient Address   (XAD)   00114
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-12'>
+            3.4.2.12  PID-12   County Code   00115
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-13'>
+            3.4.2.13  PID-13   Phone Number - Home-   (XTN)   00116
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-14'>
+            3.4.2.14  PID-14   Phone Number - Business-   (XTN)   00117
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-15'>
+            3.4.2.15  PID-15   Primary Language   (CWE)   00118
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-16'>
+            3.4.2.16  PID-16   Marital Status   (CWE)   00119
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-17'>
+            3.4.2.17  PID-17   Religion   (CWE)   00120
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-18'>
+            3.4.2.18  PID-18   Patient Account Number   (CX)   00121
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-19'>
+            3.4.2.19  PID-19   SSN Number - Patient-   00122
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-20'>
+            3.4.2.20  PID-20   Driver's License Number - Patient-   00123
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-21'>
+            3.4.2.21  PID-21   Mother's Identifier   (CX)   00124
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-22'>
+            3.4.2.22  PID-22   Ethnic Group   (CWE)   00125
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-23'>
+            3.4.2.23  PID-23   Birth Place   (ST)   00126
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-24'>
+            3.4.2.24  PID-24   Multiple Birth Indicator   (ID)   00127
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-25'>
+            3.4.2.25  PID-25   Birth Order   (NM)   00128
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-26'>
+            3.4.2.26  PID-26   Citizenship   (CWE)   00129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-27'>
+            3.4.2.27  PID-27   Veterans Military Status   (CWE)   00130
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-28'>
+            3.4.2.28  PID-28   Nationality   00739
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-29'>
+            3.4.2.29  PID-29   Patient Death Date and Time   (DTM)   00740
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-30'>
+            3.4.2.30  PID-30   Patient Death Indicator   (ID)   00741
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-31'>
+            3.4.2.31  PID-31   Identity Unknown Indicator   (ID)   01535
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-32'>
+            3.4.2.32  PID-32   Identity Reliability Code   (CWE)   01536
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-33'>
+            3.4.2.33  PID-33   Last Update Date/Time   (DTM)   01537
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-34'>
+            3.4.2.34  PID-34   Last Update Facility   (HD)   01538
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-35'>
+            3.4.2.35  PID-35   Taxonomic Classification Code   (CWE)   01539
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-36'>
+            3.4.2.36  PID-36   Breed Code   (CWE)   01540
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-37'>
+            3.4.2.37  PID-37   Strain   (ST)   01541
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-38'>
+            3.4.2.38  PID-38   Production Class Code   (CWE)   01542
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-39'>
+            3.4.2.39  PID-39   Tribal Citizenship   (CWE)   01840
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-2-40'>
+            3.4.2.40  PID-40   Patient Telecommunication Information   (XTN)   02289
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3'>
+        3.4.3  PV1 - Patient Visit Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-1'>
+            3.4.3.1  PV1-1   Set ID - PV1-   (SI)   00131
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-2'>
+            3.4.3.2  PV1-2   Patient Class   (CWE)   00132
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-3'>
+            3.4.3.3  PV1-3   Assigned Patient Location   (PL)   00133
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-4'>
+            3.4.3.4  PV1-4   Admission Type   (CWE)   00134
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-5'>
+            3.4.3.5  PV1-5   Preadmit Number   (CX)   00135
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-6'>
+            3.4.3.6  PV1-6   Prior Patient Location   (PL)   00136
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-7'>
+            3.4.3.7  PV1-7   Attending Doctor   (XCN)   00137
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-8'>
+            3.4.3.8  PV1-8   Referring Doctor   (XCN)   00138
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-9'>
+            3.4.3.9  PV1-9   Consulting Doctor   (XCN)   00139
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-10'>
+            3.4.3.10  PV1-10   Hospital Service   (CWE)   00140
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-11'>
+            3.4.3.11  PV1-11   Temporary Location   (PL)   00141
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-12'>
+            3.4.3.12  PV1-12   Preadmit Test Indicator   (CWE)   00142
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-13'>
+            3.4.3.13  PV1-13   Re-Admission Indicator-   (CWE)   00143
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-14'>
+            3.4.3.14  PV1-14   Admit Source   (CWE)   00144
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-15'>
+            3.4.3.15  PV1-15   Ambulatory Status   (CWE)   00145
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-16'>
+            3.4.3.16  PV1-16   VIP Indicator   (CWE)   00146
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-17'>
+            3.4.3.17  PV1-17   Admitting Doctor   (XCN)   00147
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-18'>
+            3.4.3.18  PV1-18   Patient Type   (CWE)   00148
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-19'>
+            3.4.3.19  PV1-19   Visit Number   (CX)   00149
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-20'>
+            3.4.3.20  PV1-20   Financial Class   (FC)   00150
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-21'>
+            3.4.3.21  PV1-21   Charge Price Indicator   (CWE)   00151
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-22'>
+            3.4.3.22  PV1-22   Courtesy Code   (CWE)   00152
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-23'>
+            3.4.3.23  PV1-23   Credit Rating   (CWE)   00153
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-24'>
+            3.4.3.24  PV1-24   Contract Code   (CWE)   00154
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-25'>
+            3.4.3.25  PV1-25   Contract Effective Date   (DT)   00155
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-26'>
+            3.4.3.26  PV1-26   Contract Amount   (NM)   00156
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-27'>
+            3.4.3.27  PV1-27   Contract Period   (NM)   00157
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-28'>
+            3.4.3.28  PV1-28   Interest Code   (CWE)   00158
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-29'>
+            3.4.3.29  PV1-29   Transfer to Bad Debt Code   (CWE)   00159
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-30'>
+            3.4.3.30  PV1-30   Transfer to Bad Debt Date   (DT)   00160
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-31'>
+            3.4.3.31  PV1-31   Bad Debt Agency Code   (CWE)   00161
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-32'>
+            3.4.3.32  PV1-32   Bad Debt Transfer Amount   (NM)   00162
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-33'>
+            3.4.3.33  PV1-33   Bad Debt Recovery Amount   (NM)   00163
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-34'>
+            3.4.3.34  PV1-34   Delete Account Indicator   (CWE)   00164
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-35'>
+            3.4.3.35  PV1-35   Delete Account Date   (DT)   00165
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-36'>
+            3.4.3.36  PV1-36   Discharge Disposition   (CWE)   00166
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-37'>
+            3.4.3.37  PV1-37   Discharged to Location   (DLD)   00167
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-38'>
+            3.4.3.38  PV1-38   Diet Type   (CWE)   00168
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-39'>
+            3.4.3.39  PV1-39   Servicing Facility   (CWE)   00169
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-40'>
+            3.4.3.40  PV1-40   Bed Status   00170
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-41'>
+            3.4.3.41  PV1-41   Account Status   (CWE)   00171
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-42'>
+            3.4.3.42  PV1-42   Pending Location   (PL)   00172
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-43'>
+            3.4.3.43  PV1-43   Prior Temporary Location   (PL)   00173
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-44'>
+            3.4.3.44  PV1-44   Admit Date/Time   (DTM)   00174
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-45'>
+            3.4.3.45  PV1-45   Discharge Date/Time   (DTM)   00175
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-46'>
+            3.4.3.46  PV1-46   Current Patient Balance   (NM)   00176
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-47'>
+            3.4.3.47  PV1-47   Total Charges   (NM)   00177
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-48'>
+            3.4.3.48  PV1-48   Total Adjustments   (NM)   00178
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-49'>
+            3.4.3.49  PV1-49   Total Payments   (NM)   00179
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-50'>
+            3.4.3.50  PV1-50   Alternate Visit ID   (CX)   00180
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-51'>
+            3.4.3.51  PV1-51   Visit Indicator   (CWE)   01226
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-52'>
+            3.4.3.52  PV1-52   Other Healthcare Provider   (XCN)   01274
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-53'>
+            3.4.3.53  PV1-53   Service Episode Description   (ST)   02290
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-3-54'>
+            3.4.3.54  PV1-54   Service Episode Identifier   (CX)   02291
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4'>
+        3.4.4  PV2 - Patient Visit - Additional Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-1'>
+            3.4.4.1  PV2-1   Prior Pending Location   (PL)   00181
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-2'>
+            3.4.4.2  PV2-2   Accommodation Code   (CWE)   00182
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-3'>
+            3.4.4.3  PV2-3   Admit Reason   (CWE)   00183
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-4'>
+            3.4.4.4  PV2-4   Transfer Reason   (CWE)   00184
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-5'>
+            3.4.4.5  PV2-5   Patient Valuables   (ST)   00185
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-6'>
+            3.4.4.6  PV2-6   Patient Valuables Location   (ST)   00186
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-7'>
+            3.4.4.7  PV2-7   Visit User Code   (CWE)   00187
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-8'>
+            3.4.4.8  PV2-8   Expected Admit Date/Time   (DTM)   00188
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-9'>
+            3.4.4.9  PV2-9   Expected Discharge Date/Time   (DTM)   00189
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-10'>
+            3.4.4.10  PV2-10   Estimated Length of Inpatient Stay   (NM)   00711
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-11'>
+            3.4.4.11  PV2-11   Actual Length of Inpatient Stay   (NM)   00712
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-12'>
+            3.4.4.12  PV2-12   Visit Description   (ST)   00713
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-13'>
+            3.4.4.13  PV2-13   Referral Source Code   (XCN)   00714
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-14'>
+            3.4.4.14  PV2-14   Previous Service Date   (DT)   00715
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-15'>
+            3.4.4.15  PV2-15   Employment Illness Related Indicator   (ID)   00716
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-16'>
+            3.4.4.16  PV2-16   Purge Status Code   (CWE)   00717
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-17'>
+            3.4.4.17  PV2-17   Purge Status Date   (DT)   00718
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-18'>
+            3.4.4.18  PV2-18   Special Program Code   (CWE)   00719
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-19'>
+            3.4.4.19  PV2-19   Retention Indicator   (ID)   00720
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-20'>
+            3.4.4.20  PV2-20   Expected Number of Insurance Plans   (NM)   00721
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-21'>
+            3.4.4.21  PV2-21   Visit Publicity Code   (CWE)   00722
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-22'>
+            3.4.4.22  PV2-22   Visit Protection Indicator   (ID)   00723
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-23'>
+            3.4.4.23  PV2-23   Clinic Organization Name   (XON)   00724
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-24'>
+            3.4.4.24  PV2-24   Patient Status Code   (CWE)   00725
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-25'>
+            3.4.4.25  PV2-25   Visit Priority Code   (CWE)   00726
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-26'>
+            3.4.4.26  PV2-26   Previous Treatment Date   (DT)   00727
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-27'>
+            3.4.4.27  PV2-27   Expected Discharge Disposition   (CWE)   00728
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-28'>
+            3.4.4.28  PV2-28   Signature on File Date   (DT)   00729
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-29'>
+            3.4.4.29  PV2-29   First Similar Illness Date   (DT)   00730
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-30'>
+            3.4.4.30  PV2-30   Patient Charge Adjustment Code   (CWE)   00731
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-31'>
+            3.4.4.31  PV2-31   Recurring Service Code   (CWE)   00732
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-32'>
+            3.4.4.32  PV2-32   Billing Media Code   (ID)   00733
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-33'>
+            3.4.4.33  PV2-33   Expected Surgery Date and Time   (DTM)   00734
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-34'>
+            3.4.4.34  PV2-34   Military Partnership Code   (ID)   00735
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-35'>
+            3.4.4.35  PV2-35   Military Non-Availability Code   (ID)   00736
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-36'>
+            3.4.4.36  PV2-36   Newborn Baby Indicator   (ID)   00737
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-37'>
+            3.4.4.37  PV2-37   Baby Detained Indicator   (ID)   00738
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-38'>
+            3.4.4.38  PV2-38   Mode of Arrival Code   (CWE)   01543
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-39'>
+            3.4.4.39  PV2-39   Recreational Drug Use Code   (CWE)   01544
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-40'>
+            3.4.4.40  PV2-40   Admission Level of Care Code   (CWE)   01545
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-41'>
+            3.4.4.41  PV2-41   Precaution Code   (CWE)   01546
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-42'>
+            3.4.4.42  PV2-42   Patient Condition Code   (CWE)   01547
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-43'>
+            3.4.4.43  PV2-43   Living Will Code   (CWE)   00759
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-44'>
+            3.4.4.44  PV2-44   Organ Donor Code   (CWE)   00760
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-45'>
+            3.4.4.45  PV2-45   Advance Directive Code   (CWE)   01548
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-46'>
+            3.4.4.46  PV2-46   Patient Status Effective Date   (DT)   01549
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-47'>
+            3.4.4.47  PV2-47   Expected LOA Return Date/Time   (DTM)   01550
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-48'>
+            3.4.4.48  PV2-48   Expected Preadmission Testing Date/Time   (DTM)   01841
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-49'>
+            3.4.4.49  PV2-49   Notify Clergy Code   (CWE)   01842
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-4-50'>
+            3.4.4.50  PV2-50    Advance Directive Last Verified Date   (DT)   02141
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5'>
+        3.4.5  NK1 - Next of Kin / Associated Parties Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-1'>
+            3.4.5.1  NK1-1   Set ID - NK1-   (SI)   00190
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-2'>
+            3.4.5.2  NK1-2   Name   (XPN)   00191
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-3'>
+            3.4.5.3  NK1-3   Relationship   (CWE)   00192
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-4'>
+            3.4.5.4  NK1-4   Address   (XAD)   00193
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-5'>
+            3.4.5.5  NK1-5   Phone Number   (XTN)   00194
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-6'>
+            3.4.5.6  NK1-6   Business Phone Number   (XTN)   00195
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-7'>
+            3.4.5.7  NK1-7   Contact Role   (CWE)   00196
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-8'>
+            3.4.5.8  NK1-8   Start Date   (DT)   00197
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-9'>
+            3.4.5.9  NK1-9   End Date   (DT)   00198
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-10'>
+            3.4.5.10  NK1-10   Next of Kin / Associated Parties Job Title   (ST)   00199
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-11'>
+            3.4.5.11  NK1-11   Next of Kin / Associated Parties Job Code/Class   (JCC)   00200
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-12'>
+            3.4.5.12  NK1-12   Next of Kin / Associated Parties Employee Number   (CX)   00201
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-13'>
+            3.4.5.13  NK1-13   Organization Name - NK1   (XON)   00202
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-14'>
+            3.4.5.14  NK1-14   Marital Status   (CWE)   00119
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-15'>
+            3.4.5.15  NK1-15   Administrative Sex   (CWE)   00111
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-16'>
+            3.4.5.16  NK1-16   Date/Time of Birth   (DTM)   00110
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-17'>
+            3.4.5.17  NK1-17   Living Dependency   (CWE)   00755
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-18'>
+            3.4.5.18  NK1-18   Ambulatory Status   (CWE)   00145
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-19'>
+            3.4.5.19  NK1-19   Citizenship   (CWE)   00129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-20'>
+            3.4.5.20  NK1-20   Primary Language   (CWE)   00118
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-21'>
+            3.4.5.21  NK1-21   Living Arrangement   (CWE)   00742
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-22'>
+            3.4.5.22  NK1-22   Publicity Code   (CWE)   00743
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-23'>
+            3.4.5.23  NK1-23   Protection Indicator   (ID)   00744
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-24'>
+            3.4.5.24  NK1-24   Student Indicator   (CWE)   00745
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-25'>
+            3.4.5.25  NK1-25   Religion   (CWE)   00120
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-26'>
+            3.4.5.26  NK1-26   Mother's Maiden Name   (XPN)   00109
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-27'>
+            3.4.5.27  NK1-27   Nationality   (CWE)   00739
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-28'>
+            3.4.5.28  NK1-28   Ethnic Group   (CWE)   00125
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-29'>
+            3.4.5.29  NK1-29   Contact Reason   (CWE)   00747
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-30'>
+            3.4.5.30  NK1-30   Contact Person's Name   (XPN)   00748
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-31'>
+            3.4.5.31  NK1-31   Contact Person's Telephone Number   (XTN)   00749
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-32'>
+            3.4.5.32  NK1-32   Contact Person's Address   (XAD)   00750
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-33'>
+            3.4.5.33  NK1-33   Next of Kin/Associated Party's Identifiers   (CX)   00751
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-34'>
+            3.4.5.34  NK1-34   Job Status   (CWE)   00752
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-35'>
+            3.4.5.35  NK1-35   Race   (CWE)   00113
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-36'>
+            3.4.5.36  NK1-36   Handicap   (CWE)   00753
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-37'>
+            3.4.5.37  NK1-37   Contact Person Social Security Number   (ST)   00754
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-38'>
+            3.4.5.38  NK1-38   Next of Kin Birth Place   (ST)   01905
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-39'>
+            3.4.5.39  NK1-39   VIP Indicator   (CWE)   00146
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-40'>
+            3.4.5.40  NK1-40   Next of Kin Telecommunication Information   (XTN)   02292
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-5-41'>
+            3.4.5.41  NK1-41   Contact Person’s Telecommunication Information   (XTN)   02293
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6'>
+        3.4.6  AL1 - Patient Allergy Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6-1'>
+            3.4.6.1  AL1-1   Set ID - AL1   (SI)   00203
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6-2'>
+            3.4.6.2  AL1-2   Allergen Type Code   (CWE)   00204
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6-3'>
+            3.4.6.3  AL1-3   Allergen Code/Mnemonic/Description   (CWE)   00205
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6-4'>
+            3.4.6.4  AL1-4   Allergy Severity Code   (CWE)   00206
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6-5'>
+            3.4.6.5  AL1-5   Allergy Reaction Code   (ST)   00207
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-6-6'>
+            3.4.6.6  AL1-6   Identification Date   (DT)   00208
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7'>
+        3.4.7  IAM - Patient Adverse Reaction Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-1'>
+            3.4.7.1  IAM-1   Set ID - IAM   (SI)   01612
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-2'>
+            3.4.7.2  IAM-2   Allergen Type Code   (CWE)   00204
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-3'>
+            3.4.7.3  IAM-3   Allergen Code/Mnemonic/Description   (CWE)   00205
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-4'>
+            3.4.7.4  IAM-4   Allergy Severity Code   (CWE)   00206
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-5'>
+            3.4.7.5  IAM-5   Allergy Reaction Code   (ST)   00207
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-6'>
+            3.4.7.6  IAM-6   Allergy Action Code   (CNE)   01551
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-7'>
+            3.4.7.7  IAM-7   Allergy Unique Identifier   (EI)   01552
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-8'>
+            3.4.7.8  IAM-8   Action Reason   (ST)   01553e
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-9'>
+            3.4.7.9  IAM-9   Sensitivity to Causative Agent Code   (CWE)   01554
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-10'>
+            3.4.7.10  IAM-10   Allergen Group Code/Mnemonic/Description   (CWE)   01555
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-11'>
+            3.4.7.11  IAM-11   Onset Date   (DT)   01556
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-12'>
+            3.4.7.12  IAM-12   Onset Date Text   (ST)   01557
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-13'>
+            3.4.7.13  IAM-13   Reported Date/Time   (DTM)   01558
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-14'>
+            3.4.7.14  IAM-14   Reported by   (XPN)   01559
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-15'>
+            3.4.7.15  IAM-15   Relationship to Patient Code   (CWE)   01560
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-16'>
+            3.4.7.16  IAM-16   Alert Device Code   (CWE)   01561
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-17'>
+            3.4.7.17  IAM-17   Allergy Clinical Status Code   (CWE)   01562
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-18'>
+            3.4.7.18  IAM-18   Statused by Person   (XCN)   01563
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-19'>
+            3.4.7.19  IAM-19   Statused by Organization   (XON)   01564
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-20'>
+            3.4.7.20  IAM-20   Statused at Date/Time   (DTM)   01565
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-21'>
+            3.4.7.21  IAM-21   Inactivated by Person   (XCN)   02294
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-22'>
+            3.4.7.22  IAM-22   Inactivated Date/Time   (DTM)   02295
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-23'>
+            3.4.7.23  IAM-23   Initially Recorded by Person   (XCN)   02296
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-24'>
+            3.4.7.24  IAM-24   Initially Recorded Date/Time   (DTM)   02297
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-25'>
+            3.4.7.25  IAM-25   Modified by Person   (XCN)   02298
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-26'>
+            3.4.7.26  IAM-26   Modified Date/Time   (DTM)   02299
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-27'>
+            3.4.7.27  IAM-27   Clinician-Identified Allergen Code    (CWE)   02300
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-28'>
+            3.4.7.28  IAM-28   Initially Recorded by Organization   (XON)   03293
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-29'>
+            3.4.7.29  IAM-29   Modified by Organization   (XON)   03294
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-7-30'>
+            3.4.7.30  IAM-30   Inactivated by Organization   (XON)   03295
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-8'>
+        3.4.8  IAR - Allergy Reaction Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-8-1'>
+            3.4.8.1  IAR-1   Allergy Reaction Code   (CWE)   03296
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-8-2'>
+            3.4.8.2  IAR-2   Allergy Severity Code   (CWE)   03297
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-8-3'>
+            3.4.8.3  IAR-3   Sensitivity to Causative Agent code   (CWE)   03298
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-8-4'>
+            3.4.8.4  IAR-4   Management   (ST)   03299
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-9'>
+        3.4.9  NPU - Bed Status Update Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-9-1'>
+            3.4.9.1  NPU-1   Bed Location   (PL)   00209
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-9-2'>
+            3.4.9.2  NPU-2   Bed Status   (CWE)   00170
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10'>
+        3.4.10  MRG - Merge Patient Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-1'>
+            3.4.10.1  MRG-1   Prior Patient Identifier List   (CX)   00211
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-2'>
+            3.4.10.2  MRG-2   Prior Alternate Patient ID   00212
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-3'>
+            3.4.10.3  MRG-3   Prior Patient Account Number   (CX)   00213
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-4'>
+            3.4.10.4  MRG-4   Prior Patient ID   00214
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-5'>
+            3.4.10.5  MRG-5   Prior Visit Number   (CX)   01279
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-6'>
+            3.4.10.6  MRG-6   Prior Alternate Visit ID   (CX)   01280
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-10-7'>
+            3.4.10.7  MRG-7   Prior Patient Name   (XPN)   01281
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11'>
+        3.4.11  PD1 - Patient Additional Demographic Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-1'>
+            3.4.11.1  PD1-1   Living Dependency   (CWE)   00755
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-2'>
+            3.4.11.2  PD1-2   Living Arrangement   (CWE)   00742
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-3'>
+            3.4.11.3  PD1-3   Patient Primary Facility   (XON)   00756
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-4'>
+            3.4.11.4  PD1-4   Patient Primary Care Provider Name & ID No.   00757
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-5'>
+            3.4.11.5  PD1-5   Student Indicator   (CWE)   00745
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-6'>
+            3.4.11.6  PD1-6   Handicap   (CWE)   00753
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-7'>
+            3.4.11.7  PD1-7   Living Will Code   (CWE)   00759
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-8'>
+            3.4.11.8  PD1-8   Organ Donor Code   (CWE)   00760
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-9'>
+            3.4.11.9  PD1-9   Separate Bill   (ID)   00761
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-10'>
+            3.4.11.10  PD1-10   Duplicate Patient   (CX)   00762
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-11'>
+            3.4.11.11  PD1-11   Publicity Code   (CWE)   00743
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-12'>
+            3.4.11.12  PD1-12   Protection Indicator   (ID)   00744
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-13'>
+            3.4.11.13  PD1-13   Protection Indicator Effective Date    (DT)   01566
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-14'>
+            3.4.11.14  PD1-14   Place of Worship   (XON)   01567
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-15'>
+            3.4.11.15  PD1-15   Advance Directive Code   (CWE)   01548
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-16'>
+            3.4.11.16  PD1-16   Immunization Registry Status   (CWE)   01569
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-17'>
+            3.4.11.17  PD1-17   Immunization Registry Status Effective Date   (DT)   01570
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-18'>
+            3.4.11.18  PD1-18   Publicity Code Effective Date   (DT)   01571
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-19'>
+            3.4.11.19  PD1-19   Military Branch   (CWE)   01572
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-20'>
+            3.4.11.20  PD1-20   Military Rank/Grade   (CWE)   00486
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-21'>
+            3.4.11.21  PD1-21   Military Status   (CWE)   01573
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-22'>
+            3.4.11.22  PD1-22   Advance Directive Last Verified Date   (DT)   02141
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-11-23'>
+            3.4.11.23  PD1-23   Retirement Date   (DT)   03511
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12'>
+        3.4.12  DB1 - Disability Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-1'>
+            3.4.12.1  DB1-1   Set ID - DB1   (SI)   01283
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-2'>
+            3.4.12.2  DB1-2   Disabled Person Code   (CWE)   01284
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-3'>
+            3.4.12.3  DB1-3   Disabled Person Identifier   (CX)   01285
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-4'>
+            3.4.12.4  DB1-4   Disability Indicator   (ID)   01286
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-5'>
+            3.4.12.5  DB1-5   Disability Start Date   (DT)   01287
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-6'>
+            3.4.12.6  DB1-6   Disability End Date   (DT)   01288
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-7'>
+            3.4.12.7  DB1-7   Disability Return to Work Date   (DT)   01289
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-12-8'>
+            3.4.12.8  DB1-8   Disability Unable to Work Date   (DT)   01290
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13'>
+        3.4.13  PDA - Patient Death and Autopsy Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-1'>
+            3.4.13.1  PDA-1   Death Cause Code   (CWE)   01574
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-2'>
+            3.4.13.2  PDA-2   Death Location   (PL)   01575
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-3'>
+            3.4.13.3  PDA-3   Death Certified Indicator   (ID)   01576
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-4'>
+            3.4.13.4  PDA-4   Death Certificate Signed Date/Time   (DTM)   01577
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-5'>
+            3.4.13.5  PDA-5   Death Certified By   (XCN)   01578
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-6'>
+            3.4.13.6  PDA-6   Autopsy Indicator   (ID)   01579
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-7'>
+            3.4.13.7  PDA-7   Autopsy Start and End Date/Time   (DR)   01580
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-8'>
+            3.4.13.8  PDA-8   Autopsy Performed By   (XCN)   01581
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-13-9'>
+            3.4.13.9  PDA-9   Coroner Indicator   (ID)   01582
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14'>
+        3.4.14  ARV - Access Restrictions segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-1'>
+            3.4.14.1  ARV-1   Set ID   (SI)   02143
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-2'>
+            3.4.14.2  ARV-2   Access Restriction Action Code   (CNE)   02144
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-3'>
+            3.4.14.3  ARV-3   Access Restriction Value   (CWE)   02145
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-4'>
+            3.4.14.4  ARV-4   Access Restriction Reason   (CWE)   02146
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-5'>
+            3.4.14.5  ARV-5   Special Access Restriction Instructions   (ST)   02147
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-6'>
+            3.4.14.6  ARV-6   Access Restriction Date Range   (DR)    02148
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-7'>
+            3.4.14.7  ARV-7 Security Classification Tag (CWE)   03512
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-8'>
+            3.4.14.8  ARV-8 Security Handling Instructions (CWE)   03513
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-9'>
+            3.4.14.9  ARV-9   Access Restriction Message Location   (ERL)   03514
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-14-10'>
+            3.4.14.10  ARV-10   Access Restriction Instance Identifier   (EI)   02470
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15'>
+        3.4.15  OH1 - Person Employment Status segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-1'>
+            3.4.15.1  OH1-1   Set ID   (SI)   03516
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-2'>
+            3.4.15.2  OH1-2   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-3'>
+            3.4.15.3  OH1-3   Employment Status   (CWE)   03518
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-4'>
+            3.4.15.4  OH1-4   Employment Status Start Date   (DT)   03519
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-5'>
+            3.4.15.5  OH1-5   Employment Status End Date   (DT)   03520
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-6'>
+            3.4.15.6  OH1-6   Entered Date   (DT)   03521
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-15-7'>
+            3.4.15.7  OH1-7   Employment Status Unique Identifier   (EI)   02432
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16'>
+        3.4.16  OH2 - Past or Present Job segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-1'>
+            3.4.16.1  OH2-1   Set ID   (SI)   03522
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-2'>
+            3.4.16.2  OH2-2   Action Code   (CWE)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-3'>
+            3.4.16.3  OH2-3   Entered Date   (DT)   03524
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-4'>
+            3.4.16.4  OH2-4   Occupation   (CWE)   03525
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-5'>
+            3.4.16.5  OH2-5   Industry   (CWE)   03526
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-6'>
+            3.4.16.6  OH2-6   Work Classification   (CWE)   03527
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-7'>
+            3.4.16.7  OH2-7   Job Start Date   (DT)   02494
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-8'>
+            3.4.16.8  OH2-8   Job End Date   (DT)   02495
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-9'>
+            3.4.16.9  OH2-9   Work Schedule   (CWE)   03528
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-10'>
+            3.4.16.10  OH2-10   Average Hours Worked Per Day   (NM)   03529
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-11'>
+            3.4.16.11  OH2-11   Average Days Worked per Week   (NM)   03530
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-12'>
+            3.4.16.12  OH2-12   Employer Organization   (XON)   03531
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-13'>
+            3.4.16.13  OH2-13   Employer Address   (XAD)   03546
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-14'>
+            3.4.16.14  OH2-14   Supervisory Level   (CWE)   03532
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-15'>
+            3.4.16.15  OH2-15   Job Duties   (ST)   03533
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-16'>
+            3.4.16.16  OH2-16   Occupational Hazards   (FT)   03534
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-17'>
+            3.4.16.17  OH2-17   Job Unique Identifier   (EI)   02433
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-16-18'>
+            3.4.16.18  OH2-18   Current Job Indicator   (CWE)   02471
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17'>
+        3.4.17  OH3 - Usual Work segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-1'>
+            3.4.17.1  OH3-1   Set ID   (SI)   03535
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-2'>
+            3.4.17.2  OH3-2   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-3'>
+            3.4.17.3  OH3-3   Occupation   (CWE)   03537
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-4'>
+            3.4.17.4  OH3-4   Industry   (CWE)   03538
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-5'>
+            3.4.17.5  OH3-5   Usual Occupation Duration (years)   (NM)   03539
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-6'>
+            3.4.17.6  OH3-6   Start Year   (DT)   03540
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-7'>
+            3.4.17.7  OH3-7   Entered Date   (DT)   03542
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-17-8'>
+            3.4.17.8  OH3-8   Work Unique Identifier   (EI)   02446
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18'>
+        3.4.18  OH4 - Combat Zone Work segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18-1'>
+            3.4.18.1  OH4-1   Set ID   (SI)   03543
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18-2'>
+            3.4.18.2  OH4-2   Action Code   (ID)   00816
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18-3'>
+            3.4.18.3  OH4-3   Combat Zone Start Date   (DT)   03544
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18-4'>
+            3.4.18.4  OH4-4   Combat Zone End Date   (DT)   03545
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18-5'>
+            3.4.18.5  OH4-5   Entered Date   (DT)   03524
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-4-18-6'>
+            3.4.18.6  OH4-6   Combat Zone Unique Identifier   (EI)   02449
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5'>
+    3.5  EXAMPLE TRANSACTIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-1'>
+        3.5.1  Admit/visit notification - event A01 (admitted patient)-
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-2'>
+        3.5.2  Pre-admit notification - event A05  (nonadmitted patient)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-3'>
+        3.5.3  Register a patient - event A04  (nonadmitted patient)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-4'>
+        3.5.4  Change an outpatient to an inpatient - event A06
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-5'>
+        3.5.5  Transfer patient - event A02 (first example)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-6'>
+        3.5.6  Cancel transfer - event A12
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-7'>
+        3.5.7  Transfer patient - event A02 (second example)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-8'>
+        3.5.8  Discharge patient - event A03
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-9'>
+        3.5.9  Update adverse reaction info - unique identifier is provided - event A60 (where unique identifier is provided)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-5-10'>
+        3.5.10  Update adverse reaction info - allergen code provides unique identifier - event A60 (where the allergen code provides unique identifier)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6'>
+    3.6  IMPLEMENTATION NOTES
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-1'>
+        3.6.1  Swapping a patient
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2'>
+        3.6.2  Merging patient/person information
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1'>
+            3.6.2.1  Definitions:  Merge, move, and change identifier events
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-1'>
+                3.6.2.1.1  Hierarchy of Identifiers
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-2'>
+                3.6.2.1.2  Merge
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-3'>
+                3.6.2.1.3  Move
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-4'>
+                3.6.2.1.4  Change identifier
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-5'>
+                3.6.2.1.5  Source and target identifiers
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-6'>
+                3.6.2.1.6  Tightly coupled relationship
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-7'>
+                3.6.2.1.7  Ordered pairwise relationship
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-8'>
+                3.6.2.1.8  Identifier type / assigning authority relationship
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-9'>
+                3.6.2.1.9  Global merge and move message construct versus repeating segment message constructs
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-10'>
+                3.6.2.1.10  Identifier renumbering
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-1-11'>
+                3.6.2.1.11  Superior identifier reporting
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2'>
+            3.6.2.2  Trigger events
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-1'>
+                3.6.2.2.1  A40 - merge patient - patient identifier list
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-2'>
+                3.6.2.2.2  A40 - merge patient - patient identifier list (repeating segment)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-3'>
+                3.6.2.2.3  A41 - merge account - patient account number (global)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-4'>
+                3.6.2.2.4  A41 - merge account - patient account number (repeating segment)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-5'>
+                3.6.2.2.5  A42 - Merge visit - visit number
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-6'>
+                3.6.2.2.6  A43 - move patient information - patient identifier list
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-7'>
+                3.6.2.2.7  A44 - move account information - patient account number
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-8'>
+                3.6.2.2.8  A45 - move visit information - visit number (repeating segment)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-9'>
+                3.6.2.2.9  A45 - move visit information - visit number (repeating segment)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-10'>
+                3.6.2.2.10  A47 - change patient identifier list
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-11'>
+                3.6.2.2.11  A49 - change patient account number
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-12'>
+                3.6.2.2.12  A50 - change visit number
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-13'>
+                3.6.2.2.13  A51 - change alternate visit ID
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-14'>
+                3.6.2.2.14  Example using multiple messages
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-2-2-15'>
+                3.6.2.2.15  Example using multiple messages
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-3'>
+        3.6.3  Patient record links
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4'>
+        3.6.4  MPI Integration - an introduction
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-1'>
+            3.6.4.1  Definitions - what is an MPI?
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-2'>
+            3.6.4.2  HL7 and CORBAmed PIDS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-3'>
+            3.6.4.3  MPI QUERY for person lookup and identification
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-4'>
+            3.6.4.4  Client system assigns identifier, person exists on MPI only
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-4-1'>
+                3.6.4.4.1  Figure 3-1 - Client system assigns identifier, person exists on MPI only
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-5'>
+            3.6.4.5  Client system assigns identifier, person exists on both systems
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-5-1'>
+                3.6.4.5.1  Figure 3-2 - Client system assigns identifier, person exists on both systems
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-6'>
+            3.6.4.6  Client system assigns identifier, person exists on neither system
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-6-1'>
+                3.6.4.6.1  Figure 3-3 - Client system assigns identifier, does not exist on either system
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-7'>
+            3.6.4.7  MPI assigns identifier, person exists on MPI
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-7-1'>
+                3.6.4.7.1  Figure 3-4 - Example of two healthcare organizations merging
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-7-2'>
+                3.6.4.7.2  Figure 3-5 - MPI assigns identifier, person exists on MPI
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-8'>
+            3.6.4.8  MPI assigns identifier, person exists on both systems
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-8-1'>
+                3.6.4.8.1  Figure 3- 6 - MPI assigns identifier, person exists on both systems
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-9'>
+            3.6.4.9  MPI assigns identifier, person exists on neither system
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-4-9-1'>
+                3.6.4.9.1  Figure 3-7 - MPI assigns identifier, person exists on neither system
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-6-5'>
+        3.6.5  Usage notes:  Non-human PID patient identification
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Patient-Administration.html#Patient-Administration-7'>
+    3.7  REFERENCED ORGANIZATIONS AND DOCUMENTS
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

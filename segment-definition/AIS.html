@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+AIS - Appointment Information - Service Segment
+</h3>
+<p class="v2 v2-normalindented">The AIS segment contains information about various kinds of services that can be scheduled.  Services included in a transaction using this segment are assumed to be controlled by a schedule on a schedule filler application.  Services not controlled by a schedule are not identified on a schedule request using this segment.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - AIS - Appointment Information - Service Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+AIS
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - AIS
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#AIS-1'>
+00890
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Segment Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-2'>
+00763
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Universal Service Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0612-ERROR! Bad Data! FIXME.html'>
+0612
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#AIS-3'>
+00238
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Start Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-4'>
+01202
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Start Date/Time Offset
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-5'>
+00891
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Start Date/Time Offset Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-6'>
+00892
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Duration
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-7'>
+00893
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Duration Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-8'>
+00894
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Allow Substitution Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0279-Allow-Substitution-Codes.html' title='Allow Substitution Codes(Suggested)'>
+0279(S)
+<span class='vocab-link-text'>Allow Substitution Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-9'>
+00895
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Filler Status Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0278-Filler-status-codes.html' title='Filler status codes(Suggested)'>
+0278(S)
+<span class='vocab-link-text'>Filler status codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIS-10'>
+00889
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Placer Supplemental Service Information
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0411-Supplemental-Service-Information-Values.html' title='Supplemental Service Information Values'>
+0411
+<span class='vocab-link-text'>Supplemental Service Information Values</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#AIS-11'>
+01474
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+12
+</td>
+<td>
+Filler Supplemental Service Information
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0411-Supplemental-Service-Information-Values.html' title='Supplemental Service Information Values'>
+0411
+<span class='vocab-link-text'>Supplemental Service Information Values</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#AIS-12'>
+01475
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='AIS-1'>
+AIS-1: Set ID - AIS (<a href='/data-type/SI.html'>SI</a>) 00890
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a number that uniquely identifies the information represented by this segment in this transaction for the purposes of addition, change or deletion.</p>
+
+<h4 class='v2' id='AIS-2'>
+AIS-2: Segment Action Code (<a href='/data-type/ID.html'>ID</a>) 00763
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the action to be taken when updating or modifying information in this segment from previously sent interface transactions.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">This field is conditionally required.  It is required for all updating or modifying trigger events.</p>
+
+<h4 class='v2' id='AIS-3'>
+AIS-3: Universal Service Identifier (<a href='/data-type/CWE.html'>CWE</a>) 00238
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an identifier code for a service to be scheduled.  This field may contain a universal service identifier describing the observation/test/battery/procedure or other activity that is to be performed during the requested appointment, similar to the universal service identifier defined for the OBR segment in the Order Entry chapter (Chapter 4).  This code can be based on local and/or universal codes.  The use of universal codes is recommended.  </p>
+
+<h4 class='v2' id='AIS-4'>
+AIS-4: Start Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01202
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time this service needs for the appointment.  This field allows the application to identify that the service is required for the appointment at a different time than the appointment&#39;s start date/time.</p><p class="v2 v2-normalindented">This field is conditionally required.  If a value for <a href="/segment-definition/AIS.html#AIS-5">AIS-5-Start Date/Time Offset</a> is not provided, then a value is required for this field.  To specify that there is no difference between the appointment&#39;s start date/time and the resource&#39;s start date/time either replicate the appointment&#39;s start date/time into this field, or specify an offset of zero (0) in <a href="/segment-definition/AIS.html#AIS-5">AIS-5-Start Date/Time Offset</a> and any valid time unit code in <a href="/segment-definition/AIS.html#AIS-6">AIS-6-Start Date/Time Offset Units</a>.</p>
+
+<h4 class='v2' id='AIS-5'>
+AIS-5: Start Date/Time Offset (<a href='/data-type/NM.html'>NM</a>) 00891
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the offset this service needs for the appointment, expressed in units of time relative to the scheduled start date/time.  This field allows the application to identify that the service is required for the appointment at a different time than the appointment&#39;s start date/time.  The first component contains the offset amount.  An offset of zero (0), or an unvalued field indicates that the service is required at the start date/time of the appointment.</p><p class="v2 v2-normalindented">A positive offset (an unsigned or positive number) indicates that the service is required after the appointment&#39;s start date/time.  Specifying a negative offset indicates that the service is required prior to the specified start date/time of the appointment.  Negative offsets are allowed, and sites should clearly define the effect of a negative offset on the appointment&#39;s start date/time.</p><p class="v2 v2-normalindented">This field is conditionally required.  If a value for <a href="/segment-definition/AIS.html#AIS-5">AIS-5-Start Date/Time Offset</a> is not provided, then a value is required for this field.  To specify that there is no difference between the appointment&#39;s start date/time and the resource&#39;s start date/time either replicate the appointment&#39;s start date/time into this field, or specify an offset of zero (0) in <a href="/segment-definition/AIS.html#AIS-5">AIS-5-Start Date/Time Offset</a> and any valid time unit code in <a href="/segment-definition/AIS.html#AIS-6">AIS-6-Start Date/Time Offset Units</a>.</p>
+
+<h4 class='v2' id='AIS-6'>
+AIS-6: Start Date/Time Offset Units (<a href='/data-type/CNE.html'>CNE</a>) 00892
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code describing the units of time used for expressing the start date/time offset.  This field should be valued according to the recommendations in Chapters 2 and 7.  If this field is not valued, the ISO base unit of seconds (code &quot;<em>s&quot;</em>) will be assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO and ANSI+ unit codes.</p><p class="v2 v2-normalindented">This field is conditionally required.  If a value for <a href="/segment-definition/AIS.html#AIS-5">AIS-5-Start Date/Time Offset</a> is provided, then a value is required for this field.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 96%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.13%;'/><col span='1' style='width: 27.38%;'/><col span='1' style='width: 56.47%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.13%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:27.38%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:56.47%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.13%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:27.38%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:56.47%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.13%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:27.38%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:56.47%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/>
+
+<h4 class='v2' id='AIS-7'>
+AIS-7: Duration (<a href='/data-type/NM.html'>NM</a>) 00893
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the duration for which the resource is requested/scheduled for this appointment, if different from the overall duration of the requested/scheduled appointment.  This field indicates to the application that a resource is required for a different amount of time than the appointment&#39;s overall duration.  An unvalued duration indicates that the resource is required from its start date/time offset (specified in the previous two fields) until the end of the appointment.  If no start date/time offset is specified, then the resource is required for the full duration of the appointment.</p><p class="v2 v2-normalindented">This field must be a positive, non-zero number.  A negative number or zero (0) is nonsensical in the context of a duration.</p>
+
+<h4 class='v2' id='AIS-8'>
+AIS-8: Duration Units (<a href='/data-type/CNE.html'>CNE</a>) 00894
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code describing the units of time used for expressing the duration.  This field should be valued according to the recommendations in Chapters 2 and 7.  If this field is not valued, the ISO base unit of seconds (code<em> &quot;s&quot;</em>) will be assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO and ANSI+ unit codes.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 96%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.13%;'/><col span='1' style='width: 29.21%;'/><col span='1' style='width: 54.65%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.13%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:29.21%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:54.65%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.13%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:29.21%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:54.65%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.13%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:29.21%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:54.65%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/><p class="v2 v2-normalindented"></p>
+
+<h4 class='v2' id='AIS-9'>
+AIS-9: Allow Substitution Code (<a href='/data-type/CWE.html'>CWE</a>) 00895
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code indicating whether the identified resource can be substituted with an equivalent resource by the filler application.  This field is conditionally required.  It is required for all request messages.  It is optional for all unsolicited transactions, and for all query messages. Refer to <a href="https://www.hl7.org/fhir/v2/0279/index.html">User-Defined Table 0279 - Allow Substitution Codes</a> in Chapter 2C, Code Tables, for suggested codes.  </p>
+
+<h4 class='v2' id='AIS-10'>
+AIS-10: Filler Status Code (<a href='/data-type/CWE.html'>CWE</a>) 00889
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that describes the requested/scheduled status of the resource or activity, from the point of view of the filler application.  Refer to <a href="https://www.hl7.org/fhir/v2/0278/index.html">User-Defined Table 0278 - Filler Status Codes</a> in Chapter 2C, Code Tables, for suggested codes.</p><p class="v2 v2-normalindented">This is a conditionally required field.  Because the information contained in this field is only appropriate in transactions originating from a filler application, it is required for those messages.  This includes all unsolicited transactions originating from a filler application, as well as all response messages originating from a filler application.  This field is optional for all transactions originating from placer, querying and auxiliary applications.  It is recommended that this field be left unvalued in transactions originating from applications other than the filler application.</p>
+
+<h4 class='v2' id='AIS-11'>
+AIS-11: Placer Supplemental Service Information (<a href='/data-type/CWE.html'>CWE</a>) 01474
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains supplemental service and/or logistical information sent from the placer system to the filler system for the universal procedure code reported in field AIS-3.  This field will be used to provide scheduling information detail that is not available in other, specific fields in the AIS segment.  Multiple supplemental service information elements may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0411/index.html">User-defined Table 0411 – Supplemental Service Information Values</a><a href=""> in Chapter 2C, Code Tables, for valid values</a>.</p>
+
+<h4 class='v2' id='AIS-12'>
+AIS-12: Filler Supplemental Service Information (<a href='/data-type/CWE.html'>CWE</a>) 01475
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains supplemental service and/or logistical information sent from the filler system to the placer system for the procedure code reported in field AIS-3.  This field will be used to report scheduling information details that is not available in other, specific fields in the AIS segment.  Typically it will reflect the same information as was sent to the filler system in <a href="/segment-definition/AIS.html#AIS-11">AIS-11-Placer Supplemental</a> information unless the scheduling was modified in which case the filler system will report what was actually performed using this field.  Multiple supplemental service information elements may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0411/index.html">User-defined Table 0411 - Supplemental service information values</a><a href="in Chapter 2C, Code Tables, for valid values."> in Chapter 2C, Code Tables, for valid values.</a>.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

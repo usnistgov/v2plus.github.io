@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+ERR - Error Segment
+</h3>
+<p class="v2 v2-normalindented">The ERR segment is used to add error comments to acknowledgment messages. </p><p class="v2 v2-normalindented">Use Cases:</p><p class="v2 v2-normalindented">Severity: A receiving application needs to communicate 2 &quot;error or exception statements.&quot; One is an &quot;error;&quot; the other is a &quot;warning&quot;. To accomplish this, an acknowledgment message with 2 ERR segments is sent. Upon receipt, the sending application can display both, including the appropriate severity, to the user. </p><p class="v2 v2-normalindented">Application Error Code: A receiving application generates an error that reports an application error code and returns this information in its response. This code in turn is used by helpdesk staff to pinpoint the exact cause of the error, or by the application to prompt an appropriate response from the user. (Ex. Deceased date must be greater than or equal to birth date).</p><p class="v2 v2-normalindented">Application Error Parameter: A receiving application encounters an error during processing of a transaction. In addition to an error code, the application provides an error parameter that gives greater detail as to the exact nature of the error. The receiving application looks up the message corresponding to the error code, substitutes in the parameter, and displays the resulting message to the user.</p><p class="v2 v2-normalindented">Diagnostic Information: While processing a transaction, a receiving application encounters an exception. When the exception is thrown, it provides a volume of detailed information relating to the error encountered. The receiving application captures the information and sends it in its response. The user reports the error to the help desk, and on request, faxes a copy of the diagnostic information to assist analyzing the problem.</p><p class="v2 v2-normalindented">User Message: A user executes an application function that generates a transaction that is sent to another application for further processing. During this processing, the receiving application encounters an error and, as part of the error handling routine, retrieves a User Message that it returns in its response. The originating application receives the error and displays it to the end user with the intent that the error condition can be resolved and the user can re-execute the function without error.</p><p class="v2 v2-normalindented">Inform Person Code: After submitting a dispense transaction, a response is returned to the user indicating that the patient could be abusing drugs. Given the sensitivity of this warning, the error is returned with an indicator stating that the patient should not be informed of the error with the implication that steps should be taken to rule out or confirm the warning.</p><p class="v2 v2-normalindented">Override Type: If a business rule states that a prescription on hold cannot be dispensed, an override type might be &quot;Dispense Held Prescription&quot; to allow the prescription to be dispensed in exception to the rule.</p><p class="v2 v2-normalindented">Override Reason Codes: A patient is given a prescription; however, before completing the prescription, the remaining pills are spoiled. The patient returns to their pharmacy and explains the situation to their pharmacist. The pharmacist decides to replace the spoiled drugs; however, when attempting to record the event, a message is returned indicating that the dispense would exceed the maximum amount prescribed. The pharmacist overrides the rule and specifies an Override Reason Code indicating a replacement of lost product.</p><p class="v2 v2-normalindented">Help Desk Contact: Help desk contact information is stored in a database. When an application error is encountered, the database is queried and the most current help desk contact information is returned in the error message. This is displayed to the user by the receiving application.</p><p class="v2 v2-normalindented">Better Error Location Information: Receiving system detects an error with the 3rd repetition of the ROL.4 (Role Person - XCN).16 (Name Context – CE).4(Alternate Identifier – CWE). The application identifies the specific repetition and component when raising the error, simplifying diagnosis of the problem. </p><p class="v2 v2-normalindented">Support for multiple Error Locations: Two fields are marked as conditional, with the condition that one of the two must be specified. The sending application leaves both blank. The receiving application detects the problem, and sends back a single error indicating that one of the fields must be filled in. The ERR segment identifies both positions within the message that relate to the error.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - ERR - error segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+ERR
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Error Code and Location
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ERR-1'>
+00024
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Error Location
+</td>
+<td class='centered'>
+<a href='/data-type/ERL.html'>
+ERL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ERR-2'>
+01812
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+HL7 Error Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0357-Message-Error-Condition-Codes.html' title='Message Error Condition Codes(Required)'>
+0357(R)
+<span class='vocab-link-text'>Message Error Condition Codes(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#ERR-3'>
+01813
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Severity
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0516-Error-Severity.html' title='Error Severity(Required)'>
+0516(R)
+<span class='vocab-link-text'>Error Severity(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#ERR-4'>
+01814
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Application Error Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0533-Application-Error-Code.html' title='Application Error Code'>
+0533
+<span class='vocab-link-text'>Application Error Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ERR-5'>
+01815
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Application Error Parameter
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..10]
+</td>
+<td class='centered'>
+<a href='#ERR-6'>
+01816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+80
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Diagnostic Information
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ERR-7'>
+01817
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+2048
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+User Message
+</td>
+<td class='centered'>
+<a href='/data-type/TX.html'>
+TX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ERR-8'>
+01818
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Inform Person Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0517-Inform-Person-Code.html' title='Inform Person Code(Suggested)'>
+0517(S)
+<span class='vocab-link-text'>Inform Person Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ERR-9'>
+01819
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Override Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0518-Override-Type.html' title='Override Type'>
+0518
+<span class='vocab-link-text'>Override Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ERR-10'>
+01820
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Override Reason Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0519-Override-Reason.html' title='Override Reason'>
+0519
+<span class='vocab-link-text'>Override Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ERR-11'>
+01821
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+12
+</td>
+<td>
+Help Desk Contact Point
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ERR-12'>
+01822
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='ERR-1'>
+ERR-1: Error Code and Location (<a href='/data-type/.html'></a>) 00024
+</h4>
+<p class="v2 v2-normalindented">Attention:  The ERR-1 field <strong>was deprecated in V2.4 and is withdrawn in V2.7</strong>.  Please refer to ERR-2 and ERR-3 instead.</p>
+
+<h4 class='v2' id='ERR-2'>
+ERR-2: Error Location (<a href='/data-type/ERL.html'>ERL</a>) 01812
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies the location in a message related to the identified error, warning or message. If multiple repetitions are present, the error results from the values in a combination of places.</p>
+
+<h4 class='v2' id='ERR-3'>
+ERR-3: HL7 Error Code (<a href='/data-type/CWE.html'>CWE</a>) 01813
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies the HL7 (communications) error code. Refer to <a href="https://www.hl7.org/fhir/v2/0357/index.html">HL7 Table 0357 – Message Error Condition Codes</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ERR-4'>
+ERR-4: Severity (<a href='/data-type/ID.html'>ID</a>) 01814
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies the severity of an application error. Knowing if something is Error, Warning or Information is intrinsic to how an application handles the content. Refer to <a href="https://www.hl7.org/fhir/v2/0516/index.html">HL7 Table 0516 - Error Severity</a> in Chapter 2C, Code Tables, for valid values. If ERR-3 has a value of &quot;0&quot;, ERR-4 will have a value of &quot;I&quot;.</p><p class="v2 v2-normalindented">Example: a Warning could be used to indicate that notes were present, but ignored because they could not be automatically processed, and therefore information could have been missed.</p><p class="v2 v2-normalindented">Example of Information: When submitting a claim, a payor might indicate remaining coverage under limit.</p>
+
+<h4 class='v2' id='ERR-5'>
+ERR-5: Application Error Code (<a href='/data-type/CWE.html'>CWE</a>) 01815
+</h4>
+<p class="v2 v2-normalindented">Definition: Application specific code identifying the specific error that occurred. Refer to <a href="https://www.hl7.org/fhir/v2/0533/index.html">User-Defined Table 0533 – Application Error Code</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">If the message associated with the code has parameters, it is recommended that the message be indicated in the format of the java.text.MessageFormat approach.<span id="chapter-2-footnote-reference-3"><a href="#chapter-2-footnote-3"><sup>3</sup></a></span> This style provides information on the parameter type to allow numbers, dates and times to be formatted appropriately for the language.</p>
+
+<h4 class='v2' id='ERR-6'>
+ERR-6: Application Error Parameter (<a href='/data-type/ST.html'>ST</a>) 01816
+</h4>
+<p class="v2 v2-normalindented">Definition: Additional information to be used, together with the Application Error Code, to understand a particular error condition/warning/etc. This field can repeat to allow for up to 10 parameters.</p><p class="v2 v2-normalindented">Example: If the application error code specified in ERR.5 corresponded with the English message &quot;The patient has a remaining deductible of {0, number, currency} for the period ending {1, date, medium}.&quot;, and the first two repetitions of ERR.6 were &quot;250&quot; and &quot;20021231&quot;, then a receiving application in the U.S. would display the message as &quot;The patient has a remaining deductible of $250.00 for the period ending Dec 31, 2002.&quot;</p>
+
+<h4 class='v2' id='ERR-7'>
+ERR-7: Diagnostic Information (<a href='/data-type/TX.html'>TX</a>) 01817
+</h4>
+<p class="v2 v2-normalindented">Definition: Information that MAY be used by help desk or other support personnel to diagnose a problem.</p>
+
+<h4 class='v2' id='ERR-8'>
+ERR-8: User Message (<a href='/data-type/TX.html'>TX</a>) 01818
+</h4>
+<p class="v2 v2-normalindented">Definition: The text message to be displayed to the application user.</p><p class="v2 v2-normalindented">Example:</p><p class="v2 v2-example">|This program is having trouble communicating with another system. Please contact the help desk.|  </p><p class="v2 v2-normalindented">This differs from the actual error code and could provide more diagnostic information.</p>
+
+<h4 class='v2' id='ERR-9'>
+ERR-9: Inform Person Indicator (<a href='/data-type/CWE.html'>CWE</a>) 01819
+</h4>
+<p class="v2 v2-normalindented">Definition: A code to indicate who (if anyone) SHOULD be informed of the error. This field MAY also be used to indicate that a particular person SHOULD NOT be informed of the error (e.g., Do not inform patient). Refer to <a href="https://www.hl7.org/fhir/v2/0517/index.html">User-defined table 0517- Inform Person Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='ERR-10'>
+ERR-10: Override Type (<a href='/data-type/CWE.html'>CWE</a>) 01820
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifies what type of override can be used to override the specific error identified. Refer to <a href="https://www.hl7.org/fhir/v2/0518/index.html">User-defined Table 0518 - Override Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='ERR-11'>
+ERR-11: Override Reason Code (<a href='/data-type/CWE.html'>CWE</a>) 01821
+</h4>
+<p class="v2 v2-normalindented">Definition: Provides a list of potential override codes that can be used to override enforcement of the application rule that generated the error. Refer to <a href="https://www.hl7.org/fhir/v2/0519/index.html">User-defined table 0519 – Override Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='ERR-12'>
+ERR-12: Help Desk Contact Point (<a href='/data-type/XTN.html'>XTN</a>) 01822
+</h4>
+<p class="v2 v2-normalindented">Definition: Lists phone, e-mail, fax, and other relevant numbers for helpdesk support related to the specified error.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

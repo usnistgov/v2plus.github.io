@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Segment Definitions
+</h2>
+<ul>
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/....html'>
+... - Variable Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ABS.html'>
+ABS - Abstract Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ACC.html'>
+ACC - Accident Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ADD.html'>
+ADD - Addendum Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ADJ.html'>
+ADJ - Adjustment Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AFF.html'>
+AFF - Professional Affiliation Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AIG.html'>
+AIG - Appointment Information - General Resource Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AIL.html'>
+AIL - Appointment Information - Location Resource Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AIP.html'>
+AIP - Appointment Information - Personnel Resource Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AIS.html'>
+AIS - Appointment Information - Service Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AL1.html'>
+AL1 - Patient Allergy Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/APR.html'>
+APR - Appointment Preferences Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ARQ.html'>
+ARQ - Appointment Request Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ARV.html'>
+ARV - Access Restrictions Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/AUT.html'>
+AUT - Authorization Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BHS.html'>
+BHS - Batch Header Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BLC.html'>
+BLC - Blood Code Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BLG.html'>
+BLG - Billing Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BPO.html'>
+BPO - Blood Product Order Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BPX.html'>
+BPX - Blood Product Dispense Status Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BTS.html'>
+BTS - Batch Trailer Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BTX.html'>
+BTX - Blood Product Transfusion/Disposition Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/BUI.html'>
+BUI - Blood Unit Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CDM.html'>
+CDM - Charge Description Master Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CDO.html'>
+CDO - Cumulative Dosage Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CER.html'>
+CER - Certificate Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CM0.html'>
+CM0 - Clinical Study Master Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CM1.html'>
+CM1 - Clinical Study Phase Master Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CM2.html'>
+CM2 - Clinical Study Schedule Master Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CNS.html'>
+CNS - Clear Notification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CON.html'>
+CON - Consent Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CSP.html'>
+CSP - Clinical Study Phase Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CSR.html'>
+CSR - Clinical Study Registration Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CSS.html'>
+CSS - Clinical Study Data Schedule Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CTD.html'>
+CTD - Contact Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CTI.html'>
+CTI - Clinical Trial Identification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/CTR.html'>
+CTR - Contract Master Outbound Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DB1.html'>
+DB1 - Disability Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DEV.html'>
+DEV - Device Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DG1.html'>
+DG1 - Diagnosis Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DMI.html'>
+DMI - Drg Master File Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DON.html'>
+DON - Donation Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DPS.html'>
+DPS - Diagnosis And Procedure Code Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DRG.html'>
+DRG - Diagnosis Related Group Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DSC.html'>
+DSC - Continuation Pointer Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DSP.html'>
+DSP - Display Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/DST.html'>
+DST - Transport Destination Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ECD.html'>
+ECD - Equipment Command Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ECR.html'>
+ECR - Equipment Command Response Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/EDU.html'>
+EDU - Educational Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/EQP.html'>
+EQP - Equipment Log/Service Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/EQU.html'>
+EQU - Equipment Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ERR.html'>
+ERR - Error Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/EVN.html'>
+EVN - Event Type Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/FAC.html'>
+FAC - Facility Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/FHS.html'>
+FHS - File Header Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/FT1.html'>
+FT1 - Financial Transaction Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/FTS.html'>
+FTS - File Trailer Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/GOL.html'>
+GOL - Goal Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/GP1.html'>
+GP1 - Grouping/Reimbursement - Visit Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/GP2.html'>
+GP2 - Grouping/Reimbursement - Procedure Line Item Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/GT1.html'>
+GT1 - Guarantor Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/Hxx.html'>
+Hxx - Any Hl7 Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IAM.html'>
+IAM - Patient Adverse Reaction Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IAR.html'>
+IAR - Allergy Reaction Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IIM.html'>
+IIM - Inventory Item Master Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ILT.html'>
+ILT - Material Lot Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IN1.html'>
+IN1 - Insurance Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IN2.html'>
+IN2 - Insurance Additional Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IN3.html'>
+IN3 - Insurance Additional Information, Certification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/INV.html'>
+INV - Inventory Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IPC.html'>
+IPC - Imaging Procedure Control Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IPR.html'>
+IPR - Invoice Processing Results Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ISD.html'>
+ISD - Interaction Status Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ITM.html'>
+ITM - Material Item Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IVC.html'>
+IVC - Invoice Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/IVT.html'>
+IVT - Material Location Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/LAN.html'>
+LAN - Language Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/LCC.html'>
+LCC - Location Charge Code Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/LCH.html'>
+LCH - Location Characteristic Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/LDP.html'>
+LDP - Location Department Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/LOC.html'>
+LOC - Location Identification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/LRL.html'>
+LRL - Location Relationship Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MCP.html'>
+MCP - Master File Coverage Policy Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MFA.html'>
+MFA - Master File Acknowledgment Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MFE.html'>
+MFE - Master File Entry Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MFI.html'>
+MFI - Master File Identification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MRG.html'>
+MRG - Merge Patient Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MSA.html'>
+MSA - Message Acknowledgment Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/MSH.html'>
+MSH - Message Header Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NCK.html'>
+NCK - System Clock Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NDS.html'>
+NDS - Notification Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NK1.html'>
+NK1 - Next Of Kin / Associated Parties Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NPU.html'>
+NPU - Bed Status Update Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NSC.html'>
+NSC - Application Status Change Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NST.html'>
+NST - Application Control-Level Statistics Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/NTE.html'>
+NTE - Notes And Comments Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OBR.html'>
+OBR - Observation Request Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OBX.html'>
+OBX - Observation/Result Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ODS.html'>
+ODS - Dietary Orders, Supplements, And Preferences Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ODT.html'>
+ODT - Diet Tray Instructions Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OH1.html'>
+OH1 - Person Employment Status Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OH2.html'>
+OH2 - Past Or Present Job Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OH3.html'>
+OH3 - Usual Work Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OH4.html'>
+OH4 - Combat Zone Work Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM1.html'>
+OM1 - General Segment (Fields That Apply To Most Observations)
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM2.html'>
+OM2 - Numeric Observation Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM3.html'>
+OM3 - Categorical Service/Test/Observation Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM4.html'>
+OM4 - Observations That Require Specimens Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM5.html'>
+OM5 - Observation Batteries (Sets) Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM6.html'>
+OM6 - Observations That Are Calculated From Other Observations Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OM7.html'>
+OM7 - Additional Basic Attributes Segment (Fields That Apply To Most Observations/Services)
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OMC.html'>
+OMC - Supporting Clinical Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ORC.html'>
+ORC - Common Order Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ORG.html'>
+ORG - Practitioner Organization Unit Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/OVR.html'>
+OVR - Override Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PAC.html'>
+PAC - Shipment Package Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PCE.html'>
+PCE - Patient Charge Cost Center Exception Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PCR.html'>
+PCR - Possible Causal Relationship Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PD1.html'>
+PD1 - Patient Additional Demographic Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PDA.html'>
+PDA - Patient Death And Autopsy Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PDC.html'>
+PDC - Product Detail Country Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PEO.html'>
+PEO - Product Experience Observation Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PES.html'>
+PES - Product Experience Sender Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PID.html'>
+PID - Patient Identification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PKG.html'>
+PKG - Packaging Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PM1.html'>
+PM1 - Payer Master File Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PMT.html'>
+PMT - Payment Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PR1.html'>
+PR1 - Procedures Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PRA.html'>
+PRA - Practitioner Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PRB.html'>
+PRB - Problem Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PRC.html'>
+PRC - Pricing Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PRD.html'>
+PRD - Provider Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PRT.html'>
+PRT - Participation Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PSG.html'>
+PSG - Product/Service Group Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PSH.html'>
+PSH - Product Summary Header Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PSL.html'>
+PSL - Product/Service Line Item Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PSS.html'>
+PSS - Product/Service Section Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PTH.html'>
+PTH - Pathway Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PV1.html'>
+PV1 - Patient Visit Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PV2.html'>
+PV2 - Patient Visit - Additional Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/PYE.html'>
+PYE - Payee Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/QAK.html'>
+QAK - Query Acknowledgment Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/QID.html'>
+QID - Query Identification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/QPD.html'>
+QPD - Query Parameter Definition Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/QRI.html'>
+QRI - Query Response Instance Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RCP.html'>
+RCP - Response Control Parameter Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RDF.html'>
+RDF - Table Row Definition Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RDT.html'>
+RDT - Table Row Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/REL.html'>
+REL - Clinical Relationship Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RF1.html'>
+RF1 - Referral Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RFI.html'>
+RFI - Request For Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RGS.html'>
+RGS - Resource Group Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RMI.html'>
+RMI - Risk Management Incident Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ROL.html'>
+ROL - Role Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RQ1.html'>
+RQ1 - Requisition Detail-1 Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RQD.html'>
+RQD - Requisition Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXA.html'>
+RXA - Pharmacy/Treatment Administration Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXC.html'>
+RXC - Pharmacy/Treatment Component Order Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXD.html'>
+RXD - Pharmacy/Treatment Dispense Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXE.html'>
+RXE - Pharmacy/Treatment Encoded Order Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXG.html'>
+RXG - Pharmacy/Treatment Give Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXO.html'>
+RXO - Pharmacy/Treatment Order Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXR.html'>
+RXR - Pharmacy/Treatment Route Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/RXV.html'>
+RXV - Pharmacy/Treatment Infusion Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SAC.html'>
+SAC - Specimen Container Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SCD.html'>
+SCD - Anti-Microbial Cycle Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SCH.html'>
+SCH - Schedule Activity Information Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SCP.html'>
+SCP - Sterilizer Configuration Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SDD.html'>
+SDD - Sterilization Device Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SFT.html'>
+SFT - Software Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SGH.html'>
+SGH - Segment Group Header Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SGT.html'>
+SGT - Segment Group Trailer Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SHP.html'>
+SHP - Shipment Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SID.html'>
+SID - Substance Identifier Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SLT.html'>
+SLT - Sterilization Lot Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/SPM.html'>
+SPM - Specimen Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/STF.html'>
+STF - Staff Identification Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/STZ.html'>
+STZ - Sterilization Parameter Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/TCC.html'>
+TCC - Test Code Configuration Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/TCD.html'>
+TCD - Test Code Detail Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/TQ1.html'>
+TQ1 - Timing/Quantity Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/TQ2.html'>
+TQ2 - Timing/Quantity Relationship Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/TXA.html'>
+TXA - Transcription Document Header Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/UAC.html'>
+UAC - User Authentication Credential Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/UB1.html'>
+UB1 - Uniform Billing 1 Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/UB2.html'>
+UB2 - Ub92 Data Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/VAR.html'>
+VAR - Variance Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/VND.html'>
+VND - Purchasing Vendor Segment
+</a>
+</li>
+
+<li class='data_type_toc_entry'>
+<a href='/segment-definition/ZL7.html'>
+ZL7 - Zl7 Segment (Proposed Example Only)
+</a>
+</li>
+
+</ul>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

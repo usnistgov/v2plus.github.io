@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PCR - Possible Causal Relationship Segment
+</h3>
+<p class="v2 v2-normalindented">The PCR segment is used to communicate a potential or suspected relationship between a product (drug or device) or test and an event with detrimental effect on a patient.  This segment identifies a potential causal relationship between the product identified in this segment and the event identified in the PEO segment.</p><p class="v2 v2-normalindented">More than one PCR segment can be included in the message if more than one product is possibly causally related to the event.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PCR - Possible Causal Relationship Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PCR
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Implicated Product
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0670-ERROR! Bad Data! FIXME.html'>
+0670
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#PCR-1'>
+01098
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Generic Product
+</td>
+<td class='centered'>
+<a href='/data-type/IS.html'>
+IS
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0249-Generic-Product.html' title='Generic Product'>
+0249
+<span class='vocab-link-text'>Generic Product</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-2'>
+01099
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Product Class
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0671-ERROR! Bad Data! FIXME.html'>
+0671
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-3'>
+01100
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Total Duration Of Therapy
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-4'>
+01101
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Product Manufacture Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-5'>
+01102
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Product Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-6'>
+01103
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Product Implantation Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-7'>
+01104
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Product Explantation Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-8'>
+01105
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Single Use Device
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0244-Single-Use-Device.html' title='Single Use Device'>
+0244
+<span class='vocab-link-text'>Single Use Device</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-9'>
+01106
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Indication For Product Use
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0672-ERROR! Bad Data! FIXME.html'>
+0672
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-10'>
+01107
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Product Problem
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0245-Product-Problem.html' title='Product Problem'>
+0245
+<span class='vocab-link-text'>Product Problem</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-11'>
+01108
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Product Serial/Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..3]
+</td>
+<td class='centered'>
+<a href='#PCR-12'>
+01109
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Product Available For Inspection
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0246-Product-Available-for-Inspection.html' title='Product Available for Inspection'>
+0246
+<span class='vocab-link-text'>Product Available for Inspection</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-13'>
+01110
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Product Evaluation Performed
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0673-ERROR! Bad Data! FIXME.html'>
+0673
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-14'>
+01111
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Product Evaluation Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0247-Status-of-Evaluation.html' title='Status of Evaluation(Required)'>
+0247(R)
+<span class='vocab-link-text'>Status of Evaluation(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-15'>
+01112
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Product Evaluation Results
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0674-ERROR! Bad Data! FIXME.html'>
+0674
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-16'>
+01113
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Evaluated Product Source
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0248-Product-Source.html' title='Product Source(Required)'>
+0248(R)
+<span class='vocab-link-text'>Product Source(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-17'>
+01114
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Date Product Returned To Manufacturer
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-18'>
+01115
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Device Operator Qualifications
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0242-Primary-Observer&#39;s-Qualification.html' title='Primary Observer&#39;s Qualification(Required)'>
+0242(R)
+<span class='vocab-link-text'>Primary Observer's Qualification(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-19'>
+01116
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Relatedness Assessment
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0250-Relatedness-Assessment.html' title='Relatedness Assessment(Required)'>
+0250(R)
+<span class='vocab-link-text'>Relatedness Assessment(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PCR-20'>
+01117
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Action Taken In Response To The Event
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0251-Action-Taken-in-Response-to-the-Event.html' title='Action Taken in Response to the Event(Required)'>
+0251(R)
+<span class='vocab-link-text'>Action Taken in Response to the Event(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..6]
+</td>
+<td class='centered'>
+<a href='#PCR-21'>
+01118
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Event Causality Observations
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0252-Causality-Observations.html' title='Causality Observations(Required)'>
+0252(R)
+<span class='vocab-link-text'>Causality Observations(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..6]
+</td>
+<td class='centered'>
+<a href='#PCR-22'>
+01119
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+23
+</td>
+<td>
+Indirect Exposure Mechanism
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0253-Indirect-Exposure-Mechanism.html' title='Indirect Exposure Mechanism(Required)'>
+0253(R)
+<span class='vocab-link-text'>Indirect Exposure Mechanism(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..3]
+</td>
+<td class='centered'>
+<a href='#PCR-23'>
+01120
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PCR-1'>
+PCR-1: Implicated Product (<a href='/data-type/CWE.html'>CWE</a>) 01098
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the coded identity of the product (drug, device, etc.) which is possibly causally related to the event.  Includes the product identity number such as NDC, model or catalogue numbers.  If a coded value is not available for the product a text description can be included as the second component of the CWE data.  See Chapter 2 for a listing of some recognized coding systems for drugs and devices. Refer to Table 0670 - Implicated Product in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PCR-2'>
+PCR-2: Generic Product (<a href='/data-type/IS.html'>IS</a>) 01099
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the product used was a generic or a branded product.  Refer to <a href="https://www.hl7.org/fhir/v2/0249/index.html">User-defined Table 0249 – Generic Product</a> for suggested values.</p>
+
+<h4 class='v2' id='PCR-3'>
+PCR-3: Product Class (<a href='/data-type/CWE.html'>CWE</a>) 01100
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the coded classification of the implicated product. For drugs, this would usually be the drug class - calcium channel blocking agents for nifedipine, for example.  For other products it would be the generic type of device, e.g., urinary catheter, cardiac pacemaker.  If a coded value is not available for the class, a text description can be included. Refer to Table 0671 - Product Class in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PCR-4'>
+PCR-4: Total Duration Of Therapy (<a href='/data-type/CQ.html'>CQ</a>) 01101
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field represents the total duration of therapy with product listed.  The treatment at the current dose and schedule are indicted in the quantity timing attribute of the RXE segment but the patient may have been treated for some time previously at a different dose or on a different schedule.  The quantity in the second component of the CQ should be a time quantity.</p>
+
+<h4 class='v2' id='PCR-5'>
+PCR-5: Product Manufacture Date (<a href='/data-type/DTM.html'>DTM</a>) 01102
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the date the product was manufactured.</p>
+
+<h4 class='v2' id='PCR-6'>
+PCR-6: Product Expiration Date (<a href='/data-type/DTM.html'>DTM</a>) 01103
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the expiration date indicated on the product packaging.</p>
+
+<h4 class='v2' id='PCR-7'>
+PCR-7: Product Implantation Date (<a href='/data-type/DTM.html'>DTM</a>) 01104
+</h4>
+<p class="v2 v2-normalindented">Definition:  If an implantable medical device, this field identifies the date device was implanted.</p>
+
+<h4 class='v2' id='PCR-8'>
+PCR-8: Product Explantation Date (<a href='/data-type/DTM.html'>DTM</a>) 01105
+</h4>
+<p class="v2 v2-normalindented">Definition:  If an implantable medical device and it was removed, the field identifies the date it was removed.</p>
+
+<h4 class='v2' id='PCR-9'>
+PCR-9: Single Use Device (<a href='/data-type/CWE.html'>CWE</a>) 01106
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates whether the product was designed for a single use.  Refer to <a href="https://www.hl7.org/fhir/v2/0244/index.html">User-defined Table 0244 – Single Use Device</a> for suggested values.</p>
+
+<h4 class='v2' id='PCR-10'>
+PCR-10: Indication For Product Use (<a href='/data-type/CWE.html'>CWE</a>) 01107
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains coded representation of the problem or diagnosis for which the product was used.  See Chapter 2 for some coding systems which might be chosen to transmit diagnoses or problems. Refer to Table 0672 - Indication For Product Use in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PCR-11'>
+PCR-11: Product Problem (<a href='/data-type/CWE.html'>CWE</a>) 01108
+</h4>
+<p class="v2 v2-normalindented">Definition:  A product problem would exist if a product malfunction could lead to death or serious injury.  Refer to <a href="https://www.hl7.org/fhir/v2/0245/index.html">User-defined Table 0245 - Product Problem</a> for suggested values.</p>
+
+<h4 class='v2' id='PCR-12'>
+PCR-12: Product Serial/Lot Number (<a href='/data-type/ST.html'>ST</a>) 01109
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is an alphanumeric descriptor which identifies the specific item or lot of drug.  This descriptor would normally be obtained from the package labeling or item itself.</p>
+
+<h4 class='v2' id='PCR-13'>
+PCR-13: Product Available For Inspection (<a href='/data-type/CWE.html'>CWE</a>) 01110
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates that the product is available for analysis.  <a href="https://www.hl7.org/fhir/v2/0246/index.html">User-defined Table 0246 -Product Available for Inspection</a><em> is used as the HL7 identifier for the user-defined table of values for this field</em>.  If the product was returned to the manufacturer, this would be indicated by including the date it was returned in the date product returned to manufacturer element.</p>
+
+<h4 class='v2' id='PCR-14'>
+PCR-14: Product Evaluation Performed (<a href='/data-type/CWE.html'>CWE</a>) 01111
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the type of product evaluation performed.  The evaluation codes listed in SubPart B of the Coding Manual for FDA Form 3500A, &quot;Type of Evaluation Performed,&quot; may be used.  If no codes are available, text may be sent in the second component of the field. Refer to Table 0673 - Product Evaluation Performed in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PCR-15'>
+PCR-15: Product Evaluation Status (<a href='/data-type/CWE.html'>CWE</a>) 01112
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the status of product evaluation.  Subpart A Item H.3 of the Coding Manual for FDA Form 3500A may also be used.  If no codes are available, text may be sent in the second component of the field.  Refer to <a href="https://www.hl7.org/fhir/v2/0247/index.html">HL7 Table 0247 - Status of Evaluation</a> for valid values.</p>
+
+<h4 class='v2' id='PCR-16'>
+PCR-16: Product Evaluation Results (<a href='/data-type/CWE.html'>CWE</a>) 01113
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the results of the product evaluation. Refer to Table 0674 - Product Evaluation Results in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='PCR-17'>
+PCR-17: Evaluated Product Source (<a href='/data-type/ID.html'>ID</a>) 01114
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the source of the product evaluated.  Refer to <a href="https://www.hl7.org/fhir/v2/0248/index.html">HL7 Table 0248 - Product Source</a> for valid values.</p>
+
+<h4 class='v2' id='PCR-18'>
+PCR-18: Date Product Returned To Manufacturer (<a href='/data-type/DTM.html'>DTM</a>) 01115
+</h4>
+<p class="v2 v2-normalindented">Definition:  If the product was returned to the manufacturer, this field contains the date it was returned.</p>
+
+<h4 class='v2' id='PCR-19'>
+PCR-19: Device Operator Qualifications (<a href='/data-type/ID.html'>ID</a>) 01116
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the qualification of the person operating the device when the event occurred.  Refer to <a href="https://www.hl7.org/fhir/v2/0242/index.html">HL7 Table 0242 - Primary Observer&#39;s Qualification</a> for valid values.</p>
+
+<h4 class='v2' id='PCR-20'>
+PCR-20: Relatedness Assessment (<a href='/data-type/ID.html'>ID</a>) 01117
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field represents the assessment of relatedness of the product to the event.  Refer to <a href="https://www.hl7.org/fhir/v2/0250/index.html">HL7 Table 0250 - Relatedness Assessment</a> for valid values.</p>
+
+<h4 class='v2' id='PCR-21'>
+PCR-21: Action Taken In Response To The Event (<a href='/data-type/ID.html'>ID</a>) 01118
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the action taken as a result of the event.  Segment may repeat if multiple categories of evidence are relevant.  Refer to <a href="https://www.hl7.org/fhir/v2/0251/index.html">HL7 Table 0251 - Action Taken in Response to the Event</a> for valid values.</p>
+
+<h4 class='v2' id='PCR-22'>
+PCR-22: Event Causality Observations (<a href='/data-type/ID.html'>ID</a>) 01119
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains observations made about the event which may bear on causality.  Refer to <a href="https://www.hl7.org/fhir/v2/0252/index.html">HL7 Table 0252 - Causality Observations</a> for valid values.  Segment may repeat if multiple categories of evidence are relevant.</p>
+
+<h4 class='v2' id='PCR-23'>
+PCR-23: Indirect Exposure Mechanism (<a href='/data-type/ID.html'>ID</a>) 01120
+</h4>
+<p class="v2 v2-normalindented">Definition:  The patient identified in the PID segment, who experienced the event, might have been exposed to the potential causal product via an intermediary, e.g., a child might be exposed to a product through the placenta or in breast milk, or a transfusion recipient might be exposed via a blood product.  If this is the case, the mechanism of product transmission is identified in this field, using the valid values in <a href="https://www.hl7.org/fhir/v2/0253/index.html">HL7 Table 0253 - Indirect Exposure Mechanism</a>.  If this field is populated, the identity of the person through whom the product was transmitted is contained in NK1 and RXE segments which follow.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

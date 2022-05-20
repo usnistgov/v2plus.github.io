@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PRD - Provider Data Segment
+</h3>
+<p class="v2 v2-normalindented">This segment will be employed as part of a patient referral message and its related transactions.  The PRD segment contains data specifically focused on a referral, and it is inter-enterprise in nature.  The justification for this new segment comes from the fact that we are dealing with referrals that are external to the facilities that received them.  Therefore, using a segment such as the current PV1 would be inadequate for all the return information that may be required by the receiving facility or application.  In addition, the PV1 does not always provide information sufficient to enable the external facility to make a complete identification of the referring entity.  The information contained in the PRD segment will include the referring provider, the referred-to provider, the referred-to location or service, and the referring provider clinic address. </p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PRD - Provider Data Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+PRD
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Provider Role
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0286-Provider-Role.html' title='Provider Role(Suggested)'>
+0286(S)
+<span class='vocab-link-text'>Provider Role(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+<a href='#PRD-1'>
+01155
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Provider Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-2'>
+01156
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Provider Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-3'>
+01157
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Provider Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRD-4'>
+01158
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Provider Communication Information
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-5'>
+01159
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Preferred Method of Contact
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0185-Preferred-Method-of-Contact.html' title='Preferred Method of Contact(Required)'>
+0185(R)
+<span class='vocab-link-text'>Preferred Method of Contact(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRD-6'>
+00684
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Provider Identifiers
+</td>
+<td class='centered'>
+<a href='/data-type/PLN.html'>
+PLN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0338-Practitioner-ID-Number-Type.html' title='Practitioner ID Number Type(Suggested)'>
+0338(S)
+<span class='vocab-link-text'>Practitioner ID Number Type(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-7'>
+01162
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Effective Start Date of Provider Role
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRD-8'>
+01163
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Effective End Date of Provider Role
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-9'>
+01164
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Provider Organization Name and Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRD-10'>
+02256
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Provider Organization Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-11'>
+02257
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Provider Organization Location Information
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-12'>
+02258
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Provider Organization Communication Information
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#PRD-13'>
+02259
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+14
+</td>
+<td>
+Provider Organization Method of Contact
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0185-Preferred-Method-of-Contact.html' title='Preferred Method of Contact(Required)'>
+0185(R)
+<span class='vocab-link-text'>Preferred Method of Contact(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#PRD-14'>
+02260
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='PRD-1'>
+PRD-1: Provider Role (<a href='/data-type/CWE.html'>CWE</a>) 01155
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the contact role that defines the relationship of the person or organization described in this segment to the patient being referred.  When a referral is inter-enterprise in nature, there are several important relationships that must be identified.  For example, the proper identification of both the referring and the referred-to provider is critical for proper processing of a referral.  In addition, some enterprises may want information regarding a consulting provider or the identity of the person who actually prepared the referral.  This contact role may also expand to represent affiliated persons to whom information regarding this referral must be forwarded or copied.  Refer to <a href="https://www.hl7.org/fhir/v2/0286/index.html">User-defined Table 0286 - Provider Role</a> for suggested values. </p>
+
+<h4 class='v2' id='PRD-2'>
+PRD-2: Provider Name (<a href='/data-type/XPN.html'>XPN</a>) 01156
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the provider identified in this segment.  Generally, this field will describe a physician associated with the referral.  However, it is not limited to physicians.  If the provider is an organization then <a href="/segment-definition/PRD.html#PRD-10">PRD-10 – Provider Organization Name and Identifier</a> will be used.  This field may contain the name of any valid healthcare provider associated with this referral.  If this Provider Name is a physician&#39;s name, you may refer to <a href="/segment-definition/PRD.html#PRD-7">PRD-7-Provider identifiers</a> for the physician identifier. </p>
+
+<h4 class='v2' id='PRD-3'>
+PRD-3: Provider Address (<a href='/data-type/XAD.html'>XAD</a>) 01157
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the mailing address of the provider identified in this segment.  One of the key components to completing the &quot;circle of care&quot; and provider/institution bonding is the issuance of follow-up correspondence to the referring provider.</p>
+
+<h4 class='v2' id='PRD-4'>
+PRD-4: Provider Location (<a href='/data-type/PL.html'>PL</a>) 01158
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the location of the provider as needed when a provider that may be external to a given enterprise must be referenced.  For example, if this provider represented the referred-to physician, the <a href="/segment-definition/PRD.html#PRD-4">PRD-4-Provider location</a> should identify the clinic of the physician or provider to whom this referral has been sent.  An application and facility identifier carried in the facility field specifies the identification of the provider&#39;s location.  The application ID and facility ID would be used in the same manner as their corresponding fields in the MSH segment (<a href="/segment-definition/MSH.html#MSH-3">MSH-3-Sending application, MSH-5-Receiving application,</a> <a href="/segment-definition/MSH.html#MSH-4">MSH-4-Sending facility, MSH-6-Receiving facility</a>).  That is, the facility field will contain an application identifier and facility identifier which describe the location of this provider.  However, it should be noted that they may describe a different location because the provider location being referenced in this field <em>may not be</em> the location from which the message originated, which is being described by the MSH.</p>
+
+<h4 class='v2' id='PRD-5'>
+PRD-5: Provider Communication Information (<a href='/data-type/XTN.html'>XTN</a>) 01159
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains information, such as the phone number or electronic mail address, used to communicate with the provider or organization.</p>
+
+<h4 class='v2' id='PRD-6'>
+PRD-6: Preferred Method of Contact (<a href='/data-type/CWE.html'>CWE</a>) 00684
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the preferred method to use when communicating with the provider.  Refer to <a href="https://www.hl7.org/fhir/v2/0185/index.html">User-defined Table 0185 - Preferred Method of Contact</a> in Chapter 2C, &quot;Code Tables&quot;, for suggested values. </p>
+
+<h4 class='v2' id='PRD-7'>
+PRD-7: Provider Identifiers (<a href='/data-type/PLN.html'>PLN</a>) 01162
+</h4>
+<p class="v2 v2-normalindented">Definition:  This repeating field contains the provider&#39;s unique identifiers such as UPIN, Medicare and Medicaid numbers.  Refer to <a href="https://www.hl7.org/fhir/v2/0338/index.html">User-defined Table 0338 - Practitioner ID Number Type</a> (in Chapter 2C, &quot;Code Tables&quot;)<em> </em>for suggested values.</p>
+
+<h4 class='v2' id='PRD-8'>
+PRD-8: Effective Start Date of Provider Role (<a href='/data-type/DTM.html'>DTM</a>) 01163
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the role of the provider effectively began.  For example, this date may represent the date on which a physician was assigned as a patient&#39;s primary care provider.</p>
+
+<h4 class='v2' id='PRD-9'>
+PRD-9: Effective End Date of Provider Role (<a href='/data-type/DTM.html'>DTM</a>) 01164
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the role of the provider effectively ended.  For example, this date may represent the date that a physician was removed as a patient&#39;s primary care provider.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The <a href="/segment-definition/PRD.html#PRD-8">PRD-8-Effective Start Date of Role</a> and <a href="/segment-definition/PRD.html#PRD-9">PRD-9-Effective End Date of Role</a> fields should <em>not</em> be used as trigger events.  For example, they should not be used to trigger a change in role.  These two dates are for informational purposes only.</p></div><br/>
+
+<h4 class='v2' id='PRD-10'>
+PRD-10: Provider Organization Name and Identifier (<a href='/data-type/XON.html'>XON</a>) 02256
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the provider where the provider is an organization.</p>
+
+<h4 class='v2' id='PRD-11'>
+PRD-11: Provider Organization Address (<a href='/data-type/XAD.html'>XAD</a>) 02257
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the address of the provider if it is an organization.</p>
+
+<h4 class='v2' id='PRD-12'>
+PRD-12: Provider Organization Location Information (<a href='/data-type/PL.html'>PL</a>) 02258
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the location details of the provider if it is an organization.</p>
+
+<h4 class='v2' id='PRD-13'>
+PRD-13: Provider Organization Communication Information (<a href='/data-type/XTN.html'>XTN</a>) 02259
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains information, such as the phone number or electronic mail address, used to communicate with the provider if it is an organization.</p>
+
+<h4 class='v2' id='PRD-14'>
+PRD-14: Provider Organization Method of Contact (<a href='/data-type/CWE.html'>CWE</a>) 02260
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the preferred method to use when communicating with the provider if provider is an organization.  Refer to  <a href="https://www.hl7.org/fhir/v2/0185/index.html">User-defined Table 0185 - Preferred Method of Contact</a> in Chapter 2C, &quot;Code Tables&quot;, for suggested values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

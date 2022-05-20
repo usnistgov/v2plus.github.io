@@ -1,0 +1,4091 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html'>
+Chapter 6 - Financial Management
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-1'>
+    6.1  CHAPTER 6 CONTENTS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-2'>
+    6.2  PURPOSE
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-3'>
+    6.3  PATIENT ACCOUNTING MESSAGE SET
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4'>
+    6.4  TRIGGER EVENTS AND MESSAGE DEFINITIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-1'>
+        6.4.1  BAR/ACK - Add Patient Account (Event P01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-2'>
+        6.4.2  BAR/ACK - Purge Patient Accounts (Event P02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-3'>
+        6.4.3  DFT/ACK - Post Detail Financial Transactions (Event P03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-4'>
+        6.4.4  QRY/DSR - Generate Bills And Accounts Receivable Statements (Event P04)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-5'>
+        6.4.5  BAR/ACK - Update Account (Event P05)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-6'>
+        6.4.6  BAR/ACK - End Account (event P06)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-7'>
+        6.4.7  BAR/ACK - Transmit Ambulatory Payment Classification (APC) Groups (Event P10)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-8'>
+        6.4.8  DFT/ACK - Post Detail Financial Transactions - Expanded (Event P11)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-4-9'>
+        6.4.9  BAR/ACK - Update Diagnosis/Procedure (Event P12)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5'>
+    6.5  MESSAGE SEGMENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1'>
+        6.5.1  FT1 - Financial Transaction Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-1'>
+            6.5.1.1  FT1-1   Set ID - FT1   (SI)   00355
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-2'>
+            6.5.1.2  FT1-2   Transaction ID   (CX)   00356
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-3'>
+            6.5.1.3  FT1-3   Transaction Batch ID   (ST)   00357
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-4'>
+            6.5.1.4  FT1-4   Transaction Date   (DR)   00358
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-5'>
+            6.5.1.5  FT1-5   Transaction Posting Date   (DTM)   00359
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-6'>
+            6.5.1.6  FT1-6   Transaction Type   (CWE)   00360
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-7'>
+            6.5.1.7  FT1-7   Transaction Code   (CWE)   00361
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-8'>
+            6.5.1.8  FT1-8   Transaction Description   00362
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-9'>
+            6.5.1.9  FT1-9   Transaction Description - Alt   00363
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-10'>
+            6.5.1.10  FT1-10   Transaction Quantity   (NM)   00364
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-11'>
+            6.5.1.11  FT1-11   Transaction Amount - Extended   (CP)   00365
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-12'>
+            6.5.1.12  FT1-12   Transaction Amount - Unit   (CP)   00366
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-13'>
+            6.5.1.13  FT1-13   Department Code   (CWE)   00367
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-14'>
+            6.5.1.14  FT1-14   Health Plan ID   (CWE)   00368
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-15'>
+            6.5.1.15  FT1-15   Insurance Amount   (CP)   00369
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-16'>
+            6.5.1.16  FT1-16   Assigned Patient Location   (PL)   00133
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-17'>
+            6.5.1.17  FT1-17   Fee Schedule   (CWE)   00370
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-18'>
+            6.5.1.18  FT1-18   Patient Type   (CWE)   00148
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-19'>
+            6.5.1.19  FT1-19   Diagnosis Code - FT1   (CWE)   00371
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-20'>
+            6.5.1.20  FT1-20   Performed by Code   (XCN)   00372
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-21'>
+            6.5.1.21  FT1-21   Ordered By Code   (XCN)   00373
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-22'>
+            6.5.1.22  FT1-22   Unit Cost   (CP)   00374
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-23'>
+            6.5.1.23  FT1-23   Filler Order Number   (EI)   00217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-24'>
+            6.5.1.24  FT1-24   Entered by Code   (XCN)   00765
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-25'>
+            6.5.1.25  FT1-25   Procedure Code   (CNE)   00393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-26'>
+            6.5.1.26  FT1-26   Procedure Code Modifier   (CNE)   01316
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-27'>
+            6.5.1.27  FT1-27   Advanced Beneficiary Notice Code   (CWE)   01310
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-28'>
+            6.5.1.28  FT1-28   Medically Necessary Duplicate Procedure Reason   (CWE)   01646
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-29'>
+            6.5.1.29  FT1-29   NDC Code   (CWE)   01845
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-30'>
+            6.5.1.30  FT1-30   Payment Reference ID   (CX)   01846
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-31'>
+            6.5.1.31  FT1-31   Transaction Reference Key   (SI)   01847
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-32'>
+            6.5.1.32  FT1-32   Performing Facility   (XON)   02361
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-33'>
+            6.5.1.33  FT1-33   Ordering Facility   (XON)   02362
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-34'>
+            6.5.1.34  FT1-34   Item Number   (CWE)   02363
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-35'>
+            6.5.1.35  FT1-35   Model Number   (ST)   02364
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-36'>
+            6.5.1.36  FT1-36   Special Processing Code   (CWE)   02365
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-37'>
+            6.5.1.37  FT1-37   Clinic Code   (CWE)   02366
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-38'>
+            6.5.1.38  FT1-38   Referral Number   (CX)   02367
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-39'>
+            6.5.1.39  FT1-39   Authorization Number   (CX)   02368
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-40'>
+            6.5.1.40  FT1-40   Service Provider Taxonomy Code   (CWE)   02369
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-41'>
+            6.5.1.41  FT1-41   Revenue Code   (CWE)   01600
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-42'>
+            6.5.1.42  FT1-42   Prescription Number    (ST)   00325
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-43'>
+            6.5.1.43  FT1-43  NDC Qty and UOM    (CQ)   02370
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-44'>
+            6.5.1.44  FT1-44   DME (Durable Medical Equipment) Certificate of Medical Necessity Transmission Code   (CWE)   03496
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-45'>
+            6.5.1.45  FT1-45   DME Certification Type    (CWE)   03497
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-46'>
+            6.5.1.46  FT1-46   DME Duration   (NM)   03498
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-47'>
+            6.5.1.47  FT1-47   DME Certification Revision Date   (DT)   03499
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-48'>
+            6.5.1.48  FT1-48   DME Initial Certification Date   (DT)   03500
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-49'>
+            6.5.1.49  FT1-49   DME Last Certification Date   (DT)   03501
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-50'>
+            6.5.1.50  FT1-50   DME Length of Medical Necessity Days   (NM)   03502
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-51'>
+            6.5.1.51  FT1-51   DME Rental Price   (MO)   03503
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-52'>
+            6.5.1.52  FT1-52   DME Purchase Price   (MO)   03504
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-53'>
+            6.5.1.53  FT1-53   DME Frequency   (CWE)   03505
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-54'>
+            6.5.1.54  FT1-54   DME Certification Condition Indicator   (ID)   03506
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-55'>
+            6.5.1.55  FT1-55   DME Condition Indicator   (CWE)   03507
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-1-56'>
+            6.5.1.56  FT1-56   Service Reason Code   (CWE)   03508
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2'>
+        6.5.2  DG1 - Diagnosis Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-1'>
+            6.5.2.1  DG1-1   Set ID - DG1   (SI)   00375
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-2'>
+            6.5.2.2  DG1-2   Diagnosis Coding Method   00376
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-3'>
+            6.5.2.3  DG1-3   Diagnosis Code - DG1   (CWE)   00377
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-4'>
+            6.5.2.4  DG1-4   Diagnosis Description   00378
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-5'>
+            6.5.2.5  DG1-5   Diagnosis Date/Time   (DTM)   00379
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-6'>
+            6.5.2.6  DG1-6   Diagnosis Type   (CWE)   00380
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-7'>
+            6.5.2.7  DG1-7   Major Diagnostic Category   00381
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-8'>
+            6.5.2.8  DG1-8   Diagnostic Related Group   00382
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-9'>
+            6.5.2.9  DG1-9   DRG Approval Indicator   00383
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-10'>
+            6.5.2.10  DG1-10   DRG Grouper Review Code   00384
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-11'>
+            6.5.2.11  DG1-11   Outlier Type   00385
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-12'>
+            6.5.2.12  DG1-12   Outlier Days   00386
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-13'>
+            6.5.2.13  DG1-13   Outlier Cost   00387
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-14'>
+            6.5.2.14  DG1-14   Grouper Version and Type   00388
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-15'>
+            6.5.2.15  DG1-15   Diagnosis Priority   (NM)   00389
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-16'>
+            6.5.2.16  DG1-16   Diagnosing Clinician   (XCN)   00390
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-17'>
+            6.5.2.17  DG1-17   Diagnosis Classification   (CWE)   00766
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-18'>
+            6.5.2.18  DG1-18   Confidential Indicator   (ID)   00767
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-19'>
+            6.5.2.19  DG1-19   Attestation Date/Time   (DTM)   00768
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-20'>
+            6.5.2.20  DG1-20   Diagnosis Identifier   (EI)   01850
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-21'>
+            6.5.2.21  DG1-21  Diagnosis Action Code  (ID)  01894
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-22'>
+            6.5.2.22  DG1-22   Parent Diagnosis   (EI)   02152
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-23'>
+            6.5.2.23  DG1-23   DRG CCL Value Code   (CWE)   02153
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-24'>
+            6.5.2.24  DG1-24   DRG Grouping Usage   (ID)   02154
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-25'>
+            6.5.2.25  DG1-25   DRG Diagnosis Determination Status   (CWE)   02155
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-2-26'>
+            6.5.2.26  DG1-26   Present On Admission (POA) Indicator   (CWE)   02288
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3'>
+        6.5.3  DRG - Diagnosis Related Group Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-1'>
+            6.5.3.1  DRG-1   Diagnostic Related Group   (CNE)   00382
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-2'>
+            6.5.3.2  DRG-2   DRG Assigned Date/Time   (DTM)   00769
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-3'>
+            6.5.3.3  DRG-3   DRG Approval Indicator   (ID)   00383
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-4'>
+            6.5.3.4  DRG-4   DRG Grouper Review Code   (CWE)   00384
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-5'>
+            6.5.3.5  DRG-5   Outlier Type   (CWE)   00385
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-6'>
+            6.5.3.6  DRG-6   Outlier Days   (NM)   00386
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-7'>
+            6.5.3.7  DRG-7   Outlier Cost   (CP)   00387
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-8'>
+            6.5.3.8  DRG-8   DRG Payor   (CWE)   00770
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-9'>
+            6.5.3.9  DRG-9   Outlier Reimbursement   (CP)   00771
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-10'>
+            6.5.3.10  DRG-10   Confidential Indicator   (ID)   00767
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-11'>
+            6.5.3.11  DRG-11   DRG Transfer Type   (CWE)   01500
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-12'>
+            6.5.3.12  DRG-12   Name of Coder   (XPN)   02156
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-13'>
+            6.5.3.13  DRG-13   Grouper Status   (CWE)   02157
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-14'>
+            6.5.3.14  DRG-14   PCCL Value Code  (CWE)   02158
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-15'>
+            6.5.3.15  DRG-15   Effective Weight   (NM)   02159
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-16'>
+            6.5.3.16  DRG-16   Monetary Amount   (MO)   02160
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-17'>
+            6.5.3.17  DRG-17   Status Patient   (CWE)   02161
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-18'>
+            6.5.3.18  DRG-18   Grouper Software Name   (ST)   02162
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-19'>
+            6.5.3.19  DRG-19   Grouper Software Version   (ST)   02282
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-20'>
+            6.5.3.20  DRG-20   Status Financial Calculation   (CWE)   02163
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-21'>
+            6.5.3.21  DRG-21   Relative Discount/Surcharge   (MO)   02164
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-22'>
+            6.5.3.22  DRG-22   Basic Charge   (MO)   02165
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-23'>
+            6.5.3.23  DRG-23   Total Charge   (MO)   02166
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-24'>
+            6.5.3.24  DRG-24   Discount/Surcharge   (MO)   02167
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-25'>
+            6.5.3.25  DRG-25   Calculated Days   (NM)   02168
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-26'>
+            6.5.3.26  DRG-26   Status Gender   (CWE)   02169
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-27'>
+            6.5.3.27  DRG-27   Status Age   (CWE)   02170
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-28'>
+            6.5.3.28  DRG-28   Status Length of Stay   (CWE)   02171
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-29'>
+            6.5.3.29  DRG-29   Status Same Day Flag   (CWE)   02172
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-30'>
+            6.5.3.30  DRG-30   Status Separation Mode   (CWE)   02173
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-31'>
+            6.5.3.31  DRG-31   Status Weight At Birth   (CWE)   02174
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-32'>
+            6.5.3.32  DRG-32   Status Respiration Minutes   (CWE)   02175
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-3-33'>
+            6.5.3.33  DRG-33   Status Admission   (CWE)   02176
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4'>
+        6.5.4  PR1 - Procedures Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-1'>
+            6.5.4.1  PR1-1   Set ID - PR1   (SI)   00391
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-2'>
+            6.5.4.2  PR1-2   Procedure Coding Method   00392
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-3'>
+            6.5.4.3  PR1-3   Procedure Code   (CNE)   00393
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-4'>
+            6.5.4.4  PR1-4   Procedure Description   00394
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-5'>
+            6.5.4.5  PR1-5   Procedure Date/Time   (DTM)   00395
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-6'>
+            6.5.4.6  PR1-6   Procedure Functional Type   (CWE)   00396
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-7'>
+            6.5.4.7  PR1-7   Procedure Minutes   (NM)   00397
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-8'>
+            6.5.4.8  PR1-8   Anesthesiologist   00398
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-9'>
+            6.5.4.9  PR1-9   Anesthesia Code   (CWE)   00399
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-10'>
+            6.5.4.10  PR1-10   Anesthesia Minutes   (NM)   00400
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-11'>
+            6.5.4.11  PR1-11   Surgeon   00401
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-12'>
+            6.5.4.12  PR1-12   Procedure Practitioner   00402
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-13'>
+            6.5.4.13  PR1-13   Consent Code   (CWE)   00403
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-14'>
+            6.5.4.14  PR1-14   Procedure Priority   (NM)   00404
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-15'>
+            6.5.4.15  PR1-15   Associated Diagnosis Code   (CWE)   00772
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-16'>
+            6.5.4.16  PR1-16   Procedure Code Modifier   (CNE)   01316
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-17'>
+            6.5.4.17  PR1-17   Procedure DRG Type   (CWE)   01501
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-18'>
+            6.5.4.18  PR1-18   Tissue Type Code   (CWE)   01502
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-19'>
+            6.5.4.19  PR1-19   Procedure Identifier   (EI)   01848
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-20'>
+            6.5.4.20  PR1-20   Procedure Action Code   (ID)   01849
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-21'>
+            6.5.4.21  PR1-21   DRG Procedure Determination Status   (CWE)   02177
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-22'>
+            6.5.4.22  PR1-22   DRG Procedure Relevance   (CWE)   02178
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-23'>
+            6.5.4.23  PR1-23   Treating Organizational Unit   (PL)   02371
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-24'>
+            6.5.4.24  PR1-24   Respiratory Within Surgery    (ID)   02372
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-4-25'>
+            6.5.4.25  PR1-25   Parent Procedure ID   (EI)   02373
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5'>
+        6.5.5  GT1 - Guarantor Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-1'>
+            6.5.5.1  GT1-1   Set ID - GT1   (SI)   00405
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-2'>
+            6.5.5.2  GT1-2   Guarantor Number   (CX)   00406
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-3'>
+            6.5.5.3  GT1-3   Guarantor Name   (XPN)   00407
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-4'>
+            6.5.5.4  GT1-4   Guarantor Spouse Name   (XPN)   00408
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-5'>
+            6.5.5.5  GT1-5   Guarantor Address   (XAD)   00409
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-6'>
+            6.5.5.6  GT1-6   Guarantor Ph Num - Home   (XTN)   00410
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-7'>
+            6.5.5.7  GT1-7   Guarantor Ph Num - Business   (XTN)   00411
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-8'>
+            6.5.5.8  GT1-8   Guarantor Date/Time of Birth   (DTM)   00412
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-9'>
+            6.5.5.9  GT1-9   Guarantor Administrative Sex   (CWE)   00413
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-10'>
+            6.5.5.10  GT1-10   Guarantor Type   (CWE)   00414
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-11'>
+            6.5.5.11  GT1-11   Guarantor Relationship   (CWE)   00415
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-12'>
+            6.5.5.12  GT1-12   Guarantor SSN   (ST)   00416
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-13'>
+            6.5.5.13  GT1-13   Guarantor Date - Begin   (DT)   00417
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-14'>
+            6.5.5.14  GT1-14   Guarantor Date - End   (DT)   00418
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-15'>
+            6.5.5.15  GT1-15   Guarantor Priority   (NM)   00419
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-16'>
+            6.5.5.16  GT1-16   Guarantor Employer Name   (XPN)   00420
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-17'>
+            6.5.5.17  GT1-17   Guarantor Employer Address   (XAD)   00421
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-18'>
+            6.5.5.18  GT1-18   Guarantor Employer Phone Number   (XTN)   00422
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-19'>
+            6.5.5.19  GT1-19   Guarantor Employee ID Number   (CX)   00423
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-20'>
+            6.5.5.20  GT1-20   Guarantor Employment Status   (CWE)   00424
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-21'>
+            6.5.5.21  GT1-21   Guarantor Organization Name   (XON)   00425
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-22'>
+            6.5.5.22  GT1-22   Guarantor Billing Hold Flag   (ID)   00773
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-23'>
+            6.5.5.23  GT1-23   Guarantor Credit Rating Code   (CWE)   00774
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-24'>
+            6.5.5.24  GT1-24   Guarantor Death Date and Time   (DTM)   00775
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-25'>
+            6.5.5.25  GT1-25   Guarantor Death Flag   (ID)   00776
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-26'>
+            6.5.5.26  GT1-26   Guarantor Charge Adjustment Code   (CWE)   00777
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-27'>
+            6.5.5.27  GT1-27   Guarantor Household Annual Income   (CP)   00778
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-28'>
+            6.5.5.28  GT1-28   Guarantor Household Size   (NM)   00779
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-29'>
+            6.5.5.29  GT1-29   Guarantor Employer ID Number   (CX)   00780
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-30'>
+            6.5.5.30  GT1-30   Guarantor Marital Status Code   (CWE)   00781
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-31'>
+            6.5.5.31  GT1-31   Guarantor Hire Effective Date   (DT)   00782
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-32'>
+            6.5.5.32  GT1-32   Employment Stop Date   (DT)   00783
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-33'>
+            6.5.5.33  GT1-33   Living Dependency   (CWE)   00755
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-34'>
+            6.5.5.34  GT1-34   Ambulatory Status   (CWE)   00145
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-35'>
+            6.5.5.35  GT1-35   Citizenship   (CWE)   00129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-36'>
+            6.5.5.36  GT1-36   Primary Language   (CWE)   00118
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-37'>
+            6.5.5.37  GT1-37   Living Arrangement   (CWE)   00742
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-38'>
+            6.5.5.38  GT1-38   Publicity Code   (CWE)   00743
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-39'>
+            6.5.5.39  GT1-39   Protection Indicator   (ID)   00744
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-40'>
+            6.5.5.40  GT1-40   Student Indicator   (CWE)   00745
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-41'>
+            6.5.5.41  GT1-41   Religion   (CWE)   00120
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-42'>
+            6.5.5.42  GT1-42   Mother's Maiden Name   (XPN)   00109
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-43'>
+            6.5.5.43  GT1-43   Nationality   (CWE)   00739
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-44'>
+            6.5.5.44  GT1-44   Ethnic Group   (CWE)   00125
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-45'>
+            6.5.5.45  GT1-45   Contact Person's Name   (XPN)   00748
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-46'>
+            6.5.5.46  GT1-46   Contact Person's Telephone Number   (XTN)   00749
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-47'>
+            6.5.5.47  GT1-47   Contact Reason   (CWE)   00747
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-48'>
+            6.5.5.48  GT1-48   Contact Relationship   (CWE)   00784
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-49'>
+            6.5.5.49  GT1-49   Job Title   (ST)   00785
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-50'>
+            6.5.5.50  GT1-50   Job Code/Class   (JCC)   00786
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-51'>
+            6.5.5.51  GT1-51   Guarantor Employer's Organization Name   (XON)   01299
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-52'>
+            6.5.5.52  GT1-52   Handicap   (CWE)   00753
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-53'>
+            6.5.5.53  GT1-53   Job Status   (CWE)   00752
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-54'>
+            6.5.5.54  GT1-54   Guarantor Financial Class   (FC)   01231
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-55'>
+            6.5.5.55  GT1-55   Guarantor Race   (CWE)   01291
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-56'>
+            6.5.5.56  GT1-56  Guarantor Birth Place   (ST)   01851
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-5-57'>
+            6.5.5.57  GT1-57  VIP Indicator   (CWE)   00146
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6'>
+        6.5.6  IN1 - Insurance Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-1'>
+            6.5.6.1  IN1-1   Set ID - IN1   (SI)   00426
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-2'>
+            6.5.6.2  IN1-2   Health Plan ID   (CWE)   00368
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-3'>
+            6.5.6.3  IN1-3   Insurance Company ID   (CX)   00428
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-4'>
+            6.5.6.4  IN1-4   Insurance Company Name   (XON)   00429
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-5'>
+            6.5.6.5  IN1-5   Insurance Company Address   (XAD)   00430
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-6'>
+            6.5.6.6  IN1-6   Insurance Co Contact Person   (XPN)   00431
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-7'>
+            6.5.6.7  IN1-7   Insurance Co Phone Number   (XTN)   00432
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-8'>
+            6.5.6.8  IN1-8   Group Number   (ST)   00433
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-9'>
+            6.5.6.9  IN1-9   Group Name   (XON)   00434
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-10'>
+            6.5.6.10  IN1-10   Insured's Group Emp ID   (CX)   00435
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-11'>
+            6.5.6.11  IN1-11   Insured's Group Emp Name   (XON)   00436
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-12'>
+            6.5.6.12  IN1-12   Plan Effective Date   (DT)   00437
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-13'>
+            6.5.6.13  IN1-13   Plan Expiration Date   (DT)   00438
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-14'>
+            6.5.6.14  IN1-14   Authorization Information   (AUI)   00439
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-15'>
+            6.5.6.15  IN1-15   Plan Type   (CWE)   00440
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-16'>
+            6.5.6.16  IN1-16   Name of Insured   (XPN)   00441
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-17'>
+            6.5.6.17  IN1-17   Insured's Relationship to Patient   (CWE)   00442
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-18'>
+            6.5.6.18  IN1-18   Insured's Date of Birth   (DTM)   00443
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-19'>
+            6.5.6.19  IN1-19   Insured's Address   (XAD)   00444
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-20'>
+            6.5.6.20  IN1-20   Assignment of Benefits   (CWE)   00445
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-21'>
+            6.5.6.21  IN1-21   Coordination of Benefits   (CWE)   00446
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-22'>
+            6.5.6.22  IN1-22   Coord of Ben. Priority   (ST)   00447
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-23'>
+            6.5.6.23  IN1-23   Notice of Admission Flag   (ID)   00448
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-24'>
+            6.5.6.24  IN1-24   Notice of Admission Date   (DT)   00449
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-25'>
+            6.5.6.25  IN1-25   Report of Eligibility Flag   (ID)   00450
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-26'>
+            6.5.6.26  IN1-26   Report of Eligibility Date   (DT)   00451
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-27'>
+            6.5.6.27  IN1-27   Release Information Code   (CWE)   00452
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-28'>
+            6.5.6.28  IN1-28   Pre-admit Cert (PAC)   (ST)   00453
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-29'>
+            6.5.6.29  IN1-29   Verification Date/Time   (DTM)   00454
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-30'>
+            6.5.6.30  IN1-30   Verification by   (XCN)   00455
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-31'>
+            6.5.6.31  IN1-31   Type of Agreement Code   (CWE)   00456
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-32'>
+            6.5.6.32  IN1-32   Billing Status   (CWE)   00457
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-33'>
+            6.5.6.33  IN1-33   Lifetime Reserve Days   (NM)   00458
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-34'>
+            6.5.6.34  IN1-34   Delay Before L.R. Day   (NM)   00459
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-35'>
+            6.5.6.35  IN1-35   Company Plan Code   (CWE)   00460
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-36'>
+            6.5.6.36  IN1-36   Policy Number   (ST)   00461
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-37'>
+            6.5.6.37  IN1-37   Policy Deductible   (CP)   00462
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-38'>
+            6.5.6.38  IN1-38   Policy Limit - Amount   00463
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-39'>
+            6.5.6.39  IN1-39   Policy Limit - Days   (NM)   00464
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-40'>
+            6.5.6.40  IN1-40   Room Rate - Semi-Private   00465
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-41'>
+            6.5.6.41  IN1-41   Room Rate - Private   00466
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-42'>
+            6.5.6.42  IN1-42   Insured's Employment Status   (CWE)   00467
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-43'>
+            6.5.6.43  IN1-43   Insured's Administrative Sex   (CWE)   00468
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-44'>
+            6.5.6.44  IN1-44   Insured's Employer's Address   (XAD)   00469
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-45'>
+            6.5.6.45  IN1-45   Verification Status   (ST)   00470
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-46'>
+            6.5.6.46  IN1-46   Prior Insurance Plan ID   (CWE)   00471
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-47'>
+            6.5.6.47  IN1-47   Coverage Type   (CWE)   01227
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-48'>
+            6.5.6.48  IN1-48   Handicap   (CWE)   00753
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-49'>
+            6.5.6.49  IN1-49   Insured's ID Number   (CX)   01230
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-50'>
+            6.5.6.50  IN1-50   Signature Code   (CWE)   01854
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-51'>
+            6.5.6.51  IN1-51   Signature Code Date   (DT)   01855
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-52'>
+            6.5.6.52  IN1-52   Insured's Birth Place   (ST)   01899
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-53'>
+            6.5.6.53  IN1-53   VIP Indicator   (CWE)   01852
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-54'>
+            6.5.6.54  IN1-54   External Health Plan Identifiers   (CX)  03292
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-6-55'>
+            6.5.6.55  IN1-55   Insurance Action Code   (ID)   03335
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7'>
+        6.5.7  IN2 - Insurance Additional Information Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-1'>
+            6.5.7.1  IN2-1   Insured's Employee ID   (CX)   00472
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-2'>
+            6.5.7.2  IN2-2   Insured's Social Security Number   (ST)   00473
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-3'>
+            6.5.7.3  IN2-3   Insured's Employer's Name and ID   (XCN)   00474
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-4'>
+            6.5.7.4  IN2-4   Employer Information Data   (CWE)   00475
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-5'>
+            6.5.7.5  IN2-5   Mail Claim Party   (CWE)   00476
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-6'>
+            6.5.7.6  IN2-6   Medicare Health Ins Card Number   (ST)   00477
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-7'>
+            6.5.7.7  IN2-7   Medicaid Case Name   (XPN)   00478
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-8'>
+            6.5.7.8  IN2-8   Medicaid Case Number   (ST)   00479
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-9'>
+            6.5.7.9  IN2-9   Military Sponsor Name   (XPN)   00480
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-10'>
+            6.5.7.10  IN2-10   Military ID Number   (ST)  00481
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-11'>
+            6.5.7.11  IN2-11   Dependent of Military Recipient   (CWE)  00482
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-12'>
+            6.5.7.12  IN2-12   Military Organization   (ST)   00483
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-13'>
+            6.5.7.13  IN2-13   Military Station   (ST)   00484
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-14'>
+            6.5.7.14  IN2-14   Military Service   (CWE)   00485
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-15'>
+            6.5.7.15  IN2-15   Military Rank/Grade   (CWE)   00486
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-16'>
+            6.5.7.16  IN2-16   Military Status   (CWE)   00487
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-17'>
+            6.5.7.17  IN2-17   Military Retire Date   (DT)   00488
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-18'>
+            6.5.7.18  IN2-18   Military Non-Avail Cert on File   (ID)   00489
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-19'>
+            6.5.7.19  IN2-19   Baby Coverage   (ID)   00490
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-20'>
+            6.5.7.20  IN2-20   Combine Baby Bill   (ID)   00491
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-21'>
+            6.5.7.21  IN2-21   Blood Deductible   (ST)   00492
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-22'>
+            6.5.7.22  IN2-22   Special Coverage Approval Name   (XPN)   00493
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-23'>
+            6.5.7.23  IN2-23   Special Coverage Approval Title   (ST)   00494
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-24'>
+            6.5.7.24  IN2-24   Non-Covered Insurance Code   (CWE)   00495
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-25'>
+            6.5.7.25  IN2-25   Payor ID   (CX)   00496
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-26'>
+            6.5.7.26  IN2-26   Payor Subscriber ID   (CX)   00497
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-27'>
+            6.5.7.27  IN2-27   Eligibility Source   (CWE)   00498
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-28'>
+            6.5.7.28  IN2-28   Room Coverage Type/Amount   (RMC)   00499
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-29'>
+            6.5.7.29  IN2-29   Policy Type/Amount   (PTA)   00500
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-30'>
+            6.5.7.30  IN2-30   Daily Deductible   (DDI)   00501
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-31'>
+            6.5.7.31  IN2-31   Living Dependency   (CWE)   00755
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-32'>
+            6.5.7.32  IN2-32   Ambulatory Status   (CWE)   00145
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-33'>
+            6.5.7.33  IN2-33   Citizenship   (CWE)   00129
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-34'>
+            6.5.7.34  IN2-34   Primary Language   (CWE)   00118
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-35'>
+            6.5.7.35  IN2-35   Living Arrangement   (CWE)   00742
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-36'>
+            6.5.7.36  IN2-36   Publicity Code   (CWE)   00743
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-37'>
+            6.5.7.37  IN2-37   Protection Indicator   (ID)   00744
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-38'>
+            6.5.7.38  IN2-38   Student Indicator   (CWE)   00745
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-39'>
+            6.5.7.39  IN2-39   Religion   (CWE)   00120
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-40'>
+            6.5.7.40  IN2-40   Mother's Maiden Name   (XPN)   00109
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-41'>
+            6.5.7.41  IN2-41   Nationality   (CWE)   00739
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-42'>
+            6.5.7.42  IN2-42   Ethnic Group   (CWE)   00125
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-43'>
+            6.5.7.43  IN2-43   Marital Status   (CWE)   00119
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-44'>
+            6.5.7.44  IN2-44   Insured's Employment Start Date   (DT)   00787
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-45'>
+            6.5.7.45  IN2-45   Employment Stop Date   (DT)   00783
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-46'>
+            6.5.7.46  IN2-46   Job Title   (ST)   00785
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-47'>
+            6.5.7.47  IN2-47   Job Code/Class   (JCC)   00786
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-48'>
+            6.5.7.48  IN2-48   Job Status   (CWE)   00752
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-49'>
+            6.5.7.49  IN2-49   Employer Contact Person Name   (XPN)   00789
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-50'>
+            6.5.7.50  IN2-50   Employer Contact Person Phone Number   (XTN)  00790
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-51'>
+            6.5.7.51  IN2-51   Employer Contact Reason   (CWE)   00791
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-52'>
+            6.5.7.52  IN2-52   Insured's Contact Person's Name   (XPN)   00792
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-53'>
+            6.5.7.53  IN2-53   Insured's Contact Person Phone Number   (XTN)   00793
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-54'>
+            6.5.7.54  IN2-54   Insured's Contact Person Reason   (CWE)   00794
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-55'>
+            6.5.7.55  IN2-55   Relationship to the Patient Start Date   (DT)   00795
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-56'>
+            6.5.7.56  IN2-56   Relationship to the Patient Stop Date   (DT)   00796
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-57'>
+            6.5.7.57  IN2-57   Insurance Co Contact Reason   (CWE)   00797
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-58'>
+            6.5.7.58  IN2-58   Insurance Co Contact Phone Number   (XTN)   00798
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-59'>
+            6.5.7.59  IN2-59   Policy Scope   (CWE)   00799
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-60'>
+            6.5.7.60  IN2-60   Policy source   (CWE)   00800
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-61'>
+            6.5.7.61  IN2-61   Patient Member Number   (CX)   00801
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-62'>
+            6.5.7.62  IN2-62   Guarantor's Relationship to Insured   (CWE)   00802
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-63'>
+            6.5.7.63  IN2-63   Insured's Phone Number - Home   (XTN)   00803
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-64'>
+            6.5.7.64  IN2-64   Insured's Employer Phone Number   (XTN)   00804
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-65'>
+            6.5.7.65  IN2-65   Military Handicapped Program   (CWE)   00805
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-66'>
+            6.5.7.66  IN2-66   Suspend Flag   (ID)   00806
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-67'>
+            6.5.7.67  IN2-67   Copay Limit Flag   (ID)   00807
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-68'>
+            6.5.7.68  IN2-68   Stoploss Limit Flag   (ID)   00808
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-69'>
+            6.5.7.69  IN2-69   Insured Organization Name and ID   (XON)   00809
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-70'>
+            6.5.7.70  IN2-70   Insured Employer Organization Name and ID   (XON)   00810
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-71'>
+            6.5.7.71  IN2-71   Race   (CWE)   00113
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-72'>
+            6.5.7.72  IN2-72   Patient's Relationship to Insured   (CWE)   00811
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-7-73'>
+            6.5.7.73  IN2-73   Co-Pay Amount   (CP)   01620
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8'>
+        6.5.8  IN3 - Insurance Additional Information, Certification Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-1'>
+            6.5.8.1  IN3-1   Set ID - IN3   (SI)   00502
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-2'>
+            6.5.8.2  IN3-2   Certification Number   (CX)   00503
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-3'>
+            6.5.8.3  IN3-3   Certified By   (XCN)   00504
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-4'>
+            6.5.8.4  IN3-4   Certification Required   (ID)   00505
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-5'>
+            6.5.8.5  IN3-5   Penalty   (MOP)   00506
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-6'>
+            6.5.8.6  IN3-6   Certification Date/Time   (DTM)   00507
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-7'>
+            6.5.8.7  IN3-7   Certification Modify Date/Time   (DTM)   00508
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-8'>
+            6.5.8.8  IN3-8   Operator   (XCN)   00509
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-9'>
+            6.5.8.9  IN3-9   Certification Begin Date   (DT)   00510
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-10'>
+            6.5.8.10  IN3-10   Certification End Date   (DT)   00511
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-11'>
+            6.5.8.11  IN3-11   Days   (DTN)   00512
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-12'>
+            6.5.8.12  IN3-12   Non-Concur Code/Description   (CWE)   00513
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-13'>
+            6.5.8.13  IN3-13   Non-Concur Effective Date/Time   (DTM)   00514
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-14'>
+            6.5.8.14  IN3-14   Physician Reviewer   (XCN)   00515
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-15'>
+            6.5.8.15  IN3-15   Certification Contact   (ST)   00516
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-16'>
+            6.5.8.16  IN3-16   Certification Contact Phone Number   (XTN)   00517
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-17'>
+            6.5.8.17  IN3-17   Appeal Reason   (CWE)   00518
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-18'>
+            6.5.8.18  IN3-18   Certification Agency   (CWE)   00519
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-19'>
+            6.5.8.19  IN3-19   Certification Agency Phone Number   (XTN)   00520
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-20'>
+            6.5.8.20  IN3-20   Pre-Certification Requirement   (ICD)   00521
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-21'>
+            6.5.8.21  IN3-21   Case Manager   (ST)   00522
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-22'>
+            6.5.8.22  IN3-22   Second Opinion Date   (DT)   00523
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-23'>
+            6.5.8.23  IN3-23   Second Opinion Status   (CWE)   00524
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-24'>
+            6.5.8.24  IN3-24   Second Opinion Documentation Received   (CWE)   00525
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-25'>
+            6.5.8.25  IN3-25   Second Opinion Physician   (XCN)   00526
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-26'>
+            6.5.8.26  IN3-26   Certification Type   (CWE)   03336
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-27'>
+            6.5.8.27  IN3-27   Certification Category    (CWE)   03337
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-28'>
+            6.5.8.28  IN3-28   Online Verification Date/Time    (DTM)   02483
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-29'>
+            6.5.8.29  IN3-29   Online Verification Result   (CWE)   02484
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-30'>
+            6.5.8.30  IN3-30   Online Verification Result Error Code   (CWE)   02485
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-8-31'>
+            6.5.8.31  IN3-31   Online Verification Result Check Digit    (ST)   02486
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9'>
+        6.5.9  ACC - Accident Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-1'>
+            6.5.9.1  ACC-1   Accident Date/Time   (DTM)   00527
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-2'>
+            6.5.9.2  ACC-2   Accident Code   (CWE)   00528
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-3'>
+            6.5.9.3  ACC-3   Accident Location   (ST)   00529
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-4'>
+            6.5.9.4  ACC-4   Auto Accident State   (CWE)   00812
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-5'>
+            6.5.9.5  ACC-5   Accident Job Related Indicator   (ID)   00813
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-6'>
+            6.5.9.6  ACC-6   Accident Death Indicator   (ID)   00814
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-7'>
+            6.5.9.7  ACC-7   Entered By   (XCN)   00224
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-8'>
+            6.5.9.8  ACC-8   Accident Description   (ST)   01503
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-9'>
+            6.5.9.9  ACC-9   Brought in By   (ST)   01504
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-10'>
+            6.5.9.10  ACC-10   Police Notified Indicator   (ID) 01505
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-11'>
+            6.5.9.11  ACC-11   Accident Address   (XAD)   01853
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-12'>
+            6.5.9.12  ACC-12   Degree of patient liability   (NM)   02374
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-9-13'>
+            6.5.9.13  ACC-13   Accident Identifier   (EI)   03338
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10'>
+        6.5.10  UB1 - Uniform Billing 1 Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-1'>
+            6.5.10.1  UB1-1   Set ID - UB1   00530
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-2'>
+            6.5.10.2  UB1-2   Blood Deductible   00531
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-3'>
+            6.5.10.3  UB1-3   Blood Furnished-Pints   00532
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-4'>
+            6.5.10.4  UB1-4   Blood Replaced-Pints   00533
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-5'>
+            6.5.10.5  UB1-5   Blood Not Replaced-Pints   00534
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-6'>
+            6.5.10.6  UB1-6   Co-insurance Days   00535
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-7'>
+            6.5.10.7  UB1-7   Condition Code   00536
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-8'>
+            6.5.10.8  UB1-8   Covered Days   00537
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-9'>
+            6.5.10.9  UB1-9   Non-Covered Days   00538
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-10'>
+            6.5.10.10  UB1-10   Value Amount & Code   00539
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-11'>
+            6.5.10.11  UB1-11   Number of Grace Days   00540
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-12'>
+            6.5.10.12  UB1-12   Special Program Indicator   00541
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-13'>
+            6.5.10.13  UB1-13   PSRO/UR Approval Indicator   00542
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-14'>
+            6.5.10.14  UB1-14   PSRO/UR Approved Stay-Fm   00543
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-15'>
+            6.5.10.15  UB1-15   PSRO/UR Approved Stay-To   00544
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-16'>
+            6.5.10.16  UB1-16   Occurrence   00545
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-17'>
+            6.5.10.17  UB1-17   Occurrence Span   00546
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-18'>
+            6.5.10.18  UB1-18   Occur Span Start Date   00547
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-19'>
+            6.5.10.19  UB1-19   Occur Span End Date   00548
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-20'>
+            6.5.10.20  UB1-20   UB-82 Locator 2   00549
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-21'>
+            6.5.10.21  UB1-21   UB-82 Locator 9   00550
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-22'>
+            6.5.10.22  UB1-22   UB-82 Locator 27   00551
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-10-23'>
+            6.5.10.23  UB1-23   UB-82 Locator 45   00552
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11'>
+        6.5.11  UB2 - UB92 Data Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-1'>
+            6.5.11.1  UB2-1   Set ID - UB2   (SI)   00553
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-2'>
+            6.5.11.2  UB2-2   Co-Insurance Days (9)   (ST)   00554
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-3'>
+            6.5.11.3  UB2-3   Condition Code (24-30)   (CWE)   00555
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-4'>
+            6.5.11.4  UB2-4   Covered Days (7)   (ST)   00556
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-5'>
+            6.5.11.5  UB2-5   Non-Covered Days (8)   (ST)   00557
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-6'>
+            6.5.11.6  UB2-6   Value Amount & Code (39-41)   (UVC)   00558
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-7'>
+            6.5.11.7  UB2-7   Occurrence Code & Date (32-35)   (OCD)   00559
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-8'>
+            6.5.11.8  UB2-8   Occurrence Span Code/Dates (36)   (OSP)   00560
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-9'>
+            6.5.11.9  UB2-9   UB92 Locator 2 (state)   (ST)   00561
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-10'>
+            6.5.11.10  UB2-10   UB92 Locator 11 (state)   (ST)   00562
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-11'>
+            6.5.11.11  UB2-11   UB92 Locator 31 (national)   (ST)   00563
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-12'>
+            6.5.11.12  UB2-12   Document Control Number   (ST)   00564
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-13'>
+            6.5.11.13  UB2-13   UB92 Locator 49 (national)   (ST)   00565
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-14'>
+            6.5.11.14  UB2-14   UB92 Locator 56 (state)   (ST)   00566
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-15'>
+            6.5.11.15  UB2-15   UB92 Locator 57 (national)   (ST)   00567
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-16'>
+            6.5.11.16  UB2-16   UB92 Locator 78 (state)   (ST)   00568
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-11-17'>
+            6.5.11.17  UB2-17   Special Visit Count   (NM)   00815
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12'>
+        6.5.12  ABS - Abstract Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-1'>
+            6.5.12.1  ABS-1   Discharge Care Provider   (XCN)   01514
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-2'>
+            6.5.12.2  ABS-2   Transfer Medical Service Code   (CWE)   01515
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-3'>
+            6.5.12.3  ABS-3   Severity of Illness Code   (CWE)   01516
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-4'>
+            6.5.12.4  ABS-4   Date/time of Attestation   (DTM)   01517
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-5'>
+            6.5.12.5  ABS-5   Attested by   (XCN)   01518
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-6'>
+            6.5.12.6  ABS-6   Triage Code   (CWE)   01519
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-7'>
+            6.5.12.7  ABS-7   Abstract Completion Date/Time   (DTM)   01520
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-8'>
+            6.5.12.8  ABS-8   Abstracted by   (XCN)   01521
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-9'>
+            6.5.12.9  ABS-9   Case Category Code   (CWE)   01522
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-10'>
+            6.5.12.10  ABS-10   Caesarian Section Indicator   (ID)   01523
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-11'>
+            6.5.12.11  ABS-11   Gestation Category Code   (CWE)   01524
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-12'>
+            6.5.12.12  ABS-12   Gestation Period - Weeks   (NM)   01525
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-13'>
+            6.5.12.13  ABS-13   Newborn Code   (CWE)   01526
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-12-14'>
+            6.5.12.14  ABS-14   Stillborn Indicator   (ID)   01527
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-13'>
+        6.5.13  BLC - Blood Code Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-13-1'>
+            6.5.13.1  BLC-1   Blood Product Code   (CWE)   01528
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-13-2'>
+            6.5.13.2  BLC-2   Blood Amount   (CQ)   01529
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-14'>
+        6.5.14  RMI - Risk Management Incident Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-14-1'>
+            6.5.14.1  RMI-1   Risk Management Incident Code   (CWE)   01530
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-14-2'>
+            6.5.14.2  RMI-2   Date/Time Incident   (DTM)   01531
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-14-3'>
+            6.5.14.3  RMI-3   Incident Type Code   (CWE)   01533
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-15'>
+        6.5.15  GP1 - Grouping/Reimbursement - Visit Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-15-1'>
+            6.5.15.1  GP1-1   Type of Bill Code   (CWE)   01599
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-15-2'>
+            6.5.15.2  GP1-2   Revenue Code   (CWE)   01600
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-15-3'>
+            6.5.15.3  GP1-3   Overall Claim Disposition Code   (CWE)   01601
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-15-4'>
+            6.5.15.4  GP1-4   OCE Edits per Visit Code   (CWE)   01602
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-15-5'>
+            6.5.15.5  GP1-5   Outlier Cost   (CP)   00387
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16'>
+        6.5.16  GP2 - Grouping/Reimbursement - Procedure Line Item Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-1'>
+            6.5.16.1  GP2-1   Revenue Code   (CWE)   01600
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-2'>
+            6.5.16.2  GP2-2   Number of Service Units   (NM)   01604
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-3'>
+            6.5.16.3  GP2-3   Charge   (CP)   01605
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-4'>
+            6.5.16.4  GP2-4   Reimbursement Action Code   (CWE)   01606
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-5'>
+            6.5.16.5  GP2-5   Denial or Rejection Code   (CWE)   01607
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-6'>
+            6.5.16.6  GP2-6   OCE Edit Code   (CWE)   01608
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-7'>
+            6.5.16.7  GP2-7   Ambulatory Payment Classification Code   (CWE)   01609
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-8'>
+            6.5.16.8  GP2-8   Modifier Edit Code   (CWE)   01610
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-9'>
+            6.5.16.9  GP2-9   Payment Adjustment Code   (CWE)   01611
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-10'>
+            6.5.16.10  GP2-10   Packaging Status Code   (CWE)   01617
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-11'>
+            6.5.16.11  GP2-11   Expected CMS Payment Amount   (CP)   01618
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-12'>
+            6.5.16.12  GP2-12   Reimbursement Type Code   (CWE)   01619
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-13'>
+            6.5.16.13  GP2-13   Co-Pay Amount   (CP)   01620
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-5-16-14'>
+            6.5.16.14  GP2-14   Pay Rate per Service Unit   (NM)   01621
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-6'>
+    6.6  EXAMPLE TRANSACTIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-6-1'>
+        6.6.1  Create a patient billing/accounts receivable record
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-6-2'>
+        6.6.2  Post a charge to a patient's account
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-6-3'>
+        6.6.3  Update patient accounts - update UB1 information
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Financial-Management.html#Financial-Management-6-4'>
+        6.6.4  Update patient accounts - update diagnosis and DRG information
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

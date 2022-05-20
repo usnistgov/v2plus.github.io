@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+AIG - Appointment Information - General Resource Segment
+</h3>
+<p class="v2 v2-normalindented">The AIG segment contains information about various kinds of resources (other than those with specifically defined segments in this chapter) that can be scheduled.  Resources included in a transaction using this segment are assumed to be controlled by a schedule on a schedule filler application.  Resources not controlled by a schedule are not identified on a schedule request using this segment.  Resources described by this segment are general kinds of resources, such as equipment, that are identified with a simple identification code.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - AIG - Appointment Information - General Resource Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+AIG
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID - AIG
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#AIG-1'>
+00896
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Segment Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-2'>
+00763
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Resource ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-3'>
+00897
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Resource Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#AIG-4'>
+00898
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Resource Group
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#AIG-5'>
+00899
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Resource Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-6'>
+00900
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Resource Quantity Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-7'>
+00901
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Start Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-8'>
+01202
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Start Date/Time Offset
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-9'>
+00891
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Start Date/Time Offset Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-10'>
+00892
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Duration
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-11'>
+00893
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Duration Units
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-12'>
+00894
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Allow Substitution Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0279-Allow-Substitution-Codes.html' title='Allow Substitution Codes(Suggested)'>
+0279(S)
+<span class='vocab-link-text'>Allow Substitution Codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-13'>
+00895
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+14
+</td>
+<td>
+Filler Status Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0278-Filler-status-codes.html' title='Filler status codes(Suggested)'>
+0278(S)
+<span class='vocab-link-text'>Filler status codes(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AIG-14'>
+00889
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='AIG-1'>
+AIG-1: Set ID - AIG (<a href='/data-type/SI.html'>SI</a>) 00896
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a number that uniquely identifies the information represented by this segment in this transaction for the purposes of addition, change or deletion.</p>
+
+<h4 class='v2' id='AIG-2'>
+AIG-2: Segment Action Code (<a href='/data-type/ID.html'>ID</a>) 00763
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the action to be taken when updating or modifying information in this segment from previously sent interface transactions.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2, Code Tables, for valid values.</p><p class="v2 v2-normalindented">This field is conditionally required.  It is required for all updating or modifying trigger events.</p>
+
+<h4 class='v2' id='AIG-3'>
+AIG-3: Resource ID (<a href='/data-type/CWE.html'>CWE</a>) 00897
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the ID number and name of the resource being requested or scheduled for an appointment.  This field is used to identify a specific resource being requested, or a specific resource that has been scheduled for an appointment.  If the specific resource is not known but the type of resource is, <a href="/segment-definition/AIG.html#AIG-4">AIG-4 Resource Type</a> is used to identify the type of resource required or scheduled.</p><p class="v2 v2-normalindented">At a minimum, the ID number component should be supplied to identify either the specific resource being requested or the specific resource that has been scheduled.  For inter-enterprise communications, for which a shared ID number may not be available, the minimum components required to uniquely identify a resource may be defined by site-specific negotiations.</p><p class="v2 v2-normalindented">This field is conditionally required for this segment.  In new schedule request messages, it is required if the request asks that a specific resource be scheduled.  For all other request messages, the specific resource should be identified if the information is available (either because a specific resource was initially requested, or because the filler application returned the ID of the specific resource that has been scheduled).</p><p class="v2 v2-normalindented">This field is required for all unsolicited transactions from the filler application.</p><p class="v2 v2-normalindented">This field is optional for all query transactions.</p>
+
+<h4 class='v2' id='AIG-4'>
+AIG-4: Resource Type (<a href='/data-type/CWE.html'>CWE</a>) 00898
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the role of the resource requested/scheduled for this appointment.  For requests, if a specific resource is not identified in <a href="/segment-definition/AIG.html#AIG-3">AIG-3-Resource ID</a>, then this field identifies the type of resource that should be scheduled by the filler application.  At a minimum, the type of the identifier component should be valued.</p>
+
+<h4 class='v2' id='AIG-5'>
+AIG-5: Resource Group (<a href='/data-type/CWE.html'>CWE</a>) 00899
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the requested resource as a member of the indicated group.  If, in a Schedule Request Message (SRM), no specific resource is requested, but a resource type is requested, this field can be used to further qualify the type of resource being requested.</p>
+
+<h4 class='v2' id='AIG-6'>
+AIG-6: Resource Quantity (<a href='/data-type/NM.html'>NM</a>) 00900
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the quantity of the specified resource or resource type identified in either or both of the preceding two fields.  If it is not valued, this field defaults to a value of one (1).</p>
+
+<h4 class='v2' id='AIG-7'>
+AIG-7: Resource Quantity Units (<a href='/data-type/CNE.html'>CNE</a>) 00901
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the units of the resource requested, whose quantity is given in the preceding field.  This field should be valued according to the recommendations in Chapters 2 and 7.  If this field is not valued, the unit of each (code &quot;ea&quot;) will be assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO+ and ANS+ unit codes.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 92%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.73%;'/><col span='1' style='width: 34.66%;'/><col span='1' style='width: 48.59%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.73%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:34.66%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:48.59%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.73%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:34.66%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.59%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.73%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:34.66%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:48.59%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/><p class="v2 v2-normalindented"></p>
+
+<h4 class='v2' id='AIG-8'>
+AIG-8: Start Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01202
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date and time this service needs for the appointment.  This field allows the application to identify that the service is required for the appointment at a different time than the appointment&#39;s start date/time</p><p class="v2 v2-normalindented">This field is conditionally required.  If a value for <a href="/segment-definition/AIG.html#AIG-9">AIG-9-Start Date/Time Offset</a> is not provided, then a value is required for this field.  To specify that there is no difference between the appointment&#39;s start date/time and the resource&#39;s start date/time either replicate the appointment&#39;s start date/time into this field, or specify an offset of zero (0) in <a href="/segment-definition/AIG.html#AIG-9">AIG-9-Start Date/Time Offset</a> and any valid time unit code in <a href="/segment-definition/AIG.html#AIG-10">AIG-10-Start Date/Time Offset Units</a>.</p>
+
+<h4 class='v2' id='AIG-9'>
+AIG-9: Start Date/Time Offset (<a href='/data-type/NM.html'>NM</a>) 00891
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the offset that this resource needs for the appointment, expressed in units of time relative to the scheduled start date/time.  This field indicates to the application that the resource is required for the appointment at a different time than the appointment&#39;s start date/time.  The first component indicates the offset amount.  An offset of zero (0), or an unvalued field, indicates that the resource is required at the start date/time of the appointment.</p><p class="v2 v2-normalindented">A positive offset (an unsigned or positive number) indicates that the resource is required after the appointment&#39;s start date/time.  Specifying a negative offset indicates that the resource is required prior to the specified start date/time of the appointment.  Negative offsets are allowed, and sites should clearly define the effect of a negative offset on the appointment&#39;s start date/time.</p><p class="v2 v2-normalindented">This field is conditionally required.  If a value for <a href="/segment-definition/AIG.html#AIG-8">AIG-8-Start Date/Time </a>is not provided, then a value is required for this field.  To specify that there is no difference between the appointment&#39;s start date/time and the resource&#39;s start date/time either replicate the appointment&#39;s start date/time into this field, or specify an offset of zero (0) in <a href="/segment-definition/AIG.html#AIG-9">AIG-9-Start Date/Time Offset</a> and any valid time unit code in <a href="/composition/Scheduling.html#Scheduling-6-5">AIG10-Start Date/Time Offset Units</a>.</p>
+
+<h4 class='v2' id='AIG-10'>
+AIG-10: Start Date/Time Offset Units (<a href='/data-type/CNE.html'>CNE</a>) 00892
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code describing the units of time used for expressing <a href="/segment-definition/AIG.html#AIG-9">AIG-9-Start Date/Time Offset</a>. This field should be valued according to the recommendations made in Chapters 2 and 7.  If this field is not valued, the ISO base unit of seconds (code &quot;<em>s</em>&quot;) will be assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO+ and ANS+ unit codes.</p><p class="v2 v2-normalindented">This field is conditionally required.  If a value for <a href="/segment-definition/AIG.html#AIG-9">AIG-9-Start Date/Time Offset</a> is provided, then a value is required for this field.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 92%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.73%;'/><col span='1' style='width: 33.27%;'/><col span='1' style='width: 49.99%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.73%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:33.27%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:49.99%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.73%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.27%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:49.99%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.73%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.27%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:49.99%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/>
+
+<h4 class='v2' id='AIG-11'>
+AIG-11: Duration (<a href='/data-type/NM.html'>NM</a>) 00893
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the duration for which the resource is requested/scheduled for this appointment, if it is different than the overall duration of the requested/scheduled appointment.  This field indicates to the application that a resource is required for a different amount of time than the appointment&#39;s overall duration.  An unvalued duration indicates that the resource is required from its start date/time offset (specified in the previous two fields) until the end of the appointment.  If no start date/time offset is specified, then the resource is required for the full duration of the appointment.</p><p class="v2 v2-normalindented">This field must be a positive, non-zero number.  A negative number or zero (0) is nonsensical in the context of a duration.</p>
+
+<h4 class='v2' id='AIG-12'>
+AIG-12: Duration Units (<a href='/data-type/CNE.html'>CNE</a>) 00894
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code describing the units of time used for expressing the <a href="/segment-definition/AIG.html#AIG-11">AIG-11-Duration</a> field.  This field should be valued according to the recommendations in Chapters 2 and 7.  If this field is not valued, the ISO base unit of seconds (code &quot;<em>s</em>&quot;) will be assumed.  Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO+ and ANS+ unit codes.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p><p class="v2 v2-othertablecaption">Unit of Measure Coding Systems from HL7 Table 0396</p><table class="v2" style="width: 92%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; "><colgroup><col span='1' style='width: 16.73%;'/><col span='1' style='width: 28.89%;'/><col span='1' style='width: 54.37%;'/></colgroup><tr class='v2-table-header'><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:16.73%; '><p class="v2 v2-othertableheader">Coding System</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:28.89%; '><p class="v2 v2-othertableheader">Description</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:54.37%; '><p class="v2 v2-othertableheader">Comment</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.73%; '><p class="v2 centered v2-othertablebody">ISO+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:28.89%; '><p class="v2 v2-othertablebody">ISO 2955.83 (units of measure) with HL7 extensions</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:54.37%; '><p class="v2 v2-othertablebody">See chapter 7.</p></td></tr><tr><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.73%; '><p class="v2 centered v2-othertablebody">ANS+</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:28.89%; '><p class="v2 v2-othertablebody">HL7 set of units of measure</p></td><td style='border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:54.37%; '><p class="v2 v2-othertablebody">HL7 set of units of measure based upon ANSI X3.50 - 1986, ISO 2988-83, and US customary units / see chapter 7.</p></td></tr></table><br/><p class="v2 v2-normalindented"></p>
+
+<h4 class='v2' id='AIG-13'>
+AIG-13: Allow Substitution Code (<a href='/data-type/CWE.html'>CWE</a>) 00895
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code indicating whether the identified resource can be substituted with an equivalent resource by the filler application.  Refer to <a href="https://www.hl7.org/fhir/v2/0279/index.html">User-Defined Table 0279 - Allow Substitution Codes</a> for suggested codes.</p><p class="v2 v2-normalindented">This field is conditionally required.  It is required for all request messages.  It is optional for all unsolicited transactions, and for all query messages.</p>
+
+<h4 class='v2' id='AIG-14'>
+AIG-14: Filler Status Code (<a href='/data-type/CWE.html'>CWE</a>) 00889
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a code that describes the requested/scheduled status of scheduling resource or activity, from the point of view of the filler application.  Refer to <a href="https://www.hl7.org/fhir/v2/0278/index.html">User-Defined Table 0278 - Filler Status Codes</a> for suggested codes.</p><p class="v2 v2-normalindented">This is a conditionally required field.  Because the information contained in this field is only appropriate in transactions originating from a filler application, it is required for those messages.  This includes all unsolicited transactions originating from a filler application, as well as all response messages originating from a filler application.  This field is optional for all transactions originating from placer, querying and auxiliary applications.  It is recommended that this field be left unvalued in transactions originating from applications other than the filler application.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

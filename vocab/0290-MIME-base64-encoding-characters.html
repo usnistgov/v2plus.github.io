@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+MIME base64 encoding characters
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Encoding Characters
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70290
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+Table of encoding characters used for base64 MIME encoding.  Base64 is defined as follows (adapted from MIME Internet standard RFC 1521).
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+MIME base64 encoding characters - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+0
+</td>
+<td class='vocab-concept-display'>
+A
+</td>
+<td class='vocab-concept-definition'>
+A
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+1
+</td>
+<td class='vocab-concept-display'>
+B
+</td>
+<td class='vocab-concept-definition'>
+B
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+2
+</td>
+<td class='vocab-concept-display'>
+C
+</td>
+<td class='vocab-concept-definition'>
+C
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+3
+</td>
+<td class='vocab-concept-display'>
+D
+</td>
+<td class='vocab-concept-definition'>
+D
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+4
+</td>
+<td class='vocab-concept-display'>
+E
+</td>
+<td class='vocab-concept-definition'>
+E
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+5
+</td>
+<td class='vocab-concept-display'>
+F
+</td>
+<td class='vocab-concept-definition'>
+F
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+6
+</td>
+<td class='vocab-concept-display'>
+G
+</td>
+<td class='vocab-concept-definition'>
+G
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+7
+</td>
+<td class='vocab-concept-display'>
+H
+</td>
+<td class='vocab-concept-definition'>
+H
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+8
+</td>
+<td class='vocab-concept-display'>
+I
+</td>
+<td class='vocab-concept-definition'>
+I
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+9
+</td>
+<td class='vocab-concept-display'>
+J
+</td>
+<td class='vocab-concept-definition'>
+J
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+10
+</td>
+<td class='vocab-concept-display'>
+K
+</td>
+<td class='vocab-concept-definition'>
+K
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+11
+</td>
+<td class='vocab-concept-display'>
+L
+</td>
+<td class='vocab-concept-definition'>
+L
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+12
+</td>
+<td class='vocab-concept-display'>
+M
+</td>
+<td class='vocab-concept-definition'>
+M
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+13
+</td>
+<td class='vocab-concept-display'>
+N
+</td>
+<td class='vocab-concept-definition'>
+N
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+14
+</td>
+<td class='vocab-concept-display'>
+O
+</td>
+<td class='vocab-concept-definition'>
+O
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+15
+</td>
+<td class='vocab-concept-display'>
+P
+</td>
+<td class='vocab-concept-definition'>
+P
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+16
+</td>
+<td class='vocab-concept-display'>
+Q
+</td>
+<td class='vocab-concept-definition'>
+Q
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+17
+</td>
+<td class='vocab-concept-display'>
+R
+</td>
+<td class='vocab-concept-definition'>
+R
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+18
+</td>
+<td class='vocab-concept-display'>
+S
+</td>
+<td class='vocab-concept-definition'>
+S
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+19
+</td>
+<td class='vocab-concept-display'>
+T
+</td>
+<td class='vocab-concept-definition'>
+T
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+20
+</td>
+<td class='vocab-concept-display'>
+U
+</td>
+<td class='vocab-concept-definition'>
+U
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+21
+</td>
+<td class='vocab-concept-display'>
+V
+</td>
+<td class='vocab-concept-definition'>
+V
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+22
+</td>
+<td class='vocab-concept-display'>
+W
+</td>
+<td class='vocab-concept-definition'>
+W
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+23
+</td>
+<td class='vocab-concept-display'>
+X
+</td>
+<td class='vocab-concept-definition'>
+X
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+24
+</td>
+<td class='vocab-concept-display'>
+Y
+</td>
+<td class='vocab-concept-definition'>
+Y
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+25
+</td>
+<td class='vocab-concept-display'>
+Z
+</td>
+<td class='vocab-concept-definition'>
+Z
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+26
+</td>
+<td class='vocab-concept-display'>
+a
+</td>
+<td class='vocab-concept-definition'>
+a
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+27
+</td>
+<td class='vocab-concept-display'>
+b
+</td>
+<td class='vocab-concept-definition'>
+b
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+28
+</td>
+<td class='vocab-concept-display'>
+c
+</td>
+<td class='vocab-concept-definition'>
+c
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+29
+</td>
+<td class='vocab-concept-display'>
+d
+</td>
+<td class='vocab-concept-definition'>
+d
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+30
+</td>
+<td class='vocab-concept-display'>
+e
+</td>
+<td class='vocab-concept-definition'>
+e
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+31
+</td>
+<td class='vocab-concept-display'>
+f
+</td>
+<td class='vocab-concept-definition'>
+f
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+32
+</td>
+<td class='vocab-concept-display'>
+g
+</td>
+<td class='vocab-concept-definition'>
+g
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+33
+</td>
+<td class='vocab-concept-display'>
+h
+</td>
+<td class='vocab-concept-definition'>
+h
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+34
+</td>
+<td class='vocab-concept-display'>
+I
+</td>
+<td class='vocab-concept-definition'>
+I
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+35
+</td>
+<td class='vocab-concept-display'>
+j
+</td>
+<td class='vocab-concept-definition'>
+j
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+36
+</td>
+<td class='vocab-concept-display'>
+k
+</td>
+<td class='vocab-concept-definition'>
+k
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+37
+</td>
+<td class='vocab-concept-display'>
+l
+</td>
+<td class='vocab-concept-definition'>
+l
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+38
+</td>
+<td class='vocab-concept-display'>
+m
+</td>
+<td class='vocab-concept-definition'>
+m
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+39
+</td>
+<td class='vocab-concept-display'>
+n
+</td>
+<td class='vocab-concept-definition'>
+n
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+40
+</td>
+<td class='vocab-concept-display'>
+o
+</td>
+<td class='vocab-concept-definition'>
+o
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+41
+</td>
+<td class='vocab-concept-display'>
+p
+</td>
+<td class='vocab-concept-definition'>
+p
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+42
+</td>
+<td class='vocab-concept-display'>
+q
+</td>
+<td class='vocab-concept-definition'>
+q
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+43
+</td>
+<td class='vocab-concept-display'>
+r
+</td>
+<td class='vocab-concept-definition'>
+r
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+44
+</td>
+<td class='vocab-concept-display'>
+s
+</td>
+<td class='vocab-concept-definition'>
+s
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+45
+</td>
+<td class='vocab-concept-display'>
+t
+</td>
+<td class='vocab-concept-definition'>
+t
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+46
+</td>
+<td class='vocab-concept-display'>
+u
+</td>
+<td class='vocab-concept-definition'>
+u
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+47
+</td>
+<td class='vocab-concept-display'>
+v
+</td>
+<td class='vocab-concept-definition'>
+v
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+48
+</td>
+<td class='vocab-concept-display'>
+w
+</td>
+<td class='vocab-concept-definition'>
+w
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+49
+</td>
+<td class='vocab-concept-display'>
+x
+</td>
+<td class='vocab-concept-definition'>
+x
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+50
+</td>
+<td class='vocab-concept-display'>
+y
+</td>
+<td class='vocab-concept-definition'>
+y
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+51
+</td>
+<td class='vocab-concept-display'>
+z
+</td>
+<td class='vocab-concept-definition'>
+z
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+52
+</td>
+<td class='vocab-concept-display'>
+0
+</td>
+<td class='vocab-concept-definition'>
+0
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+53
+</td>
+<td class='vocab-concept-display'>
+1
+</td>
+<td class='vocab-concept-definition'>
+1
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+54
+</td>
+<td class='vocab-concept-display'>
+2
+</td>
+<td class='vocab-concept-definition'>
+2
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+55
+</td>
+<td class='vocab-concept-display'>
+3
+</td>
+<td class='vocab-concept-definition'>
+3
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+56
+</td>
+<td class='vocab-concept-display'>
+4
+</td>
+<td class='vocab-concept-definition'>
+4
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+57
+</td>
+<td class='vocab-concept-display'>
+5
+</td>
+<td class='vocab-concept-definition'>
+5
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+58
+</td>
+<td class='vocab-concept-display'>
+6
+</td>
+<td class='vocab-concept-definition'>
+6
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+59
+</td>
+<td class='vocab-concept-display'>
+7
+</td>
+<td class='vocab-concept-definition'>
+7
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+60
+</td>
+<td class='vocab-concept-display'>
+8
+</td>
+<td class='vocab-concept-definition'>
+8
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+61
+</td>
+<td class='vocab-concept-display'>
+9
+</td>
+<td class='vocab-concept-definition'>
+9
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+62
+</td>
+<td class='vocab-concept-display'>
++
+</td>
+<td class='vocab-concept-definition'>
++
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+63
+</td>
+<td class='vocab-concept-display'>
+/
+</td>
+<td class='vocab-concept-definition'>
+/
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+(pad)
+</td>
+<td class='vocab-concept-display'>
+=
+</td>
+<td class='vocab-concept-definition'>
+=
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

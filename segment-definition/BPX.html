@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+BPX - Blood Product Dispense Status Segment
+</h3>
+<p class="v2 v2-normalindented">In the processing of blood products, it is necessary for the transfusion service and the placer system to communicate information.  The status messages need to contain additional information regarding the blood products requested, such as the unique donation ID, product code, blood type, expiration date/time of the blood product, and current status of the product.    This segment is similar to an OBX segment, but contains additional attributes.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - BPX - Blood Product Dispense Status Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+BPX
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID – BPX
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPX-1'>
+01714
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+BP Dispense Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0510-Blood-Product-Dispense-Status.html' title='Blood Product Dispense Status(Required)'>
+0510(R)
+<span class='vocab-link-text'>Blood Product Dispense Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPX-2'>
+01715
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+BP Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0511-BP-Observation-Status-Codes-Interpretation.html' title='BP Observation Status Codes Interpretation(Required)'>
+0511(R)
+<span class='vocab-link-text'>BP Observation Status Codes Interpretation(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPX-3'>
+01716
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+BP Date/Time of Status
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPX-4'>
+01717
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+BC Donation ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-5'>
+01718
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+BC Component
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0577-ERROR! Bad Data! FIXME.html'>
+0577
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-6'>
+01719
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+BC Donation Type / Intended Use
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0578-ERROR! Bad Data! FIXME.html'>
+0578
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-7'>
+01720
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+CP Commercial Product
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0512-Commercial-Product.html' title='Commercial Product'>
+0512
+<span class='vocab-link-text'>Commercial Product</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-8'>
+01721
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+CP Manufacturer
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-9'>
+01722
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+CP Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-10'>
+01723
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+BP Blood Group
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0579-ERROR! Bad Data! FIXME.html'>
+0579
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-11'>
+01724
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+BC Special Testing
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0580-ERROR! Bad Data! FIXME.html'>
+0580
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#BPX-12'>
+01725
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+BP Expiration Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-13'>
+01726
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+BP Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BPX-14'>
+01727
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+BP Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-15'>
+01728
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+BP Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0581-ERROR! Bad Data! FIXME.html'>
+0581
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-16'>
+01729
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+BP Unique ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-17'>
+01730
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+BP Actual Dispensed To Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-18'>
+01731
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+BP Actual Dispensed To Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-19'>
+01732
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+BP Dispensed to Receiver
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-20'>
+01733
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+BP Dispensing Individual
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-21'>
+01734
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+22
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BPX-22'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2"></p>
+<h4 class='v2' id='BPX-1'>
+BPX-1: Set ID – BPX (<a href='/data-type/SI.html'>SI</a>) 01714
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the sequence number for the BPX segment under the related BPO segment.  For the first blood product dispense status transmitted, the sequence number shall be 1; for the second product dispense status, it shall be 2; and so on.</p>
+
+<h4 class='v2' id='BPX-2'>
+BPX-2: BP Dispense Status (<a href='/data-type/CWE.html'>CWE</a>) 01715
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates the current status of the specified blood product as indicated by the filler or placer.  For example, the first status change of a product that may trigger a Blood Product Dispense Status Message occurs when it first becomes linked to a patient and is ready to dispense.  The placer system may use the Blood Product Dispense Status Message to request the transfusion service to dispense the product.  When the blood product is delivered or issued to a patient, the status of the blood product would be changed to indicate that it has now been &quot;dispensed.&quot;  Refer to <a href="https://www.hl7.org/fhir/v2/0510/index.html">HL7 Table 0510 - Blood Product Dispense Status</a> in Chapter 2C, Code Tables, for valid entries. </p>
+
+<h4 class='v2' id='BPX-3'>
+BPX-3: BP Status (<a href='/data-type/ID.html'>ID</a>) 01716
+</h4>
+<p class="v2 v2-normalindented">Definition: The most commonly used message status values in a BPX will be preliminary and final.  A status is considered preliminary until a blood product has reached a final disposition for the patient.  For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary.  When the product is dispensed to the patient, that status would also be considered preliminary.  However, once the product is transfused, the status would be considered final.  The status of a blood product (BPX-2) can continue to change and the previous status should be overwritten until it reaches a final status (BPX-3). Refer to <a href="https://www.hl7.org/fhir/v2/0511/index.html">HL7 Table 0511 - BP Observation Status Codes Interpretation</a> in Chapter 2C, Code Tables, for valid entries.  </p>
+
+<h4 class='v2' id='BPX-4'>
+BPX-4: BP Date/Time of Status (<a href='/data-type/DTM.html'>DTM</a>) 01717
+</h4>
+<p class="v2 v2-normalindented">Definition:   This field indicates the date and time that the status of the blood component was changed.  For example, if the blood component had a status, of &quot;RD&quot; (Ready to Dispense), the date and time in this field would indicate the date and time that component was made ready to dispense by the filler system.  </p>
+
+<h4 class='v2' id='BPX-5'>
+BPX-5: BC Donation ID (<a href='/data-type/EI.html'>EI</a>) 01718
+</h4>
+<p class="v2 v2-normalindented">Definition: The Donation ID is the unique identification number assigned to a blood donation. The Donation ID depends upon the bar code labeling system used for the component.  There are currently two blood component labeling standards: ABC CODABAR and ISBT 128.  The preferred labeling system is ISBT 128.  If using ISBT 128, the Donation ID is an internationally unique identifier consisting of the following 13 characters:</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;Country Code &#38; Collection Facility - 5 characters</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;Donation Year - 2 characters</p><p class="v2 v2-normalindented">&#160;&#160;&#160;&#160;Serial Number - 6 characters</p><p class="v2 v2-normalindented">This field is required for blood components and is not applicable for commercial product messages.</p>
+
+<h4 class='v2' id='BPX-6'>
+BPX-6: BC Component (<a href='/data-type/CNE.html'>CNE</a>) 01719
+</h4>
+<p class="v2 v2-normalindented">Definition: The Component field includes an identifier and description of the specific blood component.  Refer to Table 0577 - BC Component  in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">The identifier consists of a numeric or alphanumeric product code that represents the type of blood component. The coding system will be determined by the bar code labeling system on the particular component of blood.  The preferred coding system is ISBT 128.  </p><p class="v2 v2-normalindented">If using ISBT 128 labeling standard, the product code will consist of an 8-character alphanumeric code, starting with an alpha character and including the component class, donation type/intended use and division indicator.</p><p class="v2 v2-normalindented">If using CODABAR product labeling standard, the product code is a 5-digit number.</p><p class="v2 v2-normalindented">This field is required for blood components and is not applicable for commercial product messages.</p>
+
+<h4 class='v2' id='BPX-7'>
+BPX-7: BC Donation Type / Intended Use (<a href='/data-type/CNE.html'>CNE</a>) 01720
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates the type of donation or collection/intended use.  This value is populated from <em>Table 5 -Type of Donation in the ISBT 128 Application Specification</em>.  The default value is &quot;0&quot;, meaning &quot;Not specified.&quot;  Other values indicate whether the blood product (1) is an allogeneic unit from a volunteer donor, (2) is intended for a specific recipient but may be crossed over and used for another recipient, or (3) is an autologous donation intended only for that particular recipient. Refer to Table 0578 - BC Donation Type / Intended Use  in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">This field is optional for blood component messages and is not applicable for commercial product messages.</p>
+
+<h4 class='v2' id='BPX-8'>
+BPX-8: CP Commercial Product (<a href='/data-type/CWE.html'>CWE</a>) 01721
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the code and/or text to identify a commercial product.  Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets. Refer to Table 0579 - BP Blood Group in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">Either code and/or text may be absent.  However, the code is always placed in the first component position and any free text in the second component.  Thus, a component delimiter must precede free text without a code.  Free text can be utilized if no update is to occur.  Refer To <a href="https://www.hl7.org/fhir/v2/0512/index.html">User-Defined Table 0512 - Commercial Product</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">This field is required for commercial blood products and is not applicable for blood component messages.</p>
+
+<h4 class='v2' id='BPX-9'>
+BPX-9: CP Manufacturer (<a href='/data-type/XON.html'>XON</a>) 01722
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the manufacturer of the commercial product.  The manufacturer may be different from the supplier of the commercial product.</p><p class="v2 v2-normalindented">This field is required for commercial blood products and is not applicable for blood component messages.</p>
+
+<h4 class='v2' id='BPX-10'>
+BPX-10: CP Lot Number (<a href='/data-type/EI.html'>EI</a>) 01723
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the lot number for blood derivatives or commercially supplied items used as accessories to transfusion.</p><p class="v2 v2-normalindented">This field is required for commercial blood products and is not applicable for blood component messages.</p>
+
+<h4 class='v2' id='BPX-11'>
+BPX-11: BP Blood Group (<a href='/data-type/CNE.html'>CNE</a>) 01724
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates the ABO/Rh blood group of the blood component. The preferred values for the blood group are the specified values in Table 3A - Encodation of ABO/Rh Blood Group in the ISBT 128 Application Specification. Refer to Table 0579 - BP Blood Group in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">This field is required for blood components and certain commercial products (such as solvent detergent plasma).</p>
+
+<h4 class='v2' id='BPX-12'>
+BPX-12: BC Special Testing (<a href='/data-type/CNE.html'>CNE</a>) 01725
+</h4>
+<p class="v2 v2-normalindented">Definition: This is a repeating field to allow multiple entries for special testing that was performed on the blood component.   The preferred coding system for Special Testing is defined in the ISBT 128 Application Specification.  Proposals have been developed and will soon be published by ICCBBA, Inc. for the encodation of other antigen and antibody specificities, including HLA, platelet, red cell and other types of markers. Refer to Table 0580 - BC Special Testing in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">This field is optional for blood component messages.  It is not applicable for non-commercial product messages.</p><p class="v2 v2-normalindented v2-indent0">Refer to Table I3 - Special Testing Codes of the ISBT 128 Application Specification.  </p>
+
+<h4 class='v2' id='BPX-13'>
+BPX-13: BP Expiration Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01726
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the date and time that the blood product expires.  The blood product is no longer considered acceptable once the expiration date has been reached unless cleared by the transfusion service medical staff.  </p><p class="v2 v2-normalindented">This field applies to blood components as well as commercial products.   There are a few commercial products that have no expiration date.  Therefore, the field is not required for those specific products.</p>
+
+<h4 class='v2' id='BPX-14'>
+BPX-14: BP Quantity (<a href='/data-type/NM.html'>NM</a>) 01727
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the number of blood components or commercial products to which this message refers.  </p>
+
+<h4 class='v2' id='BPX-15'>
+BPX-15: BP Amount (<a href='/data-type/NM.html'>NM</a>) 01728
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the ordered amount (volume) associated with each quantity of a blood component or commercial product to which this message refers.  </p>
+
+<h4 class='v2' id='BPX-16'>
+BPX-16: BP Units (<a href='/data-type/CWE.html'>CWE</a>) 01729
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the units of measure for the blood product amount. (See Chapter 7 for more details about reporting units.)  This field specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate). Refer to Table 0581 - BP Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='BPX-17'>
+BPX-17: BP Unique ID (<a href='/data-type/EI.html'>EI</a>) 01730
+</h4>
+<p class="v2 v2-normalindented">Definition:<strong>  </strong>This field is a unique system-generated number assigned to the blood product to which the message is referring.  Each time the status is updated, the new message should replace the previous message if the Blood Product Unique ID is the same.  If the Blood Product Unique ID is different, it indicates that the status applies to a different blood product.</p><p class="v2 v2-normalindented">The sending and receiving systems must agree upon the use of this field.</p>
+
+<h4 class='v2' id='BPX-18'>
+BPX-18: BP Actual Dispensed To Location (<a href='/data-type/PL.html'>PL</a>) 01731
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the inpatient or outpatient location to which the blood product was actually dispensed.  The default value is the current census location for the patient.  </p>
+
+<h4 class='v2' id='BPX-19'>
+BPX-19: BP Actual Dispensed To Address (<a href='/data-type/XAD.html'>XAD</a>) 01732
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the actual address of the location to which the blood product was actually dispensed.    </p>
+
+<h4 class='v2' id='BPX-20'>
+BPX-20: BP Dispensed to Receiver (<a href='/data-type/XCN.html'>XCN</a>) 01733
+</h4>
+<p class="v2 v2-normalindented">Definition: This is the person who picked up and transported the blood component(s) or commercial product(s).  The code for the receiver is recorded as a XCN data type.  This field can be free text.   In this case, the receiver&#39;s name must be recorded as the second through fourth components of the field.</p>
+
+<h4 class='v2' id='BPX-21'>
+BPX-21: BP Dispensing Individual (<a href='/data-type/XCN.html'>XCN</a>) 01734
+</h4>
+<p class="v2 v2-normalindented">Definition:   This field identifies the individual who is dispensing the blood component or commercial product.</p>
+
+<h4 class='v2' id='BPX-22'>
+BPX-22: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p><p class="v2 v2-normalindented">The action code can only be used when an BPX is uniquely identified sufficiently within the specific implementation using BPX-17 or BPX-6 as agreed to by the trading partners and in accordance with Chapter 2, Section 2.10.4.2.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

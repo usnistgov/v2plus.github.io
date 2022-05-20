@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+BHS - Batch Header Segment
+</h3>
+<p class="v2 v2-normalindented">The BHS segment defines the start of a batch. </p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - BHS - batch header segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+BHS
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Batch Field Separator
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BHS-1'>
+00081
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Batch Encoding Characters
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#BHS-2'>
+00082
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[4..5]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Batch Sending Application
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-3'>
+00083
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Batch Sending Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-4'>
+00084
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Batch Receiving Application
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-5'>
+00085
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Batch Receiving Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-6'>
+00086
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Batch Creation Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-7'>
+00087
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Batch Security
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-8'>
+00088
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+40
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Batch Name/ID/Type
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-9'>
+00089
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+40
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Batch Comment
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-10'>
+00090
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+80
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Batch Control ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-11'>
+00091
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Reference Batch Control ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-12'>
+00092
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Batch Sending Network Address
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-13'>
+02271
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Batch Receiving Network Address
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-14'>
+02272
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Security Classification Tag
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0952-Confidentiality-Classification.html' title='Confidentiality Classification(Suggested)'>
+0952(S)
+<span class='vocab-link-text'>Confidentiality Classification(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#BHS-15'>
+02429
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Security Handling Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0953-ERROR! Bad Data! FIXME.html'>
+0953
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#BHS-16'>
+02430
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+17
+</td>
+<td>
+Special Access Restriction Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#BHS-17'>
+02431
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='BHS-1'>
+BHS-1: Batch Field Separator (<a href='/data-type/ST.html'>ST</a>) 00081
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the separator between the segment ID and the first real field<a href="/segment-definition/BHS.html#BHS-2">, BHS-2 Batch Encoding Characters</a>. As such it serves as the separator and defines the character to be used as a separator for the rest of the message. Recommended value is | (ASCII 124).</p>
+
+<h4 class='v2' id='BHS-2'>
+BHS-2: Batch Encoding Characters (<a href='/data-type/ST.html'>ST</a>) 00082
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the five  characters in the following order: the component separator, repetition separator, escape characters,  subcomponent separator, and truncation character. Recommended values are ^~\&#38;# (ASCII 94, 126, 92, 38,and 35, respectively). See Section <a href="/composition/Control.html#Control-5-4">2.5.4</a>, &quot;<a href="/composition/Control.html#Control-5-4">Message delimiters</a>.&quot;</p>
+
+<h4 class='v2' id='BHS-3'>
+BHS-3: Batch Sending Application (<a href='/data-type/HD.html'>HD</a>) 00083
+</h4>
+<p class="v2 v2-normalindented">Definition: This field uniquely identifies the sending application among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined.</p>
+
+<h4 class='v2' id='BHS-4'>
+BHS-4: Batch Sending Facility (<a href='/data-type/HD.html'>HD</a>) 00084
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the address of one of several occurrences of the same application within the sending system. Absent other considerations, the Medicare Provider ID might be used with an appropriate sub-identifier in the second component. Entirely site-defined.</p>
+
+<h4 class='v2' id='BHS-5'>
+BHS-5: Batch Receiving Application (<a href='/data-type/HD.html'>HD</a>) 00085
+</h4>
+<p class="v2 v2-normalindented">Definition: This field uniquely identifies the receiving applications among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined.</p>
+
+<h4 class='v2' id='BHS-6'>
+BHS-6: Batch Receiving Facility (<a href='/data-type/HD.html'>HD</a>) 00086
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the receiving application among multiple identical instances of the application running on behalf of different organizations. See comments <a href="/composition/Control.html#Control-14-2-4">2.14.2.4</a>, &quot;<a href="/segment-definition/BHS.html#BHS-4">BHS-4   Batch Sending Facility   (HD)   00084</a>.&quot;  Entirely site-defined.</p>
+
+<h4 class='v2' id='BHS-7'>
+BHS-7: Batch Creation Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00087
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date/time that the sending system created the message. If the time zone is specified, it will be used throughout the message as the default time zone.</p>
+
+<h4 class='v2' id='BHS-8'>
+BHS-8: Batch Security (<a href='/data-type/ST.html'>ST</a>) 00088
+</h4>
+<p class="v2 v2-normalindented">Definition: In some applications of HL7, this field is used to implement security features. For codified expression of security tags using BHS-15 through BHS-17.</p>
+
+<h4 class='v2' id='BHS-9'>
+BHS-9: Batch Name/ID/Type (<a href='/data-type/ST.html'>ST</a>) 00089
+</h4>
+<p class="v2 v2-normalindented">Definition: This field can be used by the application processing the batch. It can have extra components if needed. </p><div class="v2-note"><p class="v2"><strong>Note:</strong> the text regarding &quot;extra components&quot; has been retained for backward compatibilityas of V2.5, but it is not currently an accepted format for the ST data type.</p></div><br/>
+
+<h4 class='v2' id='BHS-10'>
+BHS-10: Batch Comment (<a href='/data-type/ST.html'>ST</a>) 00090
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is a comment field that is not further defined in the HL7 protocol.</p>
+
+<h4 class='v2' id='BHS-11'>
+BHS-11: Batch Control ID (<a href='/data-type/ST.html'>ST</a>) 00091
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is used to uniquely identify a particular batch. It can be echoed back in <a href="/segment-definition/BHS.html#BHS-12">BHS-12 Reference Batch Control ID</a> if an answering batch is needed. </p>
+
+<h4 class='v2' id='BHS-12'>
+BHS-12: Reference Batch Control ID (<a href='/data-type/ST.html'>ST</a>) 00092
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the value of <a href="/segment-definition/BHS.html#BHS-11">BHS-11 Batch Control ID</a> when this batch was originally transmitted. Not present if this batch is being sent for the first time. See definition for <a href="/segment-definition/BHS.html#BHS-11">BHS-11 Batch Control ID</a>.</p>
+
+<h4 class='v2' id='BHS-13'>
+BHS-13: Batch Sending Network Address (<a href='/data-type/HD.html'>HD</a>) 02271
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifier of the network location the message was transmitted from.  Identified by an OID or text string (e.g., URI). The reader is referred to the &quot;Report from the Joint W3C/IETF URI Planning Interest Group: Uniform Resource Identifiers (URIs), URLs, and Uniform Resource Names (URNs): Clarifications and Recommendations&quot;.<span id="chapter-2-footnote-reference-1"><a href="#chapter-2-footnote-1"><sup>1</sup></a></span></p><p class="v2 v2-normalindented">As with the Sending/Receiving Responsible Organization, the Sending Network Address provides a more detailed picture of the source of the message.  This information is lower than the application layer, but is often useful/necessary for routing and identification purposes. This field SHALL only be populated when the underlying communication protocol does not support identification of sending network locations. </p><p class="v2 v2-normalindented">The specific values and usage must be site negotiated</p>
+
+<h4 class='v2' id='BHS-14'>
+BHS-14: Batch Receiving Network Address (<a href='/data-type/HD.html'>HD</a>) 02272
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifier of the network location the message was transmitted to.  Identified by an OID or text string. (e.g., URL).</p><p class="v2 v2-normalindented">This is analogous with the Sending Network Address, however in the receiving role.</p><p class="v2 v2-normalindented">This field SHALL only be populated when the underlying communication protocol does not support identification receiving network locations.</p>
+
+<h4 class='v2' id='BHS-15'>
+BHS-15: Security Classification Tag (<a href='/data-type/CWE.html'>CWE</a>) 02429
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field defines the security classification (as defined by ISO/IEC 2382-8:1998(E/F)/ T-REC-X.812-1995) of an IT resource, in this case the message, which might be used to make access control decisions.  It is conditionally required when MSH-27 or MSH-28 are used. </p><p class="v2 v2-normalindented">Conditionality Predicate: Required if BHS-16  or BHS-17 or any contained FSH-16 or FSH-17 or MSH-26 or MSH-27 is valued, Optional if neither BHS-16  nor BHS-17 , nor any contained FSH-16 or FSH-17, nor MSH-26 nor MSH-27is valued.&quot;</p><p class="v2 v2-normalindented v2-indent0">Note: This field is used to declare the ‘high watermark’, meaning the most restrictive handling that needs to be applied to the message based on its content requiring a certain security classification level and SHOULD be viewed as the v2 equivalent of the document header in CDA, in v3 models, and in FHIR Security Labels on Resources and Bundles. The use of confidentiality codes to classify message content and its inclusion in the high water mark in the header of message content is -described in the Guide to the HL7 Healthcare Privacy and Security Classification System, Release 1, which is platform independent. Note: This field is used to declare the ‘high watermark’, meaning the most restrictive handling that needs to be applied to the message based on its content requiring a certain security classification level and SHOULD be viewed as the v2 equivalent of the document header in CDA, in v3 models, and in FHIR Security Labels on Resources and Bundles. The use of confidentiality codes to classify message content and its inclusion in the high water mark in the header of message content is -described in the Guide to the HL7 Healthcare Privacy and Security Classification System, Release 1, which is platform independent. Use of this field supports the business requirement for declaring the level of confidentiality (classification) for a given message. </p><p class="v2 v2-normalindented"></p><p class="v2 v2-normalindented">Refer to Externally-defined HL7 Table 0952 – HL7 Confidentiality Code  in Chapter 2C, Code Tables, for suggested values.  Use of this table is recommended.  The codes in this table are comprehensive, non-overlapping hierarchical codes: Very Restricted &#62; Restricted &#62; Normal &#62; Moderate &#62; Low &#62; Unrestricted. Restrictions to a comprehensive, non-overlapping set of codes is required for purposes of access control system algorithms such as Bell–LaPadula Mode, which isl used to adjudicate access requests against privacy policies.</p>
+
+<h4 class='v2' id='BHS-16'>
+BHS-16: Security Handling Instructions (<a href='/data-type/CWE.html'>CWE</a>) 02430
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is repeatable and conveys instructions to users and receivers for secure distribution, transmission, and storage; dictate obligations or mandated actions; specify any action prohibited by refrain policy such as dissemination controls; and stipulate the permissible purpose of use of an IT resource.  </p><p class="v2 v2-normalindented">Refer to HL7 Table 0953 – Security Control in Chapter 2C, Code Tables, for suggested values. – </p>
+
+<h4 class='v2' id='BHS-17'>
+BHS-17: Special Access Restriction Instructions (<a href='/data-type/ST.html'>ST</a>) 02431
+</h4>
+<p class="v2 v2-normalindented">Definition:   Used to convey specific instructions about the protection of the patient&#39;s data , which must be rendered to end users in accordance with patient consent directive, organizational policy, or jurisdictional law.  For example, in US law 42 CFR Part 2, disclosed information made with patient consent must include a renderable “Prohibition on re-disclosure” warning (§ 2.32<span id="chapter-2-footnote-reference-2"><a href="#chapter-2-footnote-2"><sup>2</sup></a></span>)  In addition, organizational policy MAY require that some or all of the ARV field privacy tag values be rendered to end users, e.g., marking a consult note with “Restricted Confidentiality” or with sensitivity tags such as “VIP” or “EMP” for employee of the organization. </p><p class="v2 v2-normalindented">This field MAY also be used to specify instructions about the release of information to family and friends (e.g., &quot;Do not release information to patient&#39;s brother, Adam Everyman&quot;). These instructions could be in conjunction with other fields (as elected by the system).</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

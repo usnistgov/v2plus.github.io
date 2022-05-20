@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+SAC - Specimen Container Detail Segment
+</h3>
+<p class="v2 v2-normalindented">The container detail segment is the data necessary to maintain the containers that are being used throughout the Laboratory Automation System.</p><p class="v2 v2-normalindented">The specimens in many laboratories are transported and processed in containers (e.g., sample tubes). When SPM and SAC are used in the same message, then the conceptually duplicate attributes will be valued only in the SPM. This applies to <a href="/segment-definition/SAC.html#SAC-6">SAC-6 Specimen Source</a>, <a href="/segment-definition/SAC.html#SAC-27">SAC-27 Additives</a>, and <a href="/segment-definition/SAC.html#SAC-43">SAC-43 Special Handling Considerations</a>.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - SAC - Specimen Container Detail Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+SAC
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+External Accession Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-1'>
+01329
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Accession Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-2'>
+01330
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Container Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-3'>
+01331
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Primary
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-4'>
+01332
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Equipment Container Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-5'>
+01333
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Specimen Source
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-6'>
+00249
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Registration Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-7'>
+01334
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Container Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0370-Container-Status.html' title='Container Status(Required)'>
+0370(R)
+<span class='vocab-link-text'>Container Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-8'>
+01335
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Carrier Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0378-Carrier-Type.html' title='Carrier Type'>
+0378
+<span class='vocab-link-text'>Carrier Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-9'>
+01336
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Carrier Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-10'>
+01337
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Position in Carrier
+</td>
+<td class='centered'>
+<a href='/data-type/NA.html'>
+NA
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-11'>
+01338
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Tray Type – SAC
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0379-Tray-Type.html' title='Tray Type'>
+0379
+<span class='vocab-link-text'>Tray Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-12'>
+01339
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Tray Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-13'>
+01340
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Position in Tray
+</td>
+<td class='centered'>
+<a href='/data-type/NA.html'>
+NA
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-14'>
+01341
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Location
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0774-ERROR! Bad Data! FIXME.html'>
+0774
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SAC-15'>
+01342
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Container Height
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-16'>
+01343
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Container Diameter
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-17'>
+01344
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Barrier Delta
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-18'>
+01345
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Bottom Delta
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-19'>
+01346
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Container Height/Diameter/Delta Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0775-ERROR! Bad Data! FIXME.html'>
+0775
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-20'>
+01347
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Container Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-21'>
+00644
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Available Specimen Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-22'>
+01349
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Initial Specimen Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-23'>
+01350
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Volume Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0777-ERROR! Bad Data! FIXME.html'>
+0777
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-24'>
+01351
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Separator Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0380-Separator-Type.html' title='Separator Type'>
+0380
+<span class='vocab-link-text'>Separator Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-25'>
+01352
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Cap Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0381-Cap-Type.html' title='Cap Type'>
+0381
+<span class='vocab-link-text'>Cap Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-26'>
+01353
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Additive
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0371-Additive/Preservative.html' title='Additive/Preservative(Required)'>
+0371(R)
+<span class='vocab-link-text'>Additive/Preservative(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SAC-27'>
+00647
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Specimen Component
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0372-Specimen-Component.html' title='Specimen Component(Suggested)'>
+0372(S)
+<span class='vocab-link-text'>Specimen Component(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-28'>
+01355
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Dilution Factor
+</td>
+<td class='centered'>
+<a href='/data-type/SN.html'>
+SN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-29'>
+01356
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Treatment
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0373-Treatment.html' title='Treatment(Suggested)'>
+0373(S)
+<span class='vocab-link-text'>Treatment(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-30'>
+01357
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Temperature
+</td>
+<td class='centered'>
+<a href='/data-type/SN.html'>
+SN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-31'>
+01358
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Hemolysis Index
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-32'>
+01359
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Hemolysis Index Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0779-ERROR! Bad Data! FIXME.html'>
+0779
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-33'>
+01360
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Lipemia Index
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-34'>
+01361
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Lipemia Index Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0780-ERROR! Bad Data! FIXME.html'>
+0780
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-35'>
+01362
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Icterus Index
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-36'>
+01363
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Icterus Index Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0781-ERROR! Bad Data! FIXME.html'>
+0781
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-37'>
+01364
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Fibrin Index
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-38'>
+01365
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Fibrin Index Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0782-ERROR! Bad Data! FIXME.html'>
+0782
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-39'>
+01366
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+System Induced Contaminants
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0374-System-Induced-Contaminants.html' title='System Induced Contaminants'>
+0374
+<span class='vocab-link-text'>System Induced Contaminants</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SAC-40'>
+01367
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+Drug Interference
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0382-Drug-Interference.html' title='Drug Interference'>
+0382
+<span class='vocab-link-text'>Drug Interference</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SAC-41'>
+01368
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+Artificial Blood
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0375-Artificial-Blood.html' title='Artificial Blood'>
+0375
+<span class='vocab-link-text'>Artificial Blood</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-42'>
+01369
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+Special Handling Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0376-Special-Handling-Code.html' title='Special Handling Code(Suggested)'>
+0376(S)
+<span class='vocab-link-text'>Special Handling Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SAC-43'>
+01370
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+Other Environmental Factors
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0377-Other-Environmental-Factors.html' title='Other Environmental Factors'>
+0377
+<span class='vocab-link-text'>Other Environmental Factors</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#SAC-44'>
+01371
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+Container Length
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-45'>
+02496
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+Container Width
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-46'>
+02497
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+Container Form
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0967-Container-Form.html' title='Container Form'>
+0967
+<span class='vocab-link-text'>Container Form</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-47'>
+02498
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+Container Material
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0968-Container-Material.html' title='Container Material'>
+0968
+<span class='vocab-link-text'>Container Material</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-48'>
+02499
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+49
+</td>
+<td>
+Container Common Name
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0969-Container-Common-Name.html' title='Container Common Name(Suggested)'>
+0969(S)
+<span class='vocab-link-text'>Container Common Name(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#SAC-49'>
+02500
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='SAC-1'>
+SAC-1: External Accession Identifier (<a href='/data-type/EI.html'>EI</a>) 01329
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the laboratory accession (see section <em>Glossary</em>). This identifier is assigned by the external laboratory information system. </p><p class="v2 v2-normalindented">Example: If laboratory A sends a specimen to laboratory B, then within laboratory B this field contains accession identifier of lab A.</p>
+
+<h4 class='v2' id='SAC-2'>
+SAC-2: Accession Identifier (<a href='/data-type/EI.html'>EI</a>) 01330
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the laboratory accession (see section <a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">13.2.3</a>, &quot;<a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">Glossary</a>&quot;). This identifier is assigned by the information system of the laboratory performing the tests. </p><p class="v2 v2-normalindented">An accession identifier can refer to more than one container.  A Container Identifier (see below) is a Unique Identifier for that container.</p>
+
+<h4 class='v2' id='SAC-3'>
+SAC-3: Container Identifier (<a href='/data-type/EI.html'>EI</a>) 01331
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the container. This field is the container&#39;s unique identifier assigned by the corresponding equipment. A container may contain the primary (original) specimen or an aliquot (secondary sample) of that specimen. For primary sample this field contains Primary Container ID; for bar-coded aliquot samples this field contains Aliquot Container ID; for non-bar-coded aliquot samples (e.g., microtiter plate) this field is empty.<span id="chapter-13-footnote-reference-9"><a href="#chapter-13-footnote-9"><sup>9</sup></a></span> </p><p class="v2 v2-normalindented">The NCCLS standard requires a unique identifier for each container introduced into the Laboratory Automation System. The combination of the fields: Primary Container ID, Container ID, Carrier ID / Position, Tray ID / Position must identify the container uniquely within the LAS. The naturally best solution is unique machine-readable ID attached to the container (which of course is sufficient to ensure the uniqueness of the fields&#39; combination). A bar code that symbolizes this ID should meet the proposed standard NCCLS AUTO2 (<em>Laboratory Automation: Bar Codes for Specimen Container Identification).</em></p>
+
+<h4 class='v2' id='SAC-4'>
+SAC-4: Primary (<a href='/data-type/EI.html'>EI</a>) 01332
+</h4>
+<p class="v2 v2-normalindented">Definition:  If this field is filled in, it identifies the primary container from which this specimen came. For primary samples this field is empty; for aliquot samples this field should contain the identifier of primary container.</p>
+
+<h4 class='v2' id='SAC-5'>
+SAC-5: Equipment Container Identifier (<a href='/data-type/EI.html'>EI</a>) 01333
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the container in a particular device (e.g., one container in a carousel or rack of containers within an analyzer, analyzer specific bar code mapping, etc.).</p>
+
+<h4 class='v2' id='SAC-6'>
+SAC-6: Specimen Source (<a href='/data-type/.html'></a>) 00249
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: This field was deprecated and retained for backward compatibilityonly as of v2.5 and withdrawn and removed as of v2.7.</strong> </p>
+
+<h4 class='v2' id='SAC-7'>
+SAC-7: Registration Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01334
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the date/time that the container was last registered with the &quot;automated system,&quot; e.g., reading of a container bar code by a device.</p>
+
+<h4 class='v2' id='SAC-8'>
+SAC-8: Container Status (<a href='/data-type/CWE.html'>CWE</a>) 01335
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the status of the unique container in which the specimen resides at the time that the transaction was initiated.  Refer to <a href="https://www.hl7.org/fhir/v2/0370/index.html">HL7 Table 0370 - Container Status</a> in Chapter 2C, Code Tables, for valid values. The equipment specific container status should be sent as <em>&#60;alternate identifier&#62;</em> as needed.</p><p class="v2 v2-normalindented">The container states are relevant for the exchange of information among devices (within the LAS). Not all of them are relevant for information transfer between the LAS and the LIS.</p>
+
+<h4 class='v2' id='SAC-9'>
+SAC-9: Carrier Type (<a href='/data-type/CWE.html'>CWE</a>) 01336
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of the carrier (see section <a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">13.2.3</a>, &quot;<a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">Glossary</a>&quot;). Refer to <a href="https://www.hl7.org/fhir/v2/0378/index.html">User-defined Table 0378 – Carrier Type</a> in Chapter 2C, Code Tables, for suggested values.   Because the geometry can be different, the carrier type should, if possible, express the number of positions in the carrier.</p><p class="v2 v2-normalindented">The definition assumes hierarchical nesting using the following phrases: container is located in a carrier; carrier is located in a tray.</p>
+
+<h4 class='v2' id='SAC-10'>
+SAC-10: Carrier Identifier (<a href='/data-type/EI.html'>EI</a>) 01337
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the carrier. It is the ID (e.g., number or bar code) of the carrier where the container (e.g., tube) is located.</p><p class="v2 v2-normalindented">Example: A carrier could be a rack with single or multiple specimen containers. A carrier is usually used for automated specimen transport. Multiple carriers can be stacked in a tray, which is then used for manual or automatic transport.</p>
+
+<h4 class='v2' id='SAC-11'>
+SAC-11: Position in Carrier (<a href='/data-type/NA.html'>NA</a>) 01338
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the position of the container in the carrier (e.g., 1...3...). The sub-components allow, if necessary, to transfer multiple axis information, e.g., 2-dimensional carrier (X^Y).</p>
+
+<h4 class='v2' id='SAC-12'>
+SAC-12: Tray Type – SAC (<a href='/data-type/CWE.html'>CWE</a>) 01339
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of the tray (see section <a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">13.2.3</a>, &quot;<a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">Glossary</a>&quot;). Refer to <a href="https://www.hl7.org/fhir/v2/0379/index.html">User-defined Table 0379 – Tray Type</a> in chapter 2C for suggested values.  Because the geometry can be different, the tray type should if possible express the number of positions in the tray. </p><p class="v2 v2-normalindented">The definition assumes hierarchical nesting using the following phrases: container is located in a carrier, carrier is located in a tray.</p>
+
+<h4 class='v2' id='SAC-13'>
+SAC-13: Tray Identifier (<a href='/data-type/EI.html'>EI</a>) 01340
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the tray identifier (e.g., a number of a tray or a bar code on the tray) where the container carrier is located.</p>
+
+<h4 class='v2' id='SAC-14'>
+SAC-14: Position in Tray (<a href='/data-type/NA.html'>NA</a>) 01341
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the position of the carrier in the tray. The sub-components allow, if necessary, to transfer multiple axis information, e.g., 2-dimensional tray (X^Y).</p>
+
+<h4 class='v2' id='SAC-15'>
+SAC-15: Location (<a href='/data-type/CWE.html'>CWE</a>) 01342
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the physical location that the specimen was at the time that the transaction was initiated. The location description can vary with the LAS. For example, it can be an X,Y,Z coordinate in  a storage system; a refrigerator number and drawer number where the container-carrier-tray is located; or it can be the name of the institution and the laboratory which owns the container currently. The repeating of this field allows for hierarchical representation of location (lowest level first), e.g., shelf number, refrigerator storage id, lab name, institution name, etc. Refer to Table 0774 - Location in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='SAC-16'>
+SAC-16: Container Height (<a href='/data-type/NM.html'>NM</a>) 01343
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the height of the container in units specified below. </p><div class="v2-note"><p class="v2"><strong>Note:</strong>  &#160;&#160;&#160;&#160;If the container type is categorized (FBT (false-bottom-tube), Cup, etc.), the specific codes should be transferred in the SPM-27 field “Container Type”. If the container is characterized by dimensions and other characteristics this information should be transferred as specific values in the SAC segment (fields: SAC-16 through SAC-21, or SAC-45 to SAC-48).</p></div><br/>
+
+<h4 class='v2' id='SAC-17'>
+SAC-17: Container Diameter (<a href='/data-type/NM.html'>NM</a>) 01344
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the outside diameter of the container in units specified below.  For non-cylindrical containers SAC-45 Container Length and SAC-46 Container Width may be used instead of SAC-17 Container Diameter.</p>
+
+<h4 class='v2' id='SAC-18'>
+SAC-18: Barrier Delta (<a href='/data-type/NM.html'>NM</a>) 01345
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the distance from the Point of Reference to the separator material (barrier) within the container in units specified below. This distance may be provided by the LAS to the instrument and/or specimen processing/handling device to facilitate the insertion of a sampling probe into the specimen without touching the separator. Refer to Point Of Reference definition in section <em>Glossary</em> or in NCCLS standard AUTO5 <em>Laboratory Automation: Electromechanical Interfaces</em>.</p>
+
+<h4 class='v2' id='SAC-19'>
+SAC-19: Bottom Delta (<a href='/data-type/NM.html'>NM</a>) 01346
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the distance from the Point of Reference to the outside bottom of the container in units specified below. Refer to Point Of Reference definition in section <a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">13.2.3</a>, &quot;<a href="/composition/Clinical-Laboratory-Automation.html#Clinical-Laboratory-Automation-2-3">Glossary</a>,&quot; or in NCCLS standard AUTO5<em> Laboratory Automation: Electromechanical Interfaces</em>.</p>
+
+<h4 class='v2' id='SAC-20'>
+SAC-20: Container Height/Diameter/Delta Units (<a href='/data-type/CWE.html'>CWE</a>) 01347
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the unit identifier that is being used to describe the diameter, height and deltas of the container. If the units are ISO+ units, they should be recorded as single case abbreviations. If the units are ANS+ or L (local), the units and the source code table must be recorded, except that in this case, component delimiters should be replaced by subcomponent delimiters. The default unit is millimeters (mm), which should be assumed if no units are reported. Refer to Table 0775 - Container Height/Diameter/Delta Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='SAC-21'>
+SAC-21: Container Volume (<a href='/data-type/NM.html'>NM</a>) 00644
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the capacity of the container in the units specified below.</p>
+
+<h4 class='v2' id='SAC-22'>
+SAC-22: Available Specimen Volume (<a href='/data-type/NM.html'>NM</a>) 01349
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the current specimen volume available for use in this container in the units specified below.</p>
+
+<h4 class='v2' id='SAC-23'>
+SAC-23: Initial Specimen Volume (<a href='/data-type/NM.html'>NM</a>) 01350
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the volume of the specimen initially filled in this container in the units specified below.</p>
+
+<h4 class='v2' id='SAC-24'>
+SAC-24: Volume Units (<a href='/data-type/CWE.html'>CWE</a>) 01351
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the unit identifier that is being used to describe the volume of the container. If the units are ISO+ units, they should be recorded as single case abbreviations. The default unit is milliliters (ml), which should be assumed if no units are reported. Refer to Table 0777 - Volume Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='SAC-25'>
+SAC-25: Separator Type (<a href='/data-type/CWE.html'>CWE</a>) 01352
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the type of the separator that is being used (e.g., gel separator in the container – not to be confused with the communication separators).  Refer to<em> </em><a href="https://www.hl7.org/fhir/v2/0380/index.html">User-defined Table 0380 – SeparatorType</a> in Chapter 2C, Code Tables, for suggested values.  It is recommended that the first table entry be &quot;NO&quot; meaning &quot;No Separator.&quot;</p>
+
+<h4 class='v2' id='SAC-26'>
+SAC-26: Cap Type (<a href='/data-type/CWE.html'>CWE</a>) 01353
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field indicates the type of cap that is to be used with this container for decapping, piercing or other mechanisms.  Refer to <a href="https://www.hl7.org/fhir/v2/0381/index.html">User-defined Table 0381 – Cap Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='SAC-27'>
+SAC-27: Additive (<a href='/data-type/CWE.html'>CWE</a>) 00647
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies any additives introduced to the specimen before or at the time of collection. These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen. It is a repetitive field. Refer to <a href="https://www.hl7.org/fhir/v2/0371/index.html">HL7 Table 0371 – Additive/Preservative</a> for valid values.  &#39;The value set can be extended with user specific values.  </p><p class="v2 v2-normalindented">When the SPM (Specimen) segment is sent together with the SAC segment the additive attribute value from the SPM segment can be included in this field of the SAC.</p>
+
+<h4 class='v2' id='SAC-28'>
+SAC-28: Specimen Component (<a href='/data-type/CWE.html'>CWE</a>) 01355
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the specimen component, e.g., supernatant, sediment, etc. Refer to <a href="https://www.hl7.org/fhir/v2/0372/index.html">User-defined Table 0372 – Specimen Component</a> in Chapter 2C, Code Tables, for valid values.  This table&#39;s values are taken from <em>NCCLS AUTO4</em>. The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='SAC-29'>
+SAC-29: Dilution Factor (<a href='/data-type/SN.html'>SN</a>) 01356
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the factor of dilution already performed on the specimen. The equipment entity that changes the dilution is responsible for sending this information to other equipment. If the endogenous content of the test (analyte) in the diluent is required for the calculation of the test (analyte) concentration, then the test (analyte) specific values should be exchanged between the systems via Master Files or other means.</p><p class="v2 v2-normalindented">Examples of use:</p><p class="v2 v2-normalindented">|^1^:^5|&#160;&#160;&#160;&#160;- means dilution 1 to 5, i.e., 1 part sample, 4 parts diluent</p><p class="v2 v2-normalindented">|^1^+|&#160;&#160;&#160;&#160;- sample is diluted, but the factor is unknown</p><p class="v2 v2-normalindented">|^1^:^1|&#160;&#160;&#160;&#160;- not diluted sample</p><p class="v2 v2-normalindented">||&#160;&#160;&#160;&#160;- dilution not changed</p>
+
+<h4 class='v2' id='SAC-30'>
+SAC-30: Treatment (<a href='/data-type/CWE.html'>CWE</a>) 01357
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the specimen treatment performed during lab processing. Refer to <a href="https://www.hl7.org/fhir/v2/0373/index.html">User-defined Table 0373 – Treatment</a> in chapter 2C for valid values.  This table&#39;s values are taken from <em>NCCLS AUTO4</em>. The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='SAC-31'>
+SAC-31: Temperature (<a href='/data-type/SN.html'>SN</a>) 01358
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the specimen temperature in degrees Celsius [°C] at the time of the transaction specified in the EQU segment. </p>
+
+<h4 class='v2' id='SAC-32'>
+SAC-32: Hemolysis Index (<a href='/data-type/NM.html'>NM</a>) 01359
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the index identifier that is being used to describe the Hemolysis Index of the specimen. </p>
+
+<h4 class='v2' id='SAC-33'>
+SAC-33: Hemolysis Index Units (<a href='/data-type/CWE.html'>CWE</a>) 01360
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the unit&#39;s identifier that is being used to describe the Hemolysis Index of the specimen. It is recommended to use g/L. (The transmission of the index values is added here instead of the original use of the OBX segments, because the frequency of the transfer of the specimen details justifies use of more efficient mechanism.) Refer to Table 0779 - Hemolysis Index Units in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">If this field is null, the recommended value is assumed.</p>
+
+<h4 class='v2' id='SAC-34'>
+SAC-34: Lipemia Index (<a href='/data-type/NM.html'>NM</a>) 01361
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the index identifier that is being used to describe the Lipemia Index of the specimen. It is recommended to use the optical turbidity at 600 nm (in absorbance units).</p>
+
+<h4 class='v2' id='SAC-35'>
+SAC-35: Lipemia Index Units (<a href='/data-type/CWE.html'>CWE</a>) 01362
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the unit&#39;s identifier that is being used to describe the Lipemia Index of the specimen. Refer to Table 0780 - Lipemia Index Units in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">If this field is null, the recommended value is assumed.</p>
+
+<h4 class='v2' id='SAC-36'>
+SAC-36: Icterus Index (<a href='/data-type/NM.html'>NM</a>) 01363
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the index identifier that is being used to describe the Icterus Index of the specimen. </p>
+
+<h4 class='v2' id='SAC-37'>
+SAC-37: Icterus Index Units (<a href='/data-type/CWE.html'>CWE</a>) 01364
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the unit&#39;s identifier that is being used to describe the Icterus Index of the specimen. It is recommended to use mMol/L of bilirubin. Refer to Table 0781 - Icterus Index Units in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">If this field is null, the recommended value is assumed.</p>
+
+<h4 class='v2' id='SAC-38'>
+SAC-38: Fibrin Index (<a href='/data-type/NM.html'>NM</a>) 01365
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the index identifier that is being used to describe the Fibrin Index of the specimen. In the case of only differentiating between Absent and Present, we recommend using 0 and 1 respectively and send the field Fibrin Index Units null.</p>
+
+<h4 class='v2' id='SAC-39'>
+SAC-39: Fibrin Index Units (<a href='/data-type/CWE.html'>CWE</a>) 01366
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the unit&#39;s identifier that is being used to describe the Fibrin Index of the specimen. Refer to Table 0782 - Fibrin Index Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='SAC-40'>
+SAC-40: System Induced Contaminants (<a href='/data-type/CWE.html'>CWE</a>) 01367
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes the specimen contaminant identifier that is associated with the specimen in this container. Refer to <a href="https://www.hl7.org/fhir/v2/0374/index.html">User-defined Table 0374 – System Induced Contaminants</a> in Chapter 2C, Code Tables, for valid values.  This table&#39;s values are taken from <em>NCCLS AUTO4</em>. The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='SAC-41'>
+SAC-41: Drug Interference (<a href='/data-type/CWE.html'>CWE</a>) 01368
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes the drug interference identifier that is associated with the specimen. Refer to <a href="https://www.hl7.org/fhir/v2/0382/index.html">User-defined Table 0382 – Drug Interference</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='SAC-42'>
+SAC-42: Artificial Blood (<a href='/data-type/CWE.html'>CWE</a>) 01369
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes the artificial blood identifier that is associated with the specimen. Refer to <a href="https://www.hl7.org/fhir/v2/0375/index.html">User-defined Table 0375 – Artificial Blood</a> in Chapter 2C, Code Tables, for valid values.  This table&#39;s values are taken from <em>NCCLS AUTO4</em>. The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='SAC-43'>
+SAC-43: Special Handling Code (<a href='/data-type/CWE.html'>CWE</a>) 01370
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes any special handling considerations that are associated with the specimen in the specific container (e.g., centrifugation). This describes how the specimen needs to be stored during collection, in transit, and upon receipt. Refer to <a href="https://www.hl7.org/fhir/v2/0376/index.html">User-defined Table 0376 – Special Handling Code</a> in Chapter 2C, Code Tables, for valid values.  &#39;The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='SAC-44'>
+SAC-44: Other Environmental Factors (<a href='/data-type/CWE.html'>CWE</a>) 01371
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes other environmental factors that are associated with the specimen in a specific container, e.g., atmospheric exposure. Refer to <a href="https://www.hl7.org/fhir/v2/0377/index.html">User-defined Table 0377 – Other Environmental Factors</a> in Chapter 2C, Code Tables, for valid values.  This table&#39;s values are taken from <em>NCCLS AUTO4</em>. The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='SAC-45'>
+SAC-45: Container Length (<a href='/data-type/CQ.html'>CQ</a>) 02496
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field describes the longest horizontal measurement of the container, for non-cylindrical containers.  For cylindrical containers SAC-17 Container Diameter may be used instead of SAC-45 Container Length and SAC-46 Container Width.</p>
+
+<h4 class='v2' id='SAC-46'>
+SAC-46: Container Width (<a href='/data-type/CQ.html'>CQ</a>) 02497
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field desrcibes the distance from side to side, measuring across the object at right angles to the length, for non-cylindrical containers.  For cylindrical containers SAC-17 Container Diameter may be used instead of SAC-45 Container Length and SAC-46 Container Width.</p>
+
+<h4 class='v2' id='SAC-47'>
+SAC-47: Container Form (<a href='/data-type/CWE.html'>CWE</a>) 02498
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the coded representation of the format or type of the container (e.g. tube/vial, jar, bag, block, slide, etc.).  Refer to User-Defined Table 0967 for suggested values.</p>
+
+<h4 class='v2' id='SAC-48'>
+SAC-48: Container Material (<a href='/data-type/CWE.html'>CWE</a>) 02499
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the coded representation of the material composition (i.e. physical substance) of the container and may be considered to modify for further describe SAC-47 (Container Form).  It may also indicate a virtual container in the cases of digitized specimens (e.g. scans obtained by whole slide imaging techniques, etc.).  Refer to User-Defined Table 0968 for suggested values.</p>
+
+<h4 class='v2' id='SAC-49'>
+SAC-49: Container Common Name (<a href='/data-type/CWE.html'>CWE</a>) 02500
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is a coded representation of the way the container type is commonly referenced in an organization, in order to aid in ensuring the appropriate container is used.  Examples include “Red Top” (for tubes/vials), “Wet Mount” (for slides), etc.  Frequently these values will be locally defined and meaning may vary by supplier.  Refer to User-Defined Table 0969 for suggested values.</p><p class="v2 v2-normalindented">In many cases this is a shorthand way to express a combination of other container attributes, for example the combination of SAC-47 (Container Form) of “Tube/vial” + SAC-48 (Container Material) of “Glass” + SAC-27 (Additive) of “EDTA” may be referenced commonly in an organization as a “Lavender Top”.  </p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+ORC - Common Order Segment
+</h3>
+<p class="v2 v2-normalindented">The Common Order segment (ORC) is used to transmit fields that are common to all orders (all types of services that are requested).  </p><p class="v2 v2-normalindented">There is some overlap between fields of the ORC and those in the order detail segments.  These are described in the succeeding sections.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - ORC - Common Order Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+ORC
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Order Control
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0119-Order-Control-Codes.html' title='Order Control Codes(Required)'>
+0119(R)
+<span class='vocab-link-text'>Order Control Codes(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#ORC-1'>
+00215
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-2'>
+00216
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Filler Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-3'>
+00217
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Placer Order Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-4'>
+00218
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Order Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0038-Order-status.html' title='Order status(Required)'>
+0038(R)
+<span class='vocab-link-text'>Order status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-5'>
+00219
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Response Flag
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0121-Response-Flag.html' title='Response Flag(Required)'>
+0121(R)
+<span class='vocab-link-text'>Response Flag(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-6'>
+00220
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Quantity/Timing
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#ORC-7'>
+00221
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Parent Order
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0119-Order-Control-Codes.html' title='Order Control Codes(Required)'>
+0119(R)
+<span class='vocab-link-text'>Order Control Codes(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ORC-8'>
+00222
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Date/Time of Order Event
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-9'>
+00223
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Entered By
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-10'>
+00224
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Verified By
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-11'>
+00225
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Ordering Provider
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-12'>
+00226
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Enterer's Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-13'>
+00227
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Call Back Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..2]
+</td>
+<td class='centered'>
+<a href='#ORC-14'>
+00228
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Order Effective Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-15'>
+00229
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Order Control Code Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0949-Order-Control-Code-Reason.html' title='Order Control Code Reason'>
+0949
+<span class='vocab-link-text'>Order Control Code Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-16'>
+00230
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Entering Organization
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0666-ERROR! Bad Data! FIXME.html'>
+0666
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-17'>
+00231
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Entering Device
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0668-ERROR! Bad Data! FIXME.html'>
+0668
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-18'>
+00232
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Action By
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-19'>
+00233
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Advanced Beneficiary Notice Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0339-Advanced-Beneficiary-Notice-Code.html' title='Advanced Beneficiary Notice Code(Suggested)'>
+0339(S)
+<span class='vocab-link-text'>Advanced Beneficiary Notice Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-20'>
+01310
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Ordering Facility Name
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-21'>
+01311
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Ordering Facility Address
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-22'>
+01312
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Ordering Facility Phone Number
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-23'>
+01313
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Ordering Provider Address
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-24'>
+01314
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Order Status Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0950-Order-Status-Modifier.html' title='Order Status Modifier(Suggested)'>
+0950(S)
+<span class='vocab-link-text'>Order Status Modifier(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-25'>
+01473
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Advanced Beneficiary Notice Override Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0552-Advanced-Beneficiary-Notice-Override-Reason.html' title='Advanced Beneficiary Notice Override Reason(Required)'>
+0552(R)
+<span class='vocab-link-text'>Advanced Beneficiary Notice Override Reason(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-26'>
+01641
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Filler's Expected Availability Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-27'>
+01642
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Confidentiality Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0177-Confidentiality-Code.html' title='Confidentiality Code'>
+0177
+<span class='vocab-link-text'>Confidentiality Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-28'>
+00615
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Order Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0482-Order-Type.html' title='Order Type(Required)'>
+0482(R)
+<span class='vocab-link-text'>Order Type(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-29'>
+01643
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Enterer Authorization Mode
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0483-Authorization-Mode.html' title='Authorization Mode(Required)'>
+0483(R)
+<span class='vocab-link-text'>Authorization Mode(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-30'>
+01644
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Parent Universal Service Identifier
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-31'>
+02287
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Advanced Beneficiary Notice Date
+</td>
+<td class='centered'>
+<a href='/data-type/DT.html'>
+DT
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-32'>
+02301
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Alternate Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ORC-33'>
+03300
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Order Workflow Profile
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0934-Order-Workflow-Profile.html' title='Order Workflow Profile'>
+0934
+<span class='vocab-link-text'>Order Workflow Profile</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ORC-34'>
+03387
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-35'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Order Status Date Range
+</td>
+<td class='centered'>
+<a href='/data-type/DR.html'>
+DR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-36'>
+03509
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Order Creation Date/Time
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-37'>
+03515
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+38
+</td>
+<td>
+Filler Order Group Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ORC-38'>
+02482
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<p class="v2 v2-normalindented">ORC use notes</p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">placer order groups</p></li></ol><p class="v2 v2-normalindented v2-indent1020">The Standard supports a mechanism to collect several orders together in a group.  Most often this is used to represent an &quot;ordering session&quot; for a single patient. A common use case is the grouping of laboratory batteries and tests ordered together by a physician for a patient with a common diagnostic goal (e.g. preoperative blood testing, diabetes follow-up, …).</p><p class="v2 v2-normalindented">An order group is a list of orders (ORCs) associated with an <a href="/segment-definition/ORC.html#ORC-4">ORC-4-placer group number</a>.  A group is established when the placer supplies a placer group number with the original order or when the filler accessions the order group and supplies a filler group number with the received order. The order group may be identified by the placer or by the filler or by both applications.  The order group consists of all the ORCs and order detail segments that have the same placer group number, or using the assign number/number assigned  mechanism.  Orders can be removed from the group using cancel, or added using the replacement or parent-child mechanisms.  New orders cannot otherwise be added to the group.</p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">duplicate fields</p></li></ol><p class="v2 v2-normalindented v2-indent1020">The ORC is intended to uniformly define the fields that are common to all orders (i.e., requested services).  Some ORC fields are duplicated in some order detail segments (e.g., OBR, RXO).  For example, <a href="/segment-definition/ORC.html#ORC-2">ORC-2-placer order number</a> has the same meaning and purpose as <a href="/segment-definition/OBR.html#OBR-2">OBR-2-placer order number</a> field.  This promotes upward compatibility with past versions and ASTM.  </p><p class="v2 v2-normalindented v2-indent1020">The rule for using these fields is that the value must appear in the order detail segment if it does not appear in the ORC.  However, it is recommended to transmit the field value in both places to avoid confusion.</p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">parent/child – cancel, hold, discontinue</p></li></ol><p class="v2 v2-normalindented v2-indent1020">During transmission of a request to cancel, hold, or discontinue a parent order, the request is intended to apply recursively to the parent order and all associated child orders.  </p><p class="v2 v2-normalindented">For example:</p><ol class="v2 v2-list v2-decimal-list v2-normallistnumbered" style="list-style: decimal"><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1728">An EKG application receives an order for three EKGs on successive mornings.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1728">The EKG application creates three child orders, one for each requested EKG..</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1728">The first daily EKG has already been performed when a request is received to cancel the original parent order.  (The parent is beyond the point of cancellation.)   </p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent1728">The remaining, unperformed, children are canceled as a result of the request.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent720">Date/Time Use Notes:</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered v2-indent720">Various dates are available in ORC that seem overlapping, but serve distinct purposes.  The following provides use notes on these relationships, while the individual field definitions provide further details.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-7 Quantity/Timing - This field was retained for backward compatibility only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7. The reader is referred to the TQ1 – Timing/Quantity and TQ2 – Timing/Quantity Relationship segments described in sections 4.5.4 and 4.5.5, respectively.  The purpose of this field (and now these segments) is to capture Priority, Frequency, and Timing of the service being ordered.  For example, an order for a unit of blood to be administered to a patient every morning for 3 days..</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-9 Date/Time of Order Event – This field is the date/time when the action indicated in ORC-1 was initiated.  Every time a new action, as indicated by ORC-1, occurs the date/time of that action should appear in ORC-9. This field is not equivalent to MSH-7 Date and Time of Message, which reflects the date/time of message generation.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-15 Order Effective Date/Time – The field focuses on when the information communicated is to take effect.  It is most appropriate when used on an order that is by nature a “continuing” (or continuous) order. This field has a close relationship to ORC-9 and the TQ1, TQ2 segments in so much as the value in ORC-15 takes precedence over both.  For example, an order is placed on June 1, for an activity that is to be performed over ten days as indicated in the TQ1 segment.  The Filler then receives a cancel message on June 2 with the ORC-9 value of June 2, but the ORC-15 Order Effective Date/Time indicated the cancel is to be effective on June 7th.  ORC-15 by taking precedence over TQ1 and ORC-9, would tell the Filler to continue to perform the order event until June 7, and cancel all remaining events (treatment, procedures etc.) after that time.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-27 Filler’s Expected Availability Date/Time – This field focuses on when the filler expects to complete the order, e.g., have the results available, the prescription ready, etc.  This is a Filler assigned field and would typically only be sent from Filler to Placer on either application level acknowledgments or order status messages.  (Could be delivered with result messag but would have little relevance at that time.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-32 Advanced Beneficiary Notice Date – This field contains the date the patient gave consent to pay for potentially uninsured services or the date that the Advanced Beneficiary Notice Code (ORC-20) was collected.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-36 Order Status Range – This field is a Filler assigned date/time indicating a date range that the ORC-5 Order Status is intended to be effective.  For example, if the Filler recommends an alternate test, and sets the ORC-5 status to “Hold”, this date/time reflects how long the Filler will keep the order in that status (barring additional communications from the Placer or Filler in regard to this order.)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistnumbered">ORC-37 Order Creation Date/Time – focuses on the date that the order was originally created; whether as an electronic order or as an initial paper requisition.  This date/time is designed to preserve the creation date/time from initial order to final result, and for all stages in-between.  (Acknowledgments, Updates, Cancels, etc.)</p></li></ol>
+<h4 class='v2' id='ORC-1'>
+ORC-1: Order Control (<a href='/data-type/ID.html'>ID</a>) 00215
+</h4>
+<p class="v2 v2-normalindented">Definition:  Determines the function of the order segment.  Refer to HL7 Table 0119 – Order Control Codes in Chapter 2C, Code Tables, for valid entries.  Depending on the message, the action of the control code may refer to an order or an individual service.  For example, the code CA in an OMP message cancels the order.  The same code in an RDS message, cancels the dispense.  Very detailed explanatory notes are given at the end of this section.</p><p class="v2 v2-normalindented">This field may be considered the &quot;trigger event&quot; identifier for orders.  The codes fall roughly into the following three categories:</p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">event request –  Codes like &quot;NW&quot; (new order) and &quot;CA&quot; (cancel order request) are used to initiate an event .</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">event acknowledgment – Codes like &quot;OK&quot; (order accepted) and &quot;CR&quot; (canceled as requested) are used to reply to the event request .</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">event notification – Codes like &quot;OC&quot; (order canceled) and &quot;OD&quot; (order discontinued) are used to notify other applications that an event has occurred.  No application reply is necessary. </p></li></ol><p class="v2 v2-normalindented">Event request codes are intended to initiate an event.  Event acknowledgment codes are intended to reply to an application that requested an event.  Event notification codes are intended to notify another application that, e.g., the filler has performed some action on an order that the other application, e.g., the placer, needs to know.</p><p class="v2 v2-normalindented">Fillers, placers, and other applications can use event requests, event acknowledgments, and event – notification-type trigger events interchangeably.  However, certain order control codes can originate only from the filler (e.g., CR) and others can only originate from the placer (e.g., CA).</p><p class="v2 v2-normalindented">Refer <a href="https://www.hl7.org/fhir/v2/0119/index.html">HL7 Table 0119 – Order Control Codes</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='ORC-2'>
+ORC-2: Placer Order Number (<a href='/data-type/EI.html'>EI</a>) 00216
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the placer application&#39;s order number.</p><p class="v2 v2-normalindented">This field is a case of the Entity Identifier data type (See Section 2.A.28, &quot;EI – Entity Identifier&quot;).  The first component is a string that identifies an individual order (i.e., ORC segment and associated order detail segment).  It is assigned by the placer (ordering application).  It identifies an order uniquely among all orders from a particular ordering application.  The second through fourth components contain the application ID of the placing application in the same form as the HD data type (Section 2.A.36, &quot;HD – Hierarchic designator&quot;).  The second component, namespace ID, is a user-defined coded value that will be uniquely associated with an application.  A limit of six (6) characters is suggested but not required.  A given institution or group of intercommunicating institutions should establish a unique list of applications that may be potential placers and fillers and assign unique application IDs.  The components are separated by component delimiters.</p><p class="v2 v2-normalindented">There are three situations in which the true placer is somewhat arbitrary (and thus not unique): </p><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">in <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> value of RO, following an RU replacement;</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">in <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> value of CH (child orders); and</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">in <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> value of SN (send number).</p></li></ol><p class="v2 v2-normalindented">See the Table Notes under <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> for the details of how the <a href="/segment-definition/ORC.html#ORC-2">ORC-2-placer order number</a> is assigned in these cases.</p><p class="v2 v2-normalindented">The application ID list becomes one of the institution&#39;s master dictionary lists that is documented in Chapter 8.  Since third-party applications (those other than the placer and filler of an order) can send and receive ORM and ORR messages, the placer application ID in this field may not be the same as any sending and receiving application on the network (as identified in the MSH segment).</p><p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in <a href="/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p><p class="v2 v2-normalindented">From that perspective each message must have either a placer or a filler id with an exception for the case of a &quot;Send Number&quot; control code since its purpose is to request a placer id.</p><p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). Note that if both <a href="/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/segment-definition/OBR.html#OBR-2">OBR-2</a> are valued then they must be valued the same; as well, if both <a href="/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/segment-definition/OBR.html#OBR-3">OBR-3</a> are valued, then they must be valued the same. The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. </p><p class="v2 v2-normalindented">It is recommended that the initiating system should provide a unique number for the placer order number when a new order is placed or a unique number for the filler order number when an unsolicited result is initially communicated.</p><p class="v2 v2-normalindented">These rules apply to the few other fields that are present in both ORC and OBR for upward compatibility (e.g., quantity/timing, parent numbers, ordering provider, and ordering call back numbers). </p>
+
+<h4 class='v2' id='ORC-3'>
+ORC-3: Filler Order Number (<a href='/data-type/EI.html'>EI</a>) 00217
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the order number associated with the filling application.  It is a case of the Entity Identifier data type (Section 2.A.28).  Its first component is a string that identifies an order detail segment (i.e., ORC segment and associated order detail segment).  It is assigned by the order filler (receiving) application.  This string must uniquely identify the order (as specified in the order detail segment) from other orders in a particular filling application (e.g., clinical laboratory).  This uniqueness must persist over time.</p><p class="v2 v2-normalindented">The second through fourth components contain the filler application ID, in the form of the HD data type (see Section 2.A.36, &quot;HD – hierarchic designator&quot;). The second component is a user-defined coded value that uniquely defines the application from other applications on the network.  A limit of six (6) characters is suggested but not required.  The second component of the filler order number always identifies the actual filler of an order.</p><p class="v2 v2-normalindented">A given institution or group of intercommunicating institutions should establish a list of applications that may be potential placers and fillers of orders and assign each a unique application ID.  The application ID list becomes one of the institution&#39;s master dictionary lists that is documented in Chapter 8.  Since third- party applications (those other than the placer and filler of an order) can send and receive ORM and ORR messages, the filler application ID in this field may not be the same as any sending and receiving application on the network (as identified in the MSH segment).</p><p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in <a href="/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p><p class="v2 v2-normalindented">From that perspective each message must have either a placer or a filler id with an exception for the case of a &quot;Send Number&quot; control code since its purpose is to request a placer id.</p><p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). Note that if both <a href="/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/segment-definition/OBR.html#OBR-2">OBR-2</a> are valued, then they must be valued the same; as well, if both <a href="/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/segment-definition/OBR.html#OBR-3">OBR-3</a> are valued, then they must be valued the same.  The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. It is recommended that the initiating system should provide a unique number for the placer order number when a new order is placed or a unique number for the filler order number when an unsolicited result is initially communicated.</p><p class="v2 v2-normalindented">The <a href="/segment-definition/OBR.html#OBR-3">filler order number (OBR-3 or ORC-3)</a> also uniquely identifies an order and its associated observations.  For example, suppose that an institution collects observations from several ancillary applications into a common database and this common database is queried by yet another application for observations.  In this case, the filler order number and placer order number transmitted by the common database application would be that of the original filler and placer, respectively, rather than a new one assigned by the common database application.  </p><p class="v2 v2-normalindented">Similarly, if a third-party application, not the filler or placer, of an order were authorized to modify the status of an order (say, cancel it), the third-party application would send the filler an ORM message containing an ORC segment with <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> equal to &quot;CA&quot; and containing the original placer order number and filler order number, rather than assign either itself.</p>
+
+<h4 class='v2' id='ORC-4'>
+ORC-4: Placer Order Group Number (<a href='/data-type/EI.html'>EI</a>) 00218
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for an Order Group as referenced by the Placer application. An Order Group is a set of orders grouped together by the placer application.</p><p class="v2 v2-normalindented">The first component is a string that uniquely identifies all order groups from the placer application.  A limit of fifteen (15) characters is suggested but not required.</p><p class="v2 v2-normalindented">The second through fourth components constitute a placer or filler application ID identical to the analogous components of <a href="/segment-definition/ORC.html#ORC-3">ORC-3-filler order number </a>.  Order groups and how to use them are described in detail in Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1">4.5.1</a>, &quot;<a href="/segment-definition/ORC.html">ORC – Common Order Segment</a>.&quot;</p>
+
+<h4 class='v2' id='ORC-5'>
+ORC-5: Order Status (<a href='/data-type/ID.html'>ID</a>) 00219
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the status of an order.  Refer to <a href="https://www.hl7.org/fhir/v2/0038/index.html">HL7 Table 0038 – Order status</a> in Chapter 2C, Code Tables, for valid entries.  The purpose of this field is to report the status of an order either upon request (solicited), or when the status changes (unsolicited).  It does not initiate action.  It is assumed that the order status always reflects the status as it is known to the sending application at the time that the message is sent.  Only the filler can originate the value of this field.</p><p class="v2 v2-normalindented">Although <a href="https://www.hl7.org/fhir/v2/0038/index.html">HL7 Table 0038 – Order status</a> contains many of the same values contained in <a href="https://www.hl7.org/fhir/v2/0119/index.html">HL7 Table 0119 – Order control codes and their meaning</a>, its purpose is different.  Order status may typically be used in a message with an <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control </a>value of SR or SC to report the status of the order on request or to any interested party at any time.</p>
+
+<h4 class='v2' id='ORC-6'>
+ORC-6: Response Flag (<a href='/data-type/ID.html'>ID</a>) 00220
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field allows the placer (sending) application to determine the amount of information to be returned from the filler.  Sometimes the requested level of response may not be possible immediately, but when it is possible, the filler (receiving) application must send the information.  When the field is null, D is the default value of the field.  Refer to <a href="https://www.hl7.org/fhir/v2/0121/index.html">HL7 Table 0121 – Response flag</a> in Chapter 2C, Code Tables, for valid entries.</p>
+
+<h4 class='v2' id='ORC-7'>
+ORC-7: Quantity/Timing (<a href='/data-type/.html'></a>) 00221
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The ORC-7 field was retained for backward compatibility only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7.</strong> The reader is referred to the TQ1 and TQ2 segments described in sections <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-4">4.5.4</a> and <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-5">4.5.5</a>, respectively.</p>
+
+<h4 class='v2' id='ORC-8'>
+ORC-8: Parent Order (<a href='/data-type/EIP.html'>EIP</a>) 00222
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child order to its parent order when a parent child order relationship exists.  The parent child order mechanism is described in HL7 Table 0119 under order control code PA.  This field uniquely identifies the parent order; no other information is required to link the child order with its parent order.  It can be used to link the order to the results that triggered this order (e.g.,  a reflex order) or other order it relates to as an occurrence.  This field repeats to allow linking to more than one parent, if necessary.</p><p class="v2 v2-normalindented">The first component has the same format as <a href="/segment-definition/ORC.html#ORC-2">ORC-2-Placer Order Number</a> (Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-2">4.5.3.2,</a> &quot;<a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-2">Placer Order Number   (EI)   00216</a>&quot;).  The second component has the same format as <a href="/segment-definition/ORC.html#ORC-3">ORC-3-Filler Order Number</a> (Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-3">4.5.3.3</a>, &quot;<a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-3">Filler Order Number   (EI)   00217</a>&quot;).  The components of the placer order number and the filler order number are transmitted in sub-components of the two components of this field.  </p><p class="v2 v2-normalindented"><a href="/segment-definition/ORC.html#ORC-8">Note that ORC-8 – Parent Order is equivalent to OBR-54 – Parent Order, but neither one</a> is  the same as <a href="/segment-definition/OBR.html#OBR-29">OBR-29 – </a>Result Observation Identifier.  </p><p class="v2 v2-normalindented">Condition: Where the message has matching ORC/OBR pairs, ORC-8 and OBR-54 Must carry the same value.</p>
+
+<h4 class='v2' id='ORC-9'>
+ORC-9: Date/Time of Order Event (<a href='/data-type/DTM.html'>DTM</a>) 00223
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date and time of the event that initiated the current transaction as reflected in ORC-1 Order Control Code. This field is not equivalent to MSH-7 Date and Time of Message, which reflects the date/time of message generation.</p><p class="v2 v2-normalindented">Examples:  When ORC-1 is “NW” this date represents the date/time when the order was placed by the ordering provider; when ORC-1 is &quot;CA&quot; this date represents the date/time when request for a cancellation was made by the placer, while for a &quot;CR&quot; this date represents the date/time when the cancellation was accepted by the filler  (e.g., the change request was applied).  When an ORC is included in an ORU message and ORC-1 is &quot;RE&quot;, then the date represents the date/time when the observation(s) on the transaction were made available by the source system. </p>
+
+<h4 class='v2' id='ORC-10'>
+ORC-10: Entered By (<a href='/data-type/XCN.html'>XCN</a>) 00224
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-11'>
+ORC-11: Verified By (<a href='/data-type/.html'></a>) 00225
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-12'>
+ORC-12: Ordering Provider (<a href='/data-type/.html'></a>) 00226
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-13'>
+ORC-13: Enterer's Location (<a href='/data-type/PL.html'>PL</a>) 00227
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the location (e.g., nurse station, ancillary service location, clinic, floor) where the person who entered the request was physically located when the order was entered. Note that this refers to the current transaction as reflected in <a href="/segment-definition/ORC.html#ORC-1">ORC-1 Order Control Code</a>.  Only those subcomponents relevant to enterer&#39;s location should be valued (commonly, nursing unit; facility; building; floor). The person who entered the request is defined in <a href="/segment-definition/ORC.html#ORC-10">ORC-10-entered by</a>.</p>
+
+<h4 class='v2' id='ORC-14'>
+ORC-14: Call Back Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00228
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the telephone number to call for clarification of a request or other information regarding the order.  <a href="/segment-definition/ORC.html#ORC-14">ORC-14-call back phone number</a> is the same as <a href="/segment-definition/OBR.html#OBR-17">OBR-17-order callback phone number</a>.</p>
+
+<h4 class='v2' id='ORC-15'>
+ORC-15: Order Effective Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 00229
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field focuses on when the information communicated is to take effect.  It is most appropriate when used on an order that is by nature a “continuing” (or continuous) order. This field has a close relationship to ORC-9 and the TQ1, TQ2 segments in so much as the value in ORC-15 takes precedence over both.  For example, an order is placed on June 1, for an activity that is to be performed over ten days as indicated in the TQ1 segment.  The Filler then receives a cancel message on June 2 with the ORC-9 value of June 2, but the ORC-15 Order Effective Date/Time indicated the cancel is to be effective on June 7th.  ORC-15 by taking precedence over TQ1 and ORC-9, would tell the Filler to continue to perform the order event until June 7, and cancel all remaining events (treatment, procedures etc..) after that time.  If the order identified in the ORC has children, the children which have not started should be canceled; if there is a child in process, it should be discontinued; if a child has progressed beyond the point where it can be discontinued, its status is unaffected.</p>
+
+<h4 class='v2' id='ORC-16'>
+ORC-16: Order Control Code Reason (<a href='/data-type/CWE.html'>CWE</a>) 00230
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the explanation (either in coded or text form) of the reason for the order event described by the order control code (<a href="https://www.hl7.org/fhir/v2/0119/index.html">HL7 Table 0119  - Order control codes</a>).  Whereas an NTE after the order-specific segment (e.g., RXO, ORO, OBR) would provide a comment for that specific segment, the purpose of the order control code reason is only to expand on the reason for the order event.</p><p class="v2 v2-normalindented"><a href="/segment-definition/ORC.html#ORC-16">ORC-16-order control code reason</a> is typically not valued when <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> is NW, although it could be.  In the case of a canceled order, for example, this field is commonly used to explain the cancellation.  A Pharmacy system that canceled a drug order from a physician because of a well-documented allergy would likely report the fact of the allergy in this field.  </p><p class="v2 v2-normalindented">If it canceled the order because of a drug interaction this field might contain at least the names (and codes, if needed) of the interacting substances, the text describing the interaction, and the level of severity of the interaction.</p><p class="v2 v2-normalindented">Refer <a href="https://www.hl7.org/fhir/v2/0949/index.html">HL7 Table 0949 – Order Control Code Reason</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='ORC-17'>
+ORC-17: Entering Organization (<a href='/data-type/.html'></a>) 00231
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7. Refer to Table 0666 - Entering Organization in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='ORC-18'>
+ORC-18: Entering Device (<a href='/data-type/.html'></a>) 00232
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7. Refer to Table 0668 - Entering Device in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='ORC-19'>
+ORC-19: Action By (<a href='/data-type/.html'></a>) 00233
+</h4>
+<p class="v2 v2-normalindented">Definition: <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-20'>
+ORC-20: Advanced Beneficiary Notice Code (<a href='/data-type/CWE.html'>CWE</a>) 01310
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates the status of the patient&#39;s or the patient&#39;s representative&#39;s consent for responsibility to pay for potentially uninsured services. This element is introduced to satisfy CMS Medical Necessity requirements for outpatient services. This element indicates (a) whether the associated diagnosis codes for the service are subject to medical necessity procedures, (b) whether, for this type of service, the patient has been informed that they may be responsible for payment for the service, and (c) whether the patient agrees to be billed for this service. The values for this field are drawn from <a href="https://www.hl7.org/fhir/v2/0339/index.html">User-Defined Table 0339 – Advanced Beneficiary Notice Code</a> in Chapter 2C, Code Tables<a href=".">.</a></p>
+
+<h4 class='v2' id='ORC-21'>
+ORC-21: Ordering Facility Name (<a href='/data-type/.html'></a>) 01311
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-22'>
+ORC-22: Ordering Facility Address (<a href='/data-type/.html'></a>) 01312
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-23'>
+ORC-23: Ordering Facility Phone Number (<a href='/data-type/.html'></a>) 01313
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong> This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-24'>
+ORC-24: Ordering Provider Address (<a href='/data-type/.html'></a>) 01314
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='ORC-25'>
+ORC-25: Order Status Modifier (<a href='/data-type/CWE.html'>CWE</a>) 01473
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is a modifier or refiner of the <a href="/segment-definition/ORC.html#ORC-5">ORC-5-Order status </a>field. This field may be used to provide additional levels of specificity or additional information for the defined order status codes.  Unlike the Order Status field, which is controlled by an HL7 defined table, this field is a CE data type allowing applications to support an unlimited library of Order Status Modifier codes.  </p><p class="v2 v2-normalindented">Usage Rule: This field may only be populated if the <a href="/segment-definition/ORC.html#ORC-5">ORC-5-Order Status</a> field is valued.</p><p class="v2 v2-normalindented">Examples: An LIS processing an order with an order status of IP may send an update using the order status modifier to indicate the progress of the order through the laboratory or to indicate that the order has been sent to an external laboratory.  Another example using the non-medical orders would be a case in which a phone has been ordered delivered to a patient&#39;s room but has been disconnected temporarily.  The <a href="/segment-definition/ORC.html#ORC-5">ORC-5-Order status</a> indicates IP and the <a href="/segment-definition/ORC.html#ORC-25">ORC-25-Order status modifier</a> would indicate a disconnected status.  A third example involves pharmacy dispenses.  It is sometimes not enough to know that a prescription is being dispensed.  The <a href="/segment-definition/ORC.html#ORC-25">ORC-25-Order status modifier</a> would indicate if a label had been printed, the prescription filled, or the prescription sold.</p><p class="v2 v2-normalindented">Refer <a href="https://www.hl7.org/fhir/v2/0950/index.html">HL7 Table 0950 – Order Status Modifier</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='ORC-26'>
+ORC-26: Advanced Beneficiary Notice Override Reason (<a href='/data-type/CWE.html'>CWE</a>) 01641
+</h4>
+<p class="v2 v2-normalindented">Definition:   This field contains the reason why the patient did not sign an Advanced Beneficiary Notice. The reason may be coded or it may be a free text entry.  Refer to <a href="https://www.hl7.org/fhir/v2/0552/index.html">HL7 Table 0552 – Advanced beneficiary notice override reason</a> in Chapter 2C, Code Tables.</p><p class="v2 v2-normalindented">Condition:  This field is required if the value of <a href="/segment-definition/ORC.html#ORC-20">ORC-20 Advanced Beneficiary Notice Code</a> indicates that the notice was not signed.  For example, additional qualifying or explanatory information would be justified if ORC-20 was populated with the values &quot;3&quot; or &quot;4&quot; in <a href="https://www.hl7.org/fhir/v2/0339/index.html">User-defined Table 0339 – Advanced Beneficiary Notice Code</a>, or similar values in related external code tables. </p>
+
+<h4 class='v2' id='ORC-27'>
+ORC-27: Filler's Expected Availability Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 01642
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the date/time the Filler expects to complete the order, e.g., have the results available, the prescription ready, etc.  This is a Filler assigned field and would typically only be sent from Filler to Placer on either application level acknowledgments or order status messages.  (Could be delivered with result message, but would have little relevance at that time.)</p>
+
+<h4 class='v2' id='ORC-28'>
+ORC-28: Confidentiality Code (<a href='/data-type/CWE.html'>CWE</a>) 00615
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains information about the level of security and/or sensitivity surrounding the order (e.g., highly sensitive, not sensitive, sensitive, etc.).  Refer to <a href="https://www.hl7.org/fhir/v2/0177/index.html">HL7 Table 0177 – Confidentiality Code </a> in Chapter 2C, Code Tables, for allowed values.  The specific treatment of data with a particular confidentiality level is subject to site-specific negotiation.</p>
+
+<h4 class='v2' id='ORC-29'>
+ORC-29: Order Type (<a href='/data-type/CWE.html'>CWE</a>) 01643
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether the order is to be executed in an inpatient setting or an outpatient setting.  If this field is not valued, the system default is assumed.  Refer to <a href="https://www.hl7.org/fhir/v2/0482/index.html">HL7 Table 0482 – Order Type</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">Examples: Before discharge an order is placed for follow-up physical therapy, or to pick up a prescription at a community pharmacy.  The patient is an inpatient according to PV1, but the order is an outpatient order.</p>
+
+<h4 class='v2' id='ORC-30'>
+ORC-30: Enterer Authorization Mode (<a href='/data-type/CNE.html'>CNE</a>) 01644
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates the form of authorization a recorder had from the responsible practitioner to create or change an order. Refer to <a href="https://www.hl7.org/fhir/v2/0483/index.html">HL7 Table 0483 - Authorization Mode</a> in Chapter 2C, Code Tables, for suggested values.</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">To be harmonized to Participation.mode_cd in version 3.</p></li></ul>
+
+<h4 class='v2' id='ORC-31'>
+ORC-31: Parent Universal Service Identifier (<a href='/data-type/.html'></a>) 02287
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> </p>
+
+<h4 class='v2' id='ORC-32'>
+ORC-32: Advanced Beneficiary Notice Date (<a href='/data-type/DT.html'>DT</a>) 02301
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date the patient gave consent to pay for potentially uninsured services or the date that the Advanced Beneficiary Notice Code (ORC-20) was collected.</p>
+
+<h4 class='v2' id='ORC-33'>
+ORC-33: Alternate Placer Order Number (<a href='/data-type/CX.html'>CX</a>) 03300
+</h4>
+<p class="v2 v2-normalindented">Definition: This field enables a shorter number to be communicated that is unique within other identifiers.</p>
+
+<h4 class='v2' id='ORC-34'>
+ORC-34: Order Workflow Profile (<a href='/data-type/CWE.html'>CWE</a>) 03387
+</h4>
+<p class="v2 v2-normalindented">The Order Workflow Profile references/represents the information necessary to define the workflow variant when that is not fully described through the use of <a href="/segment-definition/ORC.html#ORC-1">ORC-1 Order Control</a> and  <a href="/segment-definition/MSH.html#MSH-21">MSH-21 Message Profile</a>. This enables contributing systems to apply locally agreed to rules. See <a href="https://www.hl7.org/fhir/v2/0934/index.html">User-defined Table 0934 - Order Workflow Profile</a> for a list of suggested values.</p>
+
+<h4 class='v2' id='ORC-35'>
+ORC-35: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p><p class="v2 v2-normalindented">The action code can only be used when either ORC-2 and/or ORC 3 is valued with a unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+
+<h4 class='v2' id='ORC-36'>
+ORC-36: Order Status Date Range (<a href='/data-type/DR.html'>DR</a>) 03509
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is a Filler assigned date/time indicating a date range that the ORC-5 Order Status is intended to be effective.  For example, if the Filler recommends an alternate test, and sets the ORC-5 status to “Hold”, this date/time reflects how long the Filler will keep the order in that status (Barring additional communications from the Placer or Filler in regard to this order.)  When the date is outside the specified order status date range, ORC-5 (Order Status) should be considered an unspecified status, i.e., the status represented in ORC-5 would not necessarily be reflective of the actual status anymore. </p>
+
+<h4 class='v2' id='ORC-37'>
+ORC-37: Order Creation Date/Time (<a href='/data-type/DTM.html'>DTM</a>) 03515
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field represents the official date/time when the order was originally created; whether as an electronic order or as an initial paper requisition.  This may also be known as Prescription Date/Time.  This date/time is designed to preserve the creation date/time from initial order to final result, and for all stages in-between.  (Acknowledgments, Updates, Cancels, Results etc.).  When ORC-1 Order Control Code is “NW” for a new order, this date/time, if valued, is typically expected to be the same as ORC-9 Date/Time of Order Event.  An example where the ORC-37, Order Creation Date/Time, is not the same as ORC-9, Date/Time of Order Event, while ORC-1, Order Control Code, is “NW” is when the order originally was recorded and signed by a physician on paper (ORC-37), but not entered in a system until some time (ORC-9) thereafter.</p><p class="v2 v2-normalindented">As different date/times can be considered the initiation of the order (the first person entering it or a subsequent step), or data is not available (e.g., a paper request without a date/time when it was created), the system where the order was first documented determines which date/time it reflects according to the organization&#39;s policies and would represent that in ORC-37.<br/>When an order is resulted (ORC-1 = “RE”) the value in ORC-37 does not change from the value supplied in the original order.</p>
+
+<h4 class='v2' id='ORC-38'>
+ORC-38: Filler Order Group Number (<a href='/data-type/EI.html'>EI</a>) 02482
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the Order Group as referenced by the Filler application. An Order Group is a set of orders grouped together by the placer application.</p><p class="v2 v2-normalindented">The first component is a string that uniquely identifies all order groups from the filler application.  A limit of fifteen (15) characters is suggested but not required.</p><p class="v2 v2-normalindented">The second through fourth components constitute a filler application ID identical to the analogous components of <a href="/segment-definition/ORC.html#ORC-3">ORC-3-filler order number </a>.  Order groups and how to use them are described in detail in Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1">4.5.1</a>, &quot;<a href="/segment-definition/ORC.html">ORC – Common Order Segment</a>.&quot;</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

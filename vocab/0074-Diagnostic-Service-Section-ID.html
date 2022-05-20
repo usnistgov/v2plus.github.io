@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Diagnostic Service Section ID
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Diagnostic Service Section ID
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70074
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+OBR-24, OM4-49
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes which specify a section of a diagnostic service where an observation may be performed.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Diagnostic Service Section ID - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AU
+</td>
+<td class='vocab-concept-display'>
+Audiology
+</td>
+<td class='vocab-concept-definition'>
+Audiology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BG
+</td>
+<td class='vocab-concept-display'>
+Blood Gases
+</td>
+<td class='vocab-concept-definition'>
+Blood Gases
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BLB
+</td>
+<td class='vocab-concept-display'>
+Blood Bank
+</td>
+<td class='vocab-concept-definition'>
+Blood Bank
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CG
+</td>
+<td class='vocab-concept-display'>
+Cytogenetics
+</td>
+<td class='vocab-concept-definition'>
+Cytogenetics
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CUS
+</td>
+<td class='vocab-concept-display'>
+Cardiac Ultrasound
+</td>
+<td class='vocab-concept-definition'>
+Cardiac Ultrasound
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CTH
+</td>
+<td class='vocab-concept-display'>
+Cardiac Catheterization
+</td>
+<td class='vocab-concept-definition'>
+Cardiac Catheterization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CT
+</td>
+<td class='vocab-concept-display'>
+CAT Scan
+</td>
+<td class='vocab-concept-definition'>
+CAT Scan
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CH
+</td>
+<td class='vocab-concept-display'>
+Chemistry
+</td>
+<td class='vocab-concept-definition'>
+Chemistry
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CP
+</td>
+<td class='vocab-concept-display'>
+Cytopathology
+</td>
+<td class='vocab-concept-definition'>
+Cytopathology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EC
+</td>
+<td class='vocab-concept-display'>
+Electrocardiac (e.g., EKG,  EEC, Holter)
+</td>
+<td class='vocab-concept-definition'>
+Electrocardiac (e.g., EKG,  EEC, Holter)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EN
+</td>
+<td class='vocab-concept-display'>
+Electroneuro (EEG, EMG,EP,PSG)
+</td>
+<td class='vocab-concept-definition'>
+Electroneuro (EEG, EMG,EP,PSG)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GE
+</td>
+<td class='vocab-concept-display'>
+Genetics
+</td>
+<td class='vocab-concept-definition'>
+Genetics
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HM
+</td>
+<td class='vocab-concept-display'>
+Hematology
+</td>
+<td class='vocab-concept-definition'>
+Hematology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IMG
+</td>
+<td class='vocab-concept-display'>
+Diagnostic Imaging
+</td>
+<td class='vocab-concept-definition'>
+Diagnostic Imaging
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ICU
+</td>
+<td class='vocab-concept-display'>
+Bedside ICU Monitoring
+</td>
+<td class='vocab-concept-definition'>
+Bedside ICU Monitoring
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IMM
+</td>
+<td class='vocab-concept-display'>
+Immunology
+</td>
+<td class='vocab-concept-definition'>
+Immunology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LAB
+</td>
+<td class='vocab-concept-display'>
+Laboratory
+</td>
+<td class='vocab-concept-definition'>
+Laboratory
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MB
+</td>
+<td class='vocab-concept-display'>
+Microbiology
+</td>
+<td class='vocab-concept-definition'>
+Microbiology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCB
+</td>
+<td class='vocab-concept-display'>
+Mycobacteriology
+</td>
+<td class='vocab-concept-definition'>
+Mycobacteriology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MYC
+</td>
+<td class='vocab-concept-display'>
+Mycology
+</td>
+<td class='vocab-concept-definition'>
+Mycology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NMS
+</td>
+<td class='vocab-concept-display'>
+Nuclear Medicine Scan
+</td>
+<td class='vocab-concept-definition'>
+Nuclear Medicine Scan
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NMR
+</td>
+<td class='vocab-concept-display'>
+Nuclear Magnetic Resonance
+</td>
+<td class='vocab-concept-definition'>
+Nuclear Magnetic Resonance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NRS
+</td>
+<td class='vocab-concept-display'>
+Nursing Service Measures
+</td>
+<td class='vocab-concept-definition'>
+Nursing Service Measures
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OUS
+</td>
+<td class='vocab-concept-display'>
+OB Ultrasound
+</td>
+<td class='vocab-concept-definition'>
+OB Ultrasound
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OT
+</td>
+<td class='vocab-concept-display'>
+Occupational Therapy
+</td>
+<td class='vocab-concept-definition'>
+Occupational Therapy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OTH
+</td>
+<td class='vocab-concept-display'>
+Other
+</td>
+<td class='vocab-concept-definition'>
+Other
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSL
+</td>
+<td class='vocab-concept-display'>
+Outside Lab
+</td>
+<td class='vocab-concept-definition'>
+Outside Lab
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PAR
+</td>
+<td class='vocab-concept-display'>
+Parasitology
+</td>
+<td class='vocab-concept-definition'>
+Parasitology
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHR
+</td>
+<td class='vocab-concept-display'>
+Pharmacy
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PAT
+</td>
+<td class='vocab-concept-display'>
+Pathology (gross & histopath, not surgical)
+</td>
+<td class='vocab-concept-definition'>
+Pathology (gross & histopath, not surgical)
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PT
+</td>
+<td class='vocab-concept-display'>
+Physical Therapy
+</td>
+<td class='vocab-concept-definition'>
+Physical Therapy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHY
+</td>
+<td class='vocab-concept-display'>
+Physician (Hx. Dx, admission note, etc.)
+</td>
+<td class='vocab-concept-definition'>
+Physician (Hx. Dx, admission note, etc.)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PF
+</td>
+<td class='vocab-concept-display'>
+Pulmonary Function
+</td>
+<td class='vocab-concept-definition'>
+Pulmonary Function
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RAD
+</td>
+<td class='vocab-concept-display'>
+Radiology
+</td>
+<td class='vocab-concept-definition'>
+Radiology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RX
+</td>
+<td class='vocab-concept-display'>
+Radiograph
+</td>
+<td class='vocab-concept-definition'>
+Radiograph
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RUS
+</td>
+<td class='vocab-concept-display'>
+Radiology Ultrasound
+</td>
+<td class='vocab-concept-definition'>
+Radiology Ultrasound
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RC
+</td>
+<td class='vocab-concept-display'>
+Respiratory Care (therapy)
+</td>
+<td class='vocab-concept-definition'>
+Respiratory Care (therapy)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RT
+</td>
+<td class='vocab-concept-display'>
+Radiation Therapy
+</td>
+<td class='vocab-concept-definition'>
+Radiation Therapy
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SR
+</td>
+<td class='vocab-concept-display'>
+Serology
+</td>
+<td class='vocab-concept-definition'>
+Serology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SP
+</td>
+<td class='vocab-concept-display'>
+Surgical Pathology
+</td>
+<td class='vocab-concept-definition'>
+Surgical Pathology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TX
+</td>
+<td class='vocab-concept-display'>
+Toxicology
+</td>
+<td class='vocab-concept-definition'>
+Toxicology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VUS
+</td>
+<td class='vocab-concept-display'>
+Vascular Ultrasound
+</td>
+<td class='vocab-concept-definition'>
+Vascular Ultrasound
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VR
+</td>
+<td class='vocab-concept-display'>
+Virology
+</td>
+<td class='vocab-concept-definition'>
+Virology
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+URN
+</td>
+<td class='vocab-concept-display'>
+Urinalysis
+</td>
+<td class='vocab-concept-definition'>
+Urinalysis
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XRC
+</td>
+<td class='vocab-concept-display'>
+Cineradiograph
+</td>
+<td class='vocab-concept-definition'>
+Cineradiograph
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

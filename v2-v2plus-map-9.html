@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+Mapping between HL7 v2.9 and v2+
+</h2>
+<div class='v2-v2plus-map'>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html'>
+Chapter 9 - Medical Records/Information Management (Document Management)
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-1'>
+    9.1  Chapter 9 contents
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2'>
+    9.2  PURPOSE
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1'>
+        9.2.1  Definition of Document Management Terms and Concepts
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-1'>
+            9.2.1.1  Addendum:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-2'>
+            9.2.1.2  Archived:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-3'>
+            9.2.1.3  Canceled:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-4'>
+            9.2.1.4  Composite document:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5'>
+            9.2.1.5  Document completion table:
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-1'>
+                9.2.1.5.1  Authenticated:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-2'>
+                9.2.1.5.2  Dictated:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-3'>
+                9.2.1.5.3  Documented:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-4'>
+                9.2.1.5.4  In Progress/Assigned:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-5'>
+                9.2.1.5.5  Incomplete:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-6'>
+                9.2.1.5.6  Legally Authenticated:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-5-7'>
+                9.2.1.5.7  Pre-Authenticated:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-6'>
+            9.2.1.6  Edited Document:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-7'>
+            9.2.1.7  New or Original Document:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-8'>
+            9.2.1.8  Obsolete:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-9'>
+            9.2.1.9  Purged:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-10'>
+            9.2.1.10  Replacement Document:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-11'>
+            9.2.1.11  Restricted:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-12'>
+            9.2.1.12  Revised document:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-1-13'>
+            9.2.1.13  Transcription:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2'>
+        9.2.2  Definition of Consent Terms and Concepts
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-1'>
+            9.2.2.1  Background Text:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-2'>
+            9.2.2.2  Consent Bypass Reason:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-3'>
+            9.2.2.3  Consent Decision Date/Time:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-4'>
+            9.2.2.4  Consent Disclosure Level:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-5'>
+            9.2.2.5  Consent Discussion Date/Time:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-6'>
+            9.2.2.6  Consent Effective Date/Time:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-7'>
+            9.2.2.7  Consent End Date/Time:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-8'>
+            9.2.2.8  Consent Form ID:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-9'>
+            9.2.2.9  Consent Mode:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-10'>
+            9.2.2.10  Consent Non-disclosure Reason:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-11'>
+            9.2.2.11  Consent Segment
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-12'>
+            9.2.2.12  Consent Status:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-13'>
+            9.2.2.13  Consent Text:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-14'>
+            9.2.2.14  Consent Type:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-15'>
+            9.2.2.15  Informational Material Supplied Indicator:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-16'>
+            9.2.2.16  Subject Competence Indicator:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-17'>
+            9.2.2.17  Subject-imposed Limitations:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-18'>
+            9.2.2.18  Subject-specific Background Text:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-19'>
+            9.2.2.19  Subject-specific Consent Text:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-20'>
+            9.2.2.20  Translation Type:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-2-2-21'>
+            9.2.2.21  Translator Assistance Indicator:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-3'>
+    9.3  DOCUMENT MANAGEMENT SECTION
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-4'>
+    9.4  Consent information
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-4-1'>
+        9.4.1  Example 1:
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-5'>
+    9.5  ASSUMPTIONS
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6'>
+    9.6  TRIGGER EVENTS AND MESSAGE DEFINITIONS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-1'>
+        9.6.1  MDM/ACK - Original Document Notification (Event T01)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-2'>
+        9.6.2  MDM/ACK - Original Document Notification and Content (Event T02)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-3'>
+        9.6.3  MDM/ACK - Document Status Change Notification (Event T03)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-4'>
+        9.6.4  MDM/ACK - Document Status Change Notification and Content (Event T04)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-5'>
+        9.6.5  MDM/ACK - Document Addendum Notification (Event T05)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-6'>
+        9.6.6  MDM/ACK - Document Addendum Notification and Content (Event T06)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-7'>
+        9.6.7  MDM/ACK - Document Edit Notification (Event T07)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-8'>
+        9.6.8  MDM/ACK - Document Edit Notification and Content (Event T08)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-9'>
+        9.6.9  MDM/ACK - Document Replacement Notification (Event T09)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-10'>
+        9.6.10  MDM/ACK - Document Replacement Notification and Content (Event T10)
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-6-11'>
+        9.6.11  MDM/ACK - Document Cancel Notification (Event T11)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7'>
+    9.7  MESSAGE SEGMENTS
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1'>
+        9.7.1  CON – Consent Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-1'>
+            9.7.1.1  CON-1   Set ID -CON   (SI)   01776
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-2'>
+            9.7.1.2  CON-2   Consent Type   (CWE)   01777
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-3'>
+            9.7.1.3  CON-3   Consent Form ID and Version   (ST)   01778
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-4'>
+            9.7.1.4  CON-4   Consent Form Number   (EI)   01779
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-5'>
+            9.7.1.5  CON-5   Consent Text   (FT)   01780
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-6'>
+            9.7.1.6  CON-6   Subject-specific Consent Text   (FT)   01781
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-7'>
+            9.7.1.7  CON-7   Consent Background Information   (FT)   01782
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-8'>
+            9.7.1.8  CON-8   Subject-specific Consent Background Text   (FT)   01783
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-9'>
+            9.7.1.9  CON-9   Consenter-imposed Limitations   (FT)   01784
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-10'>
+            9.7.1.10  CON-10   Consent Mode   (CNE)   01785
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-11'>
+            9.7.1.11  CON-11   Consent Status   (CNE)   01786
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-12'>
+            9.7.1.12  CON-12   Consent Discussion Date/Time   (DTM)   01787
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-13'>
+            9.7.1.13  CON-13   Consent Decision Date/Time   (DTM)   01788
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-14'>
+            9.7.1.14  CON-14   Consent Effective Date/Time   (DTM)   01789
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-15'>
+            9.7.1.15  CON-15   Consent End Date/Time   (DTM)   01790
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-16'>
+            9.7.1.16  CON-16   Subject Competence Indicator   (ID)   01791
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-17'>
+            9.7.1.17  CON-17   Translator Assistance Indicator   (ID)   01792
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-18'>
+            9.7.1.18  CON-18   Language Translated To   (CWE)   01793
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-19'>
+            9.7.1.19  CON-19   Informational Material Supplied Indicator   (ID)   01794
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-20'>
+            9.7.1.20  CON-20   Consent Bypass Reason   (CWE)   01795
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-21'>
+            9.7.1.21  CON-21   Consent Disclosure Level   (ID)   01796
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-22'>
+            9.7.1.22  CON-22   Consent Non-Disclosure Reason   (CWE)   01797
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-23'>
+            9.7.1.23  CON-23   Non-Subject Consenter Reason   (CWE)   01798
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-24'>
+            9.7.1.24  CON-24   Consenter ID   (XPN)   01909
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-1-25'>
+            9.7.1.25  CON-25   Relationship to Subject   (CWE)   01898
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-2'>
+        9.7.2  OBX - Observation Segment Usage
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3'>
+        9.7.3  TXA - Transcription Document Header Segment
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-1'>
+            9.7.3.1  TXA-1   Set ID - TXA   (SI)   00914
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-2'>
+            9.7.3.2  TXA-2   Document Type   (CWE)   00915
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-3'>
+            9.7.3.3  TXA-3   Document Content Presentation   (ID)   00916
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-4'>
+            9.7.3.4  TXA-4   Activity Date/Time   (DTM)   00917
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-5'>
+            9.7.3.5  TXA-5   Primary Activity Provider Code/Name   (XCN)   00918
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-6'>
+            9.7.3.6  TXA-6   Origination Date/Time   (DTM)   00919
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-7'>
+            9.7.3.7  TXA-7   Transcription Date/Time   (DTM)   00920
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-8'>
+            9.7.3.8  TXA-8   Edit Date/Time   (DTM)   00921
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-9'>
+            9.7.3.9  TXA-9   Originator Code/Name   (XCN)   00922
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-10'>
+            9.7.3.10  TXA-10   Assigned Document Authenticator   (XCN)   00923
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-11'>
+            9.7.3.11  TXA-11   Transcriptionist Code/Name   (XCN)   00924
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-12'>
+            9.7.3.12  TXA-12   Unique Document Number   (EI)   00925
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-13'>
+            9.7.3.13  TXA-13   Parent Document Number   (EI)   00926
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-14'>
+            9.7.3.14  TXA-14   Placer Order Number   (EI)   00216
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-15'>
+            9.7.3.15  TXA-15   Filler Order Number   (EI)   00217
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-16'>
+            9.7.3.16  TXA-16   Unique Document File Name   (ST)   00927
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-17'>
+            9.7.3.17  TXA-17   Document Completion Status   (ID)   00928
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-18'>
+            9.7.3.18  TXA-18   Document Confidentiality Status   (ID)   00929
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-19'>
+            9.7.3.19  TXA-19   Document Availability Status   (ID)   00930
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-20'>
+            9.7.3.20  TXA-20   Document Storage Status   (ID)   00932
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-21'>
+            9.7.3.21  TXA-21   Document Change Reason   (ST)   00933
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-22'>
+            9.7.3.22  TXA-22   Authentication Person, Time Stamp (set)    (PPN)   00934
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-23'>
+            9.7.3.23  TXA-23   Distributed Copies (Code and Name of Recipients(s))    (XCN)   00935
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-24'>
+            9.7.3.24  TXA-24 Folder Assignment  (CWE)   02378
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-25'>
+            9.7.3.25  TXA-25 Document Title  (ST)   03301
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-26'>
+            9.7.3.26  TXA-26   Agreed Due Date/Time   (DTM)  03302
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-27'>
+            9.7.3.27  TXA-27 Creating Facility (HD) 02413
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-7-3-28'>
+            9.7.3.28  TXA-28 Creating Specialty (CWE) 02414
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-8'>
+    9.8  EXAMPLE MESSAGES
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-8-1'>
+        9.8.1  History and Physical Exam:
+</a>
+</h3>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-8-2'>
+        9.8.2  Document Folder
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-9'>
+    9.9  QUERY
+</a>
+</h3>
+<ul class='v2-v2plus-map-entries'>
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-9-1'>
+        9.9.1  QRY/DOC - Document Query (Event T12)
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+<li class='v2-v2plus-map-entry'>
+<h3>
+<a href='/domain/Medical-Records-Information-Management-Document-Management.html#Medical-Records-Information-Management-Document-Management-10'>
+    9.10  OUTSTANDING ISSUES
+</a>
+</h3>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

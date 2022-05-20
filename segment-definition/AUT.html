@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+AUT - Authorization Information Segment
+</h3>
+<p class="v2 v2-normalindented">This segment represents an authorization or a pre-authorization for a referred procedure or requested service by the payor covering the patient&#39;s health care.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - AUT - Authorization Information Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+AUT
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Authorizing Payor, Plan ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0072-Insurance-Plan-ID.html' title='Insurance Plan ID'>
+0072
+<span class='vocab-link-text'>Insurance Plan ID</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-1'>
+01146
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Authorizing Payor, Company ID
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0285-Insurance-Company-ID-Codes.html' title='Insurance Company ID Codes'>
+0285
+<span class='vocab-link-text'>Insurance Company ID Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#AUT-2'>
+01147
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Authorizing Payor, Company Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-3'>
+01148
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+45
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Authorization Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-4'>
+01149
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Authorization Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-5'>
+01150
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Authorization Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-6'>
+01151
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Reimbursement Limit
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-7'>
+01152
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Requested Number of Treatments
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-8'>
+01153
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Authorized Number of Treatments
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-9'>
+01154
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Process Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-10'>
+01145
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Requested Discipline(s)
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0522-ERROR! Bad Data! FIXME.html'>
+0522
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#AUT-11'>
+02375
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Authorized Discipline(s)
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0546-ERROR! Bad Data! FIXME.html'>
+0546
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#AUT-12'>
+02376
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Authorization Referral Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0551-ERROR! Bad Data! FIXME.html'>
+0551
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#AUT-13'>
+03413
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Approval Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0563-ERROR! Bad Data! FIXME.html'>
+0563
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-14'>
+03414
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Planned Treatment Stop Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-15'>
+03415
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[24..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Clinical Service
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0573-ERROR! Bad Data! FIXME.html'>
+0573
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-16'>
+03416
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Reason Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-17'>
+03417
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[60..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Number of Authorized Treatments/Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-18'>
+03418
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[721..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Number of Used Treatments/Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-19'>
+03419
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[721..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Number of Schedule Treatments/Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-20'>
+03420
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[721..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Encounter Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0574-ERROR! Bad Data! FIXME.html'>
+0574
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-21'>
+03421
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Remaining Benefit Amount
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-22'>
+03422
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[20..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Authorized Provider
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-23'>
+03423
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Authorized Health Professional
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-24'>
+03424
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Source Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-25'>
+03425
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[60..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Source Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-26'>
+03426
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[24..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Source Phone
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-27'>
+03427
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Comment
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-28'>
+03428
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[254..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+29
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#AUT-29'>
+03429
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='AUT-1'>
+AUT-1: Authorizing Payor, Plan ID (<a href='/data-type/CWE.html'>CWE</a>) 01146
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the ID of the coverage plan authorizing treatment.  Values should be entries in a locally defined table of plan codes.  <a href="https://www.hl7.org/fhir/v2/0072/index.html">User defined Table 0072- Insurance Plan ID</a><em> </em>is used as the HL7 identifier for the user-defined table of values for this field. </p>
+
+<h4 class='v2' id='AUT-2'>
+AUT-2: Authorizing Payor, Company ID (<a href='/data-type/CWE.html'>CWE</a>) 01147
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the ID of the insurance company or other entity that administers the authorizing coverage plan.  Values may be entries in a locally defined table of payor codes<em>. </em><a href="https://www.hl7.org/fhir/v2/0285/index.html">User-defined Table 0285 - Insurance Company ID Codes</a> is used as the HL7 identifier for the user-defined table of values for this field. </p>
+
+<h4 class='v2' id='AUT-3'>
+AUT-3: Authorizing Payor, Company Name (<a href='/data-type/ST.html'>ST</a>) 01148
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the insurance company or other entity that administers the authorizing coverage plan.</p>
+
+<h4 class='v2' id='AUT-4'>
+AUT-4: Authorization Effective Date (<a href='/data-type/DTM.html'>DTM</a>) 01149
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the effective date of the authorization.</p>
+
+<h4 class='v2' id='AUT-5'>
+AUT-5: Authorization Expiration Date (<a href='/data-type/DTM.html'>DTM</a>) 01150
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the expiration date after which the authorization to treat will no longer be in effect from the perspective of the coverage plan.</p>
+
+<h4 class='v2' id='AUT-6'>
+AUT-6: Authorization Identifier (<a href='/data-type/EI.html'>EI</a>) 01151
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the coverage application&#39;s permanent identifier assigned to track the authorization and all related billing documents.  This field is conditionally required.  It is not required when authorization information is being requested.  However, it is required when this segment is contained in a message which is responding to a request and contains the authorization information.  This is a composite field.</p><p class="v2 v2-normalindented">The first component of this field is a string of up to 15 characters that identifies an individual authorization.  It is assigned by the coverage application, and it identifies an authorization, and the subsequent billing transactions resulting from the given authorization, uniquely among all such authorizations granted from a particular processing application.</p><p class="v2 v2-normalindented">The second component is optional because this field, itself, is already defined as an <em>authorization identifier</em>.</p><p class="v2 v2-normalindented">The third component is optional.  If used it should contain the application identifier for the coverage application. The application identifier is a string of up to six characters that is uniquely associated with an application.  A given healthcare provider facility, or group of intercommunicating healthcare provider facilities, should establish a unique list of applications that may be potential originators and recipients, and then assign unique application identifiers to each of those applications.  This list of application identifiers becomes one of the healthcare provider facility&#39;s master dictionary lists.  Since applications fulfilling different application roles can send and receive referral messages containing authorizations, the coverage application identifier may not identify the application sending or receiving a particular message.  Data elements on the Message Header (MSH) segment are available to identify the actual sending and receiving applications.</p>
+
+<h4 class='v2' id='AUT-7'>
+AUT-7: Reimbursement Limit (<a href='/data-type/CP.html'>CP</a>) 01152
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the dollar limit for reimbursement specified by the coverage plan for the authorized treatment.</p>
+
+<h4 class='v2' id='AUT-8'>
+AUT-8: Requested Number of Treatments (<a href='/data-type/CQ.html'>CQ</a>) 01153
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the <em>requested</em> number of times that the treatment may be administered to the patient without obtaining additional authorization.</p>
+
+<h4 class='v2' id='AUT-9'>
+AUT-9: Authorized Number of Treatments (<a href='/data-type/CQ.html'>CQ</a>) 01154
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the number of times that the authorized treatment may be administered to the patient without obtaining additional authorization.</p>
+
+<h4 class='v2' id='AUT-10'>
+AUT-10: Process Date (<a href='/data-type/DTM.html'>DTM</a>) 01145
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date that the authorization originated with the authorizing party.</p>
+
+<h4 class='v2' id='AUT-11'>
+AUT-11: Requested Discipline(s) (<a href='/data-type/CWE.html'>CWE</a>) 02375
+</h4>
+<p class="v2 v2-normalindented">Definition:  Discipline – The scope of medical service(s) for which reimbursement for services rendered is requested.  Examples include Physiotherapy, Occupational Therapy, Speech, etc.  This field contains the requested discipline(s). Refer to Table 0522 - Requested Discipline(s) in Chapter 2C for valid values.  </p>
+
+<h4 class='v2' id='AUT-12'>
+AUT-12: Authorized Discipline(s) (<a href='/data-type/CWE.html'>CWE</a>) 02376
+</h4>
+<p class="v2 v2-normalindented">Definition: Discipline – The scope of medical service(s) for which reimbursement for services rendered is authorized.  Examples include Physiotherapy, Occupational Therapy, Speech, etc.  This field contains the authorized discipline(s). Refer to Table 0546 - Authorized Discipline(s) in Chapter 2C for valid values.  </p>
+
+<h4 class='v2' id='AUT-13'>
+AUT-13: Authorization Referral Type (<a href='/data-type/CWE.html'>CWE</a>) 03413
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization/referral type distinguishes the content of the segment as pertaining to an authorization vs a referral vs other types. Refer to Table 0551 - Authorization Referral Type in Chapter 2C for valid values.   </p>
+
+<h4 class='v2' id='AUT-14'>
+AUT-14: Approval Status (<a href='/data-type/CWE.html'>CWE</a>) 03414
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization/referral approval status indicates that status of an authorization. Refer to Table 0563 - Approval Status in Chapter 2C for valid values.  </p>
+
+<h4 class='v2' id='AUT-15'>
+AUT-15: Planned Treatment Stop Date (<a href='/data-type/DTM.html'>DTM</a>) 03415
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization planned treatment stop date is the date that the patient&#39;s treatment from this authorization is expected to complete, based on procedural protocols.  This value can be used to indicate that an extension to an authorization is necessary, if the treatment continues longer than expected.</p>
+
+<h4 class='v2' id='AUT-16'>
+AUT-16: Clinical Service (<a href='/data-type/CWE.html'>CWE</a>) 03416
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization clinical service provides a means of categorizing the authorization.  This is especially valuable for differentiating authorizations that do not have specific procedure codes associated with them.  Refer to Table 0573 - Clinical Service in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='AUT-17'>
+AUT-17: Reason Text (<a href='/data-type/ST.html'>ST</a>) 03417
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization reason is a free text field allowing a user to capture, in a non-coded format, the reason for the authorization.  Typically this would describe the patient&#39;s condition or illness for which the authorization is recorded.</p>
+
+<h4 class='v2' id='AUT-18'>
+AUT-18: Number of Authorized Treatments/Units (<a href='/data-type/CQ.html'>CQ</a>) 03418
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorized duration is the amount of time, in days or visits, that the patient has been authorized for treatment by this authorization.  The duration of &quot;days&quot; is reserved for inpatient authorizations.</p>
+
+<h4 class='v2' id='AUT-19'>
+AUT-19: Number of Used Treatments/Units (<a href='/data-type/CQ.html'>CQ</a>) 03419
+</h4>
+<p class="v2 v2-normalindented">Definition: The used duration is the amount of time, in days or visits that the patient has used of the originally authorized duration. The duration of &quot;days&quot; is reserved for inpatient authorizations.</p>
+
+<h4 class='v2' id='AUT-20'>
+AUT-20: Number of Schedule Treatments/Units (<a href='/data-type/CQ.html'>CQ</a>) 03420
+</h4>
+<p class="v2 v2-normalindented">Definition: The scheduled treatments is the amount of time, in days or visits that the patient has planned treatments scheduled The duration of &quot;days&quot; is reserved for inpatient authorizations.</p>
+
+<h4 class='v2' id='AUT-21'>
+AUT-21: Encounter Type (<a href='/data-type/CWE.html'>CWE</a>) 03421
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization encounter type provides a means of specifying the environment for the performance of the authorized services.  For example, it is common for a procedure to be authorized only for an outpatient environment.  If something causes the procedure to be performed in an inpatient environment, a new authorization would be needed.  Refer to Table 0574 - Encounter Type in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='AUT-22'>
+AUT-22: Remaining Benefit Amount (<a href='/data-type/MO.html'>MO</a>) 03422
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization benefit amount is the amount remaining from the insurance company related to this authorization. </p>
+
+<h4 class='v2' id='AUT-23'>
+AUT-23: Authorized Provider (<a href='/data-type/XON.html'>XON</a>) 03423
+</h4>
+<p class="v2 v2-normalindented">Definition: This represents the organization to which the patient was referred, or that is authorized to perform the procedure(s).  The authorized provider represents the organization recognized by the insurance carrier that is authorized to perform the services for the patient specified on the authorization.</p>
+
+<h4 class='v2' id='AUT-24'>
+AUT-24: Authorized Health Professional (<a href='/data-type/XCN.html'>XCN</a>) 03424
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorized HP represents the specific health professional being authorized to perform the services for the patient.  This is a less frequently used field, as most often the authorization is for a group/organization and not a specific HP within that group.</p>
+
+<h4 class='v2' id='AUT-25'>
+AUT-25: Source Text (<a href='/data-type/ST.html'>ST</a>) 03425
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization source text allows a user to capture information (such as the name) of the person contacted regarding the specific authorization.</p>
+
+<h4 class='v2' id='AUT-26'>
+AUT-26: Source Date (<a href='/data-type/DTM.html'>DTM</a>) 03426
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization source date allows a user to capture the date the person was contacted regarding the specific authorization.</p>
+
+<h4 class='v2' id='AUT-27'>
+AUT-27: Source Phone (<a href='/data-type/XTN.html'>XTN</a>) 03427
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization source phone number allows a user to capture the phone number of the person contacted regarding the specific authorization.</p>
+
+<h4 class='v2' id='AUT-28'>
+AUT-28: Comment (<a href='/data-type/ST.html'>ST</a>) 03428
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorization notes allow for a free text capture of any notes the user wishes to capture related to the authorization.  This is a single notes field that allows the user to add additional text over time, or replace the text that already exists.</p>
+
+<h4 class='v2' id='AUT-29'>
+AUT-29: Action Code (<a href='/data-type/ID.html'>ID</a>) 03429
+</h4>
+<p class="v2 v2-normalindented">Definition: This field defines the action to be taken for this authorization.  Refer to HL7 Table 0206 - Segment Action Code in Chapter 2C for valid values.  When this field is valued, the AUT segment is not in &quot;snapshot mode&quot;, rather in &quot;action mode&quot;. </p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

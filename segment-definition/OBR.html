@@ -1,0 +1,3013 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+OBR - Observation Request Segment
+</h3>
+<p class="v2 v2-normalindented">General (taken from ASTM E1238)</p><p class="v2 v2-normalindented">The Observation Request (OBR) segment is used to transmit information specific to an order for a diagnostic study or observation, physical exam, or assessment. </p><p class="v2 v2-normalindented">The Observation Request segment defines the attributes of a particular request for diagnostic services (e.g., laboratory, EKG) or clinical observations (e.g., vital signs or physical exam).  When a placer requests a given set of observations, always include an order segment.  For lab tests, the information in the order segment usually applies to a single specimen.  However, there is not a one-to-one relationship between specimen and tests ordered.  Different test batteries will usually require their own order segments even when they can be performed on a single specimen.  In this case, the specimen information must be duplicated in each of the order segments that employ that specimen.  For other diagnostic studies, e.g., chest X-ray, a separate order segment will usually be generated for each diagnostic study.</p><p class="v2 v2-normalindented">Though multiple observation batteries can be ordered on a single order segment, the observation filler shall generate a separate order segment for each battery that it processes independently, e.g., electrolyte, CBC, vital signs.  When reporting the observations, the filling service shall copy the appropriate order (specimen) information from the original order segment into each of the new order segments so that a separate &quot;order&quot; segment is returned to the placer as a &quot;header&quot; for each separate battery of observations.</p><p class="v2 v2-normalindented">In the event that an ordered battery of observations cannot be performed, e.g., because of hemolysis on a blood sample, an order segment will be returned to the placer with <a href="/segment-definition/OBR.html#OBR-25">OBR-25-result status</a> equal to X (to indicate that the study was not performed).  In this case, no observation segments will be transmitted.</p><p class="v2 v2-normalindented">When observations are successfully completed, the message returned to the placer will include the order segment (OBR) followed by observation (OBX) segments for each distinct observation generated by the order (see Chapter 7).  The number of such observation segments will depend upon the number of individual measurements performed in the process.</p><p class="v2 v2-normalindented">OBX segments can be sent by the placer along with an order to provide the filling service with clinical data needed to interpret the results.  (See Chapter 7 for OBX details.)</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - OBR - Observation Request Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+OBR
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Set ID – OBR
+</td>
+<td class='centered'>
+<a href='/data-type/SI.html'>
+SI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-1'>
+00237
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-2'>
+00216
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Filler Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-3'>
+00217
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Universal Service Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0612-ERROR! Bad Data! FIXME.html'>
+0612
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#OBR-4'>
+00238
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Priority
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-5'>
+00239
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Requested Date/Time
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-6'>
+00240
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Observation Date/Time #
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-7'>
+00241
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Observation End Date/Time #
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-8'>
+00242
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Collection Volume *
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-9'>
+00243
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Collector Identifier *
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-10'>
+00244
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Specimen Action Code *
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0065-Specimen-Action-Code.html' title='Specimen Action Code(Required)'>
+0065(R)
+<span class='vocab-link-text'>Specimen Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-11'>
+00245
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Danger Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0613-ERROR! Bad Data! FIXME.html'>
+0613
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-12'>
+00246
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Relevant Clinical Information
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0916-Relevant-Clincial-Information.html' title='Relevant Clincial Information'>
+0916
+<span class='vocab-link-text'>Relevant Clincial Information</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-13'>
+00247
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+300
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Specimen Received Date/Time *
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-14'>
+00248
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Specimen Source
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-15'>
+00249
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Ordering Provider
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-16'>
+00226
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Order Callback Phone Number
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..2]
+</td>
+<td class='centered'>
+<a href='#OBR-17'>
+00250
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Placer Field 1
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-18'>
+00251
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Placer Field 2
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-19'>
+00252
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Filler Field 1 +
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-20'>
+00253
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Filler Field 2 +
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-21'>
+00254
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Results Rpt/Status Chng – Date/Time +
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-22'>
+00255
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Charge to Practice +
+</td>
+<td class='centered'>
+<a href='/data-type/MOC.html'>
+MOC
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-23'>
+00256
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Diagnostic Serv Sect ID
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0074-Diagnostic-Service-Section-ID.html' title='Diagnostic Service Section ID(Required)'>
+0074(R)
+<span class='vocab-link-text'>Diagnostic Service Section ID(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-24'>
+00257
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Result Status +
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0123-Result-Status.html' title='Result Status(Required)'>
+0123(R)
+<span class='vocab-link-text'>Result Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-25'>
+00258
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Parent Result +
+</td>
+<td class='centered'>
+<a href='/data-type/PRL.html'>
+PRL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-26'>
+00259
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Quantity/Timing
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+<a href='#OBR-27'>
+00221
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Result Copies To
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-28'>
+00260
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Parent Results Observation Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-29'>
+00261
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Transportation Mode
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0124-Transportation-Mode.html' title='Transportation Mode(Required)'>
+0124(R)
+<span class='vocab-link-text'>Transportation Mode(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-30'>
+00262
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[4..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Reason for Study
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0951-Reason-for-Study.html' title='Reason for Study(Suggested)'>
+0951(S)
+<span class='vocab-link-text'>Reason for Study(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-31'>
+00263
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Principal Result Interpreter +
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-32'>
+00264
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+Assistant Result Interpreter +
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-33'>
+00265
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Technician +
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-34'>
+00266
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Transcriptionist +
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-35'>
+00267
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Scheduled Date/Time +
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-36'>
+00268
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Number of Sample Containers *
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-37'>
+01028
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+16
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+Transport Logistics of Collected Sample *
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0614-ERROR! Bad Data! FIXME.html'>
+0614
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-38'>
+01029
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+Collector's Comment *
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0619-ERROR! Bad Data! FIXME.html'>
+0619
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-39'>
+01030
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+Transport Arrangement Responsibility
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0620-ERROR! Bad Data! FIXME.html'>
+0620
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-40'>
+01031
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+Transport Arranged
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0224-Transport-Arranged.html' title='Transport Arranged(Required)'>
+0224(R)
+<span class='vocab-link-text'>Transport Arranged(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-41'>
+01032
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+Escort Required
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0225-Escort-Required.html' title='Escort Required(Required)'>
+0225(R)
+<span class='vocab-link-text'>Escort Required(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-42'>
+01033
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+Planned Patient Transport Comment
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0621-ERROR! Bad Data! FIXME.html'>
+0621
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-43'>
+01034
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+Procedure Code
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-44'>
+00393
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+Procedure Code Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-45'>
+01316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+Placer Supplemental Service Information
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0411-Supplemental-Service-Information-Values.html' title='Supplemental Service Information Values'>
+0411
+<span class='vocab-link-text'>Supplemental Service Information Values</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-46'>
+01474
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+Filler Supplemental Service Information
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0411-Supplemental-Service-Information-Values.html' title='Supplemental Service Information Values'>
+0411
+<span class='vocab-link-text'>Supplemental Service Information Values</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-47'>
+01475
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+Medically Necessary Duplicate Procedure Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0476-Medically-Necessary-Duplicate-Procedure-Reason.html' title='Medically Necessary Duplicate Procedure Reason'>
+0476
+<span class='vocab-link-text'>Medically Necessary Duplicate Procedure Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-48'>
+01646
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+49
+</td>
+<td>
+Result Handling
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0507-Observation-Result-Handling.html' title='Observation Result Handling'>
+0507
+<span class='vocab-link-text'>Observation Result Handling</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-49'>
+01647
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+50
+</td>
+<td>
+Parent Universal Service Identifier
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-50'>
+02286
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+51
+</td>
+<td>
+Observation Group ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-51'>
+02307
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+52
+</td>
+<td>
+Parent Observation Group ID
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-52'>
+02308
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+53
+</td>
+<td>
+Alternate Placer Order Number
+</td>
+<td class='centered'>
+<a href='/data-type/CX.html'>
+CX
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-53'>
+03303
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+54
+</td>
+<td>
+Parent Order
+</td>
+<td class='centered'>
+<a href='/data-type/EIP.html'>
+EIP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0119-Order-Control-Codes.html' title='Order Control Codes(Required)'>
+0119(R)
+<span class='vocab-link-text'>Order Control Codes(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#OBR-54'>
+00222
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+55
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#OBR-55'>
+00816
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='OBR-1'>
+OBR-1: Set ID – OBR (<a href='/data-type/SI.html'>SI</a>) 00237
+</h4>
+<p class="v2 v2-normalindented">Definition:  For the first order transmitted, the sequence number shall be 1; for the second order, it shall be 2; and so on. </p>
+
+<h4 class='v2' id='OBR-2'>
+OBR-2: Placer Order Number (<a href='/data-type/EI.html'>EI</a>) 00216
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is identical to <a href="/segment-definition/ORC.html#ORC-2">ORC-2-Placer Order Number</a>.</p><p class="v2 v2-normalindented">This field is a special case of the Entity Identifier data type (Chapter 2A, section 2.A.28).  The first component is a string that identifies an individual order (i.e., ORC segment and associated order detail segment).  A limit of fifteen (15) characters is suggested but not required.  It is assigned by the placer (ordering application).  An implementation is HL7 compliant when the number of characters for this field is increased to accommodate applications that require a greater number of characters for the Placer order number.  It identifies an order uniquely among all orders from a particular ordering application.  The second through fourth components contain the application ID of the placing application in the same form as the HD data type (section 2.A.36, &quot;HD – Hierarchic designator&quot;).  The second component, namespace ID, is a user-defined coded value that will be uniquely associated with an application.  A limit of six (6) characters is suggested but not required.  A given institution or group of intercommunicating institutions should establish a unique list of applications that may be potential placers and fillers and assign unique application IDs.  The components are separated by component delimiters.</p><p class="v2 v2-normalindented">See <a href="/segment-definition/ORC.html#ORC-2">ORC-2-placer order number</a> (section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-1-2">4.5.1.2</a>) for information on when this field must be valued.</p><p class="v2 v2-normalindented">A given institution or group of intercommunicating institutions should establish a list of applications that may be potential placers and fillers of orders and assign each a unique application ID.  The application ID list becomes one of the institution&#39;s master dictionary lists that is documented in Chapter 8.  Since third-party applications (those other than the placer and filler of an order) can send and receive ORM and ORR messages, the placer application ID in this field may not be the same as any sending and receiving application on the network (as identified in the MSH segment).</p><p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in<a href="/segment-definition/ORC.html#ORC-2"> ORC-2</a> and <a href="/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p><p class="v2 v2-normalindented">From that perspective, each message must have either a placer or a filler id with an exception for the case of a &quot;Send Number&quot; control code since its purpose is to request a placer id.</p><p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). If both segments contain either ORC-2/OBR-2 or ORC-3/OBR-3, then each pair must be a matching pair.  The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. </p><p class="v2 v2-normalindented">It is recommended that the initiating system should provide a unique number when a new order or unsolicited result is initially communicated.</p><p class="v2 v2-normalindented">These rules apply to the few other fields that are present in both ORC and OBR for upward compatibility (e.g., quantity/timing, parent numbers, ordering provider, and ordering call back numbers). </p>
+
+<h4 class='v2' id='OBR-3'>
+OBR-3: Filler Order Number (<a href='/data-type/EI.html'>EI</a>) 00217
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is the order number associated with the filling application. This is a permanent identifier for an order and its associated observations.  It is a special case of the Entity Identifier data type (see Chapter 2, section 2.A.28, &quot;EI – entity identifier&quot;).</p><p class="v2 v2-normalindented">The first component is a string that identifies an individual order segment (i.e., ORC segment and associated order detail segment).  It is assigned by the order filling (receiving) application.  It identifies an order uniquely among all orders from a particular filling application (e.g., clinical laboratory).   This uniqueness must persist over time.</p><p class="v2 v2-normalindented">The second through fourth components contain the filler application ID, in the form of the HD data type (see section 2.A.36, &quot;HD – hierarchic designator&quot;).  The second component is a user-defined coded value that uniquely defines the application from other applications on the network.  A limit of six (6) characters is suggested but not required.  The second component of the filler order number always identifies the actual filler of an order.</p><p class="v2 v2-normalindented">See <a href="/segment-definition/ORC.html#ORC-3">ORC-3-filler order number</a> for information on when this field must be valued.</p><p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in <a href="/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p><p class="v2 v2-normalindented">From that perspective, each message must have either a placer or a filler id with an exception for the case of a &quot;Send Number&quot; control code since its purpose is to request a placer id.</p><p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). If both segments contain either ORC-2/OBR-2 or ORC-3/OBR-3, then each pair must be a matching pair.  The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. </p><p class="v2 v2-normalindented">It is recommended that the initiating system should provide a unique number when a new order or unsolicited result is initially communicated.</p><p class="v2 v2-normalindented">The filler order number (OBR-3 or ORC-3) also uniquely identifies an order and its associated observations.  For example, suppose that an institution collects observations from several ancillary applications into a common database and this common database is queried by yet another application for observations.  In this case, the filler order number and placer order number transmitted by the common database application would be that of the original filler and placer, respectively, rather than a new one assigned by the common database application.  </p><p class="v2 v2-normalindented">Similarly, if a third-party application, not the filler or placer, of an order were authorized to modify the status of an order (say, cancel it), the third-party application would send the filler an ORM message containing an ORC segment with <a href="/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> equal to &quot;CA&quot; and containing the original placer order number and filler order number, rather than assign either itself.</p>
+
+<h4 class='v2' id='OBR-4'>
+OBR-4: Universal Service Identifier (<a href='/data-type/CWE.html'>CWE</a>) 00238
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier code for the requested observation/test/battery.  The identifier can come from either a local coding system or industry standards.  Examples may be LOINC (emerging as the global standard for observation identifiers), JLAC10, or SNOMED CT. Refer to Table 0612 - Universal Service Identifier in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OBR-5'>
+OBR-5: Priority (<a href='/data-type/.html'></a>) 00239
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The OBR-5 element was retained for backward compatibility only as of v 2.4 and the detail was withdrawn and removed from the standard as of v 2.7.</strong></p>
+
+<h4 class='v2' id='OBR-6'>
+OBR-6: Requested Date/Time (<a href='/data-type/.html'></a>) 00240
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The OBR-6 element was retained for backward compatibility only as of v 2.4 and the detail was withdrawn and removed from the standard as of v 2.7.</strong></p>
+
+<h4 class='v2' id='OBR-7'>
+OBR-7: Observation Date/Time # (<a href='/data-type/DTM.html'>DTM</a>) 00241
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the clinically relevant date/time of the observation.  In the case of observations taken directly from a subject, it is the actual date and time the observation was obtained.  In the case of a specimen-associated study, this field shall represent the date and time the specimen was collected or obtained.  (This is a results-only field except when the placer or a third party has already drawn the specimen.)  This field is conditionally required.  When the OBR is transmitted as part of a report message, the field <strong>must</strong> be filled in.  If it is transmitted as part of a request <strong>and</strong> a sample has been sent along as part of the request, this field must be filled in because this specimen time is the physiologically relevant date/time of the observation.</p>
+
+<h4 class='v2' id='OBR-8'>
+OBR-8: Observation End Date/Time # (<a href='/data-type/DTM.html'>DTM</a>) 00242
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the end date and time of a study or timed specimen collection.  If an observation takes place over a substantial period of time, it will indicate when the observation period ended.  For observations made at a point in time, it will be null.  This is a results field except when the placer or a party other than the filler has already drawn the specimen.</p>
+
+<h4 class='v2' id='OBR-9'>
+OBR-9: Collection Volume * (<a href='/data-type/CQ.html'>CQ</a>) 00243
+</h4>
+<p class="v2 v2-normalindented">Definition:  Deprecated in version 2.9 in favor of SPM-12.</p>
+
+<h4 class='v2' id='OBR-10'>
+OBR-10: Collector Identifier * (<a href='/data-type/XCN.html'>XCN</a>) 00244
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field is retained for backward compatibility only as of v 2.7.</strong> The reader is referred to the PRT segment described in Chapter 7.</p><p class="v2 v2-normalindented">When a specimen is required for the study, this field will identify the person, department, or facility that collected the specimen.  Either name or ID code, or both, may be present.  If the person referenced in this field is also referenced in PRT segment, they must contain the same information.  However, if there is a difference, then PRT segment takes precedence.</p>
+
+<h4 class='v2' id='OBR-11'>
+OBR-11: Specimen Action Code * (<a href='/data-type/ID.html'>ID</a>) 00245
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the action to be taken with respect to the specimens that accompany or precede this order.  The purpose of this field is to further qualify (when appropriate) the general action indicated by the order control code contained in the accompanying ORC segment.  For example, when a new order (ORC – &quot;NW&quot;) is sent to the lab, this field would be used to tell the lab whether or not to collect the specimen (&quot;L&quot; or &quot;O&quot;).  Refer to <a href="https://www.hl7.org/fhir/v2/0065/index.html">HL7 Table 0065 – Specimen Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OBR-12'>
+OBR-12: Danger Code (<a href='/data-type/CWE.html'>CWE</a>) 00246
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code and/or text indicating any known or suspected patient or specimen hazards, e.g., patient with active tuberculosis or blood from a hepatitis patient.  Either code and/or text may be absent.  However, the code is always placed in the first component position and any free text in the second component.  Thus, free text without a code must be preceded by a component delimiter. Refer to Table 0613 - Danger Code in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OBR-13'>
+OBR-13: Relevant Clinical Information (<a href='/data-type/CWE.html'>CWE</a>) 00247
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains additional clinical information about the patient or specimen. This field is used to report the supporting and/or suspected diagnosis and clinical findings on requests for interpreted diagnostic studies where a simple text string or code is sufficient. This field could use all appropriate code sets including SNOMED to message Relevant Clinical Information. If more information is needed, such as date/time of the observation, who observed it, abnormal ranges, etc., or must be provided in further structured format, e.g., structured numeric with units of measure encoded, the Observation/Result group following the OBR should be used. Examples include reporting the amount of inspired carbon dioxide for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations. Refer to <a href="https://www.hl7.org/fhir/v2/0916/index.html">HL7 Table 0916 – Relevant Clinical Information</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OBR-14'>
+OBR-14: Specimen Received Date/Time * (<a href='/data-type/DTM.html'>DTM</a>) 00248
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The OBR-14 element was retained for backward compatibility only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7. See SPM in Chapter 7.</strong></p>
+
+<h4 class='v2' id='OBR-15'>
+OBR-15: Specimen Source (<a href='/data-type/.html'></a>) 00249
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The OBR-15 element was retained for backward compatibility only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7. See SPM in Chapter 7.</strong></p>
+
+<h4 class='v2' id='OBR-16'>
+OBR-16: Ordering Provider (<a href='/data-type/.html'></a>) 00226
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> The reader is referred ot the PRT segment as described in Chapter 7.</p>
+
+<h4 class='v2' id='OBR-17'>
+OBR-17: Order Callback Phone Number (<a href='/data-type/XTN.html'>XTN</a>) 00250
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the telephone number for reporting a status or a result using the standard format with extension and/or beeper number when applicable.</p>
+
+<h4 class='v2' id='OBR-18'>
+OBR-18: Placer Field 1 (<a href='/data-type/ST.html'>ST</a>) 00251
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is user field #1.  Text sent by the placer will be returned with the results. </p>
+
+<h4 class='v2' id='OBR-19'>
+OBR-19: Placer Field 2 (<a href='/data-type/ST.html'>ST</a>) 00252
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is similar to placer field #1. </p>
+
+<h4 class='v2' id='OBR-20'>
+OBR-20: Filler Field 1 + (<a href='/data-type/ST.html'>ST</a>) 00253
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is definable for any use by the filler (diagnostic service). </p>
+
+<h4 class='v2' id='OBR-21'>
+OBR-21: Filler Field 2 + (<a href='/data-type/ST.html'>ST</a>) 00254
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is similar to filler field #1. </p>
+
+<h4 class='v2' id='OBR-22'>
+OBR-22: Results Rpt/Status Chng – Date/Time + (<a href='/data-type/DTM.html'>DTM</a>) 00255
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the date/time when the results were reported or status changed.  This conditional field is required whenever the OBR-25 is valued.  This field is used to indicate the date and time that the results are composed into a report and released, or that a status, as defined in <a href="/segment-definition/ORC.html#ORC-5">ORC-5 order status</a>, is entered or changed.  (This is a results field only.)  When other applications (such as office or clinical database applications) query the laboratory application for un-transmitted results, the information in this field may be used to control processing on the communications link.  Usually, the ordering service would want only those results for which the reporting date/time is greater than the date/time the inquiring application last received results. </p>
+
+<h4 class='v2' id='OBR-23'>
+OBR-23: Charge to Practice + (<a href='/data-type/MOC.html'>MOC</a>) 00256
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the charge to the ordering entity for the studies performed when applicable. The first component is a dollar amount when known by the filler.  The second is a charge code when known by the filler (results only). </p>
+
+<h4 class='v2' id='OBR-24'>
+OBR-24: Diagnostic Serv Sect ID (<a href='/data-type/ID.html'>ID</a>) 00257
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the section of the diagnostic service where the observation was performed.  If the study was performed by an outside service, the identification of that service should be recorded here.  Refer to <a href="https://www.hl7.org/fhir/v2/0074/index.html">HL7 Table 0074 – Diagnostic Service Section ID</a> in Chapter 2C, Code Tables, for valid entries. </p>
+
+<h4 class='v2' id='OBR-25'>
+OBR-25: Result Status + (<a href='/data-type/ID.html'>ID</a>) 00258
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of results for this order.  This conditional field is required whenever the OBR is contained in a report message.  It is not required as part of an initial order.</p><p class="v2 v2-normalindented">There are two methods of sending status information. If the status is that of the entire order, use <a href="/segment-definition/ORC.html#ORC-15">ORC-15-order effective date/time</a> and <a href="/segment-definition/ORC.html#ORC-5">ORC-5-order status</a>.  If the status pertains to the order detail segment, use <a href="/segment-definition/OBR.html#OBR-25">OBR-25-result status</a> and <a href="/segment-definition/OBR.html#OBR-22">OBR-22-results rpt/status chng – date/time</a>.  If both are present, the OBR values override the ORC values. </p><p class="v2 v2-normalindented">This field would typically be used in a response to an order status query where the level of detail requested does not include the OBX segments.  When the individual status of each result is necessary, <a href="/segment-definition/OBX.html#OBX-11">OBX-11-observ result status</a> may be used.  Refer to <a href="https://www.hl7.org/fhir/v2/0123/index.html">HL7 Table 0123 – Result Status</a> in Chapter 2C, Code Tables, for valid entries. </p>
+
+<h4 class='v2' id='OBR-26'>
+OBR-26: Parent Result + (<a href='/data-type/PRL.html'>PRL</a>) 00259
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is defined to make it available for other types of linkages (e.g., toxicology).  This important information, together with the information in <a href="/segment-definition/OBR.html#OBR-29">OBR-29-Parent Result Obersvation Identifier </a>and<a href="/segment-definition/OBR.html#OBR-54"> OBR-54 Parent Order</a>, uniquely identifies the parent result&#39;s OBX segment related to this order.  The value of this OBX segment in the parent result is the organism or chemical species about which this battery reports, or the specific result for which  this order or observation is a reflex.  For example, if the current battery is an antimicrobial susceptibility, the parent results identified OBX contains a result which identifies the organism on which the susceptibility was run.  This indirect linkage is preferred because the name of the organism in the parent result may undergo several preliminary values prior to finalization.  In the case of a reflex order, if it is necessary to point to the specific result value for which it is in response, OBR-26 enables pointing to that specific OBX segment.</p><p class="v2 v2-normalindented">The third component may be used to record the name of the microorganism identified by the parent result directly.  The organism in this case should be identified exactly as it is in the parent culture.</p><p class="v2 v2-normalindented">We emphasize that this field does not take the entire result field from the parent.  It is meant only for the text name of the organism or chemical subspecies identified.  This field is included only to provide a method for linking back to the parent result for those systems that could not generate unambiguous Observation IDs and sub-IDs.</p><p class="v2 v2-normalindented">This field is present only when the parent result is identified by <a href="/segment-definition/OBR.html#OBR-29">OBR-29-</a> Result Observation Identifieror OBR-54, Parent Order<a href=",">,</a> and the parent spawns child orders or results for each of many results.  (See Chapter 7 for more details about this linkage.)</p><p class="v2 v2-normalindented">A second mode of conveying this information is to use a standard observation result segment (OBX).  If more than one organism is present, <a href="/segment-definition/OBX.html#OBX-4">OBX-4-observation sub-ID</a> is used to distinguish them.  In this case, the first OBX with subID N will contain a value identifying the Nth microorganism, and each additional OBX with subID N will contain susceptibility values for a given antimicrobial test on this organism.</p>
+
+<h4 class='v2' id='OBR-27'>
+OBR-27: Quantity/Timing (<a href='/data-type/.html'></a>) 00221
+</h4>
+<p class="v2 v2-normalindented"><strong>Attention: The OBR-27 element was retained for backward compatibility only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7.</strong></p>
+
+<h4 class='v2' id='OBR-28'>
+OBR-28: Result Copies To (<a href='/data-type/.html'></a>) 00260
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.</strong> Additional capabilities are now available through thePRT segment following the OBR using the &quot;RCT&quot; (Results Copy To) value in PRT-4 (Participation) from <a href="/composition/Introduction.html#Introduction-6">HL7 Table 912 - Participation</a> in Chapter 2C, Code Tables, and referencing the appropriate participant information using other PRT Fields.   The PRT segment is further described in Chapter 7 Section 7.3.4 &quot;PRT – Participation Information Segment&quot;.</p>
+
+<h4 class='v2' id='OBR-29'>
+OBR-29: Parent Results Observation Identifier (<a href='/data-type/EIP.html'>EIP</a>) 00261
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child result to its parent result when a parent child result relationship exists.  This field uniquely identifies the order number of the parent result; no other information is required to link the child result with its parent result.    </p>
+
+<h4 class='v2' id='OBR-30'>
+OBR-30: Transportation Mode (<a href='/data-type/ID.html'>ID</a>) 00262
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies how (or whether) to transport a patient, when applicable.  Refer to <a href="https://www.hl7.org/fhir/v2/0124/index.html">HL7 Table 0124 – Transportation Mode</a> in Chapter 2C, Code Tables, for valid codes.  </p>
+
+<h4 class='v2' id='OBR-31'>
+OBR-31: Reason for Study (<a href='/data-type/CWE.html'>CWE</a>) 00263
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the code or text using the conventions for coded fields given in the Control chapter (Chapter 2).  This is required for some studies to obtain proper reimbursement. </p><p class="v2 v2-normalindented">Refer <a href="https://www.hl7.org/fhir/v2/0951/index.html">HL7 Table 0951 – Reason for Study</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='OBR-32'>
+OBR-32: Principal Result Interpreter + (<a href='/data-type/.html'></a>) 00264
+</h4>
+<p class="v2 v2-normalindented">Definition:<strong> This field is retained for backward compatibility only as of v 2.6 and the detail was withdrawn and removed from the standard as of v 2.9..</strong>  The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='OBR-33'>
+OBR-33: Assistant Result Interpreter + (<a href='/data-type/.html'></a>) 00265
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.6 and the detail was withdrawn and removed from the standard as of v 2.9..</strong> The reader is referred to the PRTsegment used relative to OBR as described in section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-32">4.5.3.32</a>, &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-4-1-32">Principal Result Interpreter</a>.&quot;</p>
+
+<h4 class='v2' id='OBR-34'>
+OBR-34: Technician + (<a href='/data-type/.html'></a>) 00266
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.6 and the detail was withdrawn and removed from the standard as of v 2.9.</strong>  The reader is referred to the PRTsegment used relative to OBR as described in section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-32">4.5.3.32</a>, &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-4-1-32">Principal Result Interpreter</a>.&quot;</p>
+
+<h4 class='v2' id='OBR-35'>
+OBR-35: Transcriptionist + (<a href='/data-type/.html'></a>) 00267
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field was retained for backward compatibility only as of v 2.6 and the detail was withdrawn and removed from the standard as of v 2.9.</strong>  The reader is referred to the PRTsegment used relative to OBR as described in section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-32">4.5.3.32</a>, &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-4-1-32">Principal Result Interpreter</a>.&quot;</p>
+
+<h4 class='v2' id='OBR-36'>
+OBR-36: Scheduled Date/Time + (<a href='/data-type/DTM.html'>DTM</a>) 00268
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the date/time the filler scheduled an observation, when applicable (e.g., action code in <a href="/segment-definition/OBR.html#OBR-11">OBR-11-specimen action code</a> = &quot;S&quot;).  This is a result of a request to schedule a particular test and provides a way to inform the placer of the date/time a study is scheduled (result only). </p>
+
+<h4 class='v2' id='OBR-37'>
+OBR-37: Number of Sample Containers * (<a href='/data-type/NM.html'>NM</a>) 01028
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the number of containers for a given sample.  For sample receipt verification purposes; may be different from the total number of samples which accompany the order.</p>
+
+<h4 class='v2' id='OBR-38'>
+OBR-38: Transport Logistics of Collected Sample * (<a href='/data-type/CWE.html'>CWE</a>) 01029
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the means by which a sample reaches the diagnostic service provider.  This information is to aid the lab in scheduling or interpretation of results.  Possible answers: routine transport van, public postal service, etc.  If coded, requires a user-defined table. Refer to Table 0614 - Transport Logistics of Collected Sample in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OBR-39'>
+OBR-39: Collector's Comment * (<a href='/data-type/CWE.html'>CWE</a>) 01030
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is for reporting additional comments related to the sample.  If coded, requires a user-defined table.  If only free text is reported, it is placed in the second component with a null in the first component, e.g., ^difficulty clotting after venipuncture and ecchymosis. Refer to Table 0619 - Collector&#39;s Comment in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OBR-40'>
+OBR-40: Transport Arrangement Responsibility (<a href='/data-type/CWE.html'>CWE</a>) 01031
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is an indicator of who is responsible for arranging transport to the planned diagnostic service.  Examples: Requester, Provider, Patient.  If coded, requires a user-defined table. Refer to Table 0620 - Transport Arrangement Responsibility in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OBR-41'>
+OBR-41: Transport Arranged (<a href='/data-type/ID.html'>ID</a>) 01032
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is an indicator of whether transport arrangements are known to have been made.  Refer to <a href="https://www.hl7.org/fhir/v2/0224/index.html">HL7 Table 0224 – Transport Arranged</a> in Chapter 2C, Code Tables, for valid codes.</p>
+
+<h4 class='v2' id='OBR-42'>
+OBR-42: Escort Required (<a href='/data-type/ID.html'>ID</a>) 01033
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is an indicator that the patient needs to be escorted to the diagnostic service department.  Note: The nature of the escort requirements should be stated in <a href="/segment-definition/OBR.html#OBR-43">OBR-43-planned patient transport comment</a>.  See <a href="https://www.hl7.org/fhir/v2/0225/index.html">HL7 Table 0225 – Escort Required</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='OBR-43'>
+OBR-43: Planned Patient Transport Comment (<a href='/data-type/CWE.html'>CWE</a>) 01034
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the code or free text comments on special requirements for the transport of the patient to the diagnostic service department.  If coded, requires a user-defined table. Refer to Table 0621 - Planned Patient Transport Comment in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='OBR-44'>
+OBR-44: Procedure Code (<a href='/data-type/CNE.html'>CNE</a>) 00393
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the procedure, if any, associated with the charge.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined table 0088 – Procedure code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a coded data type for compatibility with clinical and ancillary systems.  </p><p class="v2 v2-normalindented">As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.</p>
+
+<h4 class='v2' id='OBR-45'>
+OBR-45: Procedure Code Modifier (<a href='/data-type/CNE.html'>CNE</a>) 01316
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/segment-definition/OBR.html#OBR-44">OBR-44-procedure code</a>, when applicable.  Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  The modifiers are sequenced in priority according to user entry. In the USA, this is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally- defined table 0340 – Procedure code modifier</a> in Chapter 2C, Code Tables, for suggested values.</p><p class="v2 v2-normalindented">Usage Rule: This field can only be used if <a href="/segment-definition/OBR.html#OBR-44">OBR-44 – procedure code</a> contains certain procedure codes that require a modifier in order to be billed or performed.  For example, HCPCS codes that require a modifier to be precise. </p><p class="v2 v2-normalindented">As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.</p>
+
+<h4 class='v2' id='OBR-46'>
+OBR-46: Placer Supplemental Service Information (<a href='/data-type/CWE.html'>CWE</a>) 01474
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains supplemental service information sent from the placer system to the filler system for the universal procedure code reported in <a href="/segment-definition/OBR.html#OBR-4">OBR-4 Universal Service ID</a>.  This field will be used to provide ordering information detail that is not available in other specific fields in the OBR segment.  Multiple supplemental service information elements may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0411/index.html">User-defined Table 0411 - Supplemental service information values</a> in Chapter 2C, Code Tables.</p><p class="v2 v2-normalindented">This field can be used to describe details such as whether study is to be done on the right or left, for example, where the study is of the arm and the order master file does not distinguish right from left, or whether the study is to be done with or without contrast (when the order master file does not make such distinctions). </p>
+
+<h4 class='v2' id='OBR-47'>
+OBR-47: Filler Supplemental Service Information (<a href='/data-type/CWE.html'>CWE</a>) 01475
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains supplemental service information sent from the filler system to the placer system for the procedure code reported in <a href="/segment-definition/OBR.html#OBR-4">OBR-4 Universal Service ID</a>.  This field will be used to report ordering information detail that is not available in other specific fields in the OBR segment.  Typically it will reflect the same information as was sent to the filler system in <a href="/segment-definition/OBR.html#OBR-46">OBR-46-Placer supplemental service information</a> unless the order was modified, in which case the filler system will report what was actually performed using this field.  Multiple supplemental service information elements may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0411/index.html">User-Defined Table 0411 - Supplemental Service Information Values</a> in Chapter 2C, Code Tables.</p><p class="v2 v2-normalindented">This field can be used to describe details such as whether study is to be done on the right or left, for example, where the study is of the arm and the order master file does not distinguish right from left, or whether the study is to be done with or without contrast (when the order master file does not make such distinctions). </p>
+
+<h4 class='v2' id='OBR-48'>
+OBR-48: Medically Necessary Duplicate Procedure Reason (<a href='/data-type/CWE.html'>CWE</a>) 01646
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is used to document why the procedure found in <a href="/segment-definition/OBR.html#OBR-44">OBR-44 - Procedure Code</a> is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary.  The reason may be coded or it may be a free text entry. </p><p class="v2 v2-normalindented">This field is intended to provide financial systems information on who to bill for duplicate procedures.  </p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0476/index.html">User-Defined Table 0476 – Medically Necessary Duplicate Procedure Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='OBR-49'>
+OBR-49: Result Handling (<a href='/data-type/CWE.html'>CWE</a>) 01647
+</h4>
+<p class="v2 v2-normalindented">Definition: Transmits information regarding the handling of the result.  For example, an order may specify that the result (e.g., an x-ray film) should be given to the patient for return to the requestor. Refer to <a href="https://www.hl7.org/fhir/v2/0507/index.html">HL7 Table 0507 - Observation Result Handling</a> in Chapter 2C, Code Tables, for values.  If this field is not populated or if it includes value &quot;CC^Copies Requested&quot;, then routine handling is implied and PRT segments assocatied with this OBR with PRT-4 value of &quot;RCT^Result Copies To&quot; identify additional recipients for the results. When this field includes the value &quot;BCC^Blind Copy&quot;, those PRT segments, which are included in the order message and in the observation result message sent to the requestor, shall not be included in the observation result messages sent to the copied recipients.</p>
+
+<h4 class='v2' id='OBR-50'>
+OBR-50: Parent Universal Service Identifier (<a href='/data-type/.html'></a>) 02286
+</h4>
+<p class="v2 v2-normalindented">Definition: <strong>This field is retained for backward compatibility only as of v 2.7 and withdrawn as of v2.9.</strong>   </p>
+
+<h4 class='v2' id='OBR-51'>
+OBR-51: Observation Group ID (<a href='/data-type/EI.html'>EI</a>) 02307
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Observation Group ID is the identifier assigned by the producer of a result to uniquely identify the results associated with this OBR segment.  The Observation Group ID is intended to remain the same regardless of the change in status to the result (i.e., it is not a snapshot ID).  This field is intended to promote forward compatibility with HL7 V3.</p>
+
+<h4 class='v2' id='OBR-52'>
+OBR-52: Parent Observation Group ID (<a href='/data-type/EI.html'>EI</a>) 02308
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Parent Observation Group ID field relates this child OBR to its parent OBR segment using the Observation Group ID of the parent result.</p>
+
+<h4 class='v2' id='OBR-53'>
+OBR-53: Alternate Placer Order Number (<a href='/data-type/CX.html'>CX</a>) 03303
+</h4>
+<p class="v2 v2-normalindented">Definition: This field enables a shorter number to be communicated that is unique within other identifiers.</p>
+
+<h4 class='v2' id='OBR-54'>
+OBR-54: Parent Order (<a href='/data-type/EIP.html'>EIP</a>) 00222
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field relates a child order to its parent order when a parent child order relationship exists.  The parent child order mechanism is described in <a href="https://www.hl7.org/fhir/v2/0119/index.html">HL7 Table 0119 – Order Control Codes</a> in Chapter 2C, Code Tables, under order control code PA.  This field uniquely identifies the parent orders; no other information is required to link the child order with its parent orders.  It can be used to express that this order is a reflex being a consequence of original results referred here.</p><p class="v2 v2-normalindented">The first component has the same format as <a href="/segment-definition/ORC.html#ORC-2">ORC-2-placer order number</a> (Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-2">4.5.3.2,</a> &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-4-1-2">Placer Order Number   (EI)   00216</a>&quot;).  The second component has the same format as <a href="/segment-definition/ORC.html#ORC-3">ORC-3-filler order number</a> (Section <a href="/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-5-3-3">4.5.3.3</a>, &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-4-1-3">Filler Order Number   (EI)   00217</a>&quot;).  The components of the placer order number and the filler order number are transmitted in sub-components of the two components of this field.  </p><p class="v2 v2-normalindented"><a href="/segment-definition/ORC.html#ORC-8">Note that ORC-8 – Parent Order is equivalent to OBR-54-Parent Order, but neither one </a>is the same as <a href="/segment-definition/OBR.html#OBR-29">OBR-29-Parent Result Obersvation Identifier </a>. </p><p class="v2 v2-normalindented">Condition: Where the message has matching ORC/OBR pairs, ORC-8 and OBR-54 must carry the same value.</p>
+
+<h4 class='v2' id='OBR-55'>
+OBR-55: Action Code (<a href='/data-type/ID.html'>ID</a>) 00816
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p><p class="v2 v2-normalindented">The action code can only be used when an either OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

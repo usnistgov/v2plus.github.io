@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h1 class='v2 domain-title'>
+Introduction
+</h1>
+<div class='v2_composition_sections'>
+<p class="v2-ansidesignation">
+          V29_R1_2019NOV
+        </p>
+<p"></p>
+<p class="v2-text"></p>
+<p class="v2-title1"></p>
+<p class="v2-title1">HL7 Version 2.9 Messaging Standard - An Application Protocol for Electronic Data Exchange in Healthcare Environments</p>
+<p class="v2-title1">November 2019</p>
+<p class="v2-title1">HL7 Normative Standard</p>
+<p"></p>
+<p class="justify-right">
+          Sponsored by:Orders and Observations Work GroupInfrastructure and Messaging Work Group
+        </p>
+<p class="justify-right">
+          Publishing Work Group
+        </p>
+<p class="justify-right">
+          Vocabulary Work Group
+        </p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p class="v2-text"></p>
+<p">Copyright © 2018-2019 Health Level Seven International ® ALL RIGHTS RESERVED. The reproduction of this material in any form is strictly forbidden without the written permission of the publisher.  HL7 and Health Level Seven are registered trademarks of Health Level Seven International. Reg. U.S. Pat & TM Off.</p>
+<p">Use of this material is governed by HL7's IP Compliance Policy.</p>
+<p class="v2-default">
+          
+          IMPORTANT NOTES: 
+        </p>
+<p class="v2-default">HL7 licenses its standards and select IP free of charge. If you did not acquire a free license from HL7 for this document, you are not authorized to access or make any use of it. To obtain a free license, please visit http://www.HL7.org/implement/standards/index.cfm. </p>
+<p class="v2-default">If you are the individual that obtained the license for this HL7 Standard, specification or other freely licensed work (in each and every instance "Specified Material"), the following describes the permitted uses of the Material. </p>
+<p class="v2-default">A. HL7 INDIVIDUAL, STUDENT AND HEALTH PROFESSIONAL MEMBERS, who register and agree to the terms of HL7’s license, are authorized, without additional charge, to read, and to use Specified Material to develop and sell products and services that implement, but do not directly incorporate, the Specified Material in whole or in part without paying license fees to HL7. </p>
+<p class="v2-default">INDIVIDUAL, STUDENT AND HEALTH PROFESSIONAL MEMBERS wishing to incorporate additional items of Special Material in whole or part, into products and services, or to enjoy additional authorizations granted to HL7 ORGANIZATIONAL MEMBERS as noted below, must become ORGANIZATIONAL MEMBERS of HL7. </p>
+<p class="v2-default">B. HL7 ORGANIZATION MEMBERS, who register and agree to the terms of HL7's License, are authorized, without additional charge, on a perpetual (except as provided for in the full license terms governing the Material), non-exclusive and worldwide basis, the right to (a) download, copy (for internal purposes only) and share this Material with your employees and consultants for study purposes, and (b) utilize the Material for the purpose of developing, making, having made, using, marketing, importing, offering to sell or license, and selling or licensing, and to otherwise distribute, Compliant Products, in all cases subject to the conditions set forth in this Agreement and any relevant patent and other intellectual property rights of third parties (which may include members of HL7). No other license, sublicense, or other rights of any kind are granted under this Agreement. </p>
+<p class="v2-default">C. NON-MEMBERS, who register and agree to the terms of HL7’s IP policy for Specified Material, are authorized, without additional charge, to read and use the Specified Material for evaluating whether to implement, or in implementing, the Specified Material, and to use Specified Material to develop and sell products and services that implement, but do not directly incorporate, the Specified Material in whole or in part. </p>
+<p class="v2-default">NON-MEMBERS wishing to incorporate additional items of Specified Material in whole or part, into products and services, or to enjoy the additional authorizations granted to HL7 ORGANIZATIONAL MEMBERS, as noted above, must become ORGANIZATIONAL MEMBERS of HL7. </p>
+<p">Please see http://www.HL7.org/legal/ippolicy.cfm for the full license terms governing the Material.</p>
+<p">
+          Ownership. Licensee agrees and acknowledges that HL7 owns all right, title, and interest, in and to the Materials. Licensee shall take no action contrary to, or inconsistent with, the foregoing.
+        </p>
+<p">
+          Licensee agrees and acknowledges that HL7 may not own all right, title, and interest, in and to the Materials and that the Materials may contain and/or reference intellectual property owned by third parties (“Third Party IP”).  Acceptance of these License Terms does not grant Licensee any rights with respect to Third Party IP. Licensee alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize Third Party IP in connection with the Materials or otherwise. Any actions, claims or suits brought by a third party resulting from a breach of any Third Party IP right by the Licensee remains the Licensee’s liability.
+        </p>
+<p"></p>
+<p">Following is a non-exhaustive list of third-party terminologies that may require a separate license:</p>
+<table class="" style="width: 98%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+          <colgroup>
+            <col span="1" style="width: 36.56%;"></col>
+            <col span="1" style="width: 63.43%;"></col>
+          </colgroup>
+          <tr class="v2-table-header">
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:36.56%; ">
+              <p class="v2">
+                <strong>Terminology</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:63.43%; ">
+              <p class="v2">
+                <strong>Owner/Contact</strong>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:36.56%; ">
+              <p class="v2">Current Procedures Terminology (CPT) code set</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:63.43%; ">
+              <p class="v2">American Medical Association<br></br><a href="https://www.ama-assn.org/practice-management/cpt-licensing">https://www.ama-assn.org/practice-management/cpt-licensing</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:36.56%; ">
+              <p class="v2">SNOMED CT</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:63.43%; ">
+              <p class="v2">SNOMED International   <a href="http://www.snomed.org/snomed-ct/get-snomed-ct">http://www.snomed.org/snomed-ct/get-snomed-ct</a> or <a href="info@ihtsdo.org">info@ihtsdo.org</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:36.56%; ">
+              <p class="v2">Logical Observation Identifiers Names &amp; Codes (LOINC)</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:63.43%; ">
+              <p class="v2">Regenstrief Institute</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:36.56%; ">
+              <p class="v2">International Classification of Diseases (ICD) codes</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:63.43%; ">
+              <p class="v2">World Health Organization (WHO)</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:36.56%; ">
+              <p class="v2">NUCC Health Care Provider Taxonomy code set</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:63.43%; ">
+              <p class="v2">American Medical Association. Please see <a href="http://www.nucc.org">www.nucc.org</a>. AMA licensing contact: 312-464-5022 (AMA IP services)</p>
+            </td>
+          </tr>
+        </table>
+<br class=""></br>
+<p"></p>
+<table class="" style="width: 82%; ">
+          <colgroup>
+            <col span="1" style="width: 39.32%;"></col>
+            <col span="1" style="width: 60.67%;"></col>
+          </colgroup>
+          <tr>
+            <td style="width:39.32%; ">
+              <p class="v2">Chief Technology Officer:</p>
+            </td>
+            <td style="width:60.67%; ">
+              <p class="v2">Wayne Kubick<br></br>Health Level Seven, International</p>
+            </td>
+          </tr>
+        </table>
+<br class=""></br><div class='v2-composition-section-2' id='Introduction-2'>
+<h2 class='v2'>
+PURPOSE
+</h2>
+<p">This document contains the specifications for Version 2.9 of the Health Level Seven (HL7) Standard for electronic data exchange in all healthcare environments, with special emphasis on inpatient acute care facilities (i.e., hospitals). It summarizes the work of a committee of healthcare providers (i.e., users), vendors and consultants established in March 1987 on the occasion of a conference hosted by Dr. Sam Schultz at the Hospital of the University of Pennsylvania.  Its participants, who represent users as well as vendors and a wide variety of other segments in the international healthcare market, share a common goal of simplifying the implementation of interfaces between computer applications from different, and often competing, vendors.  This committee, which subsequently became known as the HL7 Working Group, endeavors to standardize the format and protocol for the exchange of certain key sets of data among healthcare computer application systems.  Meetings are held approximately every four months in scattered locations throughout the United States, and, increasingly, in international locations.  At present, HL7 sanctioned national groups exist outside of the United States, including Argentina, Australia, Austria, Bosnia, Brazil, Canada,  China, Croatia, Czech Republic, Denmark, Finland, France, Germany, Greece, Herzegovina, Hong Kong, India, Italy, Japan, Korea, Malaysia, Mexico, New Zealand, Norway, Pakistan, Phillippines, Puerto Rico, Romania, Russia, Singapore, Slovenia, Spain,  Sweden, Switzerland, Taiwan, The Netherlands, Turkey, The United Kingdom and Uruguay.</p>
+<p">This document is being presented to interested parties.  It is a status report that is periodically published to solicit the involvement of the broadest possible group of participants as this protocol is being put into use.  Comments are solicited on all aspects of this and other HL7 Standards.</p>
+<p">HL7 Version 2.9 represents HL7’s latest development efforts to the line of Version 2 Standards that date back to 1989.  HL7 Version 2.9 is deemed necessary to incorporate changes required by work groups, regulation changes, and new requirements of membership, as demonstrated by proposals submitted. All chapters were updated with respect to ACK choreography. In addition, the proposed changes are modifications or additions to the Chapter 2C, Chapter 4, Chapter 4A, Chapter 7, Chapter 8, Chapter 13 and Chapter 17.   </p>
+<ol class="v2-list v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">General</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Applied the errata that were identified with V2.8.2.</p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Deprecated ROL segment with inclusion of PRT segment as more robust and flexible.</p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 2C</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Chapter 2C generated with updated content </p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Other changes as identified in V2 proposals tracker at <a href="https://gforge.hl7.org/gf/project/v2-ballot-pkg/tracker/?action=TrackerItemBrowse&amp;tracker_id=1035">https://gforge.hl7.org/gf/project/v2-ballot-pkg/tracker/?action=TrackerItemBrowse&amp;tracker_id=1035</a>. </p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 3</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Added Occupational Data for Health content</p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Updated fields for ARV segment for security</p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 4</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Order Entry: General, Laboratory, Dietary, Supply, Blood Transfusion – updates to events and segments such as OMG, OML, ORC, OBR, BPO </p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 4A</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Order Entry: Pharmacy/Treatment, Vaccination – updates to events and segments such as RGV, RDE, RRE</p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 7</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Observation Reporting – updates to messages such as OUL, ORU, OBX, SPM, Patient-connected medical device reporting, and usage notes</p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 8</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Master Files - a new Contract master file message related to Materials Management supply item messaging, clarifications to OM3, OM4, and OM5</p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 13</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Laboratory Automation - a new DST segment for the EAC message structure to support transport destination, INR/ACK – new trigger event and message structure, clarification of SAC-8, SAC-16, and INV segments, and a new field to TCD segment</p>
+              </li>
+            </ol>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-listparagraph">Chapter 17</p>
+            <ol class="v2 v2-list v2-sublist v2-lower-alpha-list v2-listparagraph" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-listparagraph">Materials Management – new fields added to ITM, VND, and PKG segments.</p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+<p">The HL7 balloting effort continues to yield standards that are open to all who develop healthcare data processing systems.  The experience gained as this and other HL7 Standards have been put into production is reflected in this latest revision of the Version 2 Standards.</p>
+<p">HL7 is operating under formal bylaws and balloting procedures.  These procedures are modeled on the balloting procedures of other relevant healthcare industry computer messaging standards organizations (e.g., ASTM) and are designed to conform to the requirements of the American National Standards Institute (ANSI).  ).  In June 1994, HL7 became an ANSI Accredited Standards Developing Organization (SDO). HL7 is a founder of the ANSI SDO Charter Organization (SCO) and chaired it in 2011-2012.  The other members of the SCO include: The National Council for Prescription Drug Programs (NCPDP), X12N (ASC X12 Insurance Committee), ADA (The American Dental Association), GS1 (International Standards for Bar Codes and Supply Chain), ISO TC 215 (International Medical Informatics), IHE, Regenstreif Institute’s Logical Observation Identifiers, Names and Codes (LOINC), National Library of Medicine for US Systemized Nomenclature for Medicine (SNOMED). And  “Standards Related Groups" including IHE (Integrating the Health Enterprise), HIMSS (Health Information Management Systems Society), and WEDI (Workgroup for Electronic Data Interchange).</p>
+<p">ANSI approval dates HL7’s Version 2 standards are noted below:</p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.2 - February of 1996. </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.3 - May of 1997.  </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.3.1 - April of 1999.  </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.4 - October 2000.  </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.5 - July of 2003.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.5.1 - Feburary of 2007</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.6 – October 2007</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.7 – February 2011</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.8 – February 2014</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.8.1 – April 2014</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Version 2.8.2 – July 2015</p>
+          </li>
+        </ul>
+<p">As an organization, HL7 has experienced significant growth over the last several years.  Currently, HL7’s membership consists of approximately 2200 members in all membership categories and regularly attracts 450-500 members and non-members to each of its three yearly meetings.</p>
+<p">For a current listing of all HL7 ANSI-approved standards, please refer to the HL7 web site (hl7.org). </p>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-3'>
+<h2 class='v2'>
+BACKGROUND
+</h2>
+<p">The HL7 Working Group is composed of volunteers who give their time on a personal basis or under sponsorship of their employers.  Published standards (including this HL7 V2.9 Standard) and other products are freely available to everyone who registers and agrees to the terms of HL7's IP policy.  Members have the added advantage of having access to all materials immediately upon publication while, in general, non-members must wait three months from the date of publicat to access materials. In addition, members have the right to use HL7 standards in their products and to create derivitive works; non-members have the right to read the standards, but not use them in their products.  Those wishing more information are referred to the IP Compliance policy on HL7's web site at hl7.org/legal/ippolicy.cfm. </p>
+<p"></p>
+<p">Membership in the HL7 Working Group has been, and continues to be, open to anyone wishing to volunteer and  contribute to the development and refinement of any HL7 Working Group Standard and the work that supports those Standards.</p>
+<p">The term “Level 7” refers to the highest implementation protocol level for a definition of a networking framework as presented in the Open System Interconnection (OSI) model of the International Standards Organization (ISO) and CCITT (French Acronym for the Consultive Committee for Interntational Telephone and Telegraph).  This is not to say that HL7 conforms to ISO-defined elements of the OSI’s seventh level.  Also, HL7 does not specify a set of ISO-approved specifications to occupy layers 1 to 6 under HL7’s abstract message specifications.  HL7 does, however, correspond to the conceptual definition of an application-to-application interface placed in the seventh layer of the OSI model.</p>
+<p">In the OSI conceptual model, the functions of both communications software and hardware are separated into seven layers, or levels.  The HL7 Standard is primarily focused on the issues that occur within the seventh, or application, level.  These are the definitions of the data to be exchanged, the timing of the exchanges, and the communication of certain application-specific errors between the applications.  However, of necessity (or at least in an attempt to be clear), protocols that refer to the lower layers of the OSI model are sometimes mentioned to help implementers understand the context of the Standard.  They are also sometimes specified to assist implementers in establishing working HL7-based systems.</p>
+<p">The HL7 Version 2 Standard currently addresses the interfaces among various healthcare IT systems that send or receive patient admissions/registration, discharge or transfer (ADT) data, queries, resource and patient scheduling, orders, results, clinical observations, billing, master file update information, medical records, scheduling, patient referral, patient care, clinical laboratory automation, application management and personnel management messages.  It does not try to assume a particular architecture with respect to the placement of data within applications.  Instead, HL7 Version 2.9 serves as a way for inherently disparate applications and data architectures operating in a heterogeneous system environment to communicate with each other. As an example, HL7 Version 2.9 is designed (and used) to support a central patient care system as well as a more distributed environment where data resides in departmental systems.</p>
+<p">If we consider the multitude of healthcare information systems applications as well as the variety of environments in which healthcare is delivered, it is evident that there are many more interfaces that could benefit from standardization.  The interfaces chosen were considered to be of high priority by the members participating in the standards writing process.  HL7’s intent is for Version 2.9 to be a complete standard for these interfaces, built on a generic framework that is sufficiently robust to support many other interfaces.  The HL7 Version 2.x family of standards has been put into production and is being used as a basis for extending the existing interface definitions and also adding other definitions.</p>
+<p">It is expected that one result of publishing this specification will be the recruitment of more Working Group members with special interests in some newer and not yet fully specified areas.  Some of the areas that have already been identified are:</p>
+<ol class="v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">decision support</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">additional specific ancillary departments</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">information needs associated with healthcare delivery systems outside of the acute care setting</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">clinical genomics</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">pediatrics</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">emergency medicine</p>
+          </li>
+        </ol>
+<p">The above notwithstanding, the Working Group members feel that the interfaces addressed here are sufficient to provide significant benefits to the healthcare community. Active Work Groups exist for the domain areas listed above. All interest in contribution to future development of this Standard, these specified growth areas or any other areas of Medicin or Health Information Technology are welcome to join HL7 and work with us.</p>
+<p">This document is structured as follows.  The balance of this chapter contains a rationale for developing the HL7 Version 2.9 Standard, the goals of the Standard, and issues that have been considered by the Working Group pertaining to scope and operational approach.  It is hoped that this will help the readers understand the basis for decisions that have been made in developing the Standard.  Subsequent chapters specify, respectively:</p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 2 – Control – overall structure for all interfaces including a generalized query interface.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 2A – Data Types – provides definitions for all HL7 V2 data types.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 2B – Conformance – using message profiles for conformance.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 2C-Code Tables – a listing of all tables of information used in the standard.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 3 – Patient Administration - admission, discharge, transfer and registration</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 4 – Order Entry – messages for the transmission of orders or information about orders between applications that capture the order, by those that fulfill the order, and other applications as needed.  These services include medications from the pharmacy, clinical observations (e.g., vitals, I&amp;Os) from the nursing service, tests in the laboratory, food from dietary, films from radiology, linens from housekeeping, supplies from central supply, an order to give a medication (as opposed to delivering it to the ward), etc.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 4A – Order Entry: Pharmacy/Treatment, Vaccination – messages for the transmission of orders or information about orders specific to pharmacy/treatment and vaccines.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 5 – Query - defines the rules that apply to queries and to their responses.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 6 – Financial Management - patient accounting (billing) systems</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 7 – Observation Reporting – clinical observation data, such as laboratory results, that are sent as identifiable data elements (rather than display-oriented text)</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 8 – Master Files – a generalized interface for synchronizing common reference files (master files)</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 9 – Medical Records/Information Management – medical information management</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 10 – Scheduling – patient and resource scheduling</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 11- Patient Referral – patient referral messages for referring a patient between two institutions</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 12 – Patient Care - patient care messages that support communication of problem-oriented records, and to provide functionality for the implementation of clinical pathways in computer information systems</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 13 - Clinical Laboratory Automation – messages that communicate information essential for a Laboratory Automation System (LAS) to control the various processes and to ensure that each specimen or aliquot has the correct tests performed in the proper sequence.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 14 – Application Management - messages that provide a means to manage HL7-supporting applications over a network</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 15 – Personnel Management – messages for transmitting new or updated administration information about individual healthcare practitioners and supporting staff members.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 16 – messages to support Claims and Reimbursement (CR) for the electronic exchange of health invoice (claim) data outside of the US. </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2">Chapter 17 – Materials Management – messages for communicating various events related to the transactions derived from supply chain management within a healthcare facility.  </p>
+          </li>
+        </ul>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-4'>
+<h2 class='v2'>
+NEED FOR A STANDARD
+</h2>
+<p">The organization and delivery of healthcare services is an information-intensive effort.  It is generally accepted that the efficacy of healthcare operations is greatly affected by the extent of automation of information management functions.  Many believe that healthcare delivery agencies that have not automated their information systems are also not able to participate effectively in the healthcare market of the 21st Century.</p>
+<p">In the past four decades, healthcare institutions, and hospitals in particular, have begun to automate aspects of their information management.  Initially, such efforts were focused towards reducing paper processing, improving cash flow, and improving management decision making.  In later years a distinct focus on streamlining and improving clinical and ancillary services has evolved, including bedside (in hospitals and other inpatient environments) and “patient-side” systems (in ambulatory settings).  Within the past 15 years, interest has developed in integrating all information related to the delivery of healthcare to a patient over his or her lifetime (i.e., an electronic medical record). In the last 5 years we have begun focusing on the challenges of integrating the health data in these electronic medical records (or electronic health records (EHRs)) among patient care organizations, and  most recently among countries. We can now envision an electronic medical record that can be communicated electronically, in part or in whole, anywhere as needed.</p>
+<p">Today, growing numbers of hospitals have installed computer systems to manage a wide range of their information needs – admission, discharge and transfer; clinical laboratories; radiology; billing and accounts receivable, to cite a few.  Often these applications used for specific areas have been developed by different vendors or, occasionally, by in-house groups, with each product having highly specific information format.  As hospitals have gradually expanded information management operations, a concomitant associated need to share critical data among the systems has emerged.  Comprehensive systems that aim at performing most, if not all, healthcare information management are in production by many vendors.  These systems may be designed in a centralized or a distributed architecture.  Nevertheless, to the extent that such systems could be and are implemented as truly complete, their use would lessen the need for an external data interchange standards such as HL7.</p>
+<p">There are, however, many pressures on an institution to develop or acquire individual departmental applications on a modular basis.  One source of such pressure is the special departmental needs that may not be addressed well (or perhaps at all) by a comprehensive vendor (i.e., so called “best-of-breed”).  Another is the need to evolve the overall systems environment of a hospital through a series of incremental, departmental decisions rather than in a single, revolutionary acquisition.  These pressures could be met by an environment containing a comprehensive system supplemented by departmental systems, or one consisting entirely of separate and discrete systems.</p>
+<p">Network technology has emerged as a viable and cost-effective approach to the integration of functionally and technically diverse computer applications in healthcare environments.  However, these applications have developed due to market structure rather than through a logical systems approach; they are therefore often ad hoc and idiosyncratic.  At the very least, they do not possess a common data architecture; their combined data storage actually constitutes a highly distributed and severely de-normalized database and the processes that they support can vary significantly.  Extensive site-specific programming and program maintenance are often necessary for interfacing these applications in a network environment.  This occurs at considerable expense to the user/purchaser and vendor while often keeping vendor staff from other initiatives such as new product development.  The need for extensive site-specific interface work could be greatly reduced if a standard for network interfaces for healthcare environments were available and accepted by vendors and users alike.</p>
+<p">Finally, the lack of data (or inconsistent data) and process standards between both vendor systems and the many healthcare provider organizations presents a significant barrier to application interfaces.  In some cases, HL7 becomes an effective template to facilitate negotiations between vendors and users but cannot, by itself, serve as an “off-the-shelf” complete interface.</p>
+<p">In summary, it is important for both vendors and users to avoid the problem of supporting incompatible transaction/communications structures.  Instead, at a minimum a framework must be developed for minimizing incompatibility and maximizing the exchange of information between systems.  It is proposed that HL7 Version 2.8 can act as a superstructure in this environment to facilitate a common specification and specifications methodology.  It is indeed both practical and economical to develop, and commit to, standard interfaces for computer applications in healthcare institutions. </p>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-5'>
+<h2 class='v2'>
+GOALS OF THE STANDARD
+</h2>
+<p">As noted above, the specifications of this HL7 Version 2 Standard were developed in accordance with a priori specified goals.  Future extensions of the Standard should also support these goals.</p>
+<p">HL7’s purpose is to facilitate communication in healthcare settings.  The primary goal is to provide standards for the exchange of data among healthcare computer applications that eliminate or substantially reduce the custom interface programming and program maintenance that may otherwise be required.  This primary goal can be delineated as a set of goals:</p>
+<ol class="v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">The Standard should support exchanges among systems implemented in the widest variety of technical environments.  Its implementation should be practical in a wide variety of programming languages and operating systems.  It should also support communications in a wide variety of communications environments, ranging from a full, OSI-compliant, 7-level network “stack” to less complete environments including primitive point-to-point RS-232C interconnections and transfer of data by batch media such as tape, CD and USB Flash Drive.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">Immediate transfer of single transactions should be supported along with file transfers of multiple transactions.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">The greatest possible degree of standardization should be achieved, consistent with site variations in the usage and format of certain data elements.  The Standard should accommodate necessary site-specific variations.  This will include, at least, site-specific tables, local code definitions and possibly site-specific message segments (i.e., HL7 Z-segments).</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">The Standard must support evolutionary growth as new requirements are recognized.  This includes support of the process of introducing extensions and new releases into existing operational environments.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">The Standard should be built upon the experience of existing production protocols and accepted industry-wide standard protocols.  It should not, however, favor the proprietary interests of specific companies to the detriment of other users of the Standard.  At the same time, HL7 seeks to preserve the unique attributes that an individual vendor can bring to the marketplace.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">While it is both useful and pertinent to focus on information systems within hospitals, the long-term goal should be to define formats and protocols for computer applications in all and among healthcare environments.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">The very nature of the diverse business processes that exist within the healthcare delivery system prevents the development of either a universal process or data model to support a definition of HL7’s target environments.  In addition, HL7 Version 2.8 does not make a priori assumptions about the architecture of healthcare information systems nor does it attempt to resolve architectural differences between healthcare information systems.  <strong>For at least these reasons, HL7 Version 2.9 cannot be a true “plug and play” interface standard.</strong>  These differences at HL7 Version 2.9 sites will most likely require some level of site negotiated agreements.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">A primary interest of the HL7 Working Group has been to employ the Standard as soon as possible.  Having achieved this, HL7 has also developed an infrastructure that supports a consensus balloting process and has been recognized by the American National Standards Institute (ANSI) as an Accredited Standards Organization (ASO).</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normallistalpha v2-indent720">Cooperation with other related healthcare standards efforts, which are outlined later in this chapter.</p>
+          </li>
+        </ol>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-6'>
+<h2 class='v2'>
+HISTORY OF HL7 Version 1.0 to 2.9 DEVELOPMENT
+</h2>
+<p">The HL7 Working Group has met approximately every three to four months since March 1987 to develop and review this specification and, as requirements and ideas have been brought to us over the years, other HL7 standards and work products.  The Working Group is structured into Work Groups to address each of the functional interfaces under development, the processes that they support and the content they require, with additional committees to address the overall control structure and various administrative aspects of the group.  These committees have the responsibility to author and maintain the chapters in the HL7 Standards.  In addition, from time to time Work Groups are formed within HL7 to develop ideas, content and sponsor particular perspectives that are not covered by any single existing committee. (An example of this today is the HL7 FHIR (pronounced “fire”) initiative (hl7.org/fhir)  If a Work Group’s activities warrant and a new chapter is considered necessary, they may petition the HL7 Technical Steering Committee Chair and the Board of Directors to form a new Work Group.</p>
+<p">In the initial three meetings, a Version 1.0 draft Standard was prepared covering the overall structure of the interfaces, ADT, order entry, and display-oriented queries.  Although the patient accounting system was recognized as very important, the time frame did not allow its charing and billing functions  to be addressed in the first draft.  This draft was presented to a plenary meeting of the overall group in Tyson’s Corner, VA, on October 8, 1987. </p>
+<p">Version 2.0 was prepared subsequent to Plenary I in Tyson’s Corner and presented at Plenary II in Tucson in September 1988.  Since Plenary II, editing and revisions for Version 2.1, 2.2, 2.3, 2.3.1, 2.4, 2.5, 2.5.1, 2.6, 2.7, 2.7.1, 2.8, 2.8.1, and 2.8.2 have been ongoing and the Working Group has grown to about 500 individuals, far exceeding its original size of 12, and the following have been achieved:</p>
+<ol class="v2-list v2-lower-alpha-list v2-lower-alpha" style="list-style: lower-alpha">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Specifications for the various functional areas have been refined and expanded.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Formal agreements have been developed with several other standards efforts:</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented"> the ANSI HITSP for the coordination of healthcare standards efforts (which more recently has evolved into SCO) and the ASC X12N group for external EDI Standards, </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">The American Dental Association (ADA) Standards Committee on Dental Informatics (SCDI)  for standards related to the acquisition, organization, storage and seamless exchange, privacy, security, and utilization of health informatics.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">the ASTM E31.11 group for Clinical Data Exchange Standards, </p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">the ACR/NEMA DICOM group for standards relating to imaging and other aspects of Radiology Information Systems, and the IEEE P1157 group for medical data interchange (MEDIX),</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented"> the Clinical Data Interchange Standards Consortium (CDISC), for standards to support electronic acquisition, exchange, submission and achiving of clinical trials data and metadata for medical and biopharmaceutical product develoopment</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">The National Council for Prescription Programs, for standards related to pharmacy insurance billing and ajudication as well as NCPDP’s Script Standard for ambulatory care electronic prescribing to retail and mail order pharmacies.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">International Health Terminology Standards Development Organization (IHTSDO) which fosters the develop and use of suitble standardied clinical terminologies, notibly SNOMED;</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">And Several more…</p>
+          </li>
+        </ol>
+<p class="v2-normalindented v2-indent1080">Throughout the years HL7 has continued these formal agreements. The current list of organizations and the agreements that HL7 has with them can be found on the HL7 web site at: http://www.hl7.org/about/agreements.cfm.</p>
+<ol class="v2-list v2-lower-alpha-list v2-lower-alpha" style="list-style: lower-alpha">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">The generic control structure was modified, on the basis of industry comments, to be adaptable to a wider variety of communications environments and to facilitate cooperation with other standards groups. (e.g. ISO TC 215 Electronic Health Record Functional Standard (13606) and ISO TC 215 Data Types (21090) both adopted from existing HL7 Standards.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter on the interface to a patient accounting system has been added.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter on the reporting of ancillary results, clinical trials, product experience and waveform data has been prepared, harmonized with the ASTM 1238-91 Standard and with the direct, active participation of members of the ASTM E31.11 committee.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter with a set of transactions to support the synchronization of master files between related information systems has been added.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter on the interface to applications that support medical record functions including transcription management, chart location and tracking, deficiency analysis, consents and release of information has been added.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter on messages to support the communication of various events related to the scheduling of appointments for services or for the use of resources has been added.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter defining the message set used in patient referral communications between mutually exclusive healthcare entities has been added.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A computerized data dictionary of all data elements and other message components has been created.  Appendix A contains cross references and other information generated from this electronic data dictionary.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Extensive additions have occurred in the Order/Entry and Clinical Observations chapters to include data element oriented results, pharmacy orders and administrations interface.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Message acknowledgments have been extended to include a separate enhanced mode that defines the “accept acknowledgment.”  While this mode of acknowledgment has always been allowed, it is now obvious how HL7 supports any environment when intermediaries exist in the network with implicit time delays (such as store and forward services, “Interface Engines” that perform fan out services, etc.).  Immediate acknowledgments are available to release the sending system from the need to resend the message.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Distinctions have been documented between the HL7 abstract message definition which is purely a level 7 (application level) definition vs. the HL7 encoding rules for converting an abstract message into a string of characters that comprises an actual message.  These encoding rules are actually a suggested potential alternative where a fully defined level 6 (presentation level) definition does not exist (e.g., ISO’s ASN.1 Basic Encoding Rules (BER)).</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">The Patient Care Work Group was created and designed messages to support the communication of problem-oriented records, including clinical problems, goals, and pathway information between computer systems. Patient Care healthcare messages are communicated between clinical applications for a given individual.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">The Clinical Laboratory Automation chapter was created to develop messages to facilitate the integration or interfacing of automated or robotic transport systems, analytical instruments, and pre- or post-analytical process equipment such as automated centrifuges and aliquoters, decappers, recappers, sorters, and specimen storage and retrieval systems. In addition to the electrical and mechanical interfaces of these various components, the computers that control these devices or instruments must also be interfaced to each other and/or the Laboratory Information System (LIS). These are now found in Chapter 13 since HL7 Version 2.8</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Specifications on Network Management that were previously contained in a non-normative appendix to the Standard were further developed to more accurately describe the purpose of the messages described herein. This chapter was named “Application Management” and does not specify a protocol for managing networks, à la TCP/IP SNMP. Rather, its messages provide a means to manage HL7-supporting applications over a network. As a technical chapter, this information is now normative beginning with the HL7 Version 2.8 standard and found in Chapter 14.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">The Personnel Management Work Group was created to develop Personnel Management transactions set provides for the transmission of new or updated administration information about individual healthcare practitioners and supporting staff members. Since many systems (e.g., security, scheduling, orders, etc.) must be able to closely monitor changes in certain information regarding individual healthcare practitioners, the Personnel Management transaction set is used to clearly identify these events. For example, it is important to a Security System to be aware of when a staff member was hired or specific role has been terminated. <br></br><br></br>Prior to Version 2.4, master file updates were the only method to update this information. However, when any of these changes are reported as master file update notifications, it is not obvious which of the specific items of data has been changed, and these changes are cumbersome to process efficiently. It should be noted that Personnel Management functions that do not affect healthcare administration (e.g. benefits) are not addressed in this chapter.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">When HL7 Version 2.5 was created the Control Committee consolidated all definitions of data types that were previously distributed across all chapters of HL7 and created a second chapter 2 (2A) that is a dictionary of all data types used in HL7 Version 2.5 and now HL7 Version 2.9. These definitions were also removed from their previous chapters and corrections were made when two or more chapters had conflicting definitions of data types.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">HL7 Version 2.5.1 — as an extension of Version 2.5 is due to a recent interpretation of the requirements of the Clinical Laboratory Improvements Amendment (CLIA) of 1988 related to the exchange of electronic laboratory information with supplemental agencies.  HL7 was informed of a need to include a limited number of additional fields that were located in the OBX Segment of Version 2.5 to support compliance. Although we have not been able to confirm requirements throughout the European Union, the addition of these elements to the OBX may also facilitate meeting the laboratory reporting requirements stipulated by the United Kingdom Accreditation Service [UKAS] and Clinical Pathology Accreditation (UK) Ltd [CPA].</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter defining messaging specifications supporting claims and reimbursement for the electronic exchange of health invoice (claim) data has been added.  These specifications are intended for use by benefit group vendors, third-party administrators (TPA) and payers who with to develop software that is compliant with an international standard for the electronic exchange of claim data. (This chapter is produced for implementations of HL7 outside of the United States where the HIPAA law mandates an already in-use set of implementation guides of X12 messages for these purposes.)</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">A chapter defining the abstract messages for purposes of communicating various events related to the transactions derived from supply chain management within healthcare facilities has been added.  This chapter includes inventory and sterilization messaging. The inventory item master file segments published in this chapter are based on master file add and update messages between applications such as materials management, scheduling, and sterilization applications.</p>
+          </li>
+        </ol>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-7'>
+<h2 class='v2'>
+OVERVIEW
+</h2>
+<p">This section contains a description of the conceptual basis of the HL7 Version 2.9 Standard, the approach to accommodating intra-site variations and evolutionary changes, and the way it has been structured in order to accommodate varying current and future communications environments.</p>
+<div class='v2-composition-section-2-subsections'>
+<div class='v2-composition-section-3' id='Introduction-7-1'>
+<h3 class='v2'>
+HL7 Encoding Rules
+</h3>
+<p class="v2-normalindented">Message formats prescribed in the HL7 Version 2.9 encoding rules consist of data fields that are of variable length and separated by a field separator character.  Rules describe how the various data types are encoded within a field and when an individual field may be repeated.  The data fields are combined into logical groupings called segments.  Segments are separated by segment separator characters.  Each segment begins with a three-character literal value that identifies it within a message.  Segments may be defined as required or optional and may be permitted to repeat.  Individual data fields are found in the message by their position within their associated segments.</p>
+<p class="v2-normalindented">All data is represented as displayable characters from a selected character set. The ASCII displayable character set (hexadecimal values between 20 and 7E, inclusive) is the default character set unless modified in the MSH header segment.  The field separator is required to be chosen from the ASCII displayable character set.  All the other special separators and other special characters are also displayable characters, except that the segment separator is the ASCII Carriage Return character.</p>
+<ol class="v2-list v2-decimal-list v2-normallistnumbered" style="list-style: decimal">
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistnumbered v2-indent1728">There is nothing intrinsic to HL7 Version 2.9 or ASTM 1238 that restricts the legal data set to the printable ASCII characters.  The former restriction was imposed to accommodate the limitations of many existing communication systems.  Some existing systems would misinterpret some eight-bit characters as flow control characters instead of data.  Others would strip off the eighth bit.</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistnumbered v2-indent1728">The European community (EC) has a need for printable characters (for example, the German oe, the French accent grave) that are not within the above-defined restricted data set.  The personal computer market accommodates these alphabetic characters by assigning them to codes between 128 and 256, but it does this in many different ways.   ISO 8859 is a 256-character set that does include all of the needed European letters and is a candidate for the European standards group.  Where the Europeans define an eight-bit character set specification, HL7 will accept this data set in environments that require it, and can use it without complications.</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistnumbered v2-indent1728">Multi-character Codes:</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent2160">UNICODE - When communicants use UNICODE, and all characters are represented by the same number of bytes, all delimiters will be single characters of the specified bytes length, and the Standard applies just as it does for single-byte length, except that the length of the characters may be greater than one byte.</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent2160">JIS X 0202 - ISO 2022 provides an escape sequence for switching among different character sets and among single-byte and multi-byte character representations.  Japan has adopted ISO 2022 and its escape sequences as JIS X 0202 in order to mix Kanji and ASCII characters in the same message.  Both the single- and multiple-byte characters use only the low order 7 bits in JIS Kanji code with JIS X 0202 in order to ensure transparency over all standard communication systems.  When HL7 Version 2.9 messages are sent as JIS X 0202, all HL7 delimiters must be sent as single-byte ASCII characters, and the escape sequence from ASCII to Kanji and back again must occur within delimiters.  In most cases the use of Kanji will be restricted to text fields. <br></br><br></br>There are other parts of the JIS X series that support Katakana (JIS X 0201/ISO IR 13), Romaji (JIS X 0201/ISO IR 14) and Kanji (JIS X 0208/ISO IR 87) and JIS X 0212/ISO IR 159) that can be used in HL7 messages in the same manner as JIS X 0202.</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent2160">In the case that a single country uses conflicting rules for representing multi-byte characters, it is up to the communicants to ensure that they are using the same set of rules. </p>
+            </li>
+          </ol>
+<p class="v2-normalindented">The encoding rules distinguish between data fields that have the null value and those that are not present. The former are represented by two adjacent quotation marks, the latter by no data at all (i.e., two consecutive separator characters.)  The distinction between null values and those that are not present is important when a record is being updated.  In the former case the field in the database should be set to null; in the latter case it should retain its prior value.  The encoding rules specify that if a receiving application cannot deal with a data field not being present, it should treat the data field as present but not populated. For example, for a segment containing 30 fields in the base definition but for an instance of the segment only contains 20 field separators before the segment terminator, the latter fields should be considered present but not populated.</p>
+<p class="v2-normalindented">The encoding rules specify that a receiving application should ignore fields that are present in the message but were not expected rather than treat such a circumstance as an error.  For more information on fields and encoding rules, see Section 2.5.3, “Fields,” and 2.6, “Message Construction Rules.”</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-7-2'>
+<h3 class='v2'>
+Local Variations
+</h3>
+<p class="v2-normalindented">The HL7 Version 2.9 Standard is intended to standardize data interchanges, not the underlying applications systems.  This means that there will be a wide variety in the manner in which the Standard is applied in different institutions.</p>
+<p class="v2-normalindented">The requirement to support diversity within the Standard is addressed in these ways:</p>
+<ol class="v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha">
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent1440">The only data fields that are required in the abstract messages are those necessary to support the logic of the relationships among the messages or their basic purpose.  Many other fields are specified but made optional.</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent1440">There are provisions within the specifications to add messages or portions of messages that are local to an institution. The conventions used for this are intended to prevent conflict with future versions of the specification.</p>
+            </li>
+          </ol>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-7-3'>
+<h3 class='v2'>
+Evolutionary Changes to the Standards
+</h3>
+<p class="v2-normalindented">All standards must evolve as the applications they support change and as a result of experience using them.  In recognition of this, the Standard includes a protocol version ID in all messages.</p>
+<p class="v2-normalindented">New transactions or data elements will be added to operational HL7 Version 2.9 environments as a result of changes in the Standard or due to changes in the local implementation as permitted within the Standard.  It is important that these changes be implementable at a site without requiring all communicating applications to upgrade simultaneously.  The special provisions in the Encoding Rules for dealing with fields that are not present or unexpected are very important here.  Because of them, new fields can be added first to the sending or source system; the receiving system will ignore the new fields until it has been updated to use them.  Often, these rules also facilitate changing the receiving system first.  Until the sending system is changed, the receiving system will find the new data field ‘not present’ and deal with this according to its rules for data not present.</p>
+<p class="v2-normalindented">Similarly, the HL7 Version 2.9 Encoding Rules support changes in data field sizes.  Fields are found within the message by examining separators, rather than by an offset.  Changing the size of a field does not change the procedure used to detect subsequent fields.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-7-4'>
+<h3 class='v2'>
+Applicability to File Transfers (Batch Processing)
+</h3>
+<p class="v2-normalindented">Although the HL7 Version 2.9 Standard is defined in terms of the client-server (remote operation) model, its standards are equally applicable to file transfers.  One or more messages may be encoded according to the Encoding Rules, grouped in a file and transferred using external media, FTAM, FTP, Kermit, or any other file transfer protocol.  Responses may be grouped in a file and similarly transmitted.  Chapter 2 provides the general mechanisms for the batch transmittal of HL7 messages.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-7-5'>
+<h3 class='v2'>
+Relationship to Other Protocols
+</h3>
+<p class="v2-normalindented">A great deal of consideration has been given to the relationship between the HL7 Standard and other protocols.  This discussion has centered on the following three questions:</p>
+<ol class="v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha">
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent1440">What is the relationship between the HL7 Version 2.9 protocol and “lower layer” service protocols?  In strict accordance with the ISO OSI model, HL7 should not replicate features of these protocols.  This can even be construed to require HL7 to avoid replicating certain ISO layer 7 functionality contained in the Service Elements.<br></br><br></br>However, it is the goal of the HL7 group to support healthcare communications in a wide variety of communications environments, including many that are not as complete as ISO will be one day.</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent1440">What is the relationship between the HL7 Version 2.9 Standard and other applications protocols?  Protocols of interest include the ASC X12 Standards for Electronic Document Interchange, the ASTM 1238-88 Standards for laboratory data reporting, the ACR/NEMA DICOM Standards for imaging and other aspects of Radiology Information Systems, and the IEEE P1157 Standards for Medical Data Interchange (MEDIX).</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallistalpha v2-indent1440">What is the relationship between the HL7 Standard and various proprietary healthcare protocols in use today?</p>
+            </li>
+          </ol>
+<div class='v2-composition-section-3-subsections'>
+<div class='v2-composition-section-4' id='Introduction-7-5-1'>
+<h4 class='v2'>
+Lower layer protocols
+</h4>
+<p class="v2-normalindented">The HL7 Version 2 Encoding Rules are substantially different from the ASN.1 Basic Encoding Rules (BER) documented in CCITT X.409 and X.209 and ISO 8825 or those employed in LU6.2 or RPC.  This is because:</p>
+<ol class="v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-normallistalpha v2-indent1440">By definition, the HL7 Version 2.9 encoding rules will be applied where the environment does not include software to do encoding.  Without such software, the burden on applications programmers to develop messaging software that conforms to those encoding rules is onerous.</p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-normallistalpha v2-indent1440">The encoding rules of these protocols depend on the assumption that lower level protocols provide transparency (i.e., all character codes can be transmitted without being changed by and of the lower levels).  This assumption is often not met in the communications environments that must serve HL7 for the interim.  The techniques that might be used to implement transparency in the Lower Level Protocol are difficult to implement in some present-day applications environments.</p>
+              </li>
+            </ol>
+<p class="v2-normalindented">The notation chosen to document the message formats in the HL7 Version 2.9 Standard is not the Abstract Syntax Notation1 (ASN.1) Basic Encoding Rules (BER) defined by ISO.</p>
+<p class="v2-normalindented">Contrary to other high level communications environments, there is no notion of association separate from the sending of the message from client to server and the response.  This seems appropriate to the client-server model.</p>
+<p class="v2-normalindented">Whenever HL7 Version 2.9 is applied in a networking environment, addressing will be an issue.  This is equally true whether it is applied on ISO Standards networks or proprietary networks.  Although the HL7 Standard does not specify how this addressing will occur, it does provide certain data fields that will be of value in determining addresses.  The fields MSH-5 - receiving application, MSH-6 - receiving facility, and MSH-11 - processing ID are located in the header of all HL7 messages.  MSH-6 - receiving facility is intended for environments in which multiple occurrences of the same application are being run on the same computer system or on the same network on behalf of different institutions or other organizational entities. MSH-11-processing ID is used in situations in which various versions of essentially the same application may reside on the same computer for different purposes.  See HL7 table 0103 - Processing ID for recommended values.</p>
+<p class="v2-normalindented">HL7 Version 2.9 does not standardize all values for MSH-5 - receiving application and MSH-6 - receiving facility at this time because there are so many variations in place in existing systems and because different kinds of environments (e.g., in different countries) may have different required code sets. However, we strongly encourage the use of the HL7 suggested code sets where they are defined and we recognize that movement toward more standardized codes is essential for seamless communications.</p>
+<div class='v2-composition-section-4-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-4' id='Introduction-7-5-2'>
+<h4 class='v2'>
+Other application protocols
+</h4>
+<p class="v2-normalindented">The Working Group has given considerable attention to the relationship of the HL7 Standard and other protocols.  A considerable liaison effort is underway.  This is described below:</p>
+<ol class="v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha">
+              <li class="v2 v2-li">
+                <p class="v2 v2-normallistalpha v2-indent1440">ACR/NEMA DICOM.  The HL7 Working Group maintains an on-going liaison with the ACR/NEMA DICOM working group.  HL7 and ACR/NEMA DICOM are both members of ANSI’s HITSP.</p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-normallistalpha v2-indent1440">ASC X12 Standards for Electronic Document Interchange.  ASC X12 is a family of standards that provides both general and specific descriptions for data interchange within a number of industries. The HL7 Version 2 Encoding Rules are modeled on the X12 standards, although there are differences.  The HL7 Standard needs to accommodate online exchange of individual transactions on LANs. This difference, along with certain applications issues, is responsible for the variance from X12. X12 has recently decided to follow the UN/EDIFACT encoding rules for all X12 standards produced in 1995 or later.  X12N transactions that facilitate the transfer of healthcare claims and remittance information as well as benefit coordination, enrollment and verification are enjoying dramatically increased use.  HL7 has elected to assume that all new business transactions between institutions regarding the interchange of claims, benefits, or other financial information are the responsibility of ASC X12N, the insurance subcommittee of X12.<br></br><br></br>In 2005, HL7 and X12 signed an update to a long-standing agreement between the organizations to create and extend comprehensive standards in the healthcare community.<br></br></p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-normallistalpha v2-indent1440">ASTM 1238.94 Laboratory Data Reporting.  An active liaison effort between the ASTM committee and the Working Group has resulted in minor changes in the ASTM specification to enhance compatibility, changes in the HL7 Version 2.9 control specifications to enhance compatibility, and the development of the entire Ancillary Data Reporting chapter, developed jointly by the committees and built on the ASTM Standards.  This liaison has extended to the point where both groups now have the permission to freely use the contents of each others' standards efforts “in whole” within their own published standards.<br></br><br></br>Some distinctions are more in the terminology chosen than the actual message content.  For example, the ASTM “sub-field delimiter” is generally used to separate repetitions of homogenous values.  It is called a “repetition separator” in HL7 Version 2.9.  HL7 and ASTM are both members of ANSI’s HITSP.</p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-normallistalpha v2-indent1440">IEEE P1157 (“MEDIX”).  The MEDIX committee has defined an application-level protocol similar in scope to HL7 but built strictly on the ISO protocol stack, up to and including the Remote Operation Service Element (ROSE).  HL7 varies from this approach by the decision not to depend on ROSE nor use the ASN.1 BER syntax notation.  Despite the difference in approaches, the HL7 Working Group has regular liaison with the MEDIX committee.  The Working Group has devised a format for the HL7 Standard that is relatively independent of the encoding rules chosen and easily translated into the ASN.1 notation.  The transactions defined in this manner should be directly transferable to the MEDIX effort, and transaction messages encoded using the HL7 scheme should be translatable to transactions encoded using the BER.  This should facilitate the creation of gateways between the HL7 and future environments.</p>
+              </li>
+            </ol>
+<p class="v2-normalindented">HL7, IEEE, NCPDP and X12 are ANSI-approved standards developers.</p>
+<div class='v2-composition-section-4-subsections'>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-8'>
+<h2 class='v2'>
+THE SCOPE OF HL7
+</h2>
+<p">It is useful to understand both what HL7 Version 2.9 is and what it is not.  This chapter, up to this point, represents some effort to give the reader an overall understanding of HL7 by looking at purpose, history, and some of its overall features and architecture.  It is also of value to understand the “edges” or limitation of HL7.  HL7 Version 2.9 can, and routinely does, provide a considerable service in everyday use today in thousands of locations and in many different countries, However, there are certainly many areas of healthcare system integration that HL7 does not address or addresses with what may prove to be an inadequate or incomplete solution.</p>
+<p">Many of these topic areas are being worked on today by HL7 and will, hopefully, appear in later versions of this balloted Standard or other HL7 balloted Standards.  Some of these other topics may never be addressed by HL7 because they are being addressed by some other standards body.  Still other areas may never be addressed by HL7 due to a lack of interest, or at least available energy by its members.</p>
+<p">In any case, it is certainly useful for the analyst to understand what these boundaries are and to then either choose to solve them in some other way or to merely ignore them if they are deemed not sufficiently important.  The following features listed in this section may well be best served by the participating applications themselves.  However, it is possible to conceive of an architecture that expects these features to be present in the messaging standard itself.  These potential deficiencies are included to give the reader a complete view.</p>
+<div class='v2-composition-section-2-subsections'>
+<div class='v2-composition-section-3' id='Introduction-8-1'>
+<h3 class='v2'>
+A Complete Solution
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 is not, in itself, a complete systems integration solution.  This issue directly addresses the so-called goal for “plug-and-play.”  There are several barriers in today’s healthcare delivery environment that makes it difficult, if not impossible, for HL7 to create a complete “plug-and-play” solution.  Two of these barriers include: a) the lack of process conformity within healthcare delivery environments and b) the resulting requirement for “negotiation” between users and vendors, between vendors and vendors on behalf of a user provider organization.</p>
+<p class="v2-normalindented">There is little, if any, process conformity within healthcare delivery environments.  As a consequence, healthcare information solutions vendors are required to create very flexible systems with a very wide range of data and process flow options.  HL7 attempts to address the superset of all known process (i.e., trigger event) and data (i.e., segment and field) requirements.  In doing this, it has attempted to be “all things to systems and users.”</p>
+<p class="v2-normalindented">In fact, there is no one user or any system that users would elect to use that would use all that HL7 attempts to offer.  This “excess” of features typically requires some level of “negotiation” to take place between a user and his/her vendors to come up with the set of triggers and data items necessary to affect the solution for the user.  In effect, this creates a unique use of the Standard at that site.  The current version of HL7 has no intrinsic way to tailor a pre-determinable view of the Standard for each possible use.  Future HL7 Standards will likely address this shortcoming.</p>
+<p class="v2-normalindented">A true integrated healthcare information systems solution addresses an integrated database, or at least what appears to be a virtual integrated database.  In fact, however, as a practical matter, information solutions still need to be installed and operated in environments where no other, or only a subset of other, systems are available.  In any case, all systems today are designed and implemented to process using their own local copies of data.</p>
+<p class="v2-normalindented">HL7, to this date, has not attempted to prescribe the architecture, functionality, data elements or data organization of healthcare applications.  Rather, HL7 has attempted to accommodate all application requirements that have been brought to its attention by volunteers willing and able to address them.</p>
+<p class="v2-normalindented">Future HL7 Standards may choose to alter HL7’s historic approach to these issues.  Recent efforts by HL7 and other ANSI Standards Developers to produce Data Meta Models have created a framework that both standards and applications developers can use as a common basis for defining and using both data and data organizations.  Widespread acceptance of these concepts may allow HL7 and other standards groups to be more prescriptive in their approach with a smaller set of choices that must be made when interfaces are implemented.</p>
+<p class="v2-normalindented">For now, however, users should be aware that HL7 Version 2.9 provides a common framework for implementing interfaces between disparate vendors.  In all cases, if an existing application interface is not available, HL7 Version 2.9 reduces (but does not eliminate) the time and cost required to implement an application interface between two or more healthcare information systems.  If a user chooses to implement a set of homogeneous solutions from a single vendor, HL7 Standards are typically not necessary nor even applicable.</p>
+<p class="v2-normalindented">Provider organizations that use HL7 Version 2.x Standards have implemented HL7 Interfaces as their applications architecture has evolved and individual applications were implemented at their institutions. In some cases the interfaces have continued to evolve as applications updates were installed or maybe as tools were added to facilitate the implementation and management of existing and new interfaces. Each time an interface is developed, changed or tested, time and money needs to be expended. For this reason, users rarely modify otherwise “working” interfaces simply because a new version of HL7 Version 2.x has been published unless this also meets a practical local need such as a new application system. For all of these reasons, organizations seldom, if ever, have only “one” version of HL7 Version 2.x in use within their integration infrastructure.</p>
+<p class="v2-normalindented">The usage of multiple versions of HL7 2.x within a single integration infrastructure creates further anomalies that are introduced as the Standard has evolved. While all attempts have been made to maintain “backwards compatibility” it is clearly a goal that cannot be completely achieved. For example, documentation exists within HL7 2.x that, after several years of continued support, we have  retired older data types with newer definitions that support more comprehensive properties including requirements for all countries using HL7.</p>
+<p class="v2-normalindented">User organizations that implemented early versions of HL7 Version 2.x frequently had a need for features that did not exist at that time but were introduced in more recent versions. We recommend that these user organizations make use of HL7 “Z” Segments to create message segments (and in some cases trigger events) to support their requirements. This approach is recommended in the HL7 Version 2.x Standards and it does confine the necessary “customization” to only segments, events and possibly data types that were needed for their then unsupported requirements. However, this has been a further cause of incompatibilities when HL7 has later added triggers, segments and data types to support these same needs in a later version of the 2.x Standards. As we have stated above, it is not usually economically reasonable for organizations to expend the effort to modify their otherwise working interfaces to the newer HL7 Version 2.x Standard.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-2'>
+<h3 class='v2'>
+Protection of Healthcare Information
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 is largely silent about the issues of privacy authentication and confidentiality of data that pass through HL7 messages.  HL7 makes no assumption about the ultimate use of data but rather assumes that both source and destination applications provide for these requirements.  In addition, HL7 does not, at this time, specify what, if any, encryption method should be used when transporting HL7-based messages between two or more systems.  At this time, HL7 implementers should familiarize themselves with legal and professional requirements for these topics specific to their country’s national or local requirements.</p>
+<p class="v2-indent720">However HL7 provides a standardized way of exchanging requirements for restrictions as well as identifying the data affected by privacy law and confidentiality rules. HL7 has developed the HL7 Healthcare Privacy and Security Classification System (HCS), Release 1 (see: http://www.hl7.org/implement/standards/product_brief.cfm?product_id=345).  </p>
+<p class="v2-indent720">In v2.9 this vocabulary can be used in the following segments:</p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+            <li class="v2 v2-li">
+              <p class="v2">Message Header segment (MSH) in chapter 2.14.9</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2">User Access Control segment (UAC) in chapter 2.4.15</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2">Access Restriction segment (ARV) in chapter 3.3.14</p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2">Consent segment (CON) in chapter 9.7.1</p>
+            </li>
+          </ul>
+<p class="v2-indent720">Implementers are encourqaged to make use of these fields in their respective implementation guides.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-3'>
+<h3 class='v2'>
+Department of Defense (DOD) Requirements for Systems Security and Robustness
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not attempt to support U.S. DOD Security Divisions (A, B, C, D) and Classes (1, 2, 3).  If a user requires these features, they will have to define their own structures to support these classifications and insure a uniform implementation across multiple systems in an enterprise.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-4'>
+<h3 class='v2'>
+Enforcement of Organizational Security and Access Control Policies
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9, itself, does not provide for the enforcement of a provider organization’s security and access control policies.  There are no messages specifically defined, at this time, that affect the movement of data based on an organization’s security and access control policies in conjunction with message content information that identifies the users of the message data and the organization’s policies for that user’s authorization to access that data.  In the U.S., systems implementers may want to reference relevant ASTM standards and IOM recommendations on this topic. For links to related HL7 segments see 1.8.2.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-5'>
+<h3 class='v2'>
+Security Classifications (Markings) and User Authentication and Identification
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not, at this time, attempt to address DOD requirement for marking or access control labels that are associated with data objects.  This particular method might be one way of supporting both U.S. IOM and JCAHO recommendations for providing different levels of data confidentiality and authentication of both producers and consumers of confidential data.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-6'>
+<h3 class='v2'>
+Roles and Relationships
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not, in itself, attempt to define or even support the implicit and explicit relationships between persons such as patients, physicians, providers, etc.  It is possible that current data modeling efforts by HL7 and other standards developers will, in the future, result in HL7 assuming this responsibility.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-7'>
+<h3 class='v2'>
+Accountability, Audit Trails and Assigned Responsibility
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not attempt to define typical transaction processing features such as audit trails.  A feature such as an audit trail may well be needed to successfully implement both a robust and security-auditable environment.  This feature could also support verifying that a given action is performed by individuals who are also responsible.  A user may decide that these features are necessary in their integrated environment.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-8'>
+<h3 class='v2'>
+Central, Unified Hardware and Software Controls for Security and Trusted Continuous Protection
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not attempt to support hardware and software security controls, nor does it provide means to insure continuous protection of data from unauthorized changes.  Such a feature may be useful in limiting access to certain types of data to devices and/or users, based on device type or location.  Certain U.S. DOD requirements and IOM recommendations may require users to implement these on their own and/or rely on specific applications vendors to support this requirement.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-9'>
+<h3 class='v2'>
+Uniform Data Definition and Data Architecture
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not include an explicit data model or composite data dictionary.  However, extensive work has taken place within the HL7 Working Group to produce a data model for previous versions of HL7 2.x.  While these models have not been formally balloted, they are available on the HL7 web server.  HL7 does today have a balloted data model. This model is an integral foundation to HL7 Version 3, CDA R2 and other HL7 Standards. HL7 Work Groups made extensive use of the HL7 Data Model when they formulated HL7 Versions 2.5 and 2.5.1 to, as much as possible, align HL7 Version 2.5 and 2.5.1 to the HL7 Data Model.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-10'>
+<h3 class='v2'>
+Controlled Disclosure, Notification of Disclosed Information as Protected and Tracking Exceptions of Protected Health Information
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 is silent on supporting the controlled disclosure of protected health information where HL7 is the vehicle of the disclosure across multiple systems in a healthcare delivery system.  It is also silent on messages that notify a user that requested information is protected and messages to track allowed exceptions that may take place at the discretion of potentially, but not certified, authorized users (e.g., a physician in the emergency room). For links to related HL7 segments see 1.8.2.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-11'>
+<h3 class='v2'>
+Tracking of Corrections, Amendments or Refusals to Correct or Amend Protected Health Information
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not provide messages to support the tracking of corrections, amendments or refusals to correct or amend protected health information.  These messages would support the process to verify, challenge and ultimately correct inaccuracies discovered in protected health information.  Users needing such messages may need to define custom messages to support this requirement.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-12'>
+<h3 class='v2'>
+Disclosure of Disidentified Health Information
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not have specific messages to disclose “disidentified” health information.  Disidentified data is data that does not reveal the identity of the person or care provider(s) (either organizations or individual licensed practitioners or both).  While it may be possible to support this need with existing HL7 messages, it would create an unexpected message with missing required patient identification.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-13'>
+<h3 class='v2'>
+Ensuring and Tracking Data Source Authentication and Non-alterability
+</h3>
+<p class="v2-normalindented">While HL7 Version 2.9 does support an electronic signature for chart completion transactions, it does not, in general, support an electronic signature that is also tied to relevant applications to insure the authentication of the source or arbitrary health data and a prohibition against the alteration of data that has been electronically signed.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-14'>
+<h3 class='v2'>
+Tracking Input Validation
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not provide messages for tracking the validation (or lack of validation) of data from its source (human or machine).</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-15'>
+<h3 class='v2'>
+The Longitudinal Health Record
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9, itself, is silent on the actual logical and physical construction of the patient longitudinal health record.  While it is certainly possible to build the currently-identified major components of such a record using existing HL7 messages, there is no formal attempt on the part of HL7 to define just what the exact message sequence and content should be to describe this record.  Other organizations such as ASTM, CPRI,  the IOM and others have published on this subject.  It is not the intent of HL7, at this time, to formally define message sequences and structures to directly create the longitudinal health record across multiple information systems within (or outside of) a healthcare delivery system.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-16'>
+<h3 class='v2'>
+Integration of the Health Record
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 is silent on messages to support the integration of a patient’s health record across multiple delivery entities (or outside of) a healthcare delivery system.  This would also include messages to insure central control and integrity of information that was “merged” between multiple delivery entities.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-17'>
+<h3 class='v2'>
+Data, Clock Synchrony
+</h3>
+<p class="v2-normalindented">While HL7 Version 2.9 makes significant use of time and date stamped data, it does not support a set of transactions to insure that synchronization of the electronic clocks with the various computer systems of the enterprise’s heterogeneous computing environment has taken place.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-18'>
+<h3 class='v2'>
+Intersystem Database Record Locking and Transaction Processing
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 makes no attempt to provide messages that could support the coordination of database activities across multiple information systems in a heterogeneous computing environment.  Users who want to operate their multiple systems as a distributed database environment must provide their own message support or rely on a database vendor’s facilities (e.g., Oracle, Sybase, etc.).</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-19'>
+<h3 class='v2'>
+Operations, Process and Other “Local” Support
+</h3>
+<p class="v2-normalindented">As stated in Section 1.8.2, “Protection of Healthcare Information,” above, process and operations variations are a primary barrier to HL7 providing a complete solution.  Serious attempts are being made to give HL7 the ability to support operations and process variability in a future revision.  At this time, however, (Version 2.9), operations and process variability is a major reason why HL7 is implemented in a slightly different form at each and every site.  This includes issues such as business and clinical practice rules, clinical and operation processes, staging and continuity of process steps, protocols, resource/utilization requirements, quality assurance requirements, cost management, comprehensive master file and code tables, etc.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-20'>
+<h3 class='v2'>
+Interface Engines
+</h3>
+<p class="v2-normalindented">The so-called interface engine has grown into a popular implementation and operation tool for HL7 and other message-based interfaces over the last several years.  Interface engines, per se, however, are not an a priori consideration in the design of HL7.  HL7 makes no assumption about the existence of an interface engine at a particular HL7 site.  Hence, there also are no defined HL7 messages to directly communicate with and control the operations of interface engines.  This might be of particular use when the interface engine assumes an applications architecture role as a dynamic filter and arbitrator of information based on dynamic rules defined by delivery systems.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-21'>
+<h3 class='v2'>
+Rules Engines
+</h3>
+<p class="v2-normalindented">As a close practical application of an interface engine in the topology of healthcare interfaces, rules engines are becoming increasingly popular.  HL7 does not have, at this time, specific messages to define and control the rules that might be dynamically associated with a rules engine.  These might include, but are not limited to: create and modify patient therapeutic or diagnostic protocols; activate clinical or operational processes (e.g., conditional orders, critical paths, etc.); cancel or hold active clinical processes; and, notify appropriate users of a state or condition.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-22'>
+<h3 class='v2'>
+Infrastructure Based Applications
+</h3>
+<p class="v2-normalindented">A number of applications and information delivery methods exist within the healthcare delivery environment that can be closely identified with the “infrastructure” that ties together disparate systems.  These applications include, but are not limited to:</p>
+<ul class="v2-list v2-none-list v2-normallist" style="list-style: none">
+            <li class="v2 v2-li">
+              <p class="v2 v2-normallist v2-indent1440">Robust and Integrated Scheduling<br></br>Point of Service Support<br></br>Prompts Alerts and Reminders<br></br>Concurrent Data Surveillance, Metrics and Analysis<br></br>Concurrent Decision Support<br></br>Outcome Tracking<br></br>Tracking of Patient (i.e., customer) Expectation and Satisfaction<br></br>Problem Lists</p>
+            </li>
+          </ul>
+<p class="v2-normalindented">These, and probably others, could be well served by the use of healthcare data during and very close to the action of transferring information between healthcare information systems.  HL7, at this time, has very little or no message functionality that directly supports these uses of healthcare data.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-8-23'>
+<h3 class='v2'>
+Support for Secondary Clinical Records
+</h3>
+<p class="v2-normalindented">HL7 Version 2.9 does not provide specific messages to support partial replication (i.e., extraction and subsequent merger) of a patient’s demographic and clinical records.  This process has been identified by the IOM, JCAHO and others as an emerging requirement for the maintenance and practical use of an electronic health record system.  HL7 may provide more explicit support for this concept in the future as organizations such as ASTM and CPRI develop specific definitions and requirements for this functional activity and healthcare vendors start to include this type of functionality within their individual clinical record solutions offerings.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-9'>
+<h2 class='v2'>
+REFERENCE DOCUMENTS
+</h2>
+
+<div class='v2-composition-section-2-subsections'>
+<div class='v2-composition-section-3' id='Introduction-9-1'>
+<h3 class='v2'>
+ANSI Standards
+</h3>
+<table class="" style="width: 94%; ">
+            <colgroup>
+              <col span="1" style="width: 20.57%;"></col>
+              <col span="1" style="width: 79.42%;"></col>
+            </colgroup>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ANSI X3.30</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2 v2-normalindented">1985 Representation for calendar date and ordinal date</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ANSI X3.4</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2 v2-normalindented">1986 Coded character sets - American National Standard code for information interchange (7-bit ASCII)</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ANSI X3.43</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2 v2-normalindented">1986 Information systems representation of local time of day for information interchange</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ANSI X3.50</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2 v2-normalindented">1986 Representations for U.S. customary, SI, and other units to be used in systems with limited character sets</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ANSI X3.51</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2 v2-normalindented">1986 Representations of universal time, local time differentials, and United States time zone references for information interchange</p>
+              </td>
+            </tr>
+          </table>
+<br class=""></br>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-9-2'>
+<h3 class='v2'>
+ISO Standards
+</h3>
+<table class="" style="width: 94%; ">
+            <colgroup>
+              <col span="1" style="width: 20.57%;"></col>
+              <col span="1" style="width: 79.42%;"></col>
+            </colgroup>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 5218</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1977 Information Interchange-Representation of Human Sexes</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 1000</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1981 SI Units and Recommendations for the use of their multiples and of certain other units</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 2955</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1983 Information processing-Representation of SI and other units in systems with limited character sets</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8072</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1986 Network Standards</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8601</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Data elements and interchange formats - information interchange (representation of dates and times)</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing- 8-bit single-byte coded graphic character sets</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/1</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin Alphabet No. 1</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/2</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin Alphabet No. 2</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/3</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin Alphabet No. 3</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/4</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin Alphabet No. 4</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/5</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin/Cyrillic Alphabet</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/6</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin/Arabic Alphabet</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/7</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin/Greek Alphabet</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/8</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin/Hebrew Alphabet</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ISO 8859/9</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">1988 Information Processing-Latin Alphabet No. 5 </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">JAS2020</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">A subset of ISO2020 used for most Kanji transmissions</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">JIS X 0202</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">ISO 2022 with escape sequences for Kanji</p>
+              </td>
+            </tr>
+          </table>
+<br class=""></br>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-9-3'>
+<h3 class='v2'>
+Codes and Terminology Sources
+</h3>
+<table class="" style="width: 94%; ">
+            <colgroup>
+              <col span="1" style="width: 20.57%;"></col>
+              <col span="1" style="width: 79.42%;"></col>
+            </colgroup>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ACR</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Index for Radiological Diagnosis, Revised 3rd Edition</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">CPT4</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Current Procedural Terminology</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">CAS</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">USAN 1990 and the USP dictionary of drug names<span id="chapter-1-footnote-reference-4"><a href="#chapter-1-footnote-4"><sup>4</sup></a></span> </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">EUCLIDES</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">European standard for clinical laboratory data exchange<span id="chapter-1-footnote-reference-5"><a href="#chapter-1-footnote-5"><sup>5</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">Home Health</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Home Healthcare Classification System (Virginia Saba, EdD, RN, Georgetown U. School of Nursing, Washington DC)</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">HIBCC</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Standard for electronic business data interchange</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ICCS</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Commission on Professional and Hospital Activities</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ICD-9</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">International Classification of Diseases, 9th Revision</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">ICD9-CM</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">International Classification of Diseases, Clinical Modification Manual of Clinical Microbiology<span id="chapter-1-footnote-reference-6"><a href="#chapter-1-footnote-6"><sup>6</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">NANDA</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">North American Nursing Diagnosis Association, Philadelphia PA</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">NDC</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">National drug codes<span id="chapter-1-footnote-reference-7"><a href="#chapter-1-footnote-7"><sup>7</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">NIC</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Nursing Interventions Classification, Iowa Intervention Project.  U. of Iowa</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">NLM</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Unified Medical Language<span id="chapter-1-footnote-reference-8"><a href="#chapter-1-footnote-8"><sup>8</sup></a></span> </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">Omaha System</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Omaha Visiting Nurse Association, Omaha NE</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">Read</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Clinical Classification of Medicine<span id="chapter-1-footnote-reference-9"><a href="#chapter-1-footnote-9"><sup>9</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">SNOMED CT</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Systemized Nomenclature of Medicine<span id="chapter-1-footnote-reference-10"><a href="#chapter-1-footnote-10"><sup>10</sup></a></span> - Clinical Terms (available at <a href="http://www.snomed.org">www.snomed.org</a>)</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">WHO</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Drug Codes<span id="chapter-1-footnote-reference-11"><a href="#chapter-1-footnote-11"><sup>11</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">UMDNS</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Universal Medical Device Nomenclature System<span id="chapter-1-footnote-reference-12"><a href="#chapter-1-footnote-12"><sup>12</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">FDA K10</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Device Codes  Device and analyte process codes<span id="chapter-1-footnote-reference-13"><a href="#chapter-1-footnote-13"><sup>13</sup></a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:20.57%; ">
+                <p class="v2">LOINC</p>
+              </td>
+              <td style="width:79.42%; ">
+                <p class="v2">Logical Observation Identifiers Names and Codes (available at <a href="http://www.loinc.org">www.loinc.org</a>) </p>
+              </td>
+            </tr>
+          </table>
+<br class=""></br>
+<p class="v2-footnotetext">[4]     William M. Heller, Ph.D., Executive Editor.   Available from United States Pharmacopeial Convention, Inc., 12601 Twinbrook Parkway, Rockville, MD  20852-1790.  </p>
+<p class="v2-footnotetext">[5]     Available from G. De Moor, M.D., Dept. of Medical Informatics 5K3, State University Hospital Gent, De Pintelaan 185, B 9000 GENT, BELGIUM.</p>
+<p class="v2-footnotetext">[6]     Available from American Society for Microbiology, 1752 N Street, NW, Washington, D.C. 20036-2904. </p>
+<p class="v2-footnotetext">[7]     Available from the National Drug Code Directory, FDA, 5600 Fishers Lane, Rockville, MD 20857, and other sources.</p>
+<p class="v2-footnotetext">[8]     Available from National Library of Medicine, 8600 Rockville Pike, Bethesda, MD  20894.</p>
+<p class="v2-footnotetext">[9]      Available from James D. Read, MB, ChB, DRCOG, MRCGP, General Medical Practitioner, Park View Surgery, 26-28 Leicester Rd., Loughborough, Leicestershire LE11 2AG.</p>
+<p class="v2-footnotetext">[10]     Available from www.snomed.org</p>
+<p class="v2-footnotetext">[11]     Available from INTDIS, P O Box 26, S-751 03 Uppsele, Sweden.</p>
+<p class="v2-footnotetext">[12]     Available from ECRI, 5200 Butler Pike, Plymouth Meeting, PA 19462-1298.</p>
+<p class="v2-footnotetext">[13]     Available from Dept. of Health & Human Services, FDA, Rockville, MD 20857.</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+<div class='v2-composition-section-3' id='Introduction-9-4'>
+<h3 class='v2'>
+Other Applicable Documents
+</h3>
+<p class="v2-normalindented">ASTM E31.12 Draft Dec 1990 - A Standard Specification for Representing Clinical Laboratory Test and Analyte Names Draft14    </p>
+<p class="v2-normalindented">ASTM E1467-91 Standard Specification for Transferring Digital Neurophysiological Data Between Independent Computer Systems15</p>
+<p class="v2-normalindented">ASTM E1394 A Standard Specification for Transferring Information Between Clinical Instruments and Computer Systems16</p>
+<p class="v2-normalindented">ASTM E1381 Standard Specification for the Low-level Protocol to Transfer Messages between Clinical Instruments and Computer Systems17</p>
+<p class="v2-normalindented">McDonald CJ, Hammond WE: Standard formats for electronic transfer of clinical data. Annals of Internal Medicine 1989; 110(5):333-335.</p>
+<p class="v2-normalindented">International Union of Pure and Applied Chemistry/International Federation of Clinical Chemistry.  The Silver Book: Compendium of terminology and nomenclature of properties in clinical laboratory sciences. Oxford: Blackwell Scientific Publishers, 1995.</p>
+<p class="v2-normalindented">LOINC Committee. Logical Observation Identifier Names and Codes. Indianapolis: Regenstrief Institute and LOINC Committee, 1995. c/o Kathy Hutchins, 1001 West 10th Street RG-5, Indianapolis, IN 46202. 317-630-7433. Available via the World Wide Web (https://loinc.org)</p>
+<p class="v2-normalindented">Forrey AF, McDonald CJ, DeMoor G, Huff SM, Leavelle D, Leleand D et al.  Logical Observation Identifier Names and Codes (LOINC) database, A public use set of codes and names for electronic reporting of clinical laboratory test results. Clin Chem 1996; 42:81-90.</p>
+<p class="v2-normalindented">UB-92 National Uniform Billing Data Element Specifications as developed by the National Uniform Billing Committee, November 5, 1997.  National Uniform Billing Data Element Specifications as adopted by the Florida State Health Claims Review Committee, 2nd Revision, December 19, 1993.</p>
+<p class="v2-normalindented">UB-82 Recommended Billing Instructions.</p>
+<p class="v2-footnotetext">[14]     Available from Arden Forrey, Ph.D., 4916 Purdue Ave., NE, Seattle, WA 98105.</p>
+<p class="v2-footnotetext">[15]     Available from American Society for Testing and Materials (ASTM) 100 Barr Harbor Drive, PO Box C700, West Conshohocken, PA, 19428-2959.  </p>
+<p class="v2-footnotetext">[16]     Available from American Society for Testing and Materials (ASTM) 100 Barr Harbor Drive, PO Box C700, West Conshohocken, PA, 19428-2959.</p>
+<p class="v2-footnotetext">[17]     Available from American Society for Testing and Materials (ASTM) 1916 Race St., Philadelphia, PA 19103-1187</p>
+<div class='v2-composition-section-3-subsections'>
+</div>
+</div>
+
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-10'>
+<h2 class='v2'>
+TECHNICAL EDITORS
+</h2>
+<p">The updates reflected in HL7 V2.9, were edited for technical content by:</p>
+<table class="" style="width: 100%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+          <colgroup>
+            <col span="1" style="width: 35.90%;"></col>
+            <col span="1" style="width: 33.83%;"></col>
+            <col span="1" style="width: 30.26%;"></col>
+          </colgroup>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:35.90%; ">
+              <p class="v2 v2-othertablebody"><strong>Hans Buitendijk<br></br>Cerner Corporation<br></br></strong>Malvern, PS<br></br>email:  <a href="Hans.Buitendijk@Cerner.com">Hans.Buitendijk@Cerner.com</a></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.83%; ">
+              <p class="v2 v2-othertablebody">
+                <strong>Freida Hall </strong>
+              </p>
+              <p class="v2 v2-othertablebody">
+                <strong>Quest Diagnostics</strong>
+              </p>
+              <p class="v2 v2-othertablebody">West Norrington, PA</p>
+              <p class="v2 v2-othertablebody">email: <a href="Freida.X.Hall@QuestDiagnostics.com">Freida.X.Hall@QuestDiagnostics.com</a></p>
+              <p class="v2 v2-othertablebody"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.26%; ">
+              <p class="v2 v2-othertablebody">
+                <strong>Lynn Laakso</strong>
+              </p>
+              <p class="v2 v2-othertablebody">
+                <strong>HL7</strong>
+              </p>
+              <p class="v2 v2-othertablebody">Ann Arbor, MI</p>
+              <p class="v2 v2-othertablebody">email: Lynn@Hl7.org</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:35.90%; ">
+              <p class="v2 v2-othertablebody">
+                <strong>Ken McCaslin<br></br>Accenture</strong>
+              </p>
+              <p class="v2 v2-othertablebody">Devon, PA</p>
+              <p class="v2 v2-othertablebody">email:<a href="H.Kenneth.McCaslin@accenture.com">H.Kenneth.McCaslin@accenture.com</a></p>
+              <p class="v2 v2-othertablebody">
+                <strong> </strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:33.83%; ">
+              <p class="v2 v2-othertablebody">
+                <strong>Riki Merrick</strong>
+              </p>
+              <p class="v2 v2-othertablebody">
+                <strong>Vernetzt, LLC</strong>
+              </p>
+              <p class="v2 v2-othertablebody">Wilton, CA</p>
+              <p class="v2 v2-othertablebody">email: <a href="rikimerrick@gmail.com">rikimerrick@gmail.com</a></p>
+              <p class="v2 v2-othertablebody"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.26%; ">
+              <p class="v2 v2-othertablebody">
+                <strong>Frank Oemig</strong>
+              </p>
+              <p class="v2 v2-othertablebody">
+                <strong>Deutsche Telekom Healthcare and Security Solutions GmbH, HL7 Germany</strong>
+              </p>
+              <p class="v2 v2-othertablebody">Essen, Germany</p>
+              <p class="v2 v2-othertablebody">email: <a href="hl7@oemig.de">hl7@oemig.de</a> </p>
+            </td>
+          </tr>
+        </table>
+<br class=""></br>
+<p">For a list of editors of the chapters in V2.9, please see the individual chapter’s front page.</p>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-11'>
+<h2 class='v2'>
+SUGGESTIONS AND COMMENTS
+</h2>
+<p">The HL7 Working Group welcomes comments and suggestions for improving the Standard.  The Working Group is also open to new membership.  Both feedback on the Standard and interest in membership should be sent to:</p>
+<table class="" style="width: 100%; ">
+          <colgroup>
+            <col span="1" style="width: 33.33%;"></col>
+            <col span="1" style="width: 33.33%;"></col>
+            <col span="1" style="width: 33.33%;"></col>
+          </colgroup>
+          <tr>
+            <td style="width:33.33%; ">
+              <p class="v2 v2-othertablebody"><strong>Karen Van Hentenryck<br></br></strong>Associate Executive Director<br></br>Health Level Seven<br></br>3300 Washtenaw Avenue, Suite 227<br></br>Ann Arbor, MI  48104-4261<br></br>Phone: (734) 677-7777<br></br>Fax:  (734) 677-6622<br></br>email: <a href="hq@hl7.org">hq@hl7.org</a></p>
+            </td>
+            <td style="width:33.33%; ">
+              <p class="v2 v2-othertablebody"><strong>Calvin Beebe<br></br></strong>Chair, HL7 Board of Directors<br></br>Health Level Seven, International</p>
+              <p class="v2 v2-othertablebody">Phone:  507-261-0691</p>
+              <p class="v2 v2-othertablebody">email: <a href="cbeebe@mayo.edu">cbeebe@mayo.edu</a></p>
+            </td>
+            <td style="width:33.33%; ">
+              <p class="v2 v2-othertablebody"><strong>Wayne Kubick<br></br></strong>Chief Technical Officer<br></br>Health Level Seven, International <br></br>Phone:  (847)842-1846<br></br>email: <a href="wkubick@HL7.org">wkubick@HL7.org</a></p>
+            </td>
+          </tr>
+        </table>
+<br class=""></br>
+<p"></p>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+<div class='v2-composition-section-2' id='Introduction-12'>
+<h2 class='v2'>
+Errata
+</h2>
+<p">The item below constitutes the know errata at the time of publication.  Users of the standard are advised to refer to the HL7 web site (www.HL7.org) for a current Errata listing.</p>
+<p class="v2-normalindented v2-indent0">Issue: Use of "etc." in various segment choices</p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Resolution:  The "etc." is used as a placeholder for various choice alternatives that may be represented in the abstract message syntax (AMS).  "Etc." should be interpreted as meaning any segment can be used in this location; that is, "etc." does not limit your choice of segment or segment groups, except for MSH and other transmission control segments.  In the future, explanation will be added to Chapter 2, section 12 proposing the use of "Hxx" as a formal representation in circumstance where a choice of any segment or segment group is allowed.</p>
+          </li>
+        </ul>
+<p class="v2-normalindented v2-indent0">Issue: Use of Opening and Closing Angle Brackets around Segment Groups</p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Resolution:  In the standard, we have named required and non-repeating segment groups.  The standard uses opening and closing angle brackets to delineate these segment groups.  This is used to indicate that you have a choice of "one of one" in these representations, effectively making them required, named segments.  This formalism allows for a better representation of the standard in languages such as XML and solves the problem of attaching a name to a group.</p>
+          </li>
+        </ul>
+<p class="v2-normalindented v2-indent0">Issue: Incorrect Element Definition for REL-12 Negation Indicator in Chapter 12, Section 12.4.5.12</p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Currently the definition for this element reads "This field contains the date range relevant to the assertion of the relationship."  However, this is incorrect.  The correct definition should read "This field, if populated and set to true, indicates that the given relationship is not true or does not exist."</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Resolution: As this change is substantive, a proposal to formally change the definition will be brought forward in Version 2.9.  Until this correction can be made, users of the standard are advised to consider the alternate definition above when using this element. </p>
+          </li>
+        </ul>
+<p class="v2-normalindented v2-indent0">Issue:  Ambiguous Use of CWE Data Type in Element Definition for TCC-15 Test Criticality in Chapter 13, Section 13.4.9.15 </p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Currently the definition for this element indicates that a CWE data type is used; however, the definition also advises that the element can be populated with "a sequential number of the test sorted according to the criticality assigned by the lab".  In general practice, the CWE data type references a table of assigned values, recognizing that those values are often assigned by the user.   It is expected that the definition for this element will be reviewed and revised with the next release.  </p>
+          </li>
+        </ul>
+<p class="v2-normalindented v2-indent0">Additional Issues Carried Forward from Version 2.7 </p>
+<ul class="v2-list v2-disc-list v2-disc" style="list-style: disc">
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">Implementers of the standard should be aware that the length of MSA-2 Message Control ID in the Message Acknowledgement Segment (Chapter 2, section 2.14.8.2) is incorrectly identified as 20.  This is out of alignment with MSH-10 Message Control ID in the Message Header Segment (Chapter 2, section 2.14.9.10) which has a length of 199.  The correct length of MSA-2 Message Control ID should be 199 in order to bring it in to synchrony with MSH-10.</p>
+          </li>
+          <li class="v2 v2-li">
+            <p class="v2 v2-normalindented">HL7 International has discovered a backwards compatibility issue in Versions 2.6 and 2.7 related to the fields provided in the table below. Each of these fields is a telephone number, is of XTN data type and is repeating. The &lt;preference order&gt; component was added to the XTN data type in Version 2.6 to allow for an entity having multiple telecommunication addresses to indicate which is the "most preferred" (lowest number) to "least preferred" (highest number).  In addition, the new XTN data type allows entry of more than telephone number (e.g., email address). <br></br><br></br>To be fully backwards compatible the following fields, shall:</p>
+            <ul class="v2 v2-list v2-sublist v2-disc-list v2-disc" style="list-style: disc">
+              <li class="v2 v2-li">
+                <p class="v2 v2-normalindented">Be populated with data that is consistent with the field usage as described in the text (i.e., the business phone number field must identify business phone as the most preferred phone number)</p>
+              </li>
+              <li class="v2 v2-li">
+                <p class="v2 v2-normalindented">Include only phone numbers; other information such as email addresses shall not be entered. </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+<table class="" style="width: 100%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+          <colgroup>
+            <col span="1" style="width: 4.22%;"></col>
+            <col span="1" style="width: 10.22%;"></col>
+            <col span="1" style="width: 9.50%;"></col>
+            <col span="1" style="width: 16.94%;"></col>
+            <col span="1" style="width: 15.96%;"></col>
+            <col span="1" style="width: 43.13%;"></col>
+          </colgroup>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:4.22%; ">
+              <p class="v2 centered">
+                <strong>#</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.22%; ">
+              <p class="v2 centered">
+                <strong>Version</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:9.50%; ">
+              <p class="v2 centered">
+                <strong>Section</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.94%; ">
+              <p class="v2">
+                <strong>Field to be Correction</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.96%; ">
+              <p class="v2 centered">
+                <strong>Item # in V2 <br></br>Online DB</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:43.13%; ">
+              <p class="v2 centered">
+                <strong>Type of Correction</strong>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:4.22%; ">
+              <p class="v2 centered">
+                <strong>1</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.22%; ">
+              <p class="v2 centered">
+                <strong>2.6 - 2.9</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:9.50%; ">
+              <p class="v2 centered">3.4.5.5</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.94%; ">
+              <p class="v2">NK1-5 - Phone Number </p>
+              <p class="v2"></p>
+              <p class="v2"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.96%; ">
+              <p class="v2 centered">00194</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:43.13%; ">
+              <p class="v2">Phone number must be set to 1 for &lt;preference order&gt; component.  </p>
+              <p class="v2">To maintain backwards compatibility for V2.6 and V2.7, this field shall send only telephone number.  Non-telephone number data such as email addresses shall not be sent via this field.</p>
+              <p class="v2">In V2.9, NK1-5, NK1-6 and NK1-31 will be deprecated in favor of NK1-40- and NK1-41.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:4.22%; ">
+              <p class="v2 centered">
+                <strong>2</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.22%; ">
+              <p class="v2 centered">
+                <strong>2.6 - 2.9</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:9.50%; ">
+              <p class="v2 centered">3.4.5.6</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.94%; ">
+              <p class="v2">NK1-6 - Business Phone Number </p>
+              <p class="v2"></p>
+              <p class="v2"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.96%; ">
+              <p class="v2 centered">00195</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:43.13%; ">
+              <p class="v2">Business phone number must be set to 1 for &lt;preference order&gt; component.  </p>
+              <p class="v2">To maintain backwards compatibility for V2.6 and V2.7, this field shall send only telephone number.  Non-telephone number data such as email addresses shall not be sent via this field.</p>
+              <p class="v2">In V2.9, NK1-5, NK1-6 and NK1-31 will be deprecated in favor of NK1-40- and NK1-41.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:4.22%; ">
+              <p class="v2 centered">
+                <strong>3</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.22%; ">
+              <p class="v2 centered">
+                <strong>2.6 - 2.9</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:9.50%; ">
+              <p class="v2 centered">3.4.5.31</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.94%; ">
+              <p class="v2">NK1-31 - Contact Person's Telephone Number</p>
+              <p class="v2"></p>
+              <p class="v2"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.96%; ">
+              <p class="v2 centered">00749</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:43.13%; ">
+              <p class="v2">Phone number must be set to 1 for &lt;preference order&gt; component.  </p>
+              <p class="v2">To maintain backwards compatibility for V2.6 and V2.7, this field shall send only telephone number.  Non-telephone number data such as email addresses shall not be sent via this field.</p>
+              <p class="v2">In V2.9, NK1-5, NK1-6 and NK1-31 will be deprecated in favor of NK1-40- and NK1-41.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:4.22%; ">
+              <p class="v2 centered">
+                <strong>4</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.22%; ">
+              <p class="v2 centered">
+                <strong>2.6 - 2.9</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:9.50%; ">
+              <p class="v2 centered">3.4.2.14</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.94%; ">
+              <p class="v2">PID-14 - Phone Number – Business</p>
+              <p class="v2"></p>
+              <p class="v2"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.96%; ">
+              <p class="v2 centered">00117</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:43.13%; ">
+              <p class="v2">Business phone number must be set to 1 for &lt;preference order&gt; component.  </p>
+              <p class="v2">To maintain backwards compatibility for V2.6 and V2.7, this field shall send only telephone number.  Non-telephone number data such as email addresses shall not be sent via this field.</p>
+              <p class="v2">In V2.9, PID-13 and PID-14 will be deprecated in favor of PID-40.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:4.22%; ">
+              <p class="v2 centered">
+                <strong>5</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:10.22%; ">
+              <p class="v2 centered">
+                <strong>2.6 - 2.9</strong>
+              </p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:9.50%; ">
+              <p class="v2 centered">3.4.2.13</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:16.94%; ">
+              <p class="v2">PID-13 - Phone Number – Home</p>
+              <p class="v2"></p>
+              <p class="v2"></p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:15.96%; ">
+              <p class="v2 centered">00116</p>
+            </td>
+            <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:43.13%; ">
+              <p class="v2">Phone number must be set to 1 for &lt;preference order&gt; component.  </p>
+              <p class="v2">To maintain backwards compatibility for V2.6 and V2.7, this field shall send only telephone number.  Non-telephone number data such as email addresses shall not be sent via this field.</p>
+              <p class="v2">In V2.9, PID-13 and PID-14 will be deprecated in favor of PID-40.</p>
+            </td>
+          </tr>
+        </table>
+<br class=""></br>
+<p">hiddentext</p>
+<p"></p>
+<div class='v2-composition-section-2-subsections'>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+ITM - Material Item Segment
+</h3>
+<p class="v2 v2-normalindented">The Material Item segment (ITM) contains information about inventory supply items (stocked or non-stocked). </p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - ITM - Material Item Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+ITM
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Item Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#ITM-1'>
+02186
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Item Description
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-2'>
+02274
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+999
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Item Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0776-Item-Status.html' title='Item Status(Suggested)'>
+0776(S)
+<span class='vocab-link-text'>Item Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-3'>
+02187
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Item Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0778-Item-Type.html' title='Item Type'>
+0778
+<span class='vocab-link-text'>Item Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-4'>
+02188
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Item Category
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-5'>
+02189
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Subject to Expiration Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-6'>
+02190
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Manufacturer Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-7'>
+02191
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Manufacturer Name
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-8'>
+02275
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+999
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Manufacturer Catalog Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-9'>
+02192
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Manufacturer Labeler Identification Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-10'>
+02193
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Patient Chargeable Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-11'>
+02070
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Transaction Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0132-Transaction-Code.html' title='Transaction Code'>
+0132
+<span class='vocab-link-text'>Transaction Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-12'>
+00361
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Transaction Amount - Unit
+</td>
+<td class='centered'>
+<a href='/data-type/CP.html'>
+CP
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-13'>
+00366
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Stocked Item Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-14'>
+02197
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Supply Risk Codes
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0871-Supply-Risk-Codes.html' title='Supply Risk Codes'>
+0871
+<span class='vocab-link-text'>Supply Risk Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-15'>
+02266
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Approving Regulatory Agency
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0790-Approving-Regulatory-Agency.html' title='Approving Regulatory Agency'>
+0790
+<span class='vocab-link-text'>Approving Regulatory Agency</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ITM-16'>
+02199
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Latex Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-17'>
+02200
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Ruling Act
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0793-Ruling-Act.html' title='Ruling Act'>
+0793
+<span class='vocab-link-text'>Ruling Act</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ITM-18'>
+02201
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Item Natural Account Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0320-Item-Natural-Account-Code.html' title='Item Natural Account Code'>
+0320
+<span class='vocab-link-text'>Item Natural Account Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-19'>
+00282
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Approved To Buy Quantity
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-20'>
+02203
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+6
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Approved To Buy Price
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-21'>
+02204
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Taxable Item Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-22'>
+02205
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Freight Charge Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-23'>
+02206
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Item Set Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-24'>
+02207
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Item Set Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-25'>
+02208
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Track Department Usage Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-26'>
+02209
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Procedure Code
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-27'>
+00393
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Procedure Code Modifier
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#ITM-28'>
+01316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Special Handling Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0376-Special-Handling-Code.html' title='Special Handling Code(Suggested)'>
+0376(S)
+<span class='vocab-link-text'>Special Handling Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-29'>
+01370
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Hazardous Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-30'>
+03388
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Sterile Indicator
+</td>
+<td class='centered'>
+<a href='/data-type/CNE.html'>
+CNE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0532-Expanded-Yes/no-Indicator.html' title='Expanded Yes/no Indicator(Required)'>
+0532(R)
+<span class='vocab-link-text'>Expanded Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-31'>
+03304
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Material Data Safety Sheet Number
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-32'>
+03305
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+United Nations Standard Products and Services Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0396-Coding-System.html' title='Coding System(Required)'>
+0396(R)
+<span class='vocab-link-text'>Coding System(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-33'>
+03306
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+Contract Date
+</td>
+<td class='centered'>
+<a href='/data-type/DR.html'>
+DR
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-34'>
+02415
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+Manufacturer Contact Name
+</td>
+<td class='centered'>
+<a href='/data-type/XPN.html'>
+XPN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-35'>
+02416
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+Manufacturer Contact Information
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-36'>
+02417
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+Class of Trade
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-37'>
+02418
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+38
+</td>
+<td>
+Field Level Event Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0180-Record-level-Event-Code.html' title='Record-level Event Code(Required)'>
+0180(R)
+<span class='vocab-link-text'>Record-level Event Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#ITM-38'>
+02419
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='ITM-1'>
+ITM-1: Item Identifier (<a href='/data-type/EI.html'>EI</a>) 02186
+</h4>
+<p class="v2 v2-normalindented">Definition: The Item Identifier is a unique code assigned to the material item by the Item Inventory Master catalog software application to identify the item.</p>
+
+<h4 class='v2' id='ITM-2'>
+ITM-2: Item Description (<a href='/data-type/ST.html'>ST</a>) 02274
+</h4>
+<p class="v2 v2-normalindented">Definition: The Item Description is a description of the material item identified in ITM-1.</p>
+
+<h4 class='v2' id='ITM-3'>
+ITM-3: Item Status (<a href='/data-type/CWE.html'>CWE</a>) 02187
+</h4>
+<p class="v2 v2-normalindented">Definition: The status (useful for reporting and item usage purposes) that applies to an item.  Refer to <a href="https://www.hl7.org/fhir/v2/0776/index.html">User-defined Table 0776 – Item Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='ITM-4'>
+ITM-4: Item Type (<a href='/data-type/CWE.html'>CWE</a>) 02188
+</h4>
+<p class="v2 v2-normalindented">Definition: The Item Type is a classification of material items into like groups as defined and utilized within an Operating Room setting for charting procedures.  An Item Type is a higher level of classification than an Item Category as described in ITM-4.  Refer to <a href="https://www.hl7.org/fhir/v2/0778/index.html">User-defined Table 0778 – Item Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='ITM-5'>
+ITM-5: Item Category (<a href='/data-type/CWE.html'>CWE</a>) 02189
+</h4>
+<p class="v2 v2-normalindented">Definition: The Item Category is a classification of material items into like groups for the purpose of categorizing purchases and reporting within a materials management setting. The Item Category classification is a lower level grouping of material items than what is described in ITM-3 as Item Type.  UNSPSC is the recommended coding system.</p>
+
+<h4 class='v2' id='ITM-6'>
+ITM-6: Subject to Expiration Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02190
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator used as a reference to specify whether the item is subject to containing an expiration date.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-7'>
+ITM-7: Manufacturer Identifier (<a href='/data-type/EI.html'>EI</a>) 02191
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the identifying code of the manufacturer of the item.  </p>
+
+<h4 class='v2' id='ITM-8'>
+ITM-8: Manufacturer Name (<a href='/data-type/ST.html'>ST</a>) 02275
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the name of the manufacturer of the manufacturer identified in ITM-7.  </p>
+
+<h4 class='v2' id='ITM-9'>
+ITM-9: Manufacturer Catalog Number (<a href='/data-type/ST.html'>ST</a>) 02192
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the catalog assigned to the item by the manufacturer.</p>
+
+<h4 class='v2' id='ITM-10'>
+ITM-10: Manufacturer Labeler Identification Code (<a href='/data-type/CWE.html'>CWE</a>) 02193
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the Labeler Identification Code (LIC) number assigned to the manufacturer that represents the manufacturer of the item.</p>
+
+<h4 class='v2' id='ITM-11'>
+ITM-11: Patient Chargeable Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02070
+</h4>
+<p class="v2 v2-normalindented">Definition: This field indicates whether the item is patient chargeable.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-12'>
+ITM-12: Transaction Code (<a href='/data-type/CWE.html'>CWE</a>) 00361
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the code assigned by the institution for the purpose of uniquely identifying a patient billing code specific for a supply item.  In the context of this message, this is a code that is a cross-reference to the Item Code/Id.  This field would be used to uniquely identify a procedure, supply item, or test for charges; or to identify the payment medium for payments. It can reference, for example, a CBC (a lab charge), or an Elastic Bandage 3&#39;&#39; (supply charge), or Chest 1 View (radiology charge).   For instance the code would be 300-0001, with a description of CBC.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 - Transaction Code</a> in Chapter 2C, Code Tables, for suggested values.  See Chapter 7 for a discussion of the universal service ID for charges.</p>
+
+<h4 class='v2' id='ITM-13'>
+ITM-13: Transaction Amount - Unit (<a href='/data-type/CP.html'>CP</a>) 00366
+</h4>
+<p class="v2 v2-normalindented">Definition: Unit price of transaction. Price of a single item. This field contains the dollar amount charged to patients for this item.</p>
+
+<h4 class='v2' id='ITM-14'>
+ITM-14: Stocked Item Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02197
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the item is stocked in any inventory location in the healthcare organization. Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-15'>
+ITM-15: Supply Risk Codes (<a href='/data-type/CWE.html'>CWE</a>) 02266
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a code that identifies any known or suspected hazard associated with this material item.  Refer to <a href="https://www.hl7.org/fhir/v2/0871/index.html">User-defined Table 0871 – Supply Risk Code</a><a href="s">s</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+
+<h4 class='v2' id='ITM-16'>
+ITM-16: Approving Regulatory Agency (<a href='/data-type/XON.html'>XON</a>) 02199
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a code indicating the regulatory agency the item has been approved by, such as the FDA or AMA.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0790/index.html">User-defined Table 0790 – Approving Regulatory Agency</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+
+<h4 class='v2' id='ITM-17'>
+ITM-17: Latex Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02200
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the item is made of or contains latex.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-18'>
+ITM-18: Ruling Act (<a href='/data-type/CWE.html'>CWE</a>) 02201
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains a code indicating an act containing a rule that the item is legally required to be included in notification reporting.  This code is often used for reporting or tracking.  Refer to <a href="https://www.hl7.org/fhir/v2/0793/index.html">User-defined Table 0793 – Ruling Act</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+
+<h4 class='v2' id='ITM-19'>
+ITM-19: Item Natural Account Code (<a href='/data-type/CWE.html'>CWE</a>) 00282
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the expense/natural account number from the general ledger chart of accounts associated with the item. Refer to <a href="https://www.hl7.org/fhir/v2/0320/index.html">HL7 Table 0320 – Item Natural Account Code</a> in Chapter 4, Orders, for valid values.</p>
+
+<h4 class='v2' id='ITM-20'>
+ITM-20: Approved To Buy Quantity (<a href='/data-type/NM.html'>NM</a>) 02203
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the quantity of this item that can be purchased within a user-defined time frame (e.g., one year) at the order unit of measure.</p>
+
+<h4 class='v2' id='ITM-21'>
+ITM-21: Approved To Buy Price (<a href='/data-type/MO.html'>MO</a>) 02204
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the dollar limit of this item that you can purchase within a user-defined time frame (e.g., one year).</p>
+
+<h4 class='v2' id='ITM-22'>
+ITM-22: Taxable Item Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02205
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the item is taxable when purchasing the item or issuing the item to patients.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-23'>
+ITM-23: Freight Charge Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02206
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether freight is an allowable charge to be allocated to the line of an invoice containing the item.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-24'>
+ITM-24: Item Set Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02207
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains an indicator signifying whether the item is an &#39;item set&#39; rather than an individual item.  An item set is a set of surgical supplies.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-25'>
+ITM-25: Item Set Identifier (<a href='/data-type/EI.html'>EI</a>) 02208
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Item Set Identifier is a unique code assigned to the material item by the Item Inventory Master catalog software application to identify the item set.</p>
+
+<h4 class='v2' id='ITM-26'>
+ITM-26: Track Department Usage Indicator (<a href='/data-type/CNE.html'>CNE</a>) 02209
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the usage figures are tracked for this item by department.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-27'>
+ITM-27: Procedure Code (<a href='/data-type/CNE.html'>CNE</a>) 00393
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the service item, if any, associated with the charge.  In the United States this is often the HCPCS code.  Refer to Externally defined Table 0088 - Procedure code for suggested values.  This field is a CNE data type for compatibility with clinical and ancillary systems.   Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">HL7 Table 0088 – Procedure Coding Systems</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p>
+
+<h4 class='v2' id='ITM-28'>
+ITM-28: Procedure Code Modifier (<a href='/data-type/CNE.html'>CNE</a>) 01316
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/segment-definition/ITM.html#ITM-27">ITM-27, Procedure Code</a>, when applicable.  Procedure code modifiers are defined by USA regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally-defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+
+<h4 class='v2' id='ITM-29'>
+ITM-29: Special Handling Code (<a href='/data-type/CWE.html'>CWE</a>) 01370
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a special handling code to describe special handling considerations for this item.  Refer to <a href="https://www.hl7.org/fhir/v2/0376/index.html">User-defined Table 0376 – Special Handling Code</a> in Chapter 2C, Code Tables, for suggested values.  The value set can be extended with user specific values.</p>
+
+<h4 class='v2' id='ITM-30'>
+ITM-30: Hazardous Indicator (<a href='/data-type/CNE.html'>CNE</a>) 03388
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the item contains hazardous material or not.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded yes/no indicator table </a>in Chapter 2, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-31'>
+ITM-31: Sterile Indicator (<a href='/data-type/CNE.html'>CNE</a>) 03304
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an indicator signifying whether the item is sterile or not.  Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">HL7 Table 0532 - Expanded yes/no indicator table</a><a href=""> </a>in Chapter 2, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='ITM-32'>
+ITM-32: Material Data Safety Sheet Number (<a href='/data-type/EI.html'>EI</a>) 03305
+</h4>
+<p class="v2 v2-normalindented">Definition:  The Material Safety Data Sheet Number is the manufacturer&#39;s identification number for the Material Saftey Data Sheet (if one exists for the item).  A Material Safety Data Sheet contains the characteristics, protected measures, and regulations to follow when handling the item.  It is relevant for dangerous substances.   Field3 3 and 4 of the EI data type may be blank for communicating MSDS number; Manufacturer is already identified in this message via <a href="/segment-definition/ITM.html#ITM-7">ITM-7, Manufacturer Identifier</a>, and <a href="/segment-definition/ITM.html#ITM-8">ITM-8, Manufacturer Name</a>.</p>
+
+<h4 class='v2' id='ITM-33'>
+ITM-33: United Nations Standard Products and Services Code (<a href='/data-type/CWE.html'>CWE</a>) 03306
+</h4>
+<p class="v2 v2-normalindented">Definition:  The United Nations Standard Products and Services Code is the category code assigned by the UNSPSC organization  to the  item.  Please refer to the code &quot;UNSPSC&quot; as indicated for the United Nations Standards Products and Services Code as referenced in <a href="https://www.hl7.org/fhir/v2/0396/index.html">HL7 Table 0396  - Coding System</a> in Chapter 2C, Code Tables.</p>
+
+<h4 class='v2' id='ITM-34'>
+ITM-34: Contract Date (<a href='/data-type/DR.html'>DR</a>) 02415
+</h4>
+<p class="v2 v2-normalindented">Definition:  The date that the contract becomes effective (Range Start Date/Time) and when it expires (Range End Date/Time) for the item specified in ITM-1.   The effective date is the date that the contract becomes available to purchase this item.  The expiration date is the date that the contract becomes unavailable to purchase this item.</p>
+
+<h4 class='v2' id='ITM-35'>
+ITM-35: Manufacturer Contact Name (<a href='/data-type/XPN.html'>XPN</a>) 02416
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the name of the contact person associated to the manufacturer of this item.</p>
+
+<h4 class='v2' id='ITM-36'>
+ITM-36: Manufacturer Contact Information (<a href='/data-type/XTN.html'>XTN</a>) 02417
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the contact information of the contact person associated to the manufacturer of this item.</p>
+
+<h4 class='v2' id='ITM-37'>
+ITM-37: Class of Trade (<a href='/data-type/ST.html'>ST</a>) 02418
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the class of trade if identified at the item level. </p>
+
+<h4 class='v2' id='ITM-38'>
+ITM-38: Field Level Event Code (<a href='/data-type/ID.html'>ID</a>) 02419
+</h4>
+<p class="v2 v2-normalindented v2-indent0">Definition:  The event code related to the item in ITM.1.  Refer to <a href="/composition/Introduction.html#Introduction-6">HL7 Table 0180 – Master File Action Code table </a>in Chapter 2, Code Tables, for valid values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

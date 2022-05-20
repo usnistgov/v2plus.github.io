@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h1>
+  Table of Contents
+</h1>
+<ul>
+  <li>
+    <a href="/lower-layer-protocol.html#Heading2">1 INTRODUCTION</a>
+  </li>
+  <li>
+    <a href="/lower-layer-protocol.html#Heading3">2 HYBRID LOWER LAYER PROTOCOL</a>
+  </li>
+  <ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading4">2.1 Introduction</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading5">2.1.1 Goals and Assumptions</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading6">2.1.2 Notation Conventions</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading7">2.2 Blocks</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading8">2.3 Processing Rules</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading9">2.3.1 Optional Connection and Disconnection</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading10">2.3.2 Initiating and Responding</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading11">2.4 Carriage Return Stuffing</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading12">2.5 Flow-Through Processing</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading13">2.5.1 Inititiating System Processing</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading14">2.5.2 Responding System Processing</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading15">2.6 Implementation, System and Site-Specific Issues</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading16">2.6.1 Connect Retries (For optional transient virtual circuits)</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading17">2.6.2 Receive Timeout Errors</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading18">2.6.3 The Network Parameter Table (NPT)</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading19">2.6.4 Error Reporting and Logging</a>
+      </li>
+    </ul>
+  </ul>
+  <li>
+    <a href="/lower-layer-protocol.html#Heading20">3 X3.28 BASED DATA LINK PROTOCOL</a>
+  </li>
+  <ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading21">3.1 Overview</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading22">3.1.1 Introduction</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading23">3.1.2 Requirements and Assumptions</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading24">3.1.3 Environment Model</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading25">3.1.4 Communication Control Characters</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading26">3.1.5 Block Number</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading27">3.1.6 Text Length</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading28">3.1.7 Block Checking Characters</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading29">3.2 Establishment of Master/Slave Relationship</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading30">3.3 Message Transfer</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading31">3.3.1 Transmission Blocks</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading32">3.3.2 Replies</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading33">3.4 Aborts and Interrupts</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading34">3.5 Block Abort</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading35">3.5.1 Sending Station Abort</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading36">3.5.2 Termination Interrupt</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading37">3.5.3 Reverse Interrupt</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading38">3.6 Block Headings and Acknowledgement Prefixes</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading39">3.6.1 Headings</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading40">3.6.2 Prefixes</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading41">3.7 Timers and Recovery Procedures</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading42">3.7.1 Timers</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading43">3.7.2 Recovery Procedures</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading44">3.7.3 Parameters and Defaults</a>
+      </li>
+    </ul>
+  </ul>
+  <li>
+    <a href="/lower-layer-protocol.html#Heading45">4 MINIMAL LOWER LAYER PROTOCOL</a>
+  </li>
+  <ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading46">4.1 Introduction</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading47">4.1.1 Background</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading48">4.1.2 Goals and Assumptions</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading49">4.1.3 Differences</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading50">4.1.4 Notation Conventions</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading51">4.2 Block Format</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading52">4.3 Processing Rules</a>
+    </li>
+  </ul>
+  <li>
+    <a href="/lower-layer-protocol.html#Heading53">5 HL7 SEQUENCE NUMBER PROTOCOL IMPLEMENTATION</a>
+  </li>
+  <ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading54">5.1 Sequence Number Usage</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading55">5.2 Sequence Number Description</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading56">5.3 State of the Receiving System</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading57">5.3.1 Sequence Number Processing by the Receiving System</a>
+      </li>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading58">5.4 Normal Operations</a>
+    </li>
+    <ul>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading59">5.4.1 The Message Sequence Number Sent Equals the Expected Sequence Number</a>
+      </li>
+      <li>
+        <a href="/lower-layer-protocol.html#Heading60">5.4.2 The Message Sequence Number Sent does not Equal the Expected Sequence Number</a>
+      </li>
+      <ul>
+        <li>
+          <a href="/lower-layer-protocol.html#Heading61">5.4.2.0 The Message Sequence Number Sent Plus One is Equal to the Expected Sequence Number</a>
+        </li>
+        <li>
+          <a href="/lower-layer-protocol.html#Heading62">5.4.2.1 The Message Sequence Number Sent is Greater Than the Expected Sequence Number</a>
+        </li>
+        <li>
+          <a href="/lower-layer-protocol.html#Heading63">5.4.2.2 Other Errors</a>
+        </li>
+      </ul>
+    </ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading64">5.5 Sequence Numbering Chart</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading65">5.6 To Query for the ESN</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading66">5.7 To Synchronize the ESN</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading67">5.8 Overview of the Sequence Number Protocol</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading68">5.9 Link Management Messages</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading69">5.10 Responsibility for Initiating Synchronization</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading70">5.11 Acknowledgment Codes</a>
+    </li>
+  </ul>
+  <li>
+    <a href="/lower-layer-protocol.html#Heading71">6 PSEUDO CODE FOR HL7 TCP</a>
+  </li>
+  <ul>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading72">6.1 Initiating Module</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading73">6.2 Accepting Modules</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading74">6.3 Permanent Virtual Circuits</a>
+    </li>
+    <li>
+      <a href="/lower-layer-protocol.html#Heading75">6.4 Assumptions and Guidelines</a>
+    </li>
+  </ul>
+</ul>
+<p>
+  <img src="/image0.jpg">
+</p><a id="Heading2">
+<h1>
+  1 INTRODUCTION
+</h1></a> <a id="Heading3">
+<h1>
+  2 HYBRID LOWER LAYER PROTOCOL
+</h1></a> <a id="Heading4">
+<h2>
+  2.1 Introduction
+</h2></a> <a id="Heading5">
+<h3>
+  2.1.1 Goals and Assumptions
+</h3></a> <a id="Heading6">
+<h3>
+  2.1.2 Notation Conventions
+</h3></a> <a id="Heading7">
+<h2>
+  2.2 Blocks
+</h2></a>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        ''C'' - character count wrong in previous data block received
+      </p>
+      <p>
+        ''X'' - checksum wrong in previous data block received
+      </p>
+      <p>
+        ''B'' - data too long for input buffer in previous block received
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+</table><a id="Heading8">
+<h2>
+  2.3 Processing Rules
+</h2></a> <a id="Heading9">
+<h3>
+  2.3.1 Optional Connection and Disconnection
+</h3></a> <a id="Heading10">
+<h3>
+  2.3.2 Initiating and Responding
+</h3>
+<p>
+  d)If the block is acceptable and has block type ''N'', it is a negative acknowledgement. Resend the original block as many times as is specified in the NPT or return to the application with an indication of the error.
+</p>
+<p>
+  e)If the block is acceptable and has block type ''D'' it is the response. Go to the next step.
+</p>
+<p>
+  f)If the initiating system detects an error in the data block from the responding system, it has the option of retransmitting the original data block. The decision of whether to retransmit the original block is application-specific. It depends on the type of message and the ability of the receiving system to detect duplicate messages.
+</p></a> <a id="Heading11">
+<h2>
+  2.4 Carriage Return Stuffing
+</h2></a> <a id="Heading12">
+<h2>
+  2.5 Flow-Through Processing
+</h2></a> <a id="Heading13">
+<h3>
+  2.5.1 Inititiating System Processing
+</h3></a> <a id="Heading14">
+<h3>
+  2.5.2 Responding System Processing
+</h3></a> <a id="Heading15">
+<h2>
+  2.6 Implementation, System and Site-Specific Issues
+</h2></a> <a id="Heading16">
+<h3>
+  2.6.1 Connect Retries (For optional transient virtual circuits)
+</h3></a> <a id="Heading17">
+<h3>
+  2.6.2 Receive Timeout Errors
+</h3></a> <a id="Heading18">
+<h3>
+  2.6.3 The Network Parameter Table (NPT)
+</h3>
+<p>
+  Connect Retry Count - the number of times to try to connect to a destination.
+</p>
+<p>
+  Connect Pause - the amount of time to wait between connect attempts.
+</p>
+<p>
+  Receive Timeout - the amount of time to wait for a response data block.
+</p>
+<p>
+  Send Retry Count - the number of times to resend a data block after receive errors.
+</p></a> <a id="Heading19">
+<h3>
+  2.6.4 Error Reporting and Logging
+</h3></a> <a id="Heading20">
+<h1>
+  3 X3.28 BASED DATA LINK PROTOCOL
+</h1></a> <a id="Heading21">
+<h2>
+  3.1 Overview
+</h2></a> <a id="Heading22">
+<h3>
+  3.1.1 Introduction
+</h3>
+<p>
+  American National Standards Institute
+</p>
+<p>
+  1430 Broadway
+</p>
+<p>
+  New York, NY 10018
+</p>
+<p>
+  (212) 642-4900
+</p></a> <a id="Heading23">
+<h3>
+  3.1.2 Requirements and Assumptions
+</h3></a> <a id="Heading24">
+<h3>
+  3.1.3 Environment Model
+</h3><img src="/2">
+<p>
+  Figure B-1.
+</p></a> <a id="Heading25">
+<h3>
+  3.1.4 Communication Control Characters
+</h3></a>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <p>
+        SOH
+      </p>
+    </td>
+    <td>
+      <p>
+        (Start of Heading)SOH delimits the start of a message heading. If the heading is subdivided into multiple transmission blocks, SOH delimits the start of each block that continues transmission of the heading.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        STX
+      </p>
+    </td>
+    <td>
+      <p>
+        (Start of Text)STX precedes a sequence of characters that is to be treated as an entity and entirely transmitted through to the ultimate destination. Such a sequence is referred to as "text." If a heading precedes the text, STX delimits the end of the message heading. If the text is subdivided into transmission blocks, STX delimits the start of each block that continues transmission of the text.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        ETX
+      </p>
+    </td>
+    <td>
+      <p>
+        (End of Text)ETX delimits the end of a message text. In multi-block messages, ETX indicates the last block of the message.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        ETB
+      </p>
+    </td>
+    <td>
+      <p>
+        (End of Block)
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        ETB delimits the end of a block that is not the last block of a message.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        EOT
+      </p>
+    </td>
+    <td>
+      <p>
+        (End of Transmission)EOT indicates the conclusion of a transmission that contained one or more message texts and any associated headings.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        EOT cancels any previous master/slave assignment.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        EOT must never have a prefix.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        EOT is sent by a master station after the completion of the message transfer phase in order to effect a normal termination of the transmission. (End current master/slave transmission relationship.)
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        EOT is sent by a master station prior to the completion of the message transfer phase in order to effect a sending station abort function. (Sent between blocks of a multi-block message.)
+      </p>
+      <p>
+        EOT is sent by a slave station in place of ACK/NAK in order to effect a termination interrupt function. It serves to NAK the current block and causes the current master/slave relationship to be ended.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        ENQ
+      </p>
+    </td>
+    <td>
+      <p>
+        (Enquiry)ENQ is used to request master status.
+      </p>
+      <p>
+        ENQ is used to solicit a response from a remote station.
+      </p>
+      <p>
+        ENQ may be used to obtain identification of the remote station.
+      </p>
+      <p>
+        ENQ is the last character of a polling or selection supervisory sequence.
+      </p>
+      <p>
+        ENQ is used by the master station in block abort procedures.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        NAK
+      </p>
+    </td>
+    <td>
+      <p>
+        (Negative Acknowledgement)NAK is transmitted as a negative response to the sender.
+      </p>
+      <p>
+        NAK is used during the establishment phase to indicate that the station is not ready to receive.
+      </p>
+      <p>
+        During message transfer, NAK indicates that the last message or transmission block wasnot accepted, but the station is ready to receive.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        ACKN
+      </p>
+    </td>
+    <td>
+      <p>
+        (Acknowledgment N)
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading26">
+<h3>
+  3.1.5 Block Number
+</h3></a> <a id="Heading27">
+<h3>
+  3.1.6 Text Length
+</h3></a> <a id="Heading28">
+<h3>
+  3.1.7 Block Checking Characters
+</h3></a>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+</table><a id="Heading29">
+<h2>
+  3.2 Establishment of Master/Slave Relationship
+</h2>
+<p>
+  Figure B-2.
+</p></a> <a id="Heading30">
+<h2>
+  3.3 Message Transfer
+</h2></a> <a id="Heading31">
+<h3>
+  3.3.1 Transmission Blocks
+</h3></a> <a id="Heading32">
+<h3>
+  3.3.2 Replies
+</h3></a> <a id="Heading33">
+<h2>
+  3.4 Aborts and Interrupts
+</h2></a> <a id="Heading34">
+<h2>
+  3.5 Block Abort
+</h2></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        Description
+      </p>
+    </td>
+    <td>
+      <p>
+        The sending station in the process of sending a block, but before the end of the block,decides to end the block in an unusual manner such that the receiving station will discard the block. Such a procedure is called a block abort.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Application
+      </p>
+    </td>
+    <td>
+      <p>
+        Block abort may be used by a sending station when, in the process of sending data, there occurs an indication that the data being sent may not be valid.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        Block abort may be used in the message transfer state to cause a temporary text delay after receipt of the previous acknowledgement if the sending station is not capable of transmitting the text of the next transmission block before the predetermined time-out period. The reasons for such a delay might be the unavailability of buffer space or that the speed of the input device is considerably slower than the transmission speed and a full block has not yet been read from the media.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Procedures
+      </p>
+    </td>
+    <td>
+      <p>
+        Block abort is accomplished by the sending station''s ending the block (at any time) with the ENQ. The sending station then halts transmission and waits for a reply. The receiving station detects that the block was ended with ENQ rather than with a normal ending character (ETB or ETX), discards that portion of the block that had been received and sends a NAK response to the sending station and remains in the receive condition.
+      </p>
+      <p>
+        Following receipt of the NAK response, the sending station will normally reinitiate the transmission with the same or a new block.
+      </p>
+      <p>
+        In the case of a NAK response that is not received, the sending station will time out (expiration of Timer A - see section on Timers). The sending station reinitiates transmission with the same block or it may choose to initiate an appropriate termination or recovery procedure. The specific choice of operation will generally be a function of the system discipline being employed.
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading35">
+<h3>
+  3.5.1 Sending Station Abort
+</h3></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        Description
+      </p>
+    </td>
+    <td>
+      <p>
+        The sending station, in the process of sending several blocks per message text, decides to terminate transmission prematurely at the end of a block and after receipt of the proper acknowledgement reply. Such a procedure is called a sending station abort.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Application
+      </p>
+    </td>
+    <td>
+      <p>
+        Sending station abort procedures may be used by a sending station when, in the process of sending multiple blocks per message text, it determines that it should prematurely terminate transmission to the particular receiving station. Such a determination might be made if the sending process did not receive the remaining blocks in time from the higher level, needed to send a higher priority message, or was temporarily unable to continue transmission, etc.
+      </p>
+      <p>
+        Sending station abort procedures may be used following block abort procedures to accomplish a transmission abort condition; that is, the sending station prematurely terminates the transmission within a transmission block.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Procedures
+      </p>
+    </td>
+    <td>
+      <p>
+        Sending station abort procedures are accomplished by the sending station completing the transmission of a block, for example, ETB, ENQ. Then upon receipt of the proper acknowledgement reply (ACK, NAK, etc.) or a Timer-A time-out, the sending station transmits EOT to terminate the transmission to the receiving station. The receiving station detects this sending station abort procedure by recognizing receipt of EOT following ETB, or ENQ instead of ETX
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading36">
+<h3>
+  3.5.2 Termination Interrupt
+</h3></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        Description
+      </p>
+    </td>
+    <td>
+      <p>
+        The receiving station, after receipt of a message or transmission block, causes the sending station to cease transmission. Such a procedure is called a termination interrupt.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Application
+      </p>
+    </td>
+    <td>
+      <p>
+        Termination interrupt may be used by the receiving station to cause the transmission to be interrupted because it is not in a condition to receive. Cause for such inability to receive could include a hardware malfunction, loss of an additional network connection, etc.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Procedures
+      </p>
+    </td>
+    <td>
+      <p>
+        Termination interrupt procedures are accomplished by the receiving station''s transmitting EOT in lieu of one of its normal responses. This response indicates a negative acknowledgement of the last transmission and the conclusion of a transmission.
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading37">
+<h3>
+  3.5.3 Reverse Interrupt
+</h3></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        Description
+      </p>
+    </td>
+    <td>
+      <p>
+        A receiving station may request the sending station to terminate the transmission in progress prematurely in order to facilitate a reversal in the direction of data transfer. Such a procedure is called reverse interrupt.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Application
+      </p>
+    </td>
+    <td>
+      <p>
+        Reverse interrupt procedures may be used by a receiving station to interrupt its receiving of a message stream so that it may transmit a priority message or messages to the original sending station.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Procedures
+      </p>
+    </td>
+    <td>
+      <p>
+        Reverse interrup Reverce interrupt procedures may be used by a receiving station only after reception of a block with a valid BCC. Reverse interrupt procedures are accomplished by the receiving station''s transmitting a RINT sequence in lieu of the normal affirmative acknowledgement. This reply is interpreted as an affirmative reply to the last transmission, and it signals a request by the receiving station that the sending station terminate the transmission sequence in progress as soon as the sending station is in such status that it can receive a message without destroying or losing information that may have previously been stored in buffers.
+      </p>
+      <p>
+        The RINT sequence may not be repeated by the receiving station to successive transmission blocks without transmitting intervening affirmative acknowledgements (ACKN).
+      </p>
+      <p>
+        Upon receipt of RINT, the sending station should terminate the transmission by transmitting EOT after it has completed transmitting all data that would prevent it from receiving a message. The number of transmission blocks to be transmitted prior to termination is variable and dependent upon station design.
+      </p>
+      <p>
+        The receipt of RINT as a response to a sending station''s ENQ should be treated as a repeated (duplicate) response if the last valid response received was ACKN. The sending station should continue by transmitting the next block, or EOT. If the last valid response was RINT, the sending station must assume that the last transmitted block was garbled. The sending station should retransmit the previous block.
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading38">
+<h2>
+  3.6 Block Headings and Acknowledgement Prefixes
+</h2></a> <a id="Heading39">
+<h3>
+  3.6.1 Headings
+</h3></a> <a id="Heading40">
+<h3>
+  3.6.2 Prefixes
+</h3></a> <a id="Heading41">
+<h2>
+  3.7 Timers and Recovery Procedures
+</h2></a> <a id="Heading42">
+<h3>
+  3.7.1 Timers
+</h3></a> <a id="Heading43">
+<h3>
+  3.7.2 Recovery Procedures
+</h3></a> <a id="Heading44">
+<h3>
+  3.7.3 Parameters and Defaults
+</h3></a> <a id="Heading45">
+<h1>
+  4 MINIMAL LOWER LAYER PROTOCOL
+</h1></a> <a id="Heading46">
+<h2>
+  4.1 Introduction
+</h2></a> <a id="Heading47">
+<h3>
+  4.1.1 Background
+</h3></a> <a id="Heading48">
+<h3>
+  4.1.2 Goals and Assumptions
+</h3></a> <a id="Heading49">
+<h3>
+  4.1.3 Differences
+</h3></a> <a id="Heading50">
+<h3>
+  4.1.4 Notation Conventions
+</h3></a> <a id="Heading51">
+<h2>
+  4.2 Block Format
+</h2></a>
+<table>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        &lt;SB&gt;dddd&lt;EB&gt;&lt;CR&gt;
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        &lt;SB&gt; =
+      </p>
+    </td>
+    <td>
+      <p>
+        Start Block character (1 byte)ASCII &lt;VT&gt;, i.e., &lt;0x0B&gt;. This should not be confused with the ASCII characters SOH or STX.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        dddd =
+      </p>
+    </td>
+    <td>
+      <p>
+        Data (variable number of bytes)
+      </p>
+      <p>
+        This is the HL7 data content of the block. The data can contain any displayable ASCII characters and the carriage return character, &lt;CR&gt;.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        &lt;EB&gt; =
+      </p>
+    </td>
+    <td>
+      <p>
+        End Block character (1 byte)ASCII &lt;FS&gt;, i.e., &lt;0x1C&gt;. This should not be confused with the ASCII characters ETX or EOT.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        &lt;CR&gt; =
+      </p>
+    </td>
+    <td>
+      <p>
+        Carriage Return (1 byte)The ASCII carriage return character, i.e., &lt;0x0D&gt;.
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading52">
+<h2>
+  4.3 Processing Rules
+</h2></a> <a id="Heading53">
+<h1>
+  5 HL7 SEQUENCE NUMBER PROTOCOL IMPLEMENTATION
+</h1></a> <a id="Heading54">
+<h2>
+  5.1 Sequence Number Usage
+</h2></a> <a id="Heading55">
+<h2>
+  5.2 Sequence Number Description
+</h2></a> <a id="Heading56">
+<h2>
+  5.3 State of the Receiving System
+</h2></a> <a id="Heading57">
+<h3>
+  5.3.1 Sequence Number Processing by the Receiving System
+</h3></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        Saved ESN
+      </p>
+    </td>
+    <td>
+      <p>
+        Expected Sequence Number State
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        &gt; = 1
+      </p>
+    </td>
+    <td>
+      <p>
+        &gt; = 1 (valid sequence number)
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        - 1
+      </p>
+    </td>
+    <td>
+      <p>
+        NONE
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading58">
+<h2>
+  5.4 Normal Operations
+</h2></a> <a id="Heading59">
+<h3>
+  5.4.1 The Message Sequence Number Sent Equals the Expected Sequence Number
+</h3></a> <a id="Heading60">
+<h3>
+  5.4.2 The Message Sequence Number Sent does not Equal the Expected Sequence Number
+</h3></a> <a id="Heading61">
+<h4>
+  5.4.2.0 The Message Sequence Number Sent Plus One is Equal to the Expected Sequence Number
+</h4></a> <a id="Heading62">
+<h4>
+  5.4.2.1 The Message Sequence Number Sent is Greater Than the Expected Sequence Number
+</h4></a> <a id="Heading63">
+<h4>
+  5.4.2.2 Other Errors
+</h4></a> <a id="Heading64">
+<h2>
+  5.5 Sequence Numbering Chart
+</h2></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        SEQUENCE NUMBER PROCESSING BY RECEIVING SYSTEM
+      </p>
+      <p>
+        SQ#Sequence Number
+      </p>
+      <p>
+        ESNExpected Sequence Number
+      </p>
+      <p>
+        ESN StateExpected Sequence Number State
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Is this a type of message that requires SQ#s?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Process according to that type and ignore sequence numbers. Do not change either the ESN State or the ESN. Example: If this message is a network management message from receiving system, ignore sequence numbers altogether.
+      </p>
+    </td>
+    <td>
+      <p>
+        Incoming is an integer SQ# &gt; = -1?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+      <p>
+        Send an MSA with an AR. Example: The right message, but the wrong sequence number format.
+      </p>
+    </td>
+    <td>
+      <p>
+        Continue
+      </p>
+      <p>
+        ?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        What is the ESN State (Expected Sequence Number State)?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        ESN State &gt;= 1
+      </p>
+      <p>
+        An Expected Sequence Number exists or is defined.
+      </p>
+    </td>
+    <td>
+      <p>
+        ESN State = NONE
+      </p>
+      <p>
+        An Expected Sequence Number does not exist or is not defined.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Incoming SQ# = -1?
+      </p>
+    </td>
+    <td>
+      <p>
+        Incoming SQ# = -1?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Set the following:
+      </p>
+      <p>
+        ? ESN = -1
+      </p>
+      <p>
+        ? ESN State = NONE
+      </p>
+    </td>
+    <td>
+      <p>
+        Incoming SQ# = 0?
+      </p>
+    </td>
+    <td>
+      <p>
+        Incoming SQ# = 0?
+      </p>
+    </td>
+    <td>
+      <p>
+        Set the following:
+      </p>
+      <p>
+        ? ESN = -1
+      </p>
+      <p>
+        ? ESN State = NONE
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Send MSA with AA
+      </p>
+    </td>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+    <td>
+      <p>
+        Send MSA with AA
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        Set the following:
+      </p>
+      <p>
+        ? ESN = Existing ESN
+      </p>
+      <p>
+        ? ESN State = "ESN &gt;= 1"
+      </p>
+    </td>
+    <td>
+      <p>
+        SQ# must be &gt;= 1
+      </p>
+      <p>
+        Set the following:
+      </p>
+      <p>
+        ESN = Existing ESN
+      </p>
+      <p>
+        ESN State = "ESN
+      </p>
+      <p>
+        &gt;= 1"
+      </p>
+    </td>
+    <td>
+      <p>
+        Incoming SQ# &gt;= 1?
+      </p>
+    </td>
+    <td>
+      <p>
+        Set the following:
+      </p>
+      <p>
+        ? ESN = -1
+      </p>
+      <p>
+        ? ESN State = NONE
+      </p>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <p>
+        Send MSA with AA
+      </p>
+    </td>
+    <td>
+      <p>
+        Refer to the Message with Sequence Number Chart.
+      </p>
+    </td>
+    <td>
+      <p>
+        NO
+      </p>
+    </td>
+    <td>
+      <p>
+        YES
+      </p>
+    </td>
+    <td>
+      <p>
+        Send MSA with AA
+      </p>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+      <p>
+        error
+      </p>
+    </td>
+    <td>
+      <p>
+        Set the following:
+      </p>
+      <p>
+        ? ESN = Incoming SQ#
+      </p>
+      <p>
+        ? ESN State &gt;= 1
+      </p>
+      <p>
+        This must be a full message and the assumption is that its been preceded by a SQ# control message of 0 or -1. Thus, this is a "start of sequencing, actual message, and the receiving system is synchronized to this incoming SQ# as its ESN (and ESN State is "ESN &gt;= 1"). No further SQ# checking, but do regular application processing on this message.
+      </p>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+      <p>
+        Send MSA with AA or AE accordingly
+      </p>
+    </td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <p>
+        This chart is a continuation from the Sequence Number Processing Chart on the previous page. It details the Sequence Number Process when there is an ESN and the ESN state = "ESN &gt;= 1."
+      </p>
+      <p>
+        MESSAGE WITH SEQUENCE NUMBER
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Sending system
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        sends a message with a sequence number (SQ#)?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Receiving System
+      </p>
+      <p>
+        tracks Expected Sequence Number (ESN) and ESN state
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        compares SQ# with ESN?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        SQ# = ESN
+      </p>
+    </td>
+    <td>
+      <p>
+        SQ# ? ESN
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Sends MSA with AA or AE acknowledgment code, and contains the SQ# = ESN.
+      </p>
+    </td>
+    <td>
+      <p>
+        Sends MSA with AR acknowledgment code, an error message, the Expected Sequence Number (ESN), and the message sequence number (SQ#) received.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Sending system
+      </p>
+      <p>
+        ?
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        SQ# = ESN
+      </p>
+    </td>
+    <td>
+      <p>
+        SQ# +1 = ESN
+      </p>
+    </td>
+    <td>
+      <p>
+        SQ# &gt; ESN
+      </p>
+    </td>
+    <td>
+      <p>
+        Other Errors
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Increments SQ# by 1.
+      </p>
+    </td>
+    <td>
+      <p>
+        Assumes the previous acknowledgment is lost. The message sent is a duplication. Increments SQ# by 1.
+      </p>
+    </td>
+    <td>
+      <p>
+        1) ADT tries to recover by starting at the ESN in the MSA.
+      </p>
+      <p>
+        --or--
+      </p>
+      <p>
+        2) Freezes the link.
+      </p>
+    </td>
+    <td>
+      <p>
+        Freezes the link.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Processes the next message.
+      </p>
+    </td>
+    <td>
+      <p>
+        Processes the next message.
+      </p>
+    </td>
+    <td>
+      <p>
+        1) Sends messages from log beginning with ESN in MSA.
+      </p>
+      <p>
+        --or--
+      </p>
+      <p>
+        2) Waits for operator intervention.
+      </p>
+    </td>
+    <td>
+      <p>
+        Waits for operator intervention.
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading65">
+<h2>
+  5.6 To Query for the ESN
+</h2></a> <a id="Heading66">
+<h2>
+  5.7 To Synchronize the ESN
+</h2></a> <a id="Heading67">
+<h2>
+  5.8 Overview of the Sequence Number Protocol
+</h2></a>
+<table>
+  <tr>
+    <td>
+      <p>
+        Current State of Receiving System: Expected Sequence Number = NONE
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Incoming Message Seq. Num
+      </p>
+    </td>
+    <td>
+      <p>
+        Expected Seq. Num Field of MSA
+      </p>
+    </td>
+    <td>
+      <p>
+        Next State of Receiving
+      </p>
+      <p>
+        System
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        -1
+      </p>
+    </td>
+    <td>
+      <p>
+        -1
+      </p>
+    </td>
+    <td>
+      <p>
+        None
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        0
+      </p>
+    </td>
+    <td>
+      <p>
+        -1
+      </p>
+    </td>
+    <td>
+      <p>
+        None
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        &gt;= 1
+      </p>
+    </td>
+    <td>
+      <p>
+        Same as incoming
+      </p>
+    </td>
+    <td>
+      <p>
+        Same as Incoming +1
+      </p>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <p>
+        Current State of Receiving System: Expected Sequence Number &gt;= 1
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        Incoming Message Seq. Num
+      </p>
+    </td>
+    <td>
+      <p>
+        Expected Seq. Num Field of MSA
+      </p>
+    </td>
+    <td>
+      <p>
+        Next State of Receiving
+      </p>
+      <p>
+        System
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        -1
+      </p>
+    </td>
+    <td>
+      <p>
+        -1
+      </p>
+    </td>
+    <td>
+      <p>
+        None
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        0
+      </p>
+    </td>
+    <td>
+      <p>
+        Expected Seq. Num
+      </p>
+    </td>
+    <td>
+      <p>
+        Expected Seq. Num
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        &gt;= 1
+      </p>
+    </td>
+    <td>
+      <p>
+        Same as incoming
+      </p>
+    </td>
+    <td>
+      <p>
+        Same as incoming +1
+      </p>
+    </td>
+  </tr>
+</table><a id="Heading68">
+<h2>
+  5.9 Link Management Messages
+</h2></a> <a id="Heading69">
+<h2>
+  5.10 Responsibility for Initiating Synchronization
+</h2></a> <a id="Heading70">
+<h2>
+  5.11 Acknowledgment Codes
+</h2></a>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+</table><a id="Heading71">
+<h1>
+  6 PSEUDO CODE FOR HL7 TCP
+</h1></a> <a id="Heading72">
+<h2>
+  6.1 Initiating Module
+</h2>
+<p>
+  do/* call until successful or too many retries */
+</p>
+<p>
+  { status = call(network address);
+</p>
+<p>
+  if ( status == OK )/* break out of loop if successful */
+</p>
+<p>
+  break;
+</p>
+<p>
+  retries = retries - 1;
+</p>
+<p>
+  sleep for configurable # of seconds (1 sec?) ;
+</p>
+<p>
+  } while ( retries &gt;= 0 );
+</p>
+<p>
+  if ( status != OK )/* return if calls failed */
+</p>
+<p>
+  return(status);
+</p>
+<p>
+  while messages to send to this destination
+</p>
+<p>
+  { status = send(next message);/* send the message */
+</p>
+<p>
+  if ( status != OK )
+</p>
+<p>
+  goto disconnect;
+</p>
+<p>
+  status = receive(reply);/* get the reply */
+</p>
+<p>
+  if ( status != OK )
+</p>
+<p>
+  goto disconnect;
+</p>
+<p>
+  application code to process reply
+</p>
+<p>
+  }
+</p>
+<p>
+  disconnect:
+</p>
+<p>
+  disconnect();/* disconnect if error or done */
+</p>
+<p>
+  return(status);
+</p></a> <a id="Heading73">
+<h2>
+  6.2 Accepting Modules
+</h2>
+<p>
+  for ( ; ; )/* do forever */
+</p>
+<p>
+  { do/* wait for listen to complete successfully */
+</p>
+<p>
+  {status = listen(port);}
+</p>
+<p>
+  while ( status != OK );
+</p>
+<p>
+  for ( ; ; )/* loop until disconnected */
+</p>
+<p>
+  { status = receive(message);
+</p>
+<p>
+  if ( status == OK )
+</p>
+<p>
+  { application_code(message,reply);
+</p>
+<p>
+  send(reply);
+</p>
+<p>
+  }
+</p>
+<p>
+  else if ( status == DISCONNECTED )
+</p>
+<p>
+  break;/* break out of inner loop */
+</p>
+<p>
+  else ERROR/* some other error */
+</p>
+<p>
+  }
+</p>
+<p>
+  disconnect();/* disconnect if error or done */
+</p>
+<p>
+  }
+</p></a> <a id="Heading74">
+<h2>
+  6.3 Permanent Virtual Circuits
+</h2></a> <a id="Heading75">
+<h2>
+  6.4 Assumptions and Guidelines
+</h2></a>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

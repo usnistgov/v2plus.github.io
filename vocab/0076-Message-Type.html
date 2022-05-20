@@ -1,0 +1,2692 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Message Type
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Message Type
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70076
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+MSH-9.1
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes which specify message types.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Message Type - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACK
+</td>
+<td class='vocab-concept-display'>
+General acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+General acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ADR
+</td>
+<td class='vocab-concept-display'>
+ADT response
+</td>
+<td class='vocab-concept-definition'>
+ADT response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ARD
+</td>
+<td class='vocab-concept-display'>
+Ancillary RPT (display) (for backward compatibility only)
+</td>
+<td class='vocab-concept-definition'>
+Ancillary RPT (display) (for backward compatibility only)
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ADT
+</td>
+<td class='vocab-concept-display'>
+ADT message
+</td>
+<td class='vocab-concept-definition'>
+ADT message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BAR
+</td>
+<td class='vocab-concept-display'>
+Add/change billing account
+</td>
+<td class='vocab-concept-definition'>
+Add/change billing account
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BPS
+</td>
+<td class='vocab-concept-display'>
+Blood product dispense status message
+</td>
+<td class='vocab-concept-definition'>
+Blood product dispense status message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CNQ
+</td>
+<td class='vocab-concept-display'>
+Cancel query
+</td>
+<td class='vocab-concept-definition'>
+Cancel query
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BRP
+</td>
+<td class='vocab-concept-display'>
+Blood product dispense status acknowledgement message
+</td>
+<td class='vocab-concept-definition'>
+Blood product dispense status acknowledgement message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BRT
+</td>
+<td class='vocab-concept-display'>
+Blood product transfusion/disposition acknowledgement message
+</td>
+<td class='vocab-concept-definition'>
+Blood product transfusion/disposition acknowledgement message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BTS
+</td>
+<td class='vocab-concept-display'>
+Blood product transfusion/disposition message
+</td>
+<td class='vocab-concept-definition'>
+Blood product transfusion/disposition message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCF
+</td>
+<td class='vocab-concept-display'>
+Collaborative Care Fetch
+</td>
+<td class='vocab-concept-definition'>
+Collaborative Care Fetch
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCI
+</td>
+<td class='vocab-concept-display'>
+Collaborative Care Information
+</td>
+<td class='vocab-concept-definition'>
+Collaborative Care Information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCM
+</td>
+<td class='vocab-concept-display'>
+Collaborative Care Message
+</td>
+<td class='vocab-concept-definition'>
+Collaborative Care Message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCQ
+</td>
+<td class='vocab-concept-display'>
+Collaborative Care Referral
+</td>
+<td class='vocab-concept-definition'>
+Collaborative Care Referral
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ERQ
+</td>
+<td class='vocab-concept-display'>
+Event replay query
+</td>
+<td class='vocab-concept-definition'>
+Event replay query
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CCU
+</td>
+<td class='vocab-concept-display'>
+Collaborative Care Referral
+</td>
+<td class='vocab-concept-definition'>
+Collaborative Care Referral
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CQU
+</td>
+<td class='vocab-concept-display'>
+Collaborative Care Referral
+</td>
+<td class='vocab-concept-definition'>
+Collaborative Care Referral
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CRM
+</td>
+<td class='vocab-concept-display'>
+Clinical study registration message
+</td>
+<td class='vocab-concept-definition'>
+Clinical study registration message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CSU
+</td>
+<td class='vocab-concept-display'>
+Unsolicited study data message
+</td>
+<td class='vocab-concept-definition'>
+Unsolicited study data message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EDR
+</td>
+<td class='vocab-concept-display'>
+Enhanced display response
+</td>
+<td class='vocab-concept-definition'>
+Enhanced display response
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DBC
+</td>
+<td class='vocab-concept-display'>
+Create Donor Record
+</td>
+<td class='vocab-concept-definition'>
+Create Donor Record
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EQQ
+</td>
+<td class='vocab-concept-display'>
+Embedded query language query
+</td>
+<td class='vocab-concept-definition'>
+Embedded query language query
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DBU
+</td>
+<td class='vocab-concept-display'>
+Update Donor Record
+</td>
+<td class='vocab-concept-definition'>
+Update Donor Record
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ERP
+</td>
+<td class='vocab-concept-display'>
+Event replay response
+</td>
+<td class='vocab-concept-definition'>
+Event replay response
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DEL
+</td>
+<td class='vocab-concept-display'>
+Donor Eligibility
+</td>
+<td class='vocab-concept-definition'>
+Donor Eligibility
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DEO
+</td>
+<td class='vocab-concept-display'>
+Donor Eligibility Observation
+</td>
+<td class='vocab-concept-definition'>
+Donor Eligibility Observation
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DER
+</td>
+<td class='vocab-concept-display'>
+Donor Eligibility Request
+</td>
+<td class='vocab-concept-definition'>
+Donor Eligibility Request
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DFT
+</td>
+<td class='vocab-concept-display'>
+Detail financial transactions
+</td>
+<td class='vocab-concept-definition'>
+Detail financial transactions
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DOC
+</td>
+<td class='vocab-concept-display'>
+Document response
+</td>
+<td class='vocab-concept-definition'>
+Document response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DPR
+</td>
+<td class='vocab-concept-display'>
+Donation Procedure
+</td>
+<td class='vocab-concept-definition'>
+Donation Procedure
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DRC
+</td>
+<td class='vocab-concept-display'>
+Donor Request to Collect
+</td>
+<td class='vocab-concept-definition'>
+Donor Request to Collect
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DSR
+</td>
+<td class='vocab-concept-display'>
+Display response
+</td>
+<td class='vocab-concept-definition'>
+Display response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCF
+</td>
+<td class='vocab-concept-display'>
+Delayed Acknowledgment (Retained for backward compatibility only)
+</td>
+<td class='vocab-concept-definition'>
+Delayed Acknowledgment (Retained for backward compatibility only)
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EAC
+</td>
+<td class='vocab-concept-display'>
+Automated equipment command message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment command message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EAN
+</td>
+<td class='vocab-concept-display'>
+Automated equipment notification message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment notification message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EAR
+</td>
+<td class='vocab-concept-display'>
+Automated equipment response message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment response message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EHC
+</td>
+<td class='vocab-concept-display'>
+Health Care Invoice
+</td>
+<td class='vocab-concept-definition'>
+Health Care Invoice
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ESR
+</td>
+<td class='vocab-concept-display'>
+Automated equipment status update acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment status update acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ESU
+</td>
+<td class='vocab-concept-display'>
+Automated equipment status update message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment status update message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+INR
+</td>
+<td class='vocab-concept-display'>
+Automated equipment inventory request message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment inventory request message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+INU
+</td>
+<td class='vocab-concept-display'>
+Automated equipment inventory update message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment inventory update message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LSR
+</td>
+<td class='vocab-concept-display'>
+Automated equipment log/service request message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment log/service request message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LSU
+</td>
+<td class='vocab-concept-display'>
+Automated equipment log/service update message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment log/service update message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MDM
+</td>
+<td class='vocab-concept-display'>
+Medical document management
+</td>
+<td class='vocab-concept-definition'>
+Medical document management
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFD
+</td>
+<td class='vocab-concept-display'>
+Master files delayed application acknowledgment
+</td>
+<td class='vocab-concept-definition'>
+Master files delayed application acknowledgment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFK
+</td>
+<td class='vocab-concept-display'>
+Master files application acknowledgment
+</td>
+<td class='vocab-concept-definition'>
+Master files application acknowledgment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFN
+</td>
+<td class='vocab-concept-display'>
+Master files notification
+</td>
+<td class='vocab-concept-definition'>
+Master files notification
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFQ
+</td>
+<td class='vocab-concept-display'>
+Master files query
+</td>
+<td class='vocab-concept-definition'>
+Master files query
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MFR
+</td>
+<td class='vocab-concept-display'>
+Master files response
+</td>
+<td class='vocab-concept-definition'>
+Master files response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NMD
+</td>
+<td class='vocab-concept-display'>
+Application management data message
+</td>
+<td class='vocab-concept-definition'>
+Application management data message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NMQ
+</td>
+<td class='vocab-concept-display'>
+Application management query message
+</td>
+<td class='vocab-concept-definition'>
+Application management query message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NMR
+</td>
+<td class='vocab-concept-display'>
+Application management response message
+</td>
+<td class='vocab-concept-definition'>
+Application management response message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMB
+</td>
+<td class='vocab-concept-display'>
+Blood product order message
+</td>
+<td class='vocab-concept-definition'>
+Blood product order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMD
+</td>
+<td class='vocab-concept-display'>
+Dietary order
+</td>
+<td class='vocab-concept-definition'>
+Dietary order
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMG
+</td>
+<td class='vocab-concept-display'>
+General clinical order message
+</td>
+<td class='vocab-concept-definition'>
+General clinical order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMI
+</td>
+<td class='vocab-concept-display'>
+Imaging order
+</td>
+<td class='vocab-concept-definition'>
+Imaging order
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ROC
+</td>
+<td class='vocab-concept-display'>
+Request clinical information
+</td>
+<td class='vocab-concept-definition'>
+Request clinical information
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ROD
+</td>
+<td class='vocab-concept-display'>
+Request pateint demographics
+</td>
+<td class='vocab-concept-definition'>
+Request pateint demographics
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OML
+</td>
+<td class='vocab-concept-display'>
+Laboratory order message
+</td>
+<td class='vocab-concept-definition'>
+Laboratory order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMN
+</td>
+<td class='vocab-concept-display'>
+Non-stock requisition order message
+</td>
+<td class='vocab-concept-definition'>
+Non-stock requisition order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMP
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment order message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMQ
+</td>
+<td class='vocab-concept-display'>
+General order message with document payload
+</td>
+<td class='vocab-concept-definition'>
+General order message with document payload
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OMS
+</td>
+<td class='vocab-concept-display'>
+Stock requisition order message
+</td>
+<td class='vocab-concept-definition'>
+Stock requisition order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPL
+</td>
+<td class='vocab-concept-display'>
+Population/Location-Based Laboratory Order Message
+</td>
+<td class='vocab-concept-definition'>
+Population/Location-Based Laboratory Order Message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPR
+</td>
+<td class='vocab-concept-display'>
+Population/Location-Based Laboratory Order Acknowledgment Message
+</td>
+<td class='vocab-concept-definition'>
+Population/Location-Based Laboratory Order Acknowledgment Message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OPU
+</td>
+<td class='vocab-concept-display'>
+Unsolicited Population/Location-Based Laboratory Observation Message
+</td>
+<td class='vocab-concept-definition'>
+Unsolicited Population/Location-Based Laboratory Observation Message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORA
+</td>
+<td class='vocab-concept-display'>
+Observation Report Acknowledgment
+</td>
+<td class='vocab-concept-definition'>
+Observation Report Acknowledgment
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORB
+</td>
+<td class='vocab-concept-display'>
+Blood product order acknowledgement message
+</td>
+<td class='vocab-concept-definition'>
+Blood product order acknowledgement message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORD
+</td>
+<td class='vocab-concept-display'>
+Dietary order acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Dietary order acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORF
+</td>
+<td class='vocab-concept-display'>
+Query for results of observation
+</td>
+<td class='vocab-concept-definition'>
+Query for results of observation
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORG
+</td>
+<td class='vocab-concept-display'>
+General clinical order acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+General clinical order acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORI
+</td>
+<td class='vocab-concept-display'>
+Imaging order acknowledgement message
+</td>
+<td class='vocab-concept-definition'>
+Imaging order acknowledgement message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORL
+</td>
+<td class='vocab-concept-display'>
+Laboratory acknowledgment message (unsolicited)
+</td>
+<td class='vocab-concept-definition'>
+Laboratory acknowledgment message (unsolicited)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORM
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment order message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORN
+</td>
+<td class='vocab-concept-display'>
+Non-stock requisition - General order acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Non-stock requisition - General order acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORP
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment order acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment order acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORR
+</td>
+<td class='vocab-concept-display'>
+General order response message response to any ORM
+</td>
+<td class='vocab-concept-definition'>
+General order response message response to any ORM
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORS
+</td>
+<td class='vocab-concept-display'>
+Stock requisition - Order acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Stock requisition - Order acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORU
+</td>
+<td class='vocab-concept-display'>
+Unsolicited transmission of an observation message
+</td>
+<td class='vocab-concept-definition'>
+Unsolicited transmission of an observation message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ORX
+</td>
+<td class='vocab-concept-display'>
+General Order Message with Document Payload Acknowledgement
+</td>
+<td class='vocab-concept-definition'>
+General Order Message with Document Payload Acknowledgement
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSM
+</td>
+<td class='vocab-concept-display'>
+Specimen Shipment Message
+</td>
+<td class='vocab-concept-definition'>
+Specimen Shipment Message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSQ
+</td>
+<td class='vocab-concept-display'>
+Query response for order status
+</td>
+<td class='vocab-concept-definition'>
+Query response for order status
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSR
+</td>
+<td class='vocab-concept-display'>
+Query response for order status
+</td>
+<td class='vocab-concept-definition'>
+Query response for order status
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OSU
+</td>
+<td class='vocab-concept-display'>
+Order status update
+</td>
+<td class='vocab-concept-definition'>
+Order status update
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OUL
+</td>
+<td class='vocab-concept-display'>
+Unsolicited laboratory observation message
+</td>
+<td class='vocab-concept-definition'>
+Unsolicited laboratory observation message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PEX
+</td>
+<td class='vocab-concept-display'>
+Product experience message
+</td>
+<td class='vocab-concept-definition'>
+Product experience message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PGL
+</td>
+<td class='vocab-concept-display'>
+Patient goal message
+</td>
+<td class='vocab-concept-definition'>
+Patient goal message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PIN
+</td>
+<td class='vocab-concept-display'>
+Patient insurance information
+</td>
+<td class='vocab-concept-definition'>
+Patient insurance information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PMU
+</td>
+<td class='vocab-concept-display'>
+Add personnel record
+</td>
+<td class='vocab-concept-definition'>
+Add personnel record
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPG
+</td>
+<td class='vocab-concept-display'>
+Patient pathway message (goal-oriented)
+</td>
+<td class='vocab-concept-definition'>
+Patient pathway message (goal-oriented)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPP
+</td>
+<td class='vocab-concept-display'>
+Patient pathway message (problem-oriented)
+</td>
+<td class='vocab-concept-definition'>
+Patient pathway message (problem-oriented)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPR
+</td>
+<td class='vocab-concept-display'>
+Patient problem message
+</td>
+<td class='vocab-concept-definition'>
+Patient problem message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPT
+</td>
+<td class='vocab-concept-display'>
+Patient pathway goal-oriented response
+</td>
+<td class='vocab-concept-definition'>
+Patient pathway goal-oriented response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPV
+</td>
+<td class='vocab-concept-display'>
+Patient goal response
+</td>
+<td class='vocab-concept-definition'>
+Patient goal response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRR
+</td>
+<td class='vocab-concept-display'>
+Patient problem response
+</td>
+<td class='vocab-concept-definition'>
+Patient problem response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PTR
+</td>
+<td class='vocab-concept-display'>
+Patient pathway problem-oriented response
+</td>
+<td class='vocab-concept-definition'>
+Patient pathway problem-oriented response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QBP
+</td>
+<td class='vocab-concept-display'>
+Query by parameter
+</td>
+<td class='vocab-concept-definition'>
+Query by parameter
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QCK
+</td>
+<td class='vocab-concept-display'>
+Query general acknowledgment
+</td>
+<td class='vocab-concept-definition'>
+Deferred query
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QCN
+</td>
+<td class='vocab-concept-display'>
+Cancel query
+</td>
+<td class='vocab-concept-definition'>
+Cancel query
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QRY
+</td>
+<td class='vocab-concept-display'>
+Query, original mode
+</td>
+<td class='vocab-concept-definition'>
+Query, original mode
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QSB
+</td>
+<td class='vocab-concept-display'>
+Create subscription
+</td>
+<td class='vocab-concept-definition'>
+Create subscription
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QSX
+</td>
+<td class='vocab-concept-display'>
+Cancel subscription/acknowledge message
+</td>
+<td class='vocab-concept-definition'>
+Cancel subscription/acknowledge message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QVR
+</td>
+<td class='vocab-concept-display'>
+Query for previous events
+</td>
+<td class='vocab-concept-definition'>
+Query for previous events
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RAR
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment administration information
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment administration information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RAS
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment administration message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment administration message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RCI
+</td>
+<td class='vocab-concept-display'>
+Return clinical information
+</td>
+<td class='vocab-concept-definition'>
+Return clinical information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RCL
+</td>
+<td class='vocab-concept-display'>
+Return clinical list
+</td>
+<td class='vocab-concept-definition'>
+Return clinical list
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RQQ
+</td>
+<td class='vocab-concept-display'>
+Event replay query
+</td>
+<td class='vocab-concept-definition'>
+Event replay query
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RDE
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment encoded order message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment encoded order message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RDR
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment dispense information
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment dispense information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RDS
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment dispense message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment dispense message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RDY
+</td>
+<td class='vocab-concept-display'>
+Display based response
+</td>
+<td class='vocab-concept-definition'>
+Display based response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+REF
+</td>
+<td class='vocab-concept-display'>
+Patient referral
+</td>
+<td class='vocab-concept-definition'>
+Patient referral
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RER
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment encoded order information
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment encoded order information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RGR
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment dose information
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment dose information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RGV
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment give message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment give message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ROR
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment order response
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment order response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SPQ
+</td>
+<td class='vocab-concept-display'>
+Stored procedure request
+</td>
+<td class='vocab-concept-definition'>
+Stored procedure request
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPA
+</td>
+<td class='vocab-concept-display'>
+Return patient authorization
+</td>
+<td class='vocab-concept-definition'>
+Return patient authorization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPI
+</td>
+<td class='vocab-concept-display'>
+Return patient information
+</td>
+<td class='vocab-concept-definition'>
+Return patient information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPL
+</td>
+<td class='vocab-concept-display'>
+Return patient display list
+</td>
+<td class='vocab-concept-definition'>
+Return patient display list
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPR
+</td>
+<td class='vocab-concept-display'>
+Return patient list
+</td>
+<td class='vocab-concept-definition'>
+Return patient list
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RQA
+</td>
+<td class='vocab-concept-display'>
+Request patient authorization
+</td>
+<td class='vocab-concept-definition'>
+Request patient authorization
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RQC
+</td>
+<td class='vocab-concept-display'>
+Request clinical information
+</td>
+<td class='vocab-concept-definition'>
+Request clinical information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RQI
+</td>
+<td class='vocab-concept-display'>
+Request patient information
+</td>
+<td class='vocab-concept-definition'>
+Request patient information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RQP
+</td>
+<td class='vocab-concept-display'>
+Request patient demographics
+</td>
+<td class='vocab-concept-definition'>
+Request patient demographics
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRA
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment administration acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment administration acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRD
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment dispense acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment dispense acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRE
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment encoded order acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment encoded order acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRG
+</td>
+<td class='vocab-concept-display'>
+Pharmacy/treatment give acknowledgment message
+</td>
+<td class='vocab-concept-definition'>
+Pharmacy/treatment give acknowledgment message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VQQ
+</td>
+<td class='vocab-concept-display'>
+Virtual table query
+</td>
+<td class='vocab-concept-definition'>
+Virtual table query
+</td>
+<td class='vocab-concept-deprecated'>
+2.9
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRI
+</td>
+<td class='vocab-concept-display'>
+Return referral information
+</td>
+<td class='vocab-concept-definition'>
+Return referral information
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RSP
+</td>
+<td class='vocab-concept-display'>
+Segment pattern response
+</td>
+<td class='vocab-concept-definition'>
+Segment pattern response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RTB
+</td>
+<td class='vocab-concept-display'>
+Tabular response
+</td>
+<td class='vocab-concept-definition'>
+Tabular response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SCN
+</td>
+<td class='vocab-concept-display'>
+Notification of Anti-Microbial Device Cycle Data
+</td>
+<td class='vocab-concept-definition'>
+Notification of Anti-Microbial Device Cycle Data
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SDN
+</td>
+<td class='vocab-concept-display'>
+Notification of Anti-Microbial Device Data
+</td>
+<td class='vocab-concept-definition'>
+Notification of Anti-Microbial Device Data
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SDR
+</td>
+<td class='vocab-concept-display'>
+Sterilization anti-microbial device data request
+</td>
+<td class='vocab-concept-definition'>
+Sterilization anti-microbial device data request
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SET
+</td>
+<td class='vocab-concept-display'>
+Specimen Event Tracking
+</td>
+<td class='vocab-concept-definition'>
+This message type is used to report how the specimen moves through its lifecycle from collection, identification, transport, acceptance or rejection, processing to storage and disposition.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SIU
+</td>
+<td class='vocab-concept-display'>
+Schedule information unsolicited
+</td>
+<td class='vocab-concept-definition'>
+Schedule information unsolicited
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SLN
+</td>
+<td class='vocab-concept-display'>
+Notification of New Sterilization Lot
+</td>
+<td class='vocab-concept-definition'>
+Notification of New Sterilization Lot
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SLR
+</td>
+<td class='vocab-concept-display'>
+Sterilization lot request
+</td>
+<td class='vocab-concept-definition'>
+Sterilization lot request
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SMD
+</td>
+<td class='vocab-concept-display'>
+Sterilization anti-microbial device cycle data request
+</td>
+<td class='vocab-concept-definition'>
+Sterilization anti-microbial device cycle data request
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SQM
+</td>
+<td class='vocab-concept-display'>
+Schedule query message
+</td>
+<td class='vocab-concept-definition'>
+Schedule query message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SQR
+</td>
+<td class='vocab-concept-display'>
+Schedule query response
+</td>
+<td class='vocab-concept-definition'>
+Schedule query response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SRM
+</td>
+<td class='vocab-concept-display'>
+Schedule request message
+</td>
+<td class='vocab-concept-definition'>
+Schedule request message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SRR
+</td>
+<td class='vocab-concept-display'>
+Scheduled request response
+</td>
+<td class='vocab-concept-definition'>
+Scheduled request response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SSR
+</td>
+<td class='vocab-concept-display'>
+Specimen status request message
+</td>
+<td class='vocab-concept-definition'>
+Specimen status request message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SSU
+</td>
+<td class='vocab-concept-display'>
+Specimen status update message
+</td>
+<td class='vocab-concept-definition'>
+Specimen status update message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+STC
+</td>
+<td class='vocab-concept-display'>
+Notification of Sterilization Configuration
+</td>
+<td class='vocab-concept-definition'>
+Notification of Sterilization Configuration
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+STI
+</td>
+<td class='vocab-concept-display'>
+Sterilization item request
+</td>
+<td class='vocab-concept-definition'>
+Sterilization item request
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SUR
+</td>
+<td class='vocab-concept-display'>
+Summary product experience report
+</td>
+<td class='vocab-concept-definition'>
+Summary product experience report
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TBR
+</td>
+<td class='vocab-concept-display'>
+Tabular data response
+</td>
+<td class='vocab-concept-definition'>
+Tabular data response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TCR
+</td>
+<td class='vocab-concept-display'>
+Automated equipment test code settings request message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment test code settings request message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TCU
+</td>
+<td class='vocab-concept-display'>
+Automated equipment test code settings update message
+</td>
+<td class='vocab-concept-definition'>
+Automated equipment test code settings update message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UDM
+</td>
+<td class='vocab-concept-display'>
+Unsolicited display update message
+</td>
+<td class='vocab-concept-definition'>
+Unsolicited display update message
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VXQ
+</td>
+<td class='vocab-concept-display'>
+Query for vaccination record
+</td>
+<td class='vocab-concept-definition'>
+Query for vaccination record
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VXR
+</td>
+<td class='vocab-concept-display'>
+Vaccination record response
+</td>
+<td class='vocab-concept-definition'>
+Vaccination record response
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VXU
+</td>
+<td class='vocab-concept-display'>
+Unsolicited vaccination record update
+</td>
+<td class='vocab-concept-definition'>
+Unsolicited vaccination record update
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VXX
+</td>
+<td class='vocab-concept-display'>
+Response for vaccination query with multiple PID matches
+</td>
+<td class='vocab-concept-definition'>
+Response for vaccination query with multiple PID matches
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

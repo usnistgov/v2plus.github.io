@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h2 class='v2'>
+MESSAGE STRUCTURES
+</h2>
+<p class='v2'>
+The message structures in this section are listed in alphabetical order.
+</p>
+<ul>
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ACK.html'>
+ACK
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A01.html'>
+ADT_A01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A02.html'>
+ADT_A02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A03.html'>
+ADT_A03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A05.html'>
+ADT_A05
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A06.html'>
+ADT_A06
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A09.html'>
+ADT_A09
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A15.html'>
+ADT_A15
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A16.html'>
+ADT_A16
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A17.html'>
+ADT_A17
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A20.html'>
+ADT_A20
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A24.html'>
+ADT_A24
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A38.html'>
+ADT_A38
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A39.html'>
+ADT_A39
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A43.html'>
+ADT_A43
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A44.html'>
+ADT_A44
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A45.html'>
+ADT_A45
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A50.html'>
+ADT_A50
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A52.html'>
+ADT_A52
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A54.html'>
+ADT_A54
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A60.html'>
+ADT_A60
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ADT_A61.html'>
+ADT_A61
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BAR_P01.html'>
+BAR_P01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BAR_P02.html'>
+BAR_P02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BAR_P05.html'>
+BAR_P05
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BAR_P06.html'>
+BAR_P06
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BAR_P10.html'>
+BAR_P10
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BAR_P12.html'>
+BAR_P12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BPS_O29.html'>
+BPS_O29
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BRP_O30.html'>
+BRP_O30
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BRT_O32.html'>
+BRT_O32
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/BTS_O31.html'>
+BTS_O31
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CCF_I22.html'>
+CCF_I22
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CCI_I22.html'>
+CCI_I22
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CCM_I21.html'>
+CCM_I21
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CCQ_I19.html'>
+CCQ_I19
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CCR_I16.html'>
+CCR_I16
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CCU_I20.html'>
+CCU_I20
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CQU_I19.html'>
+CQU_I19
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CRM_C01.html'>
+CRM_C01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/CSU_C09.html'>
+CSU_C09
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DBC_O41.html'>
+DBC_O41
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DBC_O42.html'>
+DBC_O42
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DEL_O46.html'>
+DEL_O46
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DEO_O45.html'>
+DEO_O45
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DER_O44.html'>
+DER_O44
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DFT_P03.html'>
+DFT_P03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DFT_P11.html'>
+DFT_P11
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DPR_O48.html'>
+DPR_O48
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/DRG_O43.html'>
+DRG_O43
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EAC_U07.html'>
+EAC_U07
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EAN_U09.html'>
+EAN_U09
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EAR_U08.html'>
+EAR_U08
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E01.html'>
+EHC_E01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E02.html'>
+EHC_E02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E04.html'>
+EHC_E04
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E10.html'>
+EHC_E10
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E12.html'>
+EHC_E12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E13.html'>
+EHC_E13
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E15.html'>
+EHC_E15
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E20.html'>
+EHC_E20
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E21.html'>
+EHC_E21
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/EHC_E24.html'>
+EHC_E24
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ESR_U02.html'>
+ESR_U02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ESU_U01.html'>
+ESU_U01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/INR_U14.html'>
+INR_U14
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/INU_U05.html'>
+INU_U05
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/LSU_U12.html'>
+LSU_U12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MDM_T01.html'>
+MDM_T01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MDM_T02.html'>
+MDM_T02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFK_M01.html'>
+MFK_M01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M02.html'>
+MFN_M02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M04.html'>
+MFN_M04
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M05.html'>
+MFN_M05
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M06.html'>
+MFN_M06
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M07.html'>
+MFN_M07
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M08.html'>
+MFN_M08
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M09.html'>
+MFN_M09
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M10.html'>
+MFN_M10
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M11.html'>
+MFN_M11
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M12.html'>
+MFN_M12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M13.html'>
+MFN_M13
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M15.html'>
+MFN_M15
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M16.html'>
+MFN_M16
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M17.html'>
+MFN_M17
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M18.html'>
+MFN_M18
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_M19.html'>
+MFN_M19
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/MFN_Znn.html'>
+MFN_Znn
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/NMD_N02.html'>
+NMD_N02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMB_O27.html'>
+OMB_O27
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMD_O03.html'>
+OMD_O03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMG_O19.html'>
+OMG_O19
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMI_O23.html'>
+OMI_O23
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OML_O21.html'>
+OML_O21
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OML_O33.html'>
+OML_O33
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OML_O35.html'>
+OML_O35
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OML_O39.html'>
+OML_O39
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OML_O59.html'>
+OML_O59
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMP_O09.html'>
+OMP_O09
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMQ_O57.html'>
+OMQ_O57
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OMS_O05.html'>
+OMS_O05
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OPL_O37.html'>
+OPL_O37
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OPR_O38.html'>
+OPR_O38
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OPU_R25.html'>
+OPU_R25
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORA_R33.html'>
+ORA_R33
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORA_R41.html'>
+ORA_R41
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORB_O28.html'>
+ORB_O28
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORD_O04.html'>
+ORD_O04
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORG_O20.html'>
+ORG_O20
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORI_O24.html'>
+ORI_O24
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O22.html'>
+ORL_O22
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O34.html'>
+ORL_O34
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O36.html'>
+ORL_O36
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O40.html'>
+ORL_O40
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O53.html'>
+ORL_O53
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O54.html'>
+ORL_O54
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O55.html'>
+ORL_O55
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORL_O56.html'>
+ORL_O56
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORP_O10.html'>
+ORP_O10
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORS_O06.html'>
+ORS_O06
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORU_R01.html'>
+ORU_R01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORU_R30.html'>
+ORU_R30
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/ORX_O58.html'>
+ORX_O58
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OSM_R26.html'>
+OSM_R26
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OSU_O51.html'>
+OSU_O51
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OSU_O52.html'>
+OSU_O52
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OUL_R22.html'>
+OUL_R22
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OUL_R23.html'>
+OUL_R23
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/OUL_R24.html'>
+OUL_R24
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PEX_P07.html'>
+PEX_P07
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PGL_PC6.html'>
+PGL_PC6
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PMU_B01.html'>
+PMU_B01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PMU_B03.html'>
+PMU_B03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PMU_B04.html'>
+PMU_B04
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PMU_B07.html'>
+PMU_B07
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PMU_B08.html'>
+PMU_B08
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PPG_PCG.html'>
+PPG_PCG
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PPP_PCB.html'>
+PPP_PCB
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/PPR_PC1.html'>
+PPR_PC1
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_E03.html'>
+QBP_E03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_O33.html'>
+QBP_O33
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_Q11.html'>
+QBP_Q11
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_Q13.html'>
+QBP_Q13
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_Q15.html'>
+QBP_Q15
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_Q21.html'>
+QBP_Q21
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QBP_Qnn.html'>
+QBP_Qnn
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QCN_J01.html'>
+QCN_J01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/QVR_Q17.html'>
+QVR_Q17
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RAS_O17.html'>
+RAS_O17
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RCV_O59.html'>
+RCV_O59
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RDE_O11.html'>
+RDE_O11
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RDE_O49.html'>
+RDE_O49
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RDR_RDR.html'>
+RDR_RDR
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RDS_O13.html'>
+RDS_O13
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RDY_K15.html'>
+RDY_K15
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/REF_I12.html'>
+REF_I12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RGV_O15.html'>
+RGV_O15
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RPA_I08.html'>
+RPA_I08
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RPI_I01.html'>
+RPI_I01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RPL_I02.html'>
+RPL_I02
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RPR_I03.html'>
+RPR_I03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RQA_I08.html'>
+RQA_I08
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RQI_I01.html'>
+RQI_I01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RQP_I04.html'>
+RQP_I04
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RRA_O18.html'>
+RRA_O18
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RRD_O14.html'>
+RRD_O14
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RRE_O12.html'>
+RRE_O12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RRE_O50.html'>
+RRE_O50
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RRG_O16.html'>
+RRG_O16
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RRI_I12.html'>
+RRI_I12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_E03.html'>
+RSP_E03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_E22.html'>
+RSP_E22
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K11.html'>
+RSP_K11
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K21.html'>
+RSP_K21
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K22.html'>
+RSP_K22
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K23.html'>
+RSP_K23
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K25.html'>
+RSP_K25
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K31.html'>
+RSP_K31
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_K32.html'>
+RSP_K32
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_O33.html'>
+RSP_O33
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_O34.html'>
+RSP_O34
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_Z82.html'>
+RSP_Z82
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_Z86.html'>
+RSP_Z86
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_Z88.html'>
+RSP_Z88
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RSP_Z90.html'>
+RSP_Z90
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RTB_K13.html'>
+RTB_K13
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RTB_Knn.html'>
+RTB_Knn
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/RTB_Z74.html'>
+RTB_Z74
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SDR_S31.html'>
+SDR_S31
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SIU_S12.html'>
+SIU_S12
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SLR_S28.html'>
+SLR_S28
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SRM_S01.html'>
+SRM_S01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SRR_S01.html'>
+SRR_S01
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SSR_U04.html'>
+SSR_U04
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/SSU_U03.html'>
+SSU_U03
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/STC_S33.html'>
+STC_S33
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/TCU_U10.html'>
+TCU_U10
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/UDM_Q05.html'>
+UDM_Q05
+</a>
+</li>
+
+<li class='message_structure_toc_entry'>
+<a href='/message-structure/VXU_V04.html'>
+VXU_V04
+</a>
+</li>
+
+</ul>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 15, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

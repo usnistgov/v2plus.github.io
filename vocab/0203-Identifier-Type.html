@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- %h3 -->
+<!-- =title -->
+<!-- = meta_data -->
+<!-- = concept_domain -->
+<!-- = concepts_table -->
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 vocab-metadata-table'>
+<caption>
+Identifier Type
+</caption>
+<tbody>
+<tr>
+<td>
+Vocabulary Type
+</td>
+<td>
+Code System - Universal
+</td>
+</tr>
+<tr>
+<td>
+Concept Domain
+</td>
+<td>
+Identifier Type
+</td>
+</tr>
+<tr>
+<td>
+Code System Name
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System Identifier
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Code System OID
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+HL7 Table Identifier
+</td>
+<td>
+HL70203
+</td>
+</tr>
+<tr>
+<td>
+Version
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Status
+</td>
+<td>
+Active
+</td>
+</tr>
+<tr>
+<td>
+Where Used
+</td>
+<td>
+CX.5, PPN.13, XCN.13, XON.7
+</td>
+</tr>
+<tr>
+<td>
+Purpose and Use
+</td>
+<td>
+HL7-defined table of codes specifying the type of identififier.
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='v2 concepts-table'>
+<caption>
+Identifier Type - Code System
+</caption>
+<tbody>
+<tr>
+<th>
+Code
+</th>
+<th>
+Display
+</th>
+<th>
+Definition
+</th>
+<th>
+Deprecated
+</th>
+</tr>
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AC
+</td>
+<td class='vocab-concept-display'>
+Accreditation/Certification Identifier
+</td>
+<td class='vocab-concept-definition'>
+Identifier that has been assigned by an accreditation or certification organization in specific fields, indicating a recognized skill
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ACSN
+</td>
+<td class='vocab-concept-display'>
+Accession ID
+</td>
+<td class='vocab-concept-definition'>
+Accession Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AIN
+</td>
+<td class='vocab-concept-display'>
+Animal Identification Number (US Official)
+</td>
+<td class='vocab-concept-definition'>
+A numbering system for the official identification of individual animals in the United States that provides a nationally unique identification number for each animal. The first two numbers on a tag are the numbers assigned to a specific State.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AM
+</td>
+<td class='vocab-concept-display'>
+American Express
+</td>
+<td class='vocab-concept-definition'>
+American Express
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AMA
+</td>
+<td class='vocab-concept-display'>
+American Medical Association Number
+</td>
+<td class='vocab-concept-definition'>
+A physician identifier assigned by the AMA.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AN
+</td>
+<td class='vocab-concept-display'>
+Account number
+</td>
+<td class='vocab-concept-definition'>
+Account An identifier that is unique to an account.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ANC
+</td>
+<td class='vocab-concept-display'>
+Account number Creditor
+</td>
+<td class='vocab-concept-definition'>
+A more precise definition of an account number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+AND
+</td>
+<td class='vocab-concept-display'>
+Account number debitor
+</td>
+<td class='vocab-concept-definition'>
+A more precise definition of an account number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ANON
+</td>
+<td class='vocab-concept-display'>
+Anonymous identifier
+</td>
+<td class='vocab-concept-definition'>
+An identifier for a living subject whose real identity is protected or suppressed
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ANT
+</td>
+<td class='vocab-concept-display'>
+Temporary Account Number
+</td>
+<td class='vocab-concept-definition'>
+Temporary version of an Account Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+APRN
+</td>
+<td class='vocab-concept-display'>
+Advanced Practice Registered Nurse number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to an advanced practice registered nurse within the jurisdiction of a certifying board
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ASID
+</td>
+<td class='vocab-concept-display'>
+Ancestor Specimen ID
+</td>
+<td class='vocab-concept-definition'>
+A unique identifier for the ancestor specimen.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BA
+</td>
+<td class='vocab-concept-display'>
+Bank Account Number
+</td>
+<td class='vocab-concept-definition'>
+Bank Account Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BC
+</td>
+<td class='vocab-concept-display'>
+Bank Card Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a person's bank card
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BCFN
+</td>
+<td class='vocab-concept-display'>
+Birth Certificate File Number
+</td>
+<td class='vocab-concept-definition'>
+The identifier used within the jurisdictional vital records office file system as an auxiliary means of accessing the record associated with the birth certificate.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BCT
+</td>
+<td class='vocab-concept-display'>
+Birth Certificate
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a document identifying the event of a person's birth
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BR
+</td>
+<td class='vocab-concept-display'>
+Birth registry number
+</td>
+<td class='vocab-concept-definition'>
+An identifier unique within the Assigning Authority that is the official legal record of a person's birth.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BRN
+</td>
+<td class='vocab-concept-display'>
+Breed Registry Number
+</td>
+<td class='vocab-concept-definition'>
+Breed Registry Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+BSNR
+</td>
+<td class='vocab-concept-display'>
+Primary physician office number
+</td>
+<td class='vocab-concept-definition'>
+Primary physician office number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CAAI
+</td>
+<td class='vocab-concept-display'>
+Consumer Application Account Identifier
+</td>
+<td class='vocab-concept-definition'>
+An identifier for the consumer (e.g., patient, caregiver) for an application such as a portal or App.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CC
+</td>
+<td class='vocab-concept-display'>
+Cost Center number
+</td>
+<td class='vocab-concept-definition'>
+Cost Center number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CONM
+</td>
+<td class='vocab-concept-display'>
+Change of Name Document
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a document identifying a person's legal change of name.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CY
+</td>
+<td class='vocab-concept-display'>
+County number
+</td>
+<td class='vocab-concept-definition'>
+County number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+CZ
+</td>
+<td class='vocab-concept-display'>
+Citizenship Card
+</td>
+<td class='vocab-concept-definition'>
+A number assigned by a person's country of residence to identify a person's citizenship.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DC
+</td>
+<td class='vocab-concept-display'>
+Death Certificate ID
+</td>
+<td class='vocab-concept-definition'>
+The identifier assigned to a death certificate, and printed on the death certificate when issued by a jurisdictional vital records office
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DCFN
+</td>
+<td class='vocab-concept-display'>
+Death Certificate File Number
+</td>
+<td class='vocab-concept-definition'>
+The identifier used within the jurisdictional vital records office file system as an auxiliary means of accessing the record associated with the death certificate.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DDS
+</td>
+<td class='vocab-concept-display'>
+Dentist license number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a dentist within the jurisdiction of the licensing board
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DEA
+</td>
+<td class='vocab-concept-display'>
+Drug Enforcement Administration registration number
+</td>
+<td class='vocab-concept-definition'>
+An identifier for an individual or organization relative to controlled substance regulation and transactions.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DFN
+</td>
+<td class='vocab-concept-display'>
+Drug Furnishing or prescriptive authority Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier issued to a health care provider authorizing the person to write drug orders
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DI
+</td>
+<td class='vocab-concept-display'>
+Diner's Club card
+</td>
+<td class='vocab-concept-definition'>
+Diner's Club card
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DL
+</td>
+<td class='vocab-concept-display'>
+Driver's license number
+</td>
+<td class='vocab-concept-definition'>
+Driver's license number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DN
+</td>
+<td class='vocab-concept-display'>
+Doctor number
+</td>
+<td class='vocab-concept-definition'>
+Doctor number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DO
+</td>
+<td class='vocab-concept-display'>
+Osteopathic License number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to an osteopath within the jurisdiction of a licensing board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DP
+</td>
+<td class='vocab-concept-display'>
+Diplomatic Passport
+</td>
+<td class='vocab-concept-definition'>
+A number assigned to a diplomatic passport.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DPM
+</td>
+<td class='vocab-concept-display'>
+Podiatrist license number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a podiatrist within the jurisdiction of the licensing board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DR
+</td>
+<td class='vocab-concept-display'>
+Donor Registration Number
+</td>
+<td class='vocab-concept-definition'>
+Donor Registration Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DS
+</td>
+<td class='vocab-concept-display'>
+Discover Card
+</td>
+<td class='vocab-concept-definition'>
+Discover Card
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+DSG
+</td>
+<td class='vocab-concept-display'>
+Diagnostic Study Group
+</td>
+<td class='vocab-concept-definition'>
+Unique Identifier that groups several orders that are to be performed together.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EI
+</td>
+<td class='vocab-concept-display'>
+Employee number
+</td>
+<td class='vocab-concept-definition'>
+A number that uniquely identifies an employee to an employer.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+EN
+</td>
+<td class='vocab-concept-display'>
+Employer number
+</td>
+<td class='vocab-concept-definition'>
+Employer number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+ESN
+</td>
+<td class='vocab-concept-display'>
+Staff Enterprise Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a staff member within an enterprise (as identified by the Assigning Authority).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDR
+</td>
+<td class='vocab-concept-display'>
+Fetal Death Report ID
+</td>
+<td class='vocab-concept-definition'>
+The identifier assigned to a fetal death report, and printed on the fetal death report when issued by a jurisdictional vital records office
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FDRFN
+</td>
+<td class='vocab-concept-display'>
+Fetal Death Report File Number
+</td>
+<td class='vocab-concept-definition'>
+The identifier used within the jurisdictional vital records office file system as an auxiliary means of accessing the record associated with the fetal death report certificate.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FGN
+</td>
+<td class='vocab-concept-display'>
+Filler Group Number
+</td>
+<td class='vocab-concept-definition'>
+Unique identifier assigned to a group of orders by the filler application.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FI
+</td>
+<td class='vocab-concept-display'>
+Facility ID
+</td>
+<td class='vocab-concept-definition'>
+Facility ID
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+FILL
+</td>
+<td class='vocab-concept-display'>
+Filler Identifier
+</td>
+<td class='vocab-concept-definition'>
+An identifier for a request where the identifier is issued by the person, or service, that produces the observations or fulfills the request.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GI
+</td>
+<td class='vocab-concept-display'>
+Guarantor internal identifier
+</td>
+<td class='vocab-concept-definition'>
+Guarantor internal identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GIN
+</td>
+<td class='vocab-concept-display'>
+Animal Group Identifier (US Official)
+</td>
+<td class='vocab-concept-definition'>
+Identifier that can be used to unambiguously describe a specific group of animals.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GL
+</td>
+<td class='vocab-concept-display'>
+General ledger number
+</td>
+<td class='vocab-concept-definition'>
+General ledger number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+GN
+</td>
+<td class='vocab-concept-display'>
+Guarantor external  identifier
+</td>
+<td class='vocab-concept-definition'>
+Guarantor external  identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+HC
+</td>
+<td class='vocab-concept-display'>
+Health Card Number
+</td>
+<td class='vocab-concept-definition'>
+Health Card Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+IND
+</td>
+<td class='vocab-concept-display'>
+Indigenous/Aboriginal
+</td>
+<td class='vocab-concept-definition'>
+A number assigned to a member of an indigenous or aboriginal group outside of Canada.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+JHN
+</td>
+<td class='vocab-concept-display'>
+Jurisdictional health number
+</td>
+<td class='vocab-concept-definition'>
+Jurisdictional health number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LACSN
+</td>
+<td class='vocab-concept-display'>
+Laboratory Accession ID
+</td>
+<td class='vocab-concept-definition'>
+A laboratory accession id is used in the laboratory domain.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LANR
+</td>
+<td class='vocab-concept-display'>
+Lifelong physician number
+</td>
+<td class='vocab-concept-definition'>
+Lifelong physician number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LI
+</td>
+<td class='vocab-concept-display'>
+Labor and industries number
+</td>
+<td class='vocab-concept-definition'>
+Labor and industries number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+L&I
+</td>
+<td class='vocab-concept-display'>
+Labor and industries number
+</td>
+<td class='vocab-concept-definition'>
+Labor and industries number.  Note that this was introduced erroneously (with an ampersand in the code value) many years ago.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LN
+</td>
+<td class='vocab-concept-display'>
+License number
+</td>
+<td class='vocab-concept-definition'>
+License number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+LR
+</td>
+<td class='vocab-concept-display'>
+Local Registry ID
+</td>
+<td class='vocab-concept-definition'>
+Local Registry ID
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MA
+</td>
+<td class='vocab-concept-display'>
+Patient Medicaid number
+</td>
+<td class='vocab-concept-definition'>
+Patient Medicaid number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MB
+</td>
+<td class='vocab-concept-display'>
+Member Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier for the insured of an insurance policy (this insured always has a subscriber), usually assigned by the insurance carrier.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MC
+</td>
+<td class='vocab-concept-display'>
+Patient's Medicare number
+</td>
+<td class='vocab-concept-definition'>
+Patient's Medicare number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCD
+</td>
+<td class='vocab-concept-display'>
+Practitioner Medicaid number
+</td>
+<td class='vocab-concept-definition'>
+Practitioner Medicaid number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCN
+</td>
+<td class='vocab-concept-display'>
+Microchip Number
+</td>
+<td class='vocab-concept-definition'>
+Microchip Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCR
+</td>
+<td class='vocab-concept-display'>
+Practitioner Medicare number
+</td>
+<td class='vocab-concept-definition'>
+Practitioner Medicare number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MCT
+</td>
+<td class='vocab-concept-display'>
+Marriage Certificate
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a document identifying the event of a person's marriage.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MD
+</td>
+<td class='vocab-concept-display'>
+Medical License number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a medical doctor within the jurisdiction of a licensing board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MI
+</td>
+<td class='vocab-concept-display'>
+Military ID number
+</td>
+<td class='vocab-concept-definition'>
+A number assigned to an individual who has had military duty, but is not currently on active duty. The number is assigned by the DOD or Veterans' Affairs (VA).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MR
+</td>
+<td class='vocab-concept-display'>
+Medical record number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a patient within a set of medical records, not necessarily unique within an application.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MRT
+</td>
+<td class='vocab-concept-display'>
+Temporary Medical Record Number
+</td>
+<td class='vocab-concept-definition'>
+Temporary version of a Medical Record Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+MS
+</td>
+<td class='vocab-concept-display'>
+MasterCard
+</td>
+<td class='vocab-concept-definition'>
+MasterCard
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NBSNR
+</td>
+<td class='vocab-concept-display'>
+Secondary physician office number
+</td>
+<td class='vocab-concept-definition'>
+Secondary physician office number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NCT
+</td>
+<td class='vocab-concept-display'>
+Naturalization Certificate
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a document identifying a person's retention of citizenship in a particular country.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NE
+</td>
+<td class='vocab-concept-display'>
+National employer identifier
+</td>
+<td class='vocab-concept-definition'>
+National employer identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NH
+</td>
+<td class='vocab-concept-display'>
+National Health Plan Identifier
+</td>
+<td class='vocab-concept-definition'>
+National Health Plan Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NI
+</td>
+<td class='vocab-concept-display'>
+National unique individual identifier
+</td>
+<td class='vocab-concept-definition'>
+National unique individual identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NII
+</td>
+<td class='vocab-concept-display'>
+National Insurance Organization Identifier
+</td>
+<td class='vocab-concept-definition'>
+National Insurance Organization Identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NIIP
+</td>
+<td class='vocab-concept-display'>
+National Insurance Payor Identifier (Payor)
+</td>
+<td class='vocab-concept-definition'>
+National Insurance Payor Identifier (Payor)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NNxxx
+</td>
+<td class='vocab-concept-display'>
+National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code
+</td>
+<td class='vocab-concept-definition'>
+National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NP
+</td>
+<td class='vocab-concept-display'>
+Nurse practitioner number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a nurse practitioner within the jurisdiction of a certifying board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+NPI
+</td>
+<td class='vocab-concept-display'>
+National provider identifier
+</td>
+<td class='vocab-concept-definition'>
+National provider identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OBI
+</td>
+<td class='vocab-concept-display'>
+Observation Instance Identifier
+</td>
+<td class='vocab-concept-definition'>
+Unique and persistent identifier for an observation instance
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+OD
+</td>
+<td class='vocab-concept-display'>
+Optometrist license number
+</td>
+<td class='vocab-concept-definition'>
+A number that is unique to an individual optometrist within the jurisdiction of the licensing board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PA
+</td>
+<td class='vocab-concept-display'>
+Physician Assistant number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a physician assistant within the jurisdiction of a licensing board
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PC
+</td>
+<td class='vocab-concept-display'>
+Parole Card
+</td>
+<td class='vocab-concept-definition'>
+A number identifying a person on parole.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PCN
+</td>
+<td class='vocab-concept-display'>
+Penitentiary/correctional institution Number
+</td>
+<td class='vocab-concept-definition'>
+A number assigned to individual who is incarcerated.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PE
+</td>
+<td class='vocab-concept-display'>
+Living Subject Enterprise Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a living subject within an enterprise (as identified by the Assigning Authority).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PEN
+</td>
+<td class='vocab-concept-display'>
+Pension Number
+</td>
+<td class='vocab-concept-definition'>
+Pension Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PGN
+</td>
+<td class='vocab-concept-display'>
+Placer Group Number
+</td>
+<td class='vocab-concept-definition'>
+Unique identifier assigned to a group of orders by the placer application.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHC
+</td>
+<td class='vocab-concept-display'>
+Public Health Case Identifier
+</td>
+<td class='vocab-concept-definition'>
+Identifier assigned to a person during a case investigation as part of a public health event
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHE
+</td>
+<td class='vocab-concept-display'>
+Public Health Event Identifier
+</td>
+<td class='vocab-concept-definition'>
+Identifier assigned to an event of interest to public health
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PHO
+</td>
+<td class='vocab-concept-display'>
+Public Health Official ID
+</td>
+<td class='vocab-concept-definition'>
+An identifier for a person working at a public health agency (PHA),  assigned or issued by the agency
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PI
+</td>
+<td class='vocab-concept-display'>
+Patient internal identifier
+</td>
+<td class='vocab-concept-definition'>
+A number that is unique to a patient within an Assigning Authority.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PIN
+</td>
+<td class='vocab-concept-display'>
+Premises Identifier Number (US Official)
+</td>
+<td class='vocab-concept-definition'>
+Identifier that uniquely identifies a geographic location in the US.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PLAC
+</td>
+<td class='vocab-concept-display'>
+Placer Identifier
+</td>
+<td class='vocab-concept-definition'>
+An identifier for a request where the identifier is issued by the person or service making the request.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PN
+</td>
+<td class='vocab-concept-display'>
+Person number
+</td>
+<td class='vocab-concept-definition'>
+A number that is unique to a living subject within an Assigning Authority.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PNT
+</td>
+<td class='vocab-concept-display'>
+Temporary Living Subject Number
+</td>
+<td class='vocab-concept-definition'>
+Temporary version of a Living Subject Number.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPIN
+</td>
+<td class='vocab-concept-display'>
+Medicare/CMS Performing Provider Identification Number
+</td>
+<td class='vocab-concept-definition'>
+Medicare/CMS Performing Provider Identification Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PPN
+</td>
+<td class='vocab-concept-display'>
+Passport number
+</td>
+<td class='vocab-concept-definition'>
+A unique number assigned to the document affirming that a person is a citizen of the country.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRC
+</td>
+<td class='vocab-concept-display'>
+Permanent Resident Card Number
+</td>
+<td class='vocab-concept-definition'>
+Permanent Resident Card Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PRN
+</td>
+<td class='vocab-concept-display'>
+Provider number
+</td>
+<td class='vocab-concept-definition'>
+A number that is unique to an individual provider, a provider group or an organization within an Assigning Authority.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+PT
+</td>
+<td class='vocab-concept-display'>
+Patient external identifier
+</td>
+<td class='vocab-concept-definition'>
+Patient external identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+QA
+</td>
+<td class='vocab-concept-display'>
+QA number
+</td>
+<td class='vocab-concept-definition'>
+QA number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RI
+</td>
+<td class='vocab-concept-display'>
+Resource identifier
+</td>
+<td class='vocab-concept-definition'>
+A generalized resource identifier.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RN
+</td>
+<td class='vocab-concept-display'>
+Registered Nurse Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a registered nurse within the jurisdiction of the licensing board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RPH
+</td>
+<td class='vocab-concept-display'>
+Pharmacist license number
+</td>
+<td class='vocab-concept-definition'>
+An identifier that is unique to a pharmacist within the jurisdiction of the licensing board.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RR
+</td>
+<td class='vocab-concept-display'>
+Railroad Retirement number
+</td>
+<td class='vocab-concept-definition'>
+An identifier for an individual enrolled with the Railroad Retirement Administration.  Analogous to, but distinct from, a Social Security Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRI
+</td>
+<td class='vocab-concept-display'>
+Regional registry ID
+</td>
+<td class='vocab-concept-definition'>
+Regional registry ID
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+RRP
+</td>
+<td class='vocab-concept-display'>
+Railroad Retirement Provider
+</td>
+<td class='vocab-concept-definition'>
+Railroad Retirement Provider
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SAMN
+</td>
+<td class='vocab-concept-display'>
+SAMN# accession Number
+</td>
+<td class='vocab-concept-definition'>
+The accession number for the BioSample data repository at the National Center for Biotechnology Information (NCBI)
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SB
+</td>
+<td class='vocab-concept-display'>
+Social Beneficiary Identifier
+</td>
+<td class='vocab-concept-definition'>
+An identifier issued by a governmental organization to a person to identify the person should they apply for or receive social services and/or benefits
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SID
+</td>
+<td class='vocab-concept-display'>
+Specimen ID
+</td>
+<td class='vocab-concept-definition'>
+Identifier for a specimen.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SL
+</td>
+<td class='vocab-concept-display'>
+State license
+</td>
+<td class='vocab-concept-definition'>
+State license
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SN
+</td>
+<td class='vocab-concept-display'>
+Subscriber Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier for a subscriber of an insurance policy which is unique for, and usually assigned by, the insurance carrier.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNBSN
+</td>
+<td class='vocab-concept-display'>
+State assigned NDBS card Identifier
+</td>
+<td class='vocab-concept-definition'>
+The identifier on a Newborn Screening Dried Bloodspot (NDBS) card that is assigned by the state which provided the sample collection cards and to whom this information must be reported
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SNO
+</td>
+<td class='vocab-concept-display'>
+Serial Number
+</td>
+<td class='vocab-concept-definition'>
+An identifier affixed to an item by the manufacturer when it is first made, where each item has a different identifier.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SP
+</td>
+<td class='vocab-concept-display'>
+Study Permit
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a permit identifying a person who is a resident of a jurisdiction for the purpose of education.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SR
+</td>
+<td class='vocab-concept-display'>
+State registry ID
+</td>
+<td class='vocab-concept-definition'>
+State registry ID
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SRX
+</td>
+<td class='vocab-concept-display'>
+SRA Accession number
+</td>
+<td class='vocab-concept-definition'>
+The accession number generated by the Sequence Read Archive (SRA) at the National Center for Biotechnology Information (NCBI) when sequence data are uploaded to NCBI.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+SS
+</td>
+<td class='vocab-concept-display'>
+Social Security number
+</td>
+<td class='vocab-concept-definition'>
+Social Security number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+STN
+</td>
+<td class='vocab-concept-display'>
+Shipment Tracking Number
+</td>
+<td class='vocab-concept-definition'>
+Identifier assigned to a package being shipped
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TAX
+</td>
+<td class='vocab-concept-display'>
+Tax ID number
+</td>
+<td class='vocab-concept-definition'>
+Tax ID number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TN
+</td>
+<td class='vocab-concept-display'>
+Treaty Number/ (Canada)
+</td>
+<td class='vocab-concept-definition'>
+A number assigned to a member of an indigenous group in Canada.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TPR
+</td>
+<td class='vocab-concept-display'>
+Temporary Permanent Resident (Canada)
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a document identifying a person's temporary permanent resident status.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+TRL
+</td>
+<td class='vocab-concept-display'>
+Training License Number
+</td>
+<td class='vocab-concept-definition'>
+The license number used during training.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+U
+</td>
+<td class='vocab-concept-display'>
+Unspecified identifier
+</td>
+<td class='vocab-concept-definition'>
+Unspecified identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UDI
+</td>
+<td class='vocab-concept-display'>
+Universal Device Identifier
+</td>
+<td class='vocab-concept-definition'>
+An identifier assigned to a device using the Unique Device Identification framework as defined by IMDRF (http://imdrf.org).
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+UPIN
+</td>
+<td class='vocab-concept-display'>
+Medicare/CMS (formerly HCFA)'s Universal Physician Identification numbers
+</td>
+<td class='vocab-concept-definition'>
+An identifier for a provider within the CMS/Medicare program.  A globally unique identifier for the provider in the Medicare program.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+USID
+</td>
+<td class='vocab-concept-display'>
+Unique Specimen ID
+</td>
+<td class='vocab-concept-definition'>
+A unique identifier for a specimen.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VN
+</td>
+<td class='vocab-concept-display'>
+Visit number
+</td>
+<td class='vocab-concept-definition'>
+Visit number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VP
+</td>
+<td class='vocab-concept-display'>
+Visitor Permit
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a document identifying a person as a visitor of a jurisdiction or country.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+VS
+</td>
+<td class='vocab-concept-display'>
+VISA
+</td>
+<td class='vocab-concept-definition'>
+VISA
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WC
+</td>
+<td class='vocab-concept-display'>
+WIC identifier
+</td>
+<td class='vocab-concept-definition'>
+WIC identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WCN
+</td>
+<td class='vocab-concept-display'>
+Workers' Comp Number
+</td>
+<td class='vocab-concept-definition'>
+Workers' Comp Number
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+WP
+</td>
+<td class='vocab-concept-display'>
+Work Permit
+</td>
+<td class='vocab-concept-definition'>
+A number associated with a permit for a person who is granted permission to work in a country for a specified time period.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XV
+</td>
+<td class='vocab-concept-display'>
+Health Plan Identifier
+</td>
+<td class='vocab-concept-definition'>
+National unique health plan identifier required by the US Department of Health and Human Services, Centers for Medicare and Medicaid Services (CMS) in the US Realm.
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+<tr class='vocab-concept-row'>
+<td class='vocab-concept-code'>
+XX
+</td>
+<td class='vocab-concept-display'>
+Organization identifier
+</td>
+<td class='vocab-concept-definition'>
+Organization identifier
+</td>
+<td class='vocab-concept-deprecated'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+<br>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 14, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

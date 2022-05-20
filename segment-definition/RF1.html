@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+RF1 - Referral Information Segment
+</h3>
+<p class="v2"><strong>Attention: Retained for backwards compatibility as of V2.9. Refer to 7.4.4 for the PRT segment instead.</strong></p><p class="v2 v2-normalindented">This segment represents information that may be useful when sending referrals from the referring provider to the referred-to provider.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - RF1 - Referral Information Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+RF1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Referral Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0283-Referral-Status.html' title='Referral Status(Suggested)'>
+0283(S)
+<span class='vocab-link-text'>Referral Status(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-1'>
+01137
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Referral Priority
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0280-Referral-Priority.html' title='Referral Priority'>
+0280
+<span class='vocab-link-text'>Referral Priority</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-2'>
+01138
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Referral Type
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0281-Referral-Type.html' title='Referral Type'>
+0281
+<span class='vocab-link-text'>Referral Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-3'>
+01139
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Referral Disposition
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0282-Referral-Disposition.html' title='Referral Disposition(Suggested)'>
+0282(S)
+<span class='vocab-link-text'>Referral Disposition(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RF1-4'>
+01140
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Referral Category
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0284-Referral-Category.html' title='Referral Category(Suggested)'>
+0284(S)
+<span class='vocab-link-text'>Referral Category(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-5'>
+01141
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Originating Referral Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RF1-6'>
+01142
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Effective Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-7'>
+01143
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-8'>
+01144
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Process Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-9'>
+01145
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Referral Reason
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0336-Referral-Reason.html' title='Referral Reason(Suggested)'>
+0336(S)
+<span class='vocab-link-text'>Referral Reason(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RF1-10'>
+01228
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+External Referral Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RF1-11'>
+01300
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Referral Documentation Completion Status
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0865-Referral-Documentation-Completion-Status.html' title='Referral Documentation Completion Status'>
+0865
+<span class='vocab-link-text'>Referral Documentation Completion Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-12'>
+02262
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Planned Treatment Stop Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-13'>
+03400
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[24..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Referral Reason Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-14'>
+03401
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[60..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Number of Authorized Treatments/Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-15'>
+03402
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[721..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Number of Used Treatments/Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-16'>
+03403
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[721..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Number of Schedule Treatments/Units
+</td>
+<td class='centered'>
+<a href='/data-type/CQ.html'>
+CQ
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-17'>
+03404
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[721..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Remaining Benefit Amount
+</td>
+<td class='centered'>
+<a href='/data-type/MO.html'>
+MO
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-18'>
+03405
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[20..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Authorized Provider
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-19'>
+03406
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Authorized Health Professional
+</td>
+<td class='centered'>
+<a href='/data-type/XCN.html'>
+XCN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-20'>
+03407
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Source Text
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-21'>
+03408
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[60..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Source Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-22'>
+03409
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[24..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Source Phone
+</td>
+<td class='centered'>
+<a href='/data-type/XTN.html'>
+XTN
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-23'>
+03410
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Comment
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-24'>
+03411
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[250..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+25
+</td>
+<td>
+Action Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0206-Segment-Action-Code.html' title='Segment Action Code(Required)'>
+0206(R)
+<span class='vocab-link-text'>Segment Action Code(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RF1-25'>
+03412
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='RF1-1'>
+RF1-1: Referral Status (<a href='/data-type/CWE.html'>CWE</a>) 01137
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the status of the referral as defined by either the referred-to or the referred-by provider.  Refer to <a href="https://www.hl7.org/fhir/v2/0283/index.html">User-defined Table 0283 - Referral Status</a><em> </em>in Chapter 2C, Code Tables, for suggested values. </p>
+
+<h4 class='v2' id='RF1-2'>
+RF1-2: Referral Priority (<a href='/data-type/CWE.html'>CWE</a>) 01138
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the urgency of the referral.  Refer to <a href="https://www.hl7.org/fhir/v2/0280/index.html">User-defined Table 0280 - Referral Priority</a> in Chapter 2C, Code Tables, for suggested values<em>.</em></p>
+
+<h4 class='v2' id='RF1-3'>
+RF1-3: Referral Type (<a href='/data-type/CWE.html'>CWE</a>) 01139
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the type of referral.  It is loosely associated with a clinical specialty or type of resource.  Refer to <a href="https://www.hl7.org/fhir/v2/0281/index.html">User-defined Table 0281 - Referral Type</a> in Chapter 2C, Code Tables, for suggested values. </p>
+
+<h4 class='v2' id='RF1-4'>
+RF1-4: Referral Disposition (<a href='/data-type/CWE.html'>CWE</a>) 01140
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the type of response or action that the referring provider would like from the referred-to provider.  Refer to <a href="https://www.hl7.org/fhir/v2/0282/index.html">User-defined Table 0282 - Referral Disposition</a> for suggested values. </p>
+
+<h4 class='v2' id='RF1-5'>
+RF1-5: Referral Category (<a href='/data-type/CWE.html'>CWE</a>) 01141
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the location at which the referral will take place.  Refer to <a href="https://www.hl7.org/fhir/v2/0284/index.html">User-defined Table 0284 - Referral Categor</a><a href="/composition/Patient-Referral.html#Patient-Referral-2-2-4">y</a> for suggested values. </p>
+
+<h4 class='v2' id='RF1-6'>
+RF1-6: Originating Referral Identifier (<a href='/data-type/EI.html'>EI</a>) 01142
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the originating application&#39;s permanent identifier for the referral.  This is a composite field.</p><p class="v2 v2-normalindented">The first component is a string of up to 15 characters that identifies an individual referral.  It is assigned by the originating application, and it identifies a referral, and the subsequent referral transactions, uniquely among all such referrals from a particular processing application.</p><p class="v2 v2-normalindented">The second component is optional because this field, itself, is already defined as a <em>referral identifier</em>.  </p><p class="v2 v2-normalindented">The third component is optional.  If used, it should contain the application identifier for the referred-to or external applications (i.e., <em>not</em> the originating application).  The application identifier is a string of up to 15 characters that is uniquely associated with an application.  A given healthcare provider facility, or group of intercommunicating healthcare provider facilities, should establish a unique list of applications that may be potential originators and recipients, and then assign unique application identifiers to each of those applications.  This list of application identifiers becomes one of the healthcare provider facility&#39;s master dictionary lists.  Since applications fulfilling different application roles can send and receive referral messages, the assigning authority application identifier may not identify the application sending or receiving a particular message.  Data elements on the Message Header (MSH) segment are available to identify the actual sending and receiving applications.</p>
+
+<h4 class='v2' id='RF1-7'>
+RF1-7: Effective Date (<a href='/data-type/DTM.html'>DTM</a>) 01143
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date on which the referral is effective.  </p>
+
+<h4 class='v2' id='RF1-8'>
+RF1-8: Expiration Date (<a href='/data-type/DTM.html'>DTM</a>) 01144
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date on which the referral expires.</p>
+
+<h4 class='v2' id='RF1-9'>
+RF1-9: Process Date (<a href='/data-type/DTM.html'>DTM</a>) 01145
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the date on which the referral originated.  It is used in cases of retroactive approval. </p>
+
+<h4 class='v2' id='RF1-10'>
+RF1-10: Referral Reason (<a href='/data-type/CWE.html'>CWE</a>) 01228
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the reason for which the referral will take place.  Refer to <a href="https://www.hl7.org/fhir/v2/0336/index.html">User-defined Table 0336 - Referral Reason</a> for suggested values. </p>
+
+<h4 class='v2' id='RF1-11'>
+RF1-11: External Referral Identifier (<a href='/data-type/EI.html'>EI</a>) 01300
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an external application&#39;s permanent identifier for the referral.  That is, this referral identifier does not belong to the application that originated the referral and assigned the originating referral identifier.</p><p class="v2 v2-normalindented">The first component is a string of up to 15 characters that identifies an individual referral.  It is typically assigned by the referred-to provider application responding to a referral originating from a referring provider application, and it identifies a referral, and the subsequent referral transactions, uniquely among all such referrals for a particular referred-to provider processing application.  For example, when a primary care provider (referring provider) sends a referral to a specialist (referred-to provider), the specialist&#39;s application system may accept the referral and assign it a new referral identifier which uniquely identifies that particular referral within the specialist&#39;s application system.  This new referral identifier would be placed in the external referral identifier field when the specialist responds to the primary care physician.</p><p class="v2 v2-normalindented">The second component is optional because this field, itself, is already defined as a <em>referral identifier</em>.  </p><p class="v2 v2-normalindented">The third component is optional.  If used, it should contain the application identifier for the referred-to or external application (i.e., not the originating application).  The application identifier is a string of up to 15 characters that is uniquely associated with an application.  A given healthcare provider facility, or group of intercommunicating healthcare provider facilities, should establish a unique list of applications that may be potential originators and recipients, and then assign unique application identifiers to each of those applications.  This list of application identifiers becomes one of the healthcare provider facility&#39;s master dictionary lists.  Since applications fulfilling different application roles can send and receive referral messages, the assigning authority application identifier may not identify the application sending or receiving a particular message.  Data elements on the Message Header (MSH) segment are available to identify the actual sending and receiving applications.</p>
+
+<h4 class='v2' id='RF1-12'>
+RF1-12: Referral Documentation Completion Status (<a href='/data-type/CWE.html'>CWE</a>) 02262
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field can be used to indicate to the receiving provider that the clinical history in the message is incomplete and that more will follow.  Refer to <a href="https://www.hl7.org/fhir/v2/0865/index.html">User-defined Table 0865 - Referral Documentation Completion Status</a> for suggested values.</p>
+
+<h4 class='v2' id='RF1-13'>
+RF1-13: Planned Treatment Stop Date (<a href='/data-type/DTM.html'>DTM</a>) 03400
+</h4>
+<p class="v2 v2-normalindented">Definition: The planned treatment stop date is the date that the patient&#39;s treatment from this referral is expected to complete, based on procedural protocols.  This value can be used to indicate that an extension to an authorization is necessary, if the treatment continues longer than expected.</p>
+
+<h4 class='v2' id='RF1-14'>
+RF1-14: Referral Reason Text (<a href='/data-type/ST.html'>ST</a>) 03401
+</h4>
+<p class="v2 v2-normalindented">Definition: The referral reason is a free text field allowing a user to capture, in a non-coded format, the reason for the referral.  Typically this would describe the patient&#39;s condition or illness for which the referral is recorded.</p>
+
+<h4 class='v2' id='RF1-15'>
+RF1-15: Number of Authorized Treatments/Units (<a href='/data-type/CQ.html'>CQ</a>) 03402
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorized duration is the amount of time, in days or visits, that the patient has been authorized for treatment for this referral.  The duration of &quot;days&quot; is reserved for inpatient authorizations.</p>
+
+<h4 class='v2' id='RF1-16'>
+RF1-16: Number of Used Treatments/Units (<a href='/data-type/CQ.html'>CQ</a>) 03403
+</h4>
+<p class="v2 v2-normalindented">Definition: The used duration is the amount of time, in days or visits that the patient has used of the originally authorized duration. The duration of &quot;days&quot; is reserved for inpatient authorizations.</p>
+
+<h4 class='v2' id='RF1-17'>
+RF1-17: Number of Schedule Treatments/Units (<a href='/data-type/CQ.html'>CQ</a>) 03404
+</h4>
+<p class="v2 v2-normalindented">Definition: The scheduled treatments is the amount of time, in days or visits that the patient has planned treatments scheduled.  The duration of &quot;days&quot; is reserved for inpatient authorizations.</p>
+
+<h4 class='v2' id='RF1-18'>
+RF1-18: Remaining Benefit Amount (<a href='/data-type/MO.html'>MO</a>) 03405
+</h4>
+<p class="v2 v2-normalindented">Definition: The remaining benefit amount is the amount remaining from the insurance company related to this referral. </p>
+
+<h4 class='v2' id='RF1-19'>
+RF1-19: Authorized Provider (<a href='/data-type/XON.html'>XON</a>) 03406
+</h4>
+<p class="v2 v2-normalindented">Definition: This represents the organization to which the patient was referred to perform the procedure(s).  The authorized provider represents the organization recognized by the insurance carrier that is authorized to perform the services for the patient specified on the referral.</p>
+
+<h4 class='v2' id='RF1-20'>
+RF1-20: Authorized Health Professional (<a href='/data-type/XCN.html'>XCN</a>) 03407
+</h4>
+<p class="v2 v2-normalindented">Definition: The authorized HP represents the specific health professional authorized to perform the services for the patient.  This is a less frequently used field, as most often the authorization is for a group/organization and not a specific HP within that group.</p>
+
+<h4 class='v2' id='RF1-21'>
+RF1-21: Source Text (<a href='/data-type/ST.html'>ST</a>) 03408
+</h4>
+<p class="v2 v2-normalindented">Definition: The source text allows a user to capture information (such as the name) of the person contacted regarding the specific referral.</p>
+
+<h4 class='v2' id='RF1-22'>
+RF1-22: Source Date (<a href='/data-type/DTM.html'>DTM</a>) 03409
+</h4>
+<p class="v2 v2-normalindented">Definition: The source date allows a user to capture the date the person was contacted regarding the specific referral.</p>
+
+<h4 class='v2' id='RF1-23'>
+RF1-23: Source Phone (<a href='/data-type/XTN.html'>XTN</a>) 03410
+</h4>
+<p class="v2 v2-normalindented">Definition: The source phone number allows a user to capture the phone number of the person contacted regarding the specific referral.</p>
+
+<h4 class='v2' id='RF1-24'>
+RF1-24: Comment (<a href='/data-type/ST.html'>ST</a>) 03411
+</h4>
+<p class="v2 v2-normalindented">Definition: The comment allows for a free text capture of any notes the user wishes to capture related to the referral.  This is a single notes field that allows the user to add additional text over time, or replace the text that already exists.</p>
+
+<h4 class='v2' id='RF1-25'>
+RF1-25: Action Code (<a href='/data-type/ID.html'>ID</a>) 03412
+</h4>
+<p class="v2 v2-normalindented">Definition: This field defines the action to be taken for this referral.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2, Code Tables, for valid values.  When this field is valued, the AUT segment is not in &quot;snapshot mode&quot;, rather in &quot;action mode&quot;. </p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

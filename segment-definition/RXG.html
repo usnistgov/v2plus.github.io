@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+RXG - Pharmacy/Treatment Give Segment
+</h3>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - RXG - Pharmacy/Treatment Give Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+RXG
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Give Sub-ID Counter
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXG-1'>
+00342
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Dispense Sub-ID Counter
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-2'>
+00334
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Quantity/Timing
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-3'>
+00221
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Give Code
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0292-Vaccines-Administered.html' title='Vaccines Administered(Required)'>
+0292(R)
+<span class='vocab-link-text'>Vaccines Administered(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXG-4'>
+00317
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Give Amount - Minimum
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXG-5'>
+00318
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Give Amount - Maximum
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-6'>
+00319
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Give Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0715-ERROR! Bad Data! FIXME.html'>
+0715
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#RXG-7'>
+00320
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Give Dosage Form
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0716-ERROR! Bad Data! FIXME.html'>
+0716
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-8'>
+00321
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Administration Notes
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0737-ERROR! Bad Data! FIXME.html'>
+0737
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-9'>
+00351
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Substitution Status
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0167-Substitution-Status.html' title='Substitution Status(Required)'>
+0167(R)
+<span class='vocab-link-text'>Substitution Status(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-10'>
+00322
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Dispense-to Location
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-11'>
+01303
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Needs Human Review
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0136-Yes/no-Indicator.html' title='Yes/no Indicator(Required)'>
+0136(R)
+<span class='vocab-link-text'>Yes/no Indicator(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-12'>
+00307
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Special Administration Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0738-ERROR! Bad Data! FIXME.html'>
+0738
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-13'>
+00343
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..250]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Give Per
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-14'>
+00331
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Give Rate Amount
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-15'>
+00332
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+6
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Give Rate Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0722-ERROR! Bad Data! FIXME.html'>
+0722
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-16'>
+00333
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Give Strength
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-17'>
+01126
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Give Strength Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0723-ERROR! Bad Data! FIXME.html'>
+0723
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-18'>
+01127
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Substance Lot Number
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-19'>
+01129
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Substance Expiration Date
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-20'>
+01130
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Substance Manufacturer Name
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-21'>
+01131
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Indication
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0758-ERROR! Bad Data! FIXME.html'>
+0758
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-22'>
+01123
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Give Drug Strength Volume
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-23'>
+01692
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Give Drug Strength Volume Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0744-ERROR! Bad Data! FIXME.html'>
+0744
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-24'>
+01693
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Give Barcode Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0745-ERROR! Bad Data! FIXME.html'>
+0745
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-25'>
+01694
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Pharmacy Order Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0480-Pharmacy-Order-Types.html' title='Pharmacy Order Types(Required)'>
+0480(R)
+<span class='vocab-link-text'>Pharmacy Order Types(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-26'>
+01695
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Dispense to Pharmacy
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0714-ERROR! Bad Data! FIXME.html'>
+0714
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-27'>
+01688
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+Dispense to Pharmacy Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-28'>
+01689
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+Deliver-to Patient Location
+</td>
+<td class='centered'>
+<a href='/data-type/PL.html'>
+PL
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-29'>
+01683
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+Deliver-to Address
+</td>
+<td class='centered'>
+<a href='/data-type/XAD.html'>
+XAD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-30'>
+01684
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+Give Tag Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#RXG-31'>
+03393
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+Dispense Amount
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-32'>
+03316
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+33
+</td>
+<td>
+Dispense Units
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0746-ERROR! Bad Data! FIXME.html'>
+0746
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#RXG-33'>
+03317
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='RXG-1'>
+RXG-1: Give Sub-ID Counter (<a href='/data-type/NM.html'>NM</a>) 00342
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use if this RXG segment carries information about a single administration. This field must contain a unique number for the placer order number.  This field along with the placer order number provides a unique reference to the specific scheduled give date/time transmitted by the pharmacy/treatment supplier for this order.</p><p class="v2 v2-normalindented">If the RXG segment carries information about multiple administrations, this field&#39;s value is zero (0), since in this case a one-to-one matching with the RXA segment is ambiguous.</p>
+
+<h4 class='v2' id='RXG-2'>
+RXG-2: Dispense Sub-ID Counter (<a href='/data-type/NM.html'>NM</a>) 00334
+</h4>
+<p class="v2 v2-normalindented">Definition:  This is the dispense sub-ID to which this give message is related.</p>
+
+<h4 class='v2' id='RXG-3'>
+RXG-3: Quantity/Timing (<a href='/data-type/.html'></a>) 00221
+</h4>
+<p class="v2 v2-normalindented">Attention: The RXG-3 field was retained for backward compatibilty only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The contents of fields 3-8 should be identical to the comparable fields in the RXE (RXE-2 thru 5).</p></div><br/>
+
+<h4 class='v2' id='RXG-4'>
+RXG-4: Give Code (<a href='/data-type/CWE.html'>CWE</a>) 00317
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is the identifier of the medical substance/treatment ordered to be given to the patient; it is equivalent to <a href="/segment-definition/OBR.html#OBR-4">OBR-4-Universal service ID</a> in function.  See the RXE segment for a complete definition of the <a href="/segment-definition/RXE.html#RXE-2">RXE-2-Give code</a>.  If the substance given is a vaccine, CVX codes may be used to code this field (see <a href="https://www.hl7.org/fhir/v2/0292/index.html">HL7 Table 0292 - Vaccines administered</a> in Chapter 2C, Code Tables).</p>
+
+<h4 class='v2' id='RXG-5'>
+RXG-5: Give Amount - Minimum (<a href='/data-type/NM.html'>NM</a>) 00318
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the ordered amount as encoded by the pharmacy/treatment supplier.  In a variable dose order, this is the minimum ordered amount.  In a non-varying dose order, this is the exact amount of the order.</p><div class="v2-note"><p class="v2"><strong>Note:  </strong>This field is not a duplication of the first component of the quantity/timing field, since in non-pharmacy/treatment orders, that component can be used to specify multiples of an ordered amount.</p><p class="v2">Another way to say this is that, for pharmacy/treatment orders, the quantity component of the quantity/timing field refers to what is to be given out at each service interval; and thus, in terms of the RX order, that first component always defaults to 1.  Hence, in the actual execution of the order, the value of 1 in the first component of the quantity/timing field always refers to one administration of the amount specified in this field (the requested Give Amount field).</p></div><br/>
+
+<h4 class='v2' id='RXG-6'>
+RXG-6: Give Amount - Maximum (<a href='/data-type/NM.html'>NM</a>) 00319
+</h4>
+<p class="v2 v2-normalindented">Definition:  In a variable dose order, this is the maximum ordered amount.  In a non-varying dose order, this field is not used.</p>
+
+<h4 class='v2' id='RXG-7'>
+RXG-7: Give Units (<a href='/data-type/CWE.html'>CWE</a>) 00320
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the units for the give amount. Refer to Table 0735 - Give Units in Chapter 2C for valid values.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  These units can be a &quot;compound quantity;&quot; i.e., the units may contain the word &quot;per.&quot;  For example, micrograms per KG (micg/kg) is an acceptable value, which means that the units are micrograms per KG (of body weight).</p></div><br/><p class="v2 v2-normalindented">A table of standard units that contains compound units is needed.  Until such a table is agreed on, a user-defined table is needed for each site.</p>
+
+<h4 class='v2' id='RXG-8'>
+RXG-8: Give Dosage Form (<a href='/data-type/CWE.html'>CWE</a>) 00321
+</h4>
+<p class="v2 v2-normalindented">Definition:  The dosage form indicates the manner in which the medication/treatment is aggregated for dispensing, e.g., tablets, capsules, suppositories.  In some cases, this information is implied by the give code in <a href="/segment-definition/RXG.html#RXG-4">RXG-4-Give Code</a>.  Use this field when the give code does not specify the dosage form. Refer to Table 0736 - Give Dosage Form in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXG-9'>
+RXG-9: Administration Notes (<a href='/data-type/CWE.html'>CWE</a>) 00351
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains notes to the person administering the medication/treatment (may include the ordering provider&#39;s original notes, as well as any notes from the formulary or the pharmacy or treatment supplier).  If coded, a user-defined table must be used.  If free text, place a null in the first component and the text in the second, e.g., |^this is a free text administration note|. Refer to Table 0737 - Administration Notes in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXG-10'>
+RXG-10: Substitution Status (<a href='/data-type/ID.html'>ID</a>) 00322
+</h4>
+<p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0167/index.html">HL7 Table 0167 - Substitution Status</a> in Chapter 2C, Code Tables, for valid values. </p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The next two fields are equivalent to the corresponding fields of the RXE segment.  They are included (optionally) in the RXG so that it may &quot;stand alone&quot; as a &quot;give&quot; instruction segment.</p></div><br/>
+
+<h4 class='v2' id='RXG-11'>
+RXG-11: Dispense-to Location (<a href='/data-type/.html'></a>) 01303
+</h4>
+<p class="v2 v2-normalindented">Definition:  <strong>This field is retained for backward compatibility only as of v 2.6 and removed from the standard as of v 2.8.</strong> The reader is referred to RXG-27 and RXG-28.</p>
+
+<h4 class='v2' id='RXG-12'>
+RXG-12: Needs Human Review (<a href='/data-type/ID.html'>ID</a>) 00307
+</h4>
+<p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> for valid values.  The values have the following meaning for this field:</p><p class="v2 v2-normalindented">Y&#160;&#160;&#160;&#160;Yes - Indicates that a warning is present.  The application receiving the dispense order needs to warn the person dispensing/administering the drug or treatment to pay attention to the text in <a href="/segment-definition/RXG.html#RXG-13">RXG-13-Special administration instructions</a>. </p><p class="v2 v2-normalindented">N&#160;&#160;&#160;&#160;No - Indicates no warning is present.  This is the equivalent default (null) value.</p>
+
+<h4 class='v2' id='RXG-13'>
+RXG-13: Special Administration Instructions (<a href='/data-type/CWE.html'>CWE</a>) 00343
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains pharmacy/treatment supplier-generated special instructions to the provider administering the order. Refer to Table 0738 - Special Administration Instructions in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXG-14'>
+RXG-14: Give Per (<a href='/data-type/ST.html'>ST</a>) 00331
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the time unit to use to calculate the rate at which the pharmaceutical/treatment is to be administered.</p><p class="v2 v2-normalindented">Format:</p><table class="v2" style="width: 76%; "><colgroup><col span='1' style='width: 15.99%;'/><col span='1' style='width: 7.99%;'/><col span='1' style='width: 76.00%;'/></colgroup><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">S&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">&#60;integer&#62; seconds</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">M&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">&#60;integer&#62; minutes</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">H&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">&#60;integer&#62; hours</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">D&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">&#60;integer&#62; days</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">W&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">&#60;integer&#62; weeks</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">L&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">&#60;integer&#62; months</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">T&#60;integer&#62;</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">at the interval and amount stated until a total of &#60;integer&#62; &quot;DOSAGE&quot; is accumulated.  Units would be assumed to be the same as in the QUANTITY field.</p></td></tr><tr><td style='width:15.99%; '><p class="v2 v2-othertablebody">INDEF</p></td><td style='width:7.99%; '><p class="v2 v2-othertablebody">=</p></td><td style='width:76.00%; '><p class="v2 v2-othertablebody">do indefinitely - also the default</p></td></tr></table><br/><p class="v2 v2-normalindented">This is the same as the format specified for the DURATION component of the quantity/timing field, excluding the &quot;X&quot; specification. </p><p class="v2 v2-normalindented">Required when relevant (e.g., certain IVs). For example, if the &quot;give amount/units&quot; were 300 ml and the &quot;give per&quot; time unit were H1 (equivalent to one hour), the rate is 300ml/hr.</p>
+
+<h4 class='v2' id='RXG-15'>
+RXG-15: Give Rate Amount (<a href='/data-type/ST.html'>ST</a>) 00332
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the amount (number) of substance/treatment to be administered.  </p>
+
+<h4 class='v2' id='RXG-16'>
+RXG-16: Give Rate Units (<a href='/data-type/CWE.html'>CWE</a>) 00333
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the units for <a href="/segment-definition/RXG.html#RXG-15">RXG-15-give rate amount</a>.  May be composite.  The ratio of the <a href="/segment-definition/RXG.html#RXG-15">RXG-15-give rate amount</a> and <a href="/segment-definition/RXG.html#RXG-16">RXG-16-give rate units</a> fields define the actual rate of administration.  Thus, if <a href="/segment-definition/RXG.html#RXG-15">RXG-15-give rate amount</a> = 100 and <a href="/segment-definition/RXG.html#RXG-16">RXG-16-give rate units</a> = ml/hr, the requested rate of administration is 100 ml/hr. Refer to Table 0740 - Give Rate Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXG-17'>
+RXG-17: Give Strength (<a href='/data-type/NM.html'>NM</a>) 01126
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use when <a href="/segment-definition/RXG.html#RXG-4">RXG-4-Give code</a> does not specify the strength.  This is the numeric part of the strength, used in combination with <a href="/segment-definition/RXG.html#RXG-18">RXG-18-Give strength units</a>.</p>
+
+<h4 class='v2' id='RXG-18'>
+RXG-18: Give Strength Units (<a href='/data-type/CWE.html'>CWE</a>) 01127
+</h4>
+<p class="v2 v2-normalindented">Definition:  Use when <a href="/segment-definition/RXG.html#RXG-4">RXG-4-Give Code</a> does not specify the strength.  This is the unit of the strength, used in combination with <a href="/segment-definition/RXG.html#RXG-17">RXG-17-Give Strength</a>. Refer to Table 0741 - Give Strength Units in Chapter 2C for valid values.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  These units can be a &quot;compound quantity&quot;; i.e., the units may express a quantity per unit of time.  For example, micrograms per hour (micg/h) is an acceptable value.  These compound units are contained in the ISO+ table. See Chapter 7 for full definition of ISO+ units.</p></div><br/>
+
+<h4 class='v2' id='RXG-19'>
+RXG-19: Substance Lot Number (<a href='/data-type/ST.html'>ST</a>) 01129
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the lot number of the medical substance administered.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  The lot number is the number printed on the label attached to the container holding the substance and on the packaging which houses the container.  If the substance is a vaccine, for example, and a diluent is required, a lot number may appear on the vial containing the diluent; however, any such identifier associated with a diluent is not the identifier of interest. The substance lot number should be reported, not that of the diluent.</p></div><br/>
+
+<h4 class='v2' id='RXG-20'>
+RXG-20: Substance Expiration Date (<a href='/data-type/DTM.html'>DTM</a>) 01130
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the expiration date of the medical substance administered.</p><div class="v2-note"><p class="v2"><strong>Note</strong>:  Vaccine expiration date does not always have a &quot;day&quot; component; therefore, such a date may be transmitted as YYYYMM.</p></div><br/>
+
+<h4 class='v2' id='RXG-21'>
+RXG-21: Substance Manufacturer Name (<a href='/data-type/CWE.html'>CWE</a>) 01131
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the manufacturer of the medical substance administered.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>  For vaccines, code system MVX may be used to code this field (see section<a href="/composition/Observation-Reporting.html#Observation-Reporting-1">4A.7.1</a>, &quot;<a href="/composition/Observation-Reporting.html#Observation-Reporting-1">Vaccine administration data</a>&quot;). This field may be used if the manufacturer of the substance is not identified by the code used in RXA-5-administered code.</p></div><br/>
+
+<h4 class='v2' id='RXG-22'>
+RXG-22: Indication (<a href='/data-type/CWE.html'>CWE</a>) 01123
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the identifier of the condition or problem for which the drug/treatment was prescribed.  May repeat if multiple indications are relevant. Refer to Table 0743 - Indication in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXG-23'>
+RXG-23: Give Drug Strength Volume (<a href='/data-type/NM.html'>NM</a>) 01692
+</h4>
+<p class="v2 v2-normalindented">Description: This numeric field defines the volume measurement in which the drug strength concentration is contained. For example, Acetaminophen 120 MG/5ML Elixir means that 120 MG of the drug is in a solution with a volume of 5 ML, which would be encoded in RXG-17, RXG-18, RXG-23 and RXG-24 as:</p><p class="v2 v2-example">RXG|||||||||||||||||120|mg^^ISO|||||5|ml^^ISO ...&#60;cr&#62; </p>
+
+<h4 class='v2' id='RXG-24'>
+RXG-24: Give Drug Strength Volume Units (<a href='/data-type/CWE.html'>CWE</a>) 01693
+</h4>
+<p class="v2 v2-normalindented">Description: This field indicates the volumetric unit associated with <a href="/segment-definition/RXG.html#RXG-23">RXG-23 Give Drug Strength Volume</a>.  See example in RXG-23. Refer to Table 0744 - Give Drug Strength Volume Units in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='RXG-25'>
+RXG-25: Give Barcode Identifier (<a href='/data-type/CWE.html'>CWE</a>) 01694
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the pharmacy system&#39;s assigned barcode number for the give occurrence.  For IV orders, many pharmacy systems generate a barcode number to identify a specific bag/bottle of the order. This number can be an instance identifier; unique for the patient, drug combination, and schedule instance or it may be just a drug identifier. Refer to Table 0745 - Give Barcode Identifier in Chapter 2C for valid values.</p><p class="v2 v2-normalindented">The composition and use of the barcode number is dependent on application negotiation. An example of this field follows: The barcode number is in the following format, 9XXXXXXX000.  The number &#39;9&#39; is a constant, XXXXXXX is seven (7) characters for a unique identifier assigned or derived from the patient account and order ID and 000 is the zero-filled three (3) character IV bottle number.</p><p class="v2 v2-normalindented">The maximum length of the first component of this field is 40 characters to allow for the maximum existing barcode length in use today.  The second component contains the description of the item being coded and the third component may define the barcode type.</p><p class="v2 v2-normalindented">12345678901^IV bottle^3X9</p>
+
+<h4 class='v2' id='RXG-26'>
+RXG-26: Pharmacy Order Type (<a href='/data-type/ID.html'>ID</a>) 01695
+</h4>
+<p class="v2 v2-normalindented">Definition: The Pharmacy Order Type field defines the general category of pharmacy order which may be used to determine the processing path the order will take.  Refer to <a href="https://www.hl7.org/fhir/v2/0480/index.html">HL7 Table 0480 Pharmacy Order Types</a> in Chapter 2C, Code Tables, for valid values. </p><p class="v2 v2-normalindented">This field may also be used for grouping of related orders for processing and/or reports.  For example, Medication Administration Records (MARs) often group large volume solutions, medications and small volume solutions differently based upon site-specific workflow. </p><p class="v2 v2-normalindented">Usage Rule: This field is optional for all Pharmacy transactions.  When not populated, a default value of &quot;M&quot; is assumed. </p>
+
+<h4 class='v2' id='RXG-27'>
+RXG-27: Dispense to Pharmacy (<a href='/data-type/CWE.html'>CWE</a>) 01688
+</h4>
+<p class="v2 v2-normalindented">Attention: This field was retained for backward compatibilty only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.  The reader is referred to the PRT segment described in Chapter 7.</p><p class="v2 v2-normalindented">  </p>
+
+<h4 class='v2' id='RXG-28'>
+RXG-28: Dispense to Pharmacy Address (<a href='/data-type/XAD.html'>XAD</a>) 01689
+</h4>
+<p class="v2 v2-normalindented">Attention: This field was retained for backward compatibilty only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9.  The reader is referred to the PRT segment described in Chapter 7.</p>
+
+<h4 class='v2' id='RXG-29'>
+RXG-29: Deliver-to Patient Location (<a href='/data-type/PL.html'>PL</a>) 01683
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the location of the patient to whom the pharmaceutical substance is to be delivered. </p>
+
+<h4 class='v2' id='RXG-30'>
+RXG-30: Deliver-to Address (<a href='/data-type/XAD.html'>XAD</a>) 01684
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field specifies the address, either mailing or physical, to which the prescription should be mailed or delivered.  </p>
+
+<h4 class='v2' id='RXG-31'>
+RXG-31: Give Tag Identifier (<a href='/data-type/EI.html'>EI</a>) 03393
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains an identifier for the individual product instance for the dispense occurrence.  This may represent a barcode, RFID or other means of automatically-readable product instance.  Repetitions represent the same instance where more than one barcode, RFID or other identification is present.  </p><p class="v2 v2-normalindented">For example, the medication preparer, e.g., a semi-automated system, can inform the nurse that &quot;for the 8.am administration event, the medication that has been assigned and available at the patient bedside has the barcode BBBBBBBBBBB.&quot; The nurse would scan the barcode to ensure that the right medication is being administered.  </p><p class="v2 v2-normalindented">This differs from <a href="/segment-definition/RXG.html#RXG-25">RXG-25 Give Barcode Identifier</a> in that RXG-25 may include other workflow content or the product at various levels of granularity.  RXG-31 specifically identifies the product instance.</p>
+
+<h4 class='v2' id='RXG-32'>
+RXG-32: Dispense Amount (<a href='/data-type/NM.html'>NM</a>) 03316
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the amount to be dispensed as encoded by the pharmacy or treatment supplier.  </p>
+
+<h4 class='v2' id='RXG-33'>
+RXG-33: Dispense Units (<a href='/data-type/CWE.html'>CWE</a>) 03317
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the units for the dispense amount as encoded by the pharmacy or treatment supplier.  This field is required if the units are not implied by the actual dispense code. This must be in simple units that reflect the actual quantity of the substance dispensed.  It does not include compound units. Refer to Table 0746 - Dispense Units in Chapter 2C for valid values.</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

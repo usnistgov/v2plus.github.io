@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+
+<style type='text/css'>
+@import "/css/bootstrap.css";
+@import "/css/codemirror.css";
+@import "/css/hl7.css";
+@import "/css/fhir.css";
+<!-- @import "/css/bootstrap-fhir.css"; -->
+@import "/css/bootstrap-v2.css";
+@import "/css/project.css";
+@import "/css/pygments-manni.css";
+@import "/css/jquery-ui.css";
+@import "/css/modules.css";
+@import "/css/v2.css";
+</style>
+<script src='/js/jquery.js'></script>
+<script src='/js/jquery-ui.min.js'></script>
+<script src='/js/bootstrap.min.js'></script>
+<script src='/js/respond.min.js'></script>
+<script src='/js/codemirror/codemirror.js'></script>
+<script src='/js/codemirror/mode/xml.js'></script>
+<script src='/js/v2.js'></script>
+<script src='/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/js/format_xml.js' type='text/javascript'></script>
+<link href='/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='/vocab.html'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/domain/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/domain/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+MSH - Message Header Segment
+</h3>
+<p class="v2 v2-normalindented">The MSH segment defines the intent, source, destination, and some specifics of the syntax of a message.</p><!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - MSH - message header segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+<!-- DataElement -->
+Data Element Name
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+DataType
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Usage
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Item #
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Description -->
+<!-- %th -->
+<!-- %a{:href => segment_list_page} -->
+<!-- Must Implement -->
+<th>
+<a href='/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/segment-definitions.html'>
+Flags
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/images/folder_icon.gif'>
+<b>
+MSH
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+Field Separator
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-1'>
+00001
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+Encoding Characters
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-2'>
+00002
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[4..5]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+Sending Application
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0361-Application.html' title='Application'>
+0361
+<span class='vocab-link-text'>Application</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-3'>
+00003
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+Sending Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0362-Facility.html' title='Facility'>
+0362
+<span class='vocab-link-text'>Facility</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-4'>
+00004
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+Receiving Application
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0361-Application.html' title='Application'>
+0361
+<span class='vocab-link-text'>Application</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-5'>
+00005
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+Receiving Facility
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0362-Facility.html' title='Facility'>
+0362
+<span class='vocab-link-text'>Facility</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#MSH-6'>
+00006
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+Date/Time of Message
+</td>
+<td class='centered'>
+<a href='/data-type/DTM.html'>
+DTM
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-7'>
+00007
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+Security
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-8'>
+00008
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+40
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+Message Type
+</td>
+<td class='centered'>
+<a href='/data-type/MSG.html'>
+MSG
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-9'>
+00009
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+Message Control ID
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-10'>
+00010
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[1..199]
+</td>
+<td class='centered'>
+199
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+Processing ID
+</td>
+<td class='centered'>
+<a href='/data-type/PT.html'>
+PT
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-11'>
+00011
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+Version ID
+</td>
+<td class='centered'>
+<a href='/data-type/VID.html'>
+VID
+</a>
+</td>
+<td class='centered'>
+R
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+<a href='#MSH-12'>
+00012
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+Sequence Number
+</td>
+<td class='centered'>
+<a href='/data-type/NM.html'>
+NM
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-13'>
+00013
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+Continuation Pointer
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-14'>
+00014
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+180
+</td>
+<td class='centered'>
+#
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+Accept Acknowledgment Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0155-Accept/Application-Acknowledgment-Conditions.html' title='Accept/Application Acknowledgment Conditions(Required)'>
+0155(R)
+<span class='vocab-link-text'>Accept/Application Acknowledgment Conditions(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-15'>
+00015
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+Application Acknowledgment Type
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0155-Accept/Application-Acknowledgment-Conditions.html' title='Accept/Application Acknowledgment Conditions(Required)'>
+0155(R)
+<span class='vocab-link-text'>Accept/Application Acknowledgment Conditions(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-16'>
+00016
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+Country Code
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0399-Country-Code.html' title='Country Code(Suggested)'>
+0399(S)
+<span class='vocab-link-text'>Country Code(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-17'>
+00017
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[3..3]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+Character Set
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0211-Alternate-Character-Sets.html' title='Alternate Character Sets(Required)'>
+0211(R)
+<span class='vocab-link-text'>Alternate Character Sets(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#MSH-18'>
+00692
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[5..15]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+Principal Language Of Message
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0609-ERROR! Bad Data! FIXME.html'>
+0609
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-19'>
+00693
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+Alternate Character Set Handling Scheme
+</td>
+<td class='centered'>
+<a href='/data-type/ID.html'>
+ID
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0356-Alternate-Character-Set-Handling-Scheme.html' title='Alternate Character Set Handling Scheme(Required)'>
+0356(R)
+<span class='vocab-link-text'>Alternate Character Set Handling Scheme(Required)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-20'>
+01317
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+[3..13]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+Message Profile Identifier
+</td>
+<td class='centered'>
+<a href='/data-type/EI.html'>
+EI
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#MSH-21'>
+01598
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+Sending Responsible Organization
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-22'>
+01823
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+Receiving Responsible Organization
+</td>
+<td class='centered'>
+<a href='/data-type/XON.html'>
+XON
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-23'>
+01824
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+Sending Network Address
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-24'>
+01825
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+Receiving Network Address
+</td>
+<td class='centered'>
+<a href='/data-type/HD.html'>
+HD
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-25'>
+01826
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+Security Classification Tag
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0952-Confidentiality-Classification.html' title='Confidentiality Classification(Suggested)'>
+0952(S)
+<span class='vocab-link-text'>Confidentiality Classification(Suggested)</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+<a href='#MSH-26'>
+02429
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+Security Handling Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/CWE.html'>
+CWE
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/vocab/0953-ERROR! Bad Data! FIXME.html'>
+0953
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#MSH-27'>
+02430
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/images/tbl_vjoin_end.png'>
+28
+</td>
+<td>
+Special Access Restriction Instructions
+</td>
+<td class='centered'>
+<a href='/data-type/ST.html'>
+ST
+</a>
+</td>
+<td class='centered'>
+O
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='/' title=''>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+<a href='#MSH-28'>
+02431
+</a>
+</td>
+<!-- %td -->
+<!-- =must_implement -->
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4 class='v2' id='MSH-1'>
+MSH-1: Field Separator (<a href='/data-type/ST.html'>ST</a>) 00001
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the separator between the segment ID and the first real field, <a href="/segment-definition/MSH.html#MSH-2">MSH-2 Encoding Characters</a>. As such it serves as the separator and defines the character to be used as a separator for the rest of the message. Recommended value is | (ASCII 124). </p>
+
+<h4 class='v2' id='MSH-2'>
+MSH-2: Encoding Characters (<a href='/data-type/ST.html'>ST</a>) 00002
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains five characters in the following order: the component separator, repetition separator, escape character, subcomponent separator, and truncation character. Recommended values are ^~\&#38; #(ASCII 94, 126, 92, 38, and 35, respectively). See Section <a href="/composition/Control.html#Control-5-4">2.5.4</a>, &quot;<a href="/composition/Control.html#Control-5-4">Message delimiters</a>&#39;.</p>
+
+<h4 class='v2' id='MSH-3'>
+MSH-3: Sending Application (<a href='/data-type/HD.html'>HD</a>) 00003
+</h4>
+<p class="v2 v2-normalindented">Definition: This field uniquely identifies the sending application among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined. <a href="https://www.hl7.org/fhir/v2/0361/index.html">User-defined Table 0361- Application</a>  in Chapter 2C, Code Tables, is used as the user-defined table of values for the first component.</p><div class="v2-note"><p class="v2"><strong>Note:</strong>&#160;&#160;&#160;&#160;By site agreement, implementers MAY continue to use <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 – Namespace ID</a> in Chapter 2C, Code Tables, for the first component.</p></div><br/>
+
+<h4 class='v2' id='MSH-4'>
+MSH-4: Sending Facility (<a href='/data-type/HD.html'>HD</a>) 00004
+</h4>
+<p class="v2 v2-normalindented">Definition: This field further describes the sending application, <a href="/segment-definition/MSH.html#MSH-3">MSH-3 Sending Application</a>. With the promotion of this field to an HD data type, the usage has been broadened to include not just the sending facility but other organizational entities such as a) the organizational entity responsible for sending application; b) the responsible unit; c) a product or vendor&#39;s identifier, etc. Entirely site-defined. <a href="https://www.hl7.org/fhir/v2/0362/index.html">User-defined Table 0362 - Facility</a> in Chapter 2C, Code Tables, is used as the HL7 identifier for the user-defined table of values for the first component.</p><div class="v2-note"><p class="v2"><strong>Note:</strong> &#160;&#160;&#160;&#160;By site agreement, implementers MAY continue to use <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 – Namespace ID</a> in Chapter 2C, Code Tables, for the first component.</p></div><br/>
+
+<h4 class='v2' id='MSH-5'>
+MSH-5: Receiving Application (<a href='/data-type/HD.html'>HD</a>) 00005
+</h4>
+<p class="v2 v2-normalindented">Definition: This field uniquely identifies the receiving application among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined <a href="https://www.hl7.org/fhir/v2/0361/index.html">User-defined Table 0361- Application </a>in Chapter 2C, Code Tables, is used as the HL7 identifier for the user-defined table of values for the first component.</p><div class="v2-note"><p class="v2"><strong>Note</strong>: &#160;&#160;&#160;&#160;By site agreement, implementers MAY continue to use <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 – Namespace ID</a> in Chapter 2C, Code Tables, for the first component.</p></div><br/>
+
+<h4 class='v2' id='MSH-6'>
+MSH-6: Receiving Facility (<a href='/data-type/HD.html'>HD</a>) 00006
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field identifies the receiving application among multiple identical instances of the application running on behalf of different organizations. <a href="https://www.hl7.org/fhir/v2/0362/index.html">User-defined Table 0362 - Facility</a> in Chapter 2C, Code Tables, is used as the HL7 identifier for the user-defined table of values for the first component. Entirely site-defined.</p><div class="v2-note"><p class="v2"><strong>Note</strong>: &#160;&#160;&#160;&#160;By site agreement, implementers MAY continue to use <a href="https://www.hl7.org/fhir/v2/0300/index.html">User-defined Table 0300 – Namespace ID</a> in Chapter 2C, Code Tables, for the first component.</p></div><br/>
+
+<h4 class='v2' id='MSH-7'>
+MSH-7: Date/Time of Message (<a href='/data-type/DTM.html'>DTM</a>) 00007
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the date/time that the sending system created the message. If the time zone is specified, it will be used throughout the message as the default time zone.</p><p class="v2 v2-normalindented"><strong>Note:</strong> &#160;&#160;&#160;&#160;This field was made required in version 2.4. Messages with versions prior to 2.4 are not required to value this field. This usage supports backward compatibility.</p>
+
+<h4 class='v2' id='MSH-8'>
+MSH-8: Security (<a href='/data-type/ST.html'>ST</a>) 00008
+</h4>
+<p class="v2 v2-normalindented">Definition: In some applications of HL7, this field is used to implement security features.  For codified expression of security tags use MSH-26 through MSH-29.  </p>
+
+<h4 class='v2' id='MSH-9'>
+MSH-9: Message Type (<a href='/data-type/MSG.html'>MSG</a>) 00009
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the message type, trigger event, and the message structure ID for the message.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0076/index.html">HL7 Table 0076 - Message Type</a> in Chapter 2C, Code Tables, for valid values for the message type code. This table contains values such as ACK, ADT, ORM, ORU etc.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0003/index.html">HL7 Table 0003 – Event Type</a> in Chapter 2C, Code Tables, for valid values for the trigger event. This table contains values like A01, O01, R01 etc. </p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0354/index.html">HL7 Table 0354 - Message Structure</a> in Chapter 2C, Code Tables, for valid values for the message structure. This table contains values such as ADT_A01, ORU_R01, SIU_S12, etc.</p><p class="v2 v2-normalindented">The receiving system uses this field to recognize the data segments, and possibly, the application to which to route this message. For certain queries, which could have more than a single response event type, the second component MAY, in the response message, vary to indicate the response event type. See the discussion of the display query variants in chapter 5.</p>
+
+<h4 class='v2' id='MSH-10'>
+MSH-10: Message Control ID (<a href='/data-type/ST.html'>ST</a>) 00010
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains a number or other identifier that uniquely identifies the message. The receiving system echoes this ID back to the sending system in the Message acknowledgment segment (MSA). </p>
+
+<h4 class='v2' id='MSH-11'>
+MSH-11: Processing ID (<a href='/data-type/PT.html'>PT</a>) 00011
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is used to decide whether to process the message as defined in HL7 Application (level 7) Processing rules. </p>
+
+<h4 class='v2' id='MSH-12'>
+MSH-12: Version ID (<a href='/data-type/VID.html'>VID</a>) 00012
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is matched by the receiving system to its own version to be sure the message will be interpreted correctly.  Beginning with Version 2.3.1, it has two additional &quot;internationalization&quot; components, for use by HL7 international affiliates. The &#60;internationalization code&#62; is CE data type (using the ISO country codes where appropriate) which represents the HL7 affiliate.  The &#60;internal version ID&#62; is used if the HL7 Affiliate has more than a single &#39;local&#39; version associated with a single US version. The &#60;international version ID&#62; has a CE data type, since the table values vary for each HL7 Affiliate.  Refer to <a href="https://www.hl7.org/fhir/v2/0104/index.html">HL7 Table 0104 – Version ID</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='MSH-13'>
+MSH-13: Sequence Number (<a href='/data-type/NM.html'>NM</a>) 00013
+</h4>
+<p class="v2 v2-normalindented">Definition:  A non-delete indicator value in this field implies that the sequence number protocol is in use. This numeric field is incremented by one for each subsequent value.</p>
+
+<h4 class='v2' id='MSH-14'>
+MSH-14: Continuation Pointer (<a href='/data-type/ST.html'>ST</a>) 00014
+</h4>
+<p class="v2 v2-normalindented">Definition: This field is used to define continuations in application-specific ways.</p><p class="v2 v2-normalindented">Only the sender of a fragmented message values this field.</p>
+
+<h4 class='v2' id='MSH-15'>
+MSH-15: Accept Acknowledgment Type (<a href='/data-type/ID.html'>ID</a>) 00015
+</h4>
+<p class="v2 v2-normalindented">Definition: This field identifies the conditions under which accept acknowledgments are required to be returned in response to this message.  Conditionality: Either both MSH-15 and MSH-16 SHALL be populated OR both SHALL be empty.. Refer to<a href="https://www.hl7.org/fhir/v2/0155/index.html"> HL7 Table 0155 - Accept/Application Acknowledgment Conditions</a> in Chapter 2C, Code Tables, for valid values.</p>
+
+<h4 class='v2' id='MSH-16'>
+MSH-16: Application Acknowledgment Type (<a href='/data-type/ID.html'>ID</a>) 00016
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the conditions under which application acknowledgments are required to be returned in response to this messageEither both MSH-15 and MSH-16 SHALL be populated OR both SHALL be empty..Required for enhanced acknowledgment mode. </p><p class="v2 v2-normalindented">Refer to<a href="https://www.hl7.org/fhir/v2/0155/index.html"> HL7 Table 0155 - Accept/Application Acknowledgment Conditions</a> in Chapter 2C, Code Tables, for valid values for <a href="/segment-definition/MSH.html#MSH-15">MSH-15 Accept Acknowledgment Type</a> and <a href="/segment-definition/MSH.html#MSH-16">MSH-16 Application Acknowledgment Type.</a></p><div class="v2-note"><p class="v2"><strong>Note:</strong> &#160;&#160;&#160;&#160;If MSH-15-accept acknowledgment type and MSH-16-application acknowledgment type are omitted (or are both empty ), the original acknowledgment mode rules are used.-</p></div><br/>
+
+<h4 class='v2' id='MSH-17'>
+MSH-17: Country Code (<a href='/data-type/ID.html'>ID</a>) 00017
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the country of origin for the message. It will be used primarily to specify default elements, such as currency denominations. The values to be used are those of ISO 3166,.. The ISO 3166 table has three separate forms of the country code: HL7 specifies that the 3-character (alphabetic) form be used for the country code.</p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2//index.html">External Table 0399 - Country Code</a> in Chapter 2C, Code Tables, for the 3-character codes as defined by ISO 3166-1.</p>
+
+<h4 class='v2' id='MSH-18'>
+MSH-18: Character Set (<a href='/data-type/ID.html'>ID</a>) 00692
+</h4>
+<p class="v2 v2-normalindented">Definition: This field contains the character set for the entire message. Refer to <a href="https://www.hl7.org/fhir/v2/0211/index.html">HL7 Table 0211 - Alternate Character Sets</a> in Chapter 2C, Code Tables, for valid values.</p><p class="v2 v2-normalindented">An HL7 message uses field <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set</a> to specify the character set(s) in use. Valid values for this field are specified in <a href="https://www.hl7.org/fhir/v2/0211/index.html">HL7 Table 0211 - Alternate Character Sets</a>. <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set</a> MAY be left blank, or MAY contain one or more values delimited by the repetition separator. If the field is left blank, the character set in use is understood to be the 7-bit ASCII set, decimal 0 through decimal 127 (hex 00 through hex 7F). This default value MAY also be explicitly specified as <strong>ASCII</strong>.</p><p class="v2 v2-normalindented">More than one character set MAY be used in a message. The first occurrence, if supplied, of the MSH-18 SHALL indicate the default encoding of the message. The second and subsequent occurrences of <a href="/segment-definition/MSH.html#MSH-18">MSH-18-character set </a>are used to specify additional character sets that are used.</p><p class="v2 v2-normalindented">The repetitions of this field to specify different character sets apply only to fields of the FT, ST and TX data types. See also section <a href="/composition/Control.html#Control-7-3">2.7.3,</a> &quot;<a href="/composition/Control.html#Control-7-3">Escape sequences supporting multiple character sets</a>&quot;.</p><p class="v2 v2-normalindented">Any encoding system, single-byte or multi-byte, MAY be specified as the default character encoding in <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set.</a> If the default encoding is other than 7-bit ASCII, sites SHALL document this usage in the dynamic conformance profile or other implementation agreement. This is particularly effective in promoting interoperability between nations belonging to different HL7 Affiliates, while limiting the amount of testing required to determine the encoding of a message.</p><p class="v2 v2-normalindented">By using built-in language functions for string and character manipulation, parsers and applications need not be concerned whether a single or double byte character set is in use, provided it is applied to the entire message. Using a built in function to extract the fourth CHARACTER will always yield the field separator character, regardless of coding set. On the other hand, if the parser looks at the fourth BYTE, it is then limited to single byte character sets, since the fourth byte would contain the low order 8 bits of the character S in a double-byte system. </p><div class="v2-note"><p class="v2"><strong>Note: </strong>When describing encoding rules, this standard always speaks in terms of character position, not byte offset. Similarly, comparisons SHOULD be done on character values, not their byte equivalents. For this reason, delimiter characters SHOULD always have representation in the standard 7-bit ASCII character set, regardless of the actual character set being used, so that a search for the character CR (carriage return) can be performed.</p></div><br/><ol class="v2 v2-list v2-lower-alpha-list v2-normallistalpha" style="list-style: lower-alpha"><li class="v2 v2-li"><p class="v2 v2-normallistalpha">if the field is not valued, the default single-byte character set (ASCII (&quot;ISO IR6&quot;)) SHOULD be assumed. No other character sets are allowed in the message.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">if the field repeats, but the first element is empty(I.e. unvalued), the single-byte ASCII (&quot;ISO IR6&quot;) is assumed as the default character set.</p></li><li class="v2 v2-li"><p class="v2 v2-normallistalpha">elements in the remainder of the sequence (i.e., elements 2..n) are alternate character sets that MAY be used.</p></li></ol><p class="v2 v2-normalindented">The reader is referred to the following references for background information on character sets and encodings:</p><ul class="v2 v2-list v2-disc-list v2-normallistbullets" style="list-style: disc"><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Unicode Technical Report #17 - Character Encoding Model (<a href="http://www.unicode.org/unicode/reports/tr17/">http://www.unicode.org/unicode/reports/tr17/</a>)</p></li><li class="v2 v2-li"><p class="v2 v2-normallistbullets">Extensible Markup Language (XML) 1.0 (Second Edition), Section F Autodetection of Character Encodings (<a href="http://www.w3.org/TR/REC-xml#sec-guessing">http://www.w3.org/TR/REC-xml#sec-guessing</a>)</p></li></ul><p class="v2 v2-normalindented">The first occurrence of <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set</a> MAY reference a character set other than 7-bit ASCII. Western alphabetic languages other than English are accommodated by the ISO 8859 series of character encodings. For example, if <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set</a> is valued <strong>8859/1</strong>, the ISO character set commonly known as &quot;8-bit ASCII&quot; is in use in the message. This includes all values from decimal 0 through decimal 127 (hex 00 through hex 7F), plus an additional 128 values from decimal 128 through decimal 255 (hex 80 through hex FF). The latter values include the accented Latin letters used in common Western European languages, plus some symbolic values such as the paragraph mark (¶) and the trademark symbol (™).</p><p class="v2 v2-normalindented">Other ISO character sets in the 8859 series accommodate non-Latin character sets. For example, <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set</a> could be valued <strong>8859/2</strong> to specify the default character encoding in use in Eastern Europe, while <strong>8859/6</strong> indicates the use of the Arabic alphabet.</p><p class="v2 v2-normalindented">The ASCII and ISO character sets all allow the specification of any character in a single byte.</p><p class="v2 v2-normalindented">HL7 Table 0211 includes values for languages that do not use alphabets. These include ideographic written languages, such as the Japanese Graphic Character Set which is specified as <strong>ISO IR87</strong>.</p><p class="v2 v2-normalindented">There are non-alphabetic encoding systems for which HL7 Table 0211 does not provide specific entries. One of these is the Traditional Chinese character set, CNS 11643, which is used in Taiwan. This character set can, however, be encoded using the Unicode Standard, which does have a value in HL7 0211.</p><p class="v2 v2-normalindented">The Unicode Standard (which is now coordinated with ISO 10646) permits the specification of multiple-byte characters in a much larger range than is available in a single-byte ASCII or ISO character set. Unicode Version 3.1 (http://www.unicode.org) includes almost 100,000 characters, including many Chinese, Japanese, and Korean ideographs. This is particularly valuable to implementers who need to encode messages in more than one character set, as for example to accommodate the use of both alphabetic and ideographic characters.</p><p class="v2 v2-normalindented">Non-alphabetic encoding systems do not restrict characters to a length of one byte. Unicode incorporates three encoding forms that allow for the use of multiple bytes to encode a message. The most flexible Unicode encoding form is UTF-8, which uses high-order bits to specify the number of bytes (from one to six) used to encode each character.</p><p class="v2 v2-normalindented">Interestingly, Unicode UTF-8 incorporates the 7-bit ASCII character set as single-byte codes. This means that a message encoded in 7-bit ASCII can be submitted to a destination using Unicode UTF- 8 with no modification.</p>
+
+<h4 class='v2' id='MSH-19'>
+MSH-19: Principal Language Of Message (<a href='/data-type/CWE.html'>CWE</a>) 00693
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field contains the principal language of the message. Codes come from ISO 639. Refer to Table 0609 - Principal Language Of Message in Chapter 2C for valid values.</p>
+
+<h4 class='v2' id='MSH-20'>
+MSH-20: Alternate Character Set Handling Scheme (<a href='/data-type/ID.html'>ID</a>) 01317
+</h4>
+<p class="v2 v2-normalindented">Definition: When any alternative character sets are used (as specified in the second or later iterations of <a href="/segment-definition/MSH.html#MSH-18">MSH-18 Character Set</a>), and if any special handling scheme is needed, this component is to specify the scheme used, according to <a href="https://www.hl7.org/fhir/v2/0356/index.html">HL7 Table 0356- Alternate Character Set Handling Scheme</a> as defined in Chapter 2C, Code Tables,.</p>
+
+<h4 class='v2' id='MSH-21'>
+MSH-21: Message Profile Identifier (<a href='/data-type/EI.html'>EI</a>) 01598
+</h4>
+<p class="v2 v2-normalindented">Definition: Sites MAY use this field to assert adherence to, or reference, a message profile. Message profiles contain detailed explanations of grammar, syntax, and usage for a particular message or set of messages. See section 2B, &quot;Conformance Using Message Profiles&quot;.</p><p class="v2 v2-normalindented">Repetition of this field allows more flexibility in creating and naming message profiles. Using repetition, this field can identify a set of message profiles that the message conforms to. For example, the first repetition could reference a vendor&#39;s message profile. The second could reference another compatible provider&#39;s profile or a later version of the first vendor profile.</p><p class="v2 v2-normalindented">As of v2.5, the HL7 message profile identifiers might be used for conformance claims and/or publish/subscribe systems. Refer to sections 2B.1.1&quot;Message profile identifier&quot; and 2.B.1.2, &quot;Message profile publish/subscribe topics&quot; for details of the message profile identifiers. Refer to sections 2.B.4.1, &quot;Static definition identifier&quot; and 2.B.4.2, &quot;Static definition publish/subscribe topics&quot; for details of the static definition identifiers.</p><p class="v2 v2-normalindented">Prior to v2.5, the field was called Conformance Statement ID. For backward compatibility, the Conformance Statement ID can be used here. Examples of the use of Conformance Statements appear in Chapter 5, &quot;Query.&quot;</p>
+
+<h4 class='v2' id='MSH-22'>
+MSH-22: Sending Responsible Organization (<a href='/data-type/XON.html'>XON</a>) 01823
+</h4>
+<p class="v2 v2-normalindented">Definition: Business organization that originated and is accountable for the content of the message.</p><p class="v2 v2-normalindented">Currently, MSH provides fields to transmit both sending/receiving applications and facilities (MSH.3 – MSH.6). However, these levels of organization do not necessarily relate to or imply a legal entity such as a business organization. As such, multiple legal entities (organizations) mightshare a service bureau, with the same application and facility identifiers. Another level of detail is required to delineate the various organizations using the same service bureau.</p><p class="v2 v2-normalindented">Therefore, the Sending Responsible Organization field provides a complete picture from the application level to the overall business level. The Business Organization represents the legal entity responsible for the contents of the message.</p><p class="v2 v2-normalindented">Use Case #1: A centralized system responsible for recording and monitoring instances of communicable diseases enforces a stringent authentication protocol with external applications that have been certified to access its information base.  In order to allow message exchange, the centralized system mandates that external applications must provide the identity of the business organization sending the message (<strong>Sending Responsible Organization</strong>), the organization it is sending the message to (<strong>Receiving Responsible Organization</strong>, in this case the &quot;owner&quot; of the communicable diseases system), the network address from which the message has originated (<strong>Sending Network Address</strong>), the network address the message is being transmitted to (<strong>Receiving Network Address</strong>). The organization responsible for protecting the information stored within the communicable disease system requires this authentication due to the sensitive nature of the information it contains.</p>
+
+<h4 class='v2' id='MSH-23'>
+MSH-23: Receiving Responsible Organization (<a href='/data-type/XON.html'>XON</a>) 01824
+</h4>
+<p class="v2 v2-normalindented">Definition: Business organization that is the intended receiver of the message and is accountable for acting on the data conveyed by the transaction.</p><p class="v2 v2-normalindented">This field has the same justification as the Sending Responsible Organization except in the role of the Receiving Responsible Organization.  The receiving organization has the legal responsibility to act on the information in the message. </p><p class="v2 v2-normalindented">See MSH-22 above for Use Case.</p>
+
+<h4 class='v2' id='MSH-24'>
+MSH-24: Sending Network Address (<a href='/data-type/HD.html'>HD</a>) 01825
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifier of the network location the message was transmitted from.  Identified by an OID or text string (e.g., URI). The reader is referred to the &quot;Report from the Joint W3C/IETF URI Planning Interest Group: Uniform Resource Identifiers (URIs), URLs, and Uniform Resource Names (URNs): Clarifications and Recommendations&quot;.<span id="chapter-2-footnote-reference-7"><a href="#chapter-2-footnote-7"><sup>7</sup></a></span></p><p class="v2 v2-normalindented">As with the Sending/Receiving Responsible Organization, the Sending Network Address provides a more detailed picture of the source of the message. This information is lower than the application layer, but is often useful/necessary for routing and identification purposes. This field SHOULD only be populated when the underlying communication protocol does not support identification of sending network locations. </p><p class="v2 v2-normalindented">An agreement about the specific values and usage must exist among messaging partners. Use Case:</p><p class="v2 v2-normalindented">Dr. Hippocrates works for the &#39;&#39;Good Health Clinic&quot; (Sending facility) with a laptop running application XYZ (Sending App). He needs to talk to the provincial pharmacy system. He dials in and is assigned a network address.  He then sends a message to the pharmacy system, which transmits a response back to him. Because the underlying network protocol does not have a place to communicate the sender and receiver network addresses, it therefore requires these addresses to be present in a known position in the payload.</p><p class="v2 v2-normalindented">There might be many doctors running application XYZ.  In addition, the network address assigned to the laptop might change with each dial-in.  This means there is not a 1..1 association between either the facility or the application and the network address.</p><p class="v2 v2-example">MSH||RX|GHC|||||OMP^O09^OMP_O09||||||||||||||||05782|</p><p class="v2 v2-normalindented">Example 1: The Lone Tree Island satellite clinic transmits a notification of patient registration to its parent organization Community Health and Hospitals. The communication protocol does not support the identification of sending network location, so the sending network location is identified in the message by using its enterprise-wide network identifier &quot;HNO2588&quot;. </p><p class="v2 v2-example">MSH||Reg|Lone|||||ADT^A04^ADT_A04||||||||||||||||HN02588|</p><p class="v2 v2-normalindented">Example 2: The Stone Mountain satellite clinic transmits a notification of patient registration to its parent organization Community Health and Hospitals. The sending network location is identified by using its URI. </p><p class="v2 v2-example">MSH||Reg|Stone|||||ADT^A04^ADT_A04|||||||||||||||| ^ftp://www.goodhealth.org/somearea/someapp^URI|</p><p class="v2 v2-normalindented">Example 3: The Three Rivers satellite clinic transmits a notification of patient registration to its parent organization Community Health and Hospitals. The sending network location is identified by using its Ipv4 address, port 5123 at node 25.152.27.69. The following example shows how to represent a port and DNS address using HD as the scheme</p><p class="v2 v2-example">MSH||Reg|TRC||||| ADT^A04^ADT_A04||||||||||||||||5123^25.152.27.69^DNS|</p><p class="v2 v2-normalindented">Example 4: The Bayview satellite clinic transmits a notification of patient registration to its parent organization Community Health and Hospitals. The sending network location is identified by using &quot;4086::132:2A57:3C28&quot; its IPv6 address. </p><p class="v2 v2-example">MSH||REG|BAY||||| ADT^A04^ADT_A04||||||||||||||||^4086::132:2A57:3C28^IPv6|</p>
+
+<h4 class='v2' id='MSH-25'>
+MSH-25: Receiving Network Address (<a href='/data-type/HD.html'>HD</a>) 01826
+</h4>
+<p class="v2 v2-normalindented">Definition: Identifier of the network location the message was transmitted to.  Identified by an OID or text string (e.g., URL).</p><p class="v2 v2-normalindented">This is analogous with the Sending Network Address, however in the receiving role.</p><p class="v2 v2-normalindented">This field SHOULD only be populated when the underlying communication protocol does not support identification receiving network locations</p>
+
+<h4 class='v2' id='MSH-26'>
+MSH-26: Security Classification Tag (<a href='/data-type/CWE.html'>CWE</a>) 02429
+</h4>
+<p class="v2 v2-normalindented">Definition: This field defines the security classification (as defined by ISO/IEC 2382-8:1998(E/F)/ T-REC-X.812-1995) of an IT resource, in this case the message, which MAY be used to make access control decisions. </p><p class="v2 v2-normalindented">Conditionality Predicate: Required if MSH-27 or MSH-28 is valued, Optional if neither MSH-27 nor MSH-28 is valued.&quot;Use of this field supports the business requirement for declaring the level of confidentiality (classification) for a given message. </p><p class="v2 v2-normalindented">Note: This field is used to declare the ‘high watermark’, meaning the most restrictive handling that needs to be applied to the message based on its content requiring a certain security classification level and SHOULD be viewed as the v2 equivalent of the document header in CDA, in v3 models, and in FHIR Security Labels </p><p class="v2 v2-normalindented">the high water mark in the header of message content is -described in the Guide to the HL7 Healthcare Privacy and Security Classification System, Release 1, which is platform independent. </p><p class="v2 v2-normalindented"></p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0952/index.html">Externally-defined HL7 Table 0952 – HL7 Confidentiality Code</a> in Chapter 2C, Code Tables, for suggested values.  Use of this table is recommended.  The codes in this table are comprehensive, non-overlapping hierarchical codes: Very Restricted &#62; Restricted &#62; Normal &#62; Moderate &#62; Low &#62; Unrestricted. Restrictions to a comprehensive, non-overlapping set of codes is required for purposes of access control system algorithms such as Bell–LaPadula Mode, which is used to adjudicate access requests against privacy policies.</p>
+
+<h4 class='v2' id='MSH-27'>
+MSH-27: Security Handling Instructions (<a href='/data-type/CWE.html'>CWE</a>) 02430
+</h4>
+<p class="v2 v2-normalindented">Definition:  This field is repeatable and conveys instructions to users and receivers for secure distribution, transmission, and storage; dictate obligations or mandated actions; specify any action prohibited by refrain policy such as dissemination controls; and stipulate the permissible purpose of use of an IT resource.  </p><p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0953/index.html">Externally define HL7 Table 0953 – Security Control</a> in Chapter 2C, Code Tables, for suggested values.</p>
+
+<h4 class='v2' id='MSH-28'>
+MSH-28: Special Access Restriction Instructions (<a href='/data-type/ST.html'>ST</a>) 02431
+</h4>
+<p class="v2 v2-normalindented">Definition:   Used to convey specific instructions about the protection of the patient&#39;s data, which must be rendered to end users in accordance with patient consent directive, organizational policy, or jurisdictional law.  For example, in US law 42 CFR Part 2, disclosed information made with patient consent must include a renderable “Prohibition on re-disclosure” warning (§ 2.32<span id="chapter-2-footnote-reference-8"><a href="#chapter-2-footnote-8"><sup>8</sup></a></span>)  In addition, organizational policy might require that some or all of the ARV field privacy tag values be rendered to end users, e.g., marking a consult note with “Restricted Confidentiality” or with sensitivity tags such as “VIP” or “EMP” for employee of the organization. </p><p class="v2 v2-normalindented">This field MAY also be used to specify instructions about the release of information to family and friends (e.g., &quot;Do not release information to patient&#39;s brother, Adam Everyman&quot;). These instructions MAY be in conjunction with other fields (as elected by the system).</p>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+March 23, 2022
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
